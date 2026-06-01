@@ -1,0 +1,5310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Studio｜设计感简历生成器</title>
+<style>
+  * { box-sizing: border-box; }
+
+  html, body, .resume-page, .resume-inner, .resume-left, .resume-right, .resume-hero, .resume-body, .resume-section, .skill-tag, .bar-track, .bar-fill, .metro-contact-strip, .profileband-side, .portraitpanel-tag, .portraitpanel-contact-card, .desk-stage, .desk-paper, .desk-side, .desk-head .resume-role, .desk-word {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+
+  :root {
+    --bg: #f5f1ea;
+    --panel: rgba(255,255,255,0.72);
+    --paper: #ffffff;
+    --text: #171717;
+    --muted: #6d6d6d;
+    --light: #9a9a9a;
+    --line: #d8d1c8;
+    --dark: #171717;
+    --accent: #9b735b;
+    --accent-soft: #efe5dc;
+    --radius-xl: 28px;
+    --radius-lg: 18px;
+    --shadow: 0 24px 70px rgba(0,0,0,0.12);
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.8), transparent 36%),
+      var(--bg);
+    color: var(--text);
+  }
+
+  button, input, textarea, select {
+    font-family: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .app {
+    min-height: 100vh;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+    background: rgba(245,241,234,0.88);
+  }
+
+  .topbar-inner {
+    width: min(1500px, calc(100% - 36px));
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4b4743;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #171717;
+    color: white;
+    display: grid;
+    place-items: center;
+    letter-spacing: 0;
+    font-size: 13px;
+  }
+
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .save-status {
+    display: none;
+    color: #777;
+    font-size: 12px;
+  }
+
+  .btn {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.62);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 10px 15px;
+    font-size: 13px;
+    transition: 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    border-color: #171717;
+  }
+
+  .btn-dark {
+    background: #171717;
+    color: white;
+    border-color: #171717;
+  }
+
+  .layout {
+    width: min(1500px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 26px 0 48px;
+    display: grid;
+    grid-template-columns: 380px 280px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .panel {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+  }
+
+  .editor,
+  .control-panel {
+    position: sticky;
+    top: 94px;
+    max-height: calc(100vh - 116px);
+    overflow: auto;
+  }
+
+  .editor {
+    padding: 20px;
+  }
+
+  .control-panel {
+    padding: 18px;
+  }
+
+  .product-title {
+    margin: 0;
+    font-size: 31px;
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+
+  .product-desc {
+    display: none;
+    margin: 12px 0 18px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .field-group {
+    border-top: 1px solid var(--line);
+    padding-top: 17px;
+    margin-top: 17px;
+  }
+
+  .group-title {
+    margin-bottom: 10px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  label {
+    display: block;
+    margin: 12px 0 6px;
+    color: #555;
+    font-size: 13px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.78);
+    color: #222;
+    border-radius: 14px;
+    padding: 11px 12px;
+    outline: none;
+    font-size: 14px;
+  }
+
+  textarea {
+    min-height: 86px;
+    resize: vertical;
+    line-height: 1.65;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background: white;
+    border-color: #171717;
+  }
+
+  .hint {
+    margin-top: 6px;
+    color: #999;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .small-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .template-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .template-card {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.62);
+    border-radius: 18px;
+    padding: 12px;
+    text-align: left;
+    transition: 0.2s ease;
+  }
+
+  .template-card:hover {
+    transform: translateY(-1px);
+    border-color: #171717;
+  }
+
+  .template-card.active {
+    background: #171717;
+    border-color: #171717;
+    color: white;
+  }
+
+  .template-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .template-desc {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .template-card.active .template-desc {
+    color: rgba(255,255,255,0.68);
+  }
+
+  .template-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 8px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 999px;
+    padding: 3px 7px;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .template-card.active .template-badge {
+    color: rgba(255,255,255,0.82);
+    border-color: rgba(255,255,255,0.28);
+  }
+
+
+  .hint {
+    display: none;
+  }
+
+  .contact-pairs {
+    display: grid;
+    gap: var(--contact-gap, 8px);
+  }
+
+  .resume-photo {
+    transform: translate(var(--avatar-offset-x, 0px), var(--avatar-offset-y, 0px)) scale(var(--avatar-scale, 1));
+    transform-origin: center center;
+  }
+
+
+  .resume-contact,
+  .contact-section,
+  .sidebar01-contact-list,
+  .metro-contact-wrap,
+  .portrait12-contact-card,
+  .portraitpanel-contact-card {
+    transform: translate(var(--contact-offset-x, 0px), var(--contact-offset-y, 0px));
+  }
+  .avatar-notice {
+    margin-top: 10px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 9px 10px;
+    background: rgba(255,255,255,0.52);
+    color: #777;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .language-toggle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .lang-btn {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.62);
+    border-radius: 999px;
+    padding: 9px 6px;
+    color: #666;
+    font-size: 12px;
+  }
+
+  .lang-btn.active {
+    background: #171717;
+    color: white;
+    border-color: #171717;
+  }
+
+  .module-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .module-row {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.58);
+    border-radius: 16px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .module-row input {
+    width: auto;
+  }
+
+  .module-title {
+    font-size: 13px;
+    color: #444;
+  }
+
+  .move-actions {
+    display: flex;
+    gap: 4px;
+  }
+
+  .mini-btn {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.72);
+    color: #555;
+    border-radius: 999px;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+
+  .spacing-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .spacing-row {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.58);
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  .spacing-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 12px;
+  }
+
+  .spacing-row input[type="range"] {
+    padding: 0;
+    height: 24px;
+  }
+
+  .preview-wrap {
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.36);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    overflow: auto;
+  }
+
+  .preview-shell {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0 0;
+  }
+
+  .preview-canvas {
+    width: 620px;
+    height: 876px;
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .preview-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .preview-toolbar h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: -0.05em;
+  }
+
+  .preview-note {
+    color: #888;
+    font-size: 12px;
+  }
+
+  #saveStatus {
+    display: none;
+  }
+
+  .resume-page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 0;
+    background: white;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    --section-gap: 25px;
+    --item-gap: 12px;
+    --avatar-scale: 1;
+    --contact-gap: 8px;
+    --section-title-size: 12px;
+    --body-font-size: 11.5px;
+    transform: scale(0.78);
+    transform-origin: top left;
+  }
+
+  .resume-inner {
+    min-height: 1123px;
+    padding: 54px;
+  }
+
+  .resume-name {
+    margin: 0;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -0.055em;
+    font-weight: 760;
+    transform: translate(var(--name-offset-x, 0px), var(--name-offset-y, 0px));
+  }
+
+  .resume-role {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: translate(var(--name-offset-x, 0px), var(--name-offset-y, 0px));
+  }
+
+  .resume-contact {
+    margin-top: 16px;
+    color: #555;
+    font-size: 11px;
+    line-height: 1.68;
+    white-space: pre-line;
+  }
+
+  .resume-section {
+    margin-top: var(--module-gap, var(--section-gap, 25px));
+    break-inside: avoid;
+  }
+
+  .resume-section h3 {
+    margin: 0 0 12px;
+    color: #171717;
+    font-size: var(--section-title-size, 12px);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #222;
+    padding-bottom: 7px;
+  }
+
+  .resume-text {
+    color: #444;
+    font-size: var(--body-font-size, 11.5px);
+    line-height: 1.62;
+    white-space: pre-line;
+  }
+
+  .resume-item {
+    margin-bottom: var(--item-gap, 12px);
+  }
+
+  .resume-item strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: calc(var(--body-font-size, 11.5px) + 1px);
+    color: #222;
+  }
+
+  .resume-item span {
+    display: block;
+    color: #777;
+    font-size: calc(var(--body-font-size, 11.5px) - 1px);
+    margin-bottom: 4px;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: #444;
+    font-size: 10.5px;
+  }
+
+  .bar-list {
+    display: grid;
+    gap: 7px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 10px;
+    align-items: center;
+    font-size: 10.5px;
+    color: #444;
+  }
+
+  .bar-track {
+    height: 5px;
+    background: #e5e5e5;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    width: var(--level);
+    background: #171717;
+  }
+
+  .qr-box {
+    width: 78px;
+    height: 78px;
+    border: 1px solid #ccc;
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    color: #777;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .avatar-tools {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .avatar-preview {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e8e3dc;
+    border: 1px solid var(--line);
+    filter: none !important;
+  }
+
+  .avatar-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .file-label {
+    width: fit-content;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.66);
+    border-radius: 999px;
+    padding: 9px 13px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .resume-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none;
+    filter: none !important;
+  }
+
+  .has-photo .resume-photo {
+    display: block;
+  }
+
+  /* 01 极简黑白 */
+  .template-minimal .resume-inner {
+    padding: 58px;
+  }
+
+  .template-minimal .resume-header {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 28px;
+    align-items: start;
+    padding-bottom: 28px;
+    border-bottom: 2px solid #171717;
+  }
+
+  /* 01 左侧信息栏（改为线性人像款） */
+  .template-sidebar .resume-inner {
+    padding: 0;
+    min-height: 1123px;
+  }
+
+  .template-sidebar .sidebar01-top {
+    display: grid;
+    grid-template-columns: 176px 1fr;
+    gap: 36px;
+    padding: 44px 58px 18px;
+    align-items: start;
+  }
+
+  .template-sidebar .sidebar01-idcol {
+    position: relative;
+    padding-top: 2px;
+    padding-right: 0;
+    min-height: 250px;
+    text-align: center;
+  }
+
+  .template-sidebar .sidebar01-idcol::before {
+    content: "";
+    position: absolute;
+    left: 72px;
+    top: -44px;
+    bottom: 2px;
+    width: 1px;
+    background: #d3d3d3;
+  }
+
+  .template-sidebar .sidebar01-portrait {
+    position: relative;
+    z-index: 2;
+    width: 112px;
+    margin: 0 auto 28px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .template-sidebar .sidebar01-portrait .resume-photo,
+  .template-sidebar .sidebar01-photo-placeholder {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background: #dfe4e6;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 0 0 7px #f7f7f7;
+  }
+
+  .template-sidebar .sidebar01-portrait {
+    transform: translate(var(--avatar-offset-x, 0px), var(--avatar-offset-y, 0px)) scale(var(--avatar-scale, 1));
+    transform-origin: center center;
+  }
+
+  .template-sidebar .sidebar01-portrait .resume-photo {
+    transform: none !important;
+  }
+
+
+  .template-sidebar .sidebar01-photo-placeholder {
+    border: 1px solid #d4d4d4;
+  }
+
+  .template-sidebar .sidebar01-contact-list {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    gap: 10px;
+    margin-top: 0;
+    padding-left: 0;
+    max-width: 168px;
+  }
+
+  .template-sidebar .sidebar01-contact-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 8px;
+    align-items: center;
+    font-size: 9px;
+    color: #555;
+    min-height: 22px;
+    text-align: left;
+  }
+
+  .template-sidebar .sidebar01-contact-item .contact-icon {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #a8a8a8;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    color: #646464;
+    background: #fff;
+    margin-top: 0;
+    line-height: 1;
+  }
+
+  .template-sidebar .sidebar01-contact-item .contact-copy {
+    display: grid;
+    gap: 2px;
+  }
+
+  .template-sidebar .sidebar01-contact-item .contact-copy strong {
+    display: none;
+  }
+
+  .template-sidebar .sidebar01-contact-item .contact-copy span {
+    display: block;
+    max-width: 128px;
+    font-size: 9px;
+    line-height: 1.35;
+    color: #555;
+    word-break: break-word;
+  }
+
+  .template-sidebar .sidebar01-headcopy {
+    padding-top: 26px;
+    min-width: 0;
+  }
+
+  .template-sidebar .sidebar01-headcopy .resume-name {
+    font-size: 35px;
+    line-height: 1.02;
+    letter-spacing: 0.31em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .template-sidebar .sidebar01-headcopy .resume-role {
+    margin-top: 14px;
+    padding-left: 18px;
+    border-left: 1px solid #b9b9b9;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: #4f4f4f;
+    line-height: 1.35;
+  }
+
+  .template-sidebar .sidebar01-headcopy .resume-section {
+    margin-top: 18px;
+  }
+
+  .template-sidebar .sidebar01-bottom {
+    display: grid;
+    grid-template-columns: 176px 1fr;
+    gap: 36px;
+    padding: 2px 58px 42px;
+  }
+
+  .template-sidebar .sidebar01-left,
+  .template-sidebar .sidebar01-right {
+    min-width: 0;
+  }
+
+  .template-sidebar .sidebar01-left .resume-section,
+  .template-sidebar .sidebar01-right .resume-section {
+    margin-top: 24px;
+  }
+
+  .template-sidebar .sidebar01-left .resume-section:first-child,
+  .template-sidebar .sidebar01-right .resume-section:first-child {
+    margin-top: var(--module-gap, 0px);
+  }
+
+  /* 01 模板：首个板块也响应“板块间距”滑杆 */
+  .resume-page.template-sidebar .sidebar01-left .resume-section:first-child,
+  .resume-page.template-sidebar .sidebar01-right .resume-section:first-child {
+    transition: margin-top 0.12s ease;
+  }
+
+  .template-sidebar .sidebar01-left .resume-section h3,
+  .template-sidebar .sidebar01-right .resume-section h3,
+  .template-sidebar .sidebar01-headcopy .resume-section h3 {
+    border-bottom: 1px solid #b9b9b9;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .template-sidebar .sidebar01-left .resume-item,
+  .template-sidebar .sidebar01-right .resume-item {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 16px;
+  }
+
+  .template-sidebar .sidebar01-left .resume-item::before,
+  .template-sidebar .sidebar01-right .resume-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #222;
+  }
+
+  .template-sidebar .sidebar01-left .bar-row {
+    grid-template-columns: 68px 1fr;
+    gap: 9px;
+  }
+
+  .template-sidebar .sidebar01-left .bar-track {
+    height: 4px;
+    background: #d8d8d8;
+  }
+
+  .template-sidebar .sidebar01-left .bar-fill {
+    background: #171717;
+  }
+
+  /* 03 建筑设计师 */
+  .template-architect .resume-inner {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 36px;
+    padding: 0;
+  }
+
+  .template-architect .resume-left {
+    background: #ededed;
+    padding: 40px 28px;
+  }
+
+  .template-architect .resume-right {
+    padding: 46px 42px 46px 0;
+  }
+
+  .template-architect .resume-name {
+    font-size: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .template-architect .resume-section h3 {
+    border-bottom: 0;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .template-architect .resume-item {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 12px;
+  }
+
+  .template-architect .resume-item span {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    text-align: right;
+    font-size: 10px;
+    color: #555;
+  }
+
+  .template-architect .resume-item strong,
+  .template-architect .resume-item .resume-text {
+    grid-column: 2;
+  }
+
+  /* 04 时间轴 */
+  .template-timeline .resume-inner {
+    padding: 54px 58px;
+  }
+
+  .template-timeline .resume-header {
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    gap: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #999;
+  }
+
+  .template-timeline .resume-section h3 {
+    border-bottom: 1px solid #aaa;
+  }
+
+  .template-timeline .resume-item {
+    position: relative;
+    padding-left: 22px;
+    border-left: 1px solid #999;
+  }
+
+  .template-timeline .resume-item::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #171717;
+  }
+
+  /* 03 国际英文 */
+  .template-international .resume-inner {
+    padding: 58px 66px;
+  }
+
+  .template-international .resume-header {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #171717;
+  }
+
+  .template-international .resume-name {
+    font-size: 38px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .template-international .resume-section h3 {
+    border-bottom: 2px solid #171717;
+  }
+
+  /* 04 视觉设计师 */
+  .template-visual .resume-inner {
+    padding: 0;
+    display: grid;
+    grid-template-rows: 210px 1fr;
+  }
+
+  .template-visual .resume-hero {
+    background: #e9e2d9;
+    padding: 42px 52px;
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .template-visual .resume-body {
+    padding: 38px 52px 52px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 36px;
+  }
+
+  .template-visual .resume-name {
+    font-size: 46px;
+  }
+
+  .template-visual .resume-section h3 {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .template-visual .resume-photo {
+    margin-left: auto;
+    width: 112px;
+    height: 112px;
+    border: 4px solid rgba(255,255,255,0.65);
+  }
+
+  /* 05 柔和蓝灰（改为商务金线款） */
+  .template-soft .resume-inner {
+    padding: 0;
+    min-height: 1123px;
+  }
+
+  .template-soft .soft05-layout {
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    min-height: 1123px;
+  }
+
+  .template-soft .soft05-left {
+    padding: 38px 30px 36px 40px;
+    border-right: 1px solid #ece8e1;
+  }
+
+  .template-soft .soft05-main {
+    padding: 42px 46px 28px 42px;
+    min-height: 1123px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .template-soft .soft05-avatar-wrap {
+    margin-bottom: 16px;
+  }
+
+  .template-soft .soft05-avatar-wrap .resume-photo,
+  .template-soft .soft05-photo-placeholder {
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    background: #ebe7e1;
+  }
+
+  .template-soft .soft05-photo-placeholder {
+    border: 1px solid #ddd7cf;
+  }
+
+  .template-soft .soft05-left .resume-name {
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    font-weight: 760;
+    text-transform: uppercase;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .template-soft .soft05-left .resume-role {
+    margin-top: 6px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .template-soft .soft05-left .resume-section,
+  .template-soft .soft05-main .resume-section {
+    margin-top: 26px;
+  }
+
+  .template-soft .soft05-left .resume-section h3,
+  .template-soft .soft05-main .resume-section h3 {
+    font-size: 11.5px;
+    letter-spacing: 0.22em;
+    border-bottom: 1px dotted #989898;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .template-soft .soft05-contact-card {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .template-soft .soft05-contact-strip {
+    background: #4d555f;
+    border-radius: 2px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .template-soft .soft05-contact-strip span {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .template-soft .soft05-contact-copy .contact-pairs {
+    gap: 12px;
+  }
+
+  .template-soft .soft05-contact-item {
+    display: grid;
+    gap: 2px;
+  }
+
+  .template-soft .soft05-contact-item .contact-icon {
+    display: none;
+  }
+
+  .template-soft .soft05-contact-item .contact-copy {
+    display: grid;
+    gap: 3px;
+  }
+
+  .template-soft .soft05-contact-item .contact-copy strong {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #c59f57;
+    text-transform: uppercase;
+  }
+
+  .template-soft .soft05-contact-item .contact-copy span {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #565656;
+    word-break: break-word;
+  }
+
+  .template-soft .soft05-left .resume-item {
+    margin-bottom: 14px;
+  }
+
+  .template-soft .soft05-main .resume-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .template-soft .soft05-main .resume-item strong {
+    grid-column: 2;
+    margin-bottom: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .template-soft .soft05-main .resume-item span {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    color: #757575;
+    font-size: 11px;
+    margin-bottom: 0;
+  }
+
+  .template-soft .soft05-main .resume-item .resume-text {
+    grid-column: 2;
+    color: #4a4a4a;
+  }
+
+  .template-soft .soft05-lang-list {
+    display: grid;
+    gap: 9px;
+  }
+
+  .template-soft .soft05-lang-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .template-soft .soft05-lang-label {
+    font-size: 11px;
+    color: #565656;
+  }
+
+  .template-soft .soft05-lang-track {
+    height: 8px;
+    background: #e5e5e5;
+    overflow: hidden;
+  }
+
+  .template-soft .soft05-lang-fill {
+    height: 100%;
+    width: var(--level);
+    background: #c8a25b;
+  }
+
+  .template-soft .soft05-skill-rings {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(128px, 1fr));
+    gap: 16px 42px;
+    padding-top: 10px;
+    align-items: start;
+    justify-items: center;
+    max-width: none;
+    width: 100%;
+  }
+
+  .template-soft .soft05-main .resume-section[data-module="skills"] {
+    margin-top: max(0px, calc(var(--module-gap, 22px) + var(--skill-offset-y, -72px)));
+  }
+
+
+  .template-soft .soft05-skill-ring {
+    width: auto;
+    text-align: center;
+  }
+
+  .template-soft .soft05-ring {
+    --size: var(--skill-ring-size, 96px);
+    width: var(--size);
+    height: var(--size);
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: conic-gradient(#c8a25b var(--level), #e6e6e6 0);
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .template-soft .soft05-ring::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .template-soft .soft05-ring-value {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 700;
+    color: #555;
+  }
+
+  .template-soft .soft05-ring-name {
+    font-size: 10.5px;
+    color: #666;
+    line-height: 1.35;
+    text-transform: uppercase;
+    max-width: 100px;
+    margin: 0 auto;
+  }
+
+  .template-soft .soft05-main .resume-section:last-child {
+    padding-top: 0;
+    padding-bottom: 18px;
+  }
+
+
+  /* 06 深色侧栏 */
+  .template-darkside .resume-inner {
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    padding: 0;
+  }
+
+  .template-darkside .resume-left {
+    background: #252b34;
+    color: white;
+    padding: 42px 28px;
+    min-height: 1123px;
+  }
+
+  .template-darkside .resume-right {
+    padding: 46px 44px;
+  }
+
+  .template-darkside .resume-left .resume-section h3,
+  .template-darkside .resume-left .resume-text,
+  .template-darkside .resume-left .resume-contact,
+  .template-darkside .resume-left .resume-role,
+  .template-darkside .resume-left .resume-item strong,
+  .template-darkside .resume-left .resume-item span {
+    color: rgba(255,255,255,0.82);
+  }
+
+  .template-darkside .resume-left .resume-section h3 {
+    border-color: rgba(255,255,255,0.28);
+  }
+
+  .template-darkside .skill-tag {
+    color: rgba(255,255,255,0.82);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .template-darkside .bar-row {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .template-darkside .resume-photo {
+    margin: 0 auto 24px;
+    width: 112px;
+    height: 112px;
+    border: 3px solid rgba(255,255,255,0.25);
+  }
+
+  /* 07 横向名片 */
+  .template-namecard .resume-inner {
+    padding: 0;
+  }
+
+  .template-namecard .resume-hero {
+    background: #f0eee9;
+    padding: 46px 58px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 36px;
+    align-items: center;
+    border-bottom: 1px solid #d4d0c8;
+  }
+
+  .template-namecard .resume-name {
+    font-size: 44px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .template-namecard .resume-body {
+    padding: 38px 58px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+
+  .template-namecard .resume-photo {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+  }
+
+  /* 08 金色点阵 */
+  .template-gold .resume-inner {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    padding: 0;
+    border-bottom: 16px solid #b7905c;
+  }
+
+  .template-gold .resume-left {
+    background: #f4f1eb;
+    padding: 42px 28px;
+  }
+
+  .template-gold .resume-right {
+    padding: 46px 44px;
+  }
+
+  .template-gold .resume-section h3 {
+    color: #8b6a3e;
+    border-color: #b7905c;
+  }
+
+  .template-gold .bar-fill {
+    background: #b7905c;
+  }
+
+  .template-gold .resume-photo {
+    width: 118px;
+    height: 118px;
+    margin: 0 auto 24px;
+    border: 4px solid white;
+  }
+
+  /* 09 编辑出版 */
+  .template-editorial .resume-inner {
+    padding: 58px 54px;
+  }
+
+  .template-editorial .resume-header {
+    display: grid;
+    grid-template-columns: 125px 1fr;
+    gap: 28px;
+    align-items: center;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .template-editorial .resume-header.no-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .template-editorial .resume-photo {
+    width: 118px;
+    height: 118px;
+    border-radius: 18px;
+  }
+
+  .template-editorial .resume-name {
+    font-size: 38px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .template-editorial .resume-section h3 {
+    letter-spacing: 0.32em;
+    color: #555;
+    border-color: #bdbdbd;
+  }
+
+  /* 10 都市分栏 */
+  .template-metroline .resume-inner {
+    padding: 52px 54px 40px;
+  }
+
+  .template-metroline .metro-top {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 34px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #999;
+    align-items: stretch;
+  }
+
+  .template-metroline .metro-id {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 232px;
+    padding-top: 0;
+  }
+
+  .template-metroline .metro-avatar {
+    width: auto;
+    height: auto;
+    margin: 0 0 18px;
+    overflow: visible;
+  }
+
+  .template-metroline .metro-avatar .resume-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .template-metroline .metro-name {
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .template-metroline .metro-role {
+    margin-top: 18px;
+    max-width: 240px;
+    line-height: 1.25;
+    letter-spacing: 0.12em;
+  }
+
+  .template-metroline .metro-contact-wrap {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 18px;
+    align-items: stretch;
+    align-self: start;
+  }
+
+  .template-metroline .metro-contact-strip {
+    background: #191719;
+    color: white;
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px 0;
+    box-sizing: border-box;
+  }
+
+  .template-metroline .metro-contact-strip span {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 14px;
+  }
+
+
+  .template-metroline .metro-contact-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .template-metroline .metro-contact-item,
+  .template-portraitpanel .portrait-contact-item,
+  .template-desksheet .desk-contact-item {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .template-metroline .metro-contact-item strong,
+  .template-portraitpanel .portrait-contact-item strong,
+  .template-desksheet .desk-contact-item strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .template-metroline .metro-contact-item span,
+  .template-portraitpanel .portrait-contact-item span,
+  .template-desksheet .desk-contact-item span {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .template-metroline .metro-body {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 34px;
+    padding-top: 24px;
+  }
+
+  .template-metroline .metro-side {
+    border-left: 1px solid #bdbdbd;
+    padding-left: 28px;
+  }
+
+  .template-metroline .resume-section h3 {
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    border-bottom: 1px solid #9b9b9b;
+  }
+
+  /* 11 简雅头像 */
+  .template-profileband .resume-inner {
+    padding: 0;
+  }
+
+  .template-profileband .profileband-wrap {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 1123px;
+  }
+
+  .template-profileband .profileband-side {
+    background: #f4f1f1;
+    padding: 38px 24px;
+  }
+
+  .template-profileband .profileband-photo {
+    min-height: 120px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+  }
+
+  .template-profileband .resume-photo {
+    width: 98px;
+    height: 98px;
+    border: 4px solid white;
+  }
+
+  .template-profileband .profileband-main {
+    padding: 42px 42px 46px;
+  }
+
+  .template-profileband .profileband-head {
+    padding-bottom: 18px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #cfc7c7;
+  }
+
+  .template-profileband .resume-name {
+    font-size: 36px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .template-profileband .resume-role {
+    letter-spacing: 0.2em;
+  }
+
+  .template-profileband .resume-section h3 {
+    background: #35292b;
+    color: white;
+    padding: 7px 12px;
+    border-bottom: 0;
+    letter-spacing: 0.18em;
+  }
+
+  .template-profileband .profileband-side .resume-section h3 {
+    background: transparent;
+    color: #171717;
+    padding: 0 0 8px;
+    border-bottom: 1px solid #bbb;
+  }
+
+  /* 12 右侧肖像 */
+  .template-portraitpanel .resume-inner {
+    padding: 0;
+  }
+
+  .template-portraitpanel .portraitpanel-top {
+    display: grid;
+    grid-template-columns: 52px 1fr 250px;
+    gap: 26px;
+    padding: 34px 42px 22px;
+    align-items: start;
+    border-bottom: 1px solid #c9c9c9;
+  }
+
+  .template-portraitpanel .portraitpanel-tag {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: #202022;
+    color: white;
+    padding: 12px 8px;
+    letter-spacing: 0.24em;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .template-portraitpanel .portraitpanel-title .resume-name {
+    font-size: 50px;
+    line-height: 0.95;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .template-portraitpanel .portraitpanel-title .resume-role {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #bdbdbd;
+    letter-spacing: 0.18em;
+  }
+
+  .template-portraitpanel .portraitpanel-right {
+    display: grid;
+    gap: 0;
+  }
+
+  .template-portraitpanel .portraitpanel-photo {
+    background: #e9e9e9;
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .template-portraitpanel .portraitpanel-photo .resume-photo {
+    width: 100%;
+    height: 180px;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .template-portraitpanel .portraitpanel-contact-card {
+    background: #222225;
+    padding: 16px 18px 10px;
+  }
+
+  .template-portraitpanel .portrait-contact-item {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .template-portraitpanel .contact-icon {
+    color: white;
+    font-size: 12px;
+    padding-top: 2px;
+  }
+
+  .template-portraitpanel .portrait-contact-item strong,
+  .template-portraitpanel .portrait-contact-item span {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .template-portraitpanel .portraitpanel-body {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+    padding: 26px 42px 40px;
+  }
+
+  .template-portraitpanel .portraitpanel-side {
+    border-left: 1px solid #d1d1d1;
+    padding-left: 24px;
+  }
+
+  .template-portraitpanel .resume-section h3 {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+  }
+
+  /* 13 桌面编辑感 */
+  .template-desksheet {
+    background: linear-gradient(90deg, #e8e6e3 0 49%, #efeeec 49% 100%);
+  }
+
+  .template-desksheet .resume-inner {
+    padding: 38px 34px;
+    background: transparent;
+  }
+
+  .template-desksheet .desk-stage {
+    display: grid;
+    grid-template-columns: 1fr 66px;
+    gap: 18px;
+    align-items: center;
+    min-height: 1040px;
+  }
+
+  .template-desksheet .desk-paper {
+    background: white;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 920px;
+  }
+
+  .template-desksheet .desk-side {
+    background: #fbfbfb;
+    padding: 28px 24px 28px 30px;
+    border-right: 1px solid #ececec;
+  }
+
+  .template-desksheet .desk-main {
+    padding: 34px 34px 30px;
+  }
+
+  .template-desksheet .desk-photo {
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    background: #f0efef;
+  }
+
+  .template-desksheet .desk-photo .resume-photo {
+    width: 120px;
+    height: 150px;
+    border-radius: 0;
+  }
+
+  .template-desksheet .desk-head {
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dadada;
+  }
+
+  .template-desksheet .desk-head .resume-name {
+    font-size: 36px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .template-desksheet .desk-head .resume-role {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 2px 8px;
+    background: #2f3133;
+    color: white;
+    letter-spacing: 0.18em;
+    font-size: 10px;
+  }
+
+  .template-desksheet .desk-word {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 28px;
+    letter-spacing: 0.2em;
+    color: #2b2b2b;
+    text-transform: uppercase;
+    justify-self: center;
+  }
+
+  .template-desksheet .resume-section h3 {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+  }
+
+
+
+  /* 自动均衡排版：内容少时适当展开，内容多时逐级压缩，目标是让 A4 一页更协调 */
+  .resume-page.fit-loose .resume-inner { font-size: 1.03em; }
+  .resume-page.fit-loose .resume-section { margin-top: 31px; }
+  .resume-page.fit-loose .resume-section h3 { margin-bottom: 15px; padding-bottom: 8px; }
+  .resume-page.fit-loose .resume-text { line-height: 1.78; }
+  .resume-page.fit-loose .resume-item { margin-bottom: 17px; }
+  .resume-page.fit-loose .skills-list { gap: 10px; }
+  .resume-page.fit-loose .bar-list { gap: 9px; }
+  .resume-page.fit-loose.template-metroline .metro-top { padding-bottom: 34px; }
+  .resume-page.fit-loose.template-metroline .metro-body { padding-top: 32px; gap: 42px; }
+  .resume-page.fit-loose.template-portraitpanel .portraitpanel-top { padding-bottom: 30px; }
+  .resume-page.fit-loose.template-portraitpanel .portraitpanel-body { padding-top: 34px; gap: 36px; }
+  .resume-page.fit-loose.template-profileband .profileband-main { padding-top: 52px; }
+
+  .resume-page.fit-comfort .resume-section { margin-top: 24px; }
+  .resume-page.fit-comfort .resume-text { line-height: 1.62; }
+  .resume-page.fit-comfort .resume-item { margin-bottom: 12px; }
+  .resume-page.fit-comfort.template-metroline .metro-body,
+  .resume-page.fit-comfort.template-portraitpanel .portraitpanel-body { gap: 30px; }
+
+  /* 内容过多时的自动紧凑模式：先压缩间距和字号，再进行轻微整体缩放 */
+  .resume-page.fit-compact .resume-inner {
+    font-size: 0.96em;
+  }
+
+  .resume-page.fit-compact .resume-name {
+    font-size: 36px;
+  }
+
+  .resume-page.fit-compact .resume-role {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .resume-page.fit-compact .resume-contact {
+    margin-top: 12px;
+    font-size: 10.3px;
+    line-height: 1.52;
+  }
+
+  .resume-page.fit-compact .resume-section {
+    margin-top: 18px;
+  }
+
+  .resume-page.fit-compact .resume-section h3 {
+    margin-bottom: 9px;
+    padding-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .resume-page.fit-compact .resume-text {
+    font-size: 10.7px;
+    line-height: 1.48;
+  }
+
+  .resume-page.fit-compact .resume-item {
+    margin-bottom: 8px;
+  }
+
+  .resume-page.fit-compact .resume-item strong {
+    font-size: 11.6px;
+  }
+
+  .resume-page.fit-compact .resume-item span {
+    font-size: 9.8px;
+    margin-bottom: 3px;
+  }
+
+  .resume-page.fit-compact .skill-tag {
+    padding: 4px 8px;
+    font-size: 9.8px;
+  }
+
+  .resume-page.fit-compact .bar-list {
+    gap: 5px;
+  }
+
+  .resume-page.fit-compact .bar-row {
+    grid-template-columns: 88px 1fr;
+    gap: 8px;
+    font-size: 9.8px;
+  }
+
+  .resume-page.fit-compact.template-minimal .resume-inner,
+  .resume-page.fit-compact.template-timeline .resume-inner,
+  .resume-page.fit-compact.template-international .resume-inner,
+  .resume-page.fit-compact.template-editorial .resume-inner {
+    padding: 44px 48px;
+  }
+
+  .resume-page.fit-compact.template-minimal .resume-header,
+  .resume-page.fit-compact.template-timeline .resume-header,
+  .resume-page.fit-compact.template-international .resume-header,
+  .resume-page.fit-compact.template-editorial .resume-header {
+    padding-bottom: 20px;
+  }
+
+  .resume-page.fit-compact.template-sidebar .resume-left,
+  .resume-page.fit-compact.template-soft .resume-left,
+  .resume-page.fit-compact.template-darkside .resume-left,
+  .resume-page.fit-compact.template-gold .resume-left,
+  .resume-page.fit-compact.template-architect .resume-left {
+    padding: 34px 24px;
+  }
+
+  .resume-page.fit-compact.template-sidebar .resume-right,
+  .resume-page.fit-compact.template-soft .resume-right,
+  .resume-page.fit-compact.template-darkside .resume-right,
+  .resume-page.fit-compact.template-gold .resume-right,
+  .resume-page.fit-compact.template-architect .resume-right {
+    padding: 36px 36px;
+  }
+
+  .resume-page.fit-compact.template-visual .resume-hero,
+  .resume-page.fit-compact.template-namecard .resume-hero {
+    padding: 34px 44px;
+  }
+
+  .resume-page.fit-compact.template-visual .resume-body,
+  .resume-page.fit-compact.template-namecard .resume-body {
+    padding: 30px 44px 40px;
+    gap: 28px;
+  }
+
+  .resume-page.fit-dense .resume-inner {
+    font-size: 0.91em;
+  }
+
+  .resume-page.fit-dense .resume-name {
+    font-size: 31px;
+  }
+
+  .resume-page.fit-dense .resume-role {
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .resume-page.fit-dense .resume-contact {
+    margin-top: 8px;
+    font-size: 9.5px;
+    line-height: 1.38;
+  }
+
+  .resume-page.fit-dense .resume-section {
+    margin-top: 12px;
+  }
+
+  .resume-page.fit-dense .resume-section h3 {
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .resume-page.fit-dense .resume-text {
+    font-size: 9.7px;
+    line-height: 1.34;
+  }
+
+  .resume-page.fit-dense .resume-item {
+    margin-bottom: 6px;
+  }
+
+  .resume-page.fit-dense .resume-item strong {
+    font-size: 10.6px;
+    margin-bottom: 2px;
+  }
+
+  .resume-page.fit-dense .resume-item span {
+    font-size: 9px;
+    margin-bottom: 2px;
+  }
+
+  .resume-page.fit-dense .skill-tag {
+    padding: 3px 7px;
+    font-size: 9px;
+  }
+
+  .resume-page.fit-dense .skills-list {
+    gap: 5px;
+  }
+
+  .resume-page.fit-dense .bar-list {
+    gap: 4px;
+  }
+
+  .resume-page.fit-dense .bar-row {
+    grid-template-columns: 78px 1fr;
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .resume-page.fit-dense .bar-track {
+    height: 4px;
+  }
+
+  .resume-page.fit-dense.template-minimal .resume-inner,
+  .resume-page.fit-dense.template-timeline .resume-inner,
+  .resume-page.fit-dense.template-international .resume-inner,
+  .resume-page.fit-dense.template-editorial .resume-inner {
+    padding: 34px 40px;
+  }
+
+  .resume-page.fit-dense.template-minimal .resume-header,
+  .resume-page.fit-dense.template-timeline .resume-header,
+  .resume-page.fit-dense.template-international .resume-header,
+  .resume-page.fit-dense.template-editorial .resume-header {
+    padding-bottom: 14px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .resume-left,
+  .resume-page.fit-dense.template-soft .resume-left,
+  .resume-page.fit-dense.template-darkside .resume-left,
+  .resume-page.fit-dense.template-gold .resume-left,
+  .resume-page.fit-dense.template-architect .resume-left {
+    padding: 26px 20px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .resume-right,
+  .resume-page.fit-dense.template-soft .resume-right,
+  .resume-page.fit-dense.template-darkside .resume-right,
+  .resume-page.fit-dense.template-gold .resume-right,
+  .resume-page.fit-dense.template-architect .resume-right {
+    padding: 28px 30px;
+  }
+
+  .resume-page.fit-dense.template-visual .resume-hero,
+  .resume-page.fit-dense.template-namecard .resume-hero {
+    padding: 26px 36px;
+  }
+
+  .resume-page.fit-dense.template-visual .resume-body,
+  .resume-page.fit-dense.template-namecard .resume-body {
+    padding: 24px 36px 32px;
+    gap: 22px;
+  }
+
+  .resume-page.fit-dense .resume-photo {
+    width: 88px;
+    height: 88px;
+  }
+
+  .resume-page.fit-dense.template-soft .resume-photo,
+  .resume-page.fit-dense.template-darkside .resume-photo,
+  .resume-page.fit-dense.template-gold .resume-photo {
+    width: 92px;
+    height: 92px;
+    margin-bottom: 16px;
+  }
+
+
+  /* 第10模板稳定版修正：降低标题冲突，固定双栏比例，避免导出时错位 */
+  .template-metroline .resume-inner {
+    padding: 48px 52px 42px;
+  }
+
+  .template-metroline .metro-top {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .template-metroline .metro-name {
+    font-size: 44px;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    word-break: normal;
+  }
+
+  .template-metroline .metro-role {
+    max-width: 260px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    line-height: 1.45;
+  }
+
+  .template-metroline .metro-contact-wrap {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+
+  .template-metroline .metro-contact-strip {
+    min-height: 128px;
+    padding: 12px 0;
+  }
+
+  .template-metroline .metro-contact-strip span {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .template-metroline .metro-body {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+  }
+
+  .template-metroline .metro-side {
+    padding-left: 22px;
+  }
+
+  .template-metroline .resume-section {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 1320px) {
+    .layout {
+      grid-template-columns: 390px 1fr;
+    }
+
+    .control-panel {
+      position: static;
+      max-height: none;
+      grid-column: 1;
+    }
+
+    .preview-wrap {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+
+    .editor,
+    .control-panel {
+      position: static;
+      max-height: none;
+    }
+
+    .preview-wrap {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .preview-canvas {
+      width: 620px;
+      height: 876px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .topbar-inner,
+    .layout {
+      width: min(100% - 24px, 1500px);
+    }
+
+    .topbar-inner {
+      height: auto;
+      padding: 14px 0;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .small-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .preview-wrap {
+      overflow-x: auto;
+    }
+
+    .preview-canvas {
+      width: 620px;
+      height: 876px;
+    }
+  }
+
+
+
+  /* 新增模板的自动紧凑适配 */
+  .resume-page.fit-compact.template-metroline .resume-inner,
+  .resume-page.fit-compact.template-portraitpanel .resume-inner {
+    padding: 42px 46px 34px;
+  }
+
+  .resume-page.fit-compact.template-profileband .profileband-side {
+    padding: 32px 22px;
+  }
+
+  .resume-page.fit-compact.template-profileband .profileband-main {
+    padding: 36px 38px 40px;
+  }
+
+  .resume-page.fit-compact.template-desksheet .resume-inner {
+    padding: 30px 28px;
+  }
+
+  .resume-page.fit-compact.template-desksheet .desk-paper {
+    min-height: 860px;
+  }
+
+  .resume-page.fit-compact.template-desksheet .desk-stage {
+    min-height: 1000px;
+  }
+
+  .resume-page.fit-compact.template-metroline .metro-top,
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-top {
+    padding-bottom: 18px;
+    gap: 22px;
+  }
+
+  .resume-page.fit-compact.template-metroline .metro-body,
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-body {
+    gap: 22px;
+    padding-top: 18px;
+  }
+
+  .resume-page.fit-compact.template-metroline .metro-name,
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-title .resume-name {
+    font-size: 44px;
+  }
+
+  .resume-page.fit-compact.template-profileband .resume-name,
+  .resume-page.fit-compact.template-desksheet .desk-head .resume-name {
+    font-size: 31px;
+  }
+
+  .resume-page.fit-compact.template-profileband .resume-photo,
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-photo .resume-photo,
+  .resume-page.fit-compact.template-desksheet .desk-photo .resume-photo {
+    max-height: 150px;
+  }
+
+  .resume-page.fit-dense.template-metroline .resume-inner,
+  .resume-page.fit-dense.template-portraitpanel .resume-inner {
+    padding: 34px 40px 28px;
+  }
+
+  .resume-page.fit-dense.template-profileband .profileband-side {
+    padding: 26px 18px;
+  }
+
+  .resume-page.fit-dense.template-profileband .profileband-main {
+    padding: 30px 32px 34px;
+  }
+
+  .resume-page.fit-dense.template-desksheet .resume-inner {
+    padding: 24px 24px;
+  }
+
+  .resume-page.fit-dense.template-desksheet .desk-paper {
+    min-height: 820px;
+  }
+
+  .resume-page.fit-dense.template-desksheet .desk-stage {
+    min-height: 960px;
+  }
+
+  .resume-page.fit-dense.template-metroline .metro-top,
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-top {
+    padding-bottom: 14px;
+    gap: 18px;
+  }
+
+  .resume-page.fit-dense.template-metroline .metro-body,
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-body {
+    gap: 18px;
+    padding-top: 14px;
+  }
+
+  .resume-page.fit-dense.template-metroline .metro-name,
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-title .resume-name {
+    font-size: 38px;
+  }
+
+  .resume-page.fit-dense.template-profileband .resume-name,
+  .resume-page.fit-dense.template-desksheet .desk-head .resume-name {
+    font-size: 27px;
+  }
+
+  .resume-page.fit-dense.template-profileband .resume-photo,
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-photo .resume-photo,
+  .resume-page.fit-dense.template-desksheet .desk-photo .resume-photo {
+    max-height: 128px;
+  }
+
+
+  /* 第10/12模板稳定导出修正 */
+  .template-metroline .resume-inner { padding: 48px 52px 42px; }
+  .template-metroline .metro-id { display: flex; flex-direction: column; }
+  .template-metroline .metro-top { grid-template-columns: 0.95fr 1.05fr; gap: 26px; align-items: start; }
+  .template-metroline .metro-id { padding-top: 0; min-height: 192px; justify-content: flex-end; }
+  .template-metroline .metro-avatar { width: auto; height: auto; margin: 0 0 16px; overflow: visible; }
+  .template-metroline .metro-avatar .resume-photo { width: 76px; height: 76px; border-radius: 50%; }
+  .template-metroline .metro-name { font-size: 44px; line-height: 1.02; letter-spacing: -0.035em; word-break: normal; white-space: nowrap; }
+  .template-metroline .metro-role { max-width: 260px; font-size: 12px; letter-spacing: 0.1em; line-height: 1.45; }
+  .template-metroline .metro-contact-wrap { grid-template-columns: 44px 1fr; gap: 14px; }
+  .template-metroline .metro-contact-strip { min-height: 128px; padding: 12px 0; }
+  .template-metroline .metro-contact-strip span { width: 24px; height: 24px; font-size: 11px; }
+  .template-metroline .metro-body { grid-template-columns: 1.15fr 0.85fr; gap: 28px; }
+  .template-metroline .metro-side { padding-left: 22px; }
+  .template-metroline .resume-section { margin-top: 20px; }
+
+  .resume-page.fit-compact.template-metroline .resume-inner { padding: 40px 44px 34px; }
+  .resume-page.fit-compact.template-metroline .metro-top { padding-bottom: 18px; gap: 22px; }
+  .resume-page.fit-compact.template-metroline .metro-id { padding-top: 0; min-height: 168px; justify-content: flex-end; }
+  .resume-page.fit-compact.template-metroline .metro-avatar { width: auto; height: auto; margin-bottom: 12px; overflow: visible; }
+  .resume-page.fit-compact.template-metroline .metro-avatar .resume-photo { width: 66px; height: 66px; border-radius: 50%; }
+  .resume-page.fit-compact.template-metroline .metro-body { gap: 22px; padding-top: 18px; }
+  .resume-page.fit-compact.template-metroline .metro-name { font-size: 38px; }
+  .resume-page.fit-compact.template-metroline .metro-contact-strip { min-height: 112px; }
+  .resume-page.fit-dense.template-metroline .resume-inner { padding: 32px 36px 26px; }
+  .resume-page.fit-dense.template-metroline .metro-top { padding-bottom: 12px; gap: 16px; }
+  .resume-page.fit-dense.template-metroline .metro-id { padding-top: 0; min-height: 142px; justify-content: flex-end; }
+  .resume-page.fit-dense.template-metroline .metro-avatar { width: auto; height: auto; margin-bottom: 10px; overflow: visible; }
+  .resume-page.fit-dense.template-metroline .metro-avatar .resume-photo { width: 54px; height: 54px; border-radius: 50%; }
+  .resume-page.fit-dense.template-metroline .metro-body { gap: 16px; padding-top: 12px; }
+  .resume-page.fit-dense.template-metroline .metro-name { font-size: 32px; }
+  .resume-page.fit-dense.template-metroline .metro-contact-strip { min-height: 96px; }
+
+  .resume-page.fit-compact.template-portraitpanel .resume-inner { padding: 0; }
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-top { padding: 28px 36px 18px; gap: 20px; }
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-body { padding: 22px 36px 32px; gap: 20px; }
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-title .resume-name { font-size: 40px; }
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-photo,
+  .resume-page.fit-compact.template-portraitpanel .portraitpanel-photo .resume-photo { height: 150px; min-height: 150px; }
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-top { padding: 22px 30px 14px; gap: 16px; }
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-body { padding: 18px 30px 26px; gap: 16px; }
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-title .resume-name { font-size: 34px; }
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-photo,
+  .resume-page.fit-dense.template-portraitpanel .portraitpanel-photo .resume-photo { height: 128px; min-height: 128px; }
+
+
+
+  /* 固定 A4 完整预览：屏幕上始终显示一整张 A4，打印时恢复原尺寸 */
+  @media screen {
+    .preview-wrap {
+      max-height: calc(100vh - 118px);
+      overflow: auto;
+    }
+
+    .preview-canvas .resume-page {
+      transform: scale(0.78) !important;
+      transform-origin: top left !important;
+      margin: 0 !important;
+    }
+  }
+
+  @media print {
+    .preview-canvas {
+      width: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    .preview-canvas .resume-page {
+      transform: none !important;
+      margin: 0 auto !important;
+    }
+  }
+
+  /* 第12模板：改为右上头像 + 联系方式卡片的 A4 排版 */
+  .template-portraitpanel .resume-inner {
+    padding: 0;
+  }
+
+  .template-portraitpanel .portrait12-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.28fr 0.92fr;
+    min-height: 1123px;
+    background: #f7f7f7;
+  }
+
+  .template-portraitpanel .portrait12-rail {
+    position: absolute;
+    left: 16px;
+    top: 26px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: #171717;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    padding: 14px 10px;
+  }
+
+  .template-portraitpanel .portrait12-left {
+    padding: 46px 34px 42px 20px;
+    border-right: 1px solid #d7d7d7;
+  }
+
+  .template-portraitpanel .portrait12-right {
+    padding: 0 34px 34px;
+  }
+
+  .template-portraitpanel .portrait12-head {
+    padding-top: 18px;
+    padding-left: 66px;
+    min-height: 148px;
+  }
+
+  .template-portraitpanel .portrait12-head .resume-name {
+    font-size: 34px;
+    line-height: 1.02;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    word-break: keep-all;
+    margin-left: 0;
+  }
+
+  .template-portraitpanel .portrait12-head .resume-role {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #bfbfbf;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+  }
+
+  .template-portraitpanel .portrait12-left .resume-section h3,
+  .template-portraitpanel .portrait12-right .resume-section h3 {
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .template-portraitpanel .portrait12-left .resume-section {
+    margin-top: var(--module-gap, 24px);
+  }
+
+  .template-portraitpanel .portrait12-left .resume-item {
+    margin-bottom: 16px;
+  }
+
+  .template-portraitpanel .portrait12-left .resume-item .resume-text {
+    margin-top: 8px;
+  }
+
+  .template-portraitpanel .portrait12-photo {
+    background: #ececec;
+    height: 236px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .template-portraitpanel .portrait12-photo .resume-photo {
+    width: 100%;
+    height: 236px;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .template-portraitpanel .portrait12-contact-card {
+    background: #252224;
+    padding: 18px 18px 16px;
+  }
+
+  .template-portraitpanel .portrait12-contact-card .contact-pairs {
+    gap: var(--contact-gap, 8px);
+  }
+
+  .template-portraitpanel .portrait12-contact-card .portrait-contact-item {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    align-items: center;
+    margin: 0;
+    padding-bottom: calc(var(--contact-gap, 8px) + 2px);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .template-portraitpanel .portrait12-contact-card .portrait-contact-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .template-portraitpanel .portrait12-contact-card .contact-icon {
+    color: white;
+    font-size: 14px;
+  }
+
+  .template-portraitpanel .portrait12-contact-card strong,
+  .template-portraitpanel .portrait12-contact-card span {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .template-portraitpanel .portrait12-contact-card strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .template-portraitpanel .portrait12-contact-card span {
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .template-portraitpanel .portrait12-side-content {
+    padding-top: 26px;
+  }
+
+  .template-portraitpanel .portrait12-side-content .resume-section {
+    margin-top: var(--module-gap, 26px);
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .template-portraitpanel .portrait12-side-content .resume-section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 0;
+    width: 1px;
+    background: #cfcfcf;
+  }
+
+  .template-portraitpanel .portrait12-side-content .resume-section h3::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    background: #222;
+    transform: rotate(45deg);
+  }
+
+  .template-portraitpanel .portrait12-side-content .resume-section h3 {
+    position: relative;
+  }
+
+  .template-portraitpanel .portrait12-side-content .bar-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .resume-page.fit-compact.template-portraitpanel .portrait12-left { padding: 38px 28px 34px 18px; }
+  .resume-page.fit-compact.template-portraitpanel .portrait12-right { padding: 0 28px 28px; }
+  .resume-page.fit-compact.template-portraitpanel .portrait12-head { min-height: 136px; padding-left: 64px; }
+  .resume-page.fit-compact.template-portraitpanel .portrait12-head .resume-name { font-size: 32px; margin-left: 0; }
+  .resume-page.fit-compact.template-portraitpanel .portrait12-photo { height: 206px; }
+  .resume-page.fit-compact.template-portraitpanel .portrait12-photo .resume-photo { height: 206px; }
+
+  .resume-page.fit-dense.template-portraitpanel .portrait12-left { padding: 30px 22px 26px 16px; }
+  .resume-page.fit-dense.template-portraitpanel .portrait12-right { padding: 0 22px 22px; }
+  .resume-page.fit-dense.template-portraitpanel .portrait12-head { min-height: 126px; padding-left: 62px; }
+  .resume-page.fit-dense.template-portraitpanel .portrait12-head .resume-name { font-size: 31px; margin-left: 0; }
+  .resume-page.fit-dense.template-portraitpanel .portrait12-photo { height: 176px; }
+  .resume-page.fit-dense.template-portraitpanel .portrait12-photo .resume-photo { height: 176px; }
+
+
+
+  /* 01/05 新样式稳定修正：让预览与导出更一致 */
+  .resume-page.template-sidebar .sidebar01-photo-placeholder,
+  .resume-page.template-soft .soft05-photo-placeholder,
+  .resume-page.template-soft .soft05-contact-strip,
+  .resume-page.template-soft .soft05-lang-fill,
+  .resume-page.template-soft .soft05-ring {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .resume-page.fit-compact.template-sidebar .sidebar01-top {
+    grid-template-columns: 176px 1fr;
+    gap: 28px;
+    padding: 34px 48px 16px;
+  }
+
+  .resume-page.fit-compact.template-sidebar .sidebar01-bottom {
+    grid-template-columns: 176px 1fr;
+    gap: 28px;
+    padding: 4px 48px 38px;
+  }
+
+  .resume-page.fit-compact.template-sidebar .sidebar01-headcopy .resume-name {
+    font-size: 30px;
+  }
+
+  .resume-page.fit-compact.template-sidebar .sidebar01-portrait .resume-photo,
+  .resume-page.fit-compact.template-sidebar .sidebar01-photo-placeholder {
+    width: 82px;
+    height: 82px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .sidebar01-top {
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 28px 44px 12px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .sidebar01-bottom {
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 2px 44px 30px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .sidebar01-headcopy .resume-name {
+    font-size: 26px;
+    letter-spacing: 0.22em;
+  }
+
+  .resume-page.fit-dense.template-sidebar .sidebar01-portrait .resume-photo,
+  .resume-page.fit-dense.template-sidebar .sidebar01-photo-placeholder {
+    width: 72px;
+    height: 72px;
+  }
+
+  .resume-page.fit-dense.template-sidebar .sidebar01-left .bar-row {
+    grid-template-columns: 62px 1fr;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-layout {
+    grid-template-columns: 222px 1fr;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-left {
+    padding: 34px 26px 30px 34px;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-main {
+    padding: 36px 40px 24px 36px;
+    min-height: 1123px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-avatar-wrap .resume-photo,
+  .resume-page.fit-compact.template-soft .soft05-photo-placeholder {
+    width: 104px;
+    height: 104px;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-main .resume-item {
+    grid-template-columns: 78px 1fr;
+    gap: 12px;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-skill-rings {
+    grid-template-columns: repeat(3, minmax(112px, 1fr));
+    gap: 14px 24px;
+    max-width: none;
+  }
+
+  .resume-page.fit-compact.template-soft .soft05-skill-ring {
+    width: auto;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-layout {
+    grid-template-columns: 212px 1fr;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-left {
+    padding: 28px 22px 24px 28px;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-main {
+    padding: 30px 34px 20px 30px;
+    min-height: 1123px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-avatar-wrap .resume-photo,
+  .resume-page.fit-dense.template-soft .soft05-photo-placeholder {
+    width: 88px;
+    height: 88px;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-main .resume-item {
+    grid-template-columns: 68px 1fr;
+    gap: 10px;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-contact-card {
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-contact-strip {
+    gap: 12px;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-skill-rings {
+    grid-template-columns: repeat(3, minmax(96px, 1fr));
+    gap: 10px 18px;
+    max-width: none;
+  }
+
+  .resume-page.fit-dense.template-soft .soft05-skill-ring {
+    width: auto;
+  }
+
+
+
+  /* 01 模板滑杆修正：头像、联系方式、姓名位置都跟随现有滑杆 */
+  .resume-page.template-sidebar .sidebar01-portrait {
+    will-change: transform;
+  }
+
+  .resume-page.template-sidebar .sidebar01-contact-list {
+    will-change: transform;
+  }
+
+  .resume-page.template-sidebar .sidebar01-headcopy .resume-name,
+  .resume-page.template-sidebar .sidebar01-headcopy .resume-role {
+    will-change: transform;
+  }
+
+
+  /* 05 模板姓名不换行修正 */
+  .resume-page.template-soft .soft05-left .resume-name {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow: visible;
+  }
+
+  /* 手动板块间距优先：导出时保持用户调节效果 */
+  .resume-page.fit-loose .resume-section,
+  .resume-page.fit-comfort .resume-section,
+  .resume-page.fit-compact .resume-section,
+  .resume-page.fit-dense .resume-section {
+    margin-top: var(--module-gap, var(--section-gap, 25px));
+  }
+
+  /* 预览框修复：A4 页面按左上角缩放，避免 transform-origin:center 导致左右裁切 */
+  @media screen {
+    .preview-canvas {
+      width: 620px !important;
+      height: 876px !important;
+      overflow: hidden !important;
+    }
+
+    .preview-canvas .resume-page {
+      width: 794px !important;
+      min-height: 1123px !important;
+      transform: scale(0.78) !important;
+      transform-origin: top left !important;
+    }
+  }
+
+  @media print {
+    :root {
+      --print-scale: 1;
+    }
+
+    html,
+    body,
+    .app {
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+
+    body {
+      background: white !important;
+    }
+
+    .topbar,
+    .site-header,
+    .editor,
+    .control-panel,
+    .preview-toolbar,
+    #resumeAiUsageBadge {
+      display: none !important;
+    }
+
+    .layout,
+    .preview-wrap,
+    .preview-shell,
+    .preview-canvas {
+      display: block !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      background: white !important;
+      overflow: hidden !important;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .resume-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      margin: 0 auto !important;
+      box-shadow: none !important;
+      transform: none !important;
+      overflow: hidden !important;
+      page-break-after: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    .preview-shell {
+      display: block !important;
+      transform: none !important;
+    }
+
+    .resume-page,
+    .resume-inner {
+      position: relative !important;
+      left: 0 !important;
+      top: 0 !important;
+    }
+
+    .resume-inner {
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      transform: none !important;
+      transform-origin: top left !important;
+      overflow: hidden !important;
+    }
+
+
+
+    .template-sidebar .sidebar01-photo-placeholder { background: #dfe4e6 !important; }
+    .template-sidebar .sidebar01-idcol::before { background: #d0d0d0 !important; }
+    .template-soft .soft05-photo-placeholder { background: #ebe7e1 !important; }
+    .template-soft .soft05-contact-strip { background: #4d555f !important; }
+    .template-soft .soft05-lang-fill { background: #c8a25b !important; }
+    .template-soft .soft05-ring { background: conic-gradient(#c8a25b var(--level), #e6e6e6 0) !important; }
+    .template-sidebar .resume-left { background: #efefef !important; }
+    .template-visual .resume-inner { display: block !important; min-height: auto !important; }
+    .template-visual .resume-hero { display: grid !important; }
+    .template-visual .resume-body { display: grid !important; padding: 38px 52px 52px !important; }
+    .template-architect .resume-left { background: #ededed !important; }
+    .template-visual .resume-hero { background: #e9e2d9 !important; }
+    .template-soft .resume-left { background: #e7edf2 !important; }
+    .template-darkside .resume-left { background: #252b34 !important; color: white !important; }
+    .template-namecard .resume-hero { background: #f0eee9 !important; }
+    .template-gold .resume-inner { border-bottom-color: #b7905c !important; }
+    .template-gold .resume-left { background: #f4f1eb !important; }
+    .bar-fill { background: #171717 !important; }
+    .template-gold .bar-fill { background: #b7905c !important; }
+    .template-darkside .bar-fill { background: rgba(255,255,255,0.88) !important; }
+    .template-darkside .bar-track { background: rgba(255,255,255,0.20) !important; }
+    .template-metroline .metro-contact-strip { background: #191719 !important; color: white !important; }
+    .template-profileband .profileband-side { background: #f4f1f1 !important; }
+    .template-profileband .resume-section h3 { background: #35292b !important; color: white !important; }
+    .template-profileband .profileband-side .resume-section h3 { background: transparent !important; color: #171717 !important; }
+    .template-portraitpanel .portrait12-side { background: #efefef !important; }
+    .template-portraitpanel .portrait12-main { background: #f7f7f7 !important; }
+    .template-portraitpanel .portrait12-main .resume-section h3,
+    .template-portraitpanel .portrait12-skill-block { background: #35292b !important; color: white !important; }
+    .template-desksheet { background: linear-gradient(90deg, #e8e6e3 0 49%, #efeeec 49% 100%) !important; }
+    .template-desksheet .desk-paper { background: white !important; }
+    .template-desksheet .desk-side { background: #fbfbfb !important; }
+    .template-desksheet .desk-head .resume-role { background: #2f3133 !important; color: white !important; }
+
+    /* 第12模板：打印 PDF 时保持和屏幕预览一致，避免 RESUME 竖标遮挡标题区 */
+    .template-portraitpanel .portrait12-left { padding: 46px 34px 42px 20px !important; }
+    .template-portraitpanel .portrait12-head { padding-top: 18px !important; padding-left: 66px !important; min-height: 148px !important; }
+    .template-portraitpanel .portrait12-head .resume-name { font-size: 34px !important; line-height: 1.02 !important; margin-left: 0 !important; }
+    .template-portraitpanel .portrait12-head .resume-role { margin-top: 14px !important; padding-top: 14px !important; }
+    .template-portraitpanel .portrait12-rail { left: 16px !important; top: 26px !important; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+
+
+  /* 姓名 + 求职方向整体移动：所有模板通用，并按模板独立保存 */
+  .resume-name,
+  .resume-role {
+    transform: translate(var(--name-offset-x, 0px), var(--name-offset-y, 0px));
+  }
+
+  .identity-block,
+  .metro-name-block {
+    transform: translate(var(--name-offset-x, 0px), var(--name-offset-y, 0px));
+  }
+
+  .identity-block .resume-name,
+  .identity-block .resume-role,
+  .metro-name-block .resume-name,
+  .metro-name-block .resume-role {
+    transform: none !important;
+  }
+
+  /* 第10模板头像取消方形裁切限制，作为独立圆形元素移动 */
+  .template-metroline .metro-avatar {
+    overflow: visible !important;
+  }
+
+  .template-metroline .metro-avatar .resume-photo {
+    border-radius: 50% !important;
+    object-fit: cover !important;
+  }
+
+
+
+  /* 第10模板最终修复：预览/PDF位置一致，头像更大，姓名+方向成组移动 */
+  .template-metroline .metro-top {
+    align-items: stretch !important;
+  }
+
+  .template-metroline .metro-id {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 206px !important;
+    padding-top: 0 !important;
+  }
+
+  .template-metroline .metro-avatar {
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 0 18px !important;
+  }
+
+  .template-metroline .metro-avatar .resume-photo {
+    width: 112px !important;
+    height: 112px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    max-height: none !important;
+  }
+
+  .template-metroline .metro-contact-wrap {
+    align-self: stretch !important;
+  }
+
+  .template-metroline .metro-contact-strip {
+    height: 100% !important;
+    min-height: 206px !important;
+  }
+
+  .template-metroline .metro-name,
+  .template-metroline .metro-role {
+    transform: none !important;
+  }
+
+  .template-metroline .metro-name {
+    white-space: nowrap !important;
+  }
+
+  @media print {
+    .template-metroline .metro-id {
+      min-height: 206px !important;
+      justify-content: flex-end !important;
+      padding-top: 0 !important;
+    }
+
+    .template-metroline .metro-contact-strip {
+      min-height: 206px !important;
+      height: 100% !important;
+    }
+
+    .template-metroline .metro-avatar .resume-photo {
+      width: 112px !important;
+      height: 112px !important;
+      max-height: none !important;
+    }
+  }
+
+
+
+  /* 最终打印修复：只输出一张 A4，避免浏览器因为外层容器多算出第二页 */
+  @media screen {
+    .preview-canvas {
+      width: 620px !important;
+      height: 876px !important;
+      overflow: hidden !important;
+      position: relative !important;
+      flex: 0 0 auto !important;
+    }
+
+    .preview-canvas .resume-page {
+      width: 794px !important;
+      min-height: 1123px !important;
+      height: 1123px !important;
+      transform: scale(0.78) !important;
+      transform-origin: top left !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+    }
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: white !important;
+    }
+
+    body {
+      position: relative !important;
+    }
+
+    .topbar,
+    .site-header,
+    .editor,
+    .control-panel,
+    .preview-toolbar,
+    #resumeAiUsageBadge {
+      display: none !important;
+    }
+
+    .app,
+    .layout,
+    .preview-wrap,
+    .preview-shell,
+    .preview-canvas {
+      display: block !important;
+      position: static !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      background: white !important;
+    }
+
+    .resume-page {
+      display: block !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      transform: none !important;
+      overflow: hidden !important;
+      page-break-before: avoid !important;
+      page-break-after: avoid !important;
+      page-break-inside: avoid !important;
+      break-before: avoid !important;
+      break-after: avoid !important;
+      break-inside: avoid !important;
+      background: white !important;
+    }
+
+    .resume-inner {
+      width: 210mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      max-height: 297mm !important;
+      overflow: hidden !important;
+      transform: scale(var(--print-scale, 1)) !important;
+      transform-origin: top left !important;
+    }
+  }
+
+
+
+  /* 第12模板收口修复：保留原设计，只让灰色简历区域上下都有页边距，并压缩内容到 A4 内 */
+  .template-portraitpanel .resume-inner {
+    padding: 34px 36px !important;
+    background: #fff !important;
+    height: 1123px !important;
+    min-height: 1123px !important;
+    overflow: hidden !important;
+  }
+
+  .template-portraitpanel .portrait12-layout {
+    height: 1055px !important;
+    min-height: 1055px !important;
+    max-height: 1055px !important;
+    overflow: hidden !important;
+    background: #f7f7f7 !important;
+  }
+
+  .template-portraitpanel .portrait12-left {
+    padding-top: 34px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .template-portraitpanel .portrait12-right {
+    padding-bottom: 28px !important;
+  }
+
+  .template-portraitpanel .portrait12-head {
+    min-height: 126px !important;
+    padding-top: 12px !important;
+  }
+
+  .template-portraitpanel .portrait12-head .resume-name {
+    font-size: 33px !important;
+    line-height: 1 !important;
+  }
+
+  .template-portraitpanel .portrait12-head .resume-role {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  .template-portraitpanel .portrait12-photo {
+    height: 210px !important;
+    min-height: 210px !important;
+    background: #ececec !important;
+  }
+
+  .template-portraitpanel .portrait12-photo .resume-photo {
+    height: 210px !important;
+    min-height: 210px !important;
+    object-fit: cover !important;
+  }
+
+  .template-portraitpanel .portrait12-contact-card {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+
+  .template-portraitpanel .portrait12-contact-card .portrait-contact-item {
+    padding-bottom: min(calc(var(--contact-gap, 8px) + 1px), 11px) !important;
+  }
+
+  .template-portraitpanel .portrait12-left .resume-section,
+  .template-portraitpanel .portrait12-side-content .resume-section {
+    margin-top: min(var(--module-gap, 20px), 24px) !important;
+  }
+
+  .template-portraitpanel .portrait12-left .resume-section h3,
+  .template-portraitpanel .portrait12-right .resume-section h3 {
+    font-size: 13px !important;
+    margin-bottom: 9px !important;
+    padding-bottom: 7px !important;
+  }
+
+  .template-portraitpanel .resume-text {
+    font-size: 10.7px !important;
+    line-height: 1.46 !important;
+  }
+
+  .template-portraitpanel .resume-item {
+    margin-bottom: 8px !important;
+  }
+
+  .template-portraitpanel .resume-item strong {
+    font-size: 11.4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .template-portraitpanel .resume-item span {
+    font-size: 9.4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .template-portraitpanel .skill-tag {
+    padding: 4px 8px !important;
+    font-size: 9.4px !important;
+  }
+
+  .template-portraitpanel .skills-list {
+    gap: 5px !important;
+  }
+
+  .template-portraitpanel .portrait12-side-content {
+    padding-top: 22px !important;
+  }
+
+  .template-portraitpanel .portrait12-rail {
+    top: 32px !important;
+  }
+
+  @media print {
+    .template-portraitpanel .resume-inner {
+      padding: 8.9mm 9.5mm !important;
+      height: 297mm !important;
+      min-height: 297mm !important;
+      background: #fff !important;
+      overflow: hidden !important;
+    }
+
+    .template-portraitpanel .portrait12-layout {
+      height: calc(297mm - 17.8mm) !important;
+      min-height: calc(297mm - 17.8mm) !important;
+      max-height: calc(297mm - 17.8mm) !important;
+      overflow: hidden !important;
+      background: #f7f7f7 !important;
+    }
+  }
+
+
+  /* User font size controls: per-template, applied last to override template defaults */
+  .resume-page .resume-section h3 {
+    font-size: var(--section-title-size, 12px) !important;
+  }
+
+  .resume-page .resume-text {
+    font-size: var(--body-font-size, 11.5px) !important;
+  }
+
+  .resume-page .resume-item strong {
+    font-size: calc(var(--body-font-size, 11.5px) + 1px) !important;
+  }
+
+  .resume-page .resume-item span,
+  .resume-page .skill-tag,
+  .resume-page .bar-row {
+    font-size: calc(var(--body-font-size, 11.5px) - 1px) !important;
+  }
+
+
+
+  /* 02/03/09 preview-PDF consistency patch: keep these classic templates on the same 794px × 1123px A4 canvas used in preview */
+  @media print {
+    .resume-page.template-timeline,
+    .resume-page.template-international,
+    .resume-page.template-editorial {
+      width: 794px !important;
+      height: 1123px !important;
+      min-height: 1123px !important;
+      max-height: 1123px !important;
+      overflow: hidden !important;
+      transform: none !important;
+      margin: 0 auto !important;
+      box-shadow: none !important;
+    }
+
+    .resume-page.template-timeline .resume-inner,
+    .resume-page.template-international .resume-inner,
+    .resume-page.template-editorial .resume-inner {
+      width: 794px !important;
+      height: 1123px !important;
+      min-height: 1123px !important;
+      max-height: 1123px !important;
+      overflow: hidden !important;
+      transform: none !important;
+      transform-origin: top left !important;
+    }
+
+    .resume-page.template-timeline .resume-header,
+    .resume-page.template-international .resume-header,
+    .resume-page.template-editorial .resume-header,
+    .resume-page.template-timeline .resume-section,
+    .resume-page.template-international .resume-section,
+    .resume-page.template-editorial .resume-section {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+  }
+
+
+  .ai-tools-box {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px dashed var(--line);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.45);
+  }
+
+  .ai-tools-box textarea {
+    min-height: 120px;
+    font-size: 13px;
+  }
+
+  .ai-mini-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .ai-note {
+    margin-top: 8px;
+    color: #8b8278;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+
+    /* Unified Bao Long Studio header */
+    .site-header{
+      height:104px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:0 48px;
+      background:rgba(247,246,242,.94);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:330px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .brand-logo-img{
+      width:65px !important;
+      height:65px !important;
+      max-width:65px !important;
+      max-height:65px !important;
+      object-fit:contain;
+      flex:0 0 auto;
+      display:block;
+      background:transparent !important;
+      border-radius:0 !important;
+    }
+    .brand-mark{display:none !important;}
+    .brand-text{
+      font-size:16px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      color:#2a2927;
+      flex:1;
+      justify-content:center;
+    }
+    .nav a{
+      position:relative;
+      padding:8px 0;
+      white-space:nowrap;
+      color:inherit;
+      text-decoration:none;
+    }
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:0;
+      height:1px;
+      background:#111;
+      transition:.24s ease;
+    }
+    .nav a:hover::after{width:100%}
+    .nav-dropdown{position:relative;display:flex;align-items:center;}
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:34px;
+      left:50%;
+      transform:translateX(-50%);
+      min-width:210px;
+      background:#fff;
+      border:1px solid #ded9cf;
+      border-radius:18px;
+      padding:10px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+      z-index:200;
+    }
+    .nav-dropdown:hover .dropdown-content{display:block;}
+    .dropdown-content a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:14px;
+      color:#2a2927;
+    }
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{background:#f7f6f2;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:260px;
+      justify-content:flex-end;
+    }
+    .pill-btn{
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      padding:10px 18px;
+      background:rgba(255,255,255,.6);
+      cursor:pointer;
+      transition:.25s ease;
+      color:#1c1c1c;
+    }
+    .pill-btn:hover{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    @media (max-width:1200px){
+      .site-header{padding:0 28px}
+      .brand{min-width:auto}
+      .brand-logo-img{width:55px !important;height:55px !important;max-width:55px !important;max-height:55px !important;}
+      .nav{gap:16px;font-size:14px}
+      .header-actions{min-width:auto}
+    }
+    @media (max-width:900px){
+      .site-header{height:auto;align-items:flex-start;padding:18px 20px;flex-wrap:wrap;}
+      .brand-logo-img{width:44px !important;height:44px !important;max-width:44px !important;max-height:44px !important;}
+      .nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;gap:18px;padding-top:8px;}
+      .header-actions{display:none}
+      .dropdown-content{left:0;transform:none;}
+    }
+
+    /* Keep global navigation visible inside resume editor */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:120;
+    }
+    .app > .topbar{
+      position:sticky;
+      top:92px;
+      z-index:90;
+    }
+    .app > .topbar .brand{
+      display:none !important;
+    }
+    .app > .topbar .topbar-inner{
+      justify-content:flex-end;
+    }
+    @media (max-width:900px){
+      .app > .topbar{
+        top:132px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="index.html">
+      <img class="brand-logo-img" src="images/logo-eye.png" alt="Bao Long Studio Logo" />
+      <div class="brand-text">Bao Long Studio</div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">All</a>
+
+      <div class="nav-dropdown">
+        <a href="index.html#products">Assets ▼</a>
+        <div class="dropdown-content">
+          <a href="index.html#products">Module Assets</a>
+          <a href="index.html#products">Plan Assets</a>
+          <a href="index.html#products">People Assets</a>
+          <a href="index.html#products">Plant Assets</a>
+          <a href="index.html#products">Animal Assets</a>
+          <a href="index.html#products">Brushes</a>
+        </div>
+      </div>
+
+      <a href="prompt-generator.html">Prompt Generator</a>
+      <a href="interaction.html">Interaction</a>
+      <a href="resume.html">Resume</a>
+
+      <div class="nav-dropdown">
+        <a href="plan-references.html">Resources ▼</a>
+        <div class="dropdown-content">
+          <a href="plan-references.html">Plan References</a>
+          <a href="section-references.html">Section References</a>
+          <a href="render-references.html">Render References</a>
+          <a href="prompt-generator.html">Prompt Resources</a>
+          <a href="index.html#featured">Studio Notes</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <button class="pill-btn" onclick="location.href='index.html#products'">Shop Preview</button>
+      <button class="pill-btn" onclick="location.href='index.html#tools'">Tools</button>
+    </div>
+  </header>
+<div class="app">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="brand-mark">R</span> Resume Studio</div>
+      <div class="top-actions">
+        <span id="saveStatus" class="save-status">已开启本地保存</span>
+        <button id="translateBtn" class="btn" type="button" style="display:flex;align-items:center;gap:5px;"><span>🌐</span><span id="translateBtnText">翻译全文</span></button>
+        <button id="resetBtn" class="btn" type="button">重置</button>
+        <button id="exportPdfBtn" class="btn btn-dark" type="button">导出 PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="editor panel">
+      <h1 class="product-title">简历生成器</h1>
+      
+
+      <div class="field-group">
+        <div class="group-title">Basic Info</div>
+        <label for="nameInput">姓名</label>
+        <input id="nameInput" type="text" value="ZELIN ZHANG" placeholder="请输入姓名">
+
+        <label for="roleInput">职业 / 求职方向</label>
+        <input id="roleInput" type="text" value="Landscape Designer / Visual Content Creator" placeholder="例如：Landscape Designer">
+
+        <label for="contactInput">联系方式</label>
+        <textarea id="contactInput" placeholder="邮箱 / 电话 / 城市 / 作品集链接">Email: hello@example.com
+Phone: +86 000 0000 0000
+Location: Chengdu, China
+Portfolio: your-portfolio-link.com</textarea>
+
+        <label>头像</label>
+        <div class="avatar-tools">
+          <img id="avatarPreview" class="avatar-preview" alt="头像预览">
+          <div class="avatar-actions">
+            <label class="file-label">
+              上传头像
+              <input id="avatarInput" type="file" accept="image/*" hidden>
+            </label>
+            <button id="removeAvatarBtn" class="btn" type="button" style="width:fit-content;padding:8px 12px;">移除头像</button>
+          </div>
+        </div>
+        <div class="hint">头像会保持原色，不会自动变成黑白。</div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Profile</div>
+        <label for="summaryInput">个人简介</label>
+        <textarea id="summaryInput">A landscape and visual design practitioner with experience in spatial research, presentation design, brand content, and AI-assisted creative workflows.</textarea>
+        <button class="btn ai-btn" id="generateSummaryBtn" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span>✨</span><span id="generateSummaryBtnText">AI 一键生成简介</span>
+        </button>
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <button class="btn summary-lang-btn active" data-lang="zh" id="summaryLangZh" style="flex:1;font-size:12px;padding:7px;">中文</button>
+          <button class="btn summary-lang-btn" data-lang="en" id="summaryLangEn" style="flex:1;font-size:12px;padding:7px;">English</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Experience</div>
+        <label for="educationInput">教育经历</label>
+        <textarea id="educationInput">Shanghai Jiao Tong University｜2019 - 2022｜Master of Landscape Architecture｜Research in spatial design, site planning, visual communication, and design strategy.
+XX University｜2015 - 2019｜Bachelor of Landscape Architecture｜Training in landscape planning, urban public space, and design representation.</textarea>
+        <div class="hint">格式：标题｜时间｜角色/专业｜描述。每行一条。</div>
+
+        <label for="experienceInput">工作经历</label>
+        <textarea id="experienceInput">Landscape / Visual Project Practice｜2022 - 2025｜Designer｜Campus planning, pocket park design, public account operation, and project communication materials.
+Brand & Content Creation｜2025 - Present｜Content Designer｜Product display, cover design, brand tone exploration, and lifestyle-oriented visual storytelling.</textarea>
+        <button class="btn ai-btn" id="optimizeExperienceBtn" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span>✨</span><span id="optimizeExperienceBtnText">AI 优化工作经历描述</span>
+        </button>
+
+        <label for="projectInput">项目经历</label>
+        <textarea id="projectInput">Urban Pocket Park Renewal｜2024｜Designer｜Created spatial strategy, user activity analysis, visual diagrams, and presentation layout.
+Interior Planting Service System｜2025｜Visual Planner｜Built service standards, plant maintenance documents, and client-facing presentation materials.</textarea>
+        <button class="btn ai-btn" id="optimizeProjectBtn" type="button" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span>✨</span><span id="optimizeProjectBtnText">AI 优化项目经历描述</span>
+        </button>
+
+        <label for="awardsInput">证书 / 获奖 / 其他经历</label>
+        <textarea id="awardsInput">WSET Level 2｜2025｜Certificate｜Basic wine knowledge and tasting framework.
+Xiaohongshu Creator｜2024 - Present｜Content Account｜Shared landscape, architecture, and visual tutorial content.</textarea>
+        <button class="btn ai-btn" id="optimizeAwardsBtn" type="button" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span>✨</span><span id="optimizeAwardsBtnText">AI 优化证书 / 获奖经历</span>
+        </button>
+
+        <div class="ai-tools-box">
+          <div class="group-title" style="margin-bottom:8px;">Job Target AI</div>
+          <label for="jobRequirementInput" style="margin-top:0;">粘贴岗位要求 / JD</label>
+          <textarea id="jobRequirementInput" placeholder="把目标岗位的招聘要求复制到这里，AI 会根据 JD 优化个人简介、工作经历、项目经历和技能表达。"></textarea>
+          <button class="btn btn-dark ai-btn" id="optimizeByJobBtn" type="button" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span>🎯</span><span id="optimizeByJobBtnText">根据岗位要求优化简历</span>
+          </button>
+          <div class="ai-note">建议后期商业化时限制次数：比如体验版 3 次、付费版 10/30 次，避免你的 API 余额被反复消耗。</div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Skills</div>
+        <label for="skillsInput">技能 / 工具</label>
+        <textarea id="skillsInput">Adobe Photoshop｜90
+Illustrator｜86
+InDesign｜82
+PowerPoint｜88
+Midjourney｜84
+AIGC Workflow｜80
+Spatial Design｜92
+Visual Storytelling｜86
+Research & Writing｜78</textarea>
+        <div class="hint">可写“技能｜熟练度”，也可只写技能名称。</div>
+
+        <label for="languageInput">语言能力</label>
+        <textarea id="languageInput">Chinese｜Native
+English｜IELTS 7.0
+Japanese｜Basic</textarea>
+      </div>
+    </aside>
+
+    <aside class="control-panel panel">
+      <div class="field-group" style="border-top:0;margin-top:0;padding-top:0;">
+        <div class="group-title">Language</div>
+        <div class="language-toggle" id="languageToggle">
+          <button class="lang-btn active" type="button" data-lang="zh">中文</button>
+          <button class="lang-btn" type="button" data-lang="en">English</button>
+          <button class="lang-btn" type="button" data-lang="bilingual">双语</button>
+        </div>
+        
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Templates</div>
+        <div class="template-list" id="templateList">
+          <button class="template-card active" type="button" data-template="sidebar">
+            <span class="template-name">01 线性人像款</span>
+            <span class="template-desc">极简黑白、左侧头像与线性时间轴，适合设计师简历。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="timeline">
+            <span class="template-name">02 时间轴经历</span>
+            <span class="template-desc">突出教育、工作与项目的发展线索。</span>
+                    <span class="template-badge">无头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="international">
+            <span class="template-name">03 国际英文</span>
+            <span class="template-desc">适合外企、海外申请和英文简历。</span>
+                    <span class="template-badge">无头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="visual">
+            <span class="template-name">04 视觉设计师</span>
+            <span class="template-desc">更有设计感，适合视觉/内容/创意方向。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="soft">
+            <span class="template-name">05 商务金线款</span>
+            <span class="template-desc">商务双栏、金色强调线与图标信息栏，更精致专业。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="darkside">
+            <span class="template-name">06 深色侧栏</span>
+            <span class="template-desc">商务感更强，信息栏识别度高。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="namecard">
+            <span class="template-name">07 横向名片</span>
+            <span class="template-desc">顶部名片式布局，适合个人品牌感。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="gold">
+            <span class="template-name">08 金色点阵</span>
+            <span class="template-desc">暖色点缀，适合创意、运营、品牌方向。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="editorial">
+            <span class="template-name">09 编辑出版</span>
+            <span class="template-desc">杂志排版感，适合视觉和内容岗位。</span>
+                    <span class="template-badge">可头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="metroline">
+            <span class="template-name">10 都市分栏</span>
+            <span class="template-desc">双栏线性排版，支持头像与联系信息块微调。</span>
+                    <span class="template-badge">可头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="profileband">
+            <span class="template-name">11 简雅头像</span>
+            <span class="template-desc">左侧头像信息栏，右侧正文内容，稳重简洁。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+          <button class="template-card" type="button" data-template="portraitpanel">
+            <span class="template-name">12 商务双栏</span>
+            <span class="template-desc">左侧主经历，右侧头像与教育技能，更接近标准商务简历。</span>
+                    <span class="template-badge">头像版</span>
+</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Modules</div>
+        <div id="moduleList" class="module-list"></div>
+        <div class="hint">使用“上移/下移”控制模块顺序，导出 PDF 更稳定。</div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Spacing</div>
+        <div id="gapList" class="spacing-list"></div>
+        <div class="hint">可以手动调节每个板块前的间距，预览区会实时更新。</div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Font Size</div>
+        <div class="spacing-list">
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>标题字号</span>
+              <span id="sectionTitleSizeValue">12px</span>
+            </div>
+            <input id="sectionTitleSizeRange" type="range" min="8" max="24" step="0.5" value="12" aria-label="标题字号">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>内容字号</span>
+              <span id="bodyFontSizeValue">11.5px</span>
+            </div>
+            <input id="bodyFontSizeRange" type="range" min="8" max="20" step="0.5" value="11.5" aria-label="内容字号">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>05圆圈大小</span>
+              <span id="skillRingSizeValue">96px</span>
+            </div>
+            <input id="skillRingSizeRange" type="range" min="56" max="150" step="1" value="96" aria-label="05圆圈大小">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>05技能上下位置</span>
+              <span id="skillOffsetYValue">-72px</span>
+            </div>
+            <input id="skillOffsetYRange" type="range" min="-240" max="120" step="1" value="-72" aria-label="05技能上下位置">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="group-title">Photo, Name & Contact</div>
+        <div class="spacing-list">
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>头像大小</span>
+              <span id="avatarSizeValue">100%</span>
+            </div>
+            <input id="avatarSizeRange" type="range" min="70" max="220" step="1" value="100" aria-label="头像大小">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>头像左右位置</span>
+              <span id="avatarOffsetXValue">0px</span>
+            </div>
+            <input id="avatarOffsetXRange" type="range" min="-200" max="200" step="1" value="0" aria-label="头像左右位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>头像上下位置</span>
+              <span id="avatarOffsetYValue">0px</span>
+            </div>
+            <input id="avatarOffsetYRange" type="range" min="-200" max="200" step="1" value="0" aria-label="头像上下位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>姓名/求职方向左右</span>
+              <span id="nameOffsetXValue">0px</span>
+            </div>
+            <input id="nameOffsetXRange" type="range" min="-200" max="200" step="1" value="0" aria-label="姓名和求职方向左右位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>姓名/求职方向上下</span>
+              <span id="nameOffsetYValue">0px</span>
+            </div>
+            <input id="nameOffsetYRange" type="range" min="-200" max="200" step="1" value="0" aria-label="姓名和求职方向上下位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>联系方式左右位置</span>
+              <span id="contactOffsetXValue">0px</span>
+            </div>
+            <input id="contactOffsetXRange" type="range" min="-200" max="200" step="1" value="0" aria-label="联系方式左右位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>联系方式上下位置</span>
+              <span id="contactOffsetYValue">0px</span>
+            </div>
+            <input id="contactOffsetYRange" type="range" min="-200" max="200" step="1" value="0" aria-label="联系方式上下位置">
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-row-head">
+              <span>联系方式间距</span>
+              <span id="contactGapValue">8px</span>
+            </div>
+            <input id="contactGapRange" type="range" min="0" max="40" step="1" value="8" aria-label="联系方式间距">
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="preview-wrap">
+      <div class="preview-toolbar">
+        <div>
+          <h2>实时预览</h2>
+          <div class="preview-note">A4 预览，导出时可选择“保存为 PDF”。</div>
+        </div>
+        <button id="printBtn" class="btn" type="button">打印 / 保存为 PDF</button>
+      </div>
+      <div class="preview-shell">
+        <div class="preview-canvas">
+          <div id="resumePage" class="resume-page template-sidebar">
+            <div id="resumeInner" class="resume-inner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  const STORAGE_KEY = "resumeStudio:v1";
+
+  const labelMap = {
+    zh: {
+      summary: "个人简介",
+      education: "教育经历",
+      experience: "工作经历",
+      projects: "项目经历",
+      skills: "技能工具",
+      languages: "语言能力",
+      awards: "证书 / 获奖",
+      contact: "联系方式",
+      qr: "作品集链接"
+    },
+    en: {
+      summary: "Professional Statement",
+      education: "Education",
+      experience: "Work Experience",
+      projects: "Project Experience",
+      skills: "Expertise",
+      languages: "Languages",
+      awards: "Awards & Certificates",
+      contact: "Contact",
+      qr: "Portfolio Link"
+    },
+    bilingual: {
+      summary: "个人简介 / Statement",
+      education: "教育经历 / Education",
+      experience: "工作经历 / Experience",
+      projects: "项目经历 / Projects",
+      skills: "技能工具 / Skills",
+      languages: "语言能力 / Languages",
+      awards: "证书获奖 / Awards",
+      contact: "联系方式 / Contact",
+      qr: "作品集链接 / Portfolio"
+    }
+  };
+
+  const defaultModules = [
+    { key: "summary", visible: true },
+    { key: "education", visible: true },
+    { key: "experience", visible: true },
+    { key: "projects", visible: true },
+    { key: "skills", visible: true },
+    { key: "languages", visible: true },
+    { key: "awards", visible: true },
+    { key: "qr", visible: false }
+  ];
+
+  const templateConfig = {
+    sidebar: { photo: true, note: "当前模板是头像版：线性人像款，头像在左上方，联系信息以图标纵向展示。" },
+    timeline: { photo: false, note: "当前模板是无头像版：重点放在经历时间线。" },
+    international: { photo: false, note: "当前模板是无头像版：更适合英文/外企投递。" },
+    visual: { photo: true, note: "当前模板是头像版：适合视觉、内容、创意方向。" },
+    soft: { photo: true, note: "当前模板是头像版：商务金线款，左侧为头像与联系信息，右侧突出主要经历。" },
+    darkside: { photo: true, note: "当前模板是头像版：深色侧栏会承接头像。" },
+    namecard: { photo: true, note: "当前模板是头像版：顶部名片区会展示头像。" },
+    gold: { photo: true, note: "当前模板是头像版：头像会和暖色侧栏结合。" },
+    editorial: { photo: true, note: "当前模板是可头像版：有头像时像杂志版面，没有头像时自动转为文字版头部。" },
+    metroline: { photo: true, note: "当前模板是可头像版：左侧可放头像，姓名与联系信息都可微调。" },
+    profileband: { photo: true, note: "当前模板是头像版：左侧信息栏搭配头像，右侧展示正文经历。" },
+    portraitpanel: { photo: true, note: "当前模板是头像版：右上肖像与联系信息形成重点。" }
+  };
+
+  function templateSupportsPhoto(template) {
+    return templateConfig[template]?.photo === true;
+  }
+
+  function defaultGapFor(key) {
+    const defaults = { summary: 18, education: 24, experience: 26, projects: 24, skills: 22, languages: 20, awards: 20, qr: 18 };
+    return defaults[key] || 22;
+  }
+
+  function normalizeModuleGaps(gaps) {
+    const incoming = gaps && typeof gaps === "object" ? gaps : {};
+    return Object.fromEntries(defaultModules.map(module => {
+      const raw = Number(incoming[module.key]);
+      const value = Number.isFinite(raw) ? Math.max(0, Math.min(120, raw)) : defaultGapFor(module.key);
+      return [module.key, value];
+    }));
+  }
+
+  function currentModuleGaps() {
+    if (!state.templateGaps || typeof state.templateGaps !== "object") state.templateGaps = {};
+    state.templateGaps[state.template] = normalizeModuleGaps(state.templateGaps[state.template]);
+    return state.templateGaps[state.template];
+  }
+
+  function setCurrentModuleGap(key, value) {
+    const gaps = currentModuleGaps();
+    gaps[key] = Math.max(0, Math.min(120, Number(value) || 0));
+    state.templateGaps[state.template] = normalizeModuleGaps(gaps);
+  }
+
+
+  function defaultTune() {
+    return {
+      avatarSize: 100,
+      avatarOffsetX: 0,
+      avatarOffsetY: 0,
+      nameOffsetX: 0,
+      nameOffsetY: 0,
+      contactOffsetX: 0,
+      contactOffsetY: 0,
+      contactGap: 8,
+      sectionTitleSize: 12,
+      bodyFontSize: 11.5,
+      skillRingSize: 96,
+      skillOffsetY: -72
+    };
+  }
+
+  function normalizeTune(input) {
+    const incoming = input && typeof input === "object" ? input : {};
+    return {
+      avatarSize: Math.max(70, Math.min(220, Number(incoming.avatarSize) || 100)),
+      avatarOffsetX: Math.max(-200, Math.min(200, Number(incoming.avatarOffsetX) || 0)),
+      avatarOffsetY: Math.max(-200, Math.min(200, Number(incoming.avatarOffsetY) || 0)),
+      nameOffsetX: Math.max(-200, Math.min(200, Number(incoming.nameOffsetX) || 0)),
+      nameOffsetY: Math.max(-200, Math.min(200, Number(incoming.nameOffsetY) || 0)),
+      contactOffsetX: Math.max(-200, Math.min(200, Number(incoming.contactOffsetX) || 0)),
+      contactOffsetY: Math.max(-200, Math.min(200, Number(incoming.contactOffsetY) || 0)),
+      contactGap: Math.max(0, Math.min(40, Number(incoming.contactGap) || 8)),
+      sectionTitleSize: Math.max(8, Math.min(24, Number(incoming.sectionTitleSize) || 12)),
+      bodyFontSize: Math.max(8, Math.min(20, Number(incoming.bodyFontSize) || 11.5)),
+      skillRingSize: Math.max(56, Math.min(150, Number(incoming.skillRingSize) || 96)),
+      skillOffsetY: Math.max(-240, Math.min(120, Number(incoming.skillOffsetY) || -72))
+    };
+  }
+
+  function currentTune() {
+    if (!state.templateTweaks || typeof state.templateTweaks !== "object") state.templateTweaks = {};
+    state.templateTweaks[state.template] = normalizeTune(state.templateTweaks[state.template]);
+    return state.templateTweaks[state.template];
+  }
+
+  function setCurrentTuneValue(key, value) {
+    const tune = currentTune();
+    tune[key] = value;
+    state.templateTweaks[state.template] = normalizeTune(tune);
+  }
+
+  const els = {
+    nameInput: document.getElementById("nameInput"),
+    roleInput: document.getElementById("roleInput"),
+    contactInput: document.getElementById("contactInput"),
+    summaryInput: document.getElementById("summaryInput"),
+    educationInput: document.getElementById("educationInput"),
+    experienceInput: document.getElementById("experienceInput"),
+    projectInput: document.getElementById("projectInput"),
+    awardsInput: document.getElementById("awardsInput"),
+    jobRequirementInput: document.getElementById("jobRequirementInput"),
+    skillsInput: document.getElementById("skillsInput"),
+    languageInput: document.getElementById("languageInput"),
+    avatarInput: document.getElementById("avatarInput"),
+    avatarPreview: document.getElementById("avatarPreview"),
+    removeAvatarBtn: document.getElementById("removeAvatarBtn"),
+    languageToggle: document.getElementById("languageToggle"),
+    templateList: document.getElementById("templateList"),
+    templateAvatarNote: document.getElementById("templateAvatarNote"),
+    moduleList: document.getElementById("moduleList"),
+    gapList: document.getElementById("gapList"),
+    sectionTitleSizeRange: document.getElementById("sectionTitleSizeRange"),
+    sectionTitleSizeValue: document.getElementById("sectionTitleSizeValue"),
+    bodyFontSizeRange: document.getElementById("bodyFontSizeRange"),
+    bodyFontSizeValue: document.getElementById("bodyFontSizeValue"),
+    skillRingSizeRange: document.getElementById("skillRingSizeRange"),
+    skillRingSizeValue: document.getElementById("skillRingSizeValue"),
+    skillOffsetYRange: document.getElementById("skillOffsetYRange"),
+    skillOffsetYValue: document.getElementById("skillOffsetYValue"),
+    avatarSizeRange: document.getElementById("avatarSizeRange"),
+    avatarSizeValue: document.getElementById("avatarSizeValue"),
+    avatarOffsetXRange: document.getElementById("avatarOffsetXRange"),
+    avatarOffsetXValue: document.getElementById("avatarOffsetXValue"),
+    avatarOffsetYRange: document.getElementById("avatarOffsetYRange"),
+    avatarOffsetYValue: document.getElementById("avatarOffsetYValue"),
+    nameOffsetXRange: document.getElementById("nameOffsetXRange"),
+    nameOffsetXValue: document.getElementById("nameOffsetXValue"),
+    nameOffsetYRange: document.getElementById("nameOffsetYRange"),
+    nameOffsetYValue: document.getElementById("nameOffsetYValue"),
+    contactOffsetXRange: document.getElementById("contactOffsetXRange"),
+    contactOffsetXValue: document.getElementById("contactOffsetXValue"),
+    contactOffsetYRange: document.getElementById("contactOffsetYRange"),
+    contactOffsetYValue: document.getElementById("contactOffsetYValue"),
+    contactGapRange: document.getElementById("contactGapRange"),
+    contactGapValue: document.getElementById("contactGapValue"),
+    resumePage: document.getElementById("resumePage"),
+    resumeInner: document.getElementById("resumeInner"),
+    saveStatus: document.getElementById("saveStatus"),
+    exportPdfBtn: document.getElementById("exportPdfBtn"),
+    printBtn: document.getElementById("printBtn"),
+    resetBtn: document.getElementById("resetBtn")
+  };
+
+  let state = {
+    template: "sidebar",
+    language: "zh",
+    modules: structuredClone(defaultModules),
+    moduleGaps: {},
+    templateGaps: {},
+    templateTweaks: {},
+    avatarImage: ""
+  };
+
+  function escapeHTML(text) {
+    return String(text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function parseLines(text) {
+    return String(text || "")
+      .split("\n")
+      .map(line => line.trim())
+      .filter(Boolean);
+  }
+
+  function parseRichItems(text) {
+    return parseLines(text).map(line => {
+      const parts = line.split(/[｜|]/).map(item => item.trim());
+      return {
+        title: parts[0] || "Untitled",
+        time: parts[1] || "",
+        role: parts[2] || "",
+        desc: parts.slice(3).join("｜") || ""
+      };
+    });
+  }
+
+  function parseSkills(text) {
+    return parseLines(text).map(line => {
+      const parts = line.split(/[｜|]/).map(item => item.trim());
+      return {
+        name: parts[0] || "Skill",
+        level: Math.max(10, Math.min(100, Number(parts[1]) || 78))
+      };
+    });
+  }
+
+  function getLabel(key) {
+    return labelMap[state.language]?.[key] || labelMap.zh[key] || key;
+  }
+
+  function getData() {
+    return {
+      name: els.nameInput.value.trim() || "Your Name",
+      role: els.roleInput.value.trim() || "Your Role",
+      contact: els.contactInput.value.trim(),
+      summary: els.summaryInput.value.trim(),
+      education: els.educationInput.value,
+      experience: els.experienceInput.value,
+      projects: els.projectInput.value,
+      awards: els.awardsInput.value,
+      skills: els.skillsInput.value,
+      languages: els.languageInput.value,
+      avatarImage: state.avatarImage
+    };
+  }
+
+  function photoHTML(data, force = false) {
+    if (!data.avatarImage) return "";
+    if (!force && !templateSupportsPhoto(state.template)) return "";
+    return `<img class="resume-photo" src="${data.avatarImage}" alt="Profile photo">`;
+  }
+
+  function updateAvatarNotice() {
+    if (!els.templateAvatarNote) return;
+    const config = templateConfig[state.template] || templateConfig.sidebar;
+    const extra = state.avatarImage && !templateSupportsPhoto(state.template)
+      ? " 你已经上传的头像会被保留，但在这个模板中自动隐藏。"
+      : "";
+    els.templateAvatarNote.textContent = config.note + extra;
+  }
+
+  function updateAvatarPreview() {
+    if (!els.avatarPreview) return;
+    if (state.avatarImage) {
+      els.avatarPreview.src = state.avatarImage;
+    } else {
+      const svg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><rect width="160" height="160" fill="#e8e3dc"/><circle cx="80" cy="62" r="28" fill="#cfc7bd"/><path d="M34 138c8-34 84-34 92 0" fill="#cfc7bd"/></svg>`);
+      els.avatarPreview.src = `data:image/svg+xml,${svg}`;
+    }
+  }
+
+  function readFileAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function itemHTML(item) {
+    const meta = [item.time, item.role].filter(Boolean).join(" · ");
+    return `
+      <div class="resume-item">
+        <strong>${escapeHTML(item.title)}</strong>
+        ${meta ? `<span>${escapeHTML(meta)}</span>` : ""}
+        ${item.desc ? `<div class="resume-text">${escapeHTML(item.desc)}</div>` : ""}
+      </div>
+    `;
+  }
+
+  function skillsTagsHTML(text) {
+    const skills = parseSkills(text);
+    if (!skills.length) return `<div class="resume-text">No skills added yet.</div>`;
+    return `<div class="skills-list">${skills.map(skill => `<span class="skill-tag">${escapeHTML(skill.name)}</span>`).join("")}</div>`;
+  }
+
+  function skillsBarsHTML(text) {
+    const skills = parseSkills(text);
+    if (!skills.length) return `<div class="resume-text">No skills added yet.</div>`;
+    return `<div class="bar-list">${skills.map(skill => `
+      <div class="bar-row">
+        <div>${escapeHTML(skill.name)}</div>
+        <div class="bar-track"><div class="bar-fill" style="--level:${skill.level}%"></div></div>
+      </div>
+    `).join("")}</div>`;
+  }
+
+  function simpleLinesHTML(text) {
+    const lines = parseLines(text);
+    if (!lines.length) return `<div class="resume-text">—</div>`;
+    return `<div class="resume-text">${lines.map(escapeHTML).join("\n")}</div>`;
+  }
+
+  function stackedNameHTML(name) {
+    const parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return "Your Name";
+    return parts.map(escapeHTML).join("<br>");
+  }
+
+  function parseContactPairs(text) {
+    return parseLines(text).map(line => {
+      const colon = line.indexOf(":");
+      const fullColon = line.indexOf("：");
+      const idx = colon > -1 ? colon : fullColon;
+      if (idx > -1) {
+        return { label: line.slice(0, idx).trim() || "Info", value: line.slice(idx + 1).trim() || "—" };
+      }
+      return { label: "Info", value: line.trim() || "—" };
+    });
+  }
+
+  function contactIcon(label) {
+    const key = String(label || "").toLowerCase();
+    if (key.includes("email") || key.includes("mail")) return "✉";
+    if (key.includes("phone") || key.includes("tel") || key.includes("mobile")) return "☎";
+    if (key.includes("location") || key.includes("address") || key.includes("city")) return "⌖";
+    if (key.includes("portfolio") || key.includes("web") || key.includes("link")) return "↗";
+    return "•";
+  }
+
+  function contactPairsHTML(text, options = {}) {
+    const { showIcons = false, itemClass = "contact-pair" } = options;
+    const items = parseContactPairs(text);
+    if (!items.length) return `<div class="resume-text">—</div>`;
+    return `<div class="contact-pairs">${items.map(item => `
+      <div class="${itemClass}">
+        ${showIcons ? `<span class="contact-icon">${contactIcon(item.label)}</span>` : ""}
+        <div class="contact-copy">
+          <strong>${escapeHTML(item.label)}</strong>
+          <span>${escapeHTML(item.value)}</span>
+        </div>
+      </div>
+    `).join("")}</div>`;
+  }
+
+  function inferLanguageLevel(line) {
+    const raw = String(line || "").toLowerCase();
+    if (raw.includes("native") || raw.includes("母语")) return 96;
+    if (raw.includes("fluent") || raw.includes("专业") || raw.includes("professional")) return 85;
+    const ielts = raw.match(/ielts\s*([0-9.]+)/i);
+    if (ielts) return Math.max(40, Math.min(96, Math.round(Number(ielts[1]) * 11)));
+    if (raw.includes("basic") || raw.includes("基础")) return 42;
+    if (raw.includes("intermediate") || raw.includes("中级")) return 60;
+    return 72;
+  }
+
+  function languageBarsHTML(text) {
+    const lines = parseLines(text);
+    if (!lines.length) return `<div class="resume-text">—</div>`;
+    return `<div class="soft05-lang-list">${lines.map(line => {
+      const label = line.split('|')[0].trim() || line.trim();
+      const level = inferLanguageLevel(line);
+      return `
+        <div class="soft05-lang-row">
+          <div class="soft05-lang-label">${escapeHTML(label)}</div>
+          <div class="soft05-lang-track"><div class="soft05-lang-fill" style="--level:${level}%"></div></div>
+        </div>
+      `;
+    }).join("")}</div>`;
+  }
+
+  function skillsDonutsHTML(text) {
+    const skills = parseSkills(text);
+    if (!skills.length) return `<div class="resume-text">No skills added yet.</div>`;
+    return `<div class="soft05-skill-rings">${skills.slice(0, 6).map(skill => `
+      <div class="soft05-skill-ring">
+        <div class="soft05-ring" style="--level:${skill.level}%">
+          <div class="soft05-ring-value">${skill.level}%</div>
+        </div>
+        <div class="soft05-ring-name">${escapeHTML(skill.name)}</div>
+      </div>
+    `).join("")}</div>`;
+  }
+
+  function sectionHTML(key, content) {
+    const gaps = currentModuleGaps();
+    const gap = gaps?.[key] ?? defaultGapFor(key);
+    const extraClass = key === "contact" ? " contact-section" : "";
+    return `
+      <section class="resume-section${extraClass}" data-module="${key}" style="--module-gap:${gap}px">
+        <h3>${escapeHTML(getLabel(key))}</h3>
+        ${content}
+      </section>
+    `;
+  }
+
+  function moduleContent(key, data, options = {}) {
+    const useBars = options.useBars || false;
+    const map = {
+      summary: `<div class="resume-text">${escapeHTML(data.summary)}</div>`,
+      education: parseRichItems(data.education).map(itemHTML).join("") || `<div class="resume-text">—</div>`,
+      experience: parseRichItems(data.experience).map(itemHTML).join("") || `<div class="resume-text">—</div>`,
+      projects: parseRichItems(data.projects).map(itemHTML).join("") || `<div class="resume-text">—</div>`,
+      awards: parseRichItems(data.awards).map(itemHTML).join("") || `<div class="resume-text">—</div>`,
+      skills: useBars ? skillsBarsHTML(data.skills) : skillsTagsHTML(data.skills),
+      languages: simpleLinesHTML(data.languages),
+      qr: `<div class="qr-box">QR CODE<br>Portfolio</div>`
+    };
+    return map[key] || "";
+  }
+
+  function renderModulesFor(keys, data, options = {}) {
+    return state.modules
+      .filter(module => module.visible && keys.includes(module.key))
+      .map(module => sectionHTML(module.key, moduleContent(module.key, data, options)))
+      .join("");
+  }
+
+  function buildHeader(data, { allowPhoto = false, editorial = false } = {}) {
+    const hasPhoto = Boolean(data.avatarImage && allowPhoto);
+
+    if (editorial) {
+      return `
+        <header class="resume-header ${hasPhoto ? "" : "no-photo"}">
+          ${hasPhoto ? photoHTML(data, true) : ""}
+          <div>
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+            <div class="resume-contact">${escapeHTML(data.contact)}</div>
+          </div>
+        </header>
+      `;
+    }
+
+    return `
+      <header class="resume-header ${hasPhoto ? "with-photo" : "no-photo"}">
+        <div>
+          <div class="identity-block">
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+        </div>
+        <div class="resume-contact">${escapeHTML(data.contact)}</div>
+      </header>
+    `;
+  }
+
+  function renderPreviewRaw() {
+    const data = getData();
+    const templateClass = `template-${state.template}`;
+    const allowPhoto = templateSupportsPhoto(state.template);
+    els.resumePage.className = `resume-page ${templateClass}`;
+    els.resumePage.classList.toggle("has-photo", Boolean(data.avatarImage && allowPhoto));
+    els.resumePage.classList.toggle("photo-hidden", Boolean(data.avatarImage && !allowPhoto));
+    const tune = currentTune();
+    els.resumePage.style.setProperty("--avatar-scale", String(tune.avatarSize / 100));
+    els.resumePage.style.setProperty("--avatar-offset-x", `${tune.avatarOffsetX}px`);
+    els.resumePage.style.setProperty("--avatar-offset-y", `${tune.avatarOffsetY}px`);
+    els.resumePage.style.setProperty("--name-offset-x", `${tune.nameOffsetX}px`);
+    els.resumePage.style.setProperty("--name-offset-y", `${tune.nameOffsetY}px`);
+    els.resumePage.style.setProperty("--contact-offset-x", `${tune.contactOffsetX}px`);
+    els.resumePage.style.setProperty("--contact-offset-y", `${tune.contactOffsetY}px`);
+    els.resumePage.style.setProperty("--contact-gap", `${tune.contactGap}px`);
+    els.resumePage.style.setProperty("--section-title-size", `${tune.sectionTitleSize}px`);
+    els.resumePage.style.setProperty("--body-font-size", `${tune.bodyFontSize}px`);
+    els.resumePage.style.setProperty("--skill-ring-size", `${tune.skillRingSize}px`);
+    els.resumePage.style.setProperty("--skill-offset-y", `${tune.skillOffsetY}px`);
+
+    const allKeys = state.modules.map(m => m.key);
+    const mainKeys = ["summary", "education", "experience", "projects", "awards"];
+
+    if (state.template === "minimal") {
+      els.resumeInner.innerHTML = `${buildHeader(data)}${renderModulesFor(allKeys, data)}`;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "sidebar") {
+      const isVisible = key => state.modules.some(module => module.key === key && module.visible);
+      const sidebarAvatar = data.avatarImage ? photoHTML(data, true) : `<div class="sidebar01-photo-placeholder"></div>`;
+      els.resumeInner.innerHTML = `
+        <section class="sidebar01-top">
+          <aside class="sidebar01-idcol">
+            <div class="sidebar01-portrait">${sidebarAvatar}</div>
+            ${isVisible("contact") ? `<div class="sidebar01-contact-list">${contactPairsHTML(data.contact, { showIcons: true, itemClass: "sidebar01-contact-item" })}</div>` : ""}
+          </aside>
+          <div class="sidebar01-headcopy">
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+            ${isVisible("summary") ? sectionHTML("summary", `<div class="resume-text">${escapeHTML(data.summary)}</div>`) : ""}
+          </div>
+        </section>
+        <section class="sidebar01-bottom">
+          <aside class="sidebar01-left">
+            ${renderModulesFor(["education", "skills", "languages", "awards"], data, { useBars: true })}
+          </aside>
+          <main class="sidebar01-right">
+            ${renderModulesFor(["experience", "projects"], data)}
+          </main>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "architect") {
+      els.resumeInner.innerHTML = `
+        <aside class="resume-left">
+          <div class="identity-block">
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+          ${sectionHTML("summary", `<div class="resume-text">${escapeHTML(data.summary)}</div>`)}
+          ${sectionHTML("contact", `<div class="resume-text">${escapeHTML(data.contact)}</div>`)}
+          ${renderModulesFor(["skills", "languages", "qr"], data)}
+        </aside>
+        <main class="resume-right">
+          ${renderModulesFor(["education", "awards", "experience", "projects"], data, { useBars: true })}
+        </main>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (["timeline", "international"].includes(state.template)) {
+      els.resumeInner.innerHTML = `${buildHeader(data)}${renderModulesFor(allKeys, data, { useBars: state.template === "timeline" })}`;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "visual") {
+      els.resumeInner.innerHTML = `
+        <section class="resume-hero">
+          <div>
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+          <div>
+            ${photoHTML(data)}
+            <div class="resume-contact">${escapeHTML(data.contact)}</div>
+          </div>
+        </section>
+        <section class="resume-body">
+          <main>${renderModulesFor(["summary", "experience", "projects", "education"], data)}</main>
+          <aside>${renderModulesFor(["skills", "languages", "awards", "qr"], data, { useBars: true })}</aside>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "soft") {
+      const isVisible = key => state.modules.some(module => module.key === key && module.visible);
+      const softAvatar = data.avatarImage ? photoHTML(data, true) : `<div class="soft05-photo-placeholder"></div>`;
+      els.resumeInner.innerHTML = `
+        <section class="soft05-layout">
+          <aside class="soft05-left">
+            <div class="soft05-avatar-wrap">${softAvatar}</div>
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+            ${isVisible("contact") ? sectionHTML("contact", `
+              <div class="soft05-contact-card">
+                <div class="soft05-contact-strip">${parseContactPairs(data.contact).map(item => `<span>${contactIcon(item.label)}</span>`).join("")}</div>
+                <div class="soft05-contact-copy">${contactPairsHTML(data.contact, { showIcons: true, itemClass: "soft05-contact-item" })}</div>
+              </div>
+            `) : ""}
+            ${renderModulesFor(["awards"], data)}
+            ${isVisible("languages") ? sectionHTML("languages", languageBarsHTML(data.languages)) : ""}
+          </aside>
+          <main class="soft05-main">
+            ${renderModulesFor(["summary", "experience", "education", "projects"], data)}
+            ${isVisible("skills") ? sectionHTML("skills", skillsDonutsHTML(data.skills)) : ""}
+          </main>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (["darkside", "gold"].includes(state.template)) {
+      els.resumeInner.innerHTML = `
+        <aside class="resume-left">
+          ${photoHTML(data)}
+          <div class="identity-block">
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+          ${sectionHTML("contact", `<div class="resume-text">${escapeHTML(data.contact)}</div>`)}
+          ${renderModulesFor(["skills", "languages", "qr"], data, { useBars: true })}
+        </aside>
+        <main class="resume-right">
+          ${renderModulesFor(mainKeys, data)}
+        </main>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "editorial") {
+      els.resumeInner.innerHTML = `${buildHeader(data, { allowPhoto, editorial: true })}${renderModulesFor(allKeys, data)}`;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "namecard") {
+      els.resumeInner.innerHTML = `
+        <section class="resume-hero">
+          <div>
+            <div class="identity-block">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+          <div>
+            ${photoHTML(data)}
+            <div class="resume-contact">${escapeHTML(data.contact)}</div>
+          </div>
+        </section>
+        <section class="resume-body">
+          <main>${renderModulesFor(["summary", "experience", "projects"], data)}</main>
+          <aside>${renderModulesFor(["education", "skills", "languages", "awards", "qr"], data, { useBars: true })}</aside>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "metroline") {
+      els.resumeInner.innerHTML = `
+        <section class="metro-top">
+          <div class="metro-id">
+            ${data.avatarImage ? `<div class="metro-avatar">${photoHTML(data)}</div>` : ""}
+            <div class="metro-name-block">
+              <h1 class="resume-name metro-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role metro-role">${escapeHTML(data.role)}</div>
+            </div>
+          </div>
+          <div class="metro-contact-wrap">
+            <div class="metro-contact-strip">
+              ${parseContactPairs(data.contact).map(item => `<span>${contactIcon(item.label)}</span>`).join("")}
+            </div>
+            <div class="metro-contact-copy">${contactPairsHTML(data.contact, { itemClass: "metro-contact-item" })}</div>
+          </div>
+        </section>
+        <section class="metro-body">
+          <main class="metro-main">
+            ${renderModulesFor(["summary", "experience", "projects"], data)}
+          </main>
+          <aside class="metro-side">
+            ${renderModulesFor(["education", "skills", "languages", "awards", "qr"], data, { useBars: true })}
+          </aside>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "profileband") {
+      els.resumeInner.innerHTML = `
+        <section class="profileband-wrap">
+          <aside class="profileband-side">
+            <div class="profileband-photo">${photoHTML(data)}</div>
+            ${sectionHTML("contact", `<div class="resume-text">${escapeHTML(data.contact)}</div>`)}
+            ${renderModulesFor(["education", "skills", "languages"], data, { useBars: true })}
+          </aside>
+          <main class="profileband-main">
+            <header class="profileband-head">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </header>
+            ${renderModulesFor(["summary", "experience", "projects", "awards", "qr"], data)}
+          </main>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    if (state.template === "portraitpanel") {
+      els.resumeInner.innerHTML = `
+        <section class="portrait12-layout">
+          <div class="portrait12-rail">Resume</div>
+          <main class="portrait12-left">
+            <header class="portrait12-head">
+              <h1 class="resume-name">${escapeHTML(data.name)}</h1>
+              <div class="resume-role">${escapeHTML(data.role)}</div>
+            </header>
+            ${renderModulesFor(["summary", "experience", "projects", "awards", "qr"], data)}
+          </main>
+          <aside class="portrait12-right">
+            <div class="portrait12-photo">${photoHTML(data)}</div>
+            <div class="portrait12-contact-card">${contactPairsHTML(data.contact, { showIcons: true, itemClass: "portrait-contact-item" })}</div>
+            <div class="portrait12-side-content">
+              ${renderModulesFor(["education", "skills", "languages"], data, { useBars: false })}
+            </div>
+          </aside>
+        </section>
+      `;
+      updateAvatarNotice();
+      return;
+    }
+
+    els.resumeInner.innerHTML = `${buildHeader(data)}${renderModulesFor(allKeys, data)}`;
+    updateAvatarNotice();
+  }
+
+  function clearBalanceMode() {
+    els.resumePage.classList.remove("fit-loose", "fit-comfort", "fit-compact", "fit-dense");
+  }
+
+  function contentScore() {
+    const data = getData();
+    const visible = new Set(state.modules.filter(m => m.visible).map(m => m.key));
+    let score = 0;
+    if (visible.has("summary")) score += Math.ceil((data.summary || "").length / 80) + 2;
+    if (visible.has("education")) score += parseRichItems(data.education).length * 4;
+    if (visible.has("experience")) score += parseRichItems(data.experience).length * 5;
+    if (visible.has("projects")) score += parseRichItems(data.projects).length * 4;
+    if (visible.has("awards")) score += parseRichItems(data.awards).length * 3;
+    if (visible.has("skills")) score += Math.ceil(parseSkills(data.skills).length * 0.9);
+    if (visible.has("languages")) score += parseLines(data.languages).length;
+    score += Math.ceil(parseLines(data.contact).length * 0.8);
+    return score;
+  }
+
+  function baseBalanceClass() {
+    const score = contentScore();
+    if (score <= 20) return "fit-loose";
+    if (score <= 34) return "fit-comfort";
+    if (score <= 50) return "fit-compact";
+    return "fit-dense";
+  }
+
+  function renderPreview() {
+    clearBalanceMode();
+    renderPreviewRaw();
+    clearBalanceMode();
+    els.resumePage.classList.add(baseBalanceClass());
+  }
+
+  function normalizeModules(modules) {
+    const incoming = Array.isArray(modules) ? modules : [];
+    const byKey = new Map(incoming.map(m => [m.key, { key: m.key, visible: m.visible !== false }]));
+    const result = [];
+    incoming.forEach(m => {
+      if (defaultModules.some(dm => dm.key === m.key) && !result.some(x => x.key === m.key)) {
+        result.push({ key: m.key, visible: m.visible !== false });
+      }
+    });
+    defaultModules.forEach(dm => {
+      if (!result.some(x => x.key === dm.key)) result.push({ ...dm });
+    });
+    return result;
+  }
+
+
+  function renderGapList() {
+    if (!els.gapList) return;
+    const gaps = currentModuleGaps();
+    els.gapList.innerHTML = state.modules.map(module => {
+      const value = gaps[module.key] ?? defaultGapFor(module.key);
+      return `
+        <div class="spacing-row" data-key="${module.key}">
+          <div class="spacing-row-head">
+            <span>${escapeHTML(getLabel(module.key))}</span>
+            <span>${value}px</span>
+          </div>
+          <input type="range" min="0" max="120" step="1" value="${value}" aria-label="${escapeHTML(getLabel(module.key))} 间距">
+        </div>
+      `;
+    }).join("");
+  }
+
+
+  function renderFineTuneControls() {
+    const tune = currentTune();
+    if (els.avatarSizeRange) els.avatarSizeRange.value = String(tune.avatarSize);
+    if (els.avatarSizeValue) els.avatarSizeValue.textContent = `${tune.avatarSize}%`;
+    if (els.avatarOffsetXRange) els.avatarOffsetXRange.value = String(tune.avatarOffsetX);
+    if (els.avatarOffsetXValue) els.avatarOffsetXValue.textContent = `${tune.avatarOffsetX}px`;
+    if (els.avatarOffsetYRange) els.avatarOffsetYRange.value = String(tune.avatarOffsetY);
+    if (els.avatarOffsetYValue) els.avatarOffsetYValue.textContent = `${tune.avatarOffsetY}px`;
+    if (els.nameOffsetXRange) els.nameOffsetXRange.value = String(tune.nameOffsetX);
+    if (els.nameOffsetXValue) els.nameOffsetXValue.textContent = `${tune.nameOffsetX}px`;
+    if (els.nameOffsetYRange) els.nameOffsetYRange.value = String(tune.nameOffsetY);
+    if (els.nameOffsetYValue) els.nameOffsetYValue.textContent = `${tune.nameOffsetY}px`;
+    if (els.contactOffsetXRange) els.contactOffsetXRange.value = String(tune.contactOffsetX);
+    if (els.contactOffsetXValue) els.contactOffsetXValue.textContent = `${tune.contactOffsetX}px`;
+    if (els.contactOffsetYRange) els.contactOffsetYRange.value = String(tune.contactOffsetY);
+    if (els.contactOffsetYValue) els.contactOffsetYValue.textContent = `${tune.contactOffsetY}px`;
+    if (els.contactGapRange) els.contactGapRange.value = String(tune.contactGap);
+    if (els.contactGapValue) els.contactGapValue.textContent = `${tune.contactGap}px`;
+    if (els.sectionTitleSizeRange) els.sectionTitleSizeRange.value = String(tune.sectionTitleSize);
+    if (els.sectionTitleSizeValue) els.sectionTitleSizeValue.textContent = `${tune.sectionTitleSize}px`;
+    if (els.bodyFontSizeRange) els.bodyFontSizeRange.value = String(tune.bodyFontSize);
+    if (els.bodyFontSizeValue) els.bodyFontSizeValue.textContent = `${tune.bodyFontSize}px`;
+    if (els.skillRingSizeRange) els.skillRingSizeRange.value = String(tune.skillRingSize);
+    if (els.skillRingSizeValue) els.skillRingSizeValue.textContent = `${tune.skillRingSize}px`;
+    if (els.skillOffsetYRange) els.skillOffsetYRange.value = String(tune.skillOffsetY);
+    if (els.skillOffsetYValue) els.skillOffsetYValue.textContent = `${tune.skillOffsetY}px`;
+  }
+
+  function setTemplate(template) {
+    state.template = templateConfig[template] ? template : "sidebar";
+    currentTune();
+    currentModuleGaps();
+    document.querySelectorAll(".template-card").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.template === state.template);
+    });
+    updateAvatarNotice();
+    renderFineTuneControls();
+    renderGapList();
+    renderPreview();
+    saveState();
+  }
+
+  function setLanguage(language) {
+    state.language = language || "zh";
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === state.language);
+    });
+    renderModuleList();
+    renderGapList();
+    renderPreview();
+    saveState();
+  }
+
+  function renderModuleList() {
+    els.moduleList.innerHTML = state.modules.map((module, index) => `
+      <div class="module-row" data-key="${module.key}">
+        <input type="checkbox" ${module.visible ? "checked" : ""} aria-label="显示${escapeHTML(getLabel(module.key))}">
+        <div class="module-title">${escapeHTML(getLabel(module.key))}</div>
+        <div class="move-actions">
+          <button class="mini-btn" type="button" data-action="up" ${index === 0 ? "disabled" : ""}>↑</button>
+          <button class="mini-btn" type="button" data-action="down" ${index === state.modules.length - 1 ? "disabled" : ""}>↓</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function saveState() {
+    const payload = {
+      ...state,
+      fields: {
+        name: els.nameInput.value,
+        role: els.roleInput.value,
+        contact: els.contactInput.value,
+        summary: els.summaryInput.value,
+        education: els.educationInput.value,
+        experience: els.experienceInput.value,
+        projects: els.projectInput.value,
+        awards: els.awardsInput.value,
+        skills: els.skillsInput.value,
+        languages: els.languageInput.value
+      }
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    els.saveStatus.textContent = "已自动保存";
+    window.clearTimeout(saveState._timer);
+    saveState._timer = window.setTimeout(() => {
+      els.saveStatus.textContent = "已开启本地保存";
+    }, 900);
+  }
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw);
+      state.template = saved.template || state.template;
+      state.language = saved.language || state.language;
+      state.modules = normalizeModules(saved.modules);
+      state.moduleGaps = normalizeModuleGaps(saved.moduleGaps);
+      state.templateGaps = {};
+      if (saved.templateGaps && typeof saved.templateGaps === "object") {
+        Object.keys(saved.templateGaps).forEach(template => {
+          state.templateGaps[template] = normalizeModuleGaps(saved.templateGaps[template]);
+        });
+      } else if (saved.moduleGaps) {
+        // 兼容旧版本：把旧的全局板块间距迁移到当前模板里
+        state.templateGaps[state.template] = normalizeModuleGaps(saved.moduleGaps);
+      }
+      state.templateTweaks = {};
+      if (saved.templateTweaks && typeof saved.templateTweaks === "object") {
+        Object.keys(saved.templateTweaks).forEach(template => {
+          state.templateTweaks[template] = normalizeTune(saved.templateTweaks[template]);
+        });
+      } else {
+        // 兼容旧版本：把旧的全局调节值迁移到当前模板里
+        state.templateTweaks[state.template] = normalizeTune({
+          avatarSize: saved.avatarSize,
+          avatarOffsetX: saved.avatarOffsetX,
+          avatarOffsetY: saved.avatarOffsetY,
+          nameOffsetX: saved.nameOffsetX,
+          contactOffsetX: saved.contactOffsetX,
+          contactOffsetY: saved.contactOffsetY,
+          contactGap: saved.contactGap
+        });
+      }
+      state.avatarImage = saved.avatarImage || "";
+      const f = saved.fields || {};
+      if (f.name !== undefined) els.nameInput.value = f.name;
+      if (f.role !== undefined) els.roleInput.value = f.role;
+      if (f.contact !== undefined) els.contactInput.value = f.contact;
+      if (f.summary !== undefined) els.summaryInput.value = f.summary;
+      if (f.education !== undefined) els.educationInput.value = f.education;
+      if (f.experience !== undefined) els.experienceInput.value = f.experience;
+      if (f.projects !== undefined) els.projectInput.value = f.projects;
+      if (f.awards !== undefined) els.awardsInput.value = f.awards;
+      if (f.skills !== undefined) els.skillsInput.value = f.skills;
+      if (f.languages !== undefined) els.languageInput.value = f.languages;
+    } catch (error) {
+      console.warn("本地保存数据读取失败，已使用默认内容。", error);
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
+
+  function applyViewMode() {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    if (mode === "view") {
+      document.body.classList.add("view-mode");
+      document.querySelector(".editor")?.remove();
+      document.querySelector(".control-panel")?.remove();
+      document.querySelector(".top-actions")?.remove();
+      document.querySelector(".product-desc")?.remove();
+      document.querySelector(".layout")?.style.setProperty("grid-template-columns", "1fr");
+    }
+  }
+
+  function measureContentScale() {
+    const page = els.resumePage;
+    const inner = els.resumeInner;
+    if (!page || !inner) return 1;
+
+    const pageWidth = page.offsetWidth || 794;
+    const pageHeight = page.offsetHeight || 1123;
+    const contentWidth = Math.max(inner.scrollWidth, inner.offsetWidth, 1);
+    const contentHeight = Math.max(inner.scrollHeight, inner.offsetHeight, 1);
+
+    const heightScale = pageHeight / contentHeight;
+    const widthScale = pageWidth / contentWidth;
+    return Math.min(1, heightScale, widthScale);
+  }
+
+  function calculateOnePageScale() {
+    const scale = measureContentScale();
+    return Math.max(0.62, Math.floor(scale * 100) / 100);
+  }
+
+  function clearFitMode() {
+    clearBalanceMode();
+  }
+
+  function applyAutoFitMode() {
+    clearBalanceMode();
+
+    const modes = [baseBalanceClass(), "fit-comfort", "fit-compact", "fit-dense"];
+    const orderedModes = [...new Set(modes)];
+
+    for (const mode of orderedModes) {
+      clearBalanceMode();
+      els.resumePage.classList.add(mode);
+      const scale = measureContentScale();
+      if (scale >= 0.995) {
+        return { mode, scale: 1 };
+      }
+    }
+
+    clearBalanceMode();
+    els.resumePage.classList.add("fit-dense");
+    const finalScale = Math.max(0.70, Math.floor(measureContentScale() * 100) / 100);
+    return { mode: "fit-dense-scale", scale: finalScale };
+  }
+
+  function fitModeText(result) {
+    if (result.scale < 1) return `已自动调整排版，并按 ${Math.round(result.scale * 100)}% 导出为一页 PDF`;
+    return "已自动调整排版，导出为一页 PDF";
+  }
+
+  function printOnePagePDF() {
+    // 保持当前预览版式导出：不再临时缩放、不再切换紧凑模式，避免 PDF 和预览不一致。
+    renderPreview();
+
+    requestAnimationFrame(() => {
+      document.documentElement.style.setProperty("--print-scale", "1");
+      if (els.saveStatus) els.saveStatus.textContent = "已按当前预览样式导出 PDF";
+      window.setTimeout(() => window.print(), 30);
+    });
+  }
+
+  window.addEventListener("afterprint", () => {
+    document.documentElement.style.removeProperty("--print-scale");
+    renderPreview();
+    if (els.saveStatus) els.saveStatus.textContent = "";
+  });
+
+  function bindEvents() {
+    const inputs = [
+      els.nameInput, els.roleInput, els.contactInput, els.summaryInput, els.educationInput,
+      els.experienceInput, els.projectInput, els.awardsInput, els.skillsInput, els.languageInput
+    ];
+
+    inputs.forEach(input => {
+      input.addEventListener("input", () => {
+        renderPreview();
+        saveState();
+      });
+    });
+
+    els.templateList.addEventListener("click", event => {
+      const btn = event.target.closest(".template-card");
+      if (!btn) return;
+      setTemplate(btn.dataset.template);
+    });
+
+    els.languageToggle.addEventListener("click", event => {
+      const btn = event.target.closest(".lang-btn");
+      if (!btn) return;
+      setLanguage(btn.dataset.lang);
+    });
+
+    els.moduleList.addEventListener("click", event => {
+      const row = event.target.closest(".module-row");
+      if (!row) return;
+      const key = row.dataset.key;
+      const index = state.modules.findIndex(module => module.key === key);
+      if (index < 0) return;
+
+      if (event.target.matches('input[type="checkbox"]')) {
+        state.modules[index].visible = event.target.checked;
+      }
+
+      if (event.target.dataset.action === "up" && index > 0) {
+        [state.modules[index - 1], state.modules[index]] = [state.modules[index], state.modules[index - 1]];
+      }
+
+      if (event.target.dataset.action === "down" && index < state.modules.length - 1) {
+        [state.modules[index + 1], state.modules[index]] = [state.modules[index], state.modules[index + 1]];
+      }
+
+      renderModuleList();
+      renderGapList();
+      renderPreview();
+      saveState();
+    });
+
+    if (els.gapList) {
+      els.gapList.addEventListener("input", event => {
+        const row = event.target.closest(".spacing-row");
+        if (!row || !event.target.matches('input[type="range"]')) return;
+        const key = row.dataset.key;
+        setCurrentModuleGap(key, Number(event.target.value));
+        const value = currentModuleGaps()[key];
+        row.querySelector(".spacing-row-head span:last-child").textContent = `${value}px`;
+        renderPreview();
+        saveState();
+      });
+    }
+
+    els.sectionTitleSizeRange?.addEventListener("input", event => {
+      setCurrentTuneValue("sectionTitleSize", Math.max(8, Math.min(24, Number(event.target.value) || 12)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.bodyFontSizeRange?.addEventListener("input", event => {
+      setCurrentTuneValue("bodyFontSize", Math.max(8, Math.min(20, Number(event.target.value) || 11.5)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.skillRingSizeRange?.addEventListener("input", event => {
+      setCurrentTuneValue("skillRingSize", Math.max(56, Math.min(150, Number(event.target.value) || 96)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.skillOffsetYRange?.addEventListener("input", event => {
+      setCurrentTuneValue("skillOffsetY", Math.max(-240, Math.min(120, Number(event.target.value) || -72)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.avatarSizeRange?.addEventListener("input", event => {
+      setCurrentTuneValue("avatarSize", Math.max(70, Math.min(220, Number(event.target.value) || 100)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.avatarOffsetXRange?.addEventListener("input", event => {
+      setCurrentTuneValue("avatarOffsetX", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.avatarOffsetYRange?.addEventListener("input", event => {
+      setCurrentTuneValue("avatarOffsetY", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.nameOffsetXRange?.addEventListener("input", event => {
+      setCurrentTuneValue("nameOffsetX", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.nameOffsetYRange?.addEventListener("input", event => {
+      setCurrentTuneValue("nameOffsetY", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.contactOffsetXRange?.addEventListener("input", event => {
+      setCurrentTuneValue("contactOffsetX", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.contactOffsetYRange?.addEventListener("input", event => {
+      setCurrentTuneValue("contactOffsetY", Math.max(-200, Math.min(200, Number(event.target.value) || 0)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.contactGapRange?.addEventListener("input", event => {
+      setCurrentTuneValue("contactGap", Math.max(0, Math.min(40, Number(event.target.value) || 8)));
+      renderFineTuneControls();
+      renderPreview();
+      saveState();
+    });
+
+    els.avatarInput.addEventListener("change", async event => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      state.avatarImage = await readFileAsDataURL(file);
+      updateAvatarPreview();
+      renderPreview();
+      saveState();
+      els.avatarInput.value = "";
+    });
+
+    els.removeAvatarBtn.addEventListener("click", () => {
+      state.avatarImage = "";
+      updateAvatarPreview();
+      renderPreview();
+      saveState();
+    });
+
+    els.printBtn.addEventListener("click", () => printOnePagePDF());
+    els.exportPdfBtn.addEventListener("click", () => printOnePagePDF());
+    els.resetBtn.addEventListener("click", () => {
+      const ok = confirm("确定要重置简历内容吗？这会清除本地保存的数据。");
+      if (!ok) return;
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.href = window.location.pathname;
+    });
+  }
+
+  function init() {
+    state.modules = normalizeModules(state.modules);
+    state.moduleGaps = normalizeModuleGaps(state.moduleGaps);
+    state.templateGaps = state.templateGaps || {};
+    state.templateTweaks = state.templateTweaks || {};
+    loadState();
+    if (!templateConfig[state.template]) state.template = "sidebar";
+    currentModuleGaps();
+    updateAvatarPreview();
+    renderModuleList();
+    renderGapList();
+    renderFineTuneControls();
+    setLanguage(state.language);
+    setTemplate(state.template);
+    bindEvents();
+    renderPreview();
+    applyViewMode();
+  }
+
+  // AI功能
+  let summaryTargetLang = "zh";
+
+  document.querySelectorAll(".summary-lang-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      document.querySelectorAll(".summary-lang-btn").forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+      summaryTargetLang = this.dataset.lang;
+    });
+  });
+
+  async function callAI(btnEl, btnTextEl, loadingText, fn) {
+    const originalText = btnTextEl.textContent;
+    btnEl.disabled = true;
+    btnTextEl.textContent = loadingText;
+    try {
+      await fn();
+    } catch(e) {
+      alert("网络错误，请稍后重试");
+    } finally {
+      btnEl.disabled = false;
+      btnTextEl.textContent = originalText;
+    }
+  }
+
+  function bindOptimizeButton(buttonId, textId, textareaEl, sectionType, emptyMsg) {
+    const button = document.getElementById(buttonId);
+    if (!button || !textareaEl) return;
+
+    button.addEventListener("click", function() {
+      const btn = this;
+      const btnText = document.getElementById(textId);
+      const content = textareaEl.value.trim();
+      if (!content) { alert(emptyMsg); return; }
+
+      callAI(btn, btnText, "AI优化中…", async () => {
+        const res = await fetch("/.netlify/functions/optimize-experience", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content, experience: content, sectionType })
+        });
+        const data = await res.json();
+        if (data.error) { alert(data.error); return; }
+        textareaEl.value = data.result;
+        renderPreview();
+        saveState();
+      });
+    });
+  }
+
+  bindOptimizeButton("optimizeExperienceBtn", "optimizeExperienceBtnText", els.experienceInput, "工作经历", "请先填写工作经历内容");
+  bindOptimizeButton("optimizeProjectBtn", "optimizeProjectBtnText", els.projectInput, "项目经历", "请先填写项目经历内容");
+  bindOptimizeButton("optimizeAwardsBtn", "optimizeAwardsBtnText", els.awardsInput, "证书 / 获奖经历", "请先填写证书 / 获奖经历内容");
+
+  document.getElementById("optimizeByJobBtn").addEventListener("click", function() {
+    const btn = this;
+    const btnText = document.getElementById("optimizeByJobBtnText");
+    const jobRequirement = els.jobRequirementInput.value.trim();
+    if (!jobRequirement) { alert("请先粘贴岗位要求 / JD"); return; }
+
+    callAI(btn, btnText, "匹配岗位中…", async () => {
+      const fields = {
+        role: els.roleInput.value,
+        summary: els.summaryInput.value,
+        education: els.educationInput.value,
+        experience: els.experienceInput.value,
+        projects: els.projectInput.value,
+        awards: els.awardsInput.value,
+        skills: els.skillsInput.value,
+        languages: els.languageInput.value
+      };
+
+      const res = await fetch("/.netlify/functions/optimize-by-job", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jobRequirement, fields })
+      });
+      const data = await res.json();
+      if (data.error) { alert(data.error); return; }
+      const r = data.result || {};
+      if (r.role !== undefined) els.roleInput.value = r.role;
+      if (r.summary !== undefined) els.summaryInput.value = r.summary;
+      if (r.experience !== undefined) els.experienceInput.value = r.experience;
+      if (r.projects !== undefined) els.projectInput.value = r.projects;
+      if (r.awards !== undefined) els.awardsInput.value = r.awards;
+      if (r.skills !== undefined) els.skillsInput.value = r.skills;
+      renderPreview();
+      saveState();
+      alert("已根据岗位要求优化个人简介、经历和技能。请再人工核对，避免出现不真实信息。");
+    });
+  });
+
+  document.getElementById("generateSummaryBtn").addEventListener("click", function() {
+    const btn = this;
+    const btnText = document.getElementById("generateSummaryBtnText");
+    callAI(btn, btnText, "AI生成中…", async () => {
+      const res = await fetch("/.netlify/functions/generate-summary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: els.nameInput.value,
+          role: els.roleInput.value,
+          education: els.educationInput.value,
+          experience: els.experienceInput.value,
+          skills: els.skillsInput.value,
+          targetLang: summaryTargetLang
+        })
+      });
+      const data = await res.json();
+      if (data.error) { alert(data.error); return; }
+      els.summaryInput.value = data.result;
+      renderPreview();
+      saveState();
+    });
+  });
+
+  // 翻译全文
+  let translateTargetLang = "en";
+  document.getElementById("translateBtn").addEventListener("click", function() {
+    const btn = this;
+    const btnText = document.getElementById("translateBtnText");
+    // 弹出语言选择
+    const choice = confirm("点击【确定】翻译成英文，点击【取消】翻译成中文");
+    translateTargetLang = choice ? "en" : "zh";
+
+    callAI(btn, btnText, "翻译中…", async () => {
+      const fields = {
+        role: els.roleInput.value,
+        summary: els.summaryInput.value,
+        education: els.educationInput.value,
+        experience: els.experienceInput.value,
+        projects: els.projectInput.value,
+        awards: els.awardsInput.value,
+        skills: els.skillsInput.value,
+        languages: els.languageInput.value
+      };
+
+      const res = await fetch("/.netlify/functions/translate-resume", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fields, targetLang: translateTargetLang })
+      });
+      const data = await res.json();
+      if (data.error) { alert(data.error); return; }
+      const r = data.result;
+      if (r.role !== undefined) els.roleInput.value = r.role;
+      if (r.summary !== undefined) els.summaryInput.value = r.summary;
+      if (r.education !== undefined) els.educationInput.value = r.education;
+      if (r.experience !== undefined) els.experienceInput.value = r.experience;
+      if (r.projects !== undefined) els.projectInput.value = r.projects;
+      if (r.awards !== undefined) els.awardsInput.value = r.awards;
+      if (r.skills !== undefined) els.skillsInput.value = r.skills;
+      if (r.languages !== undefined) els.languageInput.value = r.languages;
+      renderPreview();
+      saveState();
+    });
+  });
+
+  init();
+</script>
+
+<script>
+(function(){
+  const DAILY_FREE_LIMIT = 3;
+  const STORAGE_KEY = "baoLongResumeAiUsage_" + new Date().toISOString().slice(0, 10);
+  const AI_ENDPOINTS = [
+    "/.netlify/functions/optimize-experience",
+    "/.netlify/functions/generate-summary",
+    "/.netlify/functions/translate-resume",
+    "/.netlify/functions/optimize-by-job"
+  ];
+
+  function getUsedCount(){
+    return Number(localStorage.getItem(STORAGE_KEY) || "0");
+  }
+
+  function setUsedCount(count){
+    localStorage.setItem(STORAGE_KEY, String(count));
+    updateUsageBadge();
+  }
+
+  function isAiRequest(url){
+    const text = typeof url === "string" ? url : (url && url.url) || "";
+    return AI_ENDPOINTS.some(endpoint => text.includes(endpoint));
+  }
+
+  function updateUsageBadge(){
+    const left = Math.max(0, DAILY_FREE_LIMIT - getUsedCount());
+    let badge = document.getElementById("resumeAiUsageBadge");
+    if(!badge){
+      badge = document.createElement("div");
+      badge.id = "resumeAiUsageBadge";
+      badge.style.cssText = `
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 9999;
+        background: #111;
+        color: #fff;
+        border-radius: 999px;
+        padding: 11px 16px;
+        font-size: 13px;
+        box-shadow: 0 12px 28px rgba(0,0,0,.18);
+        letter-spacing: .02em;
+      `;
+      document.body.appendChild(badge);
+    }
+    badge.textContent = "AI free uses today: " + left + " / " + DAILY_FREE_LIMIT;
+  }
+
+  const originalFetch = window.fetch.bind(window);
+  window.fetch = async function(input, init){
+    if(isAiRequest(input)){
+      const used = getUsedCount();
+      if(used >= DAILY_FREE_LIMIT){
+        alert("今天的免费 AI 优化次数已用完。你可以明天继续使用，或后续购买更多次数。");
+        return new Response(JSON.stringify({
+          error: "Daily free AI limit reached"
+        }), {
+          status: 429,
+          headers: {"Content-Type": "application/json"}
+        });
+      }
+
+      const response = await originalFetch(input, init);
+
+      // 只有请求成功才扣次数，避免接口报错也消耗次数
+      if(response.ok){
+        setUsedCount(used + 1);
+      }
+
+      return response;
+    }
+
+    return originalFetch(input, init);
+  };
+
+  document.addEventListener("DOMContentLoaded", updateUsageBadge);
+})();
+</script>
+
+</body>
+</html>

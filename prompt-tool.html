@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt Builder | Bao Long Studio</title>
+    <style>
+    :root { 
+        --accent: #111111;
+        --accent-soft: #D9C8A9;
+        --bg: #F7F6F2;
+        --sidebar-bg: #EEEAE2;
+        --panel: #FFFFFF;
+        --card-bg: #FFFFFF;
+        --text: #1C1C1C;
+        --muted: #77736B;
+        --border: #DED9CF;
+        --shadow: 0 18px 50px rgba(0,0,0,0.07);
+        --hover-shadow: 0 18px 40px rgba(0,0,0,0.11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        letter-spacing: .01em;
+    }
+
+    /* Unified Bao Long Studio header */
+    .site-header{
+        height:104px;
+        position:sticky;
+        top:0;
+        z-index:1000;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:20px;
+        padding:0 48px;
+        background:rgba(247,246,242,.94);
+        backdrop-filter:blur(18px);
+        border-bottom:1px solid rgba(0,0,0,.06);
+        flex-shrink:0;
+    }
+    .brand{display:flex;align-items:center;gap:18px;min-width:330px;color:inherit;text-decoration:none;}
+    .brand-logo-img{width:65px !important;height:65px !important;max-width:65px !important;max-height:65px !important;object-fit:contain;flex:0 0 auto;display:block;background:transparent !important;border-radius:0 !important;}
+    .brand-text{font-size:16px;letter-spacing:.34em;text-transform:uppercase;white-space:nowrap;}
+    .top-nav{display:flex;align-items:center;gap:24px;font-size:15px;color:#2a2927;flex:1;justify-content:center;}
+    .top-nav a{position:relative;padding:8px 0;white-space:nowrap;color:inherit;text-decoration:none;}
+    .top-nav a::after{content:"";position:absolute;left:0;bottom:2px;width:0;height:1px;background:#111;transition:.24s ease;}
+    .top-nav a:hover::after{width:100%}
+    .nav-dropdown{position:relative;display:flex;align-items:center;}
+    .dropdown-content{display:none;position:absolute;top:34px;left:50%;transform:translateX(-50%);min-width:210px;background:#fff;border:1px solid #ded9cf;border-radius:18px;padding:10px;box-shadow:0 18px 45px rgba(0,0,0,.10);z-index:1200;}
+    .nav-dropdown:hover .dropdown-content{display:block;}
+    .dropdown-content a{display:block;padding:10px 12px;border-radius:12px;font-size:14px;color:#2a2927;}
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{background:#f7f6f2;}
+    .header-actions{display:flex;align-items:center;gap:14px;min-width:260px;justify-content:flex-end;}
+    .pill-btn{border:1px solid #ded9cf;border-radius:999px;padding:10px 18px;background:rgba(255,255,255,.6);cursor:pointer;transition:.25s ease;color:#1c1c1c;}
+    .pill-btn:hover{background:#111;color:#fff;border-color:#111;transform:translateY(-1px);}
+    .tool-body{display:flex;flex:1;min-height:0;overflow:hidden;}
+    @media (max-width:1200px){.site-header{padding:0 28px}.brand{min-width:auto}.brand-logo-img{width:55px !important;height:55px !important;max-width:55px !important;max-height:55px !important;}.top-nav{gap:16px;font-size:14px}.header-actions{min-width:auto}}
+    @media (max-width:900px){.site-header{height:auto;align-items:flex-start;padding:18px 20px;flex-wrap:wrap}.brand-logo-img{width:44px !important;height:44px !important;max-width:44px !important;max-height:44px !important;}.top-nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;gap:18px;padding-top:8px}.header-actions{display:none}.dropdown-content{left:0;transform:none}}
+
+    /* Top mini brand */
+    .sidebar {
+        width: 258px;
+        background: var(--sidebar-bg);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        padding-top: 18px;
+    }
+    .nav-header {
+        padding: 26px 26px 22px;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--text);
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        line-height: 1.4;
+    }
+    .nav-header::after{
+        content: "Prompt Builder";
+        display:block;
+        margin-top:8px;
+        font-size:12px;
+        letter-spacing:.18em;
+        color:var(--muted);
+        font-weight:600;
+    }
+    .home-link{
+        margin: 0 24px 18px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,.58);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+        transition: .25s ease;
+    }
+    .home-link:hover{
+        background:#111;
+        color:#fff;
+        border-color:#111;
+        transform: translateY(-1px);
+    }
+    .nav-item {
+        padding: 17px 26px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #5C5852;
+        transition: 0.25s;
+        border-right: 4px solid transparent;
+    }
+    .nav-item:hover{
+        background: rgba(255,255,255,.46);
+        color:#111;
+    }
+    .nav-item.active {
+        background: #fff;
+        color: var(--accent);
+        font-weight: 700;
+        border-right: 4px solid var(--accent);
+    }
+
+    /* Main content */
+    .main {
+        flex: 1;
+        overflow-y: auto;
+        padding: 44px 54px;
+        scroll-behavior: smooth;
+    }
+    .main::before{
+        content:"Architectural Prompt System";
+        display:block;
+        text-transform:uppercase;
+        letter-spacing:.28em;
+        font-size:12px;
+        color:var(--muted);
+        font-weight:700;
+        margin-bottom:18px;
+    }
+    .section {
+        margin-bottom: 62px;
+    }
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing:.02em;
+    }
+    .section-title::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        margin-right: 14px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+        gap: 15px;
+    }
+
+    .card { 
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        padding: 18px 12px;
+        border-radius: 18px; 
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        color: #4D4942;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.035);
+        line-height:1.45;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--hover-shadow);
+        border-color: #111;
+        color: #111;
+    }
+    .card.active {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+        transform: translateY(-2px);
+    }
+
+    /* Landscape nested structure */
+    .l5-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .tab-btn {
+        padding: 9px 15px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #fff;
+        cursor: pointer;
+        font-size: 12px;
+        transition: 0.2s;
+        color:#4D4942;
+    }
+    .tab-btn:hover{
+        border-color:#111;
+    }
+    .tab-btn.active {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+    }
+    .sub-group {
+        background: rgba(255,255,255,0.55);
+        padding: 22px;
+        border-radius: 24px;
+        border: 1px dashed var(--border);
+        margin-bottom: 10px;
+    }
+    .sub-label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 12px;
+        display: block;
+        text-transform:uppercase;
+        letter-spacing:.18em;
+        font-weight:700;
+    }
+    .nested-trigger {
+        border: 1px dashed #111 !important;
+        color: #111 !important;
+        background:#FBFAF7 !important;
+    }
+    .l3-box {
+        grid-column: 1 / -1;
+        background: #fff;
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        display: none;
+        margin-top: 10px;
+    }
+
+    /* Preview panel */
+    .preview-panel {
+        width: 470px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        border-left: 1px solid var(--border);
+        background: #EFECE5;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+    .floating-box {
+        background: #fff;
+        border-radius: 24px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+    }
+    .manual-input-box { flex-shrink: 0; } 
+    .final-prompt-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-height: 0;
+    } 
+
+    .label {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .18em;
+        display: block;
+    }
+    .manual-box {
+        width: 100%;
+        height: 86px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 13px 14px;
+        font-size: 13px;
+        resize: none;
+        outline: none;
+        background: #FBFAF7;
+        transition: 0.3s;
+        color:#333;
+        line-height:1.6;
+    }
+    .manual-box:focus{
+        border-color:#111;
+        background:#fff;
+        box-shadow:0 0 0 3px rgba(0,0,0,.04);
+    }
+    .result-box {
+        flex: 1;
+        background: #151515;
+        border-radius: 18px;
+        padding: 22px;
+        color: #EEE8DC;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        line-height: 1.75;
+        word-break: break-word;
+        overflow-y: auto;
+        margin-bottom: 15px;
+    }
+
+    .action-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .row-btns {
+        display: flex;
+        gap: 10px;
+    }
+    .btn-random,
+    .btn-copy,
+    .btn-reset {
+        border: none;
+        border-radius: 999px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+    .btn-random {
+        background: #D9C8A9;
+        color: #1C1C1C;
+        padding: 15px;
+        font-size: 15px;
+    }
+    .btn-copy {
+        flex: 3;
+        background: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 15px;
+    }
+    .btn-reset {
+        flex: 1;
+        background: #fff;
+        color: #555;
+        border: 1px solid var(--border);
+        padding: 18px;
+        font-size: 14px;
+    }
+    .btn-random:hover,
+    .btn-copy:hover,
+    .btn-reset:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    }
+
+    @media (max-width: 1100px){
+        body{display:block;height:auto;overflow:auto;}
+        .sidebar{
+            width:100%;
+            height:auto;
+            position:sticky;
+            top:0;
+            z-index:20;
+            border-right:0;
+            border-bottom:1px solid var(--border);
+            flex-direction:row;
+            overflow-x:auto;
+            padding:10px 12px;
+        }
+        .nav-header{display:none}
+        .home-link{margin:0 8px 0 0;white-space:nowrap}
+        .nav-item{white-space:nowrap;padding:12px 14px;border-right:0;border-radius:999px}
+        .nav-item.active{border-right:0;background:#111;color:#fff}
+        .main{padding:34px 22px}
+        .preview-panel{
+            width:100%;
+            height:auto;
+            border-left:0;
+            border-top:1px solid var(--border);
+        }
+        .final-prompt-box{min-height:420px}
+    }
+</style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img class="brand-logo-img" src="images/logo-eye.png" alt="Bao Long Studio Logo" />
+            <div class="brand-text">Bao Long Studio</div>
+        </a>
+
+        <nav class="top-nav">
+            <a href="index.html">All</a>
+            <div class="nav-dropdown">
+                <a href="index.html#products">Assets ▼</a>
+                <div class="dropdown-content">
+                    <a href="index.html#products">Module Assets</a>
+                    <a href="index.html#products">Plan Assets</a>
+                    <a href="index.html#products">People Assets</a>
+                    <a href="index.html#products">Plant Assets</a>
+                    <a href="index.html#products">Animal Assets</a>
+                    <a href="index.html#products">Brushes</a>
+                </div>
+            </div>
+            <a href="prompt-generator.html">Prompt Generator</a>
+            <a href="interaction.html">Interaction</a>
+            <a href="resume.html">Resume</a>
+            <div class="nav-dropdown">
+                <a href="plan-references.html">Resources ▼</a>
+                <div class="dropdown-content">
+                    <a href="plan-references.html">Plan References</a>
+                    <a href="section-references.html">Section References</a>
+                    <a href="render-references.html">Render References</a>
+                    <a href="prompt-generator.html">Prompt Resources</a>
+                    <a href="index.html#featured">Studio Notes</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header-actions">
+            <button class="pill-btn" onclick="location.href='index.html#products'">Shop Preview</button>
+            <button class="pill-btn" onclick="location.href='index.html#tools'">Tools</button>
+        </div>
+    </header>
+
+    <div class="tool-body">
+    <div class="sidebar">
+        <div class="nav-header">Bao Long</div>
+        <a class="home-link" href="prompt-generator.html">← Prompt Page</a>
+        <a class="home-link" href="index.html">Home</a>
+        <div class="nav-item active" onclick="go('s1')">01 图面风格</div>
+        <div class="nav-item" onclick="go('s2')">02 构图角度</div>
+        <div class="nav-item" onclick="go('s3')">03 色彩风格</div>
+        <div class="nav-item" onclick="go('s4')">04 建筑要素</div>
+        <div class="nav-item" onclick="go('s5')">05 景观要素</div>
+        <div class="nav-item" onclick="go('s6')">06 人物要素</div>
+        <div class="nav-item" onclick="go('s7')">07 光影氛围</div>
+        <div class="nav-item" onclick="go('s-ar')">08 尺寸比例</div>
+    </div>
+
+    <div class="main">
+        <div class="section" id="s1">
+            <div class="section-title">01 图面风格</div>
+            <div class="grid">
+                <div class="card" data-val="modern flat illustration, simplified geometric shapes, clean vector style, minimal details, flat perspective, graphic composition, bold shapes, clear outlines, contemporary design illustration">扁平插画</div>
+                <div class="card" data-val="hand-painted watercolor illustration, soft pigment diffusion, wet-on-wet technique, transparent watercolor washes, bleeding edges, delicate brush strokes, textured watercolor paper, fluid pigment flow">手绘水彩</div>
+                <div class="card" data-val="pen and ink line art, hand-drawn linework, fine line drawing, cross-hatching shading, sketch illustration">钢笔线稿</div>
+                <div class="card" data-val="Chinese ink wash painting, brush ink strokes, rice paper texture, soft ink wash gradients, misty atmosphere, blank space composition">中式水墨</div>
+                <div class="card" data-val="detailed pencil sketch, graphite drawing on paper, soft pencil shading, fine hand-drawn lines, cross-hatching and hatching, realistic sketch texture, natural paper grain">铅笔素描</div>
+                <div class="card" data-val="collage-style composition, cut-out fragments from different images, layered and overlapping elements, mixed-scale objects, fragmented visual arrangement, flat spatial layout, heterogeneous imagery sources, assembled scene, stage-like composition, visual storytelling collage">拼贴</div>
+                <div class="card" data-val="3D render, realistic 3D modeling, soft lighting, global illumination, realistic materials, depth and shadows, high detail, cinematic lighting">3D建模感</div>
+            </div>
+        </div>
+
+        <div class="section" id="s2">
+            <div class="section-title">02 构图角度</div>
+            <div class="grid">
+                <div class="card" data-val="isometric view">轴测</div>
+                <div class="card" data-val="bird's-eye view">鸟瞰</div>
+                <div class="card" data-val="top-down view">顶视</div>
+                <div class="card" data-val="eye-level perspective">平视</div>
+                <div class="card" data-val="sectional cutaway">剖面</div>
+                <div class="card" data-val="low angle view">仰视</div>
+            </div>
+        </div>
+
+        <div class="section" id="s3">
+            <div class="section-title">03 色彩风格</div>
+            <div class="grid">
+                <div class="card random-color">莫兰迪配色</div>
+                <div class="card random-color">波谱风配色</div>
+                <div class="card random-color">复古风配色</div>
+                <div class="card random-color">极简配色</div>
+                <div class="card random-color">地中海配色</div>
+                <div class="card random-color">马卡龙配色</div>
+                <div class="card random-color">赛博朋克配色</div>
+                <div class="card random-color">同色系配色</div>
+                <div class="card random-color">随机风格配色</div>
+            </div>
+        </div>
+
+        <div class="section" id="s4">
+            <div class="section-title">04 建筑要素</div>
+            <div class="grid">
+                <div class="card" data-val="Baroque architecture style, grand dramatic buildings, rich ornamentation, curved facades, monumental columns, sculptural decorations, dynamic compositions, luxurious historical European architecture">巴洛克</div>
+                <div class="card" data-val="neoclassical architecture style, symmetrical composition, monumental columns, classical proportions, stone facades, triangular pediments, elegant and formal architectural design inspired by ancient Greek and Roman architecture">新古典</div>
+                <div class="card" data-val="Art Nouveau architecture, organic flowing lines, floral patterns, curved structures, decorative ironwork, elegant natural forms, artistic ornamental facades">新艺术</div>
+                <div class="card" data-val="Gothic architecture style, pointed arches, ribbed vaults, flying buttresses, tall spires, stained glass windows, dramatic vertical emphasis, medieval cathedral architecture">哥特式</div>
+                <div class="card" data-val="Renaissance architecture style, balanced proportions, classical columns, arches and domes, symmetrical layout, harmonious geometry inspired by ancient Roman architecture">文艺复兴</div>
+                <div class="card" data-val="Art Deco architecture style, geometric ornament, bold symmetrical forms, stepped facades, metallic decoration, elegant modern luxury style from the 1920s">装饰艺术</div>
+                <div class="card" data-val="modernist architecture style, minimalist buildings, clean lines, functional design, glass and steel structures, open floor plans, simple geometric forms">现代主义</div>
+                <div class="card" data-val="postmodern architecture style, playful forms, bold colors, historical references, decorative elements mixed with modern structures, ironic and expressive architectural design">后现代主义</div>
+                <div class="card" data-val="deconstructivist architecture style, fragmented structures, irregular geometry, dynamic forms, asymmetrical composition, experimental contemporary architecture">解构主义</div>
+            </div>
+        </div>
+
+        <div class="section" id="s5">
+            <div class="section-title">05 景观要素</div>
+            <div class="l5-tabs">
+                <button class="tab-btn active" onclick="showL5('l5-land', this)">地形</button>
+                <button class="tab-btn" onclick="showL5('l5-plant', this)">植物</button>
+                <button class="tab-btn" onclick="showL5('l5-water', this)">水景</button>
+                <button class="tab-btn" onclick="showL5('l5-pave', this)">铺装与路径</button>
+                <button class="tab-btn" onclick="showL5('l5-orn', this)">小品</button>
+            </div>
+
+            <div id="l5-content">
+                <div id="l5-land" class="sub-group">
+                    <span class="sub-label">Landform</span>
+                    <div class="grid">
+                        <div class="card multi" data-val="flat ground">平地</div>
+                        <div class="card multi" data-val="depression landform">洼地</div>
+                        <div class="card multi" data-val="terraces">台地</div>
+                        <div class="card multi" data-val="slopes">坡地</div>
+                    </div>
+                </div>
+
+                <div id="l5-plant" class="sub-group" style="display:none;">
+                    <span class="sub-label">Planting</span>
+                    <div class="grid">
+                        <div class="card multi" data-val="lush trees">乔木</div>
+                        <div class="card nested-trigger" onclick="openL3('l3-shrub')">灌木 ▼</div>
+                        <div class="card nested-trigger" onclick="openL3('l3-ground')">地被 ▼</div>
+                        <div id="l3-shrub" class="l3-box">
+                            <div class="grid">
+                                <div class="card multi" data-val="flowering shrubs">花灌木</div>
+                                <div class="card multi" data-val="hedges">绿篱</div>
+                            </div>
+                        </div>
+                        <div id="l3-ground" class="l3-box">
+                            <div class="grid">
+                                <div class="card multi" data-val="grass lawn">草坪</div>
+                                <div class="card multi" data-val="flower beds">花境</div>
+                                <div class="card multi" data-val="groundcover">地被植物</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="l5-water" class="sub-group" style="display:none;">
+                    <span class="sub-label">Waterscape</span>
+                    <div class="grid">
+                        <div class="card multi" data-val="reflecting pool">反射池</div>
+                        <div class="card multi" data-val="cascading waterfall">跌水</div>
+                        <div class="card multi" data-val="fountain spray">喷泉</div>
+                        <div class="card multi" data-val="natural pond">生态水池</div>
+                    </div>
+                </div>
+
+                <div id="l5-pave" class="sub-group" style="display:none;">
+                    <span class="sub-label">Paving & Path</span>
+                    <div class="grid">
+                        <div class="card multi" data-val="stone paving">石材铺装</div>
+                        <div class="card multi" data-val="timber decking">木栈道</div>
+                        <div class="card multi" data-val="gravel path">碎石路</div>
+                        <div class="card multi" data-val="stepping stone">汀步</div>
+                        <div class="card multi" data-val="permeable concrete">透水混凝土</div>
+                    </div>
+                </div>
+
+                <div id="l5-orn" class="sub-group" style="display:none;">
+                    <span class="sub-label">Ornaments</span>
+                    <div class="grid">
+                        <div class="card multi" data-val="sculpture focus">雕塑</div>
+                        <div class="card multi" data-val="modern pavilion">景观亭</div>
+                        <div class="card multi" data-val="public seating">户外坐凳</div>
+                        <div class="card multi" data-val="design lighting">艺术灯具</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="s6">
+            <div class="section-title">06 人物要素</div>
+            <div class="grid">
+                <div class="card random">日常人物活动</div>
+                <div class="card random">社交互动类</div>
+                <div class="card random">儿童活动</div>
+                <div class="card random">运动类活动</div>
+                <div class="card random">休闲娱乐活动</div>
+                <div class="card random">场地体验活动</div>
+            </div>
+        </div>
+
+        <div class="section" id="s7">
+            <div class="section-title">07 光影氛围</div>
+            <div class="grid">
+                <div class="card" data-val="golden hour, warm sunlight, long shadows">黄金时段</div>
+                <div class="card" data-val="blue hour, twilight, soft ambient light">蓝调时刻</div>
+                <div class="card" data-val="overcast day, soft diffused lighting">阴天柔光</div>
+            </div>
+        </div>
+
+        <div class="section" id="s-ar">
+            <div class="section-title">08 尺寸比例</div>
+            <div class="grid">
+                <div class="card ar-card active" data-val="--ar 16:9">横屏 16:9</div>
+                <div class="card ar-card" data-val="--ar 3:4">竖屏 3:4</div>
+                <div class="card ar-card" data-val="--ar 9:16">手机 9:16</div>
+                <div class="card ar-card" data-val="--ar 1:1">正方 1:1</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-panel">
+        <div class="floating-box manual-input-box">
+            <span class="label">手动扩展关键词</span>
+            <textarea class="manual-box" id="manualInput" placeholder="输入个性化词汇..."></textarea>
+        </div>
+        <div class="floating-box final-prompt-box">
+            <span class="label">FINAL PROMPT</span>
+            <div class="result-box" id="result">等待操作...</div>
+            <div class="action-group">
+                <button class="btn-random" onclick="randomGenerate()">🎲 随机生成灵感</button>
+                <div class="row-btns">
+                    <button class="btn-reset" onclick="resetAll()">重置</button>
+                    <button class="btn-copy" onclick="copy()">复制完整指令</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        const silentLibrary = {
+            "莫兰迪配色": ["Morandi color palette, dusty blue 50%, sage green 25%, warm light gray 15%, muted terracotta 10%, low saturation colors, soft gray undertones", "Morandi color palette, dusty blue 55%, sand beige 25%, soft warm gray 10%, muted rose pink 10%, low saturation colors, calm elegant atmosphere", "Morandi color palette, sage green 50%, creamy off-white 25%, pale gray 15%, dusty blue 10%, muted tones, soft matte atmosphere", "Morandi color palette, dusty rose pink 50%, light khaki beige 25%, soft neutral gray 15%, muted lavender 10%, low saturation colors", "Morandi color palette, muted olive green 55%, warm gray 20%, soft beige 15%, dusty terracotta 10%, desaturated colors, natural calm mood", "Morandi color palette, dusty lavender 50%, creamy off-white 25%, pale neutral gray 15%, muted dusty blue 10%, soft low saturation tones", "Morandi color palette, dusty blue 55%, light khaki beige 20%, sage green 15%, muted terracotta 10%, calm and refined color harmony", "Morandi color palette, sand beige 50%, sage green 25%, pale gray 15%, dusty blue 10%, muted natural tones", "Morandi color palette, dusty blue 50%, muted rose pink 25%, warm light gray 15%, pale beige 10%, low saturation soft tones", "Morandi color palette, sage green 55%, warm gray 20%, creamy off-white 15%, muted terracotta 10%, calm elegant morandi tones"],
+            "波谱风配色": ["Pop art color palette, cobalt blue 50%, bright red 25%, pure white 15%, lemon yellow 10%, high saturation colors, bold graphic contrast", "Pop art color palette, bright lemon yellow 55%, cobalt blue 20%, deep black 15%, vivid red 10%, high saturation bold colors", "Pop art color palette, hot pink 50%, electric blue 25%, pure white 15%, bright yellow 10%, vibrant pop art colors", "Pop art color palette, vivid orange 50%, royal blue 25%, pure white 15%, bright cyan 10%, bold high contrast colors", "Pop art color palette, bright violet purple 50%, lemon yellow 25%, pure white 15%, cobalt blue 10%, vivid pop art tones", "Pop art color palette, vivid red 55%, bright cyan 20%, pure white 15%, lemon yellow 10%, strong pop art contrast", "Pop art color palette, bright cyan 50%, hot pink 25%, pure white 15%, vivid yellow 10%, playful pop art colors", "Pop art color palette, electric blue 50%, bright orange 25%, pure white 15%, vivid red 10%, bold high saturation palette", "Pop art color palette, bright yellow 50%, hot pink 25%, cobalt blue 15%, deep black 10%, vibrant pop art contrast", "Pop art color palette, bright cyan 55%, vivid purple 20%, pure white 15%, lemon yellow 10%, bold graphic pop art style"],
+            "复古风配色": ["Vintage color palette, terracotta red 50%, creamy beige 25%, warm brown 15%, mustard yellow 10%, warm retro atmosphere", "Vintage color palette, olive green 55%, warm beige 20%, soft brown 15%, brick red 10%, classic retro tones", "Vintage color palette, mustard yellow 50%, dark brown 25%, creamy off-white 15%, burnt orange 10%, warm vintage color scheme", "Vintage color palette, brick red 50%, sand beige 25%, warm gray 15%, olive green 10%, retro earthy tones", "Vintage color palette, caramel brown 55%, light beige 20%, muted olive green 15%, dusty orange 10%, warm nostalgic mood", "Vintage color palette, deep olive green 50%, khaki beige 25%, warm brown 15%, terracotta red 10%, earthy vintage palette", "Vintage color palette, burnt orange 50%, warm gray beige 25%, deep brown 15%, mustard yellow 10%, retro 70s color mood", "Vintage color palette, reddish brown 55%, sand beige 20%, olive green 15%, mustard yellow 10%, classic retro tones", "Vintage color palette, deep navy blue 50%, creamy beige 25%, warm gray 15%, brick red 10%, elegant vintage mood", "Vintage color palette, forest green 50%, warm beige 25%, soft brown 15%, burnt orange 10%, nostalgic retro atmosphere"],
+            "极简配色": ["Minimalist color palette, deep black 50%, pure white 25%, light gray 15%, muted beige 10%, clean modern minimal aesthetic", "Minimalist color palette, warm off-white 55%, soft gray 20%, deep charcoal 15%, muted olive green 10%, calm minimal atmosphere", "Minimalist color palette, light neutral gray 50%, pure white 25%, charcoal gray 15%, muted terracotta 10%, clean architectural minimal style", "Minimalist color palette, sand beige 50%, creamy white 25%, deep graphite gray 15%, muted sage green 10%, soft minimalist palette", "Minimalist color palette, creamy off-white 55%, pale gray 20%, deep black 15%, muted blue accent 10%, modern minimal aesthetic", "Minimalist color palette, warm gray 50%, soft beige white 25%, charcoal black 15%, muted olive green 10%, calm minimalist design", "Minimalist color palette, pale beige 50%, pure white 25%, deep gray 15%, muted rust accent 10%, minimal architectural palette", "Minimalist color palette, cool gray 50%, pure white 25%, deep navy blue 15%, muted sand beige 10%, modern minimal tone", "Minimalist color palette, pure white 55%, soft gray 20%, natural wood brown 15%, muted black accent 10%, minimal Scandinavian feeling", "Minimalist color palette, stone gray 50%, warm white 25%, deep charcoal 15%, muted sage green 10%, architectural minimal palette"],
+            "地中海配色": ["Mediterranean color palette, azure blue 50%, pure white 25%, sand beige 15%, terracotta accent 10%, fresh coastal atmosphere", "Mediterranean color palette, sky blue 55%, warm white 20%, sandy beige 15%, lemon yellow 10%, sunny mediterranean mood", "Mediterranean color palette, deep mediterranean blue 50%, pure white 25%, light stone gray 15%, olive green accent 10%, coastal mediterranean style", "Mediterranean color palette, turquoise blue 50%, creamy white 25%, warm sand beige 15%, terracotta red 10%, mediterranean seaside palette", "Mediterranean color palette, cobalt blue 55%, pure white 20%, light beige 15%, lemon yellow accent 10%, bright coastal mediterranean colors", "Mediterranean color palette, ocean blue 50%, warm off-white 25%, pale stone gray 15%, olive green 10%, relaxed mediterranean feeling", "Mediterranean color palette, light sky blue 50%, pure white 25%, sandy beige 15%, terracotta accent 10%, mediterranean coastal architecture palette", "Mediterranean color palette, turquoise blue 55%, pure white 20%, soft sand beige 15%, olive green accent 10%, mediterranean seaside mood", "Mediterranean color palette, deep navy blue 50%, pure white 25%, light beige 15%, lemon yellow accent 10%, mediterranean coastal vibe", "Mediterranean color palette, mediterranean sea blue 50%, creamy white 25%, warm sand beige 15%, terracotta accent 10%, mediterranean architecture colors"],
+            "马卡龙配色": ["Macaron color palette, pastel pink 50%, mint green 25%, creamy white 15%, butter yellow accent 10%, soft pastel tones", "Macaron color palette, pastel lavender 50%, baby blue 25%, creamy white 15%, pastel pink accent 10%, light soft pastel palette", "Macaron color palette, mint green 55%, pastel pink 20%, soft cream white 15%, pastel lemon yellow 10%, sweet macaron tones", "Macaron color palette, baby blue 50%, pastel pink 25%, creamy white 15%, soft lavender accent 10%, gentle pastel colors", "Macaron color palette, pastel peach pink 50%, mint green 25%, warm cream white 15%, pastel yellow accent 10%, soft dessert colors", "Macaron color palette, pastel lemon yellow 50%, baby blue 25%, creamy white 15%, pastel pink accent 10%, light playful palette", "Macaron color palette, pastel lavender 50%, mint green 25%, creamy white 15%, pastel pink accent 10%, sweet pastel atmosphere", "Macaron color palette, pastel sky blue 55%, peach pink 20%, creamy white 15%, soft lemon yellow accent 10%, dreamy pastel palette", "Macaron color palette, mint green 50%, pastel lemon yellow 25%, creamy white 15%, pastel pink accent 10%, soft candy colors", "Macaron color palette, pastel pink 50%, pastel lavender 25%, baby blue 15%, butter yellow accent 10%, playful macaron palette"],
+            "赛博朋克配色": ["Cyberpunk color palette, electric blue 50%, neon purple 25%, deep black 15%, hot pink accent 10%, neon glow cyberpunk atmosphere", "Cyberpunk color palette, neon pink 55%, electric blue 20%, deep black 15%, cyan accent 10%, futuristic neon lighting", "Cyberpunk color palette, bright cyan 50%, neon purple 25%, deep black 15%, neon magenta accent 10%, futuristic cyberpunk colors", "Cyberpunk color palette, electric blue 50%, hot pink 25%, dark purple 15%, cyan accent 10%, glowing cyberpunk palette", "Cyberpunk color palette, neon violet 55%, bright cyan 20%, deep black 15%, neon pink accent 10%, futuristic neon aesthetic", "Cyberpunk color palette, electric blue 50%, bright cyan 25%, deep navy 15%, neon green accent 10%, cyberpunk city colors", "Cyberpunk color palette, neon magenta 50%, bright violet 25%, deep black 15%, electric blue accent 10%, glowing neon palette", "Cyberpunk color palette, neon cyan 55%, electric blue 20%, deep black 15%, neon purple accent 10%, cyberpunk lighting colors", "Cyberpunk color palette, electric blue 50%, neon purple 25%, dark navy 15%, neon green accent 10%, futuristic neon tones", "Cyberpunk color palette, neon purple 50%, hot pink 25%, deep black 15%, bright cyan accent 10%, vibrant cyberpunk atmosphere"],
+            "同色系配色": ["limited four-color palette, monochromatic sage green tones, three dominant colors: deep sage (#4F5D53), muted sage (#788176), light sage (#B7C0B5),small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "plimited four-color palette, monochromatic olive green tones, three dominant colors: deep olive (#5E6B2E), olive green (#8F9C4F), soft olive (#C7D39A), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic dusty blue tones, three dominant colors deep dusty blue (#3F4F63), muted blue (#6E859E), light dusty blue (#B8C9DA), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic navy blue tones, three dominant colors deep navy (#243447), navy blue (#3B5183), light navy (#9FB4D8), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic terracotta tones, three dominant colors deep terracotta (#7A2F1C), terracotta (#B25A3A), soft terracotta (#E4A88D), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic rust tones, three dominant colors deep rust (#5A1F0E), rust brown (#833514), light rust (#D18A6C), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic sand beige tones, three dominant colors deep sand (#8B7A5C), warm beige (#CBB999), light beige (#E9DFCC), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic brown tones, three dominant colors deep chocolate (#3A2B22), warm brown (#5E4637), soft brown (#BFA99B), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic warm gray tones, three dominant colors dark gray (#5A5A5A), neutral gray (#8E8E8E), light gray (#D6D6D6), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors", "limited four-color palette, monochromatic muted purple tones, three dominant colors deep purple (#4E3D5C), muted purple (#7A6A8F), soft purple (#C5BBD2), small neutral accent color off-white, minimal color variation, color palette strictly limited, avoid additional colors"],
+            "随机风格配色": ["minimal color palette illustration, dominated by rust brown (#833514), butter yellow (#F5E283), and navy blue (#3B5183), balanced color blocking, modern design composition, soft lighting, clean visual aesthetic", "soft pastel color palette, dominated by buttermilk cream (#FFF1B5), pastel blue (#C1DBE8), and old burgundy (#43302E), calm balanced tones, minimal composition, modern aesthetic, soft ambient lighting", "earth tone color palette, dominated by sage green (#788176), warm rusk beige (#CCB999), and deep pipe red (#5E1803), natural muted tones, harmonious color balance, contemporary visual composition", "nature-inspired color palette, dominated by olivine green (#9BAD50), columbia light blue (#B6CFE4), and van dyke brown (#393027), soft natural tones, balanced color harmony, modern visual composition", "neutral minimalist color palette, dominated by cadet gray (#92A0A1), soft isabelline off-white (#EEEAE7), and deep bistre brown (#3A2B22), subtle elegant tones, calm modern aesthetic", "people drinking coffee", "Fresh natural palette, lime green and soft pink accents, deep dark forest green base, vibrant yet balanced atmosphere.", "Earthy Morandi palette, olive and reseda green tones, sandy dun beige, organic muted colors, wabi-sabi aesthetic.", "High-contrast warm palette, burnt rust orange, buttery yellow, deep navy blue, bold graphic color blocks, retro feel", "Warm afternoon mood, rich caramel brown, creamy papaya whip, soft baby blue, cozy and inviting architectural lighting", "vivid safety orange, clean flash white, dark slate teal, sleek contemporary materials, high energy", "obsidian black base, seashell off-white, denim blue textures, elegant minimalist design", "mossy bistre brown, white chocolate cream, deep red-violet, luxurious and moody atmosphere", "Yinmn blue, warm old lace, vibrant scarlet red, traditional and authoritative color scheme", "Spring garden palette, periwinkle and zaffre blue, bright citron yellow, floral-inspired colors, airy and luminous", "Quiet depth palette, moss green, soft old lace, vibrant iris purple, dreamy landscape lighting, mysterious and calm"],
+            "日常人物活动": ["people walking along the path", "people strolling in the park", "people sitting and chatting", "people resting on benches", "people reading books", "people drinking coffee", "people talking with friends", "people enjoying the sunshine", "people walking dogs", "people relaxing in the public space"],
+            "社交互动类": ["people having conversations", "people gathering together", "neighbors greeting each other", "people interacting in the plaza", "people sharing moments"],
+            "儿童活动": ["children playing on playground equipment", "kids running and laughing", "children climbing structures", "children sliding down slides", "kids playing with toys", "children drawing on the ground", "children exploring the playground"],
+            "运动类活动": ["people jogging", "people cycling", "people exercising", "people stretching", "people practicing yoga", "people playing ball games", "people skating"],
+            "休闲娱乐活动": ["people picnicking on the grass", "people lying on the lawn", "people listening to music", "people watching performances", "people taking photos", "people painting outdoors"],
+            "场地体验活动": ["people exploring the space", "people walking through the plaza", "people gathering under trees", "people enjoying the landscape", "people observing the surroundings", "people experiencing the architecture"]
+        };
+
+          let currentRandomPicks = {};
+        let currentSelectedColor = "";
+
+        function go(id) {
+            const target = document.getElementById(id);
+            if (target) {
+                target.scrollIntoView({behavior:'smooth'});
+                document.querySelectorAll('.nav-item').forEach(n => {
+                    n.classList.toggle('active', n.getAttribute('onclick').includes(`'${id}'`));
+                });
+            }
+        }
+
+        function showL5(id, btn) {
+            document.querySelectorAll('.l5-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('#l5-content .sub-group').forEach(g => g.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function openL3(id) {
+            const box = document.getElementById(id);
+            const isVisible = box.style.display === 'block';
+            document.querySelectorAll('.l3-box').forEach(b => b.style.display = 'none');
+            if (!isVisible) box.style.display = 'block';
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.querySelector('.ar-card').classList.add('active'); 
+            currentRandomPicks = {};
+            currentSelectedColor = "";
+            document.getElementById('manualInput').value = "";
+            update();
+        }
+
+        function randomGenerate() {
+            resetAll();
+            ['s1', 's2', 's3', 's4', 's5', 's6', 's7'].forEach(sid => {
+                const section = document.getElementById(sid);
+                const cards = Array.from(section.querySelectorAll('.card:not(.nested-trigger)'));
+                if (cards.length > 0) {
+                    const randomCard = cards[Math.floor(Math.random() * cards.length)];
+                    randomCard.click();
+                }
+            });
+        }
+
+        document.addEventListener('click', e => {
+            const c = e.target.closest('.card');
+            if (!c || c.classList.contains('nested-trigger')) return;
+            const label = c.innerText.trim();
+            const section = c.closest('.section');
+
+            if (c.classList.contains('multi')) {
+                c.classList.toggle('active');
+            } else if (c.classList.contains('random-color')) {
+                const wasActive = c.classList.contains('active');
+                section.querySelectorAll('.card').forEach(x => x.classList.remove('active'));
+                if (!wasActive) {
+                    c.classList.add('active');
+                    const lib = silentLibrary[label];
+                    currentSelectedColor = lib[Math.floor(Math.random() * lib.length)];
+                } else {
+                    currentSelectedColor = "";
+                }
+            } else if (c.classList.contains('random')) {
+                c.classList.toggle('active');
+                if (c.classList.contains('active')) {
+                    const lib = silentLibrary[label];
+                    currentRandomPicks[label] = lib[Math.floor(Math.random() * lib.length)];
+                } else {
+                    delete currentRandomPicks[label];
+                }
+            } else if (c.classList.contains('ar-card')) {
+                section.querySelectorAll('.card').forEach(x => x.classList.remove('active'));
+                c.classList.add('active');
+            } else {
+                section.querySelectorAll('.card').forEach(x => x.classList.remove('active'));
+                c.classList.add('active');
+            }
+            update();
+        });
+
+        function update() {
+            const s1 = document.querySelector('#s1 .card.active')?.dataset.val || "";
+            const s2 = document.querySelector('#s2 .card.active')?.dataset.val || "";
+            const s3 = currentSelectedColor;
+            const s4 = document.querySelector('#s4 .card.active')?.dataset.val || "";
+            const s5 = Array.from(document.querySelectorAll('#s5 .card.active')).map(el => el.dataset.val).filter(v => v).join(', ');
+            const s6 = Object.values(currentRandomPicks).join(', ');
+            const s7 = document.querySelector('#s7 .card.active')?.dataset.val || "";
+            const ar = document.querySelector('#s-ar .card.active')?.dataset.val || "--ar 16:9";
+            const manual = document.getElementById('manualInput').value.trim();
+
+            let core = [s1, s2, s3, s4, s5, s6, s7, manual].filter(v => v !== "").join(', ');
+            
+            if(core) {
+                const suffix = `, \nrealistic site layout, low saturation, white space, diffuse lighting, \n--v 6 ${ar} --style raw --s 750`;
+                document.getElementById('result').innerText = core + suffix;
+            } else {
+                document.getElementById('result').innerText = "等待操作...";
+            }
+        }
+
+        function copy() {
+            const text = document.getElementById('result').innerText;
+            if(text.includes("等待")) return;
+            navigator.clipboard.writeText(text).then(() => alert("已复制完整指令！"));
+        }
+
+        document.getElementById('manualInput').addEventListener('input', update);
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Interaction | Bao Long Studio</title><style>
+    :root{--bg:#f7f6f2;--paper:#fff;--ink:#1c1c1c;--muted:#77736b;--line:#ded9cf;--shadow:0 18px 50px rgba(0,0,0,.07);}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.01em;}
+    a{text-decoration:none;color:inherit} .hero{max-width:1500px;margin:0 auto;padding:86px 48px 70px;display:grid;grid-template-columns:1fr .82fr;gap:58px;align-items:center;}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:13px;color:var(--muted);font-weight:700;margin-bottom:18px;}
+    h1{margin:0;font-size:clamp(48px,7vw,92px);line-height:.95;letter-spacing:.02em;} .hero p{margin:24px 0 0;color:#4d4942;font-size:18px;line-height:1.75;max-width:720px;}
+    .mock{background:#111;color:#fff;min-height:520px;padding:34px;box-shadow:var(--shadow);display:grid;gap:18px;align-content:center;} .mock-card{border:1px solid rgba(255,255,255,.18);padding:22px;border-radius:24px;background:#202020;}
+    .mock-card h3{margin:0 0 10px;font-size:24px} .mock-card p{margin:0;color:#d6d1c8;line-height:1.65} .section{max-width:1500px;margin:0 auto;padding:60px 48px 90px;} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;min-height:220px;box-shadow:var(--shadow);} .card h3{margin:0 0 12px;font-size:26px} .card p{color:var(--muted);line-height:1.7}
+    @media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero,.section{padding:54px 22px}}
+
+    /* Unified Bao Long Studio header */
+    .site-header{
+      height:104px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:0 48px;
+      background:rgba(247,246,242,.94);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:330px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .brand-logo-img{
+      width:108px;
+      height:108px;
+      object-fit:contain;
+      flex:0 0 auto;
+      display:block;
+      background:transparent !important;
+      border-radius:0 !important;
+    }
+    .brand-mark{display:none !important;}
+    .brand-text{
+      font-size:16px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      color:#2a2927;
+      flex:1;
+      justify-content:center;
+    }
+    .nav a{
+      position:relative;
+      padding:8px 0;
+      white-space:nowrap;
+      color:inherit;
+      text-decoration:none;
+    }
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:0;
+      height:1px;
+      background:#111;
+      transition:.24s ease;
+    }
+    .nav a:hover::after{width:100%}
+    .nav-dropdown{position:relative;display:flex;align-items:center;}
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:34px;
+      left:50%;
+      transform:translateX(-50%);
+      min-width:210px;
+      background:#fff;
+      border:1px solid #ded9cf;
+      border-radius:18px;
+      padding:10px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+      z-index:200;
+    }
+    .nav-dropdown:hover .dropdown-content{display:block;}
+    .dropdown-content a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:14px;
+      color:#2a2927;
+    }
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{background:#f7f6f2;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:260px;
+      justify-content:flex-end;
+    }
+    .pill-btn{
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      padding:10px 18px;
+      background:rgba(255,255,255,.6);
+      cursor:pointer;
+      transition:.25s ease;
+      color:#1c1c1c;
+    }
+    .pill-btn:hover{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    @media (max-width:1200px){
+      .site-header{padding:0 28px}
+      .brand{min-width:auto}
+      .brand-logo-img{width:55px !important;height:55px !important;max-width:55px !important;max-height:55px !important;}
+      .nav{gap:16px;font-size:14px}
+      .header-actions{min-width:auto}
+    }
+    @media (max-width:900px){
+      .site-header{height:auto;align-items:flex-start;padding:18px 20px;flex-wrap:wrap;}
+      .brand-logo-img{width:44px !important;height:44px !important;max-width:44px !important;max-height:44px !important;}
+      .nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;gap:18px;padding-top:8px;}
+      .header-actions{display:none}
+      .dropdown-content{left:0;transform:none;}
+    }
+
+  </style></head><body><header class="site-header">
+    <a class="brand" href="index.html">
+      <img class="brand-logo-img" src="images/logo-eye.png" alt="Bao Long Studio Logo" />
+      <div class="brand-text">Bao Long Studio</div>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">All</a>
+
+      <div class="nav-dropdown">
+        <a href="index.html#products">Assets ▼</a>
+        <div class="dropdown-content">
+          <a href="index.html#products">Module Assets</a>
+          <a href="index.html#products">Plan Assets</a>
+          <a href="index.html#products">People Assets</a>
+          <a href="index.html#products">Plant Assets</a>
+          <a href="index.html#products">Animal Assets</a>
+          <a href="index.html#products">Brushes</a>
+        </div>
+      </div>
+
+      <a href="prompt-generator.html">Prompt Generator</a>
+      <a href="interaction.html">Interaction</a>
+      <a href="resume.html">Resume</a>
+
+      <div class="nav-dropdown">
+        <a href="plan-references.html">Resources ▼</a>
+        <div class="dropdown-content">
+          <a href="plan-references.html">Plan References</a>
+          <a href="section-references.html">Section References</a>
+          <a href="render-references.html">Render References</a>
+          <a href="prompt-generator.html">Prompt Resources</a>
+          <a href="index.html#featured">Studio Notes</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <button class="pill-btn" onclick="location.href='index.html#products'">Shop Preview</button>
+      <button class="pill-btn" onclick="location.href='index.html#tools'">Tools</button>
+    </div>
+  </header><main><section class="hero"><div><div class="eyebrow">Interaction</div><h1>Interactive Tools<br>& Creative Experiments.</h1><p>这里可以放你后续的交互设计、网页工具、生成器、视觉实验和装置类项目。先作为一个大入口保留，后面逐步填充内容。</p></div><div class="mock"><div class="mock-card"><h3>Resume Upload Recognition</h3><p>上传旧简历图片 / PDF，自动识别文字并填入表单。</p></div><div class="mock-card"><h3>Prompt Builder</h3><p>选择风格、构图、配色与要素，生成可复制提示词。</p></div><div class="mock-card"><h3>Visual Interaction</h3><p>后续可放手势交互、生成式图形、网页作品等实验。</p></div></div></section></main></body></html>

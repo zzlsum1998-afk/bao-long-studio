@@ -112,6 +112,39 @@
     .section-block{margin:22px 0}
     .section-title{height:9px;width:42%;background:#171717;margin-bottom:10px}
 
+    .hero-resume-img{
+      width:64%;
+      max-height:86%;
+      aspect-ratio:0.707/1;
+      object-fit:contain;
+      display:block;
+      background:#fff;
+      border:1px solid #d8d1c4;
+      box-shadow:0 24px 46px rgba(0,0,0,.14);
+    }
+
+    .thumb-img{
+      width:54px;
+      height:76px;
+      object-fit:cover;
+      object-position:top center;
+      background:#fff;
+      border:1px solid #d6d0c4;
+      box-shadow:0 6px 14px rgba(0,0,0,.08);
+      display:block;
+    }
+
+    .template-preview-img{
+      width:68%;
+      aspect-ratio:0.707/1;
+      object-fit:cover;
+      object-position:top center;
+      background:#fff;
+      border:1px solid #d8d1c4;
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+      display:block;
+    }
+
     .thumbs{
       display:grid;
       gap:12px;
@@ -533,44 +566,13 @@
     <section class="hero">
       <div class="preview-area">
         <div class="main-preview">
-          <div class="resume-sheet" id="heroSheet">
-            <div class="sheet-side">
-              <div class="avatar"></div>
-              <div class="line white"></div>
-              <div class="line white"></div>
-              <div class="line white" style="width:72%"></div>
-              <div style="height:18px"></div>
-              <div class="line white"></div>
-              <div class="line white" style="width:55%"></div>
-            </div>
-            <div class="sheet-main">
-              <div class="line" style="width:72%;height:12px"></div>
-              <div class="line light" style="width:48%"></div>
-              <div class="section-block">
-                <div class="section-title"></div>
-                <div class="line light"></div>
-                <div class="line light"></div>
-                <div class="line light" style="width:80%"></div>
-              </div>
-              <div class="section-block">
-                <div class="section-title"></div>
-                <div class="line light"></div>
-                <div class="line light" style="width:76%"></div>
-                <div class="line light"></div>
-              </div>
-              <div class="section-block">
-                <div class="section-title"></div>
-                <div class="line light" style="width:68%"></div>
-                <div class="line light"></div>
-              </div>
-            </div>
-          </div>
+          <img class="hero-resume-img" id="heroSheet" src="images/resume-previews/resume-1.jpg" alt="Resume template preview 01">
         </div>
         <div class="thumbs">
-          <button class="thumb active" onclick="switchHeroTemplate(0)"><div class="mini-sheet"><div class="mini-dark"></div><div class="mini-line"></div><div class="mini-line"></div></div></button>
-          <button class="thumb" onclick="switchHeroTemplate(1)"><div class="mini-sheet"><div class="mini-line"></div><div class="mini-dark"></div><div class="mini-line"></div></div></button>
-          <button class="thumb" onclick="switchHeroTemplate(2)"><div class="mini-sheet"><div class="mini-dark" style="height:48px;width:18px;float:left;margin-right:6px"></div><div class="mini-line"></div><div class="mini-line"></div></div></button>
-          <button class="thumb" onclick="switchHeroTemplate(3)"><div class="mini-sheet"><div class="mini-line"></div><div class="mini-line"></div><div class="mini-dark"></div></div></button>
+          <button class="thumb active" type="button" onclick="switchHeroTemplate(0)"><img class="thumb-img" src="images/resume-previews/resume-1.jpg" alt="Resume template thumbnail 01"></button>
+          <button class="thumb" type="button" onclick="switchHeroTemplate(1)"><img class="thumb-img" src="images/resume-previews/resume-2.jpg" alt="Resume template thumbnail 02"></button>
+          <button class="thumb" type="button" onclick="switchHeroTemplate(2)"><img class="thumb-img" src="images/resume-previews/resume-3.jpg" alt="Resume template thumbnail 03"></button>
+          <button class="thumb" type="button" onclick="switchHeroTemplate(3)"><img class="thumb-img" src="images/resume-previews/resume-4.jpg" alt="Resume template thumbnail 04"></button>
         </div>
       </div>
 
@@ -612,43 +614,59 @@
       <div class="section-head">
         <div>
           <h2 class="section-title-main">Resume Templates</h2>
-          <p class="section-desc">像 Toffu 的商品卡片一样展示模板。后面可以把这些占位图替换成真实导出的简历截图。</p>
+          <p class="section-desc">像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。</p>
         </div>
         <button class="secondary-btn" onclick="location.href='resume-tool.html'">Open Tool</button>
       </div>
 
       <div class="template-grid">
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper"><div class="paper-name"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-line"></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-1.jpg" alt="01 Linear resume preview"></div>
           <div class="template-info"><h3>01 Linear</h3><p>清晰稳重，适合通用求职。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper alt"><div class="paper-side"></div><div><div class="paper-name"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-title"></div><div class="paper-line"></div></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-2.jpg" alt="02 Sidebar resume preview"></div>
           <div class="template-info"><h3>02 Sidebar</h3><p>信息层级明确，适合设计类简历。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper"><div class="paper-name" style="width:46%"></div><div class="paper-line"></div><div class="paper-line" style="width:66%"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-title"></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-3.jpg" alt="03 Minimal resume preview"></div>
           <div class="template-info"><h3>03 Minimal</h3><p>留白更多，适合高级简洁风。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper"><div class="paper-name" style="background:#d9c8a9"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-title" style="background:#111"></div><div class="paper-line"></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-4.jpg" alt="04 Warm resume preview"></div>
           <div class="template-info"><h3>04 Warm</h3><p>轻商务感，适合内容运营和产品岗位。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper alt"><div class="paper-side" style="background:#d9c8a9"></div><div><div class="paper-name"></div><div class="paper-line"></div><div class="paper-title"></div><div class="paper-line"></div></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-5.jpg" alt="05 Gold resume preview"></div>
           <div class="template-info"><h3>05 Gold</h3><p>更有记忆点，适合个人品牌表达。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper"><div class="paper-name" style="width:88%"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-title"></div><div class="paper-line"></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-6.jpg" alt="06 Business resume preview"></div>
           <div class="template-info"><h3>06 Business</h3><p>正式专业，适合企业岗位投递。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper"><div class="paper-line" style="height:26px;background:#111"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-line"></div><div class="paper-title"></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-7.jpg" alt="07 Header resume preview"></div>
           <div class="template-info"><h3>07 Header</h3><p>顶部信息突出，适合强标题型简历。</p></div>
         </article>
         <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><div class="paper alt"><div><div class="paper-line"></div><div class="paper-line"></div></div><div><div class="paper-name"></div><div class="paper-title"></div><div class="paper-line"></div><div class="paper-line"></div></div></div></div>
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-8.jpg" alt="08 Compact resume preview"></div>
           <div class="template-info"><h3>08 Compact</h3><p>信息密度高，适合一页压缩。</p></div>
+        </article>
+        <article class="template-card" onclick="location.href='resume-tool.html'">
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-9.jpg" alt="09 Editorial resume preview"></div>
+          <div class="template-info"><h3>09 Editorial</h3><p>杂志排版感，适合视觉和内容岗位。</p></div>
+        </article>
+        <article class="template-card" onclick="location.href='resume-tool.html'">
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-10.jpg" alt="10 Metroline resume preview"></div>
+          <div class="template-info"><h3>10 Metroline</h3><p>双栏线性排版，适合成熟专业表达。</p></div>
+        </article>
+        <article class="template-card" onclick="location.href='resume-tool.html'">
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-11.jpg" alt="11 Profile resume preview"></div>
+          <div class="template-info"><h3>11 Profile</h3><p>头像信息栏搭配正文经历，稳重简洁。</p></div>
+        </article>
+        <article class="template-card" onclick="location.href='resume-tool.html'">
+          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-12.jpg" alt="12 Portrait resume preview"></div>
+          <div class="template-info"><h3>12 Portrait</h3><p>商务双栏，突出主经历与个人信息。</p></div>
         </article>
       </div>
     </section>
@@ -684,23 +702,20 @@
   </footer>
 
   <script>
+    const heroResumeImages = [
+      "images/resume-previews/resume-1.jpg",
+      "images/resume-previews/resume-2.jpg",
+      "images/resume-previews/resume-3.jpg",
+      "images/resume-previews/resume-4.jpg"
+    ];
+
     function switchHeroTemplate(index){
       const sheet = document.getElementById("heroSheet");
       const thumbs = document.querySelectorAll(".thumb");
       thumbs.forEach((thumb, i) => thumb.classList.toggle("active", i === index));
-
-      const styles = [
-        "grid-template-columns:.72fr 1fr;",
-        "grid-template-columns:1fr;",
-        "grid-template-columns:.42fr 1fr;",
-        "grid-template-columns:1fr;"
-      ];
-      sheet.setAttribute("style", styles[index]);
-
-      if(index === 1 || index === 3){
-        sheet.querySelector(".sheet-side").style.display = "none";
-      }else{
-        sheet.querySelector(".sheet-side").style.display = "flex";
+      if(sheet && heroResumeImages[index]){
+        sheet.src = heroResumeImages[index];
+        sheet.alt = `Resume template preview ${String(index + 1).padStart(2, "0")}`;
       }
     }
   </script>

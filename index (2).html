@@ -2566,9 +2566,9 @@
     function navFilter(category){
       if(typeof filterProducts === "function"){
         filterProducts(category);
-        return false; // 首页：阻止 href 跳转，原地筛选
+        return false;
       }
-      return true; // 其他页面：放行 href，正常跳转到 index.html?filter=xxx
+      return true;
     }
 
     function filterProducts(category){

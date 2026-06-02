@@ -1451,6 +1451,59 @@
       }
     }
 
+  
+    /* Hero banner image fill */
+    .hero-banner-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .hero-banner-card{
+      background:#f3f1eb;
+      border:1px solid rgba(0,0,0,.08);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-banner-card.product-mock.plan::before{
+      display:none;
+    }
+
+    .product-mock.resume.banner-resume{
+      align-items:stretch;
+    }
+
+    .product-mock.resume.banner-resume .resume-page{
+      padding:0;
+      overflow:hidden;
+    }
+
+    .product-mock.resume.banner-resume .resume-page img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .reference-hero-mock.banner-reference .pin-card::before{
+      display:none;
+    }
+
+    .reference-hero-mock.banner-reference .pin-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .prompt-hero-mock.banner-prompt{
+      padding:0;
+      overflow:hidden;
+      box-shadow:18px 18px 0 rgba(0,0,0,.08);
+    }
+
   </style>
 </head>
 <body>
@@ -1466,12 +1519,12 @@
       <div class="nav-dropdown">
         <a href="index.html#products">Assets ▼</a>
         <div class="dropdown-content">
-          <a href="index.html#products" onclick="filterProducts('Module Diagrams'); return false;">Module Assets</a>
-          <a href="index.html#products" onclick="filterProducts('Plan Assets'); return false;">Plan Assets</a>
-          <a href="index.html#products" onclick="filterProducts('People Assets'); return false;">People Assets</a>
-          <a href="index.html#products" onclick="filterProducts('Plant Assets'); return false;">Plant Assets</a>
-          <a href="index.html#products" onclick="filterProducts('Animal Assets'); return false;">Animal Assets</a>
-          <a href="index.html#products" onclick="filterProducts('Brushes'); return false;">Brushes</a>
+          <a href="index.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+          <a href="index.html?filter=Plan%20Assets#products" onclick="return navFilter('Plan Assets');">Plan Assets</a>
+          <a href="index.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+          <a href="index.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+          <a href="index.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+          <a href="index.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
         </div>
       </div>
 
@@ -1502,7 +1555,9 @@
       <div class="hero-product-track" id="heroProductTrack">
         <article class="hero-product-slide">
           <div class="hero-product-visual">
-            <div class="product-mock plan"></div>
+            <div class="product-mock plan hero-banner-card">
+              <img class="hero-banner-img" src="images/banner/banner10.JPG" alt="Landscape Plan Creator Bundle">
+            </div>
           </div>
           <div class="hero-product-copy">
             <div class="eyebrow">Featured Product</div>
@@ -1517,10 +1572,10 @@
 
         <article class="hero-product-slide">
           <div class="hero-product-visual">
-            <div class="product-mock resume">
-              <div class="resume-page"><div class="fake-circle"></div><div class="fake-line"></div><div class="fake-line thin"></div><div class="fake-line thin"></div><div class="fake-line"></div><div class="fake-line thin"></div></div>
-              <div class="resume-page"><div class="fake-line"></div><div class="fake-line thin"></div><div class="fake-line thin"></div><div class="fake-circle"></div><div class="fake-line"></div><div class="fake-line thin"></div></div>
-              <div class="resume-page"><div class="fake-circle"></div><div class="fake-line"></div><div class="fake-line"></div><div class="fake-line thin"></div><div class="fake-line thin"></div></div>
+            <div class="product-mock resume banner-resume">
+              <div class="resume-page"><img src="images/banner/banner7.JPG" alt="Editable Resume Template 1"></div>
+              <div class="resume-page"><img src="images/banner/banner8.JPG" alt="Editable Resume Template 2"></div>
+              <div class="resume-page"><img src="images/banner/banner9.JPG" alt="Editable Resume Template 3"></div>
             </div>
           </div>
           <div class="hero-product-copy">
@@ -1536,13 +1591,13 @@
 
         <article class="hero-product-slide">
           <div class="hero-product-visual">
-            <div class="reference-hero-mock">
-              <div class="pin-card tall"></div>
-              <div class="pin-card"></div>
-              <div class="pin-card small"></div>
-              <div class="pin-card wide"></div>
-              <div class="pin-card tall muted"></div>
-              <div class="pin-card small dark"></div>
+            <div class="reference-hero-mock banner-reference">
+              <div class="pin-card tall"><img src="images/banner/banner1.JPG" alt="Plan Reference 1"></div>
+              <div class="pin-card"><img src="images/banner/banner2.JPG" alt="Plan Reference 2"></div>
+              <div class="pin-card small"><img src="images/banner/banner3.JPG" alt="Plan Reference 3"></div>
+              <div class="pin-card wide"><img src="images/banner/banner4.JPG" alt="Plan Reference 4"></div>
+              <div class="pin-card tall muted"><img src="images/banner/banner5.JPG" alt="Plan Reference 5"></div>
+              <div class="pin-card small dark"><img src="images/banner/banner6.JPG" alt="Plan Reference 6"></div>
             </div>
           </div>
           <div class="hero-product-copy">
@@ -1558,25 +1613,8 @@
 
         <article class="hero-product-slide">
           <div class="hero-product-visual">
-            <div class="prompt-hero-mock">
-              <div class="prompt-window">
-                <div class="prompt-toolbar">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="prompt-lines">
-                  <div class="prompt-line w1"></div>
-                  <div class="prompt-line w2"></div>
-                  <div class="prompt-line w3"></div>
-                  <div class="prompt-chip-row">
-                    <span>composition</span>
-                    <span>color</span>
-                    <span>texture</span>
-                  </div>
-                  <div class="prompt-output">
-                    hand-drawn architectural illustration, flat shading, matte finish, low saturation, white space...
-                  </div>
-                </div>
-              </div>
+            <div class="prompt-hero-mock banner-prompt">
+              <img class="hero-banner-img" src="images/banner/banner11.JPG" alt="Architectural Prompt Builder">
             </div>
           </div>
           <div class="hero-product-copy">
@@ -2561,6 +2599,14 @@
           </div>
         </article>
       `).join("");
+    }
+
+    function navFilter(category){
+      if(typeof filterProducts === "function"){
+        filterProducts(category);
+        return false;
+      }
+      return true;
     }
 
     function filterProducts(category){

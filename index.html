@@ -1334,6 +1334,109 @@
       .detail-thumbs{grid-template-columns:repeat(3, minmax(0,1fr));}
     }
 
+
+    /* Cross-browser layout stability patch
+       Keep homepage carousel and product cards consistent in Chrome / Safari / Edge / Firefox. */
+    html{
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    body{
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:geometricPrecision;
+    }
+    img{
+      max-width:100%;
+      height:auto;
+    }
+    .product-hero{
+      width:100%;
+      contain:layout paint;
+    }
+    .hero-product-track{
+      width:100%;
+      max-width:100%;
+      overflow:visible;
+      will-change:transform;
+      transform:translate3d(0,0,0);
+      backface-visibility:hidden;
+    }
+    .hero-product-slide{
+      width:100%;
+      min-width:100%;
+      max-width:100%;
+      flex:0 0 100%;
+      overflow:hidden;
+      transform:translate3d(0,0,0);
+    }
+    .hero-product-visual,
+    .hero-product-copy{
+      min-width:0;
+    }
+    .product-mock,
+    .reference-hero-mock,
+    .prompt-hero-mock{
+      flex:none;
+      max-width:620px;
+    }
+    .section{
+      width:100%;
+    }
+    .product-grid{
+      width:100%;
+      align-items:start;
+    }
+    .product-card{
+      min-width:0;
+      width:100%;
+    }
+    .thumb{
+      width:100%;
+      height:auto;
+      min-height:0;
+      aspect-ratio:1.32 / 1;
+      line-height:0;
+    }
+    @supports not (aspect-ratio: 1 / 1){
+      .thumb::before{
+        content:"";
+        display:block;
+        padding-top:75.7576%;
+      }
+      .thumb > img,
+      .thumb > .thumb-grid,
+      .thumb > .drawing,
+      .thumb > .thumb-title{
+        position:absolute;
+      }
+    }
+    .thumb img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+    }
+    .product-info h3{
+      min-height:2.7em;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .hero-product-copy h1,
+    .section-title,
+    .product-info h3{
+      overflow-wrap:normal;
+    }
+    @media (min-width:1201px){
+      .product-grid{
+        grid-template-columns:repeat(4, minmax(0,1fr));
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1472,6 +1575,7 @@
               <button class="secondary-btn" onclick="scrollToSection('tools')">View Workflow</button>
             </div>
           </div>
+        </article>
       </div>
 
       <div class="hero-product-controls">

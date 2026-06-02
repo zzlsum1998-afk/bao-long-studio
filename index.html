@@ -1466,12 +1466,12 @@
       <div class="nav-dropdown">
         <a href="index.html#products">Assets ▼</a>
         <div class="dropdown-content">
-          <a href="index.html#products">Module Assets</a>
-          <a href="index.html#products">Plan Assets</a>
-          <a href="index.html#products">People Assets</a>
-          <a href="index.html#products">Plant Assets</a>
-          <a href="index.html#products">Animal Assets</a>
-          <a href="index.html#products">Brushes</a>
+          <a href="index.html#products" onclick="filterProducts('Module Diagrams'); return false;">Module Assets</a>
+          <a href="index.html#products" onclick="filterProducts('Plan Assets'); return false;">Plan Assets</a>
+          <a href="index.html#products" onclick="filterProducts('People Assets'); return false;">People Assets</a>
+          <a href="index.html#products" onclick="filterProducts('Plant Assets'); return false;">Plant Assets</a>
+          <a href="index.html#products" onclick="filterProducts('Animal Assets'); return false;">Animal Assets</a>
+          <a href="index.html#products" onclick="filterProducts('Brushes'); return false;">Brushes</a>
         </div>
       </div>
 
@@ -2490,6 +2490,10 @@
       "Animal Assets": {
         title: "Animal Assets",
         desc: "筛选展示所有带有动物、pet、animal 相关标签的商品。"
+      },
+      "Brushes": {
+        title: "Brushes",
+        desc: "筛选展示所有带有笔刷 / brush 相关标签的商品。"
       }
     };
 
@@ -2498,7 +2502,8 @@
       "Plan Assets": ["plan assets", "plan", "平面"],
       "People Assets": ["people assets", "people", "person", "人物", "人群"],
       "Plant Assets": ["plant assets", "plant", "植物"],
-      "Animal Assets": ["animal assets", "animal", "pet", "动物", "宠物"]
+      "Animal Assets": ["animal assets", "animal", "pet", "动物", "宠物"],
+      "Brushes": ["brushes", "brush", "笔刷"]
     };
 
     function getDisplayCategory(item){
@@ -2686,30 +2691,5 @@
     setInterval(nextHeroProduct, 5200);
     setInterval(nextNews, 7600);
   </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdown = document.querySelector('#assets-dropdown');
-    if(dropdown){
-        dropdown.addEventListener('change', function(e){
-            const selectedCategory = e.target.value;
-            const allProducts = document.querySelectorAll('.product-card');
-            allProducts.forEach(p => {
-                if(selectedCategory === 'all' || p.dataset.category === selectedCategory){
-                    p.style.display = 'block';
-                } else {
-                    p.style.display = 'none';
-                }
-            });
-            // 滑动到第一个匹配商品
-            const firstVisible = Array.from(allProducts).find(p => p.style.display === 'block');
-            if(firstVisible){
-                firstVisible.scrollIntoView({behavior: 'smooth', block: 'start'});
-            }
-        });
-    }
-});
-</script>
-
 </body>
 </html>

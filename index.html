@@ -2686,5 +2686,30 @@
     setInterval(nextHeroProduct, 5200);
     setInterval(nextNews, 7600);
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('#assets-dropdown');
+    if(dropdown){
+        dropdown.addEventListener('change', function(e){
+            const selectedCategory = e.target.value;
+            const allProducts = document.querySelectorAll('.product-card');
+            allProducts.forEach(p => {
+                if(selectedCategory === 'all' || p.dataset.category === selectedCategory){
+                    p.style.display = 'block';
+                } else {
+                    p.style.display = 'none';
+                }
+            });
+            // 滑动到第一个匹配商品
+            const firstVisible = Array.from(allProducts).find(p => p.style.display === 'block');
+            if(firstVisible){
+                firstVisible.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>

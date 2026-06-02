@@ -1697,8 +1697,8 @@
     <section class="section" id="products">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Editor's Picks</h2>
-          <p class="section-desc">商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。</p>
+          <h2 class="section-title" id="productsTitle">Editor's Picks</h2>
+          <p class="section-desc" id="productsDesc">商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。</p>
         </div>
         <button class="pill-btn" onclick="filterProducts('All')">Show All</button>
       </div>
@@ -2452,8 +2452,83 @@
     let activeSlide = 0;
     let activeHeroProduct = 0;
 
+    const productFilterMeta = {
+      "All": {
+        title: "Editor's Picks",
+        desc: "商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。"
+      },
+      "Module Diagrams": {
+        title: "Module Diagrams",
+        desc: "筛选展示所有模块分析图、分析模版与作品集相关商品。"
+      },
+      "Plan Assets": {
+        title: "Plan Assets",
+        desc: "筛选展示所有带有平面图 / plan 相关标签的商品。"
+      },
+      "People Assets": {
+        title: "People Assets",
+        desc: "筛选展示所有带有人物、人群、people 相关标签的商品。"
+      },
+      "Plant Assets": {
+        title: "Plant Assets",
+        desc: "筛选展示所有带有植物、plant 相关标签的商品。"
+      },
+      "Animal Assets": {
+        title: "Animal Assets",
+        desc: "筛选展示所有带有动物、pet、animal 相关标签的商品。"
+      }
+    };
+
+    const categoryKeywordMap = {
+      "Module Diagrams": ["module diagrams", "module", "diagram", "分析图", "模块", "作品集", "模版", "模板"],
+      "Plan Assets": ["plan assets", "plan", "平面"],
+      "People Assets": ["people assets", "people", "person", "人物", "人群"],
+      "Plant Assets": ["plant assets", "plant", "植物"],
+      "Animal Assets": ["animal assets", "animal", "pet", "动物", "宠物"]
+    };
+
+    function getDisplayCategory(item){
+      const raw = String(item.category || "").trim().toLowerCase();
+      if(raw === "plant") return "Plant Assets";
+      if(raw === "people" || raw === "person") return "People Assets";
+      return item.category || "Uncategorized";
+    }
+
+    function getSearchableText(item){
+      const parts = [
+        item.category || "",
+        item.title || "",
+        ...(item.tags || []),
+        ...(item.desc || [])
+      ];
+      return parts.join(" | ").toLowerCase();
+    }
+
+    function matchesCategoryFilter(item, category){
+      if(category === "All") return true;
+      const keywords = categoryKeywordMap[category] || [String(category).toLowerCase()];
+      const haystack = getSearchableText(item);
+      return keywords.some(keyword => haystack.includes(String(keyword).toLowerCase()));
+    }
+
+    function updateProductsHeading(category){
+      const titleEl = document.getElementById("productsTitle");
+      const descEl = document.getElementById("productsDesc");
+      const meta = productFilterMeta[category] || productFilterMeta["All"];
+      if(titleEl) titleEl.textContent = meta.title;
+      if(descEl) descEl.textContent = meta.desc;
+    }
+
     function renderProducts(list = products){
       const grid = document.getElementById("productGrid");
+      if(!list.length){
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column:1 / -1;padding:48px 24px;border:1px solid var(--line);border-radius:24px;background:#faf9f6;text-align:center;color:var(--muted)">
+            当前分类下暂时还没有商品，后续可以继续补充这一类素材。
+          </div>
+        `;
+        return;
+      }
       grid.innerHTML = list.map((item) => `
         <article class="product-card" onclick="openDetail(${products.indexOf(item)})">
           <div class="thumb">
@@ -2462,21 +2537,32 @@
           <div class="product-info">
             <h3>${item.title}</h3>
             <div class="price">${item.price}</div>
-            <div class="product-meta-line">${item.category}</div>
-            <div class="tags">${item.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+            <div class="product-meta-line">${getDisplayCategory(item)}</div>
+            <div class="tags">${(item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
           </div>
         </article>
       `).join("");
     }
 
     function filterProducts(category){
-      if(category === "All"){
-        renderProducts(products);
-      }else{
-        const filtered = products.filter(p => p.category === category);
-        renderProducts(filtered.length ? filtered : products);
+      if(category === "Resume Templates"){
+        location.href = 'resume.html';
+        return;
       }
+      if(category === "Prompt Tools"){
+        location.href = 'prompt-generator.html';
+        return;
+      }
+      const filtered = category === "All"
+        ? products
+        : products.filter(item => matchesCategoryFilter(item, category));
+      updateProductsHeading(category);
+      renderProducts(filtered);
       scrollToSection("products");
+      if(history.replaceState){
+        const nextUrl = category === "All" ? location.pathname : location.pathname + '?filter=' + encodeURIComponent(category);
+        history.replaceState(null, "", nextUrl);
+      }
     }
 
     let currentProductLink = "";
@@ -2495,7 +2581,7 @@
       const item = products[index];
       window.activeProductIndex = index;
       currentProductLink = item.link || "";
-      document.getElementById("detailType").textContent = item.category;
+      document.getElementById("detailType").textContent = getDisplayCategory(item);
       document.getElementById("detailTitle").textContent = item.title;
       document.getElementById("detailPrice").textContent = item.price;
       document.getElementById("detailVisual").innerHTML = `
@@ -2575,7 +2661,14 @@
       location.href = 'resume.html';
     }
 
-    renderProducts();
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get("filter");
+    if(initialFilter){
+      filterProducts(initialFilter);
+    }else{
+      updateProductsHeading("All");
+      renderProducts();
+    }
     setInterval(nextHeroProduct, 5200);
     setInterval(nextNews, 7600);
   </script>

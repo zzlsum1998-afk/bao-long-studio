@@ -2686,5 +2686,22 @@
     setInterval(nextHeroProduct, 5200);
     setInterval(nextNews, 7600);
   </script>
+
+<script>
+// Assets 下拉框点击滚动到对应商品
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('#assets-dropdown');
+    if(dropdown){
+        dropdown.addEventListener('change', function(e){
+            const selected = e.target.value;
+            const targetItem = document.querySelector('[data-category="'+selected+'"]');
+            if(targetItem){
+                targetItem.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>

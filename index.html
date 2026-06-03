@@ -1472,19 +1472,33 @@
     }
 
     .product-mock.resume.banner-resume{
-      align-items:stretch;
+      width:min(760px,100%);
+      min-height:430px;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      padding:34px 44px;
     }
 
     .product-mock.resume.banner-resume .resume-page{
+      flex:1 1 0;
+      width:auto;
+      max-width:210px;
+      aspect-ratio:210 / 297;
       padding:0;
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
     }
 
     .product-mock.resume.banner-resume .resume-page img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:contain;
       display:block;
+      background:#fff;
     }
 
     .reference-hero-mock.banner-reference .pin-card::before{

@@ -406,7 +406,7 @@
     <section class="masonry-wrap">
       <div class="masonry">
 
-        <article class="pin" onclick="openModal('Warm Gray + Olive', 'Color Inspiration', '#e6e0d6', '适合建筑与景观图面，整体安静、克制、自然。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:260px;--c:#e6e0d6;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -414,7 +414,7 @@
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Off-white + Charcoal', 'Color Inspiration', '#f1f0ec', '适合简约高级风页面、作品集封面和黑白图面体系。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:320px;--c:#f1f0ec;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -422,7 +422,7 @@
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Sand Beige + Muted Green', 'Color Inspiration', '#dde5dd', '适合自然场地、植物图面、庭院场景和柔和渲染。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:290px;--c:#dde5dd;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -430,7 +430,7 @@
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Dusty Blue + Stone', 'Color Inspiration', '#d9e1ef', '适合稍冷调的公共空间、滨水场景和清爽图面。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:360px;--c:#d9e1ef;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -438,7 +438,7 @@
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Clay + Cream', 'Color Inspiration', '#efe6df', '适合温暖生活化场景、社区空间和女性向视觉表达。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:300px;--c:#efe6df;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -446,7 +446,7 @@
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Muted Brown + Paper White', 'Color Inspiration', '#e8e5dc', '适合手绘感、拼贴风、作品集排版和自然材质表达。', 'Source link to be added', '#')">
+        <article class="pin">
           <div class="pin-img" style="--h:420px;--c:#e8e5dc;"></div>
           <div class="pin-body">
             <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
@@ -471,7 +471,7 @@
         <p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
         <p><strong>Source:</strong> <span id="modalSource">Source link to be added</span></p>
         <div class="modal-actions">
-          <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Add Source Link</a>
+          <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Source Pending Link</a>
         </div>
         <small>说明：该卡片只作为灵感索引入口，不提供下载；正式上线时建议使用低清缩略图并标注原始来源。</small>
       </div>
@@ -496,7 +496,7 @@
         link.classList.remove("disabled");
       }else{
         link.href = "#";
-        link.textContent = "Add Source Link";
+        link.textContent = "Source Pending Link";
         link.classList.add("disabled");
       }
       document.getElementById("modal").classList.add("open");

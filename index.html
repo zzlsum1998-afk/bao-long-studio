@@ -1781,7 +1781,7 @@
         </div>
       </div>
 
-      <div class="news-wrap">
+      <div class="news-wrap" id="newsCarousel">
         <div class="news-track" id="newsTrack">
           <article class="news-slide">
             <div class="news-visual">
@@ -2927,8 +2927,27 @@
       heroProductCarousel.addEventListener("mouseleave", startHeroProductAutoPlay);
     }
 
+    let newsTimer = null;
+
+    function startNewsAutoPlay(){
+      if(newsTimer) return;
+      newsTimer = setInterval(nextNews, 7600);
+    }
+
+    function stopNewsAutoPlay(){
+      if(!newsTimer) return;
+      clearInterval(newsTimer);
+      newsTimer = null;
+    }
+
+    const newsCarousel = document.getElementById("newsCarousel");
+    if(newsCarousel){
+      newsCarousel.addEventListener("mouseenter", stopNewsAutoPlay);
+      newsCarousel.addEventListener("mouseleave", startNewsAutoPlay);
+    }
+
     startHeroProductAutoPlay();
-    setInterval(nextNews, 7600);
+    startNewsAutoPlay();
   </script>
 
 <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">

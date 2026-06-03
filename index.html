@@ -1657,6 +1657,9 @@
         top:34px;
         left:0;
       }
+      .nav-dropdown.active .dropdown-content{
+        display:block;
+      }
 
       .header-actions{
         display:none !important;
@@ -1929,7 +1932,7 @@
       <a href="index.html">All</a>
 
       <div class="nav-dropdown">
-        <a href="index.html#products">Assets ▼</a>
+        <a href="index.html#products" onclick="toggleDropdown(this,event)">Assets ▼</a>
         <div class="dropdown-content"> 
           <a href="index.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
           <a href="index.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
@@ -1946,7 +1949,7 @@
       <a href="resume.html">Resume</a>
 
       <div class="nav-dropdown">
-        <a href="plan-references.html">Inspiration Board ▼</a>
+        <a href="plan-references.html" onclick="toggleDropdown(this,event)">Inspiration Board ▼</a>
         <div class="dropdown-content">
           <a href="plan-references.html">Plan Board</a>
           <a href="section-references.html">Section Board</a>

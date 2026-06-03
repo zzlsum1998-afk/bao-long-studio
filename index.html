@@ -2752,7 +2752,9 @@
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get("filter");
     if(initialFilter){
-      filterProducts(initialFilter);
+      updateProductsHeading(initialFilter);
+      renderProducts(products.filter(item => matchesCategoryFilter(item, initialFilter)));
+      setTimeout(() => scrollToSection("products"), 100);
     }else{
       updateProductsHeading("All");
       renderProducts();

@@ -1474,23 +1474,26 @@
     .product-mock.resume.banner-resume{
       width:min(760px,100%);
       min-height:430px;
+      position:relative;
+      display:flex;
       align-items:center;
       justify-content:center;
-      gap:20px;
       padding:34px 44px;
+      overflow:visible;
     }
 
     .product-mock.resume.banner-resume .resume-page{
-      flex:1 1 0;
-      width:auto;
-      max-width:210px;
-      aspect-ratio:210 / 297;
+      position:absolute;
       padding:0;
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
       background:#fff;
+      aspect-ratio:210 / 297;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 14px 28px rgba(0,0,0,.08);
+      transition:transform .25s ease;
     }
 
     .product-mock.resume.banner-resume .resume-page img{
@@ -1499,6 +1502,58 @@
       object-fit:contain;
       display:block;
       background:#fff;
+    }
+
+    .product-mock.resume.banner-resume .resume-page.main{
+      position:relative;
+      z-index:3;
+      width:min(250px, 36%);
+      min-width:220px;
+      transform:translateY(0);
+    }
+
+    .product-mock.resume.banner-resume .resume-page.left,
+    .product-mock.resume.banner-resume .resume-page.right{
+      width:min(180px, 28%);
+      min-width:150px;
+      z-index:2;
+      opacity:.98;
+    }
+
+    .product-mock.resume.banner-resume .resume-page.left{
+      left:62px;
+      transform:translateY(10px) rotate(-2deg);
+    }
+
+    .product-mock.resume.banner-resume .resume-page.right{
+      right:62px;
+      transform:translateY(10px) rotate(2deg);
+    }
+
+    @media (max-width:680px){
+      .product-mock.resume.banner-resume{
+        min-height:350px;
+        padding:24px 18px;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.main{
+        width:min(210px, 48%);
+        min-width:170px;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.left,
+      .product-mock.resume.banner-resume .resume-page.right{
+        width:min(130px, 28%);
+        min-width:96px;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.left{
+        left:12px;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.right{
+        right:12px;
+      }
     }
 
     .reference-hero-mock.banner-reference .pin-card::before{
@@ -1611,9 +1666,9 @@
         <article class="hero-product-slide">
           <div class="hero-product-visual">
             <div class="product-mock resume banner-resume">
-              <div class="resume-page"><img src="images/banner/banner7.JPG" alt="Editable Resume Template 1"></div>
-              <div class="resume-page"><img src="images/banner/banner8.JPG" alt="Editable Resume Template 2"></div>
-              <div class="resume-page"><img src="images/banner/banner9.JPG" alt="Editable Resume Template 3"></div>
+              <div class="resume-page left"><img src="images/banner/banner7.JPG" alt="Editable Resume Template 1"></div>
+              <div class="resume-page main"><img src="images/banner/banner8.JPG" alt="Editable Resume Template 2"></div>
+              <div class="resume-page right"><img src="images/banner/banner9.JPG" alt="Editable Resume Template 3"></div>
             </div>
           </div>
           <div class="hero-product-copy">

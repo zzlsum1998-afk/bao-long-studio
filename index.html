@@ -1573,7 +1573,7 @@
   </header>
 
   <main>
-    <section class="hero product-hero">
+    <section class="hero product-hero" id="heroProductCarousel">
       <div class="hero-grid"></div>
       <div class="hero-product-track" id="heroProductTrack">
         <article class="hero-product-slide">
@@ -2757,7 +2757,26 @@
       updateProductsHeading("All");
       renderProducts();
     }
-    setInterval(nextHeroProduct, 5200);
+    let heroProductTimer = null;
+
+    function startHeroProductAutoPlay(){
+      if(heroProductTimer) return;
+      heroProductTimer = setInterval(nextHeroProduct, 5200);
+    }
+
+    function stopHeroProductAutoPlay(){
+      if(!heroProductTimer) return;
+      clearInterval(heroProductTimer);
+      heroProductTimer = null;
+    }
+
+    const heroProductCarousel = document.getElementById("heroProductCarousel");
+    if(heroProductCarousel){
+      heroProductCarousel.addEventListener("mouseenter", stopHeroProductAutoPlay);
+      heroProductCarousel.addEventListener("mouseleave", startHeroProductAutoPlay);
+    }
+
+    startHeroProductAutoPlay();
     setInterval(nextNews, 7600);
   </script>
 </body>

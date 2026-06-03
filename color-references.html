@@ -165,6 +165,9 @@
         linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
       background-size:18px 18px;
     }
+    .modal-img.has-image::before,.modal-img.has-image::after{display:none}
+    .modal-img img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:2;background:#f7f6f2}
+
     .modal-copy{padding:42px}
     .modal-copy h2{font-size:42px;line-height:1.08;margin:10px 0 18px}
     .modal-copy p{line-height:1.8;color:#4d4943}
@@ -720,56 +723,176 @@
     <section class="masonry-wrap">
       <div class="masonry">
 
-        <article class="pin">
-          <div class="pin-img" style="--h:260px;--c:#e6e0d6;"></div>
+        <article class="pin" onclick="openModal('Color Reference 01', 'Color Board', 'images/inspiration/color/color-ref-01.png', '极简色彩参考板 01，主色参考：#F0F0F0 / #C0C0E0 / #304070 / #E0A090 / #905050。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-01.png" alt="Color Reference 01" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">蓝灰</span><span class="pin-tag">陶土</span><span class="pin-tag">低饱和</span></div>
+            <h3>Color Reference 01</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#F0F0F0 / #C0C0E0 / #304070 / #E0A090 / #905050</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
 
-        <article class="pin">
-          <div class="pin-img" style="--h:320px;--c:#f1f0ec;"></div>
+        <article class="pin" onclick="openModal('Color Reference 02', 'Color Board', 'images/inspiration/color/color-ref-02.png', '极简色彩参考板 02，主色参考：#908030 / #F0E0E0 / #404000 / #804000 / #707050。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-02.png" alt="Color Reference 02" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">暖黄棕</span><span class="pin-tag">深绿</span><span class="pin-tag">低饱和</span></div>
+            <h3>Color Reference 02</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#908030 / #F0E0E0 / #404000 / #804000 / #707050</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
 
-        <article class="pin">
-          <div class="pin-img" style="--h:290px;--c:#dde5dd;"></div>
+        <article class="pin" onclick="openModal('Color Reference 03', 'Color Board', 'images/inspiration/color/color-ref-03.png', '极简色彩参考板 03，主色参考：#405030 / #E0B060 / #907050 / #F0E0D0 / #60A070。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-03.png" alt="Color Reference 03" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">鼠尾草绿</span><span class="pin-tag">米杏</span><span class="pin-tag">自然感</span></div>
+            <h3>Color Reference 03</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#405030 / #E0B060 / #907050 / #F0E0D0 / #60A070</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
 
-        <article class="pin">
-          <div class="pin-img" style="--h:360px;--c:#d9e1ef;"></div>
+        <article class="pin" onclick="openModal('Color Reference 04', 'Color Board', 'images/inspiration/color/color-ref-04.png', '极简色彩参考板 04，主色参考：#E0E0D0 / #807060 / #101010 / #C0B090 / #604020。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:380px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-04.png" alt="Color Reference 04" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">黑白米棕</span><span class="pin-tag">高级中性</span><span class="pin-tag">低饱和</span></div>
+            <h3>Color Reference 04</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#E0E0D0 / #807060 / #101010 / #C0B090 / #604020</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
 
-        <article class="pin">
-          <div class="pin-img" style="--h:300px;--c:#efe6df;"></div>
+        <article class="pin" onclick="openModal('Color Reference 05', 'Color Board', 'images/inspiration/color/color-ref-05.png', '极简色彩参考板 05，主色参考：#908080 / #E0E0D0 / #503030 / #C0B0A0 / #F0F0F0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-05.png" alt="Color Reference 05" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">暖灰</span><span class="pin-tag">红棕</span><span class="pin-tag">柔和</span></div>
+            <h3>Color Reference 05</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#908080 / #E0E0D0 / #503030 / #C0B0A0 / #F0F0F0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
 
-        <article class="pin">
-          <div class="pin-img" style="--h:420px;--c:#e8e5dc;"></div>
+        <article class="pin" onclick="openModal('Color Reference 06', 'Color Board', 'images/inspiration/color/color-ref-06.png', '极简色彩参考板 06，主色参考：#C0C0C0 / #504030 / #808060 / #202010 / #C0B080。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-06.png" alt="Color Reference 06" loading="lazy" />
+          </div>
           <div class="pin-body">
-            <p class="pin-desc"><strong>分类：</strong>剖面图参考</p>
-            <div class="pin-tags"><span class="pin-tag">低饱和</span><span class="pin-tag">拼贴风</span><span class="pin-tag">庭院</span><span class="pin-tag">植物层次</span></div>
+            <div class="pin-tags"><span class="pin-tag">灰棕</span><span class="pin-tag">深色</span><span class="pin-tag">沉稳</span></div>
+            <h3>Color Reference 06</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#C0C0C0 / #504030 / #808060 / #202010 / #C0B080</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 07', 'Color Board', 'images/inspiration/color/color-ref-07.png', '极简色彩参考板 07，主色参考：#909070 / #F0E0D0 / #E0D090 / #F0C060 / #A06050。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-07.png" alt="Color Reference 07" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">米杏</span><span class="pin-tag">姜黄</span><span class="pin-tag">陶土</span></div>
+            <h3>Color Reference 07</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#909070 / #F0E0D0 / #E0D090 / #F0C060 / #A06050</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 08', 'Color Board', 'images/inspiration/color/color-ref-08.png', '极简色彩参考板 08，主色参考：#D0E0F0 / #F0E0E0 / #503020 / #D0D0A0 / #F0E0A0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-08.png" alt="Color Reference 08" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">浅蓝</span><span class="pin-tag">奶油黄</span><span class="pin-tag">柔和</span></div>
+            <h3>Color Reference 08</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#D0E0F0 / #F0E0E0 / #503020 / #D0D0A0 / #F0E0A0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 09', 'Color Board', 'images/inspiration/color/color-ref-09.png', '极简色彩参考板 09，主色参考：#E0D0A0 / #A0B090 / #C06040 / #403040 / #506090。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-09.png" alt="Color Reference 09" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">橄榄绿</span><span class="pin-tag">陶土</span><span class="pin-tag">蓝灰</span></div>
+            <h3>Color Reference 09</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#E0D0A0 / #A0B090 / #C06040 / #403040 / #506090</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 10', 'Color Board', 'images/inspiration/color/color-ref-10.png', '极简色彩参考板 10，主色参考：#D0D0C0 / #C0A090 / #708060 / #A09070 / #E0E0E0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-10.png" alt="Color Reference 10" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">灰绿</span><span class="pin-tag">暖棕</span><span class="pin-tag">安静</span></div>
+            <h3>Color Reference 10</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#D0D0C0 / #C0A090 / #708060 / #A09070 / #E0E0E0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 11', 'Color Board', 'images/inspiration/color/color-ref-11.png', '极简色彩参考板 11，主色参考：#F0E0E0 / #C07050 / #E0C0B0 / #A0A090 / #90A0B0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-11.png" alt="Color Reference 11" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">粉米色</span><span class="pin-tag">陶土</span><span class="pin-tag">雾蓝</span></div>
+            <h3>Color Reference 11</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#F0E0E0 / #C07050 / #E0C0B0 / #A0A090 / #90A0B0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 12', 'Color Board', 'images/inspiration/color/color-ref-12.png', '极简色彩参考板 12，主色参考：#A04000 / #E0C0A0 / #D09040 / #402010 / #70B0A0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:365px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-12.png" alt="Color Reference 12" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">焦糖棕</span><span class="pin-tag">松石绿</span><span class="pin-tag">复古</span></div>
+            <h3>Color Reference 12</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#A04000 / #E0C0A0 / #D09040 / #402010 / #70B0A0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 13', 'Color Board', 'images/inspiration/color/color-ref-13.png', '极简色彩参考板 13，主色参考：#F0E0B0 / #F0C060 / #C0D0B0 / #A0A070 / #E0E0E0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-13.png" alt="Color Reference 13" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">奶油黄</span><span class="pin-tag">鼠尾草绿</span><span class="pin-tag">清新</span></div>
+            <h3>Color Reference 13</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#F0E0B0 / #F0C060 / #C0D0B0 / #A0A070 / #E0E0E0</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
+          </div>
+        </article>
+
+        <article class="pin" onclick="openModal('Color Reference 14', 'Color Board', 'images/inspiration/color/color-ref-14.png', '极简色彩参考板 14，主色参考：#D0C0A0 / #504030 / #E0E0E0 / #8090A0 / #A06050。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
+          <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
+            <img src="images/inspiration/color/color-ref-14.png" alt="Color Reference 14" loading="lazy" />
+          </div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">米棕</span><span class="pin-tag">灰蓝</span><span class="pin-tag">陶土</span></div>
+            <h3>Color Reference 14</h3>
+            <p class="pin-desc"><strong>分类：</strong>色彩参考 / Color Board<br><strong>主色：</strong>#D0C0A0 / #504030 / #E0E0E0 / #8090A0 / #A06050</p>
+            <div class="source-row"><span class="source-name">Bao Long Studio</span><span class="source-btn disabled">Color Ref</span></div>
           </div>
         </article>
       </div>
       <div class="board-note">
-        本模块仅用于设计学习、灵感索引与来源跳转，不提供原图下载。图片版权归原作者或原平台所有；后续可在卡片中添加低清缩略图、原始来源链接、作者/平台信息与一句话解析。
+        本模块用于 Bao Long Studio 色彩灵感归档，帮助快速查找低饱和配色、主辅色关系与图面氛围。后续新增色彩板时，可继续按 color-ref-序号 的规则追加。
       </div>
     </section>
   </main>
@@ -797,12 +920,21 @@
   </footer>
 
   <script>
-    function openModal(title, type, color, desc, source, url){
+    function openModal(title, type, imageOrColor, desc, source, url){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;
       document.getElementById("modalSource").textContent = source;
-      document.getElementById("modalImg").style.background = color;
+      const modalImg = document.getElementById("modalImg");
+      if(imageOrColor && /\.(png|jpe?g|webp|gif)$/i.test(imageOrColor)){
+        modalImg.classList.add("has-image");
+        modalImg.style.background = "#f7f6f2";
+        modalImg.innerHTML = '<img src="' + imageOrColor + '" alt="' + title + '" />';
+      }else{
+        modalImg.classList.remove("has-image");
+        modalImg.innerHTML = "";
+        modalImg.style.background = imageOrColor || "#e6e3dc";
+      }
       const link = document.getElementById("modalLink");
       if(url && url !== "#"){
         link.href = url;

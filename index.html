@@ -2509,7 +2509,7 @@
     </div>
   </div>
 
-  <div class="floating-gift" onclick="scrollToSection('featured')" title="Featured">✦</div>
+  <div class="floating-gift" onclick="scrollToTop()" title="Back to top">✦</div>
 
   <footer class="footer">
     <div>
@@ -3585,6 +3585,12 @@
     });
   </script>
 
+
+  <script>
+    function scrollToTop(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  </script>
 </body>
 
 </html>

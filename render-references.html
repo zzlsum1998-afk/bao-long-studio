@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Render References | Bao Long Studio</title>
+  <title>Render Board | Bao Long Studio</title>
   <style>
     :root{
       --bg:#f7f6f2;
@@ -311,6 +311,37 @@
       .dropdown-content{left:0;transform:none;}
     }
 
+
+    /* Inspiration Board refinement: source-link cards, no download behavior */
+    .hero .eyebrow{color:#8a8378;}
+    .tabs .tab{font-size:14px;}
+    .pin{
+      border-radius:24px;
+      background:rgba(255,255,255,.82);
+      box-shadow:0 10px 30px rgba(35,32,28,.04);
+      cursor:default;
+    }
+    .pin:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(35,32,28,.10)}
+    .pin-img{border-bottom:1px solid rgba(222,217,207,.75)}
+    .pin-img img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2}
+    .pin-img.has-image::before,.pin-img.has-image::after{display:none}
+    .pin-body{padding:18px 18px 20px}
+    .pin-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+    .pin-tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #ded9cf;border-radius:999px;padding:5px 8px;color:#6f685f;background:#faf9f6}
+    .pin-body h3{font-size:19px;margin-bottom:9px;letter-spacing:.01em}
+    .pin-desc{color:#5c5750;font-size:13px;line-height:1.7;margin-bottom:14px !important}
+    .source-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid rgba(222,217,207,.78);padding-top:13px;margin-top:14px;color:#837b70;font-size:12px}
+    .source-name{max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .source-btn{border:1px solid #161616;border-radius:999px;padding:8px 12px;font-size:12px;background:#161616;color:#fff;text-decoration:none;white-space:nowrap;transition:.22s ease;}
+    .source-btn:hover{transform:translateY(-1px);background:#3b3833;border-color:#3b3833}
+    .source-btn.disabled{background:#f7f6f2;color:#9a9287;border-color:#ded9cf;pointer-events:none}
+    .board-note{margin:28px 0 0;padding:18px 20px;border:1px solid #ded9cf;border-radius:20px;background:rgba(255,255,255,.62);color:#77736b;font-size:13px;line-height:1.75}
+    .modal-card{border-radius:28px;overflow:hidden}
+    .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .modal-source-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 16px;background:#111;color:#fff;font-size:14px;text-decoration:none}
+    .modal-source-btn.disabled{background:#f1eee8;color:#9a9287;pointer-events:none}
+    .modal-copy small{display:block;color:#8a8378;line-height:1.7;margin-top:18px}
+
   </style>
 </head>
 <body>
@@ -342,10 +373,10 @@
       <div class="nav-dropdown">
         <a href="plan-references.html">Resources ▼</a>
         <div class="dropdown-content">
-          <a href="plan-references.html">Plan References</a>
-          <a href="section-references.html">Section References</a>
-          <a href="render-references.html">Render References</a>
-          <a href="color-references.html">Color References</a>
+          <a href="plan-references.html">Plan Board</a>
+          <a href="section-references.html">Section Board</a>
+          <a href="render-references.html">Render Board</a>
+          <a href="color-references.html">Color Board</a>
         </div>
       </div>
     </nav>
@@ -356,144 +387,148 @@
     </div>
   </header>
 
+
   <main>
     <section class="hero">
       <div>
-        <div class="eyebrow">Reference Images Library</div>
-        <h1>Render References</h1>
-        <p>效果图参考库，适合收集氛围、构图、材质、色彩和最终图面表达风格。</p>
+        <div class="eyebrow">Inspiration Board</div>
+        <h1>Render Inspiration Board</h1>
+        <p>效果图灵感索引：用于收集真实氛围、构图角度、材质表现、配色倾向和高级感渲染参考。</p>
       </div>
       <div class="tabs">
-        <a class="tab " href="plan-references.html">Plan References</a>
-        <a class="tab " href="section-references.html">Section References</a>
-        <a class="tab active" href="render-references.html">Render References</a>
+        <a class="tab " href="plan-references.html">Plan Board</a>
+        <a class="tab " href="section-references.html">Section Board</a>
+        <a class="tab active" href="render-references.html">Render Board</a>
+        <a class="tab " href="color-references.html">Color Board</a>
       </div>
     </section>
 
     <section class="masonry-wrap">
       <div class="masonry">
-        
-        <article class="pin" onclick="openModal('Soft Light Plaza Render', 'Render Reference', '#e8e5dc')">
-          <div class="pin-img" style="--h:280px;--c:#e8e5dc;"></div>
+
+        <article class="pin" onclick="openModal('Soft Realistic Courtyard', 'Render Inspiration', '#e8e5dc', '适合参考低饱和真实风格、柔和日光和建筑庭院的高级氛围。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:380px;--c:#e8e5dc;"></div>
           <div class="pin-body">
-            <h3>Soft Light Plaza Render</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Render</span><span class="pin-tag">Realistic</span><span class="pin-tag">Soft Light</span></div>
+            <h3>Soft Realistic Courtyard</h3>
+            <p class="pin-desc">适合参考低饱和真实风格、柔和日光和建筑庭院的高级氛围。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Low Saturation Park View', 'Render Reference', '#dde5dd')">
-          <div class="pin-img" style="--h:360px;--c:#dde5dd;"></div>
+        <article class="pin" onclick="openModal('Minimal Public Space', 'Render Inspiration', '#dde5dd', '适合参考简洁构图、灰白材质和留白较多的场景表达。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:300px;--c:#dde5dd;"></div>
           <div class="pin-body">
-            <h3>Low Saturation Park View</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Minimal</span><span class="pin-tag">Public Space</span><span class="pin-tag">Neutral</span></div>
+            <h3>Minimal Public Space</h3>
+            <p class="pin-desc">适合参考简洁构图、灰白材质和留白较多的场景表达。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Interior Green Corner', 'Render Reference', '#e1e6ef')">
-          <div class="pin-img" style="--h:240px;--c:#e1e6ef;"></div>
+        <article class="pin" onclick="openModal('Warm Evening Render', 'Render Inspiration', '#e1e6ef', '适合参考傍晚光影、温暖室内灯光和材质层次。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:440px;--c:#e1e6ef;"></div>
           <div class="pin-body">
-            <h3>Interior Green Corner</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Evening</span><span class="pin-tag">Atmosphere</span><span class="pin-tag">Warm Gray</span></div>
+            <h3>Warm Evening Render</h3>
+            <p class="pin-desc">适合参考傍晚光影、温暖室内灯光和材质层次。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Community Event Scene', 'Render Reference', '#efe6df')">
-          <div class="pin-img" style="--h:420px;--c:#efe6df;"></div>
+        <article class="pin" onclick="openModal('Editorial Landscape View', 'Render Inspiration', '#efe6df', '适合参考杂志感构图、前景植物和建筑主体的画面关系。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:330px;--c:#efe6df;"></div>
           <div class="pin-body">
-            <h3>Community Event Scene</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Editorial</span><span class="pin-tag">Composition</span><span class="pin-tag">Premium</span></div>
+            <h3>Editorial Landscape View</h3>
+            <p class="pin-desc">适合参考杂志感构图、前景植物和建筑主体的画面关系。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Children Activity Space', 'Render Reference', '#e6e0d6')">
-          <div class="pin-img" style="--h:310px;--c:#e6e0d6;"></div>
+        <article class="pin" onclick="openModal('Natural Material Render', 'Render Inspiration', '#e6e0d6', '适合参考石材、木材、玻璃与自然植物的克制搭配。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:360px;--c:#e6e0d6;"></div>
           <div class="pin-body">
-            <h3>Children Activity Space</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Material</span><span class="pin-tag">Stone</span><span class="pin-tag">Wood</span></div>
+            <h3>Natural Material Render</h3>
+            <p class="pin-desc">适合参考石材、木材、玻璃与自然植物的克制搭配。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Quiet Courtyard Render', 'Render Reference', '#f1f0ec')">
-          <div class="pin-img" style="--h:260px;--c:#f1f0ec;"></div>
+        <article class="pin" onclick="openModal('Clean Axon Mood', 'Render Inspiration', '#f1f0ec', '适合参考干净留白、轴测构图和轻量化建筑表达。', 'Source link to be added', '#')">
+          <div class="pin-img" style="--h:270px;--c:#f1f0ec;"></div>
           <div class="pin-body">
-            <h3>Quiet Courtyard Render</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Urban Pocket Park View', 'Render Reference', '#d9e1ef')">
-          <div class="pin-img" style="--h:390px;--c:#d9e1ef;"></div>
-          <div class="pin-body">
-            <h3>Urban Pocket Park View</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Cafe Garden Scene', 'Render Reference', '#e9ddd8')">
-          <div class="pin-img" style="--h:330px;--c:#e9ddd8;"></div>
-          <div class="pin-body">
-            <h3>Cafe Garden Scene</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Planting Atmosphere View', 'Render Reference', '#e8e5dc')">
-          <div class="pin-img" style="--h:460px;--c:#e8e5dc;"></div>
-          <div class="pin-body">
-            <h3>Planting Atmosphere View</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Evening Public Space', 'Render Reference', '#dde5dd')">
-          <div class="pin-img" style="--h:285px;--c:#dde5dd;"></div>
-          <div class="pin-body">
-            <h3>Evening Public Space</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Natural Material Scene', 'Render Reference', '#e1e6ef')">
-          <div class="pin-img" style="--h:350px;--c:#e1e6ef;"></div>
-          <div class="pin-body">
-            <h3>Natural Material Scene</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
-          </div>
-        </article>
-
-        <article class="pin" onclick="openModal('Clean Collage Render', 'Render Reference', '#efe6df')">
-          <div class="pin-img" style="--h:250px;--c:#efe6df;"></div>
-          <div class="pin-body">
-            <h3>Clean Collage Render</h3>
-            <p>Render reference · layout, composition and visual style inspiration.</p>
+            <div class="pin-tags"><span class="pin-tag">Axon</span><span class="pin-tag">Clean</span><span class="pin-tag">White Space</span></div>
+            <h3>Clean Axon Mood</h3>
+            <p class="pin-desc">适合参考干净留白、轴测构图和轻量化建筑表达。</p>
+            <div class="source-row">
+              <span class="source-name">Source · Source link to be added</span>
+              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            </div>
           </div>
         </article>
       </div>
+      <div class="board-note">
+        本模块仅用于设计学习、灵感索引与来源跳转，不提供原图下载。图片版权归原作者或原平台所有；后续可在卡片中添加低清缩略图、原始来源链接、作者/平台信息与一句话解析。
+      </div>
     </section>
   </main>
+
 
   <div class="modal" id="modal" onclick="closeModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
       <div class="modal-img" id="modalImg"></div>
       <div class="modal-copy">
         <button class="close" onclick="closeModal()">×</button>
-        <div class="eyebrow" id="modalType">Reference</div>
-        <h2 id="modalTitle">Reference Image</h2>
+        <div class="eyebrow" id="modalType">Inspiration</div>
+        <h2 id="modalTitle">Inspiration Card</h2>
         <p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
-        <p><strong>Usage:</strong> 可用于找图面表达、排版风格、配色、构图参考。</p>
+        <p><strong>Source:</strong> <span id="modalSource">Source link to be added</span></p>
+        <div class="modal-actions">
+          <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Add Source Link</a>
+        </div>
+        <small>说明：该卡片只作为灵感索引入口，不提供下载；正式上线时建议使用低清缩略图并标注原始来源。</small>
       </div>
     </div>
   </div>
 
   <footer class="footer">
-    Bao Long Studio · Reference Images Library
+    Bao Long Studio · Inspiration Board
   </footer>
 
   <script>
-    function openModal(title, type, color){
+    function openModal(title, type, color, desc, source, url){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
+      document.getElementById("modalDesc").textContent = desc;
+      document.getElementById("modalSource").textContent = source;
       document.getElementById("modalImg").style.background = color;
+      const link = document.getElementById("modalLink");
+      if(url && url !== "#"){
+        link.href = url;
+        link.textContent = "View Original Source";
+        link.classList.remove("disabled");
+      }else{
+        link.href = "#";
+        link.textContent = "Add Source Link";
+        link.classList.add("disabled");
+      }
       document.getElementById("modal").classList.add("open");
     }
     function closeModal(event){

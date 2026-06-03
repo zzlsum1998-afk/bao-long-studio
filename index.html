@@ -2081,6 +2081,106 @@
       }
     }
 
+
+
+    /* Mobile dropdown menu: desktop navigation remains unchanged */
+    .mobile-menu-toggle,
+    .mobile-menu-panel{
+      display:none;
+    }
+
+    @media (max-width:900px){
+      .site-header{
+        position:sticky;
+        top:0;
+        display:flex;
+        align-items:center !important;
+        justify-content:space-between;
+        flex-wrap:nowrap !important;
+        overflow:visible !important;
+      }
+
+      .brand{
+        flex:1 1 auto;
+        min-width:0 !important;
+      }
+
+      .brand-text{
+        max-width:calc(100vw - 120px);
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .nav,
+      .header-actions{
+        display:none !important;
+      }
+
+      .mobile-menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 auto;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:rgba(255,255,255,.76);
+        padding:9px 14px;
+        font-size:13px;
+        color:#1c1c1c;
+        cursor:pointer;
+        letter-spacing:.04em;
+      }
+
+      .mobile-menu-panel{
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        right:14px;
+        left:14px;
+        z-index:80;
+        max-height:72vh;
+        overflow-y:auto;
+        background:rgba(255,255,255,.96);
+        border:1px solid var(--line);
+        border-radius:22px;
+        box-shadow:0 20px 48px rgba(0,0,0,.14);
+        padding:12px;
+        backdrop-filter:blur(18px);
+      }
+
+      .mobile-menu-panel.open{
+        display:block;
+      }
+
+      .mobile-menu-panel a{
+        display:block;
+        padding:12px 14px;
+        border-radius:14px;
+        color:#1c1c1c;
+        font-size:15px;
+        line-height:1.25;
+      }
+
+      .mobile-menu-panel a:hover{
+        background:#f3f0e8;
+      }
+
+      .mobile-menu-group{
+        margin:10px 8px 4px;
+        color:var(--muted);
+        font-size:11px;
+        line-height:1;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        font-weight:700;
+      }
+
+      html,
+      body{
+        overflow-x:hidden !important;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -2125,6 +2225,31 @@
       <button class="pill-btn" onclick="location.href='index.html#products'">Shop Preview</button>
       <button class="pill-btn" onclick="location.href='index.html#tools'">Tools</button>
     </div>
+  
+    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+      <a href="index.html" onclick="closeMobileMenu()">All</a>
+      <div class="mobile-menu-group">Assets</div>
+      <a href="index.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+      <a href="index.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+      <a href="index.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+      <a href="index.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+      <a href="index.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
+      <a href="index.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+      <div class="mobile-menu-group">Tools</div>
+      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+      <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+      <a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+      <div class="mobile-menu-group">Inspiration Board</div>
+      <a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+      <a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+      <a href="render-references.html" onclick="closeMobileMenu()">Render Board</a>
+      <a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+      <div class="mobile-menu-group">Quick Links</div>
+      <a href="index.html#products" onclick="closeMobileMenu()">Shop Preview</a>
+      <a href="index.html#tools" onclick="closeMobileMenu()">Tools</a>
+    </div>
+
   </header>
 
   <main>
@@ -3439,6 +3564,27 @@
     © 2026 Bao Long Studio. All rights reserved.<br>
     All design assets, templates and visual materials are original works by Bao Long Studio.
 </footer>
+
+  <script>
+    function toggleMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.toggle('open');
+    }
+
+    function closeMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(event){
+      const panel = document.getElementById('mobileMenuPanel');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if(!panel || !toggle) return;
+      if(panel.contains(event.target) || toggle.contains(event.target)) return;
+      panel.classList.remove('open');
+    });
+  </script>
+
 </body>
 
 </html>

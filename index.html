@@ -2522,6 +2522,79 @@
                   "适合场景：景观/建筑/环艺设计、作品集、分析图"
             ]
       }
+,
+      {
+            "id": "F001",
+            "title": "Free Plant Assets Sample",
+            "category": "Free",
+            "price": "Free",
+            "link": "https://pan.baidu.com/s/xxxx",
+            "tags": [
+                  "Free",
+                  "Plant",
+                  "PNG"
+            ],
+            "cover": "images/banner/banner3.JPG",
+            "images": [
+                  "images/banner/banner3.JPG",
+                  "images/banner/banner4.JPG",
+                  "images/banner/banner5.JPG"
+            ],
+            "desc": [
+                  "免费植物素材小样",
+                  "文件格式：PNG",
+                  "适合场景：平面图、分析图、作品集场景表达",
+                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+            ]
+      },
+      {
+            "id": "F002",
+            "title": "Free People Assets Sample",
+            "category": "Free",
+            "price": "Free",
+            "link": "https://pan.baidu.com/s/xxxx",
+            "tags": [
+                  "Free",
+                  "People",
+                  "PNG"
+            ],
+            "cover": "images/banner/banner6.JPG",
+            "images": [
+                  "images/banner/banner6.JPG",
+                  "images/banner/banner7.JPG",
+                  "images/banner/banner8.JPG"
+            ],
+            "desc": [
+                  "免费人物素材小样",
+                  "文件格式：PNG",
+                  "适合场景：活动分析图、人物尺度表达、作品集排版",
+                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+            ]
+      },
+      {
+            "id": "F003",
+            "title": "Free Prompt Template Sample",
+            "category": "Free",
+            "price": "Free",
+            "link": "https://pan.baidu.com/s/xxxx",
+            "tags": [
+                  "Free",
+                  "Prompt",
+                  "Template"
+            ],
+            "cover": "images/banner/banner11.JPG",
+            "images": [
+                  "images/banner/banner11.JPG",
+                  "images/banner/banner10.JPG",
+                  "images/banner/banner1.JPG"
+            ],
+            "desc": [
+                  "免费 Prompt 模板小样",
+                  "文件格式：TXT / PDF",
+                  "适合场景：MidJourney 建筑插画、拼贴风、平面图表达",
+                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+            ]
+      }
 ];
 
     let activeSlide = 0;
@@ -2687,11 +2760,14 @@
           `).join("")}
         </div>
       `;
+      const isFreeItem = String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
       document.getElementById("detailDesc").innerHTML = `
         <p>${item.desc.join("</p><p>")}</p>
-        <p><strong>Purchase:</strong> 点击按钮可跳转商品链接，后期可替换为淘宝、小红书或私信入口。</p>
+        <p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接，后期替换为真实链接。" : "点击按钮可跳转商品链接，后期可替换为淘宝、小红书或私信入口。"}</p>
       `;
-      document.getElementById("detailBuyBtn").disabled = !currentProductLink;
+      const detailBuyBtn = document.getElementById("detailBuyBtn");
+      detailBuyBtn.textContent = isFreeItem ? "获取素材" : "Go to Taobao";
+      detailBuyBtn.disabled = !currentProductLink;
       document.getElementById("detailPanel").classList.add("open");
     }
 

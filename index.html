@@ -1596,7 +1596,327 @@
       box-shadow:18px 18px 0 rgba(0,0,0,.08);
     }
 
-  </style>
+  
+
+    /* Mobile refinement: keep desktop unchanged, improve small-screen readability */
+    @media (max-width:900px){
+      body{
+        overflow-x:hidden;
+      }
+
+      .site-header{
+        height:auto !important;
+        min-height:70px;
+        padding:14px 16px !important;
+        gap:12px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+
+      .brand{
+        min-width:0 !important;
+        gap:10px;
+      }
+
+      .brand-logo-img{
+        width:38px;
+        height:auto;
+      }
+
+      .brand-text{
+        font-size:13px !important;
+        letter-spacing:.22em !important;
+        white-space:nowrap;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        gap:18px;
+        overflow-x:auto;
+        overflow-y:visible;
+        padding:4px 0 8px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .nav a{
+        font-size:14px;
+        white-space:nowrap;
+      }
+
+      .nav-dropdown{
+        flex:0 0 auto;
+      }
+
+      .dropdown-content{
+        top:34px;
+        left:0;
+      }
+
+      .header-actions{
+        display:none !important;
+      }
+
+      .hero{
+        min-height:auto !important;
+        padding:48px 18px;
+      }
+
+      .section{
+        padding:54px 18px !important;
+      }
+
+      .section-head{
+        display:block !important;
+      }
+
+      .section-title{
+        font-size:clamp(34px,11vw,54px) !important;
+        line-height:1.02;
+      }
+
+      .section-desc{
+        font-size:15px;
+        line-height:1.75;
+      }
+
+      .tabs{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        padding-bottom:6px;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .tabs::-webkit-scrollbar{
+        display:none;
+      }
+
+      .tab{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+
+      .masonry{
+        grid-template-columns:1fr !important;
+      }
+
+      .pin{
+        border-radius:24px !important;
+      }
+
+      .footer{
+        display:block !important;
+        padding:36px 18px !important;
+        font-size:13px;
+        line-height:1.7;
+      }
+    }
+
+
+
+    /* Homepage mobile layout */
+    @media (max-width:900px){
+      .product-hero{
+        min-height:760px !important;
+      }
+
+      .hero-product-track{
+        height:760px !important;
+      }
+
+      .hero-product-slide{
+        grid-template-columns:1fr !important;
+        align-content:center;
+        padding:82px 20px 90px !important;
+        gap:24px !important;
+      }
+
+      .hero-product-visual{
+        order:1;
+        width:100%;
+      }
+
+      .hero-product-copy{
+        order:2;
+        max-width:100%;
+        padding:0 !important;
+      }
+
+      .hero-product-copy h1{
+        font-size:clamp(42px,13vw,72px) !important;
+        line-height:1 !important;
+      }
+
+      .hero-product-copy p{
+        font-size:16px !important;
+        line-height:1.7 !important;
+        margin-top:18px !important;
+      }
+
+      .hero-actions{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+      }
+
+      .hero-actions .primary-btn,
+      .hero-actions .secondary-btn{
+        flex:1 1 150px;
+        min-height:46px;
+        padding-left:14px;
+        padding-right:14px;
+      }
+
+      .product-mock,
+      .hero-banner-card,
+      .prompt-hero-mock.banner-prompt,
+      .reference-hero-mock.banner-reference{
+        width:100% !important;
+        max-width:560px;
+      }
+
+      .product-mock.plan,
+      .hero-banner-card,
+      .prompt-hero-mock.banner-prompt{
+        aspect-ratio:1.55 / 1;
+        height:auto !important;
+      }
+
+      .reference-hero-mock.banner-reference{
+        height:330px !important;
+        grid-template-columns:1.3fr 1fr 1fr !important;
+        grid-auto-rows:64px !important;
+        gap:10px !important;
+      }
+
+      .product-mock.resume.banner-resume{
+        width:100% !important;
+        min-height:330px !important;
+        padding:22px 18px !important;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.main{
+        width:min(180px,48%) !important;
+        min-width:150px !important;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.left,
+      .product-mock.resume.banner-resume .resume-page.right{
+        width:min(118px,29%) !important;
+        min-width:86px !important;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.left{
+        left:14px !important;
+      }
+
+      .product-mock.resume.banner-resume .resume-page.right{
+        right:14px !important;
+      }
+
+      .hero-product-controls{
+        left:14px !important;
+        right:14px !important;
+      }
+
+      .hero-product-controls .icon-btn{
+        width:42px;
+        height:42px;
+      }
+
+      .hero-dots{
+        bottom:28px !important;
+      }
+
+      .product-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .product-card{
+        border-radius:24px !important;
+      }
+
+      .detail-panel{
+        justify-content:center !important;
+      }
+
+      .detail-card{
+        width:100vw !important;
+        padding:26px 20px !important;
+      }
+
+      .detail-card h2{
+        font-size:32px !important;
+      }
+
+      .detail-visual{
+        margin:24px 0 !important;
+      }
+
+      .news-slide{
+        grid-template-columns:1fr !important;
+        min-height:auto !important;
+      }
+
+      .news-visual{
+        padding:20px !important;
+      }
+
+      .news-copy{
+        padding:28px 22px !important;
+      }
+
+      .news-copy h3{
+        font-size:clamp(28px,9vw,42px) !important;
+        line-height:1.12 !important;
+      }
+
+      .news-copy p{
+        font-size:15px !important;
+        line-height:1.75 !important;
+      }
+
+      .news-card-large{
+        width:100% !important;
+        min-height:220px !important;
+        padding:26px !important;
+      }
+
+      .news-card-large h3{
+        font-size:clamp(28px,8vw,38px) !important;
+      }
+
+      .tool-band{
+        grid-template-columns:1fr !important;
+        padding:34px 22px !important;
+        border-radius:26px !important;
+      }
+
+      .tool-band h2{
+        font-size:clamp(32px,10vw,46px) !important;
+      }
+
+      .tool-cards{
+        grid-template-columns:1fr !important;
+      }
+
+      .floating-gift{
+        width:48px !important;
+        height:48px !important;
+        right:18px !important;
+        bottom:18px !important;
+      }
+    }
+
+</style>
 </head>
 <body>
   <header class="site-header">

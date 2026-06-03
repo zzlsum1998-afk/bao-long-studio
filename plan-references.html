@@ -342,7 +342,131 @@
     .modal-source-btn.disabled{background:#f1eee8;color:#9a9287;pointer-events:none}
     .modal-copy small{display:block;color:#8a8378;line-height:1.7;margin-top:18px}
 
-  </style>
+  
+
+    /* Mobile refinement: keep desktop unchanged, improve small-screen readability */
+    @media (max-width:900px){
+      body{
+        overflow-x:hidden;
+      }
+
+      .site-header{
+        height:auto !important;
+        min-height:70px;
+        padding:14px 16px !important;
+        gap:12px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+
+      .brand{
+        min-width:0 !important;
+        gap:10px;
+      }
+
+      .brand-logo-img{
+        width:38px;
+        height:auto;
+      }
+
+      .brand-text{
+        font-size:13px !important;
+        letter-spacing:.22em !important;
+        white-space:nowrap;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        gap:18px;
+        overflow-x:auto;
+        overflow-y:visible;
+        padding:4px 0 8px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .nav a{
+        font-size:14px;
+        white-space:nowrap;
+      }
+
+      .nav-dropdown{
+        flex:0 0 auto;
+      }
+
+      .dropdown-content{
+        top:34px;
+        left:0;
+      }
+
+      .header-actions{
+        display:none !important;
+      }
+
+      .hero{
+        min-height:auto !important;
+        padding:48px 18px;
+      }
+
+      .section{
+        padding:54px 18px !important;
+      }
+
+      .section-head{
+        display:block !important;
+      }
+
+      .section-title{
+        font-size:clamp(34px,11vw,54px) !important;
+        line-height:1.02;
+      }
+
+      .section-desc{
+        font-size:15px;
+        line-height:1.75;
+      }
+
+      .tabs{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        padding-bottom:6px;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .tabs::-webkit-scrollbar{
+        display:none;
+      }
+
+      .tab{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+
+      .masonry{
+        grid-template-columns:1fr !important;
+      }
+
+      .pin{
+        border-radius:24px !important;
+      }
+
+      .footer{
+        display:block !important;
+        padding:36px 18px !important;
+        font-size:13px;
+        line-height:1.7;
+      }
+    }
+
+</style>
 </head>
 <body>
   <header class="site-header">

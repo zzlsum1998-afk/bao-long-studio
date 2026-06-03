@@ -1945,6 +1945,75 @@
       }
     }
 
+
+
+    /* Desktop hero visual fit fix: keep first and Inspiration Board slides inside the viewport */
+    @media (min-width:901px){
+      .product-hero{
+        min-height:600px !important;
+      }
+
+      .hero-product-track{
+        height:600px !important;
+      }
+
+      .hero-product-slide{
+        padding:64px 64px 56px !important;
+        align-items:center !important;
+      }
+
+      .hero-product-copy{
+        transform:none !important;
+      }
+
+      .hero-product-copy h1{
+        font-size:clamp(48px,6.2vw,78px) !important;
+      }
+
+      .hero-product-copy p{
+        margin-top:18px !important;
+        font-size:17px !important;
+        line-height:1.65 !important;
+      }
+
+      .hero-product-visual{
+        max-height:430px !important;
+        overflow:hidden !important;
+        align-self:center !important;
+      }
+
+      .product-mock.plan.hero-banner-card{
+        width:min(560px,100%) !important;
+        height:380px !important;
+        aspect-ratio:auto !important;
+      }
+
+      .product-mock.plan.hero-banner-card .hero-banner-img{
+        object-fit:contain !important;
+        object-position:center center !important;
+        background:#fff;
+      }
+
+      .reference-hero-mock.banner-reference{
+        width:min(600px,100%) !important;
+        height:380px !important;
+        grid-auto-rows:70px !important;
+        gap:12px !important;
+      }
+
+      .hero-actions{
+        margin-top:24px !important;
+      }
+
+      .hero-dots{
+        bottom:18px !important;
+      }
+
+      .hero-product-controls{
+        top:50% !important;
+      }
+    }
+
 </style>
 </head>
 <body>

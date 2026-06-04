@@ -2215,43 +2215,76 @@
     }
 
 
-
-    /* Homepage product preview / Assets page refinements */
-    .view-more-row{
-      display:flex;
-      justify-content:center;
-      margin-top:36px;
-    }
-    .view-more-row .primary-btn{
-      min-width:220px;
-      text-align:center;
-    }
-    .asset-filter-tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .asset-filter-tabs .tab{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:10px 16px;
-      background:#fff;
-      cursor:pointer;
-      transition:.25s ease;
-      font-size:13px;
-    }
-    .asset-filter-tabs .tab:hover,
-    .asset-filter-tabs .tab.active{
-      background:#111;
-      color:#fff;
-      border-color:#111;
-    }
+    /* Mobile Category cards: compact 2-column entrance cards */
     @media (max-width:900px){
-      .asset-filter-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;scrollbar-width:none;}
-      .asset-filter-tabs::-webkit-scrollbar{display:none;}
-      .asset-filter-tabs .tab{flex:0 0 auto;}
-      .view-more-row .primary-btn{width:min(100%,320px);}
+      .category-strip{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:14px !important;
+        overflow:visible !important;
+        padding:4px 0 10px !important;
+      }
+
+      .cat-card{
+        height:auto !important;
+        min-height:156px;
+        padding:18px 16px !important;
+        border-radius:24px !important;
+        justify-content:space-between;
+        transform:none !important;
+      }
+
+      .cat-card:hover{
+        transform:translate3d(0,-4px,0) !important;
+        box-shadow:0 14px 34px rgba(0,0,0,.09) !important;
+      }
+
+      .cat-card .mini-pattern{
+        height:56px !important;
+        border-radius:16px !important;
+        margin-bottom:18px;
+      }
+
+      .cat-card .mini-pattern::before{
+        width:62px !important;
+        height:42px !important;
+        left:18px !important;
+        top:12px !important;
+      }
+
+      .cat-card h3{
+        font-size:18px !important;
+        line-height:1.16 !important;
+        word-break:normal !important;
+        overflow-wrap:normal !important;
+      }
+
+      .cat-card p{
+        font-size:12px !important;
+        line-height:1.55 !important;
+        margin-top:8px !important;
+        word-break:normal !important;
+      }
+
+      .category-strip .cat-card:nth-child(5){
+        grid-column:1 / -1;
+        min-height:138px;
+      }
+    }
+
+    @media (max-width:420px){
+      .category-strip{
+        gap:12px !important;
+      }
+
+      .cat-card{
+        min-height:148px;
+        padding:16px 14px !important;
+      }
+
+      .cat-card h3{
+        font-size:17px !important;
+      }
     }
 
 </style>
@@ -2267,14 +2300,14 @@
       <a href="index.html">All</a>
 
       <div class="nav-dropdown">
-        <a href="assets.html">Assets ▼</a>
+        <a href="index.html#products">Assets ▼</a>
         <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="assets.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+          <a href="index.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+          <a href="index.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+          <a href="index.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+          <a href="index.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+          <a href="index.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
+          <a href="index.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
         
         </div>
       </div>
@@ -2303,12 +2336,12 @@
     <div class="mobile-menu-panel" id="mobileMenuPanel">
       <a href="index.html" onclick="closeMobileMenu()">All</a>
       <div class="mobile-menu-group">Assets</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="assets.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+      <a href="index.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+      <a href="index.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+      <a href="index.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+      <a href="index.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+      <a href="index.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
+      <a href="index.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
       <div class="mobile-menu-group">Tools</div>
       <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
       <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
@@ -2425,7 +2458,7 @@
         </div>
       </div>
       <div class="category-strip">
-        <article class="cat-card" onclick="location.href='assets.html'">
+        <article class="cat-card" onclick="location.href='index.html#products'">
           <div class="mini-pattern"></div>
           <div><h3>Assets</h3><p>设计素材 / 商品资源</p></div>
         </article>
@@ -2518,14 +2551,11 @@
       <div class="section-head">
         <div>
           <h2 class="section-title" id="productsTitle">Editor's Picks</h2>
-          <p class="section-desc" id="productsDesc">首页先展示 16 个精选素材，更多分类与完整商品可以进入 Assets 页面查看。</p>
+          <p class="section-desc" id="productsDesc">商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。</p>
         </div>
-        <button class="pill-btn" onclick="location.href='assets.html'">View More</button>
+        <button class="pill-btn" onclick="filterProducts('All')">Show All</button>
       </div>
       <div class="product-grid" id="productGrid"></div>
-      <div class="view-more-row">
-        <button class="primary-btn" onclick="location.href='assets.html'">View More</button>
-      </div>
     </section>
 
     <section class="section" id="tools">
@@ -3459,10 +3489,6 @@
     }
 
     function filterProducts(category){
-      if(category && category !== "All"){
-        location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
-        return;
-      }
       if(category === "Resume Templates"){
         location.href = 'resume.html';
         return;
@@ -3585,10 +3611,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get("filter");
     if(initialFilter){
-      location.href = 'assets.html?filter=' + encodeURIComponent(initialFilter) + '#products';
+      filterProducts(initialFilter);
     }else{
       updateProductsHeading("All");
-      renderProducts(products.slice(0, 16));
+      renderProducts();
     }
     let heroProductTimer = null;
 

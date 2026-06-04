@@ -425,6 +425,156 @@
       }
     }
 
+
+
+    /* Gesture interaction case cards */
+    .interaction-cases{
+      max-width:1500px;
+      margin:0 auto;
+      padding:10px 48px 96px;
+    }
+    .case-head{
+      display:flex;
+      justify-content:space-between;
+      gap:28px;
+      align-items:flex-end;
+      margin-bottom:26px;
+      border-top:1px solid var(--line);
+      padding-top:54px;
+    }
+    .case-kicker{
+      margin-bottom:12px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .case-title{
+      margin:0;
+      font-size:clamp(34px,4.2vw,64px);
+      line-height:.98;
+      letter-spacing:-.03em;
+    }
+    .case-desc{
+      max-width:520px;
+      margin:0;
+      color:#5f5a51;
+      line-height:1.75;
+      font-size:15px;
+    }
+    .interaction-case-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .interaction-case-card{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:rgba(255,255,255,.72);
+      box-shadow:var(--shadow);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .interaction-case-card:hover{
+      transform:translateY(-4px);
+      border-color:#c8c1b4;
+      box-shadow:0 24px 60px rgba(0,0,0,.10);
+    }
+    .interaction-case-thumb{
+      width:100%;
+      aspect-ratio:1.35/1;
+      background:#ece8df;
+      overflow:hidden;
+    }
+    .interaction-case-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .interaction-case-body{
+      padding:24px 24px 26px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      flex:1;
+    }
+    .interaction-case-type{
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .interaction-case-card h3{
+      margin:0;
+      font-size:26px;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .interaction-case-card p{
+      margin:0;
+      color:#6d675d;
+      font-size:14px;
+      line-height:1.75;
+    }
+    .case-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+    .case-tags span{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:6px 10px;
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      background:#f7f6f2;
+      color:#676158;
+      font-size:12px;
+      line-height:1;
+    }
+    .case-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+    .case-link,
+    .case-note{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:11px 15px;
+      border-radius:999px;
+      font-size:13px;
+      line-height:1;
+    }
+    .case-link{
+      background:#111;
+      color:#fff;
+      border:1px solid #111;
+    }
+    .case-note{
+      border:1px solid var(--line);
+      color:#514c45;
+      background:rgba(255,255,255,.56);
+    }
+    @media(max-width:900px){
+      .interaction-cases{padding:26px 18px 72px !important;}
+      .case-head{display:block;padding-top:38px;}
+      .case-desc{margin-top:16px;}
+      .interaction-case-grid{grid-template-columns:1fr;}
+    }
+
 </style></head><body><header class="site-header">
     <a class="brand" href="index.html">
       <img class="brand-logo-img" src="images/logo-eye.png" alt="Bao Long Studio Logo" />
@@ -491,7 +641,40 @@
       <a href="index.html#tools" onclick="closeMobileMenu()">Tools</a>
     </div>
 
-  </header><main><section class="hero"><div><div class="eyebrow">Interaction</div><h1>Interactive Tools<br>& Creative Experiments.</h1><p>这里可以放你后续的交互设计、网页工具、生成器、视觉实验和装置类项目。先作为一个大入口保留，后面逐步填充内容。</p></div><div class="mock"><div class="mock-card"><h3>Resume Upload Recognition</h3><p>上传旧简历图片 / PDF，自动识别文字并填入表单。</p></div><div class="mock-card"><h3>Prompt Builder</h3><p>选择风格、构图、配色与要素，生成可复制提示词。</p></div><div class="mock-card"><h3>Visual Interaction</h3><p>后续可放手势交互、生成式图形、网页作品等实验。</p></div></div></section></main>
+  </header><main><section class="hero"><div><div class="eyebrow">Interaction</div><h1>Interactive Tools<br>& Creative Experiments.</h1><p>这里可以放你后续的交互设计、网页工具、生成器、视觉实验和装置类项目。先作为一个大入口保留，后面逐步填充内容。</p></div><div class="mock"><div class="mock-card"><h3>Resume Upload Recognition</h3><p>上传旧简历图片 / PDF，自动识别文字并填入表单。</p></div><div class="mock-card"><h3>Prompt Builder</h3><p>选择风格、构图、配色与要素，生成可复制提示词。</p></div><div class="mock-card"><h3>Visual Interaction</h3><p>后续可放手势交互、生成式图形、网页作品等实验。</p></div></div></section>
+<section class="interaction-cases" id="gesture-interaction">
+  <div class="case-head">
+    <div>
+      <div class="case-kicker">Gesture Interaction</div>
+      <h2 class="case-title">手势交互实验</h2>
+    </div>
+    <p class="case-desc">先把之前做过的交互 Demo 作为独立入口接入，不在当前页面直接启动摄像头识别。这样 Interaction 首页保持轻量，点击卡片后再进入对应实验。</p>
+  </div>
+
+  <div class="interaction-case-grid">
+    <article class="interaction-case-card">
+      <div class="interaction-case-thumb">
+        <img src="images/interaction-cases/landscape-growth.svg" alt="Landscape Growth gesture interaction preview">
+      </div>
+      <div class="interaction-case-body">
+        <div class="interaction-case-type">Landscape Growth Demo</div>
+        <h3>景观生长交互</h3>
+        <p>上传景观图后，可通过点击或开启手势，让草地、花境、湿地与生态修复斑块在图面中生长。</p>
+        <div class="case-tags">
+          <span>手势识别</span>
+          <span>景观生长</span>
+          <span>Canvas</span>
+          <span>互动实验</span>
+        </div>
+        <div class="case-actions">
+          <a class="case-link" href="interaction-landscape-growth.html" target="_blank" rel="noopener">打开 Demo</a>
+          <span class="case-note">建议使用 HTTPS / GitHub Pages 打开摄像头权限</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
   <script>
     function navFilter(category){
       location.href = 'index.html?filter=' + encodeURIComponent(category) + '#products';

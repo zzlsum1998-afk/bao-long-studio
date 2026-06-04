@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>景观生长交互 Demo · V3</title>
+<style>
+  :root{
+    --bg:#101214;
+    --panel:rgba(0,0,0,.30);
+    --line:rgba(255,255,255,.12);
+    --text:rgba(255,255,255,.94);
+    --muted:rgba(255,255,255,.68);
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  #wrap{position:fixed;inset:0;overflow:hidden;}
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block;background:#171a1d;}
+  #ui{
+    position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));
+    display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:20;
+  }
+  .btn,.seg,.sliderWrap{
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:var(--panel);border:1px solid var(--line);border-radius:999px;color:#fff;
+  }
+  .btn{
+    padding:11px 15px;font-size:13px;cursor:pointer;line-height:1;
+  }
+  .btn:active{transform:scale(.985)}
+  #upload{display:none}
+  .seg{display:flex;overflow:hidden}
+  .seg button{
+    appearance:none;border:none;background:transparent;color:var(--muted);
+    padding:10px 14px;font-size:13px;cursor:pointer;
+  }
+  .seg button.active{color:#fff;background:rgba(255,255,255,.09)}
+  .sliderWrap{
+    display:flex;align-items:center;gap:10px;padding:7px 12px;
+    font-size:12px;color:var(--muted);
+  }
+  input[type=range]{width:120px;accent-color:#fff}
+  .chip{
+    padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);
+    font-size:12px;color:var(--muted);
+  }
+  #status{display:none !important;}
+  .spacer{flex:1}
+  @media (max-width: 800px){
+    #ui{gap:8px}
+    .sliderWrap{padding:7px 10px}
+    input[type=range]{width:96px}
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <video id="cam" autoplay muted playsinline style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"></video>
+  <canvas id="c"></canvas>
+</div>
+
+<div id="ui">
+  <label class="btn" for="upload">上传景观图</label>
+  <input id="upload" type="file" accept="image/*"/>
+  <div class="seg" id="modeSeg">
+    <button data-mode="grass" class="active">草地</button>
+    <button data-mode="meadow">花境</button>
+    <button data-mode="wetland">湿地</button>
+    <button data-mode="restore">生态修复</button>
+  </div>
+  <div class="sliderWrap">
+    <span>半径</span>
+    <input id="radius" type="range" min="70" max="240" value="120"/>
+  </div>
+  <div class="sliderWrap">
+    <span>密度</span>
+    <input id="density" type="range" min="45" max="135" value="85"/>
+  </div>
+  <button class="btn" id="fingerBtn">开启手势交互</button>
+  <button class="btn" id="undo">撤销上一步</button>
+  <button class="btn" id="clear">清空</button>
+  <span class="spacer"></span>
+  <span class="chip" id="status">点击后植物常驻，撤销/清空才消失</span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  const upload = document.getElementById('upload');
+  const clearBtn = document.getElementById('clear');
+  const undoBtn = document.getElementById('undo');
+  const fingerBtn = document.getElementById('fingerBtn');
+  const cam = document.getElementById('cam');
+  const modeSeg = document.getElementById('modeSeg');
+  const radiusInput = document.getElementById('radius');
+  const densityInput = document.getElementById('density');
+  const statusEl = document.getElementById('status');
+
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  let currentMode = 'grass';
+  let radius = Number(radiusInput.value);
+  let density = Number(densityInput.value) / 100;
+  let bgImage = null;
+  let bgRect = {x:0,y:0,w:0,h:0};
+  let zones = [];
+  let links = [];
+  let pointerX = -999, pointerY = -999;
+  let pointerInsideImage = false;
+
+  let hands = null;
+  let camera = null;
+  let fingerActive = false;
+  let fingerConfidence = 0;
+  let gestureOpenPalm = false;
+  let gestureFist = false;
+  let fingerRawX = -999;
+  let fingerRawY = -999;
+  let fingerSmoothX = -999;
+  let fingerSmoothY = -999;
+  let lastFingerSpawn = 0;
+  let lastFingerPlantX = -999;
+  let lastFingerPlantY = -999;
+  let fingerHoldStart = 0;
+  const fingerSpawnInterval = 120;     // 平衡版：略快一点，但不激进
+  const fingerMoveThreshold = 11;      // 拖动门槛适中
+  const fingerStillThreshold = 7;      // 停留判定
+  const fingerHoldDelay = 200;         // 停留激活稍快一点
+  const fingerHoldPulseInterval = 300; // 保持节制，避免一下长太多
+  const fingerRadiusFactor = 0.52;     // 手掌交互范围比单指稍大一点，更自然
+  const fingerSmoothing = 0.36;        // 保留跟手性，同时不过分抖动
+
+  function setStatus(t){ statusEl.textContent = t; }
+  function clamp(v,a,b){ return Math.max(a, Math.min(b,v)); }
+  function easeOutCubic(t){ return 1 - Math.pow(1-t,3); }
+  function easeOutQuad(t){ return 1 - (1-t)*(1-t); }
+  function dist(ax,ay,bx,by){ return Math.hypot(ax-bx, ay-by); }
+  function quadAt(a,b,c,t){ return (1-t)*(1-t)*a + 2*(1-t)*t*b + t*t*c; }
+
+  const paletteMap = {
+    grass:   { center:'rgba(123,187,92,.28)', mid:'rgba(110,171,89,.16)', edge:'rgba(110,171,89,0)', hue:[92,112], glow:'rgba(146,216,118,.18)' },
+    meadow:  { center:'rgba(147,194,105,.26)', mid:'rgba(147,194,105,.15)', edge:'rgba(147,194,105,0)', hue:[94,116], glow:'rgba(183,213,136,.16)' },
+    wetland: { center:'rgba(92,161,126,.24)', mid:'rgba(92,161,126,.13)', edge:'rgba(92,161,126,0)', hue:[98,114], glow:'rgba(131,196,170,.16)' },
+    restore: { center:'rgba(144,184,95,.23)', mid:'rgba(144,184,95,.14)', edge:'rgba(144,184,95,0)', hue:[92,112], glow:'rgba(175,209,124,.16)' }
+  };
+
+  const placeholder = document.createElement('canvas');
+  placeholder.width = 1600;
+  placeholder.height = 1000;
+  const pctx = placeholder.getContext('2d');
+  drawPlaceholder();
+
+  function drawPlaceholder(){
+    const g = pctx.createLinearGradient(0,0,0,1000);
+    g.addColorStop(0,'#ddd8d0');
+    g.addColorStop(.44,'#c7ccc7');
+    g.addColorStop(1,'#98a69a');
+    pctx.fillStyle = g;
+    pctx.fillRect(0,0,1600,1000);
+
+    pctx.fillStyle = '#d7d0c3';
+    pctx.fillRect(0,560,1600,440);
+    pctx.fillStyle = '#c6beb1';
+    pctx.fillRect(0,612,1600,388);
+
+    pctx.strokeStyle = 'rgba(255,255,255,.26)';
+    pctx.lineWidth = 26;
+    pctx.beginPath();
+    pctx.moveTo(100,758);
+    pctx.quadraticCurveTo(465,650,860,700);
+    pctx.quadraticCurveTo(1215,740,1492,655);
+    pctx.stroke();
+
+    pctx.strokeStyle = 'rgba(119,131,115,.28)';
+    pctx.lineWidth = 68;
+    pctx.beginPath();
+    pctx.moveTo(18,880);
+    pctx.quadraticCurveTo(420,760,720,820);
+    pctx.quadraticCurveTo(1040,892,1588,808);
+    pctx.stroke();
+
+    for(let i=0;i<11;i++){
+      const x = 120 + i*130 + Math.random()*28;
+      const y = 395 + Math.random()*105;
+      pctx.fillStyle = `rgba(104,125,96,${0.22 + Math.random()*0.12})`;
+      pctx.beginPath(); pctx.arc(x,y,46+Math.random()*24,0,Math.PI*2); pctx.fill();
+      pctx.fillStyle = 'rgba(78,67,58,.20)';
+      pctx.fillRect(x-4,y+22,8,72);
+    }
+
+    pctx.fillStyle = 'rgba(255,255,255,.68)';
+    pctx.font = 'bold 52px -apple-system,BlinkMacSystemFont,sans-serif';
+    pctx.fillText('Upload a landscape image', 462, 138);
+    pctx.font = '26px -apple-system,BlinkMacSystemFont,sans-serif';
+    pctx.fillStyle = 'rgba(255,255,255,.74)';
+    pctx.fillText('click to let the site begin to grow', 490, 188);
+  }
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    computeBgRect();
+  }
+
+  function computeBgRect(){
+    const img = bgImage || placeholder;
+    const iw = img.width || img.naturalWidth || 1600;
+    const ih = img.height || img.naturalHeight || 1000;
+    const marginX = W * 0.05;
+    const marginY = H * 0.08;
+    const maxW = W - marginX*2;
+    const maxH = H - marginY*2;
+    const scale = Math.min(maxW / iw, maxH / ih);
+    bgRect = {
+      w: iw * scale,
+      h: ih * scale,
+      x: (W - iw * scale) / 2,
+      y: (H - ih * scale) / 2
+    };
+  }
+
+  function isInsideImage(x,y){
+    return x >= bgRect.x && x <= bgRect.x + bgRect.w && y >= bgRect.y && y <= bgRect.y + bgRect.h;
+  }
+
+  function loadImageFromFile(file){
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      bgImage = img;
+      zones = [];
+      links = [];
+      computeBgRect();
+      setStatus('已载入景观图，点击后植物常驻，撤销/清空才消失');
+    };
+    img.src = url;
+  }
+
+  upload.addEventListener('change', e => {
+    const file = e.target.files && e.target.files[0];
+    if(file) loadImageFromFile(file);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    zones = [];
+    links = [];
+    setStatus('已清空全部生长区域');
+  });
+
+  undoBtn.addEventListener('click', () => {
+    if(!zones.length) return;
+    const removed = zones.pop();
+    links = links.filter(l => l.a !== removed.id && l.b !== removed.id);
+    setStatus('已撤销上一步，最近一次生长已移除');
+  });
+
+  modeSeg.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-mode]');
+    if(!btn) return;
+    currentMode = btn.dataset.mode;
+    [...modeSeg.querySelectorAll('button')].forEach(b => b.classList.toggle('active', b === btn));
+    const map = {grass:'草地', meadow:'花境', wetland:'湿地', restore:'生态修复'};
+    setStatus(`当前模式：${map[currentMode]}`);
+  });
+
+  radiusInput.addEventListener('input', () => {
+    radius = Number(radiusInput.value);
+    setStatus(`生长半径：${radius}px`);
+  });
+
+  densityInput.addEventListener('input', () => {
+    density = Number(densityInput.value) / 100;
+    setStatus(`生长密度：${Math.round(density*100)}%`);
+  });
+
+  canvas.addEventListener('pointermove', e => {
+    pointerX = e.clientX;
+    pointerY = e.clientY;
+    pointerInsideImage = isInsideImage(pointerX, pointerY);
+  });
+
+  canvas.addEventListener('pointerleave', () => {
+    pointerX = -999; pointerY = -999;
+    pointerInsideImage = false;
+  });
+
+  canvas.addEventListener('pointerdown', e => {
+    const x = e.clientX, y = e.clientY;
+    if(!isInsideImage(x,y)){
+      setStatus('请点击图像范围内');
+      return;
+    }
+    spawnZone(x, y, currentMode, radius);
+  });
+
+  function lerp(a,b,t){ return a + (b-a)*t; }
+
+  async function initFingerInteraction(){
+    if(fingerActive) return;
+
+    hands = new Hands({
+      locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+    });
+
+    hands.setOptions({
+      maxNumHands: 1,
+      modelComplexity: 1,
+      minDetectionConfidence: 0.64,
+      minTrackingConfidence: 0.64
+    });
+
+    hands.onResults(onHandResults);
+
+    camera = new Camera(cam, {
+      onFrame: async () => {
+        if(hands) await hands.send({ image: cam });
+      },
+      width: 960,
+      height: 720
+    });
+
+    await camera.start();
+    fingerActive = true;
+    fingerBtn.textContent = '关闭手势交互';
+    setStatus('手势交互已开启：张开手掌开始生长，握拳暂停');
+  }
+
+  async function stopFingerInteraction(){
+    fingerActive = false;
+    gestureOpenPalm = false;
+    gestureFist = false;
+    fingerConfidence = 0;
+    pointerX = -999;
+    pointerY = -999;
+    pointerInsideImage = false;
+    fingerRawX = fingerRawY = -999;
+    fingerSmoothX = fingerSmoothY = -999;
+    lastFingerPlantX = lastFingerPlantY = -999;
+
+    try{
+      if(camera && typeof camera.stop === 'function') camera.stop();
+    }catch(err){ console.warn(err); }
+
+    hands = null;
+    camera = null;
+    fingerBtn.textContent = '开启手势交互';
+  }
+
+  function onHandResults(results){
+    if(!results.multiHandLandmarks || !results.multiHandLandmarks.length){
+      fingerConfidence = 0;
+      gestureOpenPalm = false;
+      gestureFist = false;
+      fingerHoldStart = 0;
+      return;
+    }
+
+    const lm = results.multiHandLandmarks[0];
+
+    // 使用掌心区域的关键点平均值，位置会比单个指尖更稳定
+    const palmPts = [lm[0], lm[5], lm[9], lm[13], lm[17]];
+    const avgX = palmPts.reduce((s, p) => s + p.x, 0) / palmPts.length;
+    const avgY = palmPts.reduce((s, p) => s + p.y, 0) / palmPts.length;
+
+    const rawX = (1 - avgX) * W;
+    const rawY = avgY * H;
+
+    // 四指开合判断（比单根食指更稳定）
+    const fingerPairs = [
+      [lm[8], lm[6]],   // index
+      [lm[12], lm[10]], // middle
+      [lm[16], lm[14]], // ring
+      [lm[20], lm[18]]  // pinky
+    ];
+
+    let extendedCount = 0;
+    let curledCount = 0;
+    fingerPairs.forEach(([tip, pip]) => {
+      if(tip.y < pip.y) extendedCount += 1;
+      if(tip.y > pip.y) curledCount += 1;
+    });
+
+    const openPalm = extendedCount >= 3; // 张开手掌（或接近张开）
+    const fist = curledCount >= 3;       // 握拳（或接近握拳）
+
+    if(fingerSmoothX < 0){
+      fingerSmoothX = rawX;
+      fingerSmoothY = rawY;
+    }else{
+      fingerSmoothX = lerp(fingerSmoothX, rawX, fingerSmoothing);
+      fingerSmoothY = lerp(fingerSmoothY, rawY, fingerSmoothing);
+    }
+
+    fingerRawX = rawX;
+    fingerRawY = rawY;
+    pointerX = fingerSmoothX;
+    pointerY = fingerSmoothY;
+    pointerInsideImage = isInsideImage(pointerX, pointerY);
+    gestureOpenPalm = openPalm;
+    gestureFist = fist;
+    fingerConfidence = openPalm ? 1 : (fist ? 0.35 : 0.18);
+
+    const now = performance.now();
+
+    // 握拳：暂停生长，并且重置上一段生长路径
+    // 这样再去远处张开手掌时，会从新位置重新开始，
+    // 不会把上一次的位置和这一次的位置错误地连起来
+    if(fist){
+      fingerHoldStart = 0;
+      lastFingerPlantX = -999;
+      lastFingerPlantY = -999;
+      lastFingerSpawn = 0;
+      return;
+    }
+
+    // 只有张开手掌时，才开始生长
+    if(!openPalm){
+      fingerHoldStart = 0;
+      return;
+    }
+
+    if(!fingerHoldStart) fingerHoldStart = now;
+
+    const movedSincePlant = Math.hypot(pointerX - lastFingerPlantX, pointerY - lastFingerPlantY);
+    const enoughTime = now - lastFingerSpawn > fingerSpawnInterval;
+    const holdDuration = now - fingerHoldStart;
+    const basePalmRadius = Math.max(48, radius * fingerRadiusFactor);
+
+    if(!pointerInsideImage) return;
+
+    // 第一次进入图像区域时，立即种一个点
+    if(lastFingerPlantX < 0 || lastFingerPlantY < 0){
+      spawnZone(pointerX, pointerY, currentMode, basePalmRadius);
+      lastFingerSpawn = now;
+      lastFingerPlantX = pointerX;
+      lastFingerPlantY = pointerY;
+      return;
+    }
+
+    // 张开手掌拖动时：在中间补一点，让路径更连贯
+    if(enoughTime && movedSincePlant > fingerMoveThreshold){
+      if(movedSincePlant > 34){
+        const midX = (lastFingerPlantX + pointerX) / 2;
+        const midY = (lastFingerPlantY + pointerY) / 2;
+        spawnZone(midX, midY, currentMode, Math.max(36, basePalmRadius * 0.80));
+      }
+      spawnZone(pointerX, pointerY, currentMode, basePalmRadius);
+      lastFingerSpawn = now;
+      lastFingerPlantX = pointerX;
+      lastFingerPlantY = pointerY;
+      fingerHoldStart = now;
+      return;
+    }
+
+    // 张开手掌停留时：继续轻微生长
+    if(movedSincePlant <= fingerStillThreshold && holdDuration > fingerHoldDelay && now - lastFingerSpawn > fingerHoldPulseInterval){
+      spawnZone(pointerX, pointerY, currentMode, Math.max(34, basePalmRadius * 0.74));
+      lastFingerSpawn = now;
+      lastFingerPlantX = pointerX;
+      lastFingerPlantY = pointerY;
+    }
+  }
+
+  fingerBtn.addEventListener('click', async () => {
+    try{
+      if(fingerActive){
+        await stopFingerInteraction();
+      }else{
+        await initFingerInteraction();
+      }
+    }catch(err){
+      console.error(err);
+      setStatus('摄像头启动失败');
+      alert('摄像头启动失败。请确认浏览器允许摄像头权限；如果直接双击文件无效，可以用本地服务器或 HTTPS 打开。');
+    }
+  });
+
+  function spawnZone(x,y,radMode,rad){
+    const baseCount = radMode === 'grass' ? 72 : radMode === 'meadow' ? 98 : radMode === 'wetland' ? 82 : 100;
+    const seedCount = Math.max(24, Math.round(baseCount * density));
+    const seeds = [];
+    const pollen = [];
+    const p = paletteMap[radMode];
+
+    for(let i=0;i<seedCount;i++){
+      const a = Math.random() * Math.PI * 2;
+      const rr = Math.pow(Math.random(), 0.88) * rad * (0.16 + Math.random()*0.84);
+      const px = x + Math.cos(a) * rr;
+      const py = y + Math.sin(a) * rr;
+      const distN = rr / rad;
+      const delay = distN * 780 + Math.random()*820;
+      let kind;
+
+      if(radMode === 'grass'){
+        kind = Math.random() < 0.82 ? 'blade' : 'leaf';
+      }else if(radMode === 'meadow'){
+        const r = Math.random();
+        kind = r < .50 ? 'blade' : r < .80 ? 'leaf' : 'flower';
+      }else if(radMode === 'wetland'){
+        const r = Math.random();
+        kind = r < .56 ? 'reed' : r < .78 ? 'leaf' : r < .92 ? 'water' : 'flower';
+      }else{
+        const r = Math.random();
+        kind = r < .30 ? 'soil' : r < .66 ? 'blade' : r < .86 ? 'leaf' : 'flower';
+      }
+
+      seeds.push({
+        kind, x:px, y:py, delay,
+        size: kind === 'water' ? 22 + Math.random()*34 :
+              kind === 'soil' ? 8 + Math.random()*12 :
+              kind === 'flower' ? 13 + Math.random()*18 :
+              kind === 'reed' ? 18 + Math.random()*38 :
+              10 + Math.random()*26,
+        hue: kind === 'flower'
+          ? [8,24,42,332,314][Math.floor(Math.random()*5)]
+          : kind === 'soil'
+          ? 32 + Math.random()*12
+          : p.hue[0] + Math.random()*(p.hue[1]-p.hue[0]),
+        sway: Math.random()*Math.PI*2,
+        alpha: 0.44 + Math.random()*0.42,
+        lean: -0.55 + Math.random()*1.10
+      });
+    }
+
+    const pollenCount = Math.round(14 * density);
+    for(let i=0;i<pollenCount;i++){
+      const a = Math.random() * Math.PI*2;
+      const rr = Math.random() * rad * 0.55;
+      pollen.push({
+        x: x + Math.cos(a)*rr,
+        y: y + Math.sin(a)*rr,
+        r: 1.2 + Math.random()*2.4,
+        delay: Math.random()*600,
+        alpha: 0.16 + Math.random()*0.24
+      });
+    }
+
+    const zone = {
+      id: 'z' + Math.random().toString(36).slice(2),
+      x, y, mode: radMode, radius: rad,
+      born: performance.now(),
+      seeds, pollen,
+      life: Infinity
+    };
+
+    const nearby = zones
+      .map(z => ({z, d: dist(x,y,z.x,z.y)}))
+      .filter(o => o.d < Math.min(rad*3.0, 340))
+      .sort((a,b) => a.d - b.d)
+      .slice(0, 2);
+
+    zones.push(zone);
+
+    nearby.forEach(o => {
+      links.push({
+        a: zone.id,
+        b: o.z.id,
+        x1: x, y1: y,
+        x2: o.z.x, y2: o.z.y,
+        born: performance.now(),
+        life: Infinity,
+        mode: radMode
+      });
+    });
+
+    if(!fingerActive) setStatus('已激活一个生态斑块');
+  }
+
+  function drawBackground(){
+    const img = bgImage || placeholder;
+    ctx.save();
+    ctx.fillStyle = '#101214';
+    ctx.fillRect(0,0,W,H);
+    ctx.drawImage(img, bgRect.x, bgRect.y, bgRect.w, bgRect.h);
+
+    // 整体压低饱和的柔和膜层
+    const overlay = ctx.createLinearGradient(0,bgRect.y,0,bgRect.y+bgRect.h);
+    overlay.addColorStop(0,'rgba(255,255,255,.025)');
+    overlay.addColorStop(1,'rgba(255,255,255,.008)');
+    ctx.fillStyle = overlay;
+    ctx.fillRect(bgRect.x, bgRect.y, bgRect.w, bgRect.h);
+
+    // 柔和白边
+    ctx.strokeStyle = 'rgba(255,255,255,.08)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(bgRect.x+.5,bgRect.y+.5,bgRect.w-1,bgRect.h-1);
+
+    // 暗角
+    const vignette = ctx.createRadialGradient(W*0.5,H*0.48, Math.min(W,H)*0.18, W*0.5,H*0.48, Math.max(W,H)*0.72);
+    vignette.addColorStop(0, 'rgba(0,0,0,0)');
+    vignette.addColorStop(1, 'rgba(0,0,0,.28)');
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0,0,W,H);
+    ctx.restore();
+  }
+
+  function drawLink(link, now){
+    const age = now - link.born;
+    const progress = easeOutQuad(clamp(age / 1450, 0, 1));
+    const p = paletteMap[link.mode] || paletteMap.grass;
+
+    const mx = (link.x1 + link.x2)/2;
+    const my = (link.y1 + link.y2)/2 - Math.min(26, dist(link.x1,link.y1,link.x2,link.y2)*0.10);
+    const endX = link.x1 + (link.x2 - link.x1) * progress;
+    const endY = link.y1 + (link.y2 - link.y1) * progress;
+
+    ctx.save();
+    ctx.lineCap = 'round';
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = 'rgba(132,158,123,.035)';
+    ctx.beginPath();
+    ctx.moveTo(link.x1, link.y1);
+    ctx.quadraticCurveTo(mx, my, endX, endY);
+    ctx.stroke();
+
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = p.glow.replace('.11', '.10').replace('.10', '.10');
+    ctx.beginPath();
+    ctx.moveTo(link.x1, link.y1);
+    ctx.quadraticCurveTo(mx, my, endX, endY);
+    ctx.stroke();
+
+    ctx.lineWidth = 1.2;
+    ctx.strokeStyle = 'rgba(218,228,209,.14)';
+    ctx.beginPath();
+    ctx.moveTo(link.x1, link.y1);
+    ctx.quadraticCurveTo(mx, my, endX, endY);
+    ctx.stroke();
+
+    const sproutCount = Math.floor(5 * progress);
+    for(let i=1;i<=sproutCount;i++){
+      const t = i / (sproutCount + 1);
+      const qx = quadAt(link.x1, mx, endX, t);
+      const qy = quadAt(link.y1, my, endY, t);
+      drawTinySprout(qx, qy, 7 + i*0.6, 102 + i*2, 0.34, Math.sin(now*0.0018 + i) * 0.32);
+    }
+    ctx.restore();
+  }
+
+  function drawZone(zone, now){
+    const age = now - zone.born;
+    const growN = clamp(age / 1500, 0, 1);
+    const matureN = clamp((age - 700) / 2200, 0, 1);
+    const fadeN = 1;
+    // 新增：圆形生长底纹只在生长前期存在，植物长成后逐渐退去
+    const overlayFade = age < 2200 ? 1 : Math.max(0, 1 - (age - 2200) / 1800);
+    const activeR = zone.radius * (0.20 + 0.80 * easeOutCubic(growN));
+    const p = paletteMap[zone.mode];
+
+    // 1) 绿色生长基底
+    ctx.save();
+    const base = ctx.createRadialGradient(zone.x, zone.y, 0, zone.x, zone.y, activeR);
+    base.addColorStop(0, applyAlpha(p.center, 0.95*fadeN*overlayFade));
+    base.addColorStop(.55, applyAlpha(p.mid, 0.95*fadeN*overlayFade));
+    base.addColorStop(1, p.edge);
+    ctx.fillStyle = base;
+    ctx.beginPath();
+    ctx.arc(zone.x, zone.y, activeR, 0, Math.PI*2);
+    ctx.fill();
+
+    // 2) 柔和呼吸波纹
+    const pulse = (age % 2200) / 2200;
+    const pulseR = activeR * (0.74 + pulse * 0.34);
+    ctx.strokeStyle = `rgba(198,216,186,${0.12 * (1-pulse) * fadeN * overlayFade})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(zone.x, zone.y, pulseR, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+
+    // 3) 与原图融合
+    ctx.save();
+    ctx.globalCompositeOperation = 'soft-light';
+    const tint = ctx.createRadialGradient(zone.x, zone.y, activeR*0.10, zone.x, zone.y, activeR);
+    tint.addColorStop(0, zone.mode === 'wetland'
+      ? `rgba(107,153,139,${0.16*fadeN*overlayFade})`
+      : `rgba(123,156,109,${0.16*fadeN*overlayFade})`);
+    tint.addColorStop(1, 'rgba(123,156,109,0)');
+    ctx.fillStyle = tint;
+    ctx.beginPath();
+    ctx.arc(zone.x, zone.y, activeR, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+
+    // 4) 微粒
+    zone.pollen.forEach(pp => {
+      const lt = age - pp.delay;
+      if(lt < 0) return;
+      const n = clamp(lt / 900, 0, 1);
+      ctx.save();
+      ctx.fillStyle = `rgba(235,241,229,${pp.alpha * n * fadeN})`;
+      ctx.beginPath();
+      ctx.arc(pp.x, pp.y - n*5, pp.r, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    // 5) 主体植物
+    zone.seeds.forEach(seed => {
+      const lt = age - seed.delay;
+      if(lt < 0) return;
+      const n = clamp(lt / 1500, 0, 1);
+      const g = easeOutCubic(n) * matureN * fadeN;
+      const sway = Math.sin(now*0.0018 + seed.sway) * 0.06;
+
+      if(seed.kind === 'blade'){
+        drawBlade(seed.x, seed.y, seed.size*g, seed.hue, seed.alpha*fadeN, seed.lean + sway);
+      } else if(seed.kind === 'leaf'){
+        drawLeaf(seed.x, seed.y, seed.size*g, seed.hue, seed.alpha*fadeN, seed.lean + sway);
+      } else if(seed.kind === 'flower'){
+        drawFlower(seed.x, seed.y, seed.size*g, seed.hue, seed.alpha*fadeN, sway);
+      } else if(seed.kind === 'reed'){
+        drawReed(seed.x, seed.y, seed.size*g, seed.hue, seed.alpha*fadeN, seed.lean + sway*0.65);
+      } else if(seed.kind === 'water'){
+        drawWater(seed.x, seed.y, seed.size*g, seed.alpha*fadeN);
+      } else if(seed.kind === 'soil'){
+        drawSoil(seed.x, seed.y, seed.size*g, seed.alpha*fadeN);
+      }
+    });
+
+    // 6) 去掉黑色边缘圆圈：不再绘制半透明黑色羽化圈
+  }
+
+  function applyAlpha(rgba, factor){
+    return rgba.replace(/rgba\(([^,]+),([^,]+),([^,]+),([^)]+)\)/, (_,a,b,c,d) => {
+      const v = Math.max(0, Math.min(1, parseFloat(d) * factor));
+      return `rgba(${a},${b},${c},${v})`;
+    });
+  }
+
+  function drawBlade(x,y,h,hue,alpha,lean){
+    if(h <= 0.2) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(lean);
+    ctx.strokeStyle = `hsla(${hue}, 34%, 43%, ${alpha})`;
+    ctx.lineWidth = 1.15;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(h*0.12,-h*0.42, 0,-h);
+    ctx.stroke();
+
+    ctx.strokeStyle = `hsla(${hue+8}, 45%, 60%, ${alpha*0.72})`;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(-h*0.08,-h*0.36, -h*0.05,-h*0.86);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawTinySprout(x,y,h,hue,alpha,lean){
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(lean);
+    ctx.strokeStyle = `hsla(${hue}, 22%, 42%, ${alpha})`;
+    ctx.lineWidth = 0.9;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(h*0.08,-h*0.30,0,-h);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawLeaf(x,y,s,hue,alpha,lean){
+    if(s <= 0.2) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(lean);
+    ctx.scale(1, 1.08);
+    ctx.fillStyle = `hsla(${hue}, 34%, 44%, ${alpha})`;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(s*0.36,-s*0.45, 0,-s);
+    ctx.quadraticCurveTo(-s*0.40,-s*0.45, 0,0);
+    ctx.fill();
+
+    ctx.strokeStyle = `hsla(${hue+8}, 26%, 68%, ${alpha*0.60})`;
+    ctx.lineWidth = .9;
+    ctx.beginPath();
+    ctx.moveTo(0,-s*0.06);
+    ctx.lineTo(0,-s*0.86);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawFlower(x,y,s,hue,alpha,sway){
+    if(s <= 0.25) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(sway*0.8);
+    ctx.strokeStyle = `rgba(101,145,87,${alpha*.9})`;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(s*0.08,-s*0.36,0,-s*0.82);
+    ctx.stroke();
+
+    const petal = Math.max(4, Math.floor(s/4));
+    for(let i=0;i<5;i++){
+      ctx.save();
+      ctx.rotate((Math.PI*2/5)*i);
+      ctx.fillStyle = `hsla(${hue}, 72%, 72%, ${alpha*.88})`;
+      ctx.beginPath();
+      ctx.ellipse(0, -s*0.92, petal*0.52, petal, 0, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.fillStyle = `rgba(247,216,119,${alpha})`;
+    ctx.beginPath();
+    ctx.arc(0,-s*0.92, Math.max(2.4, s*0.12), 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawReed(x,y,h,hue,alpha,lean){
+    if(h <= 0.25) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(lean);
+
+    ctx.strokeStyle = `hsla(${hue}, 28%, 39%, ${alpha})`;
+    ctx.lineWidth = 1.25;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.quadraticCurveTo(h*0.05,-h*0.35, 0,-h);
+    ctx.stroke();
+
+    ctx.fillStyle = `rgba(153,123,78,${alpha*.9})`;
+    ctx.beginPath();
+    ctx.ellipse(0,-h*1.02, h*0.07, h*0.22, 0, 0, Math.PI*2);
+    ctx.fill();
+
+    ctx.strokeStyle = `rgba(111,147,102,${alpha*.85})`;
+    ctx.beginPath();
+    ctx.moveTo(0,-h*0.35);
+    ctx.quadraticCurveTo(h*0.18,-h*0.44,h*0.22,-h*0.22);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0,-h*0.50);
+    ctx.quadraticCurveTo(-h*0.16,-h*0.60,-h*0.18,-h*0.36);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawWater(x,y,s,alpha){
+    if(s <= 0.2) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.strokeStyle = `rgba(176,219,226,${alpha*.7})`;
+    ctx.lineWidth = 1.0;
+    for(let i=0;i<2;i++){
+      ctx.beginPath();
+      ctx.arc(0,0,s*(0.22+i*0.18), 0, Math.PI*2);
+      ctx.stroke();
+    }
+    ctx.fillStyle = `rgba(128,190,201,${alpha*.18})`;
+    ctx.beginPath();
+    ctx.arc(0,0,s*0.26,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawSoil(x,y,s,alpha){
+    if(s <= 0.2) return;
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.fillStyle = `rgba(111,90,64,${alpha*.55})`;
+    ctx.beginPath();
+    ctx.ellipse(0,0,s*0.85,s*0.55,0,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function render(now){
+    ctx.clearRect(0,0,W,H);
+    drawBackground();
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(bgRect.x, bgRect.y, bgRect.w, bgRect.h);
+    ctx.clip();
+
+    links.forEach(l => drawLink(l, now));
+    zones.forEach(z => drawZone(z, now));
+
+    ctx.restore();
+
+    if(pointerX > -100 && pointerInsideImage){
+      ctx.save();
+
+      const gestureModeOn = fingerActive && gestureOpenPalm;
+      const fistModeOn = fingerActive && gestureFist;
+
+      // 张开手掌：显示完整激活圈
+      if(gestureModeOn){
+        const previewR = Math.max(46, radius * fingerRadiusFactor);
+        ctx.strokeStyle = 'rgba(180,230,150,.46)';
+        ctx.lineWidth = 1.4;
+        ctx.setLineDash([6,4]);
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, previewR, 0, Math.PI*2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.fillStyle = 'rgba(180,230,150,.24)';
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, 4.5, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(180,230,150,.32)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pointerX - 8, pointerY);
+        ctx.lineTo(pointerX + 8, pointerY);
+        ctx.moveTo(pointerX, pointerY - 8);
+        ctx.lineTo(pointerX, pointerY + 8);
+        ctx.stroke();
+      }
+      // 握拳：只显示一个跟随的小点，方便知道手在哪里
+      else if(fistModeOn){
+        ctx.fillStyle = 'rgba(255,255,255,.90)';
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, 3.2, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(255,255,255,.28)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, 9, 0, Math.PI*2);
+        ctx.stroke();
+      }
+      // 非手势模式：维持鼠标原本的预览圈
+      else if(!fingerActive){
+        ctx.strokeStyle = 'rgba(255,255,255,.22)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([5,5]);
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, radius, 0, Math.PI*2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = 'rgba(255,255,255,.08)';
+        ctx.beginPath();
+        ctx.arc(pointerX, pointerY, 3.5, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  setStatus('可点击上传图像，也可开启手势交互');
+  requestAnimationFrame(render);
+})();
+</script>
+</body>
+</html>

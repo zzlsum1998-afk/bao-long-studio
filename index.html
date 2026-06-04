@@ -277,32 +277,34 @@
 
     .category-strip{
       display:flex;
-      gap:16px;
-      overflow-x:auto;
-      padding:6px 0 18px;
-      scrollbar-width:thin;
+      gap:18px;
+      overflow:visible;
+      padding:10px 0 22px;
     }
 
     .cat-card{
-      flex:0 0 260px;
-      height:190px;
+      flex:1 1 0;
+      min-width:0;
+      height:210px;
       border:1px solid var(--line);
       background:var(--paper);
       border-radius:26px;
-      padding:20px;
+      padding:22px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
       cursor:pointer;
-      transition:.28s ease;
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
       position:relative;
       overflow:hidden;
+      transform-origin:center center;
     }
 
     .cat-card:hover{
-      transform:translateY(-6px);
+      transform:translateY(-8px) scale(1.035);
       box-shadow:var(--shadow);
       border-color:#bbb2a4;
+      z-index:2;
     }
 
     .cat-card .mini-pattern{

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2efe7"/>
+      <stop offset="0.48" stop-color="#d9dfd1"/>
+      <stop offset="1" stop-color="#9faf99"/>
+    </linearGradient>
+    <radialGradient id="grow" cx="52%" cy="54%" r="48%">
+      <stop offset="0" stop-color="#b7d899" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#8dbb79" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#8dbb79" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#1d1d1b" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+  <rect width="900" height="620" fill="#f7f6f2"/>
+  <rect x="72" y="72" width="756" height="476" rx="34" fill="url(#bg)" filter="url(#shadow)"/>
+  <path d="M108 416 C255 350 376 376 480 400 C612 430 706 406 796 354" fill="none" stroke="#f7f3ea" stroke-width="34" stroke-linecap="round" opacity="0.82"/>
+  <path d="M95 476 C238 414 365 424 488 458 C616 494 696 456 814 432" fill="none" stroke="#7b8f72" stroke-width="52" stroke-linecap="round" opacity="0.28"/>
+  <circle cx="476" cy="326" r="188" fill="url(#grow)"/>
+  <circle cx="476" cy="326" r="138" fill="none" stroke="#e9f0df" stroke-width="2" stroke-dasharray="12 10" opacity="0.65"/>
+  <g stroke-linecap="round" opacity="0.78">
+    <path d="M405 390 Q418 338 410 292" stroke="#698a5f" stroke-width="5" fill="none"/>
+    <path d="M455 390 Q448 328 472 282" stroke="#749762" stroke-width="5" fill="none"/>
+    <path d="M520 388 Q506 335 534 296" stroke="#5f8768" stroke-width="5" fill="none"/>
+    <path d="M574 398 Q570 340 598 300" stroke="#77905f" stroke-width="5" fill="none"/>
+  </g>
+  <g opacity="0.82">
+    <ellipse cx="430" cy="326" rx="21" ry="44" transform="rotate(-28 430 326)" fill="#80a66e"/>
+    <ellipse cx="500" cy="326" rx="23" ry="48" transform="rotate(31 500 326)" fill="#8cae72"/>
+    <circle cx="558" cy="296" r="13" fill="#e6b8a3"/>
+    <circle cx="576" cy="306" r="11" fill="#f1d3a8"/>
+    <circle cx="541" cy="310" r="10" fill="#d8a2b2"/>
+  </g>
+  <g fill="#fff" opacity="0.72">
+    <circle cx="377" cy="252" r="3"/><circle cx="612" cy="338" r="4"/><circle cx="532" cy="236" r="2.6"/><circle cx="454" cy="438" r="3.2"/>
+  </g>
+  <text x="112" y="136" fill="#1c1c1c" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">Landscape Growth</text>
+  <text x="112" y="174" fill="#77736b" font-family="Inter, Arial, sans-serif" font-size="18">gesture / click / ecological patch</text>
+</svg>

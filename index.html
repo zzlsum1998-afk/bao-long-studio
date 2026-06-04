@@ -222,6 +222,18 @@
       flex-wrap:wrap;
     }
 
+    .hero-actions .primary-btn,
+    .hero-actions .secondary-btn,
+    .detail-actions .primary-btn,
+    .detail-actions .secondary-btn{
+      min-width:220px;
+      min-height:52px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
     .primary-btn,.secondary-btn{
       border-radius:0;
       padding:14px 28px;
@@ -2091,6 +2103,19 @@
 
 
 
+
+    /* Equal-width action buttons */
+    @media (max-width:680px){
+      .hero-actions .primary-btn,
+      .hero-actions .secondary-btn,
+      .detail-actions .primary-btn,
+      .detail-actions .secondary-btn{
+        width:100%;
+        max-width:360px;
+        min-width:0;
+      }
+    }
+
     /* Mobile dropdown menu: desktop navigation remains unchanged */
     .mobile-menu-toggle,
     .mobile-menu-panel{
@@ -2191,184 +2216,154 @@
 
 
 
-    /* Mobile Category cards: single-column entrance cards */
+    /* Homepage product preview / Assets page refinements */
+    .view-more-row{
+      display:flex;
+      justify-content:center;
+      margin-top:36px;
+    }
+    .view-more-row .primary-btn{
+      min-width:220px;
+      text-align:center;
+    }
+    .asset-filter-tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .asset-filter-tabs .tab{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 16px;
+      background:#fff;
+      cursor:pointer;
+      transition:.25s ease;
+      font-size:13px;
+    }
+    .asset-filter-tabs .tab:hover,
+    .asset-filter-tabs .tab.active{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+    @media (max-width:900px){
+      .asset-filter-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;scrollbar-width:none;}
+      .asset-filter-tabs::-webkit-scrollbar{display:none;}
+      .asset-filter-tabs .tab{flex:0 0 auto;}
+      .view-more-row .primary-btn{width:min(100%,320px);}
+    }
+
+
+    /* Mobile Category cards: product-style entrance cards only. Desktop remains unchanged. */
     @media (max-width:900px){
       .category-strip{
         display:grid !important;
         grid-template-columns:1fr !important;
-        gap:16px !important;
+        gap:24px !important;
         overflow:visible !important;
-        padding:6px 0 12px !important;
+        padding:8px 0 12px !important;
       }
 
       .cat-card{
         width:100% !important;
-        height:auto !important;
-        min-height:132px;
-        padding:20px 20px !important;
-        border-radius:26px !important;
-        display:grid !important;
-        grid-template-columns:96px 1fr;
-        align-items:center;
-        column-gap:18px;
-        justify-content:initial;
-        transform:none !important;
-      }
-
-      .cat-card:hover{
-        transform:translate3d(0,-4px,0) !important;
-        box-shadow:0 14px 34px rgba(0,0,0,.09) !important;
-      }
-
-      .cat-card .mini-pattern{
-        width:96px !important;
-        height:76px !important;
-        border-radius:18px !important;
-        margin:0 !important;
-      }
-
-      .cat-card .mini-pattern::before{
-        width:64px !important;
-        height:42px !important;
-        left:18px !important;
-        top:16px !important;
-      }
-
-      .cat-card h3{
-        font-size:23px !important;
-        line-height:1.16 !important;
-        word-break:normal !important;
-        overflow-wrap:normal !important;
-      }
-
-      .cat-card p{
-        font-size:14px !important;
-        line-height:1.65 !important;
-        margin-top:8px !important;
-        word-break:normal !important;
-      }
-    }
-
-    @media (max-width:420px){
-      .category-strip{
-        gap:14px !important;
-      }
-
-      .cat-card{
-        min-height:124px !important;
-        padding:18px 16px !important;
-        grid-template-columns:82px 1fr !important;
-        column-gap:16px !important;
-      }
-
-      .cat-card .mini-pattern{
-        width:82px !important;
-        height:68px !important;
-      }
-
-      .cat-card .mini-pattern::before{
-        width:54px !important;
-        height:36px !important;
-        left:15px !important;
-        top:15px !important;
-      }
-
-      .cat-card h3{
-        font-size:21px !important;
-      }
-
-      .cat-card p{
-        font-size:13px !important;
-      }
-    }
-
-
-
-    /* Mobile Category cards: product-style single column preview cards */
-    @media (max-width:900px){
-      .category-strip{
-        display:grid !important;
-        grid-template-columns:1fr !important;
-        gap:22px !important;
-        overflow:visible !important;
-        padding:8px 0 18px !important;
-      }
-
-      .cat-card{
-        display:block !important;
+        min-width:0 !important;
         height:auto !important;
         min-height:0 !important;
         padding:0 !important;
-        border-radius:30px !important;
-        overflow:hidden !important;
-        background:var(--paper) !important;
+        border-radius:0 !important;
+        display:block !important;
+        background:transparent !important;
+        border:0 !important;
+        overflow:visible !important;
         transform:none !important;
         box-shadow:none !important;
       }
 
       .cat-card:hover{
         transform:translate3d(0,-4px,0) !important;
-        box-shadow:0 16px 38px rgba(0,0,0,.08) !important;
-        border-color:#cfc7bb !important;
+        box-shadow:none !important;
+        border-color:transparent !important;
       }
 
       .cat-card .mini-pattern{
         width:100% !important;
         height:auto !important;
-        aspect-ratio:1.26 / 1 !important;
-        border-radius:0 !important;
+        aspect-ratio:1.32 / 1 !important;
         margin:0 !important;
-        background-size:18px 18px !important;
+        border-radius:0 !important;
+        border:1px solid var(--line);
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px),
+          linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+          #f2f0ea !important;
+        background-size:18px 18px,18px 18px,cover !important;
+        position:relative;
+        overflow:hidden;
+        box-shadow:none;
+        transition:.25s ease;
+      }
+
+      .cat-card:hover .mini-pattern{
+        box-shadow:0 18px 40px rgba(0,0,0,.12);
       }
 
       .cat-card .mini-pattern::before{
-        width:42% !important;
-        height:34% !important;
-        left:29% !important;
-        top:33% !important;
-        border-color:rgba(0,0,0,.20) !important;
+        width:68% !important;
+        height:54% !important;
+        left:16% !important;
+        top:22% !important;
+        border:2px solid rgba(0,0,0,.18) !important;
+        transform:rotate(-24deg) skewX(25deg) !important;
+        background:rgba(255,255,255,.32) !important;
+      }
+
+      .cat-card .mini-pattern::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:linear-gradient(to top, rgba(0,0,0,.08), rgba(0,0,0,0) 58%);
+        pointer-events:none;
+        opacity:.45;
       }
 
       .cat-card > div:last-child{
-        padding:22px 24px 24px !important;
+        padding:18px 4px 0;
+        text-align:center;
       }
 
       .cat-card h3{
-        font-size:26px !important;
-        line-height:1.12 !important;
-        margin:0 !important;
+        margin:0 auto 8px !important;
+        font-size:24px !important;
+        line-height:1.25 !important;
+        font-weight:720 !important;
+        letter-spacing:.01em !important;
         word-break:normal !important;
         overflow-wrap:normal !important;
+        white-space:normal !important;
       }
 
       .cat-card p{
-        font-size:15px !important;
-        line-height:1.55 !important;
-        margin-top:10px !important;
-        word-break:normal !important;
+        margin:0 !important;
         color:var(--muted) !important;
+        font-size:14px !important;
+        line-height:1.55 !important;
+        word-break:normal !important;
+        white-space:normal !important;
       }
     }
 
     @media (max-width:420px){
       .category-strip{
-        gap:20px !important;
-      }
-
-      .cat-card{
-        border-radius:28px !important;
-      }
-
-      .cat-card .mini-pattern{
-        aspect-ratio:1.18 / 1 !important;
-      }
-
-      .cat-card > div:last-child{
-        padding:20px 22px 23px !important;
+        gap:22px !important;
       }
 
       .cat-card h3{
-        font-size:25px !important;
+        font-size:22px !important;
+      }
+
+      .cat-card p{
+        font-size:13px !important;
       }
     }
 
@@ -2385,14 +2380,14 @@
       <a href="index.html">All</a>
 
       <div class="nav-dropdown">
-        <a href="index.html#products">Assets ▼</a>
+        <a href="assets.html">Assets ▼</a>
         <div class="dropdown-content"> 
-          <a href="index.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="index.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="index.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="index.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="index.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
-          <a href="index.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+          <a href="assets.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
+          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
         
         </div>
       </div>
@@ -2421,12 +2416,12 @@
     <div class="mobile-menu-panel" id="mobileMenuPanel">
       <a href="index.html" onclick="closeMobileMenu()">All</a>
       <div class="mobile-menu-group">Assets</div>
-      <a href="index.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="index.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="index.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="index.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="index.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
-      <a href="index.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+      <a href="assets.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
+      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
       <div class="mobile-menu-group">Tools</div>
       <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
       <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
@@ -2543,7 +2538,7 @@
         </div>
       </div>
       <div class="category-strip">
-        <article class="cat-card" onclick="location.href='index.html#products'">
+        <article class="cat-card" onclick="location.href='assets.html'">
           <div class="mini-pattern"></div>
           <div><h3>Assets</h3><p>设计素材 / 商品资源</p></div>
         </article>
@@ -2636,11 +2631,14 @@
       <div class="section-head">
         <div>
           <h2 class="section-title" id="productsTitle">Editor's Picks</h2>
-          <p class="section-desc" id="productsDesc">商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。</p>
+          <p class="section-desc" id="productsDesc">首页先展示 16 个精选素材，更多分类与完整商品可以进入 Assets 页面查看。</p>
         </div>
-        <button class="pill-btn" onclick="filterProducts('All')">Show All</button>
+        <button class="pill-btn" onclick="location.href='assets.html'">View More</button>
       </div>
       <div class="product-grid" id="productGrid"></div>
+      <div class="view-more-row">
+        <button class="primary-btn" onclick="location.href='assets.html'">View More</button>
+      </div>
     </section>
 
     <section class="section" id="tools">
@@ -3574,6 +3572,10 @@
     }
 
     function filterProducts(category){
+      if(category && category !== "All"){
+        location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
+        return;
+      }
       if(category === "Resume Templates"){
         location.href = 'resume.html';
         return;
@@ -3696,10 +3698,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get("filter");
     if(initialFilter){
-      filterProducts(initialFilter);
+      location.href = 'assets.html?filter=' + encodeURIComponent(initialFilter) + '#products';
     }else{
       updateProductsHeading("All");
-      renderProducts();
+      renderProducts(products.slice(0, 16));
     }
     let heroProductTimer = null;
 

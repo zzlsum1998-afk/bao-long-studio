@@ -997,14 +997,14 @@
         <nav class="top-nav">
             <a href="index.html">All</a>
             <div class="nav-dropdown">
-                <a href="index.html#products">Assets ▼</a>
+                <a href="assets.html">Assets ▼</a>
                 <div class="dropdown-content"> 
-          <a href="index.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="index.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="index.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="index.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="index.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
-          <a href="index.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+          <a href="assets.html?filter=Brushes#products" onclick="return navFilter('Brushes');">Brushes</a>
+          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
         
                 </div>
             </div>
@@ -1032,12 +1032,12 @@
     <div class="mobile-menu-panel" id="mobileMenuPanel">
       <a href="index.html" onclick="closeMobileMenu()">All</a>
       <div class="mobile-menu-group">Assets</div>
-      <a href="index.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="index.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="index.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="index.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="index.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
-      <a href="index.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+      <a href="assets.html?filter=Brushes#products" onclick="closeMobileMenu()">Brushes</a>
+      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
       <div class="mobile-menu-group">Tools</div>
       <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
       <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
@@ -1387,7 +1387,7 @@
 
   <script>
     function navFilter(category){
-      location.href = 'index.html?filter=' + encodeURIComponent(category) + '#products';
+      location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
       return false;
     }
   </script>

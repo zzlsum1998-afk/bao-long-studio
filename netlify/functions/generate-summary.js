@@ -10,7 +10,7 @@ exports.handler = async function(event) {
 
   let body;
   try {
-    body = JSON.parse(event.body);
+    body = JSON.parse(event.body || "{}");
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "请求格式错误" }) };
   }
@@ -55,6 +55,10 @@ Rules:
         ]
       })
     });
+
+    if (!response.ok) {
+      return { statusCode: response.status, body: JSON.stringify({ error: "AI服务暂时不可用，请稍后重试" }) };
+    }
 
     const data = await response.json();
     const result = data.choices?.[0]?.message?.content;

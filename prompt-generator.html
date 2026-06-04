@@ -310,6 +310,176 @@
       color:var(--muted);
     }
 
+
+
+    /* Prompt case cards: added content module for Prompt Generator page */
+    .prompt-case-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:24px;
+    }
+    .prompt-case-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      cursor:pointer;
+      transition:.25s ease;
+      text-align:left;
+      padding:0;
+      color:inherit;
+      box-shadow:none;
+    }
+    .prompt-case-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+      border-color:#111;
+    }
+    .prompt-case-img{
+      width:100%;
+      aspect-ratio:4/3;
+      background:#eeeae2;
+      overflow:hidden;
+    }
+    .prompt-case-img img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:.35s ease;
+    }
+    .prompt-case-card:hover .prompt-case-img img{transform:scale(1.035)}
+    .prompt-case-body{
+      padding:20px 20px 22px;
+    }
+    .prompt-case-kicker{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:9px;
+    }
+    .prompt-case-body h3{
+      margin:0 0 10px;
+      font-size:22px;
+      line-height:1.2;
+    }
+    .prompt-case-scene{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .prompt-case-tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .prompt-case-tags span{
+      border:1px solid var(--line);
+      background:#f7f6f2;
+      color:#4d4942;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      line-height:1;
+    }
+    .prompt-modal{
+      position:fixed;
+      inset:0;
+      z-index:500;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:26px;
+      background:rgba(17,17,17,.58);
+      backdrop-filter:blur(12px);
+    }
+    .prompt-modal.open{display:flex;}
+    .prompt-modal-card{
+      width:min(1040px,100%);
+      max-height:88vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:34px;
+      box-shadow:0 30px 90px rgba(0,0,0,.25);
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:0;
+      position:relative;
+    }
+    .prompt-modal-media{
+      min-height:520px;
+      background:#eeeae2;
+    }
+    .prompt-modal-media img{
+      width:100%;
+      height:100%;
+      min-height:520px;
+      object-fit:cover;
+      display:block;
+    }
+    .prompt-modal-content{
+      padding:38px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .prompt-modal-close{
+      position:absolute;
+      right:18px;
+      top:18px;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.88);
+      cursor:pointer;
+      font-size:24px;
+      line-height:1;
+      z-index:2;
+    }
+    .prompt-modal-content h3{
+      margin:0;
+      font-size:36px;
+      line-height:1.08;
+    }
+    .prompt-modal-meta{
+      color:var(--muted);
+      line-height:1.7;
+      margin:0;
+    }
+    .prompt-text-box{
+      background:#171717;
+      color:#eee8dc;
+      border-radius:24px;
+      padding:22px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      font-size:13px;
+      line-height:1.8;
+      white-space:pre-wrap;
+      word-break:break-word;
+      min-height:190px;
+    }
+    .copy-status{
+      color:var(--muted);
+      font-size:13px;
+      min-height:18px;
+    }
+    @media(max-width:1100px){
+      .prompt-case-grid{grid-template-columns:repeat(2,1fr)}
+      .prompt-modal-card{grid-template-columns:1fr;max-height:86vh}
+      .prompt-modal-media,.prompt-modal-media img{min-height:360px}
+    }
+    @media(max-width:760px){
+      .prompt-case-grid{grid-template-columns:1fr}
+      .prompt-modal{padding:14px;align-items:flex-end}
+      .prompt-modal-card{border-radius:26px;max-height:88vh}
+      .prompt-modal-content{padding:28px 22px}
+      .prompt-modal-content h3{font-size:28px}
+      .prompt-modal-media,.prompt-modal-media img{min-height:260px}
+    }
+
     @media(max-width:1100px){
       .hero{grid-template-columns:1fr}
       .category-grid,.workflow{grid-template-columns:repeat(2,1fr)}
@@ -914,6 +1084,111 @@
       </div>
     </section>
 
+    <section class="section" id="prompt-cases">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title-main">Prompt Inspiration</h2>
+          <p class="section-desc">查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。</p>
+        </div>
+        <button class="secondary-btn" onclick="location.href='prompt-tool.html'">Build Your Prompt</button>
+      </div>
+
+      <div class="prompt-case-grid">
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case01')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-01.svg" alt="低饱和建筑分析插画"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Landscape Illustration</div>
+            <h3>低饱和建筑分析插画</h3>
+            <p class="prompt-case-scene">适用：作品集 / 景观竞赛 / 概念表达</p>
+            <div class="prompt-case-tags"><span>低饱和</span><span>轴测</span><span>拼贴感</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case02')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-02.svg" alt="儿童活动空间场景图"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Activity Scene</div>
+            <h3>儿童活动空间场景图</h3>
+            <p class="prompt-case-scene">适用：儿童公园 / 活动分析 / 方案汇报</p>
+            <div class="prompt-case-tags"><span>儿童活动</span><span>柔和色彩</span><span>手绘感</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case03')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-03.svg" alt="拼贴风总平面图"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Plan Rendering</div>
+            <h3>拼贴风总平面图</h3>
+            <p class="prompt-case-scene">适用：总平表达 / 场地利用 / 作品集排版</p>
+            <div class="prompt-case-tags"><span>总平面</span><span>拼贴</span><span>高级留白</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case04')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-04.svg" alt="植物疗愈空间剖面图"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Section Scene</div>
+            <h3>植物疗愈空间剖面图</h3>
+            <p class="prompt-case-scene">适用：疗愈花园 / 社区花园 / 剖面表达</p>
+            <div class="prompt-case-tags"><span>剖面</span><span>植物疗愈</span><span>纸感</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case05')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-05.svg" alt="商业街区人群活动图"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Commercial Street</div>
+            <h3>商业街区人群活动图</h3>
+            <p class="prompt-case-scene">适用：商业更新 / 街区活力 / 小红书封面</p>
+            <div class="prompt-case-tags"><span>街区</span><span>人群活动</span><span>温暖光影</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case06')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-06.svg" alt="自然教育场景插画"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Nature Education</div>
+            <h3>自然教育场景插画</h3>
+            <p class="prompt-case-scene">适用：研学空间 / 自然课堂 / 活动策划</p>
+            <div class="prompt-case-tags"><span>自然教育</span><span>课堂</span><span>清新</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case07')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-07.svg" alt="高级感小红书封面风"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Portfolio Cover</div>
+            <h3>高级感小红书封面风</h3>
+            <p class="prompt-case-scene">适用：封面图 / 案例首图 / 风格展示</p>
+            <div class="prompt-case-tags"><span>封面</span><span>极简</span><span>高级感</span></div>
+          </div>
+        </button>
+        <button class="prompt-case-card" type="button" onclick="openPromptCase('case08')">
+          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-08.svg" alt="竞赛风概念分析图"></div>
+          <div class="prompt-case-body">
+            <div class="prompt-case-kicker">Concept Diagram</div>
+            <h3>竞赛风概念分析图</h3>
+            <p class="prompt-case-scene">适用：竞赛概念 / 策略分析 / 汇报图面</p>
+            <div class="prompt-case-tags"><span>概念分析</span><span>路径</span><span>节点</span></div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <div class="prompt-modal" id="promptCaseModal" aria-hidden="true">
+      <div class="prompt-modal-card" role="dialog" aria-modal="true" aria-labelledby="promptCaseTitle">
+        <button class="prompt-modal-close" type="button" onclick="closePromptCase()" aria-label="Close prompt detail">×</button>
+        <div class="prompt-modal-media"><img id="promptCaseImg" src="" alt=""></div>
+        <div class="prompt-modal-content">
+          <div class="prompt-case-kicker" id="promptCaseKicker"></div>
+          <h3 id="promptCaseTitle"></h3>
+          <p class="prompt-modal-meta" id="promptCaseScene"></p>
+          <div class="prompt-case-tags" id="promptCaseTags"></div>
+          <div class="prompt-text-box" id="promptCaseText"></div>
+          <div class="actions" style="margin-top:0">
+            <button class="primary-btn" type="button" onclick="copyPromptCase()">Copy Prompt</button>
+            <button class="secondary-btn" type="button" onclick="closePromptCase()">Close</button>
+          </div>
+          <div class="copy-status" id="promptCopyStatus"></div>
+        </div>
+      </div>
+    </div>
+
+
     <section class="section" id="workflow">
       <div class="section-head">
         <div>
@@ -949,6 +1224,81 @@
       location.href = 'index.html?filter=' + encodeURIComponent(category) + '#products';
       return false;
     }
+
+    const promptCases = {'case01': {'id': 'case01', 'img': 'images/prompt-cases/prompt-case-01.svg', 'kicker': 'Landscape Illustration', 'title': '低饱和建筑分析插画', 'scene': '适用：作品集 / 景观竞赛 / 概念表达', 'tags': ['低饱和', '轴测', '拼贴感'], 'prompt': 'isometric landscape architecture analytical illustration, low-saturation Morandi color palette, soft beige background, layered public plaza, simple building blocks, planting beds, activity nodes, tiny people silhouettes, clean layout, flat shading, matte finish, hand-drawn texture, grain paper, white space, diffuse lighting, rough surface, no strong highlights, for real landscape design, realistic site layout, not a game scene --v 6 --ar 16:9 --style raw --s 750 --no AI, digital look, watermark, text'}, 'case02': {'id': 'case02', 'img': 'images/prompt-cases/prompt-case-02.svg', 'kicker': 'Activity Scene', 'title': '儿童活动空间场景图', 'scene': '适用：儿童公园 / 活动分析 / 方案汇报', 'tags': ['儿童活动', '柔和色彩', '手绘感'], 'prompt': 'children activity landscape scene illustration, eye-level perspective, inclusive playground, curved paths, small hills, sand pit, timber play structure, children running and sitting, parents resting nearby, warm low-saturation colors, soft green and clay orange accents, flat shading, matte finish, hand-drawn, white space, grain paper texture, diffuse daylight, friendly but not cartoon fantasy, realistic public space use --v 6 --ar 16:9 --style raw --s 750 --no AI, digital look, watermark, text'}, 'case03': {'id': 'case03', 'img': 'images/prompt-cases/prompt-case-03.svg', 'kicker': 'Plan Rendering', 'title': '拼贴风总平面图', 'scene': '适用：总平表达 / 场地利用 / 作品集排版', 'tags': ['总平面', '拼贴', '高级留白'], 'prompt': 'top-view landscape masterplan collage, clean site layout, soft paper background, abstract planting masses, walking paths, seating nodes, water feature, small people activities, delicate shadows, low-saturation sage green, warm gray, muted sand, flat vector-like rendering with hand-drawn edges, matte finish, white space, design portfolio presentation, realistic site layout, avoid cartoon style --v 6 --ar 4:3 --style raw --s 700 --no AI, digital look, watermark, text'}, 'case04': {'id': 'case04', 'img': 'images/prompt-cases/prompt-case-04.svg', 'kicker': 'Section Scene', 'title': '植物疗愈空间剖面图', 'scene': '适用：疗愈花园 / 社区花园 / 剖面表达', 'tags': ['剖面', '植物疗愈', '纸感'], 'prompt': 'landscape section illustration of a healing garden, sectional cut through planting beds, layered shrubs and small trees, quiet seating niche, soft pergola, people reading and resting, calm therapeutic atmosphere, muted olive green, warm cream, light brown, hand-drawn architectural section style, flat shading, matte paper texture, low saturation, clear hierarchy, white space, diffuse lighting, for real landscape design --v 6 --ar 16:9 --style raw --s 750 --no AI, digital look, watermark, text'}, 'case05': {'id': 'case05', 'img': 'images/prompt-cases/prompt-case-05.svg', 'kicker': 'Commercial Street', 'title': '商业街区人群活动图', 'scene': '适用：商业更新 / 街区活力 / 小红书封面', 'tags': ['街区', '人群活动', '温暖光影'], 'prompt': 'urban commercial street activity illustration, oblique perspective, small storefronts, outdoor tables, warm signage without readable text, pedestrians chatting, cyclists passing, pocket planting, low-saturation warm beige and muted terracotta palette, soft afternoon light, flat shading, matte finish, hand-drawn collage feeling, grain paper, realistic public space use, clean composition, no strong highlights --v 6 --ar 3:4 --style raw --s 750 --no AI, digital look, watermark, text'}, 'case06': {'id': 'case06', 'img': 'images/prompt-cases/prompt-case-06.svg', 'kicker': 'Nature Education', 'title': '自然教育场景插画', 'scene': '适用：研学空间 / 自然课堂 / 活动策划', 'tags': ['自然教育', '课堂', '清新'], 'prompt': 'nature education landscape illustration, outdoor learning classroom, curved wooden deck, observation tables, children exploring leaves and insects, teacher guiding, wildflower meadow, native planting, soft sky, low-saturation fresh green and cream palette, flat shading, matte finish, hand-drawn, clean white space, grain paper texture, realistic site layout, gentle atmosphere, not cartoon fantasy --v 6 --ar 16:9 --style raw --s 750 --no AI, digital look, watermark, text'}, 'case07': {'id': 'case07', 'img': 'images/prompt-cases/prompt-case-07.svg', 'kicker': 'Portfolio Cover', 'title': '高级感小红书封面风', 'scene': '适用：封面图 / 案例首图 / 风格展示', 'tags': ['封面', '极简', '高级感'], 'prompt': 'minimal landscape design cover image, refined editorial composition, one central public space scene, large clean margins, low-saturation beige background, muted green planting, simple architectural forms, soft shadows, matte finish, hand-drawn flat illustration, subtle grain paper, elegant visual hierarchy, suitable for Xiaohongshu cover, no readable typography in image, calm premium feeling --v 6 --ar 3:4 --style raw --s 700 --no AI, digital look, watermark, text'}, 'case08': {'id': 'case08', 'img': 'images/prompt-cases/prompt-case-08.svg', 'kicker': 'Concept Diagram', 'title': '竞赛风概念分析图', 'scene': '适用：竞赛概念 / 策略分析 / 汇报图面', 'tags': ['概念分析', '路径', '节点'], 'prompt': 'competition-style landscape concept diagram illustration, abstract site base, layered circulation arrows, activity nodes, planting zones, water edge, small icon-like people, clear design strategy expression, low-saturation blue gray, sand beige, muted green, flat shading, hand-drawn texture, matte finish, white space, clean diagram hierarchy, realistic landscape planning presentation, not a game scene --v 6 --ar 16:9 --style raw --s 750 --no AI, digital look, watermark, text'}};
+
+    function openPromptCase(caseId){
+      const item = promptCases[caseId];
+      const modal = document.getElementById('promptCaseModal');
+      if(!item || !modal) return;
+      document.getElementById('promptCaseImg').src = item.img;
+      document.getElementById('promptCaseImg').alt = item.title;
+      document.getElementById('promptCaseKicker').textContent = item.kicker;
+      document.getElementById('promptCaseTitle').textContent = item.title;
+      document.getElementById('promptCaseScene').textContent = item.scene;
+      document.getElementById('promptCaseText').textContent = item.prompt;
+      document.getElementById('promptCopyStatus').textContent = '';
+      const tagBox = document.getElementById('promptCaseTags');
+      tagBox.innerHTML = '';
+      item.tags.forEach(function(tag){
+        const span = document.createElement('span');
+        span.textContent = tag;
+        tagBox.appendChild(span);
+      });
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePromptCase(){
+      const modal = document.getElementById('promptCaseModal');
+      if(!modal) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    function copyPromptCase(){
+      const text = document.getElementById('promptCaseText')?.textContent || '';
+      const status = document.getElementById('promptCopyStatus');
+      if(!text) return;
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text).then(function(){
+          if(status) status.textContent = 'Prompt copied.';
+        }).catch(function(){
+          fallbackCopyPrompt(text, status);
+        });
+      }else{
+        fallbackCopyPrompt(text, status);
+      }
+    }
+
+    function fallbackCopyPrompt(text, status){
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try{
+        document.execCommand('copy');
+        if(status) status.textContent = 'Prompt copied.';
+      }catch(err){
+        if(status) status.textContent = 'Copy failed. Please select the prompt manually.';
+      }
+      document.body.removeChild(textarea);
+    }
+
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape') closePromptCase();
+    });
+
+    document.addEventListener('click', function(event){
+      const modal = document.getElementById('promptCaseModal');
+      if(!modal || !modal.classList.contains('open')) return;
+      if(event.target === modal) closePromptCase();
+    });
   </script>
 
 <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">

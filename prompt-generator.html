@@ -184,6 +184,17 @@
       flex-wrap:wrap;
       margin-top:26px;
     }
+    .actions .primary-btn,
+    .actions .secondary-btn,
+    .modal-actions .primary-btn,
+    .modal-actions .secondary-btn{
+      min-width:260px;
+      min-height:54px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
     .primary-btn,.secondary-btn{
       border:1px solid #111;
       padding:14px 26px;
@@ -817,6 +828,22 @@
     }
 
 
+
+
+    /* Equal-width action buttons */
+    @media (max-width:680px){
+      .actions{
+        align-items:stretch;
+      }
+      .actions .primary-btn,
+      .actions .secondary-btn,
+      .modal-actions .primary-btn,
+      .modal-actions .secondary-btn{
+        width:100%;
+        max-width:360px;
+        min-width:0;
+      }
+    }
 
     /* Mobile dropdown menu: desktop navigation remains unchanged */
     .mobile-menu-toggle,

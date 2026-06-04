@@ -222,6 +222,18 @@
       flex-wrap:wrap;
     }
 
+    .hero-actions .primary-btn,
+    .hero-actions .secondary-btn,
+    .detail-actions .primary-btn,
+    .detail-actions .secondary-btn{
+      min-width:220px;
+      min-height:52px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
     .primary-btn,.secondary-btn{
       border-radius:0;
       padding:14px 28px;
@@ -2090,6 +2102,19 @@
     }
 
 
+
+
+    /* Equal-width action buttons */
+    @media (max-width:680px){
+      .hero-actions .primary-btn,
+      .hero-actions .secondary-btn,
+      .detail-actions .primary-btn,
+      .detail-actions .secondary-btn{
+        width:100%;
+        max-width:360px;
+        min-width:0;
+      }
+    }
 
     /* Mobile dropdown menu: desktop navigation remains unchanged */
     .mobile-menu-toggle,

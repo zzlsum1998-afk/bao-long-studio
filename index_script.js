@@ -11,11 +11,11 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product1/01-cover.jpg",
+            "cover": "images/products/product1/01-cover.webp",
             "images": [
-                  "images/products/product1/01-cover.jpg",
-                  "images/products/product1/02-detail-01.jpg",
-                  "images/products/product1/03-detail-02.jpg"
+                  "images/products/product1/01-cover.webp",
+                  "images/products/product1/02-detail-01.webp",
+                  "images/products/product1/03-detail-02.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -35,12 +35,12 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product2/01-cover.jpg",
+            "cover": "images/products/product2/01-cover.webp",
             "images": [
-                  "images/products/product2/01-cover.jpg",
-                  "images/products/product2/02-detail-01.jpg",
-                  "images/products/product2/03-detail-02.jpg",
-                  "images/products/product2/04-detail-03.jpg"
+                  "images/products/product2/01-cover.webp",
+                  "images/products/product2/02-detail-01.webp",
+                  "images/products/product2/03-detail-02.webp",
+                  "images/products/product2/04-detail-03.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -60,13 +60,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product3/01-cover.jpg",
+            "cover": "images/products/product3/01-cover.webp",
             "images": [
-                  "images/products/product3/01-cover.jpg",
-                  "images/products/product3/02-detail-01.jpg",
-                  "images/products/product3/03-detail-02.jpg",
-                  "images/products/product3/04-detail-03.jpg",
-                  "images/products/product3/05-detail-04.jpg"
+                  "images/products/product3/01-cover.webp",
+                  "images/products/product3/02-detail-01.webp",
+                  "images/products/product3/03-detail-02.webp",
+                  "images/products/product3/04-detail-03.webp",
+                  "images/products/product3/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -86,12 +86,12 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product4/01-cover.jpg",
+            "cover": "images/products/product4/01-cover.webp",
             "images": [
-                  "images/products/product4/01-cover.jpg",
-                  "images/products/product4/02-detail-01.jpg",
-                  "images/products/product4/03-detail-02.jpg",
-                  "images/products/product4/04-detail-03.jpg"
+                  "images/products/product4/01-cover.webp",
+                  "images/products/product4/02-detail-01.webp",
+                  "images/products/product4/03-detail-02.webp",
+                  "images/products/product4/04-detail-03.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -111,9 +111,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product5/01-cover.jpg",
+            "cover": "images/products/product5/01-cover.webp",
             "images": [
-                  "images/products/product5/01-cover.jpg"
+                  "images/products/product5/01-cover.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -133,13 +133,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product6/01-cover.jpg",
+            "cover": "images/products/product6/01-cover.webp",
             "images": [
-                  "images/products/product6/01-cover.jpg",
-                  "images/products/product6/02-detail-01.jpg",
-                  "images/products/product6/03-detail-02.jpg",
-                  "images/products/product6/04-detail-03.jpg",
-                  "images/products/product6/05-detail-04.jpg"
+                  "images/products/product6/01-cover.webp",
+                  "images/products/product6/02-detail-01.webp",
+                  "images/products/product6/03-detail-02.webp",
+                  "images/products/product6/04-detail-03.webp",
+                  "images/products/product6/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -159,9 +159,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product7/01-cover.jpg",
+            "cover": "images/products/product7/01-cover.webp",
             "images": [
-                  "images/products/product7/01-cover.jpg"
+                  "images/products/product7/01-cover.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -181,9 +181,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product8/01-cover.jpg",
+            "cover": "images/products/product8/01-cover.webp",
             "images": [
-                  "images/products/product8/01-cover.jpg"
+                  "images/products/product8/01-cover.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -203,9 +203,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product9/01-cover.jpg",
+            "cover": "images/products/product9/01-cover.webp",
             "images": [
-                  "images/products/product9/01-cover.jpg"
+                  "images/products/product9/01-cover.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -225,9 +225,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product10/01-cover.jpg",
+            "cover": "images/products/product10/01-cover.webp",
             "images": [
-                  "images/products/product10/01-cover.jpg"
+                  "images/products/product10/01-cover.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -247,12 +247,12 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product11/01-cover.jpg",
+            "cover": "images/products/product11/01-cover.webp",
             "images": [
-                  "images/products/product11/01-cover.jpg",
-                  "images/products/product11/02-detail-01.jpg",
-                  "images/products/product11/03-detail-02.jpg",
-                  "images/products/product11/04-detail-03.jpg"
+                  "images/products/product11/01-cover.webp",
+                  "images/products/product11/02-detail-01.webp",
+                  "images/products/product11/03-detail-02.webp",
+                  "images/products/product11/04-detail-03.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -272,13 +272,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product12/01-cover.jpg",
+            "cover": "images/products/product12/01-cover.webp",
             "images": [
-                  "images/products/product12/01-cover.jpg",
-                  "images/products/product12/02-detail-01.jpg",
-                  "images/products/product12/03-detail-02.jpg",
-                  "images/products/product12/04-detail-03.jpg",
-                  "images/products/product12/05-detail-04.jpg"
+                  "images/products/product12/01-cover.webp",
+                  "images/products/product12/02-detail-01.webp",
+                  "images/products/product12/03-detail-02.webp",
+                  "images/products/product12/04-detail-03.webp",
+                  "images/products/product12/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -298,13 +298,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product13/01-cover.jpg",
+            "cover": "images/products/product13/01-cover.webp",
             "images": [
-                  "images/products/product13/01-cover.jpg",
-                  "images/products/product13/02-detail-01.jpg",
-                  "images/products/product13/03-detail-02.jpg",
-                  "images/products/product13/04-detail-03.jpg",
-                  "images/products/product13/05-detail-04.jpg"
+                  "images/products/product13/01-cover.webp",
+                  "images/products/product13/02-detail-01.webp",
+                  "images/products/product13/03-detail-02.webp",
+                  "images/products/product13/04-detail-03.webp",
+                  "images/products/product13/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -324,13 +324,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product14/01-cover.jpg",
+            "cover": "images/products/product14/01-cover.webp",
             "images": [
-                  "images/products/product14/01-cover.jpg",
-                  "images/products/product14/02-detail-01.jpg",
-                  "images/products/product14/03-detail-02.jpg",
-                  "images/products/product14/04-detail-03.jpg",
-                  "images/products/product14/05-detail-04.jpg"
+                  "images/products/product14/01-cover.webp",
+                  "images/products/product14/02-detail-01.webp",
+                  "images/products/product14/03-detail-02.webp",
+                  "images/products/product14/04-detail-03.webp",
+                  "images/products/product14/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -350,13 +350,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product15/01-cover.jpg",
+            "cover": "images/products/product15/01-cover.webp",
             "images": [
-                  "images/products/product15/01-cover.jpg",
-                  "images/products/product15/02-detail-01.jpg",
-                  "images/products/product15/03-detail-02.jpg",
-                  "images/products/product15/04-detail-03.jpg",
-                  "images/products/product15/05-detail-04.jpg"
+                  "images/products/product15/01-cover.webp",
+                  "images/products/product15/02-detail-01.webp",
+                  "images/products/product15/03-detail-02.webp",
+                  "images/products/product15/04-detail-03.webp",
+                  "images/products/product15/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -376,13 +376,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product16/01-cover.jpg",
+            "cover": "images/products/product16/01-cover.webp",
             "images": [
-                  "images/products/product16/01-cover.jpg",
-                  "images/products/product16/02-detail-01.jpg",
-                  "images/products/product16/03-detail-02.jpg",
-                  "images/products/product16/04-detail-03.jpg",
-                  "images/products/product16/05-detail-04.jpg"
+                  "images/products/product16/01-cover.webp",
+                  "images/products/product16/02-detail-01.webp",
+                  "images/products/product16/03-detail-02.webp",
+                  "images/products/product16/04-detail-03.webp",
+                  "images/products/product16/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -402,13 +402,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product17/01-cover.jpg",
+            "cover": "images/products/product17/01-cover.webp",
             "images": [
-                  "images/products/product17/01-cover.jpg",
-                  "images/products/product17/02-detail-01.jpg",
-                  "images/products/product17/03-detail-02.jpg",
-                  "images/products/product17/04-detail-03.jpg",
-                  "images/products/product17/05-detail-04.jpg"
+                  "images/products/product17/01-cover.webp",
+                  "images/products/product17/02-detail-01.webp",
+                  "images/products/product17/03-detail-02.webp",
+                  "images/products/product17/04-detail-03.webp",
+                  "images/products/product17/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -428,9 +428,9 @@
                   "Diagram",
                   "AI"
             ],
-            "cover": "images/products/product18/01-cover.jpg",
+            "cover": "images/products/product18/01-cover.webp",
             "images": [
-                  "images/products/product18/01-cover.jpg"
+                  "images/products/product18/01-cover.webp"
             ],
             "desc": [
                   "植物素材",
@@ -450,13 +450,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product19/01-cover.jpg",
+            "cover": "images/products/product19/01-cover.webp",
             "images": [
-                  "images/products/product19/01-cover.jpg",
-                  "images/products/product19/02-detail-01.jpg",
-                  "images/products/product19/03-detail-02.jpg",
-                  "images/products/product19/04-detail-03.jpg",
-                  "images/products/product19/05-detail-04.jpg"
+                  "images/products/product19/01-cover.webp",
+                  "images/products/product19/02-detail-01.webp",
+                  "images/products/product19/03-detail-02.webp",
+                  "images/products/product19/04-detail-03.webp",
+                  "images/products/product19/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -476,13 +476,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product20/01-cover.jpg",
+            "cover": "images/products/product20/01-cover.webp",
             "images": [
-                  "images/products/product20/01-cover.jpg",
-                  "images/products/product20/02-detail-01.jpg",
-                  "images/products/product20/03-detail-02.jpg",
-                  "images/products/product20/04-detail-03.jpg",
-                  "images/products/product20/05-detail-04.jpg"
+                  "images/products/product20/01-cover.webp",
+                  "images/products/product20/02-detail-01.webp",
+                  "images/products/product20/03-detail-02.webp",
+                  "images/products/product20/04-detail-03.webp",
+                  "images/products/product20/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -502,9 +502,9 @@
                   "Diagram",
                   "PNG"
             ],
-            "cover": "images/products/product21/01-cover.jpg",
+            "cover": "images/products/product21/01-cover.webp",
             "images": [
-                  "images/products/product21/01-cover.jpg"
+                  "images/products/product21/01-cover.webp"
             ],
             "desc": [
                   "人物素材",
@@ -524,10 +524,10 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product22/01-cover.jpg",
+            "cover": "images/products/product22/01-cover.webp",
             "images": [
-                  "images/products/product22/01-cover.jpg",
-                  "images/products/product22/02-detail-01.jpg"
+                  "images/products/product22/01-cover.webp",
+                  "images/products/product22/02-detail-01.webp"
             ],
             "desc": [
                   "植物素材",
@@ -547,9 +547,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product23/01-cover.jpg",
+            "cover": "images/products/product23/01-cover.webp",
             "images": [
-                  "images/products/product23/01-cover.jpg"
+                  "images/products/product23/01-cover.webp"
             ],
             "desc": [
                   "植物素材",
@@ -569,9 +569,9 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product24/01-cover.jpg",
+            "cover": "images/products/product24/01-cover.webp",
             "images": [
-                  "images/products/product24/01-cover.jpg"
+                  "images/products/product24/01-cover.webp"
             ],
             "desc": [
                   "植物素材",
@@ -591,14 +591,14 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product25/01-cover.jpg",
+            "cover": "images/products/product25/01-cover.webp",
             "images": [
-                  "images/products/product25/01-cover.jpg",
-                  "images/products/product25/02-detail-01.jpg",
-                  "images/products/product25/03-detail-02.jpg",
-                  "images/products/product25/04-detail-03.jpg",
-                  "images/products/product25/05-detail-04.jpg",
-                  "images/products/product25/06-detail-05.jpg"
+                  "images/products/product25/01-cover.webp",
+                  "images/products/product25/02-detail-01.webp",
+                  "images/products/product25/03-detail-02.webp",
+                  "images/products/product25/04-detail-03.webp",
+                  "images/products/product25/05-detail-04.webp",
+                  "images/products/product25/06-detail-05.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -618,13 +618,13 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product26/01-cover.jpg",
+            "cover": "images/products/product26/01-cover.webp",
             "images": [
-                  "images/products/product26/01-cover.jpg",
-                  "images/products/product26/02-detail-01.jpg",
-                  "images/products/product26/03-detail-02.jpg",
-                  "images/products/product26/04-detail-03.jpg",
-                  "images/products/product26/05-detail-04.jpg"
+                  "images/products/product26/01-cover.webp",
+                  "images/products/product26/02-detail-01.webp",
+                  "images/products/product26/03-detail-02.webp",
+                  "images/products/product26/04-detail-03.webp",
+                  "images/products/product26/05-detail-04.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -644,12 +644,12 @@
                   "Diagram",
                   "AI/Psd"
             ],
-            "cover": "images/products/product27/01-cover.jpg",
+            "cover": "images/products/product27/01-cover.webp",
             "images": [
-                  "images/products/product27/01-cover.jpg",
-                  "images/products/product27/02-detail-01.jpg",
-                  "images/products/product27/03-detail-02.jpg",
-                  "images/products/product27/04-detail-03.jpg"
+                  "images/products/product27/01-cover.webp",
+                  "images/products/product27/02-detail-01.webp",
+                  "images/products/product27/03-detail-02.webp",
+                  "images/products/product27/04-detail-03.webp"
             ],
             "desc": [
                   "景观分析图",
@@ -665,12 +665,12 @@
             "price": "¥15.8",
             "link": "https://item.taobao.com/item.htm?id=930700417730&pisk=guFaThTEnjqIvJjuzzcVUu7WHlnt6jS5jSijor4m5cmMij93-qgDCdMXirx3fzEXiZnjtquqkmO6IPGhgzEroxmfBok4ckH01fa_YmrbrRZs1x10LlUoCozAWqm0moobCA57WPhxigs5N_aOq60RRokiiD03J4Rmm9MG_e8g_gs5N_aTWjhcVrT2EHynz4cDSxvG8v0rrjYMsomnK40Dsjc0mwknuVumoCmmKv0xxFAiiC43-432jhmiiwznvqoDmocc8XmKojm0mjAUl7VvYqMG5EmOCT8VCAiuSDRDaz3Zs34whIOjTV4eBamHi2NE7Aou77pU8J04E7kTqM9sj8lg4f2FxCl_bWqrsJSH_b285fsrms3QQ2FxAO9mIIgEVw7FyqieB2MpqUJvHAQt80_iIKpxI23EVw7eHKHOW2o5SAf..&spm=a1z10.5-c.w4002-25832238778.32.14b34bc76ggVN0",
             "tags": [],
-            "cover": "images/products/product28/01-cover.jpg",
+            "cover": "images/products/product28/01-cover.webp",
             "images": [
-                  "images/products/product28/01-cover.jpg",
-                  "images/products/product28/02-detail-01.jpg",
-                  "images/products/product28/03-detail-02.jpg",
-                  "images/products/product28/04-detail-03.jpg"
+                  "images/products/product28/01-cover.webp",
+                  "images/products/product28/02-detail-01.webp",
+                  "images/products/product28/03-detail-02.webp",
+                  "images/products/product28/04-detail-03.webp"
             ],
             "desc": [
                   "户外节点模块",

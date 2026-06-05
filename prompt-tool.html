@@ -78,6 +78,8 @@
         flex-direction: column;
         flex-shrink: 0;
         padding-top: 18px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .nav-header {
         padding: 26px 26px 22px;
@@ -142,7 +144,7 @@
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-y: contain;
-        will-change: scroll-position;
+        min-width: 0;
     }
     .main::before{
         content:"Architectural Prompt System";
@@ -187,14 +189,11 @@
         border-radius: 18px; 
         font-size: 13px;
         cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        transition: all 0.25s ease;
         color: #4D4942;
         text-align: center;
         box-shadow: 0 8px 24px rgba(0,0,0,0.035);
         line-height:1.45;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        position: relative;
     }
     .card:hover {
         transform: translateY(-5px);
@@ -274,7 +273,7 @@
         gap: 18px;
         border-left: 1px solid var(--border);
         background: #EFECE5;
-        height: 100vh;
+        height: 100%;
         flex-shrink: 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -292,7 +291,6 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
         min-height: 0;
     } 
 
@@ -326,6 +324,7 @@
     }
     .result-box {
         flex: 1;
+        min-height: 220px;
         background: #151515;
         border-radius: 18px;
         padding: 22px;
@@ -337,7 +336,6 @@
         overflow-y: auto;
         margin-bottom: 15px;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: contain;
     }
 
     .action-group {
@@ -713,8 +711,6 @@
         min-height:100% !important;
         overflow-x:hidden !important;
         overflow-y:auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior-y: auto !important;
       }
 
       body{
@@ -837,8 +833,6 @@
         width:100% !important;
         padding:28px 16px 24px !important;
         overflow:visible !important;
-        -webkit-overflow-scrolling: touch !important;
-        overscroll-behavior-y: contain !important;
       }
 
       .main::before{
@@ -885,11 +879,6 @@
 
       .card.active{
         transform:none !important;
-      }
-
-      .card {
-        -webkit-tap-highlight-color: transparent !important;
-        touch-action: manipulation !important;
       }
 
       .l5-tabs{

@@ -985,6 +985,179 @@
       }
     }
 
+    /* ── Edit Mode ── */
+    .edit-mode-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+    }
+    .btn-edit-toggle {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 11px 18px;
+        background: rgba(255,255,255,.7);
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+        transition: .25s;
+        white-space: nowrap;
+    }
+    .btn-edit-toggle:hover { background: #111; color: #fff; border-color: #111; }
+    .btn-edit-toggle.active { background: #D9C8A9; color: #111; border-color: #b8a882; }
+    .btn-restore {
+        border: 1px solid #e8c8c8;
+        border-radius: 999px;
+        padding: 11px 16px;
+        background: #fff5f5;
+        cursor: pointer;
+        font-size: 12px;
+        color: #b54040;
+        font-weight: 600;
+        transition: .25s;
+        display: none;
+        white-space: nowrap;
+    }
+    .btn-restore:hover { background: #b54040; color: #fff; border-color: #b54040; }
+    body.edit-mode .btn-restore { display: inline-flex; }
+
+    /* card wrapper in edit mode */
+    body.edit-mode .card { position: relative; }
+    body.edit-mode .card:not(.nested-trigger) .card-edit-btns { display: flex; }
+    .card-edit-btns {
+        display: none;
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        gap: 4px;
+        z-index: 10;
+    }
+    .card-edit-btns button {
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        font-size: 11px;
+        line-height: 1;
+        display: flex; align-items: center; justify-content: center;
+        transition: .2s;
+    }
+    .btn-card-edit { background: #fff; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,.18); }
+    .btn-card-edit:hover { background: #111; color: #fff; }
+    .btn-card-del { background: #fff; color: #c0392b; box-shadow: 0 2px 6px rgba(0,0,0,.18); }
+    .btn-card-del:hover { background: #c0392b; color: #fff; }
+
+    /* add card button */
+    .btn-add-card {
+        background: rgba(255,255,255,.55);
+        border: 1.5px dashed #bbb;
+        padding: 18px 12px;
+        border-radius: 18px;
+        font-size: 22px;
+        color: #aaa;
+        cursor: pointer;
+        transition: .2s;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    body.edit-mode .btn-add-card { display: flex; }
+    .btn-add-card:hover { border-color: #111; color: #111; background: #fff; }
+
+    /* Modal */
+    .edit-modal-overlay {
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,.38);
+        backdrop-filter: blur(4px);
+        z-index: 9000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .edit-modal-overlay.open { display: flex; }
+    .edit-modal {
+        background: #fff;
+        border-radius: 28px;
+        padding: 30px;
+        width: 100%;
+        max-width: 560px;
+        box-shadow: 0 30px 80px rgba(0,0,0,.22);
+    }
+    .edit-modal h3 {
+        font-size: 16px; font-weight: 700; margin: 0 0 6px;
+        letter-spacing: .06em;
+    }
+    .edit-modal .modal-sub {
+        font-size: 12px; color: var(--muted); margin-bottom: 18px;
+    }
+    .edit-modal label {
+        display: block; font-size: 11px; font-weight: 700;
+        color: var(--muted); letter-spacing: .14em;
+        text-transform: uppercase; margin-bottom: 6px;
+    }
+    .edit-modal input, .edit-modal textarea {
+        width: 100%; border: 1px solid var(--border);
+        border-radius: 12px; padding: 11px 13px;
+        font-size: 13px; outline: none;
+        background: #FBFAF7; color: #333;
+        transition: .2s; line-height: 1.55;
+        font-family: inherit;
+    }
+    .edit-modal input:focus, .edit-modal textarea:focus {
+        border-color: #111; background: #fff;
+    }
+    .edit-modal textarea { height: 110px; resize: vertical; }
+    .modal-corpus-list {
+        max-height: 220px; overflow-y: auto;
+        border: 1px solid var(--border); border-radius: 12px;
+        background: #FBFAF7; padding: 8px;
+        display: flex; flex-direction: column; gap: 6px;
+        margin-bottom: 10px;
+    }
+    .corpus-item {
+        display: flex; align-items: flex-start; gap: 8px;
+        background: #fff; border: 1px solid #eee;
+        border-radius: 10px; padding: 8px 10px;
+    }
+    .corpus-item span {
+        flex: 1; font-size: 12px; color: #555; line-height: 1.5;
+        word-break: break-all;
+    }
+    .corpus-item button {
+        flex-shrink: 0; background: none; border: none;
+        color: #c0392b; cursor: pointer; font-size: 14px;
+        padding: 0 2px; line-height: 1;
+    }
+    .corpus-item button:hover { color: #922b21; }
+    .corpus-add-row {
+        display: flex; gap: 8px; align-items: flex-start;
+        margin-bottom: 14px;
+    }
+    .corpus-add-row textarea {
+        flex: 1; height: 66px; margin-bottom: 0;
+    }
+    .corpus-add-row button {
+        flex-shrink: 0; background: #111; color: #fff;
+        border: none; border-radius: 10px;
+        padding: 10px 14px; cursor: pointer; font-size: 13px;
+        font-weight: 700; transition: .2s; align-self: flex-end;
+    }
+    .corpus-add-row button:hover { background: #333; }
+    .modal-actions {
+        display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px;
+    }
+    .modal-actions button {
+        border-radius: 999px; padding: 11px 22px; font-size: 14px;
+        font-weight: 700; cursor: pointer; transition: .2s; border: none;
+    }
+    .btn-modal-cancel { background: #f0ede6; color: #555; }
+    .btn-modal-cancel:hover { background: #e0ddd6; }
+    .btn-modal-save { background: #111; color: #fff; }
+    .btn-modal-save:hover { background: #333; }
+
 </style>
 </head>
 <body>
@@ -1247,6 +1420,10 @@
                     <button class="btn-reset" onclick="resetAll()">重置</button>
                     <button class="btn-copy" onclick="copy()">复制完整指令</button>
                 </div>
+                <div class="edit-mode-bar">
+                    <button class="btn-edit-toggle" id="editToggleBtn" onclick="toggleEditMode()">✏️ 编辑语料</button>
+                    <button class="btn-restore" onclick="restoreDefaults()">↩ 恢复默认</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1416,6 +1593,375 @@
       panel.classList.remove('open');
     });
   </script>
+
+<!-- ── Edit Mode Modal ── -->
+<div class="edit-modal-overlay" id="editModalOverlay">
+  <div class="edit-modal" id="editModal">
+    <h3 id="modalTitle">编辑卡片</h3>
+    <p class="modal-sub" id="modalSub"></p>
+
+    <!-- Simple card edit (name + value) -->
+    <div id="modalSimple">
+      <label>卡片名称（中文显示）</label>
+      <input type="text" id="modalName" style="margin-bottom:14px;" placeholder="如：扁平插画" />
+      <label>Prompt 内容（英文）</label>
+      <textarea id="modalValue" placeholder="如：modern flat illustration, simplified geometric shapes..."></textarea>
+    </div>
+
+    <!-- Random corpus edit -->
+    <div id="modalCorpus" style="display:none;">
+      <label>候选词条列表（随机抽取其中一条）</label>
+      <div class="modal-corpus-list" id="corpusList"></div>
+      <div class="corpus-add-row">
+        <textarea id="corpusNewItem" placeholder="输入新词条（英文 prompt 片段）..."></textarea>
+        <button onclick="addCorpusItem()">+ 添加</button>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeModal()">取消</button>
+      <button class="btn-modal-save" id="modalSaveBtn" onclick="saveModal()">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Edit Mode State ──
+const STORAGE_KEY = 'promptTool_customData_v1';
+let editMode = false;
+let modalTarget = null;   // { type: 'simple'|'random', cardEl, sectionId }
+let tempCorpus = [];       // working copy while modal open
+
+// ── Data Layer ──
+// Each section's cards stored as array of {name, val, type}
+// type: 'simple' | 'random-color' | 'random' | 'multi' | 'ar-card'
+// silentLibrary entries stored separately as customLibrary
+
+function getCustomData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveCustomData(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+// ── On load: apply any saved customizations ──
+function applyCustomData() {
+  const data = getCustomData();
+
+  // Apply card edits per section
+  if (data.sections) {
+    Object.entries(data.sections).forEach(([sid, cards]) => {
+      const section = document.getElementById(sid);
+      if (!section) return;
+      const grid = section.querySelector('.grid');
+      if (!grid) return;
+
+      // Rebuild grid from saved data
+      // Keep nested-triggers (they are structural, not user-editable cards)
+      const nestedTriggers = Array.from(grid.querySelectorAll('.nested-trigger, .l3-box'));
+      grid.innerHTML = '';
+      nestedTriggers.forEach(el => grid.appendChild(el));
+
+      cards.forEach(cardData => {
+        const el = makeCardEl(cardData, sid);
+        // Insert before nested-triggers if any
+        const firstNested = grid.querySelector('.nested-trigger');
+        if (firstNested) grid.insertBefore(el, firstNested);
+        else grid.appendChild(el);
+      });
+
+      addPlusButton(grid, sid);
+    });
+  }
+
+  // Apply library edits
+  if (data.library) {
+    Object.entries(data.library).forEach(([key, arr]) => {
+      silentLibrary[key] = arr;
+    });
+  }
+}
+
+function makeCardEl(cardData, sectionId) {
+  const el = document.createElement('div');
+  el.className = 'card' + (cardData.type ? ' ' + cardData.type : '');
+  el.textContent = cardData.name;
+  if (cardData.val) el.dataset.val = cardData.val;
+
+  // Edit buttons overlay
+  const btns = document.createElement('div');
+  btns.className = 'card-edit-btns';
+
+  const editBtn = document.createElement('button');
+  editBtn.className = 'btn-card-edit';
+  editBtn.textContent = '✎';
+  editBtn.title = '编辑';
+  editBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    openEditModal(el, sectionId);
+  });
+
+  const delBtn = document.createElement('button');
+  delBtn.className = 'btn-card-del';
+  delBtn.textContent = '×';
+  delBtn.title = '删除';
+  delBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    deleteCard(el, sectionId);
+  });
+
+  btns.appendChild(editBtn);
+  btns.appendChild(delBtn);
+  el.appendChild(btns);
+  return el;
+}
+
+function addEditButtonsToExistingCards() {
+  // Called once when edit mode is first toggled on
+  // Only add if not already added
+  document.querySelectorAll('.card:not(.nested-trigger)').forEach(card => {
+    if (card.querySelector('.card-edit-btns')) return;
+    const sid = card.closest('.section')?.id;
+    if (!sid) return;
+
+    const btns = document.createElement('div');
+    btns.className = 'card-edit-btns';
+
+    const editBtn = document.createElement('button');
+    editBtn.className = 'btn-card-edit';
+    editBtn.textContent = '✎';
+    editBtn.title = '编辑';
+    editBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      openEditModal(card, sid);
+    });
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'btn-card-del';
+    delBtn.textContent = '×';
+    delBtn.title = '删除';
+    delBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      deleteCard(card, sid);
+    });
+
+    btns.appendChild(editBtn);
+    btns.appendChild(delBtn);
+    card.appendChild(btns);
+  });
+
+  // Add + buttons to every grid (except s-ar which is fixed)
+  document.querySelectorAll('.section').forEach(section => {
+    const sid = section.id;
+    if (sid === 's-ar') return; // don't allow editing AR ratios
+    const grid = section.querySelector('.grid');
+    if (!grid) return;
+    if (grid.querySelector('.btn-add-card')) return;
+    addPlusButton(grid, sid);
+  });
+}
+
+function addPlusButton(grid, sectionId) {
+  if (sectionId === 's-ar') return;
+  const plusBtn = document.createElement('button');
+  plusBtn.className = 'btn-add-card';
+  plusBtn.textContent = '+';
+  plusBtn.title = '添加卡片';
+  plusBtn.addEventListener('click', () => openAddModal(sectionId));
+  grid.appendChild(plusBtn);
+}
+
+// ── Edit Mode Toggle ──
+function toggleEditMode() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  const btn = document.getElementById('editToggleBtn');
+  btn.classList.toggle('active', editMode);
+  btn.textContent = editMode ? '✓ 退出编辑' : '✏️ 编辑语料';
+
+  if (editMode) {
+    addEditButtonsToExistingCards();
+  }
+}
+
+// ── Modal ──
+function openEditModal(cardEl, sectionId) {
+  const isRandom = cardEl.classList.contains('random') || cardEl.classList.contains('random-color');
+  const cardName = cardEl.childNodes[0]?.nodeType === 3
+    ? cardEl.childNodes[0].textContent.trim()
+    : cardEl.textContent.replace(/[✎×]/g, '').trim();
+
+  modalTarget = { type: isRandom ? 'random' : 'simple', cardEl, sectionId };
+
+  document.getElementById('modalTitle').textContent = '编辑卡片';
+  document.getElementById('modalSub').textContent = isRandom
+    ? '编辑随机候选词条池，点击卡片时将随机抽取其中一条'
+    : '修改卡片名称和对应的 Prompt 片段';
+
+  if (isRandom) {
+    document.getElementById('modalSimple').style.display = 'none';
+    document.getElementById('modalCorpus').style.display = 'block';
+    document.getElementById('modalSaveBtn').style.display = 'none';
+    tempCorpus = [...(silentLibrary[cardName] || [])];
+    renderCorpusList();
+  } else {
+    document.getElementById('modalSimple').style.display = 'block';
+    document.getElementById('modalCorpus').style.display = 'none';
+    document.getElementById('modalSaveBtn').style.display = 'inline-flex';
+    document.getElementById('modalName').value = cardName;
+    document.getElementById('modalValue').value = cardEl.dataset.val || '';
+  }
+
+  document.getElementById('editModalOverlay').classList.add('open');
+}
+
+function openAddModal(sectionId) {
+  modalTarget = { type: 'add', sectionId };
+  document.getElementById('modalTitle').textContent = '新增卡片';
+  document.getElementById('modalSub').textContent = '添加一张新的选项卡片到此分类';
+  document.getElementById('modalSimple').style.display = 'block';
+  document.getElementById('modalCorpus').style.display = 'none';
+  document.getElementById('modalSaveBtn').style.display = 'inline-flex';
+  document.getElementById('modalName').value = '';
+  document.getElementById('modalValue').value = '';
+  document.getElementById('editModalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('editModalOverlay').classList.remove('open');
+  modalTarget = null;
+  tempCorpus = [];
+}
+
+function saveModal() {
+  if (!modalTarget) return;
+  const { type, cardEl, sectionId } = modalTarget;
+
+  if (type === 'add') {
+    const name = document.getElementById('modalName').value.trim();
+    const val = document.getElementById('modalValue').value.trim();
+    if (!name || !val) { alert('请填写卡片名称和 Prompt 内容'); return; }
+
+    const section = document.getElementById(sectionId);
+    const grid = section.querySelector('.grid');
+    const cardData = { name, val, type: 'simple' };
+    const el = makeCardEl(cardData, sectionId);
+    const plusBtn = grid.querySelector('.btn-add-card');
+    if (plusBtn) grid.insertBefore(el, plusBtn);
+    else grid.appendChild(el);
+
+    saveSection(sectionId);
+
+  } else if (type === 'simple') {
+    const name = document.getElementById('modalName').value.trim();
+    const val = document.getElementById('modalValue').value.trim();
+    if (!name || !val) { alert('请填写卡片名称和 Prompt 内容'); return; }
+
+    // Update text node
+    cardEl.childNodes[0].textContent = name;
+    cardEl.dataset.val = val;
+
+    saveSection(sectionId);
+    update();
+  }
+
+  closeModal();
+}
+
+function renderCorpusList() {
+  const list = document.getElementById('corpusList');
+  list.innerHTML = '';
+  if (tempCorpus.length === 0) {
+    list.innerHTML = '<div style="padding:10px;color:#aaa;font-size:12px;text-align:center;">暂无词条</div>';
+    return;
+  }
+  tempCorpus.forEach((item, idx) => {
+    const row = document.createElement('div');
+    row.className = 'corpus-item';
+    const span = document.createElement('span');
+    span.textContent = item;
+    const del = document.createElement('button');
+    del.textContent = '×';
+    del.title = '删除此词条';
+    del.addEventListener('click', () => {
+      tempCorpus.splice(idx, 1);
+      const cardName = modalTarget.cardEl.childNodes[0]?.nodeType === 3
+        ? modalTarget.cardEl.childNodes[0].textContent.trim()
+        : modalTarget.cardEl.textContent.replace(/[✎×]/g, '').trim();
+      silentLibrary[cardName] = [...tempCorpus];
+      saveLibraryKey(cardName);
+      renderCorpusList();
+    });
+    row.appendChild(span);
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
+
+function addCorpusItem() {
+  const input = document.getElementById('corpusNewItem');
+  const val = input.value.trim();
+  if (!val) return;
+  tempCorpus.push(val);
+  const cardName = modalTarget.cardEl.childNodes[0]?.nodeType === 3
+    ? modalTarget.cardEl.childNodes[0].textContent.trim()
+    : modalTarget.cardEl.textContent.replace(/[✎×]/g, '').trim();
+  silentLibrary[cardName] = [...tempCorpus];
+  saveLibraryKey(cardName);
+  input.value = '';
+  renderCorpusList();
+}
+
+function deleteCard(cardEl, sectionId) {
+  if (!confirm('确认删除这张卡片？')) return;
+  cardEl.remove();
+  saveSection(sectionId);
+  update();
+}
+
+// ── Persistence helpers ──
+function saveSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  const grid = section.querySelector('.grid');
+  const cards = Array.from(grid.querySelectorAll('.card:not(.nested-trigger)')).map(card => {
+    const name = card.childNodes[0]?.nodeType === 3
+      ? card.childNodes[0].textContent.trim()
+      : card.textContent.replace(/[✎×]/g, '').trim();
+    const types = ['random-color','random','multi','ar-card'].filter(t => card.classList.contains(t));
+    return { name, val: card.dataset.val || '', type: types[0] || 'simple' };
+  });
+
+  const data = getCustomData();
+  if (!data.sections) data.sections = {};
+  data.sections[sectionId] = cards;
+  saveCustomData(data);
+}
+
+function saveLibraryKey(key) {
+  const data = getCustomData();
+  if (!data.library) data.library = {};
+  data.library[key] = silentLibrary[key];
+  saveCustomData(data);
+}
+
+function restoreDefaults() {
+  if (!confirm('确认恢复所有默认语料？你的所有修改将被清除。')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+
+// Click outside modal to close
+document.getElementById('editModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Apply on load
+applyCustomData();
+</script>
 
 </body>
 

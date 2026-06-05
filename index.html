@@ -258,6 +258,26 @@
       background:rgba(255,255,255,.3);
     }
 
+    .cat-card .mini-pattern.has-image{
+      background:#eeeae2;
+    }
+
+    .cat-card .mini-pattern.has-image::before{
+      display:none;
+    }
+
+    .cat-card .mini-pattern.has-image img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .46s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .cat-card:hover .mini-pattern.has-image img{
+      transform:scale(1.035);
+    }
+
     .cat-card h3{
       margin:0;
       font-size:21px;
@@ -2322,23 +2342,23 @@
       </div>
       <div class="category-strip">
         <article class="cat-card" onclick="location.href='assets.html'">
-          <div class="mini-pattern"></div>
+          <div class="mini-pattern has-image"><img src="images/category/category-assets.webp" alt="Assets category preview" loading="lazy" decoding="async"></div>
           <div><h3>Assets</h3><p>设计素材 / 商品资源</p></div>
         </article>
         <article class="cat-card" onclick="location.href='prompt-generator.html'">
-          <div class="mini-pattern"></div>
+          <div class="mini-pattern has-image"><img src="images/category/category-prompt-generator.webp" alt="Prompt Generator category preview" loading="lazy" decoding="async"></div>
           <div><h3>Prompt Generator</h3><p>提示词生成 / 图面风格</p></div>
         </article>
         <article class="cat-card" onclick="location.href='interaction.html'">
-          <div class="mini-pattern"></div>
+          <div class="mini-pattern has-image"><img src="images/category/category-interaction.webp" alt="Interaction category preview" loading="lazy" decoding="async"></div>
           <div><h3>Interaction</h3><p>交互实验 / 可玩 Demo</p></div>
         </article>
         <article class="cat-card" onclick="location.href='resume.html'">
-          <div class="mini-pattern"></div>
+          <div class="mini-pattern has-image"><img src="images/category/category-resume.webp" alt="Resume category preview" loading="lazy" decoding="async"></div>
           <div><h3>Resume</h3><p>简历模板 / 在线工具</p></div>
         </article>
         <article class="cat-card" onclick="location.href='plan-references.html'">
-          <div class="mini-pattern"></div>
+          <div class="mini-pattern has-image"><img src="images/category/category-inspiration-board.webp" alt="Inspiration Board category preview" loading="lazy" decoding="async"></div>
           <div><h3>Inspiration Board</h3><p>灵感参考 / 图面案例</p></div>
         </article>
       </div>

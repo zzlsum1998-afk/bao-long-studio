@@ -349,8 +349,9 @@
     .prompt-case-img{
       width:100%;
       aspect-ratio:4/3;
-      background:#eeeae2;
+      background:#eeeae2 center/cover no-repeat;
       overflow:hidden;
+      transition:.35s ease;
     }
     .prompt-case-img img{
       width:100%;
@@ -359,6 +360,7 @@
       object-fit:cover;
       transition:.35s ease;
     }
+    .prompt-case-card:hover .prompt-case-img,
     .prompt-case-card:hover .prompt-case-img img{transform:scale(1.035)}
     .prompt-case-body{
       padding:20px 20px 22px;
@@ -947,6 +949,10 @@
 
   <link rel="stylesheet" href="css/common.css?v=69" />
   <script src="js/common.js?v=68" defer></script>
+  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-01.png">
+  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-02.png">
+  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-03.png">
+  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-04.png">
 </head>
 <body>
   <header class="site-header">
@@ -1125,7 +1131,7 @@
 
       <div class="prompt-case-grid">
         <button class="prompt-case-card" type="button" onclick="openPromptCase('case01')">
-          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-01.png" alt="马卡龙拼贴景观场景"></div>
+          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-01.png')" role="img" aria-label="马卡龙拼贴景观场景"></div>
           <div class="prompt-case-body">
             <div class="prompt-case-kicker">Collage Landscape</div>
             <h3>马卡龙拼贴景观场景</h3>
@@ -1134,7 +1140,7 @@
           </div>
         </button>
         <button class="prompt-case-card" type="button" onclick="openPromptCase('case02')">
-          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-02.png" alt="莫兰迪水彩景观场景"></div>
+          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-02.png')" role="img" aria-label="莫兰迪水彩景观场景"></div>
           <div class="prompt-case-body">
             <div class="prompt-case-kicker">Watercolor Scene</div>
             <h3>莫兰迪水彩景观场景</h3>
@@ -1143,7 +1149,7 @@
           </div>
         </button>
         <button class="prompt-case-card" type="button" onclick="openPromptCase('case03')">
-          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-03.png" alt="极简拼贴总平表达"></div>
+          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-03.png')" role="img" aria-label="极简拼贴总平表达"></div>
           <div class="prompt-case-body">
             <div class="prompt-case-kicker">Plan Collage</div>
             <h3>极简拼贴总平表达</h3>
@@ -1152,7 +1158,7 @@
           </div>
         </button>
         <button class="prompt-case-card" type="button" onclick="openPromptCase('case04')">
-          <div class="prompt-case-img"><img src="images/prompt-cases/prompt-case-04.png" alt="粉彩水彩空间封面"></div>
+          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-04.png')" role="img" aria-label="粉彩水彩空间封面"></div>
           <div class="prompt-case-body">
             <div class="prompt-case-kicker">Watercolor Cover</div>
             <h3>粉彩水彩空间封面</h3>

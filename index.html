@@ -291,6 +291,121 @@
       line-height:1.45;
     }
 
+    .category-showcase{
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+      padding:10px 0 8px;
+    }
+
+    .category-feature{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
+      gap:34px;
+      align-items:center;
+    }
+
+    .category-feature:nth-child(even){
+      grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);
+    }
+
+    .category-feature:nth-child(even) .category-feature-media{
+      order:2;
+    }
+
+    .category-feature:nth-child(even) .category-feature-copy{
+      order:1;
+    }
+
+    .category-feature-media{
+      display:block;
+      position:relative;
+      overflow:hidden;
+      border-radius:34px;
+      border:1px solid var(--line);
+      background:var(--paper);
+      box-shadow:var(--shadow);
+      aspect-ratio:16/9;
+    }
+
+    .category-feature-media img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .5s cubic-bezier(.22,1,.36,1);
+    }
+
+    .category-feature:hover .category-feature-media img{
+      transform:scale(1.028);
+    }
+
+    .category-feature-copy{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:10px;
+      padding:4px 10px;
+    }
+
+    .category-feature-index{
+      font-size:12px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .category-feature-copy h3{
+      margin:0;
+      font-size:clamp(34px,4vw,52px);
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+
+    .category-feature-copy .category-feature-sub{
+      margin:0;
+      font-size:15px;
+      color:#6f6a62;
+      letter-spacing:.02em;
+    }
+
+    .category-feature-copy .category-feature-desc{
+      margin:4px 0 0;
+      font-size:16px;
+      line-height:1.75;
+      color:var(--muted);
+      max-width:46ch;
+    }
+
+    .category-feature-link{
+      margin-top:10px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--paper);
+      color:var(--ink);
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .category-feature-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 26px rgba(0,0,0,.08);
+      border-color:#bbb2a4;
+    }
+
+    .category-feature-link span{
+      font-size:16px;
+      line-height:1;
+    }
+
     .featured-wrap{
       position:relative;
       overflow:hidden;
@@ -2337,29 +2452,73 @@
       <div class="section-head">
         <div>
           <h2 class="section-title">Browse by Category</h2>
-          <p class="section-desc">按照顶部导航快速进入不同功能区，先作为首页入口展示，后续再继续补充内容。</p>
+          <p class="section-desc">按照顶部导航快速进入不同功能区，以更清晰的模块介绍作为首页入口展示，后续再继续补充内容。</p>
         </div>
       </div>
-      <div class="category-strip">
-        <article class="cat-card" onclick="location.href='assets.html'">
-          <div class="mini-pattern has-image"><img src="images/category/category-assets.webp" alt="Assets category preview" loading="lazy" decoding="async"></div>
-          <div><h3>Assets</h3><p>设计素材 / 商品资源</p></div>
+      <div class="category-showcase">
+        <article class="category-feature">
+          <a class="category-feature-media" href="assets.html" aria-label="View Assets">
+            <img src="images/category/category-assets.webp" alt="Assets category preview" decoding="async">
+          </a>
+          <div class="category-feature-copy">
+            <span class="category-feature-index">01 / Category</span>
+            <h3>Assets</h3>
+            <p class="category-feature-sub">设计素材 / 商品资源</p>
+            <p class="category-feature-desc">集合模块图、人物素材、植物素材、动物素材与笔刷等视觉资源，适合用于图面表达、产品归档与网站商品展示。</p>
+            <a class="category-feature-link" href="assets.html">View More <span>↗</span></a>
+          </div>
         </article>
-        <article class="cat-card" onclick="location.href='prompt-generator.html'">
-          <div class="mini-pattern has-image"><img src="images/category/category-prompt-generator.webp" alt="Prompt Generator category preview" loading="lazy" decoding="async"></div>
-          <div><h3>Prompt Generator</h3><p>提示词生成 / 图面风格</p></div>
+
+        <article class="category-feature">
+          <a class="category-feature-media" href="prompt-generator.html" aria-label="View Prompt Generator">
+            <img src="images/category/category-prompt-generator.webp" alt="Prompt Generator category preview" loading="lazy" decoding="async">
+          </a>
+          <div class="category-feature-copy">
+            <span class="category-feature-index">02 / Category</span>
+            <h3>Prompt Generator</h3>
+            <p class="category-feature-sub">提示词生成 / 图面风格</p>
+            <p class="category-feature-desc">集中展示 Prompt 案例卡片、图面风格参考与生成逻辑，方便快速查找适合封面、总平、场景与作品集表达的视觉方向。</p>
+            <a class="category-feature-link" href="prompt-generator.html">View More <span>↗</span></a>
+          </div>
         </article>
-        <article class="cat-card" onclick="location.href='interaction.html'">
-          <div class="mini-pattern has-image"><img src="images/category/category-interaction.webp" alt="Interaction category preview" loading="lazy" decoding="async"></div>
-          <div><h3>Interaction</h3><p>交互实验 / 可玩 Demo</p></div>
+
+        <article class="category-feature">
+          <a class="category-feature-media" href="interaction.html" aria-label="View Interaction">
+            <img src="images/category/category-interaction.webp" alt="Interaction category preview" loading="lazy" decoding="async">
+          </a>
+          <div class="category-feature-copy">
+            <span class="category-feature-index">03 / Category</span>
+            <h3>Interaction</h3>
+            <p class="category-feature-sub">交互实验 / 可玩 Demo</p>
+            <p class="category-feature-desc">收录交互实验、可玩 Demo 与视觉互动项目，用于展示更具体验感的设计探索与后续可扩展的网页交互能力。</p>
+            <a class="category-feature-link" href="interaction.html">View More <span>↗</span></a>
+          </div>
         </article>
-        <article class="cat-card" onclick="location.href='resume.html'">
-          <div class="mini-pattern has-image"><img src="images/category/category-resume.webp" alt="Resume category preview" loading="lazy" decoding="async"></div>
-          <div><h3>Resume</h3><p>简历模板 / 在线工具</p></div>
+
+        <article class="category-feature">
+          <a class="category-feature-media" href="resume.html" aria-label="View Resume">
+            <img src="images/category/category-resume.webp" alt="Resume category preview" loading="lazy" decoding="async">
+          </a>
+          <div class="category-feature-copy">
+            <span class="category-feature-index">04 / Category</span>
+            <h3>Resume</h3>
+            <p class="category-feature-sub">简历模板 / 在线工具</p>
+            <p class="category-feature-desc">包含简历模板展示与在线编辑入口，可进行内容填写、排版导出与样式切换，更适合作为独立模块进行清晰引导。</p>
+            <a class="category-feature-link" href="resume.html">View More <span>↗</span></a>
+          </div>
         </article>
-        <article class="cat-card" onclick="location.href='plan-references.html'">
-          <div class="mini-pattern has-image"><img src="images/category/category-inspiration-board.webp" alt="Inspiration Board category preview" loading="lazy" decoding="async"></div>
-          <div><h3>Inspiration Board</h3><p>灵感参考 / 图面案例</p></div>
+
+        <article class="category-feature">
+          <a class="category-feature-media" href="plan-references.html" aria-label="View Inspiration Board">
+            <img src="images/category/category-inspiration-board.webp" alt="Inspiration Board category preview" loading="lazy" decoding="async">
+          </a>
+          <div class="category-feature-copy">
+            <span class="category-feature-index">05 / Category</span>
+            <h3>Inspiration Board</h3>
+            <p class="category-feature-sub">灵感参考 / 图面案例</p>
+            <p class="category-feature-desc">整理平面图、剖面图、效果图与色彩参考，作为灵感板统一归档，方便快速浏览案例氛围、构图方式与图面风格。</p>
+            <a class="category-feature-link" href="plan-references.html">View More <span>↗</span></a>
+          </div>
         </article>
       </div>
     </section>

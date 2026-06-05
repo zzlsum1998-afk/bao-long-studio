@@ -994,6 +994,95 @@
       }
     }
 
+
+    /* ── AI Generate ── */
+    .ai-section {
+        border-top: 1px dashed var(--border);
+        padding-top: 14px;
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .ai-section .label { margin-bottom: 4px; }
+    .btn-ai {
+        width: 100%;
+        border: none;
+        border-radius: 999px;
+        padding: 15px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: .25s;
+        background: linear-gradient(135deg, #2a2a2a 0%, #1a1a2e 50%, #16213e 100%);
+        color: #fff;
+        letter-spacing: .04em;
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-ai:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+    .btn-ai:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .btn-ai .ai-shimmer {
+        position: absolute; inset: 0;
+        background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.08) 50%, transparent 100%);
+        transform: translateX(-100%);
+        animation: shimmer 1.6s infinite;
+        display: none;
+    }
+    .btn-ai.loading .ai-shimmer { display: block; }
+    @keyframes shimmer { to { transform: translateX(100%); } }
+
+    .ai-intent-box {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 11px 13px;
+        font-size: 13px;
+        outline: none;
+        background: #FBFAF7;
+        color: #333;
+        transition: .2s;
+        line-height: 1.55;
+        font-family: inherit;
+        resize: none;
+        height: 72px;
+    }
+    .ai-intent-box:focus { border-color: #111; background: #fff; }
+    .ai-intent-box::placeholder { color: #bbb; }
+
+    .ai-key-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #f7f5ef;
+        border: 1px dashed #d0cbbe;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-size: 12px;
+        color: var(--muted);
+    }
+    .ai-key-row input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        outline: none;
+        font-size: 12px;
+        color: #333;
+        font-family: ui-monospace, monospace;
+        min-width: 0;
+    }
+    .ai-key-row input::placeholder { color: #bbb; }
+    .ai-key-label { flex-shrink: 0; font-weight: 700; letter-spacing: .06em; }
+    .ai-status {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        min-height: 16px;
+        letter-spacing: .02em;
+    }
+    .ai-status.error { color: #c0392b; }
+    .ai-status.success { color: #27ae60; }
+
     /* ── Edit Mode ── */
     .edit-mode-bar {
         display: flex;
@@ -1429,6 +1518,21 @@
                     <button class="btn-reset" onclick="resetAll()">重置</button>
                     <button class="btn-copy" onclick="copy()">复制完整指令</button>
                 </div>
+
+                <div class="ai-section">
+                    <span class="label">✦ AI 智能生成</span>
+                    <textarea class="ai-intent-box" id="aiIntent" placeholder="可选：补充描述意图，如「傍晚的社区公园，老人下棋」，不填则根据已选维度生成"></textarea>
+                    <div class="ai-key-row">
+                        <span class="ai-key-label">API KEY</span>
+                        <input type="password" id="aiApiKey" placeholder="迁移上线后在此填入 DeepSeek API Key" />
+                    </div>
+                    <button class="btn-ai" id="btnAiGenerate" onclick="aiGenerate()">
+                        <span class="ai-shimmer"></span>
+                        ✦ AI 生成 Prompt
+                    </button>
+                    <div class="ai-status" id="aiStatus"></div>
+                </div>
+
                 <div class="edit-mode-bar">
                     <button class="btn-edit-toggle" id="editToggleBtn" onclick="toggleEditMode()">✏️ 编辑语料</button>
                     <button class="btn-restore" onclick="restoreDefaults()">↩ 恢复默认</button>
@@ -1569,6 +1673,128 @@
         }
 
         document.getElementById('manualInput').addEventListener('input', update);
+
+        // ── AI Generate ──
+        async function aiGenerate() {
+            const apiKey = document.getElementById('aiApiKey').value.trim();
+            const intent = document.getElementById('aiIntent').value.trim();
+            const btn = document.getElementById('btnAiGenerate');
+            const status = document.getElementById('aiStatus');
+
+            // ── API Key 检查（上线后取消此注释）──
+            // if (!apiKey) {
+            //     status.textContent = '请先填入 DeepSeek API Key';
+            //     status.className = 'ai-status error';
+            //     return;
+            // }
+
+            // 收集当前已选维度
+            const s1label = document.querySelector('#s1 .card.active')?.innerText.replace(/[✎×]/g,'').trim() || '';
+            const s2label = document.querySelector('#s2 .card.active')?.innerText.replace(/[✎×]/g,'').trim() || '';
+            const s3label = currentSelectedColor ? document.querySelector('#s3 .card.active')?.innerText.replace(/[✎×]/g,'').trim() || '' : '';
+            const s4label = document.querySelector('#s4 .card.active')?.innerText.replace(/[✎×]/g,'').trim() || '';
+            const s5labels = Array.from(document.querySelectorAll('#s5 .card.active')).map(el => el.innerText.replace(/[✎×]/g,'').trim()).join('、');
+            const s6labels = Array.from(document.querySelectorAll('#s6 .card.active')).map(el => el.innerText.replace(/[✎×]/g,'').trim()).join('、');
+            const s7label = document.querySelector('#s7 .card.active')?.innerText.replace(/[✎×]/g,'').trim() || '';
+            const arVal = document.querySelector('#s-ar .card.active')?.dataset.val || '--ar 16:9';
+            const manual = document.getElementById('manualInput').value.trim();
+
+            const selections = [
+                s1label && `图面风格：${s1label}`,
+                s2label && `构图角度：${s2label}`,
+                s3label && `色彩风格：${s3label}`,
+                s4label && `建筑要素：${s4label}`,
+                s5labels && `景观要素：${s5labels}`,
+                s6labels && `人物活动：${s6labels}`,
+                s7label && `光影氛围：${s7label}`,
+                manual && `补充关键词：${manual}`,
+                intent && `设计意图：${intent}`,
+            ].filter(Boolean).join('\n');
+
+            if (!selections) {
+                status.textContent = '请至少选择一个维度，或填写设计意图';
+                status.className = 'ai-status error';
+                return;
+            }
+
+            // 进入 loading 状态
+            btn.disabled = true;
+            btn.classList.add('loading');
+            btn.querySelector('span').nextSibling.textContent = ' 生成中...';
+            status.textContent = '正在调用 AI...';
+            status.className = 'ai-status';
+
+            const systemPrompt = `你是一位专业的 Midjourney prompt 工程师，擅长景观建筑效果图和插画风格的图像生成。
+用户会给你一组设计维度选择，你需要生成一条高质量的 Midjourney prompt。
+
+规则：
+1. 输出纯英文 prompt，不含任何中文、解释或前缀
+2. 关键词用逗号分隔，保持专业且精炼
+3. 末尾固定加上：realistic site layout, low saturation, white space, diffuse lighting, \n--v 6 ${arVal} --style raw --s 750
+4. 整体风格参考：landscape architecture visualization, architectural rendering, design illustration
+5. 不要重复相同含义的关键词`;
+
+            const userMsg = `根据以下设计选择生成 Midjourney prompt：
+${selections}`;
+
+            try {
+                // ── DeepSeek API 调用（上线后启用，替换 PLACEHOLDER_KEY）──
+                // const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
+                // const KEY = apiKey || 'PLACEHOLDER_KEY';
+                // const response = await fetch(DEEPSEEK_API_URL, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'Authorization': `Bearer ${KEY}`
+                //     },
+                //     body: JSON.stringify({
+                //         model: 'deepseek-chat',
+                //         max_tokens: 400,
+                //         temperature: 0.85,
+                //         messages: [
+                //             { role: 'system', content: systemPrompt },
+                //             { role: 'user', content: userMsg }
+                //         ]
+                //     })
+                // });
+                // if (!response.ok) {
+                //     const err = await response.json().catch(() => ({}));
+                //     throw new Error(err.error?.message || `HTTP ${response.status}`);
+                // }
+                // const data = await response.json();
+                // const aiPrompt = data.choices?.[0]?.message?.content?.trim();
+
+                // ── 占位模拟（上线前使用，模拟 AI 返回）──
+                await new Promise(r => setTimeout(r, 1200));
+                const mockBase = [
+                    s1label && 'modern flat illustration, simplified geometric forms, clean vector aesthetic',
+                    s2label === '鸟瞰' ? "bird's-eye view, aerial perspective" : s2label === '轴测' ? 'isometric view' : s2label === '平视' ? 'eye-level perspective' : '',
+                    s3label ? 'low saturation color palette, muted tones, refined color balance' : '',
+                    s4label ? 'contemporary architectural elements, refined structural details' : '',
+                    s5labels ? 'lush greenery, layered planting, naturalistic landscape design' : '',
+                    s6labels ? 'human figures engaged in leisure activities, vibrant community life' : '',
+                    s7label === '黄金时段' ? 'golden hour lighting, warm soft sunlight, long atmospheric shadows' : s7label === '蓝调时刻' ? 'blue hour, twilight ambient glow' : 'soft diffused daylight',
+                    manual,
+                    intent,
+                ].filter(Boolean).join(', ');
+                const aiPrompt = mockBase + `, landscape architecture visualization, architectural rendering, white space composition\n--v 6 ${arVal} --style raw --s 750`;
+                // ── 占位模拟结束 ──
+
+                if (!aiPrompt) throw new Error('AI 返回内容为空');
+
+                document.getElementById('result').innerText = aiPrompt;
+                status.textContent = '✓ AI 生成完成，可直接复制使用';
+                status.className = 'ai-status success';
+
+            } catch(err) {
+                status.textContent = `生成失败：${err.message}`;
+                status.className = 'ai-status error';
+            } finally {
+                btn.disabled = false;
+                btn.classList.remove('loading');
+                btn.querySelector('span').nextSibling.textContent = ' ✦ AI 生成 Prompt';
+            }
+        }
     </script>
 
   <script>

@@ -1,4 +1,4 @@
-// Bao Long Studio v61 common header/nav behavior
+// Bao Long Studio v65 common header/nav behavior
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};

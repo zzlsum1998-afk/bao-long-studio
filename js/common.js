@@ -1,10 +1,7 @@
-// Bao Long Studio v61 common header/nav behavior
+// Bao Long Studio v63 common header/nav behavior: no post-load visual mutation for desktop nav
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
-  if(typeof window.navFilter!=='function'){window.navFilter=function(){return true;};}
-  function normalizePath(href){try{var u=new URL(href,location.href);return (u.pathname.split('/').pop()||'index.html');}catch(e){return href;}}
-  function markActiveNav(){var current=normalizePath(location.href);document.querySelectorAll('.site-header .nav a').forEach(function(a){var target=normalizePath(a.getAttribute('href')||'');if(target===current)a.classList.add('is-active');});}
-  document.addEventListener('DOMContentLoaded',markActiveNav);
+  if(typeof window.navFilter!=='function'){window.navFilter=function(filter){var target='assets.html?filter='+encodeURIComponent(filter)+'#products'; window.location.href=target; return false;};}
   document.addEventListener('click',function(e){if(!e.target.closest('.site-header'))closeMobileMenu();});
 })();

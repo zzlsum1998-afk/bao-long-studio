@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<style id="bl-nav-first-paint-lock">
-/* v65 first-paint header lock: prevents nav/logo font-size flash before common.css finishes applying. */
-html{scrollbar-gutter:stable;overflow-y:scroll;text-size-adjust:100%;-webkit-text-size-adjust:100%;}
-.site-header,.site-header *{box-sizing:border-box;}
-.site-header{height:104px!important;min-height:104px!important;max-height:104px!important;position:sticky!important;top:0!important;z-index:9990!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;padding:0 48px!important;background:rgba(247,246,242,.94)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom:1px solid rgba(0,0,0,.06)!important;transform:none!important;animation:none!important;}
-.brand{display:flex!important;align-items:center!important;gap:18px!important;min-width:330px!important;height:104px!important;flex:0 0 auto!important;color:inherit!important;text-decoration:none!important;transform:none!important;animation:none!important;}
-.brand-logo-img{display:block!important;width:108px!important;height:108px!important;min-width:108px!important;max-width:108px!important;min-height:108px!important;max-height:108px!important;object-fit:contain!important;flex:0 0 auto!important;background:transparent!important;border-radius:0!important;transform:none!important;animation:none!important;}
-.brand-text{font-size:16px!important;line-height:1!important;letter-spacing:.34em!important;text-transform:uppercase!important;white-space:nowrap!important;font-weight:400!important;transform:none!important;animation:none!important;}
-.nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:24px!important;height:104px!important;font-size:15px!important;line-height:1!important;color:#2a2927!important;flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important;transform:none!important;animation:none!important;}
-.nav>a,.nav-dropdown>a{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;height:104px!important;padding:0!important;margin:0!important;font-size:15px!important;line-height:1!important;letter-spacing:.01em!important;font-weight:400!important;white-space:nowrap!important;color:#2a2927!important;transform:none!important;animation:none!important;}
-.nav>a:hover,.nav>a:focus,.nav>a:active,.nav-dropdown>a:hover,.nav-dropdown>a:focus,.nav-dropdown>a:active,.nav>a.is-active,.nav-dropdown>a.is-active{font-size:15px!important;font-weight:400!important;transform:none!important;letter-spacing:.01em!important;}
-.nav-dropdown{position:relative!important;display:flex!important;align-items:center!important;height:104px!important;padding:0!important;margin:0!important;transform:none!important;animation:none!important;}
-.header-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:18px!important;height:104px!important;font-size:14px!important;flex:0 0 auto!important;transform:none!important;animation:none!important;}
-@media (max-width:1280px){.site-header{padding:0 28px!important}.brand{min-width:260px!important}.brand-logo-img{width:55px!important;height:55px!important;min-width:55px!important;max-width:55px!important;min-height:55px!important;max-height:55px!important}.nav{gap:16px!important;font-size:14px!important}.nav>a,.nav-dropdown>a{font-size:14px!important}.nav>a:hover,.nav>a:focus,.nav>a:active,.nav-dropdown>a:hover,.nav-dropdown>a:focus,.nav-dropdown>a:active,.nav>a.is-active,.nav-dropdown>a.is-active{font-size:14px!important}.header-actions{gap:10px!important}}
-@media (max-width:980px){.site-header{height:72px!important;min-height:72px!important;max-height:72px!important;padding:0 18px!important;align-items:center!important;flex-wrap:nowrap!important}.brand{height:72px!important;min-width:auto!important;gap:12px!important}.brand-logo-img{width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important}.brand-text{font-size:13px!important;letter-spacing:.22em!important}.nav,.header-actions{display:none!important}.mobile-menu-toggle{display:inline-flex!important}.mobile-menu-panel{display:none!important}.mobile-menu-panel.open{display:flex!important}}
-</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume Studio｜设计感简历生成器</title>
@@ -3790,42 +3774,25 @@ html{scrollbar-gutter:stable;overflow-y:scroll;text-size-adjust:100%;-webkit-tex
 
 </style>
 
-  <link rel="stylesheet" href="css/common.css?v=66" />
-  <script src="js/common.js?v=66" defer></script>
+  <link rel="stylesheet" href="css/common.css?v=67" />
+  <script src="js/common.js?v=67" defer></script>
 
-<style id="bl-nav-final-stability-v66">
-/* v66 final nav stability layer: placed at the end of <head> so old page-level nav styles cannot cause a brief resize. */
-@media (min-width:981px){
-  .site-header .nav,
-  .site-header .nav > a,
-  .site-header .nav-dropdown > a,
-  .site-header .nav > a:hover,
-  .site-header .nav > a:focus,
-  .site-header .nav > a:active,
-  .site-header .nav > a.is-active,
-  .site-header .nav-dropdown > a:hover,
-  .site-header .nav-dropdown > a:focus,
-  .site-header .nav-dropdown > a:active,
-  .site-header .nav-dropdown > a.is-active{
-    font-size:15px!important;
-    line-height:1!important;
-    font-weight:400!important;
-    letter-spacing:.01em!important;
-    transform:none!important;
-    animation:none!important;
-    transition-property:color,background,border-color,opacity,visibility!important;
-  }
-  .site-header .nav{
-    gap:clamp(16px,1.65vw,24px)!important;
-  }
-  .site-header .nav a{
-    text-size-adjust:100%!important;
-    -webkit-text-size-adjust:100%!important;
-  }
-}
-@media (max-width:980px){
-  .site-header .nav,.site-header .header-actions{display:none!important;}
-}
+<style id="bl-nav-final-stability-v67">
+/* v67: final header/nav lock. Keep this as the last style in <head> so page-level styles cannot briefly resize the nav. */
+html{scrollbar-gutter:stable;overflow-y:scroll;text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+body{font-synthesis-weight:none;font-synthesis-style:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;font-optical-sizing:none;}
+.site-header,.site-header *{box-sizing:border-box;}
+.site-header{height:104px!important;min-height:104px!important;max-height:104px!important;position:sticky!important;top:0!important;z-index:9990!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;padding:0 48px!important;background:rgba(247,246,242,.94)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom:1px solid rgba(0,0,0,.06)!important;overflow:visible!important;transform:none!important;animation:none!important;transition:none!important;}
+.brand{display:flex!important;align-items:center!important;gap:18px!important;min-width:330px!important;height:104px!important;flex:0 0 auto!important;color:inherit!important;text-decoration:none!important;transform:none!important;animation:none!important;transition:none!important;}
+.brand-logo-img{display:block!important;width:108px!important;height:108px!important;min-width:108px!important;max-width:108px!important;min-height:108px!important;max-height:108px!important;object-fit:contain!important;flex:0 0 auto!important;background:transparent!important;border-radius:0!important;transform:none!important;animation:none!important;transition:none!important;}
+.brand-text{font-size:16px!important;line-height:1!important;letter-spacing:.34em!important;text-transform:uppercase!important;white-space:nowrap!important;font-weight:400!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif!important;transform:none!important;animation:none!important;transition:none!important;}
+.nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:24px!important;height:104px!important;font-size:15px!important;line-height:1!important;color:#2a2927!important;flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important;overflow:visible!important;transform:none!important;animation:none!important;transition:none!important;}
+.nav>a,.nav-dropdown>a{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;height:104px!important;padding:0!important;margin:0!important;font-size:15px!important;line-height:1!important;letter-spacing:.01em!important;font-weight:400!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif!important;white-space:nowrap!important;color:#2a2927!important;text-decoration:none!important;transform:none!important;animation:none!important;transition:none!important;}
+.nav>a:hover,.nav>a:focus,.nav>a:active,.nav>a.is-active,.nav-dropdown>a:hover,.nav-dropdown>a:focus,.nav-dropdown>a:active,.nav-dropdown>a.is-active{font-size:15px!important;font-weight:400!important;letter-spacing:.01em!important;transform:none!important;}
+.nav-dropdown{position:relative!important;display:flex!important;align-items:center!important;height:104px!important;padding:0!important;margin:0!important;flex:0 0 auto!important;transform:none!important;animation:none!important;transition:none!important;}
+.header-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:18px!important;height:104px!important;font-size:14px!important;flex:0 0 auto!important;transform:none!important;animation:none!important;transition:none!important;}
+@media (max-width:1280px){.site-header{padding:0 28px!important}.brand{min-width:260px!important}.brand-logo-img{width:55px!important;height:55px!important;min-width:55px!important;max-width:55px!important;min-height:55px!important;max-height:55px!important}.nav{gap:16px!important;font-size:15px!important}.nav>a,.nav-dropdown>a{font-size:15px!important}.nav>a:hover,.nav>a:focus,.nav>a:active,.nav>a.is-active,.nav-dropdown>a:hover,.nav-dropdown>a:focus,.nav-dropdown>a:active,.nav-dropdown>a.is-active{font-size:15px!important;font-weight:400!important}.header-actions{gap:10px!important}}
+@media (max-width:980px){.site-header{height:72px!important;min-height:72px!important;max-height:72px!important;padding:0 18px!important;align-items:center!important;flex-wrap:nowrap!important}.brand{height:72px!important;min-width:auto!important;gap:12px!important}.brand-logo-img{width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important}.brand-text{font-size:13px!important;letter-spacing:.22em!important;max-width:calc(100vw - 120px)!important;overflow:hidden!important;text-overflow:ellipsis!important}.nav,.header-actions{display:none!important}.mobile-menu-toggle{display:inline-flex!important}.mobile-menu-panel{display:none!important}.mobile-menu-panel.open{display:flex!important}}
 </style>
 </head>
 <body>

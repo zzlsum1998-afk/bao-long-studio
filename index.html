@@ -2285,6 +2285,82 @@
       }
     }
 
+
+    /* Mobile Category layout refinement: desktop remains unchanged */
+    @media (max-width:900px){
+      #all .section-head{
+        margin-bottom:28px;
+      }
+
+      #all .category-showcase{
+        gap:46px;
+        padding-top:2px;
+      }
+
+      #all .category-feature,
+      #all .category-feature:nth-child(even){
+        display:flex;
+        flex-direction:column;
+        gap:18px;
+        align-items:stretch;
+      }
+
+      #all .category-feature:nth-child(even) .category-feature-media,
+      #all .category-feature:nth-child(even) .category-feature-copy{
+        order:initial;
+      }
+
+      #all .category-feature-media{
+        width:100%;
+        aspect-ratio:4/3;
+        box-shadow:none;
+      }
+
+      #all .category-feature-copy{
+        width:100%;
+        padding:0;
+        gap:9px;
+      }
+
+      #all .category-feature-index{
+        font-size:11px;
+        letter-spacing:.22em;
+      }
+
+      #all .category-feature-copy h3{
+        font-size:clamp(34px,10vw,48px);
+        line-height:1.02;
+      }
+
+      #all .category-feature-copy .category-feature-sub{
+        font-size:16px;
+        line-height:1.55;
+      }
+
+      #all .category-feature-copy .category-feature-desc{
+        max-width:none;
+        font-size:15px;
+        line-height:1.85;
+      }
+
+      #all .category-feature-link{
+        width:100%;
+        min-width:0;
+        margin-top:12px;
+        padding:16px 22px;
+      }
+    }
+
+    @media (max-width:420px){
+      #all .category-showcase{
+        gap:42px;
+      }
+
+      #all .category-feature-copy h3{
+        font-size:36px;
+      }
+    }
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

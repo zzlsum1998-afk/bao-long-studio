@@ -178,6 +178,7 @@
       .masonry-wrap{padding:10px 22px 70px}
       .modal-card{grid-template-columns:1fr}
       .modal-img{min-height:360px}
+      .modal-img img{min-height:360px}
     }
 
   
@@ -330,11 +331,18 @@
     .pin-tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #ded9cf;border-radius:999px;padding:5px 8px;color:#6f685f;background:#faf9f6}
     .pin-body h3{font-size:19px;margin-bottom:9px;letter-spacing:.01em}
     .pin-desc{color:#5c5750;font-size:13px;line-height:1.7;margin-bottom:14px !important}
-    .source-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid rgba(222,217,207,.78);padding-top:13px;margin-top:14px;color:#837b70;font-size:12px}
-    .source-name{max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .source-btn{border:1px solid #161616;border-radius:999px;padding:8px 12px;font-size:12px;background:#161616;color:#fff;text-decoration:none;white-space:nowrap;transition:.22s ease;}
-    .source-btn:hover{transform:translateY(-1px);background:#3b3833;border-color:#3b3833}
-    .source-btn.disabled{background:#f7f6f2;color:#9a9287;border-color:#ded9cf;pointer-events:none}
+    .source-block{display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(222,217,207,.78);padding-top:13px;margin-top:14px;color:#837b70;font-size:12px;line-height:1.55}
+    .source-link{color:#4f4940;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+    .source-link:hover{color:#111}
+    .multi-badge{position:absolute;right:12px;bottom:12px;z-index:3;border-radius:999px;background:rgba(17,17,17,.72);color:#fff;font-size:11px;letter-spacing:.04em;padding:6px 9px;backdrop-filter:blur(8px)}
+    .modal-img.has-image::before{display:none}
+    .modal-img img{width:100%;height:100%;min-height:560px;object-fit:contain;display:block;background:#f7f6f2}
+    .modal-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.65);background:rgba(17,17,17,.48);color:#fff;font-size:28px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .modal-nav:hover{background:rgba(17,17,17,.72)}
+    .modal-nav.prev{left:14px}
+    .modal-nav.next{right:14px}
+    .modal-counter{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;border-radius:999px;background:rgba(17,17,17,.58);color:#fff;font-size:12px;padding:6px 10px;backdrop-filter:blur(8px)}
+    .modal-source-note{white-space:pre-line;color:#6f685f;line-height:1.75}
     .board-note{margin:28px 0 0;padding:18px 20px;border:1px solid #ded9cf;border-radius:20px;background:rgba(255,255,255,.62);color:#77736b;font-size:13px;line-height:1.75}
     .modal-card{border-radius:28px;overflow:hidden}
     .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
@@ -723,86 +731,216 @@
     <section class="masonry-wrap">
       <div class="masonry">
 
-        <article class="pin" onclick="openModal('Soft Realistic Courtyard', 'Render Inspiration', '#e8e5dc', '适合参考低饱和真实风格、柔和日光和建筑庭院的高级氛围。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:380px;--c:#e8e5dc;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Tirana 2030 Urban Nature Axon&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-01-tirana-2030-urban-nature-axon.webp&quot;], &quot;适合参考城市更新、自然系统与建筑体量结合的轴测表达。&quot;, &quot;ArchDaily&quot;, &quot;https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital&quot;, false)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-01-tirana-2030-urban-nature-axon.webp" alt="Tirana 2030 Urban Nature Axon" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Render</span><span class="pin-tag">Realistic</span><span class="pin-tag">Soft Light</span></div>
-            <h3>Soft Realistic Courtyard</h3>
-            <p class="pin-desc">适合参考低饱和真实风格、柔和日光和建筑庭院的高级氛围。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Render</span><span class="pin-tag">Axon</span><span class="pin-tag">Urban Nature</span></div>
+            <h3>Tirana 2030 Urban Nature Axon</h3>
+            <p class="pin-desc">适合参考城市更新、自然系统与建筑体量结合的轴测表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：ArchDaily</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Minimal Public Space', 'Render Inspiration', '#dde5dd', '适合参考简洁构图、灰白材质和留白较多的场景表达。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:300px;--c:#dde5dd;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Tirana 2030 Landscape Vision&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-02-tirana-2030-landscape-vision.webp&quot;], &quot;适合参考大尺度绿色系统、低饱和鸟瞰与城市自然共生表达。&quot;, &quot;ArchDaily&quot;, &quot;https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital&quot;, false)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-02-tirana-2030-landscape-vision.webp" alt="Tirana 2030 Landscape Vision" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Minimal</span><span class="pin-tag">Public Space</span><span class="pin-tag">Neutral</span></div>
-            <h3>Minimal Public Space</h3>
-            <p class="pin-desc">适合参考简洁构图、灰白材质和留白较多的场景表达。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Landscape</span><span class="pin-tag">Masterplan</span><span class="pin-tag">Soft Green</span></div>
+            <h3>Tirana 2030 Landscape Vision</h3>
+            <p class="pin-desc">适合参考大尺度绿色系统、低饱和鸟瞰与城市自然共生表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：ArchDaily</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Warm Evening Render', 'Render Inspiration', '#e1e6ef', '适合参考傍晚光影、温暖室内灯光和材质层次。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:440px;--c:#e1e6ef;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Unbound Amsterdam Landscape&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-03-unbound-amsterdam-landscape.webp&quot;], &quot;适合参考水体、林地、建筑与活动空间的整体氛围关系。&quot;, &quot;Felixx Landscape Architects&quot;, &quot;https://www.felixx.nl/projects/the-unbound-amsterdam.html&quot;, false)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-03-unbound-amsterdam-landscape.webp" alt="Unbound Amsterdam Landscape" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Evening</span><span class="pin-tag">Atmosphere</span><span class="pin-tag">Warm Gray</span></div>
-            <h3>Warm Evening Render</h3>
-            <p class="pin-desc">适合参考傍晚光影、温暖室内灯光和材质层次。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Landscape</span><span class="pin-tag">Aerial</span></div>
+            <h3>Unbound Amsterdam Landscape</h3>
+            <p class="pin-desc">适合参考水体、林地、建筑与活动空间的整体氛围关系。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.felixx.nl/projects/the-unbound-amsterdam.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Felixx Landscape Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Editorial Landscape View', 'Render Inspiration', '#efe6df', '适合参考杂志感构图、前景植物和建筑主体的画面关系。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:330px;--c:#efe6df;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Railroad Zone Public Space Render&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-04-railroad-zone-public-space-render.webp&quot;], &quot;适合参考公共空间透视、树荫关系和轻量化场景氛围。&quot;, &quot;Felixx Landscape Architects&quot;, &quot;https://www.felixx.nl/projects/railroad-zone-amsterdam.html&quot;, false)'>
+          <div class="pin-img has-image" style="--h:220px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-04-railroad-zone-public-space-render.webp" alt="Railroad Zone Public Space Render" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Editorial</span><span class="pin-tag">Composition</span><span class="pin-tag">Premium</span></div>
-            <h3>Editorial Landscape View</h3>
-            <p class="pin-desc">适合参考杂志感构图、前景植物和建筑主体的画面关系。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Public Space</span><span class="pin-tag">Perspective</span><span class="pin-tag">Soft Light</span></div>
+            <h3>Railroad Zone Public Space Render</h3>
+            <p class="pin-desc">适合参考公共空间透视、树荫关系和轻量化场景氛围。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.felixx.nl/projects/railroad-zone-amsterdam.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Felixx Landscape Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Natural Material Render', 'Render Inspiration', '#e6e0d6', '适合参考石材、木材、玻璃与自然植物的克制搭配。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:360px;--c:#e6e0d6;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Vrouwenpolder Landscape Axon&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-05-vrouwenpolder-landscape-axon.webp&quot;], &quot;适合参考彩色轴测、动线组织与景观节点的综合表达。&quot;, &quot;Felixx Landscape Architects&quot;, &quot;https://www.felixx.nl/projects/barendrecht-vrouwenpolder.html&quot;, false)'>
+          <div class="pin-img has-image" style="--h:250px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-05-vrouwenpolder-landscape-axon.webp" alt="Vrouwenpolder Landscape Axon" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Material</span><span class="pin-tag">Stone</span><span class="pin-tag">Wood</span></div>
-            <h3>Natural Material Render</h3>
-            <p class="pin-desc">适合参考石材、木材、玻璃与自然植物的克制搭配。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Axon</span><span class="pin-tag">Landscape</span><span class="pin-tag">Diagram</span></div>
+            <h3>Vrouwenpolder Landscape Axon</h3>
+            <p class="pin-desc">适合参考彩色轴测、动线组织与景观节点的综合表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.felixx.nl/projects/barendrecht-vrouwenpolder.html" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Felixx Landscape Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Clean Axon Mood', 'Render Inspiration', '#f1f0ec', '适合参考干净留白、轴测构图和轻量化建筑表达。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:270px;--c:#f1f0ec;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Pinterest Landscape Axon 01&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-06-pinterest-landscape-axon-01.webp&quot;], &quot;适合参考小尺度景观轴测、极简人物与植物点景表达。&quot;, &quot;Pinterest 链接&quot;, &quot;https://www.pinterest.com/pin/474566879509699946/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-06-pinterest-landscape-axon-01.webp" alt="Pinterest Landscape Axon 01" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Axon</span><span class="pin-tag">Clean</span><span class="pin-tag">White Space</span></div>
-            <h3>Clean Axon Mood</h3>
-            <p class="pin-desc">适合参考干净留白、轴测构图和轻量化建筑表达。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
+            <div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Axon</span><span class="pin-tag">Minimal</span></div>
+            <h3>Pinterest Landscape Axon 01</h3>
+            <p class="pin-desc">适合参考小尺度景观轴测、极简人物与植物点景表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.pinterest.com/pin/474566879509699946/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest 链接</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Pinterest Landscape Axon 02&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-07-pinterest-landscape-axon-02.webp&quot;], &quot;适合参考浅色轴测、树影氛围与小场景节点表达。&quot;, &quot;Pinterest 链接&quot;, &quot;https://www.pinterest.com/pin/474566879509699953/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-07-pinterest-landscape-axon-02.webp" alt="Pinterest Landscape Axon 02" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Axon</span><span class="pin-tag">Soft</span></div>
+            <h3>Pinterest Landscape Axon 02</h3>
+            <p class="pin-desc">适合参考浅色轴测、树影氛围与小场景节点表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.pinterest.com/pin/474566879509699953/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest 链接</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Street Pocket Garden Diagram&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-08-street-pocket-garden-diagram.webp&quot;], &quot;适合参考街道口袋花园、剖透视与文字标注结合的图面表达。&quot;, &quot;Pinterest 链接&quot;, &quot;https://www.pinterest.com/pin/543387511301850070/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-08-street-pocket-garden-diagram.webp" alt="Street Pocket Garden Diagram" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Street</span><span class="pin-tag">Section</span></div>
+            <h3>Street Pocket Garden Diagram</h3>
+            <p class="pin-desc">适合参考街道口袋花园、剖透视与文字标注结合的图面表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.pinterest.com/pin/543387511301850070/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest 链接</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Passo Barca Presentation Board&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-09-passo-barca-presentation-board.webp&quot;], &quot;适合参考项目展示板、平面与多张效果图混排的完整表达。&quot;, &quot;TerraViva Competitions&quot;, &quot;https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-09-passo-barca-presentation-board.webp" alt="Passo Barca Presentation Board" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Board</span><span class="pin-tag">Waterfront</span><span class="pin-tag">Render</span></div>
+            <h3>Passo Barca Presentation Board</h3>
+            <p class="pin-desc">适合参考项目展示板、平面与多张效果图混排的完整表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Golden Waterfront Mixed Board&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-10-golden-waterfront-mixed-board.webp&quot;], &quot;适合参考滨水项目的剖面、节点、透视和图面排版组合。&quot;, &quot;TerraViva Competitions&quot;, &quot;https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-10-golden-waterfront-mixed-board.webp" alt="Golden Waterfront Mixed Board" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Board</span><span class="pin-tag">Section</span><span class="pin-tag">Waterfront</span></div>
+            <h3>Golden Waterfront Mixed Board</h3>
+            <p class="pin-desc">适合参考滨水项目的剖面、节点、透视和图面排版组合。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Golden Waterfront Linear Axon&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-11-golden-waterfront-linear-axon.webp&quot;], &quot;适合参考线性滨水空间的轴测表达、分区说明与小图组合。&quot;, &quot;TerraViva Competitions&quot;, &quot;https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-11-golden-waterfront-linear-axon.webp" alt="Golden Waterfront Linear Axon" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Axon</span><span class="pin-tag">Waterfront</span><span class="pin-tag">Strategy</span></div>
+            <h3>Golden Waterfront Linear Axon</h3>
+            <p class="pin-desc">适合参考线性滨水空间的轴测表达、分区说明与小图组合。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Golden Waterfront Strategy Diagram&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-12-golden-waterfront-strategy-diagram.webp&quot;], &quot;适合参考城市尺度策略图、重点区域标注与信息层级组织。&quot;, &quot;TerraViva Competitions&quot;, &quot;https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-12-golden-waterfront-strategy-diagram.webp" alt="Golden Waterfront Strategy Diagram" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Diagram</span><span class="pin-tag">Urban</span><span class="pin-tag">Waterfront</span></div>
+            <h3>Golden Waterfront Strategy Diagram</h3>
+            <p class="pin-desc">适合参考城市尺度策略图、重点区域标注与信息层级组织。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Golden Waterfront Overlay Render&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-13-golden-waterfront-overlay-render.webp&quot;], &quot;适合参考航拍底图、概念色块、效果小图与总体策略的融合表达。&quot;, &quot;TerraViva Competitions&quot;, &quot;https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:240px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-13-golden-waterfront-overlay-render.webp" alt="Golden Waterfront Overlay Render" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Overlay</span><span class="pin-tag">Waterfront</span><span class="pin-tag">Concept</span></div>
+            <h3>Golden Waterfront Overlay Render</h3>
+            <p class="pin-desc">适合参考航拍底图、概念色块、效果小图与总体策略的融合表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Forestrand Waterfront Composition&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-14-forestrand-waterfront-composition.webp&quot;], &quot;适合参考滨水场地、剖面/平面/效果组合和浅色图面氛围。&quot;, &quot;Europan Europe&quot;, &quot;https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand&quot;, false)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-14-forestrand-waterfront-composition.webp" alt="Forestrand Waterfront Composition" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Composition</span><span class="pin-tag">Soft</span></div>
+            <h3>Forestrand Waterfront Composition</h3>
+            <p class="pin-desc">适合参考滨水场地、剖面/平面/效果组合和浅色图面氛围。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Europan Europe</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Forestrand Process Diagram&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-15-forestrand-process-diagram.webp&quot;], &quot;适合参考设计过程、生态策略与分析图的综合排版。&quot;, &quot;Europan Europe&quot;, &quot;https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand&quot;, false)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-15-forestrand-process-diagram.webp" alt="Forestrand Process Diagram" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Process</span><span class="pin-tag">Diagram</span><span class="pin-tag">Landscape</span></div>
+            <h3>Forestrand Process Diagram</h3>
+            <p class="pin-desc">适合参考设计过程、生态策略与分析图的综合排版。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Europan Europe</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;15-Minute City Board Series&quot;, &quot;Render Inspiration&quot;, [&quot;images/inspiration/render/render-ref-16-15-minute-city-board-series-01.webp&quot;, &quot;images/inspiration/render/render-ref-16-15-minute-city-board-series-02.webp&quot;, &quot;images/inspiration/render/render-ref-16-15-minute-city-board-series-03.webp&quot;, &quot;images/inspiration/render/render-ref-16-15-minute-city-board-series-04.webp&quot;], &quot;适合参考15分钟城市、生态社区、轴测分析与多图板式表达。&quot;, &quot;The Charette&quot;, &quot;https://thecharette.org/15-minute-city-2023-results/?utm_source=Pinterest&amp;utm_medium=organic&quot;, false)'>
+          <div class="pin-img has-image" style="--h:330px;--c:#f4f1eb;"><img src="images/inspiration/render/render-ref-16-15-minute-city-board-series-01.webp" alt="15-Minute City Board Series" loading="lazy" decoding="async"><span class="multi-badge">4 Images</span></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Board Series</span><span class="pin-tag">Urban</span><span class="pin-tag">Multi Image</span></div>
+            <h3>15-Minute City Board Series</h3>
+            <p class="pin-desc">适合参考15分钟城市、生态社区、轴测分析与多图板式表达。</p>
+            <div class="source-block">
+              <a class="source-link" href="https://thecharette.org/15-minute-city-2023-results/?utm_source=Pinterest&amp;utm_medium=organic" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：The Charette</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
             </div>
           </div>
         </article>
       </div>
       <div class="board-note">
-        本模块仅用于设计学习、灵感索引与来源跳转，不提供原图下载。图片版权归原作者或原平台所有；后续可在卡片中添加低清缩略图、原始来源链接、作者/平台信息与一句话解析。
+        本模块仅用于设计学习、灵感索引与来源跳转，不提供原图下载。图片版权归原作者所有；如涉及版权问题，请联系删除。
       </div>
     </section>
   </main>
@@ -816,7 +954,7 @@
         <div class="eyebrow" id="modalType">Inspiration</div>
         <h2 id="modalTitle">Inspiration Card</h2>
         <p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
-        <p><strong>Source:</strong> <span id="modalSource">Source link to be added</span></p>
+        <p class="modal-source-note" id="modalSource">来源信息</p>
         <div class="modal-actions">
           <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Add Source Link</a>
         </div>
@@ -830,20 +968,58 @@
   </footer>
 
   <script>
-    function openModal(title, type, color, desc, source, url){
+    let modalImages = [];
+    let modalIndex = 0;
+
+    function renderModalImage(){
+      const modalImg = document.getElementById("modalImg");
+      const title = document.getElementById("modalTitle").textContent;
+      if(modalImages.length){
+        const current = modalImages[modalIndex];
+        modalImg.classList.add("has-image");
+        modalImg.style.background = "#f7f6f2";
+        let controls = "";
+        if(modalImages.length > 1){
+          controls = '<button class="modal-nav prev" onclick="event.stopPropagation();changeModalImage(-1)">‹</button>' +
+                     '<button class="modal-nav next" onclick="event.stopPropagation();changeModalImage(1)">›</button>' +
+                     '<div class="modal-counter">' + (modalIndex + 1) + ' / ' + modalImages.length + '</div>';
+        }
+        modalImg.innerHTML = '<img src="' + current + '" alt="' + title + '" loading="lazy" decoding="async">' + controls;
+      }else{
+        modalImg.classList.remove("has-image");
+        modalImg.innerHTML = "";
+        modalImg.style.background = "#e6e3dc";
+      }
+    }
+
+    function changeModalImage(step){
+      if(!modalImages.length) return;
+      modalIndex = (modalIndex + step + modalImages.length) % modalImages.length;
+      renderModalImage();
+    }
+
+    function openModal(title, type, images, desc, source, url, isPinterest){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;
-      document.getElementById("modalSource").textContent = source;
-      document.getElementById("modalImg").style.background = color;
+      const noteLines = ["来源：" + source];
+      if(isPinterest){ noteLines.push("原始来源：未核实"); }
+      noteLines.push("仅作灵感参考，版权归原作者所有。");
+      noteLines.push("如涉及版权问题，请联系删除。");
+      document.getElementById("modalSource").textContent = noteLines.join("\n");
+
+      modalImages = Array.isArray(images) ? images : (images ? [images] : []);
+      modalIndex = 0;
+      renderModalImage();
+
       const link = document.getElementById("modalLink");
       if(url && url !== "#"){
         link.href = url;
-        link.textContent = "View Original Source";
+        link.textContent = "View Source Link";
         link.classList.remove("disabled");
       }else{
         link.href = "#";
-        link.textContent = "Add Source Link";
+        link.textContent = "Source Pending Link";
         link.classList.add("disabled");
       }
       document.getElementById("modal").classList.add("open");
@@ -852,6 +1028,12 @@
       if(event && event.target !== document.getElementById("modal")) return;
       document.getElementById("modal").classList.remove("open");
     }
+    document.addEventListener("keydown", function(event){
+      if(!document.getElementById("modal").classList.contains("open")) return;
+      if(event.key === "Escape") closeModal();
+      if(event.key === "ArrowLeft") changeModalImage(-1);
+      if(event.key === "ArrowRight") changeModalImage(1);
+    });
   </script>
 
   <script>

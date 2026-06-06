@@ -1,0 +1,84 @@
+Render inspiration image rename + source mapping
+
+01 | Tirana 2030 Urban Nature Axon
+images: images/inspiration/render/render-ref-01-tirana-2030-urban-nature-axon.webp
+source: https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+02 | Tirana 2030 Landscape Vision
+images: images/inspiration/render/render-ref-02-tirana-2030-landscape-vision.webp
+source: https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+03 | Unbound Amsterdam Landscape
+images: images/inspiration/render/render-ref-03-unbound-amsterdam-landscape.webp
+source: https://www.felixx.nl/projects/the-unbound-amsterdam.html
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+04 | Railroad Zone Public Space Render
+images: images/inspiration/render/render-ref-04-railroad-zone-public-space-render.webp
+source: https://www.felixx.nl/projects/railroad-zone-amsterdam.html
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+05 | Vrouwenpolder Landscape Axon
+images: images/inspiration/render/render-ref-05-vrouwenpolder-landscape-axon.webp
+source: https://www.felixx.nl/projects/barendrecht-vrouwenpolder.html
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+06 | Pinterest Landscape Axon 01
+images: images/inspiration/render/render-ref-06-pinterest-landscape-axon-01.webp
+source: https://www.pinterest.com/pin/474566879509699946/
+note: 原始来源未核实
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+07 | Pinterest Landscape Axon 02
+images: images/inspiration/render/render-ref-07-pinterest-landscape-axon-02.webp
+source: https://www.pinterest.com/pin/474566879509699953/
+note: 原始来源未核实
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+08 | Street Pocket Garden Diagram
+images: images/inspiration/render/render-ref-08-street-pocket-garden-diagram.webp
+source: https://www.pinterest.com/pin/543387511301850070/
+note: 原始来源未核实
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+09 | Passo Barca Presentation Board
+images: images/inspiration/render/render-ref-09-passo-barca-presentation-board.webp
+source: https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+10 | Golden Waterfront Mixed Board
+images: images/inspiration/render/render-ref-10-golden-waterfront-mixed-board.webp
+source: https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+11 | Golden Waterfront Linear Axon
+images: images/inspiration/render/render-ref-11-golden-waterfront-linear-axon.webp
+source: https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+12 | Golden Waterfront Strategy Diagram
+images: images/inspiration/render/render-ref-12-golden-waterfront-strategy-diagram.webp
+source: https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+13 | Golden Waterfront Overlay Render
+images: images/inspiration/render/render-ref-13-golden-waterfront-overlay-render.webp
+source: https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+14 | Forestrand Waterfront Composition
+images: images/inspiration/render/render-ref-14-forestrand-waterfront-composition.webp
+source: https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+15 | Forestrand Process Diagram
+images: images/inspiration/render/render-ref-15-forestrand-process-diagram.webp
+source: https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+16 | 15-Minute City Board Series
+images: images/inspiration/render/render-ref-16-15-minute-city-board-series-01.webp, images/inspiration/render/render-ref-16-15-minute-city-board-series-02.webp, images/inspiration/render/render-ref-16-15-minute-city-board-series-03.webp, images/inspiration/render/render-ref-16-15-minute-city-board-series-04.webp
+source: https://thecharette.org/15-minute-city-2023-results/?utm_source=Pinterest&utm_medium=organic
+copyright note: 仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。

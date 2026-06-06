@@ -97,8 +97,12 @@
       margin:0 auto;
     }
     .masonry{
-      columns:4 260px;
-      column-gap:22px;
+      columns:unset;
+      column-gap:0;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:22px;
+      align-items:start;
     }
     .pin{
       break-inside:avoid;
@@ -327,9 +331,13 @@
     .pin:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(35,32,28,.10)}
     /* Color Board fix: keep palette images complete inside cards, no crop */
     .pin-img{border-bottom:1px solid rgba(222,217,207,.75)}
-    .pin-img.has-image{height:auto !important;aspect-ratio:3 / 4;background:#f7f6f2;}
-    .pin-img img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:2;background:#f7f6f2}
+    .pin-img.has-image{height:auto !important;aspect-ratio:3 / 4;background:#f7f6f2;overflow:hidden;}
+    .pin-img.has-image img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:2;background:#f7f6f2}
     .pin-img.has-image::before,.pin-img.has-image::after{display:none}
+    .board-note{grid-column:1 / -1;}
+    @media (max-width:1180px){.masonry{grid-template-columns:repeat(3,minmax(0,1fr));}}
+    @media (max-width:760px){.masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}}
+    @media (max-width:520px){.masonry{grid-template-columns:1fr;}}
     .pin-body{padding:18px 18px 20px}
     .pin-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
     .pin-tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #ded9cf;border-radius:999px;padding:5px 8px;color:#6f685f;background:#faf9f6}
@@ -832,7 +840,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 01', 'Color Board · 互补色', 'images/inspiration/color/color-ref-01.webp', '极简色彩参考板 01，主色参考：#F9F9FB / #E5AE9E / #364379 / #90525B / #9F9EA5。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-01.webp" alt="Color Reference 01" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-01.webp" alt="Color Reference 01" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -844,7 +852,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 02', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-02.webp', '极简色彩参考板 02，主色参考：#FCFCFB / #736F52 / #998C36 / #82470F / #4A420D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-02.webp" alt="Color Reference 02" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-02.webp" alt="Color Reference 02" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -856,7 +864,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 03', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-03.webp', '极简色彩参考板 03，主色参考：#FCFBFA / #E1BD68 / #947555 / #455934 / #6EA278。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-03.webp" alt="Color Reference 03" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-03.webp" alt="Color Reference 03" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -868,7 +876,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 04', 'Color Board · 中性色', 'images/inspiration/color/color-ref-04.webp', '极简色彩参考板 04，主色参考：#FBFBFA / #1C1D13 / #60442F / #887665 / #CCB997。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-04.webp" alt="Color Reference 04" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-04.webp" alt="Color Reference 04" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -880,7 +888,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 05', 'Color Board · 中性色', 'images/inspiration/color/color-ref-05.webp', '极简色彩参考板 05，主色参考：#F6F6F5 / #99908A / #563B3B / #C3B6A6 / #44403D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-05.webp" alt="Color Reference 05" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-05.webp" alt="Color Reference 05" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -892,7 +900,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 06', 'Color Board · 中性色', 'images/inspiration/color/color-ref-06.webp', '极简色彩参考板 06，主色参考：#F7F8F8 / #544B35 / #898463 / #232517 / #CEB58C。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-06.webp" alt="Color Reference 06" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-06.webp" alt="Color Reference 06" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -904,7 +912,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 07', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-07.webp', '极简色彩参考板 07，主色参考：#FCFBF9 / #E9D69F / #AF6F5B / #959A78 / #F4C06E。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-07.webp" alt="Color Reference 07" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-07.webp" alt="Color Reference 07" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -916,7 +924,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 08', 'Color Board · 中性色', 'images/inspiration/color/color-ref-08.webp', '极简色彩参考板 08，主色参考：#F9FAFA / #E6D8AD / #553328 / #A29F9F / #746560。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-08.webp" alt="Color Reference 08" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-08.webp" alt="Color Reference 08" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -928,7 +936,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 09', 'Color Board · 三角色', 'images/inspiration/color/color-ref-09.webp', '极简色彩参考板 09，主色参考：#FCFCFC / #A0B198 / #E8D5AD / #C46C4E / #5E6890。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-09.webp" alt="Color Reference 09" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-09.webp" alt="Color Reference 09" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -940,7 +948,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 10', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-10.webp', '极简色彩参考板 10，主色参考：#F9F9F8 / #CEC2B6 / #C1AA93 / #7C806B / #AD937E。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-10.webp" alt="Color Reference 10" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-10.webp" alt="Color Reference 10" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -952,7 +960,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 11', 'Color Board · 互补色', 'images/inspiration/color/color-ref-11.webp', '极简色彩参考板 11，主色参考：#FBFAF9 / #9BA7A6 / #C37257 / #E5C1BC / #DEB0A4。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-11.webp" alt="Color Reference 11" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-11.webp" alt="Color Reference 11" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -964,7 +972,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 12', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-12.webp', '极简色彩参考板 12，主色参考：#FDFCFC / #E2C9A4 / #AD470D / #DC9647 / #6FAF9F。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-12.webp" alt="Color Reference 12" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-12.webp" alt="Color Reference 12" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -976,7 +984,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 13', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-13.webp', '极简色彩参考板 13，主色参考：#FCFCFC / #E7DBB4 / #A09F73 / #F6C966 / #AEAEA6。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-13.webp" alt="Color Reference 13" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-13.webp" alt="Color Reference 13" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -988,7 +996,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 14', 'Color Board · 互补色', 'images/inspiration/color/color-ref-14.webp', '极简色彩参考板 14，主色参考：#FCFBFB / #AA6F51 / #D8C2A9 / #889CAC / #54423A。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-14.webp" alt="Color Reference 14" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-14.webp" alt="Color Reference 14" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1000,7 +1008,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 15', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-15.webp', '极简色彩参考板 15，主色参考：#FBFAF8 / #9EB7B8 / #888936 / #CCA674 / #7B7544。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-15.webp" alt="Color Reference 15" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-15.webp" alt="Color Reference 15" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1012,7 +1020,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 16', 'Color Board · 三角色', 'images/inspiration/color/color-ref-16.webp', '极简色彩参考板 16，主色参考：#FCFCFC / #9FB187 / #658569 / #48677C / #FCD87D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-16.webp" alt="Color Reference 16" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-16.webp" alt="Color Reference 16" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1024,7 +1032,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 17', 'Color Board · 互补色', 'images/inspiration/color/color-ref-17.webp', '极简色彩参考板 17，主色参考：#F8F8F7 / #E1AE99 / #77AC79 / #AFC193 / #A9B795。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-17.webp" alt="Color Reference 17" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-17.webp" alt="Color Reference 17" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1036,7 +1044,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 18', 'Color Board · 三角色', 'images/inspiration/color/color-ref-18.webp', '极简色彩参考板 18，主色参考：#FCFCFC / #DD979E / #8897AD / #C9A960 / #9CAA58。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-18.webp" alt="Color Reference 18" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-18.webp" alt="Color Reference 18" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1048,7 +1056,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 19', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-19.webp', '极简色彩参考板 19，主色参考：#FDFCFC / #D7A65F / #91A88A / #E3971A / #B9C1A0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-19.webp" alt="Color Reference 19" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-19.webp" alt="Color Reference 19" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1060,7 +1068,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 20', 'Color Board · 互补色', 'images/inspiration/color/color-ref-20.webp', '极简色彩参考板 20，主色参考：#FDFDFD / #F5DF89 / #6799B1 / #F9B829 / #210916。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-20.webp" alt="Color Reference 20" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-20.webp" alt="Color Reference 20" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1072,7 +1080,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 21', 'Color Board · 互补色', 'images/inspiration/color/color-ref-21.webp', '极简色彩参考板 21，主色参考：#FCFCFC / #A39E8C / #7A7265 / #EEC87C / #203D72。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-21.webp" alt="Color Reference 21" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-21.webp" alt="Color Reference 21" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1084,7 +1092,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 22', 'Color Board · 互补色', 'images/inspiration/color/color-ref-22.webp', '极简色彩参考板 22，主色参考：#FCFCFC / #515F60 / #A0A4B1 / #F09960 / #D25F0A。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-22.webp" alt="Color Reference 22" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-22.webp" alt="Color Reference 22" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1096,7 +1104,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 23', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-23.webp', '极简色彩参考板 23，主色参考：#FCFCFC / #939B5E / #F9B162 / #D46E32 / #AEC47D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-23.webp" alt="Color Reference 23" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-23.webp" alt="Color Reference 23" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1108,7 +1116,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 24', 'Color Board · 互补色', 'images/inspiration/color/color-ref-24.webp', '极简色彩参考板 24，主色参考：#F9F7F7 / #F2D399 / #BED1E4 / #A1A1A2 / #787979。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-24.webp" alt="Color Reference 24" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-24.webp" alt="Color Reference 24" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1120,7 +1128,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 25', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-25.webp', '极简色彩参考板 25，主色参考：#FCFCFC / #9FA3AA / #94A8C9 / #CAB657 / #3C553D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-25.webp" alt="Color Reference 25" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-25.webp" alt="Color Reference 25" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1132,7 +1140,7 @@
 
         <article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 26', 'Color Board · 单色系', 'images/inspiration/color/color-ref-26.webp', '极简色彩参考板 26，主色参考：#FCFCFC / #699B9B / #4E755D / #98AC6F / #3C7BB8。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-26.webp" alt="Color Reference 26" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-26.webp" alt="Color Reference 26" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
@@ -1144,7 +1152,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 27', 'Color Board · 三角色', 'images/inspiration/color/color-ref-27.webp', '极简色彩参考板 27，主色参考：#FBFBFB / #ACACA3 / #D38C72 / #DC665F / #9EB8CB。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-27.webp" alt="Color Reference 27" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-27.webp" alt="Color Reference 27" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1156,7 +1164,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 28', 'Color Board · 互补色', 'images/inspiration/color/color-ref-28.webp', '极简色彩参考板 28，主色参考：#FDFDFD / #B1C7D8 / #B89977 / #356A8D / #6B2711。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-28.webp" alt="Color Reference 28" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-28.webp" alt="Color Reference 28" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1168,7 +1176,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 29', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-29.webp', '极简色彩参考板 29，主色参考：#FCFCFB / #CFDA99 / #A2C5AB / #E7B312 / #75B48A。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-29.webp" alt="Color Reference 29" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-29.webp" alt="Color Reference 29" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1180,7 +1188,7 @@
 
         <article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 30', 'Color Board · 单色系', 'images/inspiration/color/color-ref-30.webp', '极简色彩参考板 30，主色参考：#FCFCFC / #919F9B / #9C8F56 / #73805F / #717E5D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-30.webp" alt="Color Reference 30" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-30.webp" alt="Color Reference 30" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
@@ -1192,7 +1200,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 31', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-31.webp', '极简色彩参考板 31，主色参考：#FCFCFC / #9EB6A0 / #D2B14E / #70A172 / #CD9929。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-31.webp" alt="Color Reference 31" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-31.webp" alt="Color Reference 31" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1204,7 +1212,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 32', 'Color Board · 三角色', 'images/inspiration/color/color-ref-32.webp', '极简色彩参考板 32，主色参考：#FCFAF9 / #53241E / #9AADE7 / #85C16C / #F3C037。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-32.webp" alt="Color Reference 32" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-32.webp" alt="Color Reference 32" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1216,7 +1224,7 @@
 
         <article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 33', 'Color Board · 单色系', 'images/inspiration/color/color-ref-33.webp', '极简色彩参考板 33，主色参考：#FCFCFC / #ADB199 / #4D7849 / #6F7928 / #758F83。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-33.webp" alt="Color Reference 33" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-33.webp" alt="Color Reference 33" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
@@ -1228,7 +1236,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 34', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-34.webp', '极简色彩参考板 34，主色参考：#FCFCFC / #9C9B67 / #AFB29D / #867154 / #45604B。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-34.webp" alt="Color Reference 34" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-34.webp" alt="Color Reference 34" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1240,7 +1248,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 35', 'Color Board · 中性色', 'images/inspiration/color/color-ref-35.webp', '极简色彩参考板 35，主色参考：#F4F7F8 / #A1CAE6 / #D8C9BB / #A2A2A2 / #C0BFC0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-35.webp" alt="Color Reference 35" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-35.webp" alt="Color Reference 35" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -1252,7 +1260,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 36', 'Color Board · 三角色', 'images/inspiration/color/color-ref-36.webp', '极简色彩参考板 36，主色参考：#FAFAF9 / #6892AE / #8D599D / #2D6946 / #9DA2A6。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-36.webp" alt="Color Reference 36" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-36.webp" alt="Color Reference 36" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1264,7 +1272,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 37', 'Color Board · 互补色', 'images/inspiration/color/color-ref-37.webp', '极简色彩参考板 37，主色参考：#FCFCFB / #DEA13B / #9D5A28 / #2C6CA1 / #86A3B7。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-37.webp" alt="Color Reference 37" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-37.webp" alt="Color Reference 37" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1276,7 +1284,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 38', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-38.webp', '极简色彩参考板 38，主色参考：#FCFCFC / #9FB6A0 / #989ACB / #677648 / #2B3757。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-38.webp" alt="Color Reference 38" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-38.webp" alt="Color Reference 38" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1288,7 +1296,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 39', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-39.webp', '极简色彩参考板 39，主色参考：#FCFCFC / #D5C48E / #CA6F4B / #DBA474 / #B2C2B4。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-39.webp" alt="Color Reference 39" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-39.webp" alt="Color Reference 39" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1300,7 +1308,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 40', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-40.webp', '极简色彩参考板 40，主色参考：#FCFCFC / #99AFC8 / #AC6C7C / #5B86BD / #827BA0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-40.webp" alt="Color Reference 40" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-40.webp" alt="Color Reference 40" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1312,7 +1320,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 41', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-41.webp', '极简色彩参考板 41，主色参考：#FCFBF9 / #DDC98F / #B79C37 / #B0B8C9 / #233D2A。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-41.webp" alt="Color Reference 41" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-41.webp" alt="Color Reference 41" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1324,7 +1332,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 42', 'Color Board · 中性色', 'images/inspiration/color/color-ref-42.webp', '极简色彩参考板 42，主色参考：#FCFAF9 / #DDCFAC / #B88B48 / #CB9784 / #A5A5A6。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-42.webp" alt="Color Reference 42" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-42.webp" alt="Color Reference 42" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -1336,7 +1344,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 43', 'Color Board · 三角色', 'images/inspiration/color/color-ref-43.webp', '极简色彩参考板 43，主色参考：#FDFCFC / #D88B72 / #7D679B / #9095BA / #D77E95。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-43.webp" alt="Color Reference 43" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-43.webp" alt="Color Reference 43" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1348,7 +1356,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 44', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-44.webp', '极简色彩参考板 44，主色参考：#FDFCFC / #B49FB2 / #F6BBA7 / #FCC944 / #A08A35。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-44.webp" alt="Color Reference 44" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-44.webp" alt="Color Reference 44" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1362,7 +1370,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 45', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-45.webp', '极简色彩参考板 45，主色参考：#226071 / #3F8AA0 / #99A780 / #BCB6A1 / #E2DFDA。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-45.webp" alt="Color Reference 45" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-45.webp" alt="Color Reference 45" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1374,7 +1382,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 46', 'Color Board · 互补色', 'images/inspiration/color/color-ref-46.webp', '极简色彩参考板 46，主色参考：#DA994E / #55C5C2 / #06788D / #A0C7C5 / #DEE1DE。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-46.webp" alt="Color Reference 46" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-46.webp" alt="Color Reference 46" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1386,7 +1394,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 47', 'Color Board · 中性色', 'images/inspiration/color/color-ref-47.webp', '极简色彩参考板 47，主色参考：#9D9E96 / #8B7A69 / #82B1C5 / #F4CE64 / #EEDAA1。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-47.webp" alt="Color Reference 47" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-47.webp" alt="Color Reference 47" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -1398,7 +1406,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 48', 'Color Board · 三角色', 'images/inspiration/color/color-ref-48.webp', '极简色彩参考板 48，主色参考：#546CA7 / #636C3A / #C66929 / #E5E0C3 / #333718。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-48.webp" alt="Color Reference 48" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-48.webp" alt="Color Reference 48" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1410,7 +1418,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 49', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-49.webp', '极简色彩参考板 49，主色参考：#FDE8A1 / #BED9EA / #422E2B。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-49.webp" alt="Color Reference 49" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-49.webp" alt="Color Reference 49" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1422,7 +1430,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 50', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-50.webp', '极简色彩参考板 50，主色参考：#DC7513 / #D0B402 / #7F8248 / #F39C67 / #EAD585。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-50.webp" alt="Color Reference 50" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-50.webp" alt="Color Reference 50" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1434,7 +1442,7 @@
 
         <article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 51', 'Color Board · 中性色', 'images/inspiration/color/color-ref-51.webp', '极简色彩参考板 51，主色参考：#BF6F64 / #BD886B / #819C8C / #C7C2A9 / #C8CABA。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-51.webp" alt="Color Reference 51" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-51.webp" alt="Color Reference 51" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
@@ -1446,7 +1454,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 52', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-52.webp', '极简色彩参考板 52，主色参考：#97BABA / #E29C6B / #B1BCA5 / #DBD7D8 / #C5A77E。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-52.webp" alt="Color Reference 52" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-52.webp" alt="Color Reference 52" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1458,7 +1466,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 53', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-53.webp', '极简色彩参考板 53，主色参考：#C0942A / #3E482D / #EBCB65 / #B8CDC9 / #E0E5DE。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:365px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-53.webp" alt="Color Reference 53" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-53.webp" alt="Color Reference 53" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1470,7 +1478,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 54', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-54.webp', '极简色彩参考板 54，主色参考：#D95D1E / #FED7AC / #C5B773 / #6D351A / #9ABCE0。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-54.webp" alt="Color Reference 54" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-54.webp" alt="Color Reference 54" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1482,7 +1490,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 55', 'Color Board · 互补色', 'images/inspiration/color/color-ref-55.webp', '极简色彩参考板 55，主色参考：#063E84 / #C76432 / #87726C / #909497 / #C3C9C5。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-55.webp" alt="Color Reference 55" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-55.webp" alt="Color Reference 55" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1494,7 +1502,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 56', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-56.webp', '极简色彩参考板 56，主色参考：#0C160C / #492F0C / #475227 / #C38A0B / #E2DDD9。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-56.webp" alt="Color Reference 56" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-56.webp" alt="Color Reference 56" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1506,7 +1514,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 57', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-57.webp', '极简色彩参考板 57，主色参考：#6BA374 / #415E33 / #FAF3E5 / #E7C36E / #987C5D。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-57.webp" alt="Color Reference 57" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-57.webp" alt="Color Reference 57" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1518,7 +1526,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 58', 'Color Board · 互补色', 'images/inspiration/color/color-ref-58.webp', '极简色彩参考板 58，主色参考：#343328 / #696717 / #762A2A / #BDB08E / #EBE2D6。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-58.webp" alt="Color Reference 58" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-58.webp" alt="Color Reference 58" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1530,7 +1538,7 @@
 
         <article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 59', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-59.webp', '极简色彩参考板 59，主色参考：#211D3C / #4F4277 / #A298DA / #F08504 / #FAB840。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-59.webp" alt="Color Reference 59" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-59.webp" alt="Color Reference 59" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
@@ -1542,7 +1550,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 60', 'Color Board · 互补色', 'images/inspiration/color/color-ref-60.webp', '极简色彩参考板 60，主色参考：#D0835B / #6B9378 / #F5D1B6 / #CDD5C3 / #DFDFDD。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-60.webp" alt="Color Reference 60" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-60.webp" alt="Color Reference 60" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1554,7 +1562,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 61', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-61.webp', '极简色彩参考板 61，主色参考：#DBA248 / #505A3A / #F1AF34 / #EBD6B2 / #F7F1E5。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-61.webp" alt="Color Reference 61" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-61.webp" alt="Color Reference 61" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1566,7 +1574,7 @@
 
         <article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 62', 'Color Board · 三角色', 'images/inspiration/color/color-ref-62.webp', '极简色彩参考板 62，主色参考：#CCD1DD / #9BAEB4 / #7B989C / #B85741 / #324242。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-62.webp" alt="Color Reference 62" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-62.webp" alt="Color Reference 62" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
@@ -1578,7 +1586,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 63', 'Color Board · 互补色', 'images/inspiration/color/color-ref-63.webp', '极简色彩参考板 63，主色参考：#96B6B8 / #ACB9AB / #DD9D73 / #C1A37B / #D9DAD9。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-63.webp" alt="Color Reference 63" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-63.webp" alt="Color Reference 63" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1590,7 +1598,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 64', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-64.webp', '极简色彩参考板 64，主色参考：#353D34 / #774C26 / #DDAC4F / #6F831F / #E3D6C4。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-64.webp" alt="Color Reference 64" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-64.webp" alt="Color Reference 64" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1602,7 +1610,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 65', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-65.webp', '极简色彩参考板 65，主色参考：#A6A524 / #BFDCF8 / #EFF6FC / #2A3920 / #5F6417。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:365px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-65.webp" alt="Color Reference 65" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-65.webp" alt="Color Reference 65" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1614,7 +1622,7 @@
 
         <article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 66', 'Color Board · 互补色', 'images/inspiration/color/color-ref-66.webp', '极简色彩参考板 66，主色参考：#151715 / #557359 / #7E2901 / #B88266 / #C2BEB7。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-66.webp" alt="Color Reference 66" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-66.webp" alt="Color Reference 66" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
@@ -1626,7 +1634,7 @@
 
         <article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 67', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-67.webp', '极简色彩参考板 67，主色参考：#285C48 / #69804F / #9C9975 / #D0AB75 / #F6BE9B。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-67.webp" alt="Color Reference 67" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-67.webp" alt="Color Reference 67" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
@@ -1638,7 +1646,7 @@
 
         <article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 68', 'Color Board · 单色系', 'images/inspiration/color/color-ref-68.webp', '极简色彩参考板 68，主色参考：#131811 / #6B7765 / #37472C / #B6B8AE / #D8D3CD。适合用于低饱和、高级感、设计图面与封面配色。', 'Bao Long Studio Color Reference', '#')">
           <div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-            <img src="images/inspiration/color/color-ref-68.webp" alt="Color Reference 68" loading="lazy" / decoding="async">
+            <img src="images/inspiration/color/color-ref-68.webp" alt="Color Reference 68" loading="lazy" decoding="async">
           </div>
           <div class="pin-body">
             <div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
@@ -1685,7 +1693,7 @@
       if(imageOrColor && /\.(png|jpe?g|webp|gif)$/i.test(imageOrColor)){
         modalImg.classList.add("has-image");
         modalImg.style.background = "#f7f6f2";
-        modalImg.innerHTML = '<img src="' + imageOrColor + '" alt="' + title + '" / loading="lazy" decoding="async">';
+        modalImg.innerHTML = '<img src="' + imageOrColor + '" alt="' + title + '" loading="lazy" decoding="async">';
       }else{
         modalImg.classList.remove("has-image");
         modalImg.innerHTML = "";

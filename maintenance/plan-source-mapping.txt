@@ -1,0 +1,69 @@
+Plan Inspiration 图片命名与来源维护表
+
+1. 1.jpg -> plan-ref-01-pinterest-residential-garden-plan.webp
+   卡片标题：Pinterest Residential Garden Plan
+   来源：Pinterest 链接
+   原始来源：未核实
+   链接：https://www.pinterest.com/pin/415246028158906473/
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+2. 2.png -> plan-ref-02-bkd-courtyard-landscape-plan.webp
+   卡片标题：BKD Courtyard Landscape Plan
+   来源：Michael Ecran
+   链接：https://www.michaelecran.be/portfolio/project-bkd?utm_source=Pinterest&utm_medium=organic
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+3. 3.jpg -> plan-ref-03-pinterest-forest-site-plan.webp
+   卡片标题：Pinterest Forest Site Plan
+   来源：Pinterest 链接
+   原始来源：未核实
+   链接：https://www.pinterest.com/pin/986780968358135993/
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+4. 4.jpg -> plan-ref-04-tirana-green-corridor-plan.webp
+   卡片标题：Tirana Green Corridor Plan
+   来源：ArchDaily
+   链接：https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+5. 5.jpg -> plan-ref-05-oude-landen-landscape-strategy-plan.webp
+   卡片标题：Oude Landen Landscape Strategy Plan
+   来源：Felixx Landscape Architects
+   链接：https://www.felixx.nl/projects/oude-landen-antwerpen.html
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+6. 6.jpg -> plan-ref-06-railroad-zone-urban-plan.webp
+   卡片标题：Railroad Zone Urban Plan
+   来源：Felixx Landscape Architects
+   链接：https://www.felixx.nl/projects/railroad-zone-amsterdam.html
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+7. 7.jpg -> plan-ref-07-marconi-green-network-plan-01.webp
+   卡片标题：Marconi Green Network Plan 01
+   来源：Professione Architetto
+   链接：https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+8. 8.jpg -> plan-ref-08-marconi-pocket-park-plan-02.webp
+   卡片标题：Marconi Pocket Park Plan 02
+   来源：Professione Architetto
+   链接：https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+9. 9.jpg -> plan-ref-09-golden-waterfront-masterplan-board.webp
+   卡片标题：Golden Waterfront Masterplan Board
+   来源：TerraViva Competitions
+   链接：https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+10. 10.jpg -> plan-ref-10-golden-waterfront-living-landscapes-board.webp
+   卡片标题：Golden Waterfront Living Landscapes Board
+   来源：TerraViva Competitions
+   链接：https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。
+
+11. 11.jpg -> plan-ref-11-forestrand-waterfront-masterplan.webp
+   卡片标题：Forestrand Waterfront Masterplan
+   来源：Europan Europe
+   链接：https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand
+   标注：仅作灵感参考，版权归原作者所有。如涉及版权问题，请联系删除。

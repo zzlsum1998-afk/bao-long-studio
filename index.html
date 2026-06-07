@@ -2361,6 +2361,203 @@
       }
     }
 
+
+/* v98 Studio Notes & Trends */
+.notes-section{
+  padding:84px 48px 96px;
+  background:#f7f6f2;
+}
+.notes-header{
+  max-width:1520px;
+  margin:0 auto 34px;
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  align-items:flex-end;
+}
+.notes-header h2{
+  margin:0;
+  font-size:clamp(42px,6vw,76px);
+  line-height:.95;
+  letter-spacing:.04em;
+}
+.notes-header p{
+  margin:18px 0 0;
+  max-width:680px;
+  color:#77736b;
+  font-size:17px;
+  line-height:1.8;
+}
+.notes-header .section-kicker{
+  margin:0 0 12px;
+  font-size:13px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#8b867d;
+}
+.notes-slider{
+  max-width:1520px;
+  margin:0 auto;
+  position:relative;
+}
+.notes-track{
+  position:relative;
+  min-height:420px;
+}
+.note-card{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  border:1px solid #ded9cf;
+  border-radius:34px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 22px 48px rgba(0,0,0,.06);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .28s ease, transform .28s ease;
+  position:absolute;
+  inset:0;
+}
+.note-card.is-active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+  position:relative;
+}
+.note-visual{
+  min-height:420px;
+  padding:58px 62px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:28px;
+  border-right:1px solid #ebe6dc;
+}
+.note-visual span,
+.note-type{
+  margin:0;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:700;
+  color:#8b867d;
+}
+.note-visual h3{
+  margin:0;
+  font-size:clamp(28px,3.2vw,46px);
+  line-height:1.15;
+  letter-spacing:.03em;
+}
+.note-visual p{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  color:#77736b;
+}
+.note-visual-dark{
+  background:#171717;
+  color:#fff;
+}
+.note-visual-dark span,
+.note-visual-dark p{
+  color:rgba(255,255,255,.68);
+}
+.note-visual-light{
+  background:
+    radial-gradient(circle at 20% 28%, rgba(0,0,0,.06) 0 1px, transparent 2px),
+    linear-gradient(135deg,#f6f3ec,#ffffff);
+  background-size:18px 18px,auto;
+}
+.note-visual-grid{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px),
+    linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),
+    #f3f0e8;
+  background-size:28px 28px;
+}
+.note-content{
+  padding:58px 64px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.note-content h3{
+  margin:18px 0 22px;
+  font-size:clamp(32px,4.8vw,58px);
+  line-height:1.12;
+  letter-spacing:.01em;
+}
+.note-content p:not(.note-type){
+  margin:0;
+  color:#66615a;
+  font-size:18px;
+  line-height:1.9;
+  max-width:720px;
+}
+.note-link{
+  margin-top:34px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:58px;
+  border:1px solid #1d1d1d;
+  color:#1d1d1d;
+  font-size:17px;
+  transition:.22s ease;
+}
+.note-link:hover{
+  background:#1d1d1d;
+  color:#fff;
+}
+.notes-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  border:1px solid #d8d2c8;
+  background:rgba(255,255,255,.86);
+  color:#1d1d1d;
+  font-size:34px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+}
+.notes-prev{left:26px}
+.notes-next{right:26px}
+@media (max-width:900px){
+  .notes-section{padding:58px 20px 72px}
+  .notes-header{display:block;margin-bottom:24px}
+  .notes-header h2{font-size:42px}
+  .notes-track{min-height:auto}
+  .note-card{
+    grid-template-columns:1fr;
+    border-radius:26px;
+  }
+  .note-visual{
+    min-height:260px;
+    padding:34px 30px;
+    border-right:0;
+    border-bottom:1px solid #ebe6dc;
+  }
+  .note-content{
+    padding:34px 30px 38px;
+  }
+  .note-content h3{font-size:32px}
+  .note-content p:not(.note-type){font-size:15px}
+  .notes-arrow{
+    width:44px;
+    height:44px;
+    font-size:28px;
+  }
+  .notes-prev{left:10px}
+  .notes-next{right:10px}
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />
@@ -2602,71 +2799,65 @@
       </div>
     </section>
 
-    <section class="section" id="featured">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Studio Notes & Trends</h2>
-          <p class="section-desc">这里可以放行业热点、设计趋势、小红书内容观察、AI 工具更新。它负责提升网站的专业感，不直接承担成交。</p>
+    <section class="notes-section" id="studio-notes">
+  <div class="notes-header">
+    <div>
+      <p class="section-kicker">Studio Notes & Trends</p>
+      <h2>Studio Notes & Trends</h2>
+      <p>记录网站更新、设计方法、AI 工具观察与灵感整理经验。这里不直接交付工具，而是沉淀 Bao Long Studio 的判断与方法。</p>
+    </div>
+  </div>
+
+  <div class="notes-slider" data-notes-slider>
+    <button class="notes-arrow notes-prev" type="button" aria-label="Previous note" data-notes-prev>‹</button>
+
+    <div class="notes-track" data-notes-track>
+      <article class="note-card is-active">
+        <div class="note-visual note-visual-dark">
+          <span>STUDIO NOTE</span>
+          <h3>Good tools are not just features — they are workflows.</h3>
+          <p>从输入、判断、预览到导出，真正节省时间的是完整流程。</p>
         </div>
-      </div>
-
-      <div class="news-wrap" id="newsCarousel">
-        <div class="news-track" id="newsTrack">
-          <article class="news-slide">
-            <div class="news-visual">
-              <div class="news-card-large">
-                <span class="news-label">Trend</span>
-                <h3>AI Resume Tools Are Becoming Workflow Products</h3>
-                <p>简历工具的竞争点不只是 AI 文本生成，而是信息填写、岗位匹配、模板排版和导出流程的整合。</p>
-              </div>
-            </div>
-            <div class="news-copy">
-              <div class="type">Industry Note</div>
-              <h3>从“AI润色”到“一页完成”的简历产品体验</h3>
-              <p>用户可以自己去 AI 优化文字，但真正省时间的是：内容直接映射到固定排版、自动预览、一键导出。</p>
-              <button class="secondary-btn" onclick="openExternal()">Read More</button>
-            </div>
-          </article>
-
-          <article class="news-slide">
-            <div class="news-visual">
-              <div class="news-card-large soft-green">
-                <span class="news-label">Visual</span>
-                <h3>Low Saturation Visual Assets Are Easier to Reuse</h3>
-                <p>低饱和、留白、手绘感、非 AI 感素材，更适合被设计师二次编辑和长期复用。</p>
-              </div>
-            </div>
-            <div class="news-copy">
-              <div class="type">Design Trend</div>
-              <h3>为什么“干净的素材库”比花哨效果更耐用</h3>
-              <p>素材产品最重要的是可编辑、可组合、可复用。网站也应保持清楚分类，而不是一次性堆满效果。</p>
-              <button class="secondary-btn" onclick="openExternal()">Read More</button>
-            </div>
-          </article>
-
-          <article class="news-slide">
-            <div class="news-visual">
-              <div class="news-card-large soft-blue">
-                <span class="news-label">Prompt</span>
-                <h3>Prompt Libraries Need Structure, Not Just Keywords</h3>
-                <p>好的 prompt 库应该按照构图、风格、色彩、细节、氛围、输出用途来组织。</p>
-              </div>
-            </div>
-            <div class="news-copy">
-              <div class="type">Prompt System</div>
-              <h3>Prompt 生成器可以成为设计资源的一部分</h3>
-              <p>把你长期积累的建筑插画、拼贴风、活动分析图关键词，变成可以搜索、复制、复用的内容库。</p>
-              <button class="secondary-btn" onclick="openExternal()">Read More</button>
-            </div>
-          </article>
+        <div class="note-content">
+          <p class="note-type">Studio Note</p>
+          <h3>把工具做成一个可以完成任务的流程</h3>
+          <p>简历、提示词和素材管理都不只是单点功能。更重要的是让用户从“开始整理”到“得到结果”的过程足够清楚、稳定、可预期。</p>
+          <a class="note-link" href="#prompt-generator">View Related Tool</a>
         </div>
+      </article>
 
-        <div class="featured-controls">
-          <button class="icon-btn" onclick="prevNews()">‹</button>
-          <button class="icon-btn" onclick="nextNews()">›</button>
+      <article class="note-card">
+        <div class="note-visual note-visual-light">
+          <span>DESIGN METHOD</span>
+          <h3>References are not assets. They are directions.</h3>
+          <p>灵感图解决的是方向感，而不是直接替代原创设计。</p>
         </div>
-      </div>
-    </section>
+        <div class="note-content">
+          <p class="note-type">Design Method</p>
+          <h3>从参考图到原创表达</h3>
+          <p>参考图可以帮助判断构图、层级、色彩和信息组织方式。真正重要的是提取方法，再转化成新的视觉语言，而不是复制图像本身。</p>
+          <a class="note-link" href="plan-references.html">View Inspiration Board</a>
+        </div>
+      </article>
+
+      <article class="note-card">
+        <div class="note-visual note-visual-grid">
+          <span>AI TRENDS</span>
+          <h3>AI products are moving from generation to organization.</h3>
+          <p>AI 不只是生成内容，也需要帮助用户整理、筛选和交付。</p>
+        </div>
+        <div class="note-content">
+          <p class="note-type">AI Trends</p>
+          <h3>AI 工具正在从“生成”走向“组织”</h3>
+          <p>好的 AI 工具不应该只给出一段文字或一张图，而应该帮助用户完成分类、调整、预览、下载和再次修改的闭环。</p>
+          <a class="note-link" href="prompt-generator.html">Open Prompt Library</a>
+        </div>
+      </article>
+    </div>
+
+    <button class="notes-arrow notes-next" type="button" aria-label="Next note" data-notes-next>›</button>
+  </div>
+</section>
 
     <section class="section" id="products">
       <div class="section-head">
@@ -3817,6 +4008,28 @@
       window.scrollTo({top:0, behavior:'smooth'});
     }
   </script>
+
+<script>
+  (function(){
+    const slider = document.querySelector('[data-notes-slider]');
+    if(!slider) return;
+    const cards = Array.from(slider.querySelectorAll('.note-card'));
+    const prev = slider.querySelector('[data-notes-prev]');
+    const next = slider.querySelector('[data-notes-next]');
+    let index = cards.findIndex(card => card.classList.contains('is-active'));
+    if(index < 0) index = 0;
+
+    function show(nextIndex){
+      cards[index].classList.remove('is-active');
+      index = (nextIndex + cards.length) % cards.length;
+      cards[index].classList.add('is-active');
+    }
+
+    if(prev) prev.addEventListener('click', function(){ show(index - 1); });
+    if(next) next.addEventListener('click', function(){ show(index + 1); });
+  })();
+</script>
+
 </body>
 
 </html>

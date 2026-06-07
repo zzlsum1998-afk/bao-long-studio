@@ -639,6 +639,42 @@
       }
     }
 
+
+/* v102 Inspiration modal: long images stay visible and scrollable */
+.modal{
+  align-items:flex-start !important;
+  overflow-y:auto !important;
+  padding:96px 24px 48px !important;
+}
+.modal-card{
+  max-height:none !important;
+  height:auto !important;
+  margin:0 auto !important;
+}
+.modal-img{
+  height:auto !important;
+  max-height:none !important;
+  min-height:0 !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  overflow:visible !important;
+  background:#f4f1eb;
+}
+.modal-img.has-image img{
+  width:100% !important;
+  height:auto !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:top center !important;
+  display:block !important;
+}
+@media (max-width:900px){
+  .modal{
+    padding:84px 14px 34px !important;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

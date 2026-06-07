@@ -178,6 +178,7 @@
       .masonry-wrap{padding:10px 22px 70px}
       .modal-card{grid-template-columns:1fr}
       .modal-img{min-height:360px}
+      .modal-img img{min-height:360px}
     }
 
   
@@ -323,18 +324,25 @@
     }
     .pin:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(35,32,28,.10)}
     .pin-img{border-bottom:1px solid rgba(222,217,207,.75)}
-    .pin-img img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2}
+    .pin-img img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:2;background:#f7f6f2}
     .pin-img.has-image::before,.pin-img.has-image::after{display:none}
     .pin-body{padding:18px 18px 20px}
     .pin-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
     .pin-tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #ded9cf;border-radius:999px;padding:5px 8px;color:#6f685f;background:#faf9f6}
     .pin-body h3{font-size:19px;margin-bottom:9px;letter-spacing:.01em}
     .pin-desc{color:#5c5750;font-size:13px;line-height:1.7;margin-bottom:14px !important}
-    .source-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid rgba(222,217,207,.78);padding-top:13px;margin-top:14px;color:#837b70;font-size:12px}
-    .source-name{max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .source-btn{border:1px solid #161616;border-radius:999px;padding:8px 12px;font-size:12px;background:#161616;color:#fff;text-decoration:none;white-space:nowrap;transition:.22s ease;}
-    .source-btn:hover{transform:translateY(-1px);background:#3b3833;border-color:#3b3833}
-    .source-btn.disabled{background:#f7f6f2;color:#9a9287;border-color:#ded9cf;pointer-events:none}
+    .source-block{display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(222,217,207,.78);padding-top:13px;margin-top:14px;color:#837b70;font-size:12px;line-height:1.55}
+    .source-link{color:#4f4940;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+    .source-link:hover{color:#111}
+    .multi-badge{position:absolute;right:12px;bottom:12px;z-index:3;border-radius:999px;background:rgba(17,17,17,.72);color:#fff;font-size:11px;letter-spacing:.04em;padding:6px 9px;backdrop-filter:blur(8px)}
+    .modal-img.has-image::before{display:none}
+    .modal-img img{width:100%;height:100%;min-height:560px;object-fit:contain;display:block;background:#f7f6f2}
+    .modal-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.65);background:rgba(17,17,17,.48);color:#fff;font-size:28px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .modal-nav:hover{background:rgba(17,17,17,.72)}
+    .modal-nav.prev{left:14px}
+    .modal-nav.next{right:14px}
+    .modal-counter{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;border-radius:999px;background:rgba(17,17,17,.58);color:#fff;font-size:12px;padding:6px 10px;backdrop-filter:blur(8px)}
+    .modal-source-note{white-space:pre-line;color:#6f685f;line-height:1.75}
     .board-note{margin:28px 0 0;padding:18px 20px;border:1px solid #ded9cf;border-radius:20px;background:rgba(255,255,255,.62);color:#77736b;font-size:13px;line-height:1.75}
     .modal-card{border-radius:28px;overflow:hidden}
     .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
@@ -710,7 +718,7 @@
       <div>
         <div class="eyebrow">Inspiration Board</div>
         <h1>Section Inspiration Board</h1>
-        <p>剖面图灵感索引：用于查看空间层次、竖向关系、植物高度、人物活动与场地界面的表达方式。</p>
+        <p>剖面图灵感索引：用于收集建筑剖面、剖透视、爆炸轴测、结构关系与作品集板式参考。</p>
       </div>
       <div class="tabs">
         <a class="tab " href="plan-references.html">Plan Board</a>
@@ -723,86 +731,228 @@
     <section class="masonry-wrap">
       <div class="masonry">
 
-        <article class="pin" onclick="openModal('Layered Garden Section', 'Section Inspiration', '#e8e5dc', '适合参考前中后景植物高度、人物尺度和空间纵深关系。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:340px;--c:#e8e5dc;"></div>
+        <article class="pin" onclick='openModal(&quot;Streetscape Section Perspective&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-01-pinterest-streetscape-section-perspective.webp&quot;], &quot;适合参考街道断面、人车关系、活动节点与明快插画式表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/318348267411208068/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:230px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-01-pinterest-streetscape-section-perspective.webp" alt="Streetscape Section Perspective" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Section</span><span class="pin-tag">Plant Layer</span><span class="pin-tag">Depth</span></div>
-            <h3>Layered Garden Section</h3>
-            <p class="pin-desc">适合参考前中后景植物高度、人物尺度和空间纵深关系。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Street Section</span><span class="pin-tag">Perspective</span><span class="pin-tag">Activity</span></div>
+            <h3>Streetscape Section Perspective</h3>
+            <p class="pin-desc">适合参考街道断面、人车关系、活动节点与明快插画式表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/318348267411208068/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Street Renewal Section', 'Section Inspiration', '#dde5dd', '适合参考街道界面、慢行空间和活动人群的剖面表达。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:270px;--c:#dde5dd;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Exploded Landscape Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-02-pinterest-exploded-landscape-section.webp&quot;], &quot;适合参考爆炸剖面、地形层次、场地设施与分析信息叠加。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/8655424272009616/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-02-pinterest-exploded-landscape-section.webp" alt="Exploded Landscape Section" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Street</span><span class="pin-tag">Interface</span><span class="pin-tag">People</span></div>
-            <h3>Street Renewal Section</h3>
-            <p class="pin-desc">适合参考街道界面、慢行空间和活动人群的剖面表达。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Exploded</span><span class="pin-tag">Landscape</span><span class="pin-tag">Diagram</span></div>
+            <h3>Exploded Landscape Section</h3>
+            <p class="pin-desc">适合参考爆炸剖面、地形层次、场地设施与分析信息叠加。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/8655424272009616/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Waterfront Section', 'Section Inspiration', '#e1e6ef', '适合参考亲水平台、台地高差和边界过渡关系。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:390px;--c:#e1e6ef;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Topographic Section Sketch&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-03-pinterest-topographic-section-sketch.webp&quot;], &quot;适合参考手绘剖面、地形起伏、植物氛围与轻量化线稿表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/620159811221024086/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-03-pinterest-topographic-section-sketch.webp" alt="Topographic Section Sketch" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Level</span><span class="pin-tag">Platform</span></div>
-            <h3>Waterfront Section</h3>
-            <p class="pin-desc">适合参考亲水平台、台地高差和边界过渡关系。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Topography</span><span class="pin-tag">Sketch</span><span class="pin-tag">Atmosphere</span></div>
+            <h3>Topographic Section Sketch</h3>
+            <p class="pin-desc">适合参考手绘剖面、地形起伏、植物氛围与轻量化线稿表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/620159811221024086/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Children Play Section', 'Section Inspiration', '#efe6df', '适合参考儿童活动设施、地形起伏和安全边界的表达。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:310px;--c:#efe6df;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Courtyard Section Board&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-04-pinterest-courtyard-section-board.webp&quot;], &quot;适合参考庭院尺度、平剖结合以及住宅场景的柔和图面表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/914862421709928/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-04-pinterest-courtyard-section-board.webp" alt="Courtyard Section Board" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Play</span><span class="pin-tag">Scale</span><span class="pin-tag">Activity</span></div>
-            <h3>Children Play Section</h3>
-            <p class="pin-desc">适合参考儿童活动设施、地形起伏和安全边界的表达。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Courtyard</span><span class="pin-tag">Board</span><span class="pin-tag">Residential</span></div>
+            <h3>Courtyard Section Board</h3>
+            <p class="pin-desc">适合参考庭院尺度、平剖结合以及住宅场景的柔和图面表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/914862421709928/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Courtyard Section', 'Section Inspiration', '#e6e0d6', '适合参考庭院围合、建筑檐口和植物软化界面的关系。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:420px;--c:#e6e0d6;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Warm Interior Section Board&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-05-pinterest-warm-interior-section-board.webp&quot;], &quot;适合参考平面与剖面组合、室内家具尺度和暖色系构图。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/1113303971654165559/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:320px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-05-pinterest-warm-interior-section-board.webp" alt="Warm Interior Section Board" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Courtyard</span><span class="pin-tag">Enclosure</span><span class="pin-tag">Quiet</span></div>
-            <h3>Courtyard Section</h3>
-            <p class="pin-desc">适合参考庭院围合、建筑檐口和植物软化界面的关系。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Interior</span><span class="pin-tag">Section</span><span class="pin-tag">Composition</span></div>
+            <h3>Warm Interior Section Board</h3>
+            <p class="pin-desc">适合参考平面与剖面组合、室内家具尺度和暖色系构图。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/1113303971654165559/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
 
-        <article class="pin" onclick="openModal('Urban Pocket Section', 'Section Inspiration', '#f1f0ec', '适合参考口袋公园的树荫、座椅、铺装和道路边界。', 'Source link to be added', '#')">
-          <div class="pin-img" style="--h:300px;--c:#f1f0ec;"></div>
+
+        <article class="pin" onclick='openModal(&quot;Atmospheric Building Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-06-pinterest-atmospheric-building-section.webp&quot;], &quot;适合参考建筑剖面透视、植物场景与灰调氛围渲染。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/424112489932151772/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-06-pinterest-atmospheric-building-section.webp" alt="Atmospheric Building Section" loading="lazy" decoding="async"></div>
           <div class="pin-body">
-            <div class="pin-tags"><span class="pin-tag">Pocket Park</span><span class="pin-tag">Public</span><span class="pin-tag">Shade</span></div>
-            <h3>Urban Pocket Section</h3>
-            <p class="pin-desc">适合参考口袋公园的树荫、座椅、铺装和道路边界。</p>
-            <div class="source-row">
-              <span class="source-name">Source · Source link to be added</span>
-              <a class="source-btn disabled" href="#" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Add Source</a>
-            </div>
+            <div class="pin-tags"><span class="pin-tag">Architecture</span><span class="pin-tag">Atmosphere</span><span class="pin-tag">Section</span></div>
+            <h3>Atmospheric Building Section</h3>
+            <p class="pin-desc">适合参考建筑剖面透视、植物场景与灰调氛围渲染。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/424112489932151772/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
           </div>
         </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Axonometric Section Analysis&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-07-pinterest-axonometric-section-analysis.webp&quot;], &quot;适合参考轴测剖面、构造节点放大与图文并置的排版方式。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/1102678290051962884/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-07-pinterest-axonometric-section-analysis.webp" alt="Axonometric Section Analysis" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Axonometric</span><span class="pin-tag">Analysis</span><span class="pin-tag">Detail</span></div>
+            <h3>Axonometric Section Analysis</h3>
+            <p class="pin-desc">适合参考轴测剖面、构造节点放大与图文并置的排版方式。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/1102678290051962884/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Exploded Corner Axon&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-08-pinterest-exploded-corner-axon.webp&quot;], &quot;适合参考角部空间、爆炸轴测和植物/结构一体化表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/169096161005288319/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-08-pinterest-exploded-corner-axon.webp" alt="Exploded Corner Axon" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Corner Axon</span><span class="pin-tag">Exploded</span><span class="pin-tag">Structure</span></div>
+            <h3>Exploded Corner Axon</h3>
+            <p class="pin-desc">适合参考角部空间、爆炸轴测和植物/结构一体化表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/169096161005288319/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Hand-Drawn Site Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-09-pinterest-hand-drawn-site-section.webp&quot;], &quot;适合参考草图式场地剖面、节点标注和过程性表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/1108589264537404459/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:230px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-09-pinterest-hand-drawn-site-section.webp" alt="Hand-Drawn Site Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Hand Drawn</span><span class="pin-tag">Site Section</span><span class="pin-tag">Process</span></div>
+            <h3>Hand-Drawn Site Section</h3>
+            <p class="pin-desc">适合参考草图式场地剖面、节点标注和过程性表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/1108589264537404459/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Heinrich Hertz School Exploded Axon&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-10-heinrich-hertz-school-exploded-axon.webp&quot;], &quot;适合参考校园建筑的楼层拆解、功能分区与黑底高对比展示。&quot;, &quot;NORD Architects&quot;, &quot;https://www.nordarchitects.dk/projects/heinrich-hertz-school/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-10-heinrich-hertz-school-exploded-axon.webp" alt="Heinrich Hertz School Exploded Axon" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">School</span><span class="pin-tag">Exploded Axon</span><span class="pin-tag">Program</span></div>
+            <h3>Heinrich Hertz School Exploded Axon</h3>
+            <p class="pin-desc">适合参考校园建筑的楼层拆解、功能分区与黑底高对比展示。</p>
+            <div class="source-block"><a class="source-link" href="https://www.nordarchitects.dk/projects/heinrich-hertz-school/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：NORD Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Residential Block Pink Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-11-ab-basis-residential-block-pink-section.webp&quot;], &quot;适合参考住宅综合体剖透视、粉色拼贴与多层空间关系表达。&quot;, &quot;AB Basis&quot;, &quot;https://ab-basis.com/en/projects/residential-block/&quot;, false)'>
+          <div class="pin-img has-image" style="--h:320px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-11-ab-basis-residential-block-pink-section.webp" alt="Residential Block Pink Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Residential Block</span><span class="pin-tag">Collage</span><span class="pin-tag">Pink</span></div>
+            <h3>Residential Block Pink Section</h3>
+            <p class="pin-desc">适合参考住宅综合体剖透视、粉色拼贴与多层空间关系表达。</p>
+            <div class="source-block"><a class="source-link" href="https://ab-basis.com/en/projects/residential-block/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：AB Basis</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Soft Housing Section Poster&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-12-pinterest-soft-housing-section-poster.webp&quot;], &quot;适合参考轻粉调建筑剖面、海报式排版和住宅场景表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/859976491371219694/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-12-pinterest-soft-housing-section-poster.webp" alt="Soft Housing Section Poster" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Housing</span><span class="pin-tag">Poster</span><span class="pin-tag">Soft Tone</span></div>
+            <h3>Soft Housing Section Poster</h3>
+            <p class="pin-desc">适合参考轻粉调建筑剖面、海报式排版和住宅场景表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/859976491371219694/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Green Living Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-13-juliana-kanishi-green-living-section.webp&quot;], &quot;适合参考可持续住宅剖面、生态系统植入和绿色生活方式呈现。&quot;, &quot;Juliana Kanishi&quot;, &quot;https://julianakanishi.com/new-page-5&quot;, false)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-13-juliana-kanishi-green-living-section.webp" alt="Green Living Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Sustainable</span><span class="pin-tag">Living</span><span class="pin-tag">Green</span></div>
+            <h3>Green Living Section</h3>
+            <p class="pin-desc">适合参考可持续住宅剖面、生态系统植入和绿色生活方式呈现。</p>
+            <div class="source-block"><a class="source-link" href="https://julianakanishi.com/new-page-5" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Juliana Kanishi</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Blue Cutaway School Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-14-dezeen-blue-cutaway-school-section.webp&quot;], &quot;适合参考蓝图感剖透视、公共空间切片与作品集展示效果。&quot;, &quot;Dezeen&quot;, &quot;https://www.dezeen.com/2024/06/02/architecture-projects-london-southbank-university-dezeen-schoolshows/?utm_source=Pinterest&amp;utm_medium=organic&quot;, false)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-14-dezeen-blue-cutaway-school-section.webp" alt="Blue Cutaway School Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Cutaway</span><span class="pin-tag">School</span><span class="pin-tag">Blueprint</span></div>
+            <h3>Blue Cutaway School Section</h3>
+            <p class="pin-desc">适合参考蓝图感剖透视、公共空间切片与作品集展示效果。</p>
+            <div class="source-block"><a class="source-link" href="https://www.dezeen.com/2024/06/02/architecture-projects-london-southbank-university-dezeen-schoolshows/?utm_source=Pinterest&amp;utm_medium=organic" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Dezeen</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Transparent Urban Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-15-pinterest-transparent-urban-section.webp&quot;], &quot;适合参考透明玻璃质感、城市界面和剖透视空间穿插。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/626844841915554145/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:320px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-15-pinterest-transparent-urban-section.webp" alt="Transparent Urban Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Transparent</span><span class="pin-tag">Urban</span><span class="pin-tag">Section</span></div>
+            <h3>Transparent Urban Section</h3>
+            <p class="pin-desc">适合参考透明玻璃质感、城市界面和剖透视空间穿插。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/626844841915554145/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Purple Tower Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-16-archdaily-purple-tower-section.webp&quot;], &quot;适合参考单体塔楼剖面、紫色线稿高亮与展板式构图。&quot;, &quot;ArchDaily&quot;, &quot;https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far&quot;, false)'>
+          <div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-16-archdaily-purple-tower-section.webp" alt="Purple Tower Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Tower</span><span class="pin-tag">Linework</span><span class="pin-tag">Exhibition</span></div>
+            <h3>Purple Tower Section</h3>
+            <p class="pin-desc">适合参考单体塔楼剖面、紫色线稿高亮与展板式构图。</p>
+            <div class="source-block"><a class="source-link" href="https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：ArchDaily</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;House Section Technical Drawing&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-17-archdaily-house-section-technical-drawing.webp&quot;], &quot;适合参考住宅剖面、技术细节标注与说明性绘图语言。&quot;, &quot;ArchDaily&quot;, &quot;https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far&quot;, false)'>
+          <div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-17-archdaily-house-section-technical-drawing.webp" alt="House Section Technical Drawing" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">House</span><span class="pin-tag">Technical</span><span class="pin-tag">Drawing</span></div>
+            <h3>House Section Technical Drawing</h3>
+            <p class="pin-desc">适合参考住宅剖面、技术细节标注与说明性绘图语言。</p>
+            <div class="source-block"><a class="source-link" href="https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：ArchDaily</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Molkenmarkt Axon Series&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-18-molkenmarkt-urban-axon-series-01.webp&quot;, &quot;images/inspiration/section/section-ref-18-molkenmarkt-urban-axon-series-02.webp&quot;], &quot;适合参考城市更新轴测剖面、多视角连贯表达与统一图形语言。&quot;, &quot;OS Arkitekter&quot;, &quot;https://osark.dk/molkenmarkt&quot;, false)'>
+          <div class="pin-img has-image" style="--h:320px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-18-molkenmarkt-urban-axon-series-01.webp" alt="Molkenmarkt Axon Series" loading="lazy" decoding="async"><span class="multi-badge">2 Images</span></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Axon Series</span><span class="pin-tag">Urban Renewal</span></div>
+            <h3>Molkenmarkt Axon Series</h3>
+            <p class="pin-desc">适合参考城市更新轴测剖面、多视角连贯表达与统一图形语言。</p>
+            <div class="source-block"><a class="source-link" href="https://osark.dk/molkenmarkt" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：OS Arkitekter</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;P-Hus Else Green Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-19-p-hus-else-green-section.webp&quot;], &quot;适合参考垂直绿化、停车建筑更新与爆炸剖面的信息整合。&quot;, &quot;OS Arkitekter&quot;, &quot;https://osark.dk/p-hus-else&quot;, false)'>
+          <div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-19-p-hus-else-green-section.webp" alt="P-Hus Else Green Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Green Facade</span><span class="pin-tag">Exploded</span><span class="pin-tag">Parking House</span></div>
+            <h3>P-Hus Else Green Section</h3>
+            <p class="pin-desc">适合参考垂直绿化、停车建筑更新与爆炸剖面的信息整合。</p>
+            <div class="source-block"><a class="source-link" href="https://osark.dk/p-hus-else" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：OS Arkitekter</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
+
+        <article class="pin" onclick='openModal(&quot;Red House Section&quot;, &quot;Section Inspiration&quot;, [&quot;images/inspiration/section/section-ref-20-pinterest-red-house-section.webp&quot;], &quot;适合参考红色线稿、结构节点与建筑剖透视的叙事表达。&quot;, &quot;Pinterest&quot;, &quot;https://www.pinterest.com/pin/626844841913289489/&quot;, true)'>
+          <div class="pin-img has-image" style="--h:320px;--c:#f4f1eb;"><img src="images/inspiration/section/section-ref-20-pinterest-red-house-section.webp" alt="Red House Section" loading="lazy" decoding="async"></div>
+          <div class="pin-body">
+            <div class="pin-tags"><span class="pin-tag">Red Linework</span><span class="pin-tag">House</span><span class="pin-tag">Section</span></div>
+            <h3>Red House Section</h3>
+            <p class="pin-desc">适合参考红色线稿、结构节点与建筑剖透视的叙事表达。</p>
+            <div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/626844841913289489/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
+          </div>
+        </article>
+
       </div>
       <div class="board-note">
-        本模块仅用于设计学习、灵感索引与来源跳转，不提供原图下载。图片版权归原作者或原平台所有；后续可在卡片中添加低清缩略图、原始来源链接、作者/平台信息与一句话解析。
+        本模块仅用于设计学习、平面图灵感索引与来源跳转，不提供原图下载。图片版权归原作者所有；如涉及版权问题，请联系删除。
       </div>
     </section>
   </main>
@@ -816,7 +966,7 @@
         <div class="eyebrow" id="modalType">Inspiration</div>
         <h2 id="modalTitle">Inspiration Card</h2>
         <p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
-        <p><strong>Source:</strong> <span id="modalSource">Source link to be added</span></p>
+        <p class="modal-source-note" id="modalSource">来源信息</p>
         <div class="modal-actions">
           <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Add Source Link</a>
         </div>
@@ -826,24 +976,62 @@
   </div>
 
   <footer class="footer">
-    Bao Long Studio · Inspiration Board
+    Bao Long Studio · Plan Inspiration Board
   </footer>
 
   <script>
-    function openModal(title, type, color, desc, source, url){
+    let modalImages = [];
+    let modalIndex = 0;
+
+    function renderModalImage(){
+      const modalImg = document.getElementById("modalImg");
+      const title = document.getElementById("modalTitle").textContent;
+      if(modalImages.length){
+        const current = modalImages[modalIndex];
+        modalImg.classList.add("has-image");
+        modalImg.style.background = "#f7f6f2";
+        let controls = "";
+        if(modalImages.length > 1){
+          controls = '<button class="modal-nav prev" onclick="event.stopPropagation();changeModalImage(-1)">‹</button>' +
+                     '<button class="modal-nav next" onclick="event.stopPropagation();changeModalImage(1)">›</button>' +
+                     '<div class="modal-counter">' + (modalIndex + 1) + ' / ' + modalImages.length + '</div>';
+        }
+        modalImg.innerHTML = '<img src="' + current + '" alt="' + title + '" loading="lazy" decoding="async">' + controls;
+      }else{
+        modalImg.classList.remove("has-image");
+        modalImg.innerHTML = "";
+        modalImg.style.background = "#e6e3dc";
+      }
+    }
+
+    function changeModalImage(step){
+      if(!modalImages.length) return;
+      modalIndex = (modalIndex + step + modalImages.length) % modalImages.length;
+      renderModalImage();
+    }
+
+    function openModal(title, type, images, desc, source, url, isPinterest){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;
-      document.getElementById("modalSource").textContent = source;
-      document.getElementById("modalImg").style.background = color;
+      const noteLines = ["来源：" + source];
+      if(isPinterest){ noteLines.push("原始来源：未核实"); }
+      noteLines.push("仅作灵感参考，版权归原作者所有。");
+      noteLines.push("如涉及版权问题，请联系删除。");
+      document.getElementById("modalSource").textContent = noteLines.join("\n");
+
+      modalImages = Array.isArray(images) ? images : (images ? [images] : []);
+      modalIndex = 0;
+      renderModalImage();
+
       const link = document.getElementById("modalLink");
       if(url && url !== "#"){
         link.href = url;
-        link.textContent = "View Original Source";
+        link.textContent = "View Source Link";
         link.classList.remove("disabled");
       }else{
         link.href = "#";
-        link.textContent = "Add Source Link";
+        link.textContent = "Source Pending Link";
         link.classList.add("disabled");
       }
       document.getElementById("modal").classList.add("open");
@@ -852,6 +1040,12 @@
       if(event && event.target !== document.getElementById("modal")) return;
       document.getElementById("modal").classList.remove("open");
     }
+    document.addEventListener("keydown", function(event){
+      if(!document.getElementById("modal").classList.contains("open")) return;
+      if(event.key === "Escape") closeModal();
+      if(event.key === "ArrowLeft") changeModalImage(-1);
+      if(event.key === "ArrowRight") changeModalImage(1);
+    });
   </script>
 
   <script>

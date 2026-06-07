@@ -2605,6 +2605,113 @@
   }
 }
 
+
+/* v101 Studio Notes: lighter note-card layout */
+.notes-section{
+  padding-top:76px;
+  padding-bottom:86px;
+}
+.notes-header{
+  margin-bottom:26px;
+}
+.notes-track{
+  height:360px;
+  min-height:360px;
+}
+.note-card,
+.note-card.is-active{
+  grid-template-columns:.38fr .62fr;
+  min-height:360px;
+  position:absolute;
+  inset:0;
+  transform:none !important;
+  transition:opacity .42s ease !important;
+}
+.note-card{
+  opacity:0;
+  pointer-events:none;
+}
+.note-card.is-active{
+  opacity:1;
+  pointer-events:auto;
+}
+.note-visual{
+  min-height:360px;
+  padding:44px 48px;
+  gap:18px;
+  align-items:flex-start;
+}
+.note-visual h3{
+  font-size:clamp(26px,2.7vw,40px);
+  line-height:1.08;
+  letter-spacing:.02em;
+  max-width:420px;
+}
+.note-visual p{
+  font-size:15px;
+  line-height:1.65;
+  color:#8a857d;
+}
+.note-visual-dark p,
+.note-visual-dark span{
+  color:rgba(255,255,255,.62);
+}
+.note-content{
+  padding:46px 60px;
+}
+.note-content h3{
+  font-size:clamp(30px,4vw,48px);
+  line-height:1.12;
+  margin:14px 0 18px;
+}
+.note-content p:not(.note-type){
+  font-size:16px;
+  line-height:1.85;
+}
+.note-link{
+  margin-top:28px;
+  min-height:52px;
+}
+@media (max-width:900px){
+  .notes-section{
+    padding-top:58px;
+    padding-bottom:72px;
+  }
+  .notes-track{
+    height:610px;
+    min-height:610px;
+  }
+  .note-card,
+  .note-card.is-active{
+    grid-template-columns:1fr;
+    min-height:610px;
+  }
+  .note-visual{
+    min-height:210px;
+    padding:30px 28px;
+    gap:14px;
+  }
+  .note-visual h3{
+    font-size:32px;
+  }
+  .note-content{
+    padding:30px 28px 34px;
+  }
+  .note-content h3{
+    font-size:30px;
+  }
+}
+@media (max-width:520px){
+  .notes-track{
+    height:650px;
+    min-height:650px;
+  }
+  .note-card,
+  .note-card.is-active{
+    min-height:650px;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />
@@ -2861,9 +2968,9 @@
     <div class="notes-track" data-notes-track>
       <article class="note-card is-active">
         <div class="note-visual note-visual-dark">
-          <span>STUDIO NOTE</span>
-          <h3>Good tools are not just features — they are workflows.</h3>
-          <p>从输入、判断、预览到导出，真正节省时间的是完整流程。</p>
+          <span>01 / STUDIO NOTE</span>
+          <h3>Workflow System</h3>
+          <p>Input → Preview → Export</p>
         </div>
         <div class="note-content">
           <p class="note-type">Studio Note</p>
@@ -2875,9 +2982,9 @@
 
       <article class="note-card">
         <div class="note-visual note-visual-light">
-          <span>DESIGN METHOD</span>
-          <h3>References are not assets. They are directions.</h3>
-          <p>灵感图解决的是方向感，而不是直接替代原创设计。</p>
+          <span>02 / DESIGN METHOD</span>
+          <h3>Reference System</h3>
+          <p>Reference → Method → Original</p>
         </div>
         <div class="note-content">
           <p class="note-type">Design Method</p>
@@ -2889,9 +2996,9 @@
 
       <article class="note-card">
         <div class="note-visual note-visual-grid">
-          <span>AI TRENDS</span>
-          <h3>AI products are moving from generation to organization.</h3>
-          <p>AI 不只是生成内容，也需要帮助用户整理、筛选和交付。</p>
+          <span>03 / AI TRENDS</span>
+          <h3>Organized Creation</h3>
+          <p>Generate → Organize → Deliver</p>
         </div>
         <div class="note-content">
           <p class="note-type">AI Trends</p>

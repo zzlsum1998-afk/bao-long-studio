@@ -727,6 +727,96 @@
       }
     }
 
+
+
+/* v110 Color modal: centered below nav + copy color values */
+.color-values-box{
+  margin-top:18px;
+  padding:14px 16px;
+  border:1px solid rgba(222,217,207,.9);
+  border-radius:18px;
+  background:#faf8f4;
+  color:#5f584f;
+  font-size:13px;
+  line-height:1.7;
+  word-break:break-word;
+}
+.color-copy-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  border:1px solid #111;
+  padding:11px 16px;
+  background:#111;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  transition:.22s ease;
+}
+.color-copy-btn:hover{transform:translateY(-1px);background:#3b3833;border-color:#3b3833}
+.color-copy-btn.copied{background:#6f685f;border-color:#6f685f}
+.modal{
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  padding:126px 24px 36px !important;
+}
+.modal-card{
+  width:min(1120px, calc(100vw - 56px)) !important;
+  height:min(680px, calc(100vh - 168px)) !important;
+  max-height:calc(100vh - 168px) !important;
+  margin:0 auto !important;
+  overflow:hidden !important;
+}
+.modal-img{
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  background:#f4f1eb;
+  padding:24px !important;
+}
+.modal-img.has-image img{
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+  margin:auto !important;
+}
+.modal-copy{
+  height:100% !important;
+  overflow-y:auto !important;
+}
+@media (max-width:900px){
+  .modal{
+    align-items:center !important;
+    overflow:hidden !important;
+    padding:96px 14px 24px !important;
+  }
+  .modal-card{
+    width:calc(100vw - 28px) !important;
+    height:min(760px, calc(100vh - 120px)) !important;
+    max-height:calc(100vh - 120px) !important;
+    overflow:hidden !important;
+  }
+  .modal-img{
+    height:50% !important;
+    min-height:0 !important;
+    padding:16px !important;
+  }
+  .modal-copy{
+    height:50% !important;
+    overflow-y:auto !important;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />
@@ -1668,12 +1758,12 @@
         <button class="close" onclick="closeModal()">×</button>
         <div class="eyebrow" id="modalType">Inspiration</div>
         <h2 id="modalTitle">Inspiration Card</h2>
-        <p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
-        <p><strong>Source:</strong> <span id="modalSource">Source link to be added</span></p>
+        <p id="modalDesc">这里后期可以放色彩说明、适用场景与 Prompt 参考备注。</p>
+        <div class="color-values-box" id="modalColorValues">色值：待提取</div>
         <div class="modal-actions">
-          <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Source Pending Link</a>
+          <button id="copyColorBtn" class="color-copy-btn" type="button" onclick="copyModalColorValues(event)">复制色值</button>
         </div>
-        <small>说明：该卡片只作为灵感索引入口，不提供下载；正式上线时建议使用低清缩略图并标注原始来源。</small>
+        <small>说明：该色卡为 Bao Long Studio 自制色彩参考，可复制色值作为 Prompt 配色参考。</small>
       </div>
     </div>
   </div>
@@ -1683,11 +1773,26 @@
   </footer>
 
   <script>
+    let currentColorValues = "";
+
+    function extractHexValues(text){
+      const matches = String(text || "").match(/#[0-9A-Fa-f]{6}\b/g) || [];
+      return [...new Set(matches.map(value => value.toUpperCase()))];
+    }
+
     function openModal(title, type, imageOrColor, desc, source, url){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;
-      document.getElementById("modalSource").textContent = source;
+      const colors = extractHexValues(desc);
+      currentColorValues = colors.join(" / ");
+      document.getElementById("modalColorValues").textContent = currentColorValues ? "色值：" + currentColorValues : "色值：待补充";
+      const copyBtn = document.getElementById("copyColorBtn");
+      if(copyBtn){
+        copyBtn.textContent = "复制色值";
+        copyBtn.classList.remove("copied");
+        copyBtn.disabled = !currentColorValues;
+      }
       const modalImg = document.getElementById("modalImg");
       if(imageOrColor && /\.(png|jpe?g|webp|gif)$/i.test(imageOrColor)){
         modalImg.classList.add("has-image");
@@ -1698,18 +1803,36 @@
         modalImg.innerHTML = "";
         modalImg.style.background = imageOrColor || "#e6e3dc";
       }
-      const link = document.getElementById("modalLink");
-      if(url && url !== "#"){
-        link.href = url;
-        link.textContent = "View Original Source";
-        link.classList.remove("disabled");
-      }else{
-        link.href = "#";
-        link.textContent = "Source Pending Link";
-        link.classList.add("disabled");
-      }
       document.getElementById("modal").classList.add("open");
     }
+
+    async function copyModalColorValues(event){
+      if(event) event.stopPropagation();
+      if(!currentColorValues) return;
+      const button = document.getElementById("copyColorBtn");
+      try{
+        await navigator.clipboard.writeText(currentColorValues);
+        if(button){
+          button.textContent = "已复制";
+          button.classList.add("copied");
+        }
+      }catch(error){
+        const textarea = document.createElement("textarea");
+        textarea.value = currentColorValues;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        if(button){
+          button.textContent = "已复制";
+          button.classList.add("copied");
+        }
+      }
+    }
+
     function closeModal(event){
       if(event && event.target !== document.getElementById("modal")) return;
       document.getElementById("modal").classList.remove("open");

@@ -693,6 +693,79 @@
   }
 }
 
+
+/* v104 Inspiration modal: center image area + balanced long image size */
+.modal{
+  align-items:center !important;
+  justify-content:center !important;
+  overflow-y:auto !important;
+  padding:92px 24px 44px !important;
+}
+.modal-card{
+  width:min(1180px, calc(100vw - 48px)) !important;
+  max-height:calc(100vh - 136px) !important;
+  height:auto !important;
+  margin:auto !important;
+  overflow:hidden !important;
+}
+.modal-img{
+  min-height:calc(100vh - 136px) !important;
+  max-height:calc(100vh - 136px) !important;
+  height:calc(100vh - 136px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  background:#f4f1eb;
+}
+.modal-img.has-image img{
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:68vh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+  margin:auto !important;
+}
+.modal-img.has-image img.is-long-image{
+  max-height:68vh !important;
+}
+.modal-img.has-image img.is-small-image{
+  max-width:min(100%, 860px) !important;
+  max-height:62vh !important;
+}
+.modal-info{
+  max-height:calc(100vh - 136px) !important;
+  overflow-y:auto !important;
+}
+@media (max-width:900px){
+  .modal{
+    align-items:flex-start !important;
+    padding:82px 14px 34px !important;
+  }
+  .modal-card{
+    width:calc(100vw - 28px) !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .modal-img{
+    min-height:320px !important;
+    height:auto !important;
+    max-height:none !important;
+    padding:18px !important;
+  }
+  .modal-img.has-image img,
+  .modal-img.has-image img.is-long-image,
+  .modal-img.has-image img.is-small-image{
+    max-height:62vh !important;
+  }
+  .modal-info{
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />
@@ -1289,6 +1362,26 @@
 
     observer.observe(document.body, {childList:true, subtree:true});
     document.querySelectorAll('.modal-img.has-image img').forEach(tuneModalImage);
+  })();
+</script>
+
+
+<script>
+  /* v104 Inspiration modal position reset */
+  (function(){
+    function resetOpenModalScroll(){
+      const modal = document.querySelector('.modal');
+      const info = document.querySelector('.modal-info');
+      if(modal && modal.classList.contains('open')) modal.scrollTop = 0;
+      if(info) info.scrollTop = 0;
+    }
+    document.addEventListener('click', function(event){
+      const target = event.target;
+      if(target && target.closest && target.closest('.pin')){
+        requestAnimationFrame(resetOpenModalScroll);
+        setTimeout(resetOpenModalScroll, 80);
+      }
+    });
   })();
 </script>
 

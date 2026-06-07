@@ -2734,6 +2734,70 @@ body{
   }
 }
 
+
+/* v108 mid-desktop hero fix: prevent hero visual overlapping copy */
+@media (min-width:901px) and (max-width:1280px){
+  .product-hero{
+    min-height:auto !important;
+  }
+
+  .hero-product-track{
+    height:auto !important;
+  }
+
+  .hero-product-slide{
+    grid-template-columns:1fr !important;
+    padding:72px 48px 64px !important;
+    gap:28px !important;
+    align-content:start !important;
+    overflow:hidden !important;
+  }
+
+  .hero-product-visual{
+    width:100% !important;
+    max-height:none !important;
+    overflow:hidden !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .hero-product-copy{
+    width:100% !important;
+    max-width:760px !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    text-align:left !important;
+    transform:none !important;
+  }
+
+  .hero-product-copy h1{
+    font-size:clamp(44px,8vw,72px) !important;
+    line-height:.98 !important;
+  }
+
+  .product-mock.plan.hero-banner-card,
+  .prompt-hero-mock.banner-prompt{
+    width:min(680px,100%) !important;
+    height:360px !important;
+    aspect-ratio:auto !important;
+  }
+
+  .product-mock.resume.banner-resume{
+    width:min(720px,100%) !important;
+    min-height:380px !important;
+  }
+
+  .reference-hero-mock.banner-reference{
+    width:min(680px,100%) !important;
+    height:390px !important;
+  }
+
+  .hero-actions{
+    justify-content:flex-start !important;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

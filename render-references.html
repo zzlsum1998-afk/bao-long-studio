@@ -640,13 +640,14 @@
     }
 
 
-/* v102 Inspiration modal: long images stay visible and scrollable */
+/* v103 Inspiration modal: balanced image size + safe top spacing */
 .modal{
   align-items:flex-start !important;
   overflow-y:auto !important;
-  padding:96px 24px 48px !important;
+  padding:92px 24px 48px !important;
 }
 .modal-card{
+  width:min(1180px, calc(100vw - 48px)) !important;
   max-height:none !important;
   height:auto !important;
   margin:0 auto !important;
@@ -662,16 +663,33 @@
   background:#f4f1eb;
 }
 .modal-img.has-image img{
-  width:100% !important;
+  width:auto !important;
   height:auto !important;
-  max-height:none !important;
+  max-width:100% !important;
+  max-height:72vh !important;
   object-fit:contain !important;
   object-position:top center !important;
   display:block !important;
+  margin:0 auto !important;
+}
+.modal-img.has-image img.is-long-image{
+  max-height:none !important;
+}
+.modal-img.has-image img.is-small-image{
+  max-width:min(100%, 860px) !important;
 }
 @media (max-width:900px){
   .modal{
-    padding:84px 14px 34px !important;
+    padding:82px 14px 34px !important;
+  }
+  .modal-card{
+    width:calc(100vw - 28px) !important;
+  }
+  .modal-img.has-image img{
+    max-height:68vh !important;
+  }
+  .modal-img.has-image img.is-long-image{
+    max-height:none !important;
   }
 }
 
@@ -1567,6 +1585,41 @@
       panel.classList.remove('open');
     });
   </script>
+
+
+<script>
+  /* v103 Inspiration modal image sizing */
+  (function(){
+    function tuneModalImage(img){
+      if(!img) return;
+      function apply(){
+        const w = img.naturalWidth || 0;
+        const h = img.naturalHeight || 0;
+        img.classList.remove('is-long-image','is-small-image');
+        if(w && h){
+          const ratio = h / w;
+          if(ratio > 1.35){
+            img.classList.add('is-long-image');
+          }
+          if(w < 900 && h < 900){
+            img.classList.add('is-small-image');
+          }
+        }
+      }
+      if(img.complete) apply();
+      else img.addEventListener('load', apply, {once:true});
+    }
+
+    const observer = new MutationObserver(function(){
+      document.querySelectorAll('.modal-img.has-image img').forEach(tuneModalImage);
+      const modal = document.querySelector('.modal');
+      if(modal && modal.classList.contains('open')) modal.scrollTop = 0;
+    });
+
+    observer.observe(document.body, {childList:true, subtree:true});
+    document.querySelectorAll('.modal-img.has-image img').forEach(tuneModalImage);
+  })();
+</script>
 
 </body>
 

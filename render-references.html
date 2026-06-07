@@ -351,6 +351,136 @@
     .modal-source-btn.disabled{background:#f1eee8;color:#9a9287;pointer-events:none}
     .modal-copy small{display:block;color:#8a8378;line-height:1.7;margin-top:18px}
 
+
+/* v109 Inspiration Prompt UI: local visual-parameter mapping, API hook reserved */
+.pin-prompt-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:2px 0 13px;
+  border:1px solid rgba(35,32,28,.12);
+  border-radius:999px;
+  padding:8px 12px;
+  background:#111;
+  color:#fff;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.pin-prompt-btn:hover{
+  transform:translateY(-1px);
+  background:#2b2925;
+  box-shadow:0 10px 22px rgba(17,17,17,.12);
+}
+.modal-copy{
+  overflow-y:auto;
+}
+.prompt-generate-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:999px;
+  padding:11px 16px;
+  background:#f4efe6;
+  color:#1f1c18;
+  font-size:14px;
+  cursor:pointer;
+}
+.prompt-generate-btn:hover{background:#ebe2d4}
+.prompt-extract-panel{
+  display:none;
+  margin-top:18px;
+  padding:18px;
+  border:1px solid rgba(222,217,207,.9);
+  border-radius:22px;
+  background:#fbfaf6;
+}
+.prompt-extract-panel.open{display:block}
+.prompt-extract-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+.prompt-extract-head strong{
+  display:block;
+  font-size:15px;
+  color:#26221d;
+  margin-bottom:5px;
+}
+.prompt-extract-head span{
+  display:block;
+  color:#817970;
+  font-size:12px;
+  line-height:1.55;
+}
+.prompt-param-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:14px 0;
+}
+.prompt-param{
+  border:1px solid rgba(222,217,207,.75);
+  border-radius:16px;
+  padding:10px 12px;
+  background:#fff;
+}
+.prompt-param b{
+  display:block;
+  color:#8a8176;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.prompt-param span{
+  display:block;
+  color:#3c3832;
+  font-size:12px;
+  line-height:1.55;
+}
+.prompt-preview-box{
+  margin-top:12px;
+  border-radius:16px;
+  background:#1f1d1a;
+  color:#f8f4ec;
+  padding:13px 14px;
+  font-size:12px;
+  line-height:1.7;
+  word-break:break-word;
+}
+.prompt-apply-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.prompt-apply-btn,
+.prompt-copy-btn{
+  border:0;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:13px;
+  cursor:pointer;
+}
+.prompt-apply-btn{background:#111;color:#fff}
+.prompt-copy-btn{background:#eee7da;color:#312c25}
+.prompt-note{
+  margin-top:11px;
+  color:#8a8378;
+  font-size:11px;
+  line-height:1.6;
+}
+@media (max-width:720px){
+  .prompt-param-grid{grid-template-columns:1fr}
+  .pin-prompt-btn{width:100%;margin-top:0}
+}
+
   
 
     /* Mobile refinement: keep desktop unchanged, improve small-screen readability */
@@ -1490,6 +1620,22 @@
         <p class="modal-source-note" id="modalSource">来源信息</p>
         <div class="modal-actions">
           <a id="modalLink" class="modal-source-btn disabled" href="#" target="_blank" rel="noopener noreferrer">Add Source Link</a>
+          <button id="modalPromptBtn" class="prompt-generate-btn" type="button" onclick="generatePromptFromReference(event)">生成 Prompt</button>
+        </div>
+        <div id="promptExtractPanel" class="prompt-extract-panel" aria-live="polite">
+          <div class="prompt-extract-head">
+            <div>
+              <strong>已提取创作参数</strong>
+              <span>基于风格、色调、构图与氛围等通用视觉语言生成，不复制原图内容。</span>
+            </div>
+          </div>
+          <div class="prompt-param-grid" id="promptParamGrid"></div>
+          <div class="prompt-preview-box" id="promptPreviewText"></div>
+          <div class="prompt-apply-row">
+            <button class="prompt-apply-btn" type="button" onclick="applyPromptToTool(event)">应用到 Prompt 工具</button>
+            <button class="prompt-copy-btn" type="button" onclick="copyExtractedPrompt(event)">复制 Prompt</button>
+          </div>
+          <div class="prompt-note" id="promptExtractNote">接口已预留：后期可将本地映射替换为 AI 视觉分析 API。</div>
         </div>
         <small>说明：该卡片只作为灵感索引入口，不提供下载；正式上线时建议使用低清缩略图并标注原始来源。</small>
       </div>
@@ -1555,6 +1701,9 @@
         link.textContent = "Source Pending Link";
         link.classList.add("disabled");
       }
+      preparePromptReference(title, type, images, desc);
+      const promptBtn = document.getElementById("modalPromptBtn");
+      if(promptBtn) promptBtn.textContent = "生成 Prompt";
       document.getElementById("modal").classList.add("open");
     }
     function closeModal(event){
@@ -1567,6 +1716,177 @@
       if(event.key === "ArrowLeft") changeModalImage(-1);
       if(event.key === "ArrowRight") changeModalImage(1);
     });
+
+
+    let currentPromptReference = null;
+    let currentPromptResult = null;
+
+    function getBoardPreset(type, text){
+      const lower = (type + ' ' + text).toLowerCase();
+      const isSection = lower.includes('section');
+      const isRender = lower.includes('render');
+      const isPlan = lower.includes('plan');
+      let preset = {
+        style: 'landscape design inspiration, refined portfolio presentation',
+        colorTone: 'soft neutral palette, low saturation, warm white background',
+        composition: 'clean visual hierarchy, generous white space, balanced layout',
+        lighting: 'soft diffused light, gentle shadow, no harsh highlight',
+        mood: 'calm, professional, elegant, design-focused',
+        visualLanguage: 'minimal annotation, clear spatial storytelling, refined graphic expression',
+        prompt: 'landscape design visual, refined portfolio presentation, soft neutral palette, low saturation, clean visual hierarchy, generous white space, calm professional atmosphere, minimal annotation, refined graphic expression --ar 3:4 --raw --stylize 500'
+      };
+      if(isPlan){
+        preset = {
+          style: 'landscape masterplan, site plan, portfolio board graphic',
+          colorTone: 'muted green, sand beige, soft grey, off-white background',
+          composition: 'top-down plan view, clear zoning, readable circulation, balanced negative space',
+          lighting: 'flat clean graphic lighting, matte paper texture',
+          mood: 'rational, fresh, ecological, calm and organized',
+          visualLanguage: 'fine linework, soft planting textures, subtle annotations, diagrammatic clarity',
+          prompt: 'landscape masterplan, site plan, top-down plan view, muted green and sand beige palette, soft grey, off-white background, clear zoning, readable circulation, balanced negative space, fine linework, soft planting textures, subtle annotations, ecological calm atmosphere, matte paper texture --ar 3:4 --raw --stylize 500'
+        };
+      }
+      if(isSection){
+        preset = {
+          style: 'architectural landscape section, sectional perspective, portfolio diagram',
+          colorTone: 'warm beige, soft grey-green, cream white, low saturation',
+          composition: 'horizontal cutaway composition, layered terrain, human-scale spatial sequence',
+          lighting: 'soft ambient light, gentle depth, matte drawing texture',
+          mood: 'analytical, quiet, delicate, narrative',
+          visualLanguage: 'section cut line, terrain layers, planting silhouettes, subtle scale figures, clean labels',
+          prompt: 'architectural landscape section, sectional perspective, horizontal cutaway composition, layered terrain, human-scale spatial sequence, warm beige and soft grey-green palette, cream white background, matte drawing texture, planting silhouettes, subtle scale figures, clean labels, quiet analytical atmosphere --ar 3:4 --raw --stylize 500'
+        };
+      }
+      if(isRender){
+        preset = {
+          style: 'landscape architectural rendering, editorial visualization, atmospheric scene',
+          colorTone: 'natural muted green, warm stone beige, soft daylight, low saturation',
+          composition: 'eye-level or aerial perspective, strong foreground-midground-background depth, clear focal point',
+          lighting: 'soft diffused daylight, gentle shadows, realistic material response',
+          mood: 'immersive, peaceful, premium, lived-in but clean',
+          visualLanguage: 'realistic planting, architectural massing, human activity, refined material texture',
+          prompt: 'landscape architectural rendering, editorial visualization, atmospheric scene, natural muted green and warm stone beige palette, soft diffused daylight, gentle shadows, eye-level or aerial perspective, clear focal point, realistic planting, architectural massing, human activity, refined material texture, peaceful premium atmosphere --ar 3:4 --raw --stylize 500'
+        };
+      }
+      if(lower.includes('watercolor') || lower.includes('hand-drawn') || lower.includes('sketch')){
+        preset.style += ', hand-drawn watercolor texture';
+        preset.visualLanguage += ', soft pigment edges, paper grain';
+        preset.prompt = preset.prompt.replace('--ar', 'hand-drawn watercolor texture, soft pigment edges, paper grain, --ar');
+      }
+      if(lower.includes('axon') || lower.includes('axonometric')){
+        preset.composition = 'axonometric composition, layered spatial structure, readable depth and hierarchy';
+        preset.prompt = preset.prompt.replace(/(top-down plan view|horizontal cutaway composition|eye-level or aerial perspective)/, 'axonometric composition');
+      }
+      if(lower.includes('forest') || lower.includes('green') || lower.includes('ecological')){
+        preset.colorTone = 'muted botanical green, moss green, warm beige, off-white, low saturation';
+      }
+      if(lower.includes('pink') || lower.includes('pastel')){
+        preset.colorTone = 'soft pastel pink, cream white, muted green, warm beige, low saturation';
+      }
+      if(lower.includes('waterfront') || lower.includes('water')){
+        preset.mood = 'open, breezy, calm, waterfront atmosphere';
+        preset.visualLanguage += ', reflective water surface, open horizon';
+      }
+      return preset;
+    }
+
+    async function analyzeImageForPrompt(reference){
+      // API hook reserved: replace this local mapping with fetch('/api/analyze-image') later.
+      // return fetch('/api/analyze-image', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(reference) }).then(res => res.json());
+      return getBoardPreset(reference.type, [reference.title, reference.desc, reference.imageUrl || ''].join(' '));
+    }
+
+    function preparePromptReference(title, type, images, desc){
+      currentPromptReference = {
+        title: title,
+        type: type,
+        imageUrl: Array.isArray(images) ? images[0] : images,
+        desc: desc
+      };
+      currentPromptResult = null;
+      const panel = document.getElementById('promptExtractPanel');
+      const grid = document.getElementById('promptParamGrid');
+      const preview = document.getElementById('promptPreviewText');
+      if(panel) panel.classList.remove('open');
+      if(grid) grid.innerHTML = '';
+      if(preview) preview.textContent = '';
+    }
+
+    async function generatePromptFromReference(event){
+      if(event) event.stopPropagation();
+      if(!currentPromptReference) return;
+      const btn = document.getElementById('modalPromptBtn');
+      const panel = document.getElementById('promptExtractPanel');
+      const grid = document.getElementById('promptParamGrid');
+      const preview = document.getElementById('promptPreviewText');
+      if(btn) btn.textContent = '提取中...';
+      currentPromptResult = await analyzeImageForPrompt(currentPromptReference);
+      const rows = [
+        ['Style', currentPromptResult.style],
+        ['Color Tone', currentPromptResult.colorTone],
+        ['Composition', currentPromptResult.composition],
+        ['Lighting', currentPromptResult.lighting],
+        ['Mood', currentPromptResult.mood],
+        ['Visual Language', currentPromptResult.visualLanguage]
+      ];
+      if(grid){
+        grid.innerHTML = rows.map(function(row){
+          return '<div class="prompt-param"><b>' + row[0] + '</b><span>' + row[1] + '</span></div>';
+        }).join('');
+      }
+      if(preview) preview.textContent = currentPromptResult.prompt;
+      if(panel) panel.classList.add('open');
+      if(btn) btn.textContent = '重新生成 Prompt';
+    }
+
+    function applyPromptToTool(event){
+      if(event) event.stopPropagation();
+      if(!currentPromptResult) return;
+      const payload = {
+        source: 'inspiration-board',
+        title: currentPromptReference ? currentPromptReference.title : '',
+        type: currentPromptReference ? currentPromptReference.type : '',
+        imageUrl: currentPromptReference ? currentPromptReference.imageUrl : '',
+        promptData: currentPromptResult
+      };
+      try{ localStorage.setItem('baolongPromptSeed', JSON.stringify(payload)); }catch(err){}
+      window.location.href = 'prompt-tool.html?from=inspiration';
+    }
+
+    function copyExtractedPrompt(event){
+      if(event) event.stopPropagation();
+      if(!currentPromptResult) return;
+      const text = currentPromptResult.prompt;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text);
+      }
+      const note = document.getElementById('promptExtractNote');
+      if(note) note.textContent = '已复制 Prompt。接口已预留，后期可替换为 AI 视觉分析 API。';
+    }
+
+    function injectPromptButtons(){
+      document.querySelectorAll('.pin .pin-body').forEach(function(body){
+        if(body.querySelector('.pin-prompt-btn')) return;
+        const btn = document.createElement('button');
+        btn.className = 'pin-prompt-btn';
+        btn.type = 'button';
+        btn.textContent = '生成 Prompt';
+        btn.addEventListener('click', function(event){
+          event.stopPropagation();
+          const pin = body.closest('.pin');
+          if(pin) pin.click();
+          setTimeout(function(){ generatePromptFromReference(); }, 80);
+        });
+        const tags = body.querySelector('.pin-tags');
+        if(tags && tags.nextSibling){
+          body.insertBefore(btn, tags.nextSibling);
+        }else{
+          body.insertBefore(btn, body.firstChild);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', injectPromptButtons);
   </script>
 
   <script>

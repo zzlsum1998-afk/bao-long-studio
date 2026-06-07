@@ -2377,9 +2377,9 @@
 }
 .notes-header h2{
   margin:0;
-  font-size:clamp(42px,6vw,76px);
-  line-height:.95;
-  letter-spacing:.04em;
+  font-size:clamp(30px,4vw,54px);
+  line-height:1.05;
+  letter-spacing:.02em;
 }
 .notes-header p{
   margin:18px 0 0;
@@ -2532,7 +2532,7 @@
 @media (max-width:900px){
   .notes-section{padding:58px 20px 72px}
   .notes-header{display:block;margin-bottom:24px}
-  .notes-header h2{font-size:42px}
+  .notes-header h2{font-size:clamp(34px,11vw,54px);line-height:1.02}
   .notes-track{min-height:auto}
   .note-card{
     grid-template-columns:1fr;
@@ -3880,7 +3880,9 @@
     }
 
     function updateNews(){
-      document.getElementById("newsTrack").style.transform = `translateX(-${activeSlide * 100}%)`;
+      const track = document.getElementById("newsTrack");
+      if(!track) return;
+      track.style.transform = `translateX(-${activeSlide * 100}%)`;
     }
 
     function nextNews(){
@@ -3957,7 +3959,8 @@
     let newsTimer = null;
 
     function startNewsAutoPlay(){
-      if(newsTimer) return;
+      const newsCarousel = document.getElementById("newsCarousel");
+      if(!newsCarousel || newsTimer) return;
       newsTimer = setInterval(nextNews, 7600);
     }
 
@@ -4013,11 +4016,16 @@
   (function(){
     const slider = document.querySelector('[data-notes-slider]');
     if(!slider) return;
+
     const cards = Array.from(slider.querySelectorAll('.note-card'));
     const prev = slider.querySelector('[data-notes-prev]');
     const next = slider.querySelector('[data-notes-next]');
+    if(!cards.length) return;
+
     let index = cards.findIndex(card => card.classList.contains('is-active'));
     if(index < 0) index = 0;
+
+    let notesTimer = null;
 
     function show(nextIndex){
       cards[index].classList.remove('is-active');
@@ -4025,8 +4033,36 @@
       cards[index].classList.add('is-active');
     }
 
-    if(prev) prev.addEventListener('click', function(){ show(index - 1); });
-    if(next) next.addEventListener('click', function(){ show(index + 1); });
+    function nextNote(){
+      show(index + 1);
+    }
+
+    function startNotesAutoPlay(){
+      if(notesTimer || cards.length <= 1) return;
+      notesTimer = setInterval(nextNote, 6200);
+    }
+
+    function stopNotesAutoPlay(){
+      if(!notesTimer) return;
+      clearInterval(notesTimer);
+      notesTimer = null;
+    }
+
+    if(prev) prev.addEventListener('click', function(){
+      show(index - 1);
+      stopNotesAutoPlay();
+      startNotesAutoPlay();
+    });
+
+    if(next) next.addEventListener('click', function(){
+      show(index + 1);
+      stopNotesAutoPlay();
+      startNotesAutoPlay();
+    });
+
+    slider.addEventListener('mouseenter', stopNotesAutoPlay);
+    slider.addEventListener('mouseleave', startNotesAutoPlay);
+    startNotesAutoPlay();
   })();
 </script>
 

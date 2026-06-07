@@ -2558,6 +2558,53 @@
   .notes-next{right:10px}
 }
 
+
+/* v100 Studio Notes: fixed card size + fade-only transition */
+.notes-track{
+  height:420px;
+  min-height:420px;
+}
+.note-card{
+  position:absolute;
+  inset:0;
+  min-height:420px;
+  transform:none !important;
+  transition:opacity .42s ease !important;
+}
+.note-card.is-active{
+  position:absolute;
+  opacity:1;
+  pointer-events:auto;
+  transform:none !important;
+}
+.note-visual{
+  min-height:420px;
+}
+@media (max-width:900px){
+  .notes-track{
+    height:720px;
+    min-height:720px;
+  }
+  .note-card,
+  .note-card.is-active{
+    position:absolute;
+    min-height:720px;
+  }
+  .note-visual{
+    min-height:260px;
+  }
+}
+@media (max-width:520px){
+  .notes-track{
+    height:760px;
+    min-height:760px;
+  }
+  .note-card,
+  .note-card.is-active{
+    min-height:760px;
+  }
+}
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

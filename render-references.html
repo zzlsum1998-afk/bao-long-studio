@@ -640,129 +640,71 @@
     }
 
 
-/* v103 Inspiration modal: balanced image size + safe top spacing */
+
+
+
+/* v105 Inspiration modal: centered below fixed nav, no oversized long image */
 .modal{
-  align-items:flex-start !important;
-  overflow-y:auto !important;
-  padding:92px 24px 48px !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  padding:126px 24px 36px !important;
 }
 .modal-card{
-  width:min(1180px, calc(100vw - 48px)) !important;
-  max-height:none !important;
-  height:auto !important;
+  width:min(1120px, calc(100vw - 56px)) !important;
+  height:min(680px, calc(100vh - 168px)) !important;
+  max-height:calc(100vh - 168px) !important;
   margin:0 auto !important;
+  overflow:hidden !important;
 }
 .modal-img{
-  height:auto !important;
-  max-height:none !important;
+  height:100% !important;
   min-height:0 !important;
-  display:flex !important;
-  align-items:flex-start !important;
-  justify-content:center !important;
-  overflow:visible !important;
-  background:#f4f1eb;
-}
-.modal-img.has-image img{
-  width:auto !important;
-  height:auto !important;
-  max-width:100% !important;
-  max-height:72vh !important;
-  object-fit:contain !important;
-  object-position:top center !important;
-  display:block !important;
-  margin:0 auto !important;
-}
-.modal-img.has-image img.is-long-image{
   max-height:none !important;
-}
-.modal-img.has-image img.is-small-image{
-  max-width:min(100%, 860px) !important;
-}
-@media (max-width:900px){
-  .modal{
-    padding:82px 14px 34px !important;
-  }
-  .modal-card{
-    width:calc(100vw - 28px) !important;
-  }
-  .modal-img.has-image img{
-    max-height:68vh !important;
-  }
-  .modal-img.has-image img.is-long-image{
-    max-height:none !important;
-  }
-}
-
-
-/* v104 Inspiration modal: center image area + balanced long image size */
-.modal{
-  align-items:center !important;
-  justify-content:center !important;
-  overflow-y:auto !important;
-  padding:92px 24px 44px !important;
-}
-.modal-card{
-  width:min(1180px, calc(100vw - 48px)) !important;
-  max-height:calc(100vh - 136px) !important;
-  height:auto !important;
-  margin:auto !important;
-  overflow:hidden !important;
-}
-.modal-img{
-  min-height:calc(100vh - 136px) !important;
-  max-height:calc(100vh - 136px) !important;
-  height:calc(100vh - 136px) !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
   overflow:hidden !important;
   background:#f4f1eb;
+  padding:24px !important;
 }
-.modal-img.has-image img{
+.modal-img.has-image img,
+.modal-img.has-image img.is-long-image,
+.modal-img.has-image img.is-small-image{
   width:auto !important;
   height:auto !important;
   max-width:100% !important;
-  max-height:68vh !important;
+  max-height:100% !important;
   object-fit:contain !important;
   object-position:center center !important;
   display:block !important;
   margin:auto !important;
 }
-.modal-img.has-image img.is-long-image{
-  max-height:68vh !important;
-}
-.modal-img.has-image img.is-small-image{
-  max-width:min(100%, 860px) !important;
-  max-height:62vh !important;
-}
 .modal-info{
-  max-height:calc(100vh - 136px) !important;
+  height:100% !important;
+  max-height:none !important;
   overflow-y:auto !important;
 }
 @media (max-width:900px){
   .modal{
-    align-items:flex-start !important;
-    padding:82px 14px 34px !important;
+    align-items:center !important;
+    overflow:hidden !important;
+    padding:96px 14px 24px !important;
   }
   .modal-card{
     width:calc(100vw - 28px) !important;
-    max-height:none !important;
-    overflow:visible !important;
+    height:min(760px, calc(100vh - 120px)) !important;
+    max-height:calc(100vh - 120px) !important;
+    overflow:hidden !important;
   }
   .modal-img{
-    min-height:320px !important;
-    height:auto !important;
-    max-height:none !important;
-    padding:18px !important;
-  }
-  .modal-img.has-image img,
-  .modal-img.has-image img.is-long-image,
-  .modal-img.has-image img.is-small-image{
-    max-height:62vh !important;
+    height:50% !important;
+    min-height:0 !important;
+    padding:16px !important;
   }
   .modal-info{
-    max-height:none !important;
-    overflow:visible !important;
+    height:50% !important;
+    overflow-y:auto !important;
   }
 }
 
@@ -1694,25 +1636,6 @@
   })();
 </script>
 
-
-<script>
-  /* v104 Inspiration modal position reset */
-  (function(){
-    function resetOpenModalScroll(){
-      const modal = document.querySelector('.modal');
-      const info = document.querySelector('.modal-info');
-      if(modal && modal.classList.contains('open')) modal.scrollTop = 0;
-      if(info) info.scrollTop = 0;
-    }
-    document.addEventListener('click', function(event){
-      const target = event.target;
-      if(target && target.closest && target.closest('.pin')){
-        requestAnimationFrame(resetOpenModalScroll);
-        setTimeout(resetOpenModalScroll, 80);
-      }
-    });
-  })();
-</script>
 
 </body>
 

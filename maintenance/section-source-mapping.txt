@@ -1,0 +1,171 @@
+Bao Long Studio · Section Inspiration Mapping
+Version: v93
+
+Card 01 | Streetscape Section Perspective
+- Original file: 1.jpg
+- New file: section-ref-01-pinterest-streetscape-section-perspective.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/318348267411208068/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 02 | Exploded Landscape Section
+- Original file: 2.jpg
+- New file: section-ref-02-pinterest-exploded-landscape-section.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/8655424272009616/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 03 | Topographic Section Sketch
+- Original file: 3.jpg
+- New file: section-ref-03-pinterest-topographic-section-sketch.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/620159811221024086/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 04 | Courtyard Section Board
+- Original file: 4.jpg
+- New file: section-ref-04-pinterest-courtyard-section-board.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/914862421709928/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 05 | Warm Interior Section Board
+- Original file: 5.jpg
+- New file: section-ref-05-pinterest-warm-interior-section-board.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/1113303971654165559/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 06 | Atmospheric Building Section
+- Original file: 6.jpg
+- New file: section-ref-06-pinterest-atmospheric-building-section.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/424112489932151772/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 07 | Axonometric Section Analysis
+- Original file: 7.jpg
+- New file: section-ref-07-pinterest-axonometric-section-analysis.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/1102678290051962884/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 08 | Exploded Corner Axon
+- Original file: 8.jpg
+- New file: section-ref-08-pinterest-exploded-corner-axon.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/169096161005288319/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 09 | Hand-Drawn Site Section
+- Original file: 9.jpg
+- New file: section-ref-09-pinterest-hand-drawn-site-section.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/1108589264537404459/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 10 | Heinrich Hertz School Exploded Axon
+- Original file: 10.png
+- New file: section-ref-10-heinrich-hertz-school-exploded-axon.webp
+- Source: NORD Architects
+- URL: https://www.nordarchitects.dk/projects/heinrich-hertz-school/
+- Pinterest: No
+- Multi-image card: No
+
+Card 11 | Residential Block Pink Section
+- Original file: 11.jpg
+- New file: section-ref-11-ab-basis-residential-block-pink-section.webp
+- Source: AB Basis
+- URL: https://ab-basis.com/en/projects/residential-block/
+- Pinterest: No
+- Multi-image card: No
+
+Card 12 | Soft Housing Section Poster
+- Original file: 12.jpg
+- New file: section-ref-12-pinterest-soft-housing-section-poster.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/859976491371219694/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 13 | Green Living Section
+- Original file: 13.webp
+- New file: section-ref-13-juliana-kanishi-green-living-section.webp
+- Source: Juliana Kanishi
+- URL: https://julianakanishi.com/new-page-5
+- Pinterest: No
+- Multi-image card: No
+
+Card 14 | Blue Cutaway School Section
+- Original file: 14.jpg
+- New file: section-ref-14-dezeen-blue-cutaway-school-section.webp
+- Source: Dezeen
+- URL: https://www.dezeen.com/2024/06/02/architecture-projects-london-southbank-university-dezeen-schoolshows/?utm_source=Pinterest&utm_medium=organic
+- Pinterest: No
+- Multi-image card: No
+
+Card 15 | Transparent Urban Section
+- Original file: 15.jpg
+- New file: section-ref-15-pinterest-transparent-urban-section.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/626844841915554145/
+- Pinterest: Yes
+- Multi-image card: No
+
+Card 16 | Purple Tower Section
+- Original file: 16.jpg
+- New file: section-ref-16-archdaily-purple-tower-section.webp
+- Source: ArchDaily
+- URL: https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far
+- Pinterest: No
+- Multi-image card: No
+
+Card 17 | House Section Technical Drawing
+- Original file: 17.jpg
+- New file: section-ref-17-archdaily-house-section-technical-drawing.webp
+- Source: ArchDaily
+- URL: https://www.archdaily.com/878262/the-80-best-architecture-drawings-of-2017-so-far
+- Pinterest: No
+- Multi-image card: No
+
+Card 18 | Molkenmarkt Axon Series
+- Original file: 18-1.png
+- New file: section-ref-18-molkenmarkt-urban-axon-series-01.webp
+- Source: OS Arkitekter
+- URL: https://osark.dk/molkenmarkt
+- Pinterest: No
+- Multi-image card: Yes
+
+Card 18 | Molkenmarkt Axon Series
+- Original file: 18-2.png
+- New file: section-ref-18-molkenmarkt-urban-axon-series-02.webp
+- Source: OS Arkitekter
+- URL: https://osark.dk/molkenmarkt
+- Pinterest: No
+- Multi-image card: Yes
+
+Card 19 | P-Hus Else Green Section
+- Original file: 19.png
+- New file: section-ref-19-p-hus-else-green-section.webp
+- Source: OS Arkitekter
+- URL: https://osark.dk/p-hus-else
+- Pinterest: No
+- Multi-image card: No
+
+Card 20 | Red House Section
+- Original file: 20.jpg
+- New file: section-ref-20-pinterest-red-house-section.webp
+- Source: Pinterest
+- URL: https://www.pinterest.com/pin/626844841913289489/
+- Pinterest: Yes
+- Multi-image card: No
+

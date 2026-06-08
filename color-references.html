@@ -820,25 +820,23 @@
 
 
 
-
-
-/* v117 Mobile Inspiration Modal: image-first compact layout */
+/* v115 Color Board mobile modal: centered below nav, compact card */
 @media (max-width:900px){
   .modal{
     align-items:center !important;
     justify-content:center !important;
     overflow:hidden !important;
-    padding:88px 12px 24px !important;
+    padding:92px 16px 28px !important;
   }
 
   .modal-card{
     width:min(92vw, 560px) !important;
     max-width:560px !important;
-    height:min(78vh, calc(100vh - 118px)) !important;
-    max-height:calc(100vh - 118px) !important;
+    height:auto !important;
+    max-height:calc(100vh - 132px) !important;
     min-height:0 !important;
     margin:0 auto !important;
-    border-radius:26px !important;
+    border-radius:28px !important;
     overflow:hidden !important;
     display:flex !important;
     flex-direction:column !important;
@@ -846,26 +844,23 @@
 
   .modal-img,
   .modal-img.has-image{
-    width:100% !important;
-    height:42% !important;
-    min-height:220px !important;
-    max-height:340px !important;
-    padding:14px !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:34vh !important;
     overflow:hidden !important;
+    padding:14px !important;
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    background:#f4f1eb !important;
-    flex:0 0 42% !important;
+    background:#f4f1eb;
+    flex:0 0 auto !important;
   }
 
-  .modal-img.has-image img,
-  .modal-img.has-image img.is-long-image,
-  .modal-img.has-image img.is-small-image{
+  .modal-img.has-image img{
     width:auto !important;
     height:auto !important;
     max-width:100% !important;
-    max-height:100% !important;
+    max-height:30vh !important;
     object-fit:contain !important;
     object-position:center center !important;
     display:block !important;
@@ -873,58 +868,31 @@
   }
 
   .modal-info{
-    width:100% !important;
-    height:58% !important;
+    height:auto !important;
     min-height:0 !important;
-    max-height:none !important;
+    max-height:calc(100vh - 132px - 34vh) !important;
     overflow-y:auto !important;
-    padding:24px 24px 30px !important;
-    flex:1 1 58% !important;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  .modal-info .eyebrow,
-  .modal-info .modal-eyebrow{
-    font-size:11px !important;
-    letter-spacing:.24em !important;
-    margin-bottom:10px !important;
+    padding:26px 24px 30px !important;
+    flex:1 1 auto !important;
   }
 
   .modal-info h2{
-    font-size:clamp(26px,8vw,36px) !important;
-    line-height:1.08 !important;
-    margin:6px 0 14px !important;
-    letter-spacing:.01em !important;
+    font-size:clamp(30px,9vw,46px) !important;
+    line-height:1.05 !important;
+    margin:8px 0 16px !important;
     word-break:normal !important;
     overflow-wrap:break-word !important;
   }
 
-  .modal-info h3{
-    font-size:24px !important;
-    line-height:1.15 !important;
-  }
-
-  .modal-info p,
-  .modal-source-note,
-  .source-block,
-  .modal-info li{
-    font-size:14px !important;
-    line-height:1.68 !important;
+  .modal-info p{
+    font-size:15px !important;
+    line-height:1.75 !important;
   }
 
   .modal-close{
-    top:12px !important;
-    right:12px !important;
-    width:44px !important;
-    height:44px !important;
-    z-index:30 !important;
-  }
-
-  .modal-nav,
-  .modal-arrow,
-  .modal-prev,
-  .modal-next{
-    transform:scale(.86) !important;
+    top:14px !important;
+    right:14px !important;
+    z-index:20 !important;
   }
 
   .copy-box,
@@ -932,53 +900,34 @@
   .color-values,
   .palette-values{
     max-height:none !important;
-    overflow:visible !important;
-  }
-
-  .copy-btn,
-  .modal-info button,
-  .modal-info .source-link{
-    font-size:14px !important;
   }
 }
 
 @media (max-width:520px){
   .modal{
-    padding:84px 10px 22px !important;
+    padding:88px 14px 26px !important;
   }
 
   .modal-card{
-    width:calc(100vw - 20px) !important;
+    width:calc(100vw - 28px) !important;
     max-width:420px !important;
-    height:min(80vh, calc(100vh - 110px)) !important;
-    max-height:calc(100vh - 110px) !important;
+    max-height:calc(100vh - 124px) !important;
     border-radius:24px !important;
   }
 
   .modal-img,
   .modal-img.has-image{
-    height:40% !important;
-    min-height:205px !important;
-    max-height:310px !important;
-    flex-basis:40% !important;
+    max-height:30vh !important;
     padding:12px !important;
   }
 
+  .modal-img.has-image img{
+    max-height:26vh !important;
+  }
+
   .modal-info{
-    height:60% !important;
-    flex-basis:60% !important;
-    padding:22px 20px 28px !important;
-  }
-
-  .modal-info h2{
-    font-size:clamp(26px,9vw,34px) !important;
-  }
-
-  .modal-info p,
-  .modal-source-note,
-  .source-block,
-  .modal-info li{
-    font-size:13.5px !important;
+    max-height:calc(100vh - 124px - 30vh) !important;
+    padding:24px 20px 28px !important;
   }
 }
 

@@ -773,68 +773,115 @@
 
 
 
-/* v105 Inspiration modal: centered below fixed nav, no oversized long image */
-.modal{
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  padding:126px 24px 36px !important;
-}
-.modal-card{
-  width:min(1120px, calc(100vw - 56px)) !important;
-  height:min(680px, calc(100vh - 168px)) !important;
-  max-height:calc(100vh - 168px) !important;
-  margin:0 auto !important;
-  overflow:hidden !important;
-}
-.modal-img{
-  height:100% !important;
-  min-height:0 !important;
-  max-height:none !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  background:#f4f1eb;
-  padding:24px !important;
-}
-.modal-img.has-image img,
-.modal-img.has-image img.is-long-image,
-.modal-img.has-image img.is-small-image{
-  width:auto !important;
-  height:auto !important;
-  max-width:100% !important;
-  max-height:100% !important;
-  object-fit:contain !important;
-  object-position:center center !important;
-  display:block !important;
-  margin:auto !important;
-}
-.modal-info{
-  height:100% !important;
-  max-height:none !important;
-  overflow-y:auto !important;
-}
+
+
+/* v116 Inspiration mobile modal: complete image preview */
 @media (max-width:900px){
   .modal{
     align-items:center !important;
+    justify-content:center !important;
     overflow:hidden !important;
-    padding:96px 14px 24px !important;
+    padding:96px 14px 28px !important;
   }
+
   .modal-card{
-    width:calc(100vw - 28px) !important;
-    height:min(760px, calc(100vh - 120px)) !important;
-    max-height:calc(100vh - 120px) !important;
-    overflow:hidden !important;
-  }
-  .modal-img{
-    height:50% !important;
+    width:min(92vw, 560px) !important;
+    max-width:560px !important;
+    height:auto !important;
+    max-height:calc(100vh - 124px) !important;
     min-height:0 !important;
-    padding:16px !important;
+    margin:0 auto !important;
+    border-radius:28px !important;
+    overflow:hidden !important;
+    display:flex !important;
+    flex-direction:column !important;
   }
+
+  .modal-img,
+  .modal-img.has-image{
+    width:100% !important;
+    height:32vh !important;
+    min-height:180px !important;
+    max-height:260px !important;
+    overflow:hidden !important;
+    padding:14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#f4f1eb;
+    flex:0 0 auto !important;
+  }
+
+  .modal-img.has-image img,
+  .modal-img.has-image img.is-long-image,
+  .modal-img.has-image img.is-small-image{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    display:block !important;
+    margin:auto !important;
+  }
+
   .modal-info{
-    height:50% !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:calc(100vh - 124px - 180px) !important;
     overflow-y:auto !important;
+    padding:28px 24px 32px !important;
+    flex:1 1 auto !important;
+  }
+
+  .modal-info h2{
+    font-size:clamp(32px,10vw,48px) !important;
+    line-height:1.08 !important;
+    margin:8px 0 18px !important;
+    word-break:normal !important;
+    overflow-wrap:break-word !important;
+  }
+
+  .modal-info p{
+    font-size:15px !important;
+    line-height:1.75 !important;
+  }
+
+  .modal-close{
+    top:14px !important;
+    right:14px !important;
+    z-index:20 !important;
+  }
+}
+
+@media (max-width:520px){
+  .modal{
+    padding:88px 12px 24px !important;
+  }
+
+  .modal-card{
+    width:calc(100vw - 24px) !important;
+    max-width:430px !important;
+    max-height:calc(100vh - 112px) !important;
+    border-radius:24px !important;
+  }
+
+  .modal-img,
+  .modal-img.has-image{
+    height:30vh !important;
+    min-height:168px !important;
+    max-height:238px !important;
+    padding:12px !important;
+  }
+
+  .modal-info{
+    max-height:calc(100vh - 112px - 168px) !important;
+    padding:26px 20px 30px !important;
+  }
+
+  .modal-info h2{
+    font-size:clamp(30px,10vw,44px) !important;
   }
 }
 

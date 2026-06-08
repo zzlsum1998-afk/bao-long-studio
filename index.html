@@ -377,6 +377,41 @@
       max-width:46ch;
     }
 
+
+    .category-feature-audience{
+      margin:0;
+      font-size:13px;
+      line-height:1.65;
+      color:#837c72;
+      max-width:48ch;
+    }
+
+    .category-feature-audience strong{
+      color:#2b2925;
+      font-weight:650;
+    }
+
+    .category-feature-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:2px;
+    }
+
+    .category-feature-tags span{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:6px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      color:#5d574f;
+      font-size:12px;
+      line-height:1;
+      letter-spacing:.02em;
+    }
+
     .category-feature-link{
       margin-top:12px;
       display:inline-flex;
@@ -2343,6 +2378,23 @@
         line-height:1.85;
       }
 
+
+      #all .category-feature-audience{
+        max-width:none;
+        font-size:13px;
+        line-height:1.75;
+      }
+
+      #all .category-feature-tags{
+        gap:7px;
+      }
+
+      #all .category-feature-tags span{
+        font-size:11px;
+        min-height:27px;
+        padding:6px 10px;
+      }
+
       #all .category-feature-link{
         width:100%;
         min-width:0;
@@ -3005,7 +3057,7 @@ body{
       <div class="section-head">
         <div>
           <h2 class="section-title">Browse by Category</h2>
-          <p class="section-desc">按照顶部导航快速进入不同功能区，以更清晰的模块介绍作为首页入口展示，后续再继续补充内容。</p>
+          <p class="section-desc">从素材整理、Prompt 生成、交互实验、简历制作到灵感参考，按照不同任务场景进入对应模块。</p>
         </div>
       </div>
       <div class="category-showcase">
@@ -3017,7 +3069,9 @@ body{
             <span class="category-feature-index">01 / Category</span>
             <h3>Assets</h3>
             <p class="category-feature-sub">设计素材 / 商品资源</p>
-            <p class="category-feature-desc">集合模块图、人物素材、植物素材、动物素材与纹理等视觉资源，适合用于图面表达、产品归档与网站商品展示。</p>
+            <p class="category-feature-desc">集合模块图、人物、植物、动物、纹理与免费素材，适合做作品集图面、汇报版面、商品展示和日常素材归档。</p>
+            <p class="category-feature-audience"><strong>适合：</strong>建筑 / 景观学生、设计师、作品集准备者、需要快速找透明 PNG 与图面素材的人。</p>
+            <div class="category-feature-tags"><span>作品集素材</span><span>图面排版</span><span>透明 PNG</span></div>
             <a class="category-feature-link" href="assets.html">View More <span>↗</span></a>
           </div>
         </article>
@@ -3030,7 +3084,9 @@ body{
             <span class="category-feature-index">02 / Category</span>
             <h3>Prompt Generator</h3>
             <p class="category-feature-sub">提示词生成 / 图面风格</p>
-            <p class="category-feature-desc">集中展示 Prompt 案例卡片、图面风格参考与生成逻辑，方便快速查找适合封面、总平、场景与作品集表达的视觉方向。</p>
+            <p class="category-feature-desc">把构图、风格、场景、色彩与氛围关键词拆成可组合的 Prompt，帮助更稳定地生成建筑、景观与作品集视觉图。</p>
+            <p class="category-feature-audience"><strong>适合：</strong>AI 出图新手、需要统一画面风格的人、想把参考图转化为提示词逻辑的创作者。</p>
+            <div class="category-feature-tags"><span>AI 出图</span><span>提示词模板</span><span>风格拆解</span></div>
             <a class="category-feature-link" href="prompt-generator.html">View More <span>↗</span></a>
           </div>
         </article>
@@ -3043,7 +3099,9 @@ body{
             <span class="category-feature-index">03 / Category</span>
             <h3>Interaction</h3>
             <p class="category-feature-sub">交互实验 / 可玩 Demo</p>
-            <p class="category-feature-desc">收录交互实验、可玩 Demo 与视觉互动项目，用于展示更具体验感的设计探索与后续可扩展的网页交互能力。</p>
+            <p class="category-feature-desc">收录手势、动画、鼠标反馈与网页互动 Demo，把静态设计延展成可体验、可演示、可继续扩展的交互小实验。</p>
+            <p class="category-feature-audience"><strong>适合：</strong>想展示交互能力的设计师、准备转 UX / 前端方向的人、需要作品集亮点项目的人。</p>
+            <div class="category-feature-tags"><span>互动 Demo</span><span>体验设计</span><span>作品集亮点</span></div>
             <a class="category-feature-link" href="interaction.html">View More <span>↗</span></a>
           </div>
         </article>
@@ -3056,7 +3114,9 @@ body{
             <span class="category-feature-index">04 / Category</span>
             <h3>Resume</h3>
             <p class="category-feature-sub">简历模板 / 在线工具</p>
-            <p class="category-feature-desc">包含简历模板展示与在线编辑入口，可进行内容填写、排版导出与样式切换，更适合作为独立模块进行清晰引导。</p>
+            <p class="category-feature-desc">提供简历模板展示与在线编辑入口，支持内容填写、排版预览和导出，帮助把求职信息整理成更干净的一页式简历。</p>
+            <p class="category-feature-audience"><strong>适合：</strong>应届生、转行求职者、设计 / 运营 / 产品方向求职者，以及想快速整理简历的人。</p>
+            <div class="category-feature-tags"><span>在线编辑</span><span>一页简历</span><span>求职准备</span></div>
             <a class="category-feature-link" href="resume.html">View More <span>↗</span></a>
           </div>
         </article>
@@ -3069,7 +3129,9 @@ body{
             <span class="category-feature-index">05 / Category</span>
             <h3>Inspiration Board</h3>
             <p class="category-feature-sub">灵感参考 / 图面案例</p>
-            <p class="category-feature-desc">整理平面图、剖面图、效果图与色彩参考，作为灵感板统一归档，方便快速浏览案例氛围、构图方式与图面风格。</p>
+            <p class="category-feature-desc">整理平面图、剖面图、效果图与色彩参考，重点看构图、氛围、色彩和表达方法，而不是直接复制单张参考图。</p>
+            <p class="category-feature-audience"><strong>适合：</strong>做前期调研、寻找图面方向、整理 Moodboard、准备作品集视觉风格的人。</p>
+            <div class="category-feature-tags"><span>色彩灵感</span><span>图面参考</span><span>表达方法</span></div>
             <a class="category-feature-link" href="plan-references.html">View More <span>↗</span></a>
           </div>
         </article>

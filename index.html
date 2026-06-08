@@ -4198,8 +4198,10 @@ body{
       document.getElementById(id)?.scrollIntoView({behavior:"smooth", block:"start"});
     }
 
+    const TAOBAO_SHOP_URL = "https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx";
+
     function openExternal(){
-      alert("这里后期替换为淘宝 / 小红书商品链接。");
+      window.open(TAOBAO_SHOP_URL, "_blank", "noopener,noreferrer");
     }
 
     function openResumeTool(){

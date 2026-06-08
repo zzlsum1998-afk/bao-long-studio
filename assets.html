@@ -2324,6 +2324,47 @@
       }
     }
 
+
+    /* Assets hero carousel larger visual area - v123
+       Only enlarges the right-side featured image on assets.html desktop hero. */
+    @media (min-width:901px){
+      .hero.product-hero > .hero-product-slide{
+        grid-template-columns:.78fr 1.22fr !important;
+        gap:36px !important;
+        min-height:560px !important;
+      }
+
+      .hero.product-hero > .hero-product-slide .hero-product-visual{
+        width:100% !important;
+        max-height:none !important;
+        overflow:visible !important;
+        justify-self:stretch !important;
+      }
+
+      .hero.product-hero > .hero-product-slide .asset-hero-carousel{
+        width:min(860px,100%) !important;
+        height:520px !important;
+        justify-self:center !important;
+      }
+
+      .hero.product-hero > .hero-product-slide .asset-hero-carousel .asset-hero-slide{
+        object-fit:cover !important;
+        object-position:center center !important;
+      }
+    }
+
+    @media (min-width:901px) and (max-width:1280px){
+      .hero.product-hero > .hero-product-slide{
+        grid-template-columns:.9fr 1.1fr !important;
+        gap:28px !important;
+      }
+
+      .hero.product-hero > .hero-product-slide .asset-hero-carousel{
+        width:min(720px,100%) !important;
+        height:460px !important;
+      }
+    }
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

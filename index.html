@@ -2798,6 +2798,43 @@ body{
   }
 }
 
+
+
+    /* v121: product detail modal below sticky header, prevents title being covered */
+    :root{
+      --product-detail-header-offset:104px;
+    }
+
+    .detail-panel{
+      top:var(--product-detail-header-offset) !important;
+      right:0 !important;
+      bottom:0 !important;
+      left:0 !important;
+      height:auto !important;
+      z-index:90 !important;
+    }
+
+    .detail-card{
+      height:calc(100vh - var(--product-detail-header-offset)) !important;
+      max-height:calc(100vh - var(--product-detail-header-offset)) !important;
+    }
+
+    @media (max-width:900px){
+      :root{
+        --product-detail-header-offset:74px;
+      }
+
+      .detail-panel{
+        top:var(--product-detail-header-offset) !important;
+      }
+
+      .detail-card{
+        height:calc(100vh - var(--product-detail-header-offset)) !important;
+        max-height:calc(100vh - var(--product-detail-header-offset)) !important;
+        padding-top:22px !important;
+      }
+    }
+
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=69" />

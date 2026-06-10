@@ -1,4 +1,4 @@
-// Bao Long Studio v70 common header/nav + language toggle
+// BaoLong Lab v70 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -12,7 +12,7 @@
     // common buttons
     'View on Taobao':'去淘宝查看','See Details':'查看详情','View Resume Templates':'查看简历模板','Buy Template':'购买模板','Explore Board':'进入灵感板','Open Prompt Generator':'打开 Prompt 工具','View Workflow':'查看流程','View More':'查看更多','Open Resume Tool':'打开简历工具','Go to Taobao':'去淘宝','Back to Products':'返回商品','View All Assets':'查看全部素材','View Free':'查看免费素材','Try Prompt Builder':'试用 Prompt 工具','View Categories':'查看分类','Open Tool':'打开工具','Build Your Prompt':'生成你的 Prompt','Copy Prompt':'复制 Prompt','Close':'关闭','Try Resume Tool':'试用简历工具','View Templates':'查看模板','Other Board':'综合灵感',
     // home page
-    'Design Assets Creator Bundle.':'设计素材与创作工具集合。','Editable Resume Templates.':'可编辑简历模板。','Plan, Section & Other Board.':'平面、剖面与综合灵感板。','Architectural Prompt Builder.':'建筑景观 Prompt 工具。','Browse by Category':'按场景浏览',"Editor's Picks":'精选素材','Studio Tools':'工作室工具','Bao Long Studio':'Bao Long Studio',
+    'Design Assets Creator Bundle.':'设计素材与创作工具集合。','Editable Resume Templates.':'可编辑简历模板。','Plan, Section & Other Board.':'平面、剖面与综合灵感板。','Architectural Prompt Builder.':'建筑景观 Prompt 工具。','Browse by Category':'按场景浏览',"Editor's Picks":'精选素材','Studio Tools':'工作室工具','BaoLong Lab':'BaoLong Lab',
     '适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。':'适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。',
     '固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。':'固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。',
     '把平面图、剖面图、效果图整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。':'把平面图、剖面图、综合图面整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。',
@@ -24,8 +24,8 @@
     '简历模板展示、AI 优化入口与 PDF 导出工具。':'简历模板展示、AI 优化入口与 PDF 导出工具。','建筑插画、拼贴风、儿童空间、活动分析图提示词。':'建筑插画、拼贴风、儿童空间、活动分析图提示词。','小红书封面、产品展示、设计表达资源库。':'小红书封面、产品展示、设计表达资源库。','简历精修、作品集页面、小红书视觉策划。':'简历精修、作品集页面、小红书视觉策划。',
     // assets page
     'Assets Library.':'素材库。','All Assets':'全部素材','Design Assets':'设计素材',
-    '集中浏览 Bao Long Studio 的设计素材商品。这里对应导航栏 Assets 下拉框的 6 个分类，可按 Module、People、Plant、Animal、Textures 和 Free 快速筛选。':'集中浏览 Bao Long Studio 的设计素材商品。这里对应导航栏素材库下拉框的 6 个分类，可按模块、人物、植物、动物、纹理和免费素材快速筛选。',
-    '集中浏览 Bao Long Studio 的设计素材商品，可按导航栏下拉分类继续筛选。':'集中浏览 Bao Long Studio 的设计素材商品，可按导航栏下拉分类继续筛选。',
+    '集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏 Assets 下拉框的 6 个分类，可按 Module、People、Plant、Animal、Textures 和 Free 快速筛选。':'集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏素材库下拉框的 6 个分类，可按模块、人物、植物、动物、纹理和免费素材快速筛选。',
+    '集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。':'集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。',
     // prompt page
     'Landscape & Architecture Prompt Builder.':'景观建筑 Prompt 生成器。','Prompt Categories':'Prompt 分类','Prompt Inspiration':'Prompt 灵感','How It Works':'使用流程','✦ Based on your prompt system':'✦ 基于你的 Prompt 系统',
     '把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。':'把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。',
@@ -51,11 +51,11 @@
     '综合灵感索引：用于收集建筑渲染、轴测、拼贴、展板、概念图、分析图等视觉参考。':'综合灵感索引：用于收集建筑渲染、轴测、拼贴、展板、概念图、分析图等视觉参考。',
     '配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。':'配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。',
     // footers
-    'Bao Long Studio · Prompt Generator':'Bao Long Studio · Prompt 工具','Bao Long Studio · Resume Templates':'Bao Long Studio · 简历模板','Bao Long Studio · Plan Inspiration Board':'Bao Long Studio · 平面灵感板','Bao Long Studio · Inspiration Board':'Bao Long Studio · 灵感板',
-    '© 2026 Bao Long Studio. All rights reserved. All design assets, templates and visual materials are original works by Bao Long Studio.':'© 2026 Bao Long Studio. 保留所有权利。所有设计素材、模板与视觉内容均为 Bao Long Studio 原创作品。'
+    'BaoLong Lab · Prompt Generator':'BaoLong Lab · Prompt 工具','BaoLong Lab · Resume Templates':'BaoLong Lab · 简历模板','BaoLong Lab · Plan Inspiration Board':'BaoLong Lab · 平面灵感板','BaoLong Lab · Inspiration Board':'BaoLong Lab · 灵感板',
+    '© 2026 BaoLong Lab. All rights reserved. All design assets, templates and visual materials are original works by BaoLong Lab.':'© 2026 BaoLong Lab. 保留所有权利。所有设计素材、模板与视觉内容均为 BaoLong Lab 原创作品。'
   };
   var titleMap={
-    'Bao Long Studio | Design Assets Library':'Bao Long Studio | 设计素材与创作工具集合','Assets | Bao Long Studio':'素材库 | Bao Long Studio','Prompt Generator | Bao Long Studio':'Prompt 工具 | Bao Long Studio','Interaction | Bao Long Studio':'交互实验室 | Bao Long Studio','Resume Templates | Bao Long Studio':'简历模板 | Bao Long Studio','Plan Board | Bao Long Studio':'平面灵感板 | Bao Long Studio','Section Board | Bao Long Studio':'剖面灵感板 | Bao Long Studio','Other Board | Bao Long Studio':'综合灵感板 | Bao Long Studio','Color Board | Bao Long Studio':'色彩灵感板 | Bao Long Studio','Prompt Builder · Bao Long Studio':'Prompt Builder · Bao Long Studio','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器'
+    'BaoLong Lab | Design Assets Library':'BaoLong Lab | 设计素材与创作工具集合','Assets | BaoLong Lab':'素材库 | BaoLong Lab','Prompt Generator | BaoLong Lab':'Prompt 工具 | BaoLong Lab','Interaction | BaoLong Lab':'交互实验室 | BaoLong Lab','Resume Templates | BaoLong Lab':'简历模板 | BaoLong Lab','Plan Board | BaoLong Lab':'平面灵感板 | BaoLong Lab','Section Board | BaoLong Lab':'剖面灵感板 | BaoLong Lab','Other Board | BaoLong Lab':'综合灵感板 | BaoLong Lab','Color Board | BaoLong Lab':'色彩灵感板 | BaoLong Lab','Prompt Builder · BaoLong Lab':'Prompt Builder · BaoLong Lab','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器'
   };
 
   function getLang(){return localStorage.getItem('baolongLanguage') || 'zh';}

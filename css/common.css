@@ -1,4 +1,4 @@
-/* Bao Long Studio v68 common header/nav stability layer
+/* BaoLong Lab v68 common header/nav stability layer
    Single source of truth for the site header. Keep this file as the only final nav style. */
 :root{--bl-bg:#f7f6f2;--bl-paper:#ffffff;--bl-ink:#1c1c1c;--bl-muted:#77736b;--bl-line:#ded9cf;--bl-dark:#161616;}
 html{scroll-behavior:smooth;scrollbar-gutter:stable;overflow-y:scroll;text-size-adjust:100%;-webkit-text-size-adjust:100%;}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompt Generator | BaoLong Lab</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prompt Generator | BaoLong Lab</title>
+<style>
     :root{
       --bg:#f7f6f2;
       --paper:#ffffff;
@@ -965,282 +966,258 @@
     }
 
 </style>
-
-  <link rel="stylesheet" href="css/common.css?v=72" />
-  <script src="js/common.js?v=72" defer></script>
-  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-01.webp">
-  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-02.webp">
-  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-03.webp">
-  <link rel="preload" as="image" href="images/prompt-cases/prompt-case-04.webp">
+<link href="css/common.css?v=73" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=73"></script>
+<link as="image" href="images/prompt-cases/prompt-case-01.webp" rel="preload"/>
+<link as="image" href="images/prompt-cases/prompt-case-02.webp" rel="preload"/>
+<link as="image" href="images/prompt-cases/prompt-case-03.webp" rel="preload"/>
+<link as="image" href="images/prompt-cases/prompt-case-04.webp" rel="preload"/>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
-      <div class="brand-text">BAOLONG LAB</div>
-    </a>
-
-    <nav class="nav">
-      <a href="index.html">All</a>
-
-      <div class="nav-dropdown">
-        <a href="assets.html">Assets ▼</a>
-        <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
-        
-        </div>
-      </div>
-
-      <a href="prompt-generator.html">Prompt Generator</a>
-      <a href="interaction.html">Interaction</a>
-      <a href="resume.html">Resume</a>
-
-      <div class="nav-dropdown">
-        <a href="plan-references.html">Inspiration Board ▼</a>
-        <div class="dropdown-content">
-          <a href="plan-references.html">Plan Board</a>
-          <a href="section-references.html">Section Board</a>
-          <a href="render-references.html">Other Board</a>
-          <a href="color-references.html">Color Board</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
-    </div>
-  
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
-    <div class="mobile-menu-panel" id="mobileMenuPanel">
-      <a href="index.html" onclick="closeMobileMenu()">All</a>
-      <div class="mobile-menu-group">Assets</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
-      <div class="mobile-menu-group">Tools</div>
-      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
-      <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
-      <a href="resume.html" onclick="closeMobileMenu()">Resume</a>
-      <div class="mobile-menu-group">Inspiration Board</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
-      <div class="mobile-menu-group">Account</div>
-      <a href="login.html" onclick="closeMobileMenu()">Log in</a>
-    </div>
-
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="prompt-gallery">
-        <div class="window-bar">
-          <span class="window-dot"></span>
-          <span class="window-dot"></span>
-          <span class="window-dot"></span>
-        </div>
-        <div class="prompt-board">
-          <div class="option-stack">
-            <div class="option-chip active"><span>Style</span><strong>Collage</strong></div>
-            <div class="option-chip"><span>Angle</span><strong>Isometric</strong></div>
-            <div class="option-chip active"><span>Color</span><strong>Morandi</strong></div>
-            <div class="option-chip"><span>Landscape</span><strong>Planting</strong></div>
-            <div class="option-chip active"><span>People</span><strong>Activities</strong></div>
-            <div class="option-chip"><span>AR</span><strong>16:9</strong></div>
-          </div>
-          <div class="prompt-output-demo">
+<header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="prompt-gallery">
+<div class="window-bar">
+<span class="window-dot"></span>
+<span class="window-dot"></span>
+<span class="window-dot"></span>
+</div>
+<div class="prompt-board">
+<div class="option-stack">
+<div class="option-chip active"><span>Style</span><strong>Collage</strong></div>
+<div class="option-chip"><span>Angle</span><strong>Isometric</strong></div>
+<div class="option-chip active"><span>Color</span><strong>Morandi</strong></div>
+<div class="option-chip"><span>Landscape</span><strong>Planting</strong></div>
+<div class="option-chip active"><span>People</span><strong>Activities</strong></div>
+<div class="option-chip"><span>AR</span><strong>16:9</strong></div>
+</div>
+<div class="prompt-output-demo">
             modern landscape collage, isometric view, Morandi color palette, public seating, lush trees, people gathering together, realistic site layout, low saturation, white space, diffuse lighting --v 6 --ar 16:9 --style raw --s 750
           </div>
-        </div>
-      </div>
-
-      <div class="copy">
-        <div class="eyebrow">Prompt Generator</div>
-        <h1>Landscape &<br>Architecture Prompt Builder.</h1>
-        <p>把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。</p>
-
-        <div class="tagline">✦ Based on your prompt system</div>
-
-        <div class="feature-list">
-          <div class="feature"><strong>Structured Prompt</strong><span>按图面风格、构图、色彩、建筑、景观、人物和比例拆解。</span></div>
-          <div class="feature"><strong>Random Inspiration</strong><span>一键随机生成灵感组合，适合快速测试风格方向。</span></div>
-          <div class="feature"><strong>Landscape Elements</strong><span>内置地形、植物、水景、铺装、小品等景观分类。</span></div>
-          <div class="feature"><strong>Copy-ready Output</strong><span>右侧自动组合完整指令，可直接复制到 MidJourney。</span></div>
-        </div>
-
-        <div class="actions">
-          <button class="primary-btn" onclick="location.href='prompt-tool.html'">Try Prompt Builder</button>
-          <button class="secondary-btn" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">View Categories</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="categories">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title-main">Prompt Categories</h2>
-          <p class="section-desc">把复杂选择变成资源卡片，用户先理解这个工具能做什么，再进入真正的 Prompt Builder。</p>
-        </div>
-        <button class="secondary-btn" onclick="location.href='prompt-tool.html'">Open Tool</button>
-      </div>
-
-      <div class="category-grid">
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">01</div>
-          <h3>Visual Style</h3>
-          <p>扁平插画、水彩、钢笔线稿、中式水墨、拼贴和 3D 建模感。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">02</div>
-          <h3>Composition Angle</h3>
-          <p>轴测、鸟瞰、顶视、平视、剖面、仰视等图面角度。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">03</div>
-          <h3>Color Palette</h3>
-          <p>莫兰迪、复古、极简、地中海、马卡龙、赛博朋克等配色。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">04</div>
-          <h3>Landscape Elements</h3>
-          <p>地形、植物、水景、铺装路径、景观小品，多选组合。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">05</div>
-          <h3>Architecture Elements</h3>
-          <p>巴洛克、新古典、现代主义、后现代、解构主义等建筑风格。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">06</div>
-          <h3>People Activities</h3>
-          <p>日常活动、社交互动、儿童活动、运动、休闲和场地体验。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">07</div>
-          <h3>Light & Mood</h3>
-          <p>黄金时段、蓝调时刻、阴天柔光等氛围关键词。</p>
-        </article>
-        <article class="category-card" onclick="location.href='prompt-tool.html'">
-          <div class="category-mark">08</div>
-          <h3>Aspect Ratio</h3>
-          <p>16:9、3:4、9:16、1:1，适配作品集、小红书和展示图。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="prompt-cases">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title-main">Prompt Inspiration</h2>
-          <p class="section-desc">查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。</p>
-        </div>
-        <button class="secondary-btn" onclick="location.href='prompt-tool.html'">Build Your Prompt</button>
-      </div>
-
-      <div class="prompt-case-grid">
-        <button class="prompt-case-card" type="button" onclick="openPromptCase('case01')">
-          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-01.webp')" role="img" aria-label="马卡龙拼贴景观场景"></div>
-          <div class="prompt-case-body">
-            <div class="prompt-case-kicker">Collage Landscape</div>
-            <h3>马卡龙拼贴景观场景</h3>
-            <p class="prompt-case-scene">适用：作品集封面 / 景观场景 / 小红书展示</p>
-            <div class="prompt-case-tags"><span>拼贴感</span><span>马卡龙色</span><span>景观场景</span></div>
-            <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
-          </div>
-        </button>
-        <button class="prompt-case-card" type="button" onclick="openPromptCase('case02')">
-          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-02.webp')" role="img" aria-label="莫兰迪水彩景观场景"></div>
-          <div class="prompt-case-body">
-            <div class="prompt-case-kicker">Watercolor Scene</div>
-            <h3>莫兰迪水彩景观场景</h3>
-            <p class="prompt-case-scene">适用：柔和效果图 / 概念表达 / 作品集图面</p>
-            <div class="prompt-case-tags"><span>水彩</span><span>莫兰迪</span><span>柔和纸感</span></div>
-            <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
-          </div>
-        </button>
-        <button class="prompt-case-card" type="button" onclick="openPromptCase('case03')">
-          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-03.webp')" role="img" aria-label="极简拼贴总平表达"></div>
-          <div class="prompt-case-body">
-            <div class="prompt-case-kicker">Plan Collage</div>
-            <h3>极简拼贴总平表达</h3>
-            <p class="prompt-case-scene">适用：总平面表达 / 竞赛图面 / 策略分析</p>
-            <div class="prompt-case-tags"><span>总平面</span><span>极简色</span><span>拼贴分析</span></div>
-            <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
-          </div>
-        </button>
-        <button class="prompt-case-card" type="button" onclick="openPromptCase('case04')">
-          <div class="prompt-case-img" style="background-image:url('images/prompt-cases/prompt-case-04.webp')" role="img" aria-label="粉彩水彩空间封面"></div>
-          <div class="prompt-case-body">
-            <div class="prompt-case-kicker">Watercolor Cover</div>
-            <h3>粉彩水彩空间封面</h3>
-            <p class="prompt-case-scene">适用：封面图 / 活动场景 / 氛围表达</p>
-            <div class="prompt-case-tags"><span>粉彩</span><span>水彩质感</span><span>活动场景</span></div>
-            <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
-          </div>
-        </button>
-      </div>
-    </section>
-
-    <div class="prompt-modal" id="promptCaseModal" aria-hidden="true">
-      <div class="prompt-modal-card" role="dialog" aria-modal="true" aria-labelledby="promptCaseTitle">
-        <button class="prompt-modal-close" type="button" onclick="closePromptCase()" aria-label="Close prompt detail">×</button>
-        <div class="prompt-modal-media"><img id="promptCaseImg" src="" alt="" loading="lazy" decoding="async"></div>
-        <div class="prompt-modal-content">
-          <div class="prompt-case-kicker" id="promptCaseKicker"></div>
-          <h3 id="promptCaseTitle"></h3>
-          <p class="prompt-modal-meta" id="promptCaseScene"></p>
-          <div class="prompt-case-tags" id="promptCaseTags"></div>
-          <div class="prompt-text-box" id="promptCaseText"></div>
-          <div class="actions" style="margin-top:0">
-            <button class="primary-btn" type="button" onclick="copyPromptCase()">Copy Prompt</button>
-            <button class="secondary-btn" type="button" onclick="closePromptCase()">Close</button>
-          </div>
-          <div class="copy-status" id="promptCopyStatus"></div>
-        </div>
-      </div>
-    </div>
-
-
-    <section class="section" id="workflow">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title-main">How It Works</h2>
-          <p class="section-desc">从风格选择到最终 Prompt 输出，保持清晰的工具路径。</p>
-        </div>
-      </div>
-      <div class="workflow">
-        <div class="step"><div class="step-num">01</div><h3>Choose Style</h3><p>选择图面风格、构图角度和色彩方向。</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Add Elements</h3><p>叠加建筑、景观、人物活动和氛围关键词。</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Generate Prompt</h3><p>右侧自动组合成完整英文提示词。</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Copy & Test</h3><p>复制到 MidJourney 后继续调整风格和画幅。</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="cta">
-        <div>
-          <h2 data-bl-original-text="Ready to build your prompt?">准备好生成你的 Prompt 了吗？</h2>
-          <p data-bl-original-text="Use the full Prompt Builder after entering the tool page.">进入工具页后，可以使用完整的 Prompt Builder 交互功能。</p>
-        </div>
-        <button class="primary-btn" onclick="location.href='prompt-tool.html'" style="background:#fff;color:#111">Try Prompt Builder</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
+</div>
+</div>
+<div class="copy">
+<div class="eyebrow" data-bl-original-text="Prompt Generator">Prompt 工具</div>
+<h1 data-bl-original-text="Landscape &amp; Architecture Prompt Builder.">景观建筑<br/>Prompt 生成器。</h1>
+<p>把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。</p>
+<div class="tagline" data-bl-original-text="✦ Based on your prompt system">✦ 基于你的 Prompt 系统</div>
+<div class="feature-list">
+<div class="feature"><strong data-bl-original-text="Structured Prompt">结构化 Prompt</strong><span>按图面风格、构图、色彩、建筑、景观、人物和比例拆解。</span></div>
+<div class="feature"><strong data-bl-original-text="Random Inspiration">随机灵感</strong><span>一键随机生成灵感组合，适合快速测试风格方向。</span></div>
+<div class="feature"><strong data-bl-original-text="Landscape Elements">景观元素</strong><span>内置地形、植物、水景、铺装、小品等景观分类。</span></div>
+<div class="feature"><strong data-bl-original-text="Copy-ready Output">可复制输出</strong><span>右侧自动组合完整指令，可直接复制到 MidJourney。</span></div>
+</div>
+<div class="actions">
+<button class="primary-btn" onclick="location.href='prompt-tool.html'">Try Prompt Builder</button>
+<button class="secondary-btn" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">View Categories</button>
+</div>
+</div>
+</section>
+<section class="section" id="categories">
+<div class="section-head">
+<div>
+<h2 class="section-title-main" data-bl-original-text="Prompt Categories">Prompt 分类</h2>
+<p class="section-desc">把复杂选择变成资源卡片，用户先理解这个工具能做什么，再进入真正的 Prompt Builder。</p>
+</div>
+<button class="secondary-btn" onclick="location.href='prompt-tool.html'">Open Tool</button>
+</div>
+<div class="category-grid">
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">01</div>
+<h3 data-bl-original-text="Visual Style">视觉风格</h3>
+<p>扁平插画、水彩、钢笔线稿、中式水墨、拼贴和 3D 建模感。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">02</div>
+<h3 data-bl-original-text="Composition Angle">构图角度</h3>
+<p>轴测、鸟瞰、顶视、平视、剖面、仰视等图面角度。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">03</div>
+<h3 data-bl-original-text="Color Palette">色彩方案</h3>
+<p>莫兰迪、复古、极简、地中海、马卡龙、赛博朋克等配色。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">04</div>
+<h3 data-bl-original-text="Landscape Elements">景观元素</h3>
+<p>地形、植物、水景、铺装路径、景观小品，多选组合。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">05</div>
+<h3 data-bl-original-text="Architecture Elements">建筑元素</h3>
+<p>巴洛克、新古典、现代主义、后现代、解构主义等建筑风格。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">06</div>
+<h3 data-bl-original-text="People Activities">人物活动</h3>
+<p>日常活动、社交互动、儿童活动、运动、休闲和场地体验。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">07</div>
+<h3 data-bl-original-text="Light &amp; Mood">光影氛围</h3>
+<p>黄金时段、蓝调时刻、阴天柔光等氛围关键词。</p>
+</article>
+<article class="category-card" onclick="location.href='prompt-tool.html'">
+<div class="category-mark">08</div>
+<h3 data-bl-original-text="Aspect Ratio">画幅比例</h3>
+<p>16:9、3:4、9:16、1:1，适配作品集、小红书和展示图。</p>
+</article>
+</div>
+</section>
+<section class="section" id="prompt-cases">
+<div class="section-head">
+<div>
+<h2 class="section-title-main" data-bl-original-text="Prompt Inspiration">Prompt 灵感</h2>
+<p class="section-desc">查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。</p>
+</div>
+<button class="secondary-btn" onclick="location.href='prompt-tool.html'">Build Your Prompt</button>
+</div>
+<div class="prompt-case-grid">
+<button class="prompt-case-card" onclick="openPromptCase('case01')" type="button">
+<div aria-label="马卡龙拼贴景观场景" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-01.webp')"></div>
+<div class="prompt-case-body">
+<div class="prompt-case-kicker">Collage Landscape</div>
+<h3>马卡龙拼贴景观场景</h3>
+<p class="prompt-case-scene">适用：作品集封面 / 景观场景 / 小红书展示</p>
+<div class="prompt-case-tags"><span>拼贴感</span><span>马卡龙色</span><span>景观场景</span></div>
+<div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
+</div>
+</button>
+<button class="prompt-case-card" onclick="openPromptCase('case02')" type="button">
+<div aria-label="莫兰迪水彩景观场景" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-02.webp')"></div>
+<div class="prompt-case-body">
+<div class="prompt-case-kicker">Watercolor Scene</div>
+<h3>莫兰迪水彩景观场景</h3>
+<p class="prompt-case-scene">适用：柔和效果图 / 概念表达 / 作品集图面</p>
+<div class="prompt-case-tags"><span>水彩</span><span>莫兰迪</span><span>柔和纸感</span></div>
+<div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
+</div>
+</button>
+<button class="prompt-case-card" onclick="openPromptCase('case03')" type="button">
+<div aria-label="极简拼贴总平表达" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-03.webp')"></div>
+<div class="prompt-case-body">
+<div class="prompt-case-kicker">Plan Collage</div>
+<h3>极简拼贴总平表达</h3>
+<p class="prompt-case-scene">适用：总平面表达 / 竞赛图面 / 策略分析</p>
+<div class="prompt-case-tags"><span>总平面</span><span>极简色</span><span>拼贴分析</span></div>
+<div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
+</div>
+</button>
+<button class="prompt-case-card" onclick="openPromptCase('case04')" type="button">
+<div aria-label="粉彩水彩空间封面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-04.webp')"></div>
+<div class="prompt-case-body">
+<div class="prompt-case-kicker">Watercolor Cover</div>
+<h3>粉彩水彩空间封面</h3>
+<p class="prompt-case-scene">适用：封面图 / 活动场景 / 氛围表达</p>
+<div class="prompt-case-tags"><span>粉彩</span><span>水彩质感</span><span>活动场景</span></div>
+<div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
+</div>
+</button>
+</div>
+</section>
+<div aria-hidden="true" class="prompt-modal" id="promptCaseModal">
+<div aria-labelledby="promptCaseTitle" aria-modal="true" class="prompt-modal-card" role="dialog">
+<button aria-label="Close prompt detail" class="prompt-modal-close" onclick="closePromptCase()" type="button">×</button>
+<div class="prompt-modal-media"><img alt="" decoding="async" id="promptCaseImg" loading="lazy" src=""/></div>
+<div class="prompt-modal-content">
+<div class="prompt-case-kicker" id="promptCaseKicker"></div>
+<h3 id="promptCaseTitle"></h3>
+<p class="prompt-modal-meta" id="promptCaseScene"></p>
+<div class="prompt-case-tags" id="promptCaseTags"></div>
+<div class="prompt-text-box" id="promptCaseText"></div>
+<div class="actions" style="margin-top:0">
+<button class="primary-btn" onclick="copyPromptCase()" type="button">Copy Prompt</button>
+<button class="secondary-btn" onclick="closePromptCase()" type="button">Close</button>
+</div>
+<div class="copy-status" id="promptCopyStatus"></div>
+</div>
+</div>
+</div>
+<section class="section" id="workflow">
+<div class="section-head">
+<div>
+<h2 class="section-title-main" data-bl-original-text="How It Works">使用流程</h2>
+<p class="section-desc">从风格选择到最终 Prompt 输出，保持清晰的工具路径。</p>
+</div>
+</div>
+<div class="workflow">
+<div class="step"><div class="step-num">01</div><h3 data-bl-original-text="Choose Style">选择风格</h3><p>选择图面风格、构图角度和色彩方向。</p></div>
+<div class="step"><div class="step-num">02</div><h3 data-bl-original-text="Add Elements">添加元素</h3><p>叠加建筑、景观、人物活动和氛围关键词。</p></div>
+<div class="step"><div class="step-num">03</div><h3 data-bl-original-text="Generate Prompt">生成 Prompt</h3><p>右侧自动组合成完整英文提示词。</p></div>
+<div class="step"><div class="step-num">04</div><h3 data-bl-original-text="Copy &amp; Test">复制测试</h3><p>复制到 MidJourney 后继续调整风格和画幅。</p></div>
+</div>
+</section>
+<section class="section">
+<div class="cta">
+<div>
+<h2 data-bl-original-text="Ready to build your prompt?">准备好生成你的 Prompt 了吗？</h2>
+<p data-bl-original-text="Use the full Prompt Builder after entering the tool page.">进入工具页后，可以使用完整的 Prompt Builder 交互功能。</p>
+</div>
+<button class="primary-btn" onclick="location.href='prompt-tool.html'" style="background:#fff;color:#111">Try Prompt Builder</button>
+</div>
+</section>
+</main>
+<footer class="footer">
     BaoLong Lab · Prompt Generator
   </footer>
-
-  <script>
+<script>
     function navFilter(category){
       location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
       return false;
@@ -1321,14 +1298,12 @@
       if(event.target === modal) closePromptCase();
     });
   </script>
-
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
-    <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br>
-    <span class="footer-line">Original content and tools by BaoLong Lab.</span><br>
-    <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
 </footer>
-
-  <script>
+<script>
     function toggleMobileMenu(){
       const panel = document.getElementById('mobileMenuPanel');
       if(panel) panel.classList.toggle('open');
@@ -1347,7 +1322,5 @@
       panel.classList.remove('open');
     });
   </script>
-
 </body>
-
 </html>

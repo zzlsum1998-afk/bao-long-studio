@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assets | BaoLong Lab</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assets | BaoLong Lab</title>
+<style>
     :root{
       --bg:#f7f6f2;
       --paper:#ffffff;
@@ -2367,142 +2368,131 @@
     }
 
 </style>
-
-  <link rel="stylesheet" href="css/common.css?v=72" />
-  <script src="js/common.js?v=72" defer></script>
+<link href="css/common.css?v=73" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=73"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
-      <div class="brand-text">BAOLONG LAB</div>
-    </a>
-
-    <nav class="nav">
-      <a href="index.html">All</a>
-
-      <div class="nav-dropdown">
-        <a href="assets.html">Assets ▼</a>
-        <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
-        
-        </div>
-      </div>
-
-      <a href="prompt-generator.html">Prompt Generator</a>
-      <a href="interaction.html">Interaction</a>
-      <a href="resume.html">Resume</a>
-
-      <div class="nav-dropdown">
-        <a href="plan-references.html">Inspiration Board ▼</a>
-        <div class="dropdown-content">
-          <a href="plan-references.html">Plan Board</a>
-          <a href="section-references.html">Section Board</a>
-          <a href="render-references.html">Other Board</a>
-          <a href="color-references.html">Color Board</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
-    </div>
-  
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
-    <div class="mobile-menu-panel" id="mobileMenuPanel">
-      <a href="index.html" onclick="closeMobileMenu()">All</a>
-      <div class="mobile-menu-group">Assets</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
-      <div class="mobile-menu-group">Tools</div>
-      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
-      <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
-      <a href="resume.html" onclick="closeMobileMenu()">Resume</a>
-      <div class="mobile-menu-group">Inspiration Board</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
-      <div class="mobile-menu-group">Account</div>
-      <a href="login.html" onclick="closeMobileMenu()">Log in</a>
-    </div>
-
-  </header>
-  <main>
-    <section class="hero product-hero" style="min-height:auto;display:block;text-align:left;">
-      <div class="hero-grid"></div>
-      <div class="hero-product-slide" style="position:relative;z-index:2;min-height:430px;grid-template-columns:1fr .9fr;">
-        <div class="hero-product-copy">
-          <div class="eyebrow">Design Assets</div>
-          <h1>Assets<br>Library.</h1>
-          <p>集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏 Assets 下拉框的 6 个分类，可按 Module、People、Plant、Animal、Textures 和 Free 快速筛选。</p>
-          <div class="hero-actions" style="justify-content:flex-start;">
-            <button class="primary-btn" onclick="filterProducts('All')">View All Assets</button>
-            <button class="secondary-btn" onclick="filterProducts('Free')">View Free</button>
-          </div>
-        </div>
-        <div class="hero-product-visual">
-          <div class="product-mock plan hero-banner-card asset-hero-carousel" id="assetHeroCarousel" aria-label="BaoLong Lab featured assets carousel">
-            <img class="hero-banner-img asset-hero-slide is-active" src="images/products/product33/01-cover.webp" alt="Module Diagrams featured asset" loading="eager" decoding="async">
-            <img class="hero-banner-img asset-hero-slide" src="images/products/product32/01-cover.webp" alt="People Assets featured asset" loading="lazy" decoding="async">
-            <img class="hero-banner-img asset-hero-slide" src="images/products/product31/01-cover.webp" alt="Plant Assets featured asset" loading="lazy" decoding="async">
-            <img class="hero-banner-img asset-hero-slide" src="images/products/product34/01-cover.webp" alt="Animal Assets featured asset" loading="lazy" decoding="async">
-            <img class="hero-banner-img asset-hero-slide" src="images/products/product30/01-cover.webp" alt="Textures featured asset" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="products">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title" id="productsTitle">All Assets</h2>
-          <p class="section-desc" id="productsDesc">集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。</p>
-        </div>
-        <div class="asset-filter-tabs">
-          <button class="tab active" data-filter="All" onclick="filterProducts('All')">全部</button>
-          <button class="tab" data-filter="Module Diagrams" onclick="filterProducts('Module Diagrams')">模块素材</button>
-          <button class="tab" data-filter="People Assets" onclick="filterProducts('People Assets')">人物素材</button>
-          <button class="tab" data-filter="Plant Assets" onclick="filterProducts('Plant Assets')">植物素材</button>
-          <button class="tab" data-filter="Animal Assets" onclick="filterProducts('Animal Assets')">动物素材</button>
-          <button class="tab" data-filter="Textures" onclick="filterProducts('Textures')">纹理</button>
-          <button class="tab" data-filter="Free" onclick="filterProducts('Free')">免费素材</button>
-        </div>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
-  </main>
-  <div class="detail-panel" id="detailPanel" onclick="closeDetail(event)">
-    <div class="detail-card" onclick="event.stopPropagation()">
-      <button class="detail-close" onclick="closeDetail()">×</button>
-      <div class="eyebrow" id="detailType">BaoLong Lab</div>
-      <h2 id="detailTitle">Product Title</h2>
-      <p class="detail-price" id="detailPrice">$9.90</p>
-      <div class="detail-visual" id="detailVisual"></div>
-      <div class="detail-list" id="detailDesc"></div>
-      <div class="detail-actions">
-        <button class="primary-btn" id="detailBuyBtn" onclick="openProductLink()">Go to Taobao</button>
-        <button class="secondary-btn" onclick="closeDetail()">Back to Products</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="floating-gift" onclick="scrollToTop()" title="Back to top">✦</div>
-  <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
-    <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br>
-    <span class="footer-line">Original content and tools by BaoLong Lab.</span><br>
-    <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+<header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header>
+<main>
+<section class="hero product-hero" style="min-height:auto;display:block;text-align:left;">
+<div class="hero-grid"></div>
+<div class="hero-product-slide" style="position:relative;z-index:2;min-height:430px;grid-template-columns:1fr .9fr;">
+<div class="hero-product-copy">
+<div class="eyebrow" data-bl-original-text="Design Assets">设计素材</div>
+<h1 data-bl-original-text="Assets Library.">素材库。</h1>
+<p>集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏 Assets 下拉框的 6 个分类，可按 Module、People、Plant、Animal、Textures 和 Free 快速筛选。</p>
+<div class="hero-actions" style="justify-content:flex-start;">
+<button class="primary-btn" onclick="filterProducts('All')">View All Assets</button>
+<button class="secondary-btn" onclick="filterProducts('Free')">View Free</button>
+</div>
+</div>
+<div class="hero-product-visual">
+<div aria-label="BaoLong Lab featured assets carousel" class="product-mock plan hero-banner-card asset-hero-carousel" id="assetHeroCarousel">
+<img alt="Module Diagrams featured asset" class="hero-banner-img asset-hero-slide is-active" decoding="async" loading="eager" src="images/products/product33/01-cover.webp"/>
+<img alt="People Assets featured asset" class="hero-banner-img asset-hero-slide" decoding="async" loading="lazy" src="images/products/product32/01-cover.webp"/>
+<img alt="Plant Assets featured asset" class="hero-banner-img asset-hero-slide" decoding="async" loading="lazy" src="images/products/product31/01-cover.webp"/>
+<img alt="Animal Assets featured asset" class="hero-banner-img asset-hero-slide" decoding="async" loading="lazy" src="images/products/product34/01-cover.webp"/>
+<img alt="Textures featured asset" class="hero-banner-img asset-hero-slide" decoding="async" loading="lazy" src="images/products/product30/01-cover.webp"/>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="products">
+<div class="section-head">
+<div>
+<h2 class="section-title" data-bl-original-text="All Assets" id="productsTitle">全部素材</h2>
+<p class="section-desc" id="productsDesc">集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。</p>
+</div>
+<div class="asset-filter-tabs">
+<button class="tab active" data-filter="All" onclick="filterProducts('All')">全部</button>
+<button class="tab" data-filter="Module Diagrams" onclick="filterProducts('Module Diagrams')">模块素材</button>
+<button class="tab" data-filter="People Assets" onclick="filterProducts('People Assets')">人物素材</button>
+<button class="tab" data-filter="Plant Assets" onclick="filterProducts('Plant Assets')">植物素材</button>
+<button class="tab" data-filter="Animal Assets" onclick="filterProducts('Animal Assets')">动物素材</button>
+<button class="tab" data-filter="Textures" onclick="filterProducts('Textures')">纹理</button>
+<button class="tab" data-filter="Free" onclick="filterProducts('Free')">免费素材</button>
+</div>
+</div>
+<div class="product-grid" id="productGrid"></div>
+</section>
+</main>
+<div class="detail-panel" id="detailPanel" onclick="closeDetail(event)">
+<div class="detail-card" onclick="event.stopPropagation()">
+<button class="detail-close" onclick="closeDetail()">×</button>
+<div class="eyebrow" id="detailType">BaoLong Lab</div>
+<h2 id="detailTitle">Product Title</h2>
+<p class="detail-price" id="detailPrice">$9.90</p>
+<div class="detail-visual" id="detailVisual"></div>
+<div class="detail-list" id="detailDesc"></div>
+<div class="detail-actions">
+<button class="primary-btn" id="detailBuyBtn" onclick="openProductLink()">Go to Taobao</button>
+<button class="secondary-btn" onclick="closeDetail()">Back to Products</button>
+</div>
+</div>
+</div>
+<div class="floating-gift" onclick="scrollToTop()" title="Back to top">✦</div>
+<footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
 </footer>
-  <script>
+<script>
     const products = [
       {
             "id": "P001",
@@ -4483,6 +4473,5 @@
     assetLangObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-lang'] });
     window.addEventListener('storage', () => updateProductsHeading(window.currentAssetFilter || initialFilter));
   </script>
-
 </body>
 </html>

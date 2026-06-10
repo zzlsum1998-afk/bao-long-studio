@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BaoLong Lab | Design Assets Library</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BaoLong Lab | Design Assets Library</title>
+<style>
     :root{
       --bg:#f7f6f2;
       --paper:#ffffff;
@@ -2888,390 +2889,358 @@ body{
     }
 
 </style>
-
-  <link rel="stylesheet" href="css/common.css?v=72" />
-  <script src="js/common.js?v=72" defer></script>
+<link href="css/common.css?v=73" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=73"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
-      <div class="brand-text">BAOLONG LAB</div>
-    </a>
-
-    <nav class="nav">
-      <a href="index.html">All</a>
-
-      <div class="nav-dropdown">
-        <a href="assets.html">Assets ▼</a>
-        <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
-        
-        </div>
-      </div>
-
-      <a href="prompt-generator.html">Prompt Generator</a>
-      <a href="interaction.html">Interaction</a>
-      <a href="resume.html">Resume</a>
-
-      <div class="nav-dropdown">
-        <a href="plan-references.html">Inspiration Board ▼</a>
-        <div class="dropdown-content">
-          <a href="plan-references.html">Plan Board</a>
-          <a href="section-references.html">Section Board</a>
-          <a href="render-references.html">Other Board</a>
-          <a href="color-references.html">Color Board</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
-    </div>
-  
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
-    <div class="mobile-menu-panel" id="mobileMenuPanel">
-      <a href="index.html" onclick="closeMobileMenu()">All</a>
-      <div class="mobile-menu-group">Assets</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
-      <div class="mobile-menu-group">Tools</div>
-      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
-      <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
-      <a href="resume.html" onclick="closeMobileMenu()">Resume</a>
-      <div class="mobile-menu-group">Inspiration Board</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
-      <div class="mobile-menu-group">Account</div>
-      <a href="login.html" onclick="closeMobileMenu()">Log in</a>
-    </div>
-
-  </header>
-
-  <main>
-    <section class="hero product-hero" id="heroProductCarousel">
-      <div class="hero-grid"></div>
-      <div class="hero-product-track" id="heroProductTrack">
-        <article class="hero-product-slide">
-          <div class="hero-product-visual">
-            <div class="product-mock plan hero-banner-card">
-              <img class="hero-banner-img" src="images/banner/banner10.webp" alt="Landscape Plan Creator Bundle" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="hero-product-copy">
-            <div class="eyebrow">Design Assets</div>
-            <h1>Design Assets<br>Creator Bundle.</h1>
-            <p>适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。</p>
-            <div class="hero-actions">
-              <button class="primary-btn" onclick="openExternal()">View on Taobao</button>
-              <button class="secondary-btn" onclick="scrollToSection('products')">See Details</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="hero-product-slide">
-          <div class="hero-product-visual">
-            <div class="product-mock resume banner-resume">
-              <div class="resume-page left"><img src="images/banner/banner7.webp" alt="Editable Resume Template 1" loading="lazy" decoding="async"></div>
-              <div class="resume-page main"><img src="images/banner/banner8.webp" alt="Editable Resume Template 2" loading="lazy" decoding="async"></div>
-              <div class="resume-page right"><img src="images/banner/banner9.webp" alt="Editable Resume Template 3" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <div class="hero-product-copy">
-            <div class="eyebrow">Resume Templates</div>
-            <h1>Editable Resume<br>Templates.</h1>
-            <p>固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。</p>
-            <div class="hero-actions">
-              <button class="primary-btn" onclick="openResumeTool()">View Resume Templates</button>
-              <button class="secondary-btn" onclick="openExternal()">Buy Template</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="hero-product-slide">
-          <div class="hero-product-visual">
-            <div class="reference-hero-mock banner-reference">
-              <div class="pin-card tall"><img src="images/banner/banner1.webp" alt="Plan Reference 1" loading="lazy" decoding="async"></div>
-              <div class="pin-card"><img src="images/banner/banner2.webp" alt="Plan Reference 2" loading="lazy" decoding="async"></div>
-              <div class="pin-card small"><img src="images/banner/banner3.webp" alt="Plan Reference 3" loading="lazy" decoding="async"></div>
-              <div class="pin-card wide"><img src="images/banner/banner4.webp" alt="Plan Reference 4" loading="lazy" decoding="async"></div>
-              <div class="pin-card tall muted"><img src="images/banner/banner5.webp" alt="Plan Reference 5" loading="lazy" decoding="async"></div>
-              <div class="pin-card small dark"><img src="images/banner/banner6.webp" alt="Plan Reference 6" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <div class="hero-product-copy">
-            <div class="eyebrow">Inspiration Board</div>
-            <h1>Plan, Section<br>& Other Board.</h1>
-            <p>把平面图、剖面图、效果图整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。</p>
-            <div class="hero-actions">
-              <button class="primary-btn" onclick="location.href='plan-references.html'">Explore Board</button>
-              <button class="secondary-btn" onclick="location.href='render-references.html'">Other Board</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="hero-product-slide">
-          <div class="hero-product-visual">
-            <div class="prompt-hero-mock banner-prompt">
-              <img class="hero-banner-img" src="images/banner/banner11.webp" alt="Architectural Prompt Builder" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="hero-product-copy">
-            <div class="eyebrow">Prompt Generator</div>
-            <h1>Architectural<br>Prompt Builder.</h1>
-            <p>把构图、建筑风格、色彩、细节、氛围和非 AI 感关键词组合成可直接复制的 MidJourney Prompt。</p>
-            <div class="hero-actions">
-              <button class="primary-btn" onclick="location.href='prompt-generator.html'">Open Prompt Generator</button>
-              <button class="secondary-btn" onclick="scrollToSection('tools')">View Workflow</button>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="hero-product-controls">
-        <button class="icon-btn" onclick="prevHeroProduct()">‹</button>
-        <button class="icon-btn" onclick="nextHeroProduct()">›</button>
-      </div>
-      <div class="hero-dots" id="heroDots">
-        <button class="active" onclick="goHeroProduct(0)"></button>
-        <button onclick="goHeroProduct(1)"></button>
-        <button onclick="goHeroProduct(2)"></button>
-        <button onclick="goHeroProduct(3)"></button>
-      </div>
-    </section>
-
-    <section class="section" id="all">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Browse by Category</h2>
-          <p class="section-desc">从素材整理、Prompt 生成、交互实验、简历制作到灵感参考，按照不同任务场景进入对应模块。</p>
-        </div>
-      </div>
-      <div class="category-showcase">
-        <article class="category-feature">
-          <a class="category-feature-media" href="assets.html" aria-label="View Assets">
-            <img src="images/category/category-assets.webp" alt="Assets category preview" decoding="async">
-          </a>
-          <div class="category-feature-copy">
-            <span class="category-feature-index">01 / Category</span>
-            <h3>Assets</h3>
-            <p class="category-feature-sub">设计素材 / 商品资源</p>
-            <p class="category-feature-desc">集合模块图、人物、植物、动物、纹理与免费素材，适合做作品集图面、汇报版面、商品展示和日常素材归档。</p>
-            <p class="category-feature-audience"><strong>适合：</strong>建筑 / 景观学生、设计师、作品集准备者、需要快速找透明 PNG 与图面素材的人。</p>
-            <div class="category-feature-tags"><span>作品集素材</span><span>图面排版</span><span>透明 PNG</span></div>
-            <a class="category-feature-link" href="assets.html">View More <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="category-feature">
-          <a class="category-feature-media" href="prompt-generator.html" aria-label="View Prompt Generator">
-            <img src="images/category/category-prompt-generator.webp" alt="Prompt Generator category preview" loading="lazy" decoding="async">
-          </a>
-          <div class="category-feature-copy">
-            <span class="category-feature-index">02 / Category</span>
-            <h3>Prompt Generator</h3>
-            <p class="category-feature-sub">提示词生成 / 图面风格</p>
-            <p class="category-feature-desc">把构图、风格、场景、色彩与氛围关键词拆成可组合的 Prompt，帮助更稳定地生成建筑、景观与作品集视觉图。</p>
-            <p class="category-feature-audience"><strong>适合：</strong>AI 出图新手、需要统一画面风格的人、想把参考图转化为提示词逻辑的创作者。</p>
-            <div class="category-feature-tags"><span>AI 出图</span><span>提示词模板</span><span>风格拆解</span></div>
-            <a class="category-feature-link" href="prompt-generator.html">View More <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="category-feature">
-          <a class="category-feature-media" href="interaction.html" aria-label="View Interaction">
-            <img src="images/category/category-interaction.webp" alt="Interaction category preview" loading="lazy" decoding="async">
-          </a>
-          <div class="category-feature-copy">
-            <span class="category-feature-index">03 / Category</span>
-            <h3>Interaction</h3>
-            <p class="category-feature-sub">交互实验 / 可玩 Demo</p>
-            <p class="category-feature-desc">收录手势、动画、鼠标反馈与网页互动 Demo，把静态设计延展成可体验、可演示、可继续扩展的交互小实验。</p>
-            <p class="category-feature-audience"><strong>适合：</strong>想展示交互能力的设计师、准备转 UX / 前端方向的人、需要作品集亮点项目的人。</p>
-            <div class="category-feature-tags"><span>互动 Demo</span><span>体验设计</span><span>作品集亮点</span></div>
-            <a class="category-feature-link" href="interaction.html">View More <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="category-feature">
-          <a class="category-feature-media" href="resume.html" aria-label="View Resume">
-            <img src="images/category/category-resume.webp" alt="Resume category preview" loading="lazy" decoding="async">
-          </a>
-          <div class="category-feature-copy">
-            <span class="category-feature-index">04 / Category</span>
-            <h3>Resume</h3>
-            <p class="category-feature-sub">简历模板 / 在线工具</p>
-            <p class="category-feature-desc">提供简历模板展示与在线编辑入口，支持内容填写、排版预览和导出，帮助把求职信息整理成更干净的一页式简历。</p>
-            <p class="category-feature-audience"><strong>适合：</strong>应届生、转行求职者、设计 / 运营 / 产品方向求职者，以及想快速整理简历的人。</p>
-            <div class="category-feature-tags"><span>在线编辑</span><span>一页简历</span><span>求职准备</span></div>
-            <a class="category-feature-link" href="resume.html">View More <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="category-feature">
-          <a class="category-feature-media" href="plan-references.html" aria-label="View Inspiration Board">
-            <img src="images/category/category-inspiration-board.webp" alt="Inspiration Board category preview" loading="lazy" decoding="async">
-          </a>
-          <div class="category-feature-copy">
-            <span class="category-feature-index">05 / Category</span>
-            <h3>Inspiration Board</h3>
-            <p class="category-feature-sub">灵感参考 / 图面案例</p>
-            <p class="category-feature-desc">整理平面图、剖面图、效果图与色彩参考，重点看构图、氛围、色彩和表达方法，而不是直接复制单张参考图。</p>
-            <p class="category-feature-audience"><strong>适合：</strong>做前期调研、寻找图面方向、整理 Moodboard、准备作品集视觉风格的人。</p>
-            <div class="category-feature-tags"><span>色彩灵感</span><span>图面参考</span><span>表达方法</span></div>
-            <a class="category-feature-link" href="plan-references.html">View More <span>↗</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="notes-section" id="studio-notes">
-  <div class="notes-header">
-    <div>
-      <p class="section-kicker">Studio Notes & Trends</p>
-      <h2>Studio Notes & Trends</h2>
-      <p>记录网站更新、设计方法、AI 工具观察与灵感整理经验。这里不直接交付工具，而是沉淀 BaoLong Lab 的判断与方法。</p>
-    </div>
-  </div>
-
-  <div class="notes-slider" data-notes-slider>
-    <button class="notes-arrow notes-prev" type="button" aria-label="Previous note" data-notes-prev>‹</button>
-
-    <div class="notes-track" data-notes-track>
-      <article class="note-card is-active">
-        <div class="note-visual note-visual-dark">
-          <span>01 / STUDIO NOTE</span>
-          <h3>Workflow System</h3>
-          <p>Input → Preview → Export</p>
-        </div>
-        <div class="note-content">
-          <p class="note-type">Studio Note</p>
-          <h3>把工具做成一个可以完成任务的流程</h3>
-          <p>简历、提示词和素材管理都不只是单点功能。更重要的是让用户从“开始整理”到“得到结果”的过程足够清楚、稳定、可预期。</p>
-          <a class="note-link" href="#prompt-generator">View Related Tool</a>
-        </div>
-      </article>
-
-      <article class="note-card">
-        <div class="note-visual note-visual-light">
-          <span>02 / DESIGN METHOD</span>
-          <h3>Reference System</h3>
-          <p>Reference → Method → Original</p>
-        </div>
-        <div class="note-content">
-          <p class="note-type">Design Method</p>
-          <h3>从参考图到原创表达</h3>
-          <p>参考图可以帮助判断构图、层级、色彩和信息组织方式。真正重要的是提取方法，再转化成新的视觉语言，而不是复制图像本身。</p>
-          <a class="note-link" href="plan-references.html">View Inspiration Board</a>
-        </div>
-      </article>
-
-      <article class="note-card">
-        <div class="note-visual note-visual-grid">
-          <span>03 / AI TRENDS</span>
-          <h3>Organized Creation</h3>
-          <p>Generate → Organize → Deliver</p>
-        </div>
-        <div class="note-content">
-          <p class="note-type">AI Trends</p>
-          <h3>AI 工具正在从“生成”走向“组织”</h3>
-          <p>好的 AI 工具不应该只给出一段文字或一张图，而应该帮助用户完成分类、调整、预览、下载和再次修改的闭环。</p>
-          <a class="note-link" href="prompt-generator.html">Open Prompt Library</a>
-        </div>
-      </article>
-    </div>
-
-    <button class="notes-arrow notes-next" type="button" aria-label="Next note" data-notes-next>›</button>
-  </div>
+<header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header>
+<main>
+<section class="hero product-hero" id="heroProductCarousel">
+<div class="hero-grid"></div>
+<div class="hero-product-track" id="heroProductTrack">
+<article class="hero-product-slide">
+<div class="hero-product-visual">
+<div class="product-mock plan hero-banner-card">
+<img alt="Landscape Plan Creator Bundle" class="hero-banner-img" decoding="async" loading="lazy" src="images/banner/banner10.webp"/>
+</div>
+</div>
+<div class="hero-product-copy">
+<div class="eyebrow" data-bl-original-text="Design Assets">设计素材</div>
+<h1 data-bl-original-text="Design Assets Creator Bundle.">设计素材<br/>创作工具集合。</h1>
+<p>适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。</p>
+<div class="hero-actions">
+<button class="primary-btn" onclick="openExternal()">View on Taobao</button>
+<button class="secondary-btn" onclick="scrollToSection('products')">See Details</button>
+</div>
+</div>
+</article>
+<article class="hero-product-slide">
+<div class="hero-product-visual">
+<div class="product-mock resume banner-resume">
+<div class="resume-page left"><img alt="Editable Resume Template 1" decoding="async" loading="lazy" src="images/banner/banner7.webp"/></div>
+<div class="resume-page main"><img alt="Editable Resume Template 2" decoding="async" loading="lazy" src="images/banner/banner8.webp"/></div>
+<div class="resume-page right"><img alt="Editable Resume Template 3" decoding="async" loading="lazy" src="images/banner/banner9.webp"/></div>
+</div>
+</div>
+<div class="hero-product-copy">
+<div class="eyebrow" data-bl-original-text="Resume Templates">简历模板</div>
+<h1 data-bl-original-text="Editable Resume Templates.">可编辑<br/>简历模板。</h1>
+<p>固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。</p>
+<div class="hero-actions">
+<button class="primary-btn" onclick="openResumeTool()">View Resume Templates</button>
+<button class="secondary-btn" onclick="openExternal()">Buy Template</button>
+</div>
+</div>
+</article>
+<article class="hero-product-slide">
+<div class="hero-product-visual">
+<div class="reference-hero-mock banner-reference">
+<div class="pin-card tall"><img alt="Plan Reference 1" decoding="async" loading="lazy" src="images/banner/banner1.webp"/></div>
+<div class="pin-card"><img alt="Plan Reference 2" decoding="async" loading="lazy" src="images/banner/banner2.webp"/></div>
+<div class="pin-card small"><img alt="Plan Reference 3" decoding="async" loading="lazy" src="images/banner/banner3.webp"/></div>
+<div class="pin-card wide"><img alt="Plan Reference 4" decoding="async" loading="lazy" src="images/banner/banner4.webp"/></div>
+<div class="pin-card tall muted"><img alt="Plan Reference 5" decoding="async" loading="lazy" src="images/banner/banner5.webp"/></div>
+<div class="pin-card small dark"><img alt="Plan Reference 6" decoding="async" loading="lazy" src="images/banner/banner6.webp"/></div>
+</div>
+</div>
+<div class="hero-product-copy">
+<div class="eyebrow" data-bl-original-text="Inspiration Board">灵感板</div>
+<h1 data-bl-original-text="Plan, Section &amp; Other Board.">平面、剖面<br/>与综合灵感板。</h1>
+<p>把平面图、剖面图、效果图整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。</p>
+<div class="hero-actions">
+<button class="primary-btn" onclick="location.href='plan-references.html'">Explore Board</button>
+<button class="secondary-btn" onclick="location.href='render-references.html'">Other Board</button>
+</div>
+</div>
+</article>
+<article class="hero-product-slide">
+<div class="hero-product-visual">
+<div class="prompt-hero-mock banner-prompt">
+<img alt="Architectural Prompt Builder" class="hero-banner-img" decoding="async" loading="lazy" src="images/banner/banner11.webp"/>
+</div>
+</div>
+<div class="hero-product-copy">
+<div class="eyebrow" data-bl-original-text="Prompt Generator">Prompt 工具</div>
+<h1 data-bl-original-text="Architectural Prompt Builder.">建筑景观<br/>Prompt 工具。</h1>
+<p>把构图、建筑风格、色彩、细节、氛围和非 AI 感关键词组合成可直接复制的 MidJourney Prompt。</p>
+<div class="hero-actions">
+<button class="primary-btn" onclick="location.href='prompt-generator.html'">Open Prompt Generator</button>
+<button class="secondary-btn" onclick="scrollToSection('tools')">View Workflow</button>
+</div>
+</div>
+</article>
+</div>
+<div class="hero-product-controls">
+<button class="icon-btn" onclick="prevHeroProduct()">‹</button>
+<button class="icon-btn" onclick="nextHeroProduct()">›</button>
+</div>
+<div class="hero-dots" id="heroDots">
+<button class="active" onclick="goHeroProduct(0)"></button>
+<button onclick="goHeroProduct(1)"></button>
+<button onclick="goHeroProduct(2)"></button>
+<button onclick="goHeroProduct(3)"></button>
+</div>
 </section>
-
-    <section class="section" id="products">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title" id="productsTitle">Editor's Picks</h2>
-          <p class="section-desc" id="productsDesc">首页先展示 16 个精选素材，更多分类与完整商品可以进入 Assets 页面查看。</p>
-        </div>
-        <button class="pill-btn" onclick="location.href='assets.html'">View More</button>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-      <div class="view-more-row">
-        <button class="primary-btn" onclick="location.href='assets.html'">View More</button>
-      </div>
-    </section>
-
-    <section class="section" id="tools">
-      <div class="tool-band">
-        <div>
-          <div class="eyebrow" style="color:#d9c8a9">Studio Tools</div>
-          <h2 data-bl-original-text="Tools can stay separate from the shop.">工具可以独立于商品展示存在。</h2>
-          <p>Resume generators and Prompt generators can serve as independent tool entrances. The website handles display and conversion, while purchase still redirects to Taobao / Xiaohongshu / direct message.</p>
-          <div class="hero-actions" style="justify-content:flex-start;margin-top:26px">
-            <button class="primary-btn" onclick="openResumeTool()" style="background:#fff;color:#111">Open Resume Tool</button>
-            <button class="secondary-btn" onclick="location.href='prompt-generator.html'" style="color:#fff;border-color:#fff;background:transparent">Prompt Generator</button>
-          </div>
-        </div>
-        <div class="tool-cards">
-          <article class="tool-card" onclick="location.href='resume.html'" style="cursor:pointer;">
-            <h3>Resume Templates</h3>
-            <p>简历模板展示、AI 优化入口与 PDF 导出工具。</p>
-          </article>
-          <article class="tool-card">
-            <h3>Prompt Generator</h3>
-            <p>建筑插画、拼贴风、儿童空间、活动分析图提示词。</p>
-          </article>
-          <article class="tool-card">
-            <h3>Visual Kit Library</h3>
-            <p>小红书封面、产品展示、设计表达资源库。</p>
-          </article>
-          <article class="tool-card">
-            <h3>Custom Service</h3>
-            <p>简历精修、作品集页面、小红书视觉策划。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <div class="detail-panel" id="detailPanel" onclick="closeDetail(event)">
-    <div class="detail-card" onclick="event.stopPropagation()">
-      <button class="detail-close" onclick="closeDetail()">×</button>
-      <div class="eyebrow" id="detailType">BaoLong Lab</div>
-      <h2 id="detailTitle">Product Title</h2>
-      <p class="detail-price" id="detailPrice">$9.90</p>
-      <div class="detail-visual" id="detailVisual"></div>
-      <div class="detail-list" id="detailDesc"></div>
-      <div class="detail-actions">
-        <button class="primary-btn" id="detailBuyBtn" onclick="openProductLink()">Go to Taobao</button>
-        <button class="secondary-btn" onclick="closeDetail()">Back to Products</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="floating-gift" onclick="scrollToTop()" title="Back to top">✦</div>
-
-  <footer class="footer">
-    <div>
-      <strong style="color:#222;letter-spacing:.25em;text-transform:uppercase">BaoLong Lab</strong>
-      <p>Design assets, resume templates and visual content tools.</p>
-    </div>
-    <div>
-      <p>购买入口可跳转淘宝 / 小红书 / 私信。<br>此版本为展示型网站框架，不含支付系统。</p>
-    </div>
-  </footer>
-
-  <script>
+<section class="section" id="all">
+<div class="section-head">
+<div>
+<h2 class="section-title" data-bl-original-text="Browse by Category">按场景浏览</h2>
+<p class="section-desc">从素材整理、Prompt 生成、交互实验、简历制作到灵感参考，按照不同任务场景进入对应模块。</p>
+</div>
+</div>
+<div class="category-showcase">
+<article class="category-feature">
+<a aria-label="View Assets" class="category-feature-media" href="assets.html">
+<img alt="Assets category preview" decoding="async" src="images/category/category-assets.webp"/>
+</a>
+<div class="category-feature-copy">
+<span class="category-feature-index">01 / Category</span>
+<h3 data-bl-original-text="Assets">素材库</h3>
+<p class="category-feature-sub">设计素材 / 商品资源</p>
+<p class="category-feature-desc">集合模块图、人物、植物、动物、纹理与免费素材，适合做作品集图面、汇报版面、商品展示和日常素材归档。</p>
+<p class="category-feature-audience"><strong>适合：</strong>建筑 / 景观学生、设计师、作品集准备者、需要快速找透明 PNG 与图面素材的人。</p>
+<div class="category-feature-tags"><span>作品集素材</span><span>图面排版</span><span>透明 PNG</span></div>
+<a class="category-feature-link" href="assets.html">View More <span>↗</span></a>
+</div>
+</article>
+<article class="category-feature">
+<a aria-label="View Prompt Generator" class="category-feature-media" href="prompt-generator.html">
+<img alt="Prompt Generator category preview" decoding="async" loading="lazy" src="images/category/category-prompt-generator.webp"/>
+</a>
+<div class="category-feature-copy">
+<span class="category-feature-index">02 / Category</span>
+<h3 data-bl-original-text="Prompt Generator">Prompt 工具</h3>
+<p class="category-feature-sub">提示词生成 / 图面风格</p>
+<p class="category-feature-desc">把构图、风格、场景、色彩与氛围关键词拆成可组合的 Prompt，帮助更稳定地生成建筑、景观与作品集视觉图。</p>
+<p class="category-feature-audience"><strong>适合：</strong>AI 出图新手、需要统一画面风格的人、想把参考图转化为提示词逻辑的创作者。</p>
+<div class="category-feature-tags"><span>AI 出图</span><span>提示词模板</span><span>风格拆解</span></div>
+<a class="category-feature-link" href="prompt-generator.html">View More <span>↗</span></a>
+</div>
+</article>
+<article class="category-feature">
+<a aria-label="View Interaction" class="category-feature-media" href="interaction.html">
+<img alt="Interaction category preview" decoding="async" loading="lazy" src="images/category/category-interaction.webp"/>
+</a>
+<div class="category-feature-copy">
+<span class="category-feature-index">03 / Category</span>
+<h3 data-bl-original-text="Interaction">交互实验室</h3>
+<p class="category-feature-sub">交互实验 / 可玩 Demo</p>
+<p class="category-feature-desc">收录手势、动画、鼠标反馈与网页互动 Demo，把静态设计延展成可体验、可演示、可继续扩展的交互小实验。</p>
+<p class="category-feature-audience"><strong>适合：</strong>想展示交互能力的设计师、准备转 UX / 前端方向的人、需要作品集亮点项目的人。</p>
+<div class="category-feature-tags"><span>互动 Demo</span><span>体验设计</span><span>作品集亮点</span></div>
+<a class="category-feature-link" href="interaction.html">View More <span>↗</span></a>
+</div>
+</article>
+<article class="category-feature">
+<a aria-label="View Resume" class="category-feature-media" href="resume.html">
+<img alt="Resume category preview" decoding="async" loading="lazy" src="images/category/category-resume.webp"/>
+</a>
+<div class="category-feature-copy">
+<span class="category-feature-index">04 / Category</span>
+<h3 data-bl-original-text="Resume">简历模板</h3>
+<p class="category-feature-sub">简历模板 / 在线工具</p>
+<p class="category-feature-desc">提供简历模板展示与在线编辑入口，支持内容填写、排版预览和导出，帮助把求职信息整理成更干净的一页式简历。</p>
+<p class="category-feature-audience"><strong>适合：</strong>应届生、转行求职者、设计 / 运营 / 产品方向求职者，以及想快速整理简历的人。</p>
+<div class="category-feature-tags"><span>在线编辑</span><span>一页简历</span><span>求职准备</span></div>
+<a class="category-feature-link" href="resume.html">View More <span>↗</span></a>
+</div>
+</article>
+<article class="category-feature">
+<a aria-label="View Inspiration Board" class="category-feature-media" href="plan-references.html">
+<img alt="Inspiration Board category preview" decoding="async" loading="lazy" src="images/category/category-inspiration-board.webp"/>
+</a>
+<div class="category-feature-copy">
+<span class="category-feature-index">05 / Category</span>
+<h3 data-bl-original-text="Inspiration Board">灵感板</h3>
+<p class="category-feature-sub">灵感参考 / 图面案例</p>
+<p class="category-feature-desc">整理平面图、剖面图、效果图与色彩参考，重点看构图、氛围、色彩和表达方法，而不是直接复制单张参考图。</p>
+<p class="category-feature-audience"><strong>适合：</strong>做前期调研、寻找图面方向、整理 Moodboard、准备作品集视觉风格的人。</p>
+<div class="category-feature-tags"><span>色彩灵感</span><span>图面参考</span><span>表达方法</span></div>
+<a class="category-feature-link" href="plan-references.html">View More <span>↗</span></a>
+</div>
+</article>
+</div>
+</section>
+<section class="notes-section" id="studio-notes">
+<div class="notes-header">
+<div>
+<p class="section-kicker">Studio Notes &amp; Trends</p>
+<h2 data-bl-original-text="Studio Notes &amp; Trends">工作室笔记与趋势</h2>
+<p>记录网站更新、设计方法、AI 工具观察与灵感整理经验。这里不直接交付工具，而是沉淀 BaoLong Lab 的判断与方法。</p>
+</div>
+</div>
+<div class="notes-slider" data-notes-slider="">
+<button aria-label="Previous note" class="notes-arrow notes-prev" data-notes-prev="" type="button">‹</button>
+<div class="notes-track" data-notes-track="">
+<article class="note-card is-active">
+<div class="note-visual note-visual-dark">
+<span>01 / STUDIO NOTE</span>
+<h3 data-bl-original-text="Workflow System">工作流系统</h3>
+<p>Input → Preview → Export</p>
+</div>
+<div class="note-content">
+<p class="note-type">Studio Note</p>
+<h3>把工具做成一个可以完成任务的流程</h3>
+<p>简历、提示词和素材管理都不只是单点功能。更重要的是让用户从“开始整理”到“得到结果”的过程足够清楚、稳定、可预期。</p>
+<a class="note-link" href="#prompt-generator">View Related Tool</a>
+</div>
+</article>
+<article class="note-card">
+<div class="note-visual note-visual-light">
+<span>02 / DESIGN METHOD</span>
+<h3 data-bl-original-text="Reference System">参考系统</h3>
+<p>Reference → Method → Original</p>
+</div>
+<div class="note-content">
+<p class="note-type">Design Method</p>
+<h3>从参考图到原创表达</h3>
+<p>参考图可以帮助判断构图、层级、色彩和信息组织方式。真正重要的是提取方法，再转化成新的视觉语言，而不是复制图像本身。</p>
+<a class="note-link" href="plan-references.html">View Inspiration Board</a>
+</div>
+</article>
+<article class="note-card">
+<div class="note-visual note-visual-grid">
+<span>03 / AI TRENDS</span>
+<h3 data-bl-original-text="Organized Creation">有组织的创作</h3>
+<p>Generate → Organize → Deliver</p>
+</div>
+<div class="note-content">
+<p class="note-type">AI Trends</p>
+<h3>AI 工具正在从“生成”走向“组织”</h3>
+<p>好的 AI 工具不应该只给出一段文字或一张图，而应该帮助用户完成分类、调整、预览、下载和再次修改的闭环。</p>
+<a class="note-link" href="prompt-generator.html">Open Prompt Library</a>
+</div>
+</article>
+</div>
+<button aria-label="Next note" class="notes-arrow notes-next" data-notes-next="" type="button">›</button>
+</div>
+</section>
+<section class="section" id="products">
+<div class="section-head">
+<div>
+<h2 class="section-title" data-bl-original-text="Editor's Picks" id="productsTitle">精选素材</h2>
+<p class="section-desc" id="productsDesc">首页先展示 16 个精选素材，更多分类与完整商品可以进入 Assets 页面查看。</p>
+</div>
+<button class="pill-btn" onclick="location.href='assets.html'">View More</button>
+</div>
+<div class="product-grid" id="productGrid"></div>
+<div class="view-more-row">
+<button class="primary-btn" onclick="location.href='assets.html'">View More</button>
+</div>
+</section>
+<section class="section" id="tools">
+<div class="tool-band">
+<div>
+<div class="eyebrow" data-bl-original-text="Studio Tools" style="color:#d9c8a9">工作室工具</div>
+<h2 data-bl-original-text="Tools can stay separate from the shop.">工具可以独立于商品展示存在。</h2>
+<p>Resume generators and Prompt generators can serve as independent tool entrances. The website handles display and conversion, while purchase still redirects to Taobao / Xiaohongshu / direct message.</p>
+<div class="hero-actions" style="justify-content:flex-start;margin-top:26px">
+<button class="primary-btn" onclick="openResumeTool()" style="background:#fff;color:#111">Open Resume Tool</button>
+<button class="secondary-btn" onclick="location.href='prompt-generator.html'" style="color:#fff;border-color:#fff;background:transparent">Prompt Generator</button>
+</div>
+</div>
+<div class="tool-cards">
+<article class="tool-card" onclick="location.href='resume.html'" style="cursor:pointer;">
+<h3 data-bl-original-text="Resume Templates">简历模板</h3>
+<p>简历模板展示、AI 优化入口与 PDF 导出工具。</p>
+</article>
+<article class="tool-card">
+<h3 data-bl-original-text="Prompt Generator">Prompt 工具</h3>
+<p>建筑插画、拼贴风、儿童空间、活动分析图提示词。</p>
+</article>
+<article class="tool-card">
+<h3 data-bl-original-text="Visual Kit Library">视觉素材库</h3>
+<p>小红书封面、产品展示、设计表达资源库。</p>
+</article>
+<article class="tool-card">
+<h3 data-bl-original-text="Custom Service">定制服务</h3>
+<p>简历精修、作品集页面、小红书视觉策划。</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<div class="detail-panel" id="detailPanel" onclick="closeDetail(event)">
+<div class="detail-card" onclick="event.stopPropagation()">
+<button class="detail-close" onclick="closeDetail()">×</button>
+<div class="eyebrow" id="detailType">BaoLong Lab</div>
+<h2 id="detailTitle">Product Title</h2>
+<p class="detail-price" id="detailPrice">$9.90</p>
+<div class="detail-visual" id="detailVisual"></div>
+<div class="detail-list" id="detailDesc"></div>
+<div class="detail-actions">
+<button class="primary-btn" id="detailBuyBtn" onclick="openProductLink()">Go to Taobao</button>
+<button class="secondary-btn" onclick="closeDetail()">Back to Products</button>
+</div>
+</div>
+</div>
+<div class="floating-gift" onclick="scrollToTop()" title="Back to top">✦</div>
+<footer class="footer">
+<div>
+<strong style="color:#222;letter-spacing:.25em;text-transform:uppercase">BaoLong Lab</strong>
+<p>Design assets, resume templates and visual content tools.</p>
+</div>
+<div>
+<p>购买入口可跳转淘宝 / 小红书 / 私信。<br/>此版本为展示型网站框架，不含支付系统。</p>
+</div>
+</footer>
+<script>
     const products = [
       {
             "id": "P001",
@@ -4318,14 +4287,12 @@ body{
     startHeroProductAutoPlay();
     startNewsAutoPlay();
   </script>
-
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
-    <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br>
-    <span class="footer-line">Original content and tools by BaoLong Lab.</span><br>
-    <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
 </footer>
-
-  <script>
+<script>
     function toggleMobileMenu(){
       const panel = document.getElementById('mobileMenuPanel');
       if(panel) panel.classList.toggle('open');
@@ -4344,14 +4311,11 @@ body{
       panel.classList.remove('open');
     });
   </script>
-
-
-  <script>
+<script>
     function scrollToTop(){
       window.scrollTo({top:0, behavior:'smooth'});
     }
   </script>
-
 <script>
   (function(){
     const slider = document.querySelector('[data-notes-slider]');
@@ -4405,7 +4369,5 @@ body{
     startNotesAutoPlay();
   })();
 </script>
-
 </body>
-
 </html>

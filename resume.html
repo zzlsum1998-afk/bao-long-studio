@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume Templates | BaoLong Lab</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resume Templates | BaoLong Lab</title>
+<style>
     :root{
       --bg:#f7f6f2;
       --paper:#ffffff;
@@ -832,217 +833,195 @@
     }
 
 </style>
-
-  <link rel="stylesheet" href="css/common.css?v=72" />
-  <script src="js/common.js?v=72" defer></script>
+<link href="css/common.css?v=73" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=73"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
-      <div class="brand-text">BAOLONG LAB</div>
-    </a>
-
-    <nav class="nav">
-      <a href="index.html">All</a>
-
-      <div class="nav-dropdown">
-        <a href="assets.html">Assets ▼</a>
-        <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
-          <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
-        
-        </div>
-      </div>
-
-      <a href="prompt-generator.html">Prompt Generator</a>
-      <a href="interaction.html">Interaction</a>
-      <a href="resume.html">Resume</a>
-
-      <div class="nav-dropdown">
-        <a href="plan-references.html">Inspiration Board ▼</a>
-        <div class="dropdown-content">
-          <a href="plan-references.html">Plan Board</a>
-          <a href="section-references.html">Section Board</a>
-          <a href="render-references.html">Other Board</a>
-          <a href="color-references.html">Color Board</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
-    </div>
-  
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
-    <div class="mobile-menu-panel" id="mobileMenuPanel">
-      <a href="index.html" onclick="closeMobileMenu()">All</a>
-      <div class="mobile-menu-group">Assets</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
-      <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
-      <div class="mobile-menu-group">Tools</div>
-      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
-      <a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
-      <a href="resume.html" onclick="closeMobileMenu()">Resume</a>
-      <div class="mobile-menu-group">Inspiration Board</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
-      <div class="mobile-menu-group">Account</div>
-      <a href="login.html" onclick="closeMobileMenu()">Log in</a>
-    </div>
-
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="preview-area">
-        <div class="main-preview">
-          <img class="hero-resume-img" id="heroSheet" src="images/resume-previews/resume-1.webp" alt="Resume template preview 01" loading="lazy" decoding="async">
-        </div>
-        <div class="thumbs">
-          <button class="thumb active" type="button" onclick="switchHeroTemplate(0)"><img class="thumb-img" src="images/resume-previews/resume-1.webp" alt="Resume template thumbnail 01" loading="lazy" decoding="async"></button>
-          <button class="thumb" type="button" onclick="switchHeroTemplate(1)"><img class="thumb-img" src="images/resume-previews/resume-2.webp" alt="Resume template thumbnail 02" loading="lazy" decoding="async"></button>
-          <button class="thumb" type="button" onclick="switchHeroTemplate(2)"><img class="thumb-img" src="images/resume-previews/resume-3.webp" alt="Resume template thumbnail 03" loading="lazy" decoding="async"></button>
-          <button class="thumb" type="button" onclick="switchHeroTemplate(3)"><img class="thumb-img" src="images/resume-previews/resume-4.webp" alt="Resume template thumbnail 04" loading="lazy" decoding="async"></button>
-        </div>
-      </div>
-
-      <div class="copy">
-        <div class="eyebrow">Resume Templates</div>
-        <h1>Editable Resume<br>Templates + AI Polish.</h1>
-        <p>填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。</p>
-
-        <div class="ai-badge">✦ Free AI Uses Today: 3 / 3</div>
-
-        
-        <div class="resume-upload-card">
-          <strong>Upload Existing Resume</strong>
-          <p>后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。</p>
-          <div class="resume-upload-actions">
-            <label class="resume-upload-btn">
+<header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="preview-area">
+<div class="main-preview">
+<img alt="Resume template preview 01" class="hero-resume-img" decoding="async" id="heroSheet" loading="lazy" src="images/resume-previews/resume-1.webp"/>
+</div>
+<div class="thumbs">
+<button class="thumb active" onclick="switchHeroTemplate(0)" type="button"><img alt="Resume template thumbnail 01" class="thumb-img" decoding="async" loading="lazy" src="images/resume-previews/resume-1.webp"/></button>
+<button class="thumb" onclick="switchHeroTemplate(1)" type="button"><img alt="Resume template thumbnail 02" class="thumb-img" decoding="async" loading="lazy" src="images/resume-previews/resume-2.webp"/></button>
+<button class="thumb" onclick="switchHeroTemplate(2)" type="button"><img alt="Resume template thumbnail 03" class="thumb-img" decoding="async" loading="lazy" src="images/resume-previews/resume-3.webp"/></button>
+<button class="thumb" onclick="switchHeroTemplate(3)" type="button"><img alt="Resume template thumbnail 04" class="thumb-img" decoding="async" loading="lazy" src="images/resume-previews/resume-4.webp"/></button>
+</div>
+</div>
+<div class="copy">
+<div class="eyebrow" data-bl-original-text="Resume Templates">简历模板</div>
+<h1 data-bl-original-text="Editable Resume Templates + AI Polish.">可编辑简历模板<br/>+ AI 优化。</h1>
+<p>填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。</p>
+<div class="ai-badge" data-bl-original-text="✦ Free AI Uses Today: 3 / 3">✦ 今日免费 AI 次数：3 / 3</div>
+<div class="resume-upload-card">
+<strong data-bl-original-text="Upload Existing Resume">上传已有简历</strong>
+<p>后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。</p>
+<div class="resume-upload-actions">
+<label class="resume-upload-btn">
               Upload Resume
-              <input class="resume-upload-file" type="file" accept=".jpeg,.jpg,.png,.pdf,.doc,.docx" onchange="handleResumeUploadPlaceholder(this)">
-            </label>
-            <span class="resume-upload-status" id="resumeUploadStatus">Recognition backend not connected yet.</span>
-          </div>
-        </div>
-
-        <div class="feature-list">
-          <div class="feature"><strong>12 Templates</strong><span>多种简历排版风格，适合不同岗位和求职场景。</span></div>
-          <div class="feature"><strong>AI Polish</strong><span>优化工作经历、项目经历、获奖经历和个人简介。</span></div>
-          <div class="feature"><strong>One-page Export</strong><span>页面预览与 PDF 导出保持一致，减少手动排版。</span></div>
-          <div class="feature"><strong>JD Match</strong><span>后续可根据岗位要求优化简历重点和表达方式。</span></div>
-        </div>
-
-        <div class="actions">
-          <button class="primary-btn" onclick="location.href='resume-tool.html'">Try Resume Tool</button>
-          <button class="secondary-btn" onclick="document.getElementById('templates').scrollIntoView({behavior:'smooth'})">View Templates</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="templates">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title-main">Resume Templates</h2>
-          <p class="section-desc">像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。</p>
-        </div>
-        <button class="secondary-btn" onclick="location.href='resume-tool.html'">Open Tool</button>
-      </div>
-
-      <div class="template-grid">
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-1.webp" alt="01 Linear resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>01 Linear</h3><p>清晰稳重，适合通用求职。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-2.webp" alt="02 Sidebar resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>02 Sidebar</h3><p>信息层级明确，适合设计类简历。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-3.webp" alt="03 Minimal resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>03 Minimal</h3><p>留白更多，适合高级简洁风。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-4.webp" alt="04 Warm resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>04 Warm</h3><p>轻商务感，适合内容运营和产品岗位。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-5.webp" alt="05 Gold resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>05 Gold</h3><p>更有记忆点，适合个人品牌表达。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-6.webp" alt="06 Business resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>06 Business</h3><p>正式专业，适合企业岗位投递。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-7.webp" alt="07 Header resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>07 Header</h3><p>顶部信息突出，适合强标题型简历。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-8.webp" alt="08 Compact resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>08 Compact</h3><p>信息密度高，适合一页压缩。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-9.webp" alt="09 Editorial resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>09 Editorial</h3><p>杂志排版感，适合视觉和内容岗位。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-10.webp" alt="10 Metroline resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>10 Metroline</h3><p>双栏线性排版，适合成熟专业表达。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-11.webp" alt="11 Profile resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>11 Profile</h3><p>头像信息栏搭配正文经历，稳重简洁。</p></div>
-        </article>
-        <article class="template-card" onclick="location.href='resume-tool.html'">
-          <div class="template-visual"><img class="template-preview-img" src="images/resume-previews/resume-12.webp" alt="12 Portrait resume preview" loading="lazy" decoding="async"></div>
-          <div class="template-info"><h3>12 Portrait</h3><p>商务双栏，突出主经历与个人信息。</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title-main">How It Works</h2>
-          <p class="section-desc">把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。</p>
-        </div>
-      </div>
-      <div class="workflow">
-        <div class="step"><div class="step-num">01</div><h3>Fill Once</h3><p>填写一次基本信息、教育经历、工作经历和项目经历。</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Choose Template</h3><p>切换不同模板，快速预览不同求职风格。</p></div>
-        <div class="step"><div class="step-num">03</div><h3>AI Polish</h3><p>每天免费 3 次 AI 优化，帮助你精简表达和突出结果。</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Export PDF</h3><p>确认排版后导出 PDF，用于投递或继续修改。</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="cta">
-        <div>
-          <h2 data-bl-original-text="Ready to build your resume?">准备好生成你的简历了吗？</h2>
-          <p data-bl-original-text="Use the full resume generator after entering the tool page.">进入工具页后，可以继续使用完整的简历生成器功能。</p>
-        </div>
-        <button class="primary-btn" onclick="location.href='resume-tool.html'" style="background:#fff;color:#111">Try Resume Tool</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
+              <input accept=".jpeg,.jpg,.png,.pdf,.doc,.docx" class="resume-upload-file" onchange="handleResumeUploadPlaceholder(this)" type="file"/>
+</label>
+<span class="resume-upload-status" id="resumeUploadStatus">Recognition backend not connected yet.</span>
+</div>
+</div>
+<div class="feature-list">
+<div class="feature"><strong data-bl-original-text="12 Templates">12 套模板</strong><span>多种简历排版风格，适合不同岗位和求职场景。</span></div>
+<div class="feature"><strong data-bl-original-text="AI Polish">AI 优化</strong><span>优化工作经历、项目经历、获奖经历和个人简介。</span></div>
+<div class="feature"><strong data-bl-original-text="One-page Export">一页导出</strong><span>页面预览与 PDF 导出保持一致，减少手动排版。</span></div>
+<div class="feature"><strong data-bl-original-text="JD Match">岗位匹配</strong><span>后续可根据岗位要求优化简历重点和表达方式。</span></div>
+</div>
+<div class="actions">
+<button class="primary-btn" onclick="location.href='resume-tool.html'">Try Resume Tool</button>
+<button class="secondary-btn" onclick="document.getElementById('templates').scrollIntoView({behavior:'smooth'})">View Templates</button>
+</div>
+</div>
+</section>
+<section class="section" id="templates">
+<div class="section-head">
+<div>
+<h2 class="section-title-main" data-bl-original-text="Resume Templates">简历模板</h2>
+<p class="section-desc">像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。</p>
+</div>
+<button class="secondary-btn" onclick="location.href='resume-tool.html'">Open Tool</button>
+</div>
+<div class="template-grid">
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="01 Linear resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-1.webp"/></div>
+<div class="template-info"><h3>01 Linear</h3><p>清晰稳重，适合通用求职。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="02 Sidebar resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-2.webp"/></div>
+<div class="template-info"><h3>02 Sidebar</h3><p>信息层级明确，适合设计类简历。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="03 Minimal resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-3.webp"/></div>
+<div class="template-info"><h3>03 Minimal</h3><p>留白更多，适合高级简洁风。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="04 Warm resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-4.webp"/></div>
+<div class="template-info"><h3>04 Warm</h3><p>轻商务感，适合内容运营和产品岗位。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="05 Gold resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-5.webp"/></div>
+<div class="template-info"><h3>05 Gold</h3><p>更有记忆点，适合个人品牌表达。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="06 Business resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-6.webp"/></div>
+<div class="template-info"><h3>06 Business</h3><p>正式专业，适合企业岗位投递。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="07 Header resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-7.webp"/></div>
+<div class="template-info"><h3>07 Header</h3><p>顶部信息突出，适合强标题型简历。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="08 Compact resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-8.webp"/></div>
+<div class="template-info"><h3>08 Compact</h3><p>信息密度高，适合一页压缩。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="09 Editorial resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-9.webp"/></div>
+<div class="template-info"><h3>09 Editorial</h3><p>杂志排版感，适合视觉和内容岗位。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="10 Metroline resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-10.webp"/></div>
+<div class="template-info"><h3>10 Metroline</h3><p>双栏线性排版，适合成熟专业表达。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="11 Profile resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-11.webp"/></div>
+<div class="template-info"><h3>11 Profile</h3><p>头像信息栏搭配正文经历，稳重简洁。</p></div>
+</article>
+<article class="template-card" onclick="location.href='resume-tool.html'">
+<div class="template-visual"><img alt="12 Portrait resume preview" class="template-preview-img" decoding="async" loading="lazy" src="images/resume-previews/resume-12.webp"/></div>
+<div class="template-info"><h3>12 Portrait</h3><p>商务双栏，突出主经历与个人信息。</p></div>
+</article>
+</div>
+</section>
+<section class="section" id="features">
+<div class="section-head">
+<div>
+<h2 class="section-title-main" data-bl-original-text="How It Works">使用流程</h2>
+<p class="section-desc">把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。</p>
+</div>
+</div>
+<div class="workflow">
+<div class="step"><div class="step-num">01</div><h3 data-bl-original-text="Fill Once">填写一次</h3><p>填写一次基本信息、教育经历、工作经历和项目经历。</p></div>
+<div class="step"><div class="step-num">02</div><h3 data-bl-original-text="Choose Template">选择模板</h3><p>切换不同模板，快速预览不同求职风格。</p></div>
+<div class="step"><div class="step-num">03</div><h3 data-bl-original-text="AI Polish">AI 优化</h3><p>每天免费 3 次 AI 优化，帮助你精简表达和突出结果。</p></div>
+<div class="step"><div class="step-num">04</div><h3 data-bl-original-text="Export PDF">导出 PDF</h3><p>确认排版后导出 PDF，用于投递或继续修改。</p></div>
+</div>
+</section>
+<section class="section">
+<div class="cta">
+<div>
+<h2 data-bl-original-text="Ready to build your resume?">准备好生成你的简历了吗？</h2>
+<p data-bl-original-text="Use the full resume generator after entering the tool page.">进入工具页后，可以继续使用完整的简历生成器功能。</p>
+</div>
+<button class="primary-btn" onclick="location.href='resume-tool.html'" style="background:#fff;color:#111">Try Resume Tool</button>
+</div>
+</section>
+</main>
+<footer class="footer">
     BaoLong Lab · Resume Templates
   </footer>
-
-  <script>
+<script>
     const heroResumeImages = [
       "images/resume-previews/resume-1.webp",
       "images/resume-previews/resume-2.webp",
@@ -1060,7 +1039,6 @@
       }
     }
   </script>
-
 <script>
 function handleResumeUploadPlaceholder(input){
   const file = input.files && input.files[0];
@@ -1080,22 +1058,18 @@ function handleResumeUploadPlaceholder(input){
   if(status) status.textContent = "Selected: " + file.name + "（识别功能后端接入后启用）";
 }
 </script>
-
-
-  <script>
+<script>
     function navFilter(category){
       location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
       return false;
     }
   </script>
-
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
-    <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br>
-    <span class="footer-line">Original content and tools by BaoLong Lab.</span><br>
-    <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
 </footer>
-
-  <script>
+<script>
     function toggleMobileMenu(){
       const panel = document.getElementById('mobileMenuPanel');
       if(panel) panel.classList.toggle('open');
@@ -1114,7 +1088,5 @@ function handleResumeUploadPlaceholder(input){
       panel.classList.remove('open');
     });
   </script>
-
 </body>
-
 </html>

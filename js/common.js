@@ -12,7 +12,7 @@
     // common buttons
     'View on Taobao':'去淘宝查看','See Details':'查看详情','View Resume Templates':'查看简历模板','Buy Template':'购买模板','Explore Board':'进入灵感板','Open Prompt Generator':'打开 Prompt 工具','View Workflow':'查看流程','View More':'查看更多','Open Resume Tool':'打开简历工具','Go to Taobao':'去淘宝','Back to Products':'返回商品','View All Assets':'查看全部素材','View Free':'查看免费素材','Try Prompt Builder':'试用 Prompt 工具','View Categories':'查看分类','Open Tool':'打开工具','Build Your Prompt':'生成你的 Prompt','Copy Prompt':'复制 Prompt','Close':'关闭','Try Resume Tool':'试用简历工具','View Templates':'查看模板','Other Board':'综合灵感','Ready to build your prompt?':'准备好生成你的 Prompt 了吗？','Use the full Prompt Builder after entering the tool page.':'进入工具页后，可以使用完整的 Prompt Builder 交互功能。','Ready to build your resume?':'准备好生成你的简历了吗？','Use the full resume generator after entering the tool page.':'进入工具页后，可以继续使用完整的简历生成器功能。',
     // home page
-    'Design Assets Creator Bundle.':'设计素材与创作工具集合。','Editable Resume Templates.':'可编辑简历模板。','Plan, Section & Other Board.':'平面、剖面与综合灵感板。','Architectural Prompt Builder.':'建筑景观 Prompt 工具。','Browse by Category':'按场景浏览',"Editor's Picks":'精选素材','Studio Tools':'工作室工具','BaoLong Lab':'BaoLong Lab','Tools can stay separate from the shop.':'工具可以独立于商品展示存在。','Resume generators and Prompt generators can serve as independent tool entrances. The website handles display and conversion, while purchase still redirects to Taobao / Xiaohongshu / direct message.':'简历生成器和 Prompt 生成器可以作为独立工具入口。网站负责展示与承接，购买仍跳转淘宝 / 小红书 / 私信。','Studio Notes & Trends':'工作室笔记与趋势','Workflow System':'工作流系统','Reference System':'参考系统','Organized Creation':'有组织的创作','View Related Tool':'查看相关工具','View Inspiration Board':'查看灵感板','Open Prompt Library':'打开 Prompt 灵感库',
+    'Design Assets Creator Bundle.':'设计素材与创作工具集合','Editable Resume Templates.':'可编辑简历模板','Plan, Section & Other Board.':'平面、剖面与综合灵感板','Architectural Prompt Builder.':'建筑景观 Prompt 工具','Browse by Category':'按场景浏览',"Editor's Picks":'精选素材','Studio Tools':'工作室工具','BaoLong Lab':'BaoLong Lab','Tools can stay separate from the shop.':'工具可以独立于商品展示存在','Resume generators and Prompt generators can serve as independent tool entrances. The website handles display and conversion, while purchase still redirects to Taobao / Xiaohongshu / direct message.':'简历生成器和 Prompt 生成器可以作为独立工具入口。网站负责展示与承接，购买仍跳转淘宝 / 小红书 / 私信。','Studio Notes & Trends':'工作室笔记与趋势','Workflow System':'工作流系统','Reference System':'参考系统','Organized Creation':'有组织的创作','View Related Tool':'查看相关工具','View Inspiration Board':'查看灵感板','Open Prompt Library':'打开 Prompt 灵感库',
     '适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。':'适合设计表达、作品集排版与视觉展示的素材包。用于快速搭建设计分析图、场景图、展示图与拼贴内容。',
     '固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。':'固定排版、一页导出、AI 优化经历内容。适合求职、转岗、作品集申请等场景。',
     '把平面图、剖面图、效果图整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。':'把平面图、剖面图、综合图面整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。',
@@ -23,11 +23,11 @@
     'Resume Templates':'简历模板','Visual Kit Library':'视觉素材库','Custom Service':'定制服务',
     '简历模板展示、AI 优化入口与 PDF 导出工具。':'简历模板展示、AI 优化入口与 PDF 导出工具。','建筑插画、拼贴风、儿童空间、活动分析图提示词。':'建筑插画、拼贴风、儿童空间、活动分析图提示词。','小红书封面、产品展示、设计表达资源库。':'小红书封面、产品展示、设计表达资源库。','简历精修、作品集页面、小红书视觉策划。':'简历精修、作品集页面、小红书视觉策划。',
     // assets page
-    'Assets Library.':'素材库。','All Assets':'全部素材','Design Assets':'设计素材',
+    'Assets Library.':'素材库','All Assets':'全部素材','Design Assets':'设计素材',
     '集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏 Assets 下拉框的 6 个分类，可按 Module、People、Plant、Animal、Textures 和 Free 快速筛选。':'集中浏览 BaoLong Lab 的设计素材商品。这里对应导航栏素材库下拉框的 6 个分类，可按模块、人物、植物、动物、纹理和免费素材快速筛选。',
     '集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。':'集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。',
     // prompt page
-    'Landscape & Architecture Prompt Builder.':'景观建筑 Prompt 生成器。','Prompt Categories':'Prompt 分类','Prompt Inspiration':'Prompt 灵感','How It Works':'使用流程','✦ Based on your prompt system':'✦ 基于你的 Prompt 系统',
+    'Landscape & Architecture Prompt Builder.':'景观建筑 Prompt 生成器','Prompt Categories':'Prompt 分类','Prompt Inspiration':'Prompt 灵感','How It Works':'使用流程','✦ Based on your prompt system':'✦ 基于你的 Prompt 系统',
     '把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。':'把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。',
     '把复杂选择变成资源卡片，用户先理解这个工具能做什么，再进入真正的 Prompt Builder。':'把复杂选择变成资源卡片，让用户先理解工具能做什么，再进入真正的 Prompt Builder。',
     '查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。':'查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。',
@@ -37,12 +37,12 @@
     '选择图面风格、构图角度和色彩方向。':'选择图面风格、构图角度和色彩方向。','叠加建筑、景观、人物活动和氛围关键词。':'叠加建筑、景观、人物活动和氛围关键词。','右侧自动组合成完整英文提示词。':'右侧自动组合成完整英文提示词。','复制到 MidJourney 后继续调整风格和画幅。':'复制到 MidJourney 后继续调整风格和画幅。',
 
     'Visual Style':'视觉风格','Composition Angle':'构图角度','Color Palette':'色彩方案','Architecture Elements':'建筑元素','People Activities':'人物活动','Light & Mood':'光影氛围','Aspect Ratio':'画幅比例','Upload Existing Resume':'上传已有简历',
-    'Design Assets Creator Bundle.':'设计素材与创作工具集合。','Editable Resume Templates.':'可编辑简历模板。','Architectural Prompt Builder.':'建筑景观 Prompt 工具。','Assets Library.':'素材库。',
+    'Design Assets Creator Bundle.':'设计素材与创作工具集合','Editable Resume Templates.':'可编辑简历模板','Architectural Prompt Builder.':'建筑景观 Prompt 工具','Assets Library.':'素材库',
     // interaction page
     'Interactive Tools & Creative Experiments.':'交互实验室与创意工具','Gesture Landscape Growth':'手势景观生长','Playable Visual Demo':'可体验视觉 Demo','Creative Interaction Lab':'创意交互实验室','Landscape Growth Demo':'景观生长 Demo','Interactive Lab':'交互实验室','Gesture Interaction':'手势交互',
     '这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。':'这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。',
     // resume page
-    'Editable Resume Templates + AI Polish.':'可编辑简历模板 + AI 优化。','12 Templates':'12 套模板','AI Polish':'AI 优化','One-page Export':'一页导出','JD Match':'岗位匹配','Fill Once':'填写一次','Choose Template':'选择模板','Export PDF':'导出 PDF','✦ Free AI Uses Today: 3 / 3':'✦ 今日免费 AI 次数：3 / 3',
+    'Editable Resume Templates + AI Polish.':'可编辑简历模板 + AI 优化','12 Templates':'12 套模板','AI Polish':'AI 优化','One-page Export':'一页导出','JD Match':'岗位匹配','Fill Once':'填写一次','Choose Template':'选择模板','Export PDF':'导出 PDF','✦ Free AI Uses Today: 3 / 3':'✦ 今日免费 AI 次数：3 / 3',
     '填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。':'填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。',
     '后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。':'后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。',
     '像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。':'像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。',

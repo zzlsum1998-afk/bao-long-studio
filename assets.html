@@ -2471,13 +2471,13 @@
           <p class="section-desc" id="productsDesc">集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。</p>
         </div>
         <div class="asset-filter-tabs">
-          <button class="tab active" data-filter="All" onclick="filterProducts('All')">All</button>
-          <button class="tab" data-filter="Module Diagrams" onclick="filterProducts('Module Diagrams')">Module Assets</button>
-          <button class="tab" data-filter="People Assets" onclick="filterProducts('People Assets')">People Assets</button>
-          <button class="tab" data-filter="Plant Assets" onclick="filterProducts('Plant Assets')">Plant Assets</button>
-          <button class="tab" data-filter="Animal Assets" onclick="filterProducts('Animal Assets')">Animal Assets</button>
-          <button class="tab" data-filter="Textures" onclick="filterProducts('Textures')">Textures</button>
-          <button class="tab" data-filter="Free" onclick="filterProducts('Free')">Free</button>
+          <button class="tab active" data-filter="All" onclick="filterProducts('All')">全部</button>
+          <button class="tab" data-filter="Module Diagrams" onclick="filterProducts('Module Diagrams')">模块素材</button>
+          <button class="tab" data-filter="People Assets" onclick="filterProducts('People Assets')">人物素材</button>
+          <button class="tab" data-filter="Plant Assets" onclick="filterProducts('Plant Assets')">植物素材</button>
+          <button class="tab" data-filter="Animal Assets" onclick="filterProducts('Animal Assets')">动物素材</button>
+          <button class="tab" data-filter="Textures" onclick="filterProducts('Textures')">纹理</button>
+          <button class="tab" data-filter="Free" onclick="filterProducts('Free')">免费素材</button>
         </div>
       </div>
       <div class="product-grid" id="productGrid"></div>
@@ -4258,14 +4258,45 @@
       }
 ];
 
+    const assetFilterLabels = {
+      "All": { zh: "全部", en: "All" },
+      "Module Diagrams": { zh: "模块素材", en: "Module Assets" },
+      "People Assets": { zh: "人物素材", en: "People Assets" },
+      "Plant Assets": { zh: "植物素材", en: "Plant Assets" },
+      "Animal Assets": { zh: "动物素材", en: "Animal Assets" },
+      "Textures": { zh: "纹理", en: "Textures" },
+      "Free": { zh: "免费素材", en: "Free" }
+    };
+
     const productFilterMeta = {
-      "All": { title: "All Assets", desc: "集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。" },
-      "Module Diagrams": { title: "Module Assets", desc: "模块分析图、作品集版式、景观建筑环艺表达素材。" },
-      "People Assets": { title: "People Assets", desc: "人物、人群活动、尺度表达相关素材。" },
-      "Plant Assets": { title: "Plant Assets", desc: "植物、花境、景观表达与自然场景素材。" },
-      "Animal Assets": { title: "Animal Assets", desc: "动物、宠物与场景氛围相关素材。" },
-      "Textures": { title: "Textures", desc: "纹理、材质与图面质感相关素材。" },
-      "Free": { title: "Free Assets", desc: "免费素材合集，可按植物、人物、室内、线稿等标签快速浏览，并通过百度网盘链接获取。" }
+      "All": {
+        zh: { title: "全部素材", desc: "集中浏览 BaoLong Lab 的设计素材商品，可按导航栏下拉分类继续筛选。" },
+        en: { title: "All Assets", desc: "Browse BaoLong Lab design assets and continue filtering by category." }
+      },
+      "Module Diagrams": {
+        zh: { title: "模块素材", desc: "模块分析图、作品集版式、景观建筑环艺表达素材。" },
+        en: { title: "Module Assets", desc: "Diagram modules, portfolio layouts and landscape / architecture visual assets." }
+      },
+      "People Assets": {
+        zh: { title: "人物素材", desc: "人物、人群活动、尺度表达相关素材。" },
+        en: { title: "People Assets", desc: "People cutouts, activity scenes and scale references for design drawings." }
+      },
+      "Plant Assets": {
+        zh: { title: "植物素材", desc: "植物、花境、景观表达与自然场景素材。" },
+        en: { title: "Plant Assets", desc: "Plant, planting, landscape expression and natural scene assets." }
+      },
+      "Animal Assets": {
+        zh: { title: "动物素材", desc: "动物、宠物与场景氛围相关素材。" },
+        en: { title: "Animal Assets", desc: "Animal, pet and atmosphere assets for scene-making." }
+      },
+      "Textures": {
+        zh: { title: "纹理素材", desc: "纹理、材质与图面质感相关素材。" },
+        en: { title: "Textures", desc: "Texture, material and surface assets for visual expression." }
+      },
+      "Free": {
+        zh: { title: "免费素材", desc: "免费素材合集，可按植物、人物、室内、线稿等标签快速浏览，并通过百度网盘链接获取。" },
+        en: { title: "Free Assets", desc: "Free asset collection with Baidu Netdisk access links." }
+      }
     };
 
     const categoryKeywordMap = {
@@ -4297,13 +4328,37 @@
       return keywords.some(keyword => haystack.includes(String(keyword).toLowerCase()));
     }
 
+    function getAssetPageLang(){
+      const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+      if(htmlLang.startsWith('en')) return 'en';
+
+      const keys = ['baolongLabLang', 'baolongLang', 'siteLang', 'preferredLang', 'language'];
+      for(const key of keys){
+        const value = (localStorage.getItem(key) || '').toLowerCase();
+        if(value === 'en' || value === 'english') return 'en';
+        if(value === 'zh' || value === 'cn' || value === 'chinese') return 'zh';
+      }
+      return 'zh';
+    }
+
+    function syncAssetFilterLanguage(){
+      const lang = getAssetPageLang();
+      document.querySelectorAll('.asset-filter-tabs .tab').forEach(btn => {
+        const label = assetFilterLabels[btn.dataset.filter];
+        if(label) btn.textContent = label[lang] || label.zh;
+      });
+    }
+
     function updateProductsHeading(category){
-      const meta = productFilterMeta[category] || productFilterMeta["All"];
+      const lang = getAssetPageLang();
+      const group = productFilterMeta[category] || productFilterMeta["All"];
+      const meta = group[lang] || group.zh || productFilterMeta["All"].zh;
       document.getElementById("productsTitle").textContent = meta.title;
       document.getElementById("productsDesc").textContent = meta.desc;
       document.querySelectorAll('.asset-filter-tabs .tab').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.filter === category);
       });
+      syncAssetFilterLanguage();
     }
 
     function renderProducts(list = products){
@@ -4331,6 +4386,7 @@
     }
 
     function filterProducts(category){
+      window.currentAssetFilter = category;
       const filtered = category === "All" ? products : products.filter(item => matchesCategoryFilter(item, category));
       updateProductsHeading(category);
       renderProducts(filtered);
@@ -4424,6 +4480,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const initialFilter = urlParams.get("filter") || "All";
     filterProducts(initialFilter);
+
+    const assetLangObserver = new MutationObserver(() => updateProductsHeading(window.currentAssetFilter || initialFilter));
+    assetLangObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-lang'] });
+    window.addEventListener('storage', () => updateProductsHeading(window.currentAssetFilter || initialFilter));
   </script>
 
 </body>

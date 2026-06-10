@@ -938,7 +938,40 @@
   }
 }
 
-</style>
+
+    /* Plan Board JSON loading / load more */
+    .load-more-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      margin:34px auto 0;
+      text-align:center;
+    }
+    .load-more-btn{
+      border:1px solid #111;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      min-width:180px;
+      min-height:48px;
+      padding:12px 22px;
+      cursor:pointer;
+      transition:.25s ease;
+      font-size:14px;
+    }
+    .load-more-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(0,0,0,.14);
+    }
+    .load-more-btn[hidden]{display:none;}
+    .load-more-count{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+  </style>
 <link href="css/common.css?v=74" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=74"></script>
 </head>
@@ -1015,717 +1048,11 @@
 </div>
 </section>
 <section class="masonry-wrap">
-<div class="masonry">
-<article class="pin" onclick='openModal("Pinterest Residential Garden Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-01-pinterest-residential-garden-plan.webp"], "适合参考庭院平面、建筑与绿化边界关系、浅色植物表达。", "Pinterest 链接", "https://www.pinterest.com/pin/415246028158906473/", true)'>
-<div class="pin-img has-image" style="--h:330px;--c:#f4f1eb;"><img alt="Pinterest Residential Garden Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-01-pinterest-residential-garden-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Garden Plan</span><span class="pin-tag">Soft Green</span></div>
-<h3>Pinterest Residential Garden Plan</h3>
-<p class="pin-desc">适合参考庭院平面、建筑与绿化边界关系、浅色植物表达。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.pinterest.com/pin/415246028158906473/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest 链接</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
+<div class="masonry" id="planMasonry" aria-live="polite"></div>
+<div class="load-more-wrap">
+  <button class="load-more-btn" id="planLoadMoreBtn" type="button">加载更多</button>
+  <p class="load-more-count" id="planLoadMoreCount">正在加载 Plan Board...</p>
 </div>
-</div>
-</article>
-<article class="pin" onclick='openModal("BKD Courtyard Landscape Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-02-bkd-courtyard-landscape-plan.webp"], "适合参考庭院式景观平面、灰绿配色、曲线铺装与植物组织。", "Michael Ecran", "https://www.michaelecran.be/portfolio/project-bkd?utm_source=Pinterest&amp;utm_medium=organic", false)'>
-<div class="pin-img has-image" style="--h:330px;--c:#f4f1eb;"><img alt="BKD Courtyard Landscape Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-02-bkd-courtyard-landscape-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Courtyard</span><span class="pin-tag">Landscape Plan</span><span class="pin-tag">Soft Line</span></div>
-<h3>BKD Courtyard Landscape Plan</h3>
-<p class="pin-desc">适合参考庭院式景观平面、灰绿配色、曲线铺装与植物组织。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.michaelecran.be/portfolio/project-bkd?utm_source=Pinterest&amp;utm_medium=organic" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Michael Ecran</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Forest Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-03-pinterest-forest-site-plan.webp"], "适合参考林地场地平面、建筑嵌入自然环境和低饱和总图氛围。", "Pinterest 链接", "https://www.pinterest.com/pin/986780968358135993/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Forest Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-03-pinterest-forest-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Site Plan</span><span class="pin-tag">Forest</span></div>
-<h3>Pinterest Forest Site Plan</h3>
-<p class="pin-desc">适合参考林地场地平面、建筑嵌入自然环境和低饱和总图氛围。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.pinterest.com/pin/986780968358135993/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest 链接</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Tirana Green Corridor Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-04-tirana-green-corridor-plan.webp"], "适合参考城市绿色廊道、道路边界与景观带的平面表达。", "ArchDaily", "https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital", false)'>
-<div class="pin-img has-image" style="--h:330px;--c:#f4f1eb;"><img alt="Tirana Green Corridor Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-04-tirana-green-corridor-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Green Corridor</span><span class="pin-tag">Urban Plan</span><span class="pin-tag">Landscape</span></div>
-<h3>Tirana Green Corridor Plan</h3>
-<p class="pin-desc">适合参考城市绿色廊道、道路边界与景观带的平面表达。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.archdaily.com/805105/tirana-2030-watch-how-nature-and-urbanism-will-co-exist-in-the-albanian-capital" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：ArchDaily</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Oude Landen Landscape Strategy Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-05-oude-landen-landscape-strategy-plan.webp"], "适合参考大尺度湿地/公园策略图、分区序列与图文板式表达。", "Felixx Landscape Architects", "https://www.felixx.nl/projects/oude-landen-antwerpen.html", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Oude Landen Landscape Strategy Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-05-oude-landen-landscape-strategy-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Masterplan</span><span class="pin-tag">Strategy</span><span class="pin-tag">Wetland</span></div>
-<h3>Oude Landen Landscape Strategy Plan</h3>
-<p class="pin-desc">适合参考大尺度湿地/公园策略图、分区序列与图文板式表达。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.felixx.nl/projects/oude-landen-antwerpen.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Felixx Landscape Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Railroad Zone Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-06-railroad-zone-urban-plan.webp"], "适合参考线性公共空间、交通廊道、城市更新平面与节点串联。", "Felixx Landscape Architects", "https://www.felixx.nl/projects/railroad-zone-amsterdam.html", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Railroad Zone Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-06-railroad-zone-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Plan</span><span class="pin-tag">Linear Park</span><span class="pin-tag">Public Space</span></div>
-<h3>Railroad Zone Urban Plan</h3>
-<p class="pin-desc">适合参考线性公共空间、交通廊道、城市更新平面与节点串联。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.felixx.nl/projects/railroad-zone-amsterdam.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Felixx Landscape Architects</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Marconi Green Network Plan 01", "Plan Inspiration", ["images/inspiration/plan/plan-ref-07-marconi-green-network-plan-01.webp"], "适合参考粉绿配色、城市开放空间改造和社区活动节点平面。", "Professione Architetto", "https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi", false)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Marconi Green Network Plan 01" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-07-marconi-green-network-plan-01.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Renewal</span><span class="pin-tag">Green Network</span><span class="pin-tag">Plan</span></div>
-<h3>Marconi Green Network Plan 01</h3>
-<p class="pin-desc">适合参考粉绿配色、城市开放空间改造和社区活动节点平面。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Professione Architetto</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Marconi Pocket Park Plan 02", "Plan Inspiration", ["images/inspiration/plan/plan-ref-08-marconi-pocket-park-plan-02.webp"], "适合参考口袋公园、运动场地、粉绿空间分区与精细节点表达。", "Professione Architetto", "https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi", false)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Marconi Pocket Park Plan 02" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-08-marconi-pocket-park-plan-02.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pocket Park</span><span class="pin-tag">Activity</span><span class="pin-tag">Plan</span></div>
-<h3>Marconi Pocket Park Plan 02</h3>
-<p class="pin-desc">适合参考口袋公园、运动场地、粉绿空间分区与精细节点表达。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.professionearchitetto.it/news/notizie/32080/Reinventare-Roma-una-nuova-impronta-per-il-quartiere-Marconi-arriva-dai-giovanissimi-di-Informale-e-Superfioi" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Professione Architetto</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Golden Waterfront Masterplan Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-09-golden-waterfront-masterplan-board.webp"], "适合参考滨水城市更新总平、文字说明与分析图结合的作品集板式。", "TerraViva Competitions", "https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/", false)'>
-<div class="pin-img has-image" style="--h:280px;--c:#f4f1eb;"><img alt="Golden Waterfront Masterplan Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-09-golden-waterfront-masterplan-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Masterplan</span><span class="pin-tag">Board</span></div>
-<h3>Golden Waterfront Masterplan Board</h3>
-<p class="pin-desc">适合参考滨水城市更新总平、文字说明与分析图结合的作品集板式。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Golden Waterfront Living Landscapes Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-10-golden-waterfront-living-landscapes-board.webp"], "适合参考大尺度平面、剖面节点、效果小图和叙事排版的组合方式。", "TerraViva Competitions", "https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/", false)'>
-<div class="pin-img has-image" style="--h:280px;--c:#f4f1eb;"><img alt="Golden Waterfront Living Landscapes Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-10-golden-waterfront-living-landscapes-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Plan Board</span><span class="pin-tag">Narrative</span></div>
-<h3>Golden Waterfront Living Landscapes Board</h3>
-<p class="pin-desc">适合参考大尺度平面、剖面节点、效果小图和叙事排版的组合方式。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.terravivacompetitions.com/golden-waterfront-competition-results-2023/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：TerraViva Competitions</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Forestrand Waterfront Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-11-forestrand-waterfront-masterplan.webp"], "适合参考滨水场地总平、生态路径、人物活动和柔和灰绿图面表达。", "Europan Europe", "https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand", false)'>
-<div class="pin-img has-image" style="--h:330px;--c:#f4f1eb;"><img alt="Forestrand Waterfront Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-11-forestrand-waterfront-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Masterplan</span><span class="pin-tag">Soft Green</span></div>
-<h3>Forestrand Waterfront Masterplan</h3>
-<p class="pin-desc">适合参考滨水场地总平、生态路径、人物活动和柔和灰绿图面表达。</p>
-<div class="source-block">
-<a class="source-link" href="https://www.europan-europe.eu/fr/project-and-processes/once-upon-a-time-in-forestrand" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Europan Europe</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span>
-</div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Groningen Assen Regional Strategy Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-12-groningen-assen-regional-strategy-plan.webp"], "适合参考区域尺度战略平面、生态廊道与多层级信息组织。", "De Zwarte Hond", "https://dezwartehond.nl/projecten/verstedelijkingsstrategie-regio-groningen-assen/", false)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Groningen Assen Regional Strategy Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-12-groningen-assen-regional-strategy-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Regional Plan</span><span class="pin-tag">Strategy</span><span class="pin-tag">Landscape</span></div>
-<h3>Groningen Assen Regional Strategy Plan</h3>
-<p class="pin-desc">适合参考区域尺度战略平面、生态廊道与多层级信息组织。</p>
-<div class="source-block"><a class="source-link" href="https://dezwartehond.nl/projecten/verstedelijkingsstrategie-regio-groningen-assen/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：De Zwarte Hond</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Waterfront Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-13-pinterest-waterfront-site-plan.webp"], "适合参考滨水场地平面、岸线关系与浅色图面表达。", "Pinterest", "https://www.pinterest.com/pin/626844841924639070/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Waterfront Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-13-pinterest-waterfront-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Site Plan</span><span class="pin-tag">Soft</span></div>
-<h3>Pinterest Waterfront Site Plan</h3>
-<p class="pin-desc">适合参考滨水场地平面、岸线关系与浅色图面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/626844841924639070/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Bochum Gerthe West Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-14-bochum-gerthe-west-masterplan.webp"], "适合参考城市更新总平面、绿网结构与街区肌理衔接。", "Cityförster", "https://www.cityfoerster.net/projects/bochum_gerthe_west-493-2.html", false)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Bochum Gerthe West Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-14-bochum-gerthe-west-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Masterplan</span><span class="pin-tag">Urban</span><span class="pin-tag">Green Network</span></div>
-<h3>Bochum Gerthe West Masterplan</h3>
-<p class="pin-desc">适合参考城市更新总平面、绿网结构与街区肌理衔接。</p>
-<div class="source-block"><a class="source-link" href="https://www.cityfoerster.net/projects/bochum_gerthe_west-493-2.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Cityförster</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Urban Green Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-15-pinterest-urban-green-plan.webp"], "适合参考城市绿地嵌入、建筑肌理与留白型平面排版。", "Pinterest", "https://www.pinterest.com/pin/626844841924639054/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Urban Green Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-15-pinterest-urban-green-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Green</span><span class="pin-tag">Plan</span><span class="pin-tag">Figure Ground</span></div>
-<h3>Pinterest Urban Green Plan</h3>
-<p class="pin-desc">适合参考城市绿地嵌入、建筑肌理与留白型平面排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/626844841924639054/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Linear Park Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-16-pinterest-linear-park-plan.webp"], "适合参考线性公园、流线节点和红色策略标注。", "Pinterest", "https://www.pinterest.com/pin/361413938861261010/", true)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Pinterest Linear Park Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-16-pinterest-linear-park-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Linear Park</span><span class="pin-tag">Flow</span><span class="pin-tag">Nodes</span></div>
-<h3>Pinterest Linear Park Plan</h3>
-<p class="pin-desc">适合参考线性公园、流线节点和红色策略标注。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/361413938861261010/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Residential Block Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-17-pinterest-residential-block-plan.webp"], "适合参考住宅组团、庭院绿化与块状肌理平面表达。", "Pinterest", "https://www.pinterest.com/pin/567735096792869872/", true)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Pinterest Residential Block Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-17-pinterest-residential-block-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Residential</span><span class="pin-tag">Courtyard</span><span class="pin-tag">Block</span></div>
-<h3>Pinterest Residential Block Plan</h3>
-<p class="pin-desc">适合参考住宅组团、庭院绿化与块状肌理平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/567735096792869872/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Coastal Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-19-pinterest-coastal-urban-plan.webp"], "适合参考海岸城市肌理、绿色廊道与大尺度规划图面。", "Pinterest", "https://www.pinterest.com/pin/373517362853277300/", true)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Pinterest Coastal Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-19-pinterest-coastal-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Coastal</span><span class="pin-tag">Urban Plan</span><span class="pin-tag">Network</span></div>
-<h3>Pinterest Coastal Urban Plan</h3>
-<p class="pin-desc">适合参考海岸城市肌理、绿色廊道与大尺度规划图面。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/373517362853277300/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Park Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-20-pinterest-park-masterplan.webp"], "适合参考公园总平面、路径系统与浅灰底图叠加表达。", "Pinterest", "https://www.pinterest.com/pin/331366485099298376/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Park Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-20-pinterest-park-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Park</span><span class="pin-tag">Masterplan</span><span class="pin-tag">Paths</span></div>
-<h3>Pinterest Park Masterplan</h3>
-<p class="pin-desc">适合参考公园总平面、路径系统与浅灰底图叠加表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/331366485099298376/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Neighborhood Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-21-pinterest-neighborhood-plan.webp"], "适合参考社区尺度平面、开放空间与建筑边界关系。", "Pinterest", "https://www.pinterest.com/pin/303359724894963066/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Neighborhood Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-21-pinterest-neighborhood-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Neighborhood</span><span class="pin-tag">Open Space</span><span class="pin-tag">Plan</span></div>
-<h3>Pinterest Neighborhood Plan</h3>
-<p class="pin-desc">适合参考社区尺度平面、开放空间与建筑边界关系。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/303359724894963066/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Pocket Plaza Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-22-pinterest-pocket-plaza-plan.webp"], "适合参考小尺度广场、树阵、铺装与道路界面关系。", "Pinterest", "https://www.pinterest.com/pin/649996158722455866/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Pocket Plaza Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-22-pinterest-pocket-plaza-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pocket Plaza</span><span class="pin-tag">Trees</span><span class="pin-tag">Paving</span></div>
-<h3>Pinterest Pocket Plaza Plan</h3>
-<p class="pin-desc">适合参考小尺度广场、树阵、铺装与道路界面关系。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/649996158722455866/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Canal Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-23-pinterest-canal-urban-plan.webp"], "适合参考水网城市、建筑组团与灰绿色平面表达。", "Pinterest", "https://www.pinterest.com/pin/308074430735960414/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Canal Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-23-pinterest-canal-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Canal</span><span class="pin-tag">Urban Fabric</span><span class="pin-tag">Water</span></div>
-<h3>Pinterest Canal Urban Plan</h3>
-<p class="pin-desc">适合参考水网城市、建筑组团与灰绿色平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/308074430735960414/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Riverside Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-24-pinterest-riverside-site-plan.webp"], "适合参考滨河场地、建筑排布与生态边界的平面组织。", "Pinterest", "https://www.pinterest.com/pin/311100286773124490/", true)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Pinterest Riverside Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-24-pinterest-riverside-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Riverside</span><span class="pin-tag">Site Plan</span><span class="pin-tag">Ecology</span></div>
-<h3>Pinterest Riverside Site Plan</h3>
-<p class="pin-desc">适合参考滨河场地、建筑排布与生态边界的平面组织。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/311100286773124490/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Courtyard Garden Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-25-pinterest-courtyard-garden-plan.webp"], "适合参考庭院花园、中心构筑物与精细化平面表现。", "Pinterest", "https://www.pinterest.com/pin/790452172102431793/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Courtyard Garden Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-25-pinterest-courtyard-garden-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Courtyard</span><span class="pin-tag">Garden</span><span class="pin-tag">Detail</span></div>
-<h3>Pinterest Courtyard Garden Plan</h3>
-<p class="pin-desc">适合参考庭院花园、中心构筑物与精细化平面表现。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/790452172102431793/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Octagon Competition Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-26-octagon-competition-urban-plan.webp"], "适合参考竞赛图面、街区更新与青绿色策略表达。", "Octagon Architekturkollektiv", "https://www.octagon-architekturkollektiv.net/arbeiten/kon/", false)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Octagon Competition Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-26-octagon-competition-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Competition</span><span class="pin-tag">Urban Renewal</span><span class="pin-tag">Strategy</span></div>
-<h3>Octagon Competition Urban Plan</h3>
-<p class="pin-desc">适合参考竞赛图面、街区更新与青绿色策略表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.octagon-architekturkollektiv.net/arbeiten/kon/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Octagon Architekturkollektiv</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Blue Residential Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-27-pinterest-blue-residential-plan.webp"], "适合参考蓝色线稿、住宅平面与植物点景的柔和表达。", "Pinterest", "https://www.pinterest.com/pin/781515341637869912/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Blue Residential Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-27-pinterest-blue-residential-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Residential</span><span class="pin-tag">Blue Linework</span><span class="pin-tag">Plan</span></div>
-<h3>Pinterest Blue Residential Plan</h3>
-<p class="pin-desc">适合参考蓝色线稿、住宅平面与植物点景的柔和表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/781515341637869912/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Warm Housing Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-28-pinterest-warm-housing-plan.webp"], "适合参考暖色住宅平面、家具尺度与手绘感表现。", "Pinterest", "https://www.pinterest.com/pin/700169073358319458/", true)'>
-<div class="pin-img has-image" style="--h:360px;--c:#f4f1eb;"><img alt="Pinterest Warm Housing Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-28-pinterest-warm-housing-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Housing</span><span class="pin-tag">Warm Tone</span><span class="pin-tag">Plan</span></div>
-<h3>Pinterest Warm Housing Plan</h3>
-<p class="pin-desc">适合参考暖色住宅平面、家具尺度与手绘感表现。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/700169073358319458/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("AB Basis Courtyard Ground Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-29-ab-basis-courtyard-ground-plan.webp"], "适合参考住宅底层平面、庭院入口和粉色重点空间表达。", "AB Basis", "https://ab-basis.com/en/projects/residential-block/", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="AB Basis Courtyard Ground Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-29-ab-basis-courtyard-ground-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Courtyard</span><span class="pin-tag">Ground Plan</span><span class="pin-tag">Residential</span></div>
-<h3>AB Basis Courtyard Ground Plan</h3>
-<p class="pin-desc">适合参考住宅底层平面、庭院入口和粉色重点空间表达。</p>
-<div class="source-block"><a class="source-link" href="https://ab-basis.com/en/projects/residential-block/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：AB Basis</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Green Living Board Series", "Plan Inspiration", ["images/inspiration/plan/plan-ref-30-juliana-kanishi-green-living-board-series-01.webp", "images/inspiration/plan/plan-ref-30-juliana-kanishi-green-living-board-series-02.webp", "images/inspiration/plan/plan-ref-30-juliana-kanishi-green-living-board-series-03.webp", "images/inspiration/plan/plan-ref-30-juliana-kanishi-green-living-board-series-04.webp"], "适合参考生态住宅、总平面与场景效果图组合成套展示。", "Juliana Kanishi", "https://julianakanishi.com/new-page-5", false)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Green Living Board Series" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-30-juliana-kanishi-green-living-board-series-01.webp"/><span class="multi-badge">4 Images</span></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Green Living</span><span class="pin-tag">Board Series</span></div>
-<h3>Green Living Board Series</h3>
-<p class="pin-desc">适合参考生态住宅、总平面与场景效果图组合成套展示。</p>
-<div class="source-block"><a class="source-link" href="https://julianakanishi.com/new-page-5" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Juliana Kanishi</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Circular City Berlin Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-31-circular-city-berlin-plan.webp"], "适合参考循环城市规划、绿网结构、社区节点与浅色战略总图表达。", "Cityförster", "https://www.cityfoerster.net/projects/blankenburger_sueden_circular_city_berlin-375-2.html", false)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Circular City Berlin Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-31-circular-city-berlin-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Circular City</span><span class="pin-tag">Urban Plan</span><span class="pin-tag">Berlin</span></div>
-<h3>Circular City Berlin Plan</h3>
-<p class="pin-desc">适合参考循环城市规划、绿网结构、社区节点与浅色战略总图表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.cityfoerster.net/projects/blankenburger_sueden_circular_city_berlin-375-2.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Cityförster</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Antwerp Labo XX Urban Strategy Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-32-antwerp-labo-xx-urban-strategy-plan.webp"], "适合参考城市更新策略、开放空间网络和粉绿色分析型平面表达。", "BUUR", "https://buur.be/project/labo-xx-antwerpen/", false)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Antwerp Labo XX Urban Strategy Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-32-antwerp-labo-xx-urban-strategy-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Strategy</span><span class="pin-tag">Green Network</span><span class="pin-tag">Antwerp</span></div>
-<h3>Antwerp Labo XX Urban Strategy Plan</h3>
-<p class="pin-desc">适合参考城市更新策略、开放空间网络和粉绿色分析型平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://buur.be/project/labo-xx-antwerpen/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：BUUR</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Landscape Tumblr Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-33-landscape-tumblr-site-plan.webp"], "适合参考小尺度景观平面、植物边界、道路关系与自然化图面表达。", "Landskapsarkitekt Tumblr", "https://landskapsarkitekt.tumblr.com/image/110063071633", false)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Landscape Tumblr Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-33-landscape-tumblr-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Landscape Plan</span><span class="pin-tag">Soft Green</span><span class="pin-tag">Site Plan</span></div>
-<h3>Landscape Tumblr Site Plan</h3>
-<p class="pin-desc">适合参考小尺度景观平面、植物边界、道路关系与自然化图面表达。</p>
-<div class="source-block"><a class="source-link" href="https://landskapsarkitekt.tumblr.com/image/110063071633" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Landskapsarkitekt Tumblr</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Curved Landscape Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-34-pinterest-curved-landscape-plan.webp"], "适合参考曲线景观平面、道路边界和建筑周边空间组织。", "Pinterest", "https://www.pinterest.com/pin/478296422946289927/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Curved Landscape Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-34-pinterest-curved-landscape-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Curved Plan</span><span class="pin-tag">Site Design</span></div>
-<h3>Pinterest Curved Landscape Plan</h3>
-<p class="pin-desc">适合参考曲线景观平面、道路边界和建筑周边空间组织。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/478296422946289927/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Minimal Site Plan Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-35-pinterest-minimal-site-plan-board.webp"], "适合参考极简场地平面、留白排版和灰调作品集展示方式。", "Pinterest", "https://www.pinterest.com/pin/41587996553342071/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Minimal Site Plan Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-35-pinterest-minimal-site-plan-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Minimal Board</span><span class="pin-tag">Site Plan</span></div>
-<h3>Pinterest Minimal Site Plan Board</h3>
-<p class="pin-desc">适合参考极简场地平面、留白排版和灰调作品集展示方式。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/41587996553342071/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Regional Green Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-36-pinterest-regional-green-plan.webp"], "适合参考区域尺度绿色系统、路径串联与生态策略表达。", "Pinterest", "https://www.pinterest.com/pin/116952921567572355/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Regional Green Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-36-pinterest-regional-green-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Regional Plan</span><span class="pin-tag">Green System</span></div>
-<h3>Pinterest Regional Green Plan</h3>
-<p class="pin-desc">适合参考区域尺度绿色系统、路径串联与生态策略表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/116952921567572355/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Karow Kreuz Klub Urban Plan Series", "Plan Inspiration", ["images/inspiration/plan/plan-ref-37-karow-kreuz-klub-urban-plan-series-01.webp", "images/inspiration/plan/plan-ref-37-karow-kreuz-klub-urban-plan-series-02.webp"], "适合参考城市更新策略、多张规划分析图和蓝绿结构表达。", "Europan Europe", "https://www.europan-europe.eu/fr/project-and-processes/karow-kreuz-klub", false)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Karow Kreuz Klub Urban Plan Series" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-37-karow-kreuz-klub-urban-plan-series-01.webp"/><span class="multi-badge">2 Images</span></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Urban Strategy</span><span class="pin-tag">Karow Kreuz</span></div>
-<h3>Karow Kreuz Klub Urban Plan Series</h3>
-<p class="pin-desc">适合参考城市更新策略、多张规划分析图和蓝绿结构表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.europan-europe.eu/fr/project-and-processes/karow-kreuz-klub" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Europan Europe</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest River Strategy Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-38-pinterest-river-strategy-board.webp"], "适合参考河流廊道、节点序列、分区分析与竖版图文排版。", "Pinterest", "https://www.pinterest.com/pin/613545149268670221/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest River Strategy Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-38-pinterest-river-strategy-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">River Strategy</span><span class="pin-tag">Board</span></div>
-<h3>Pinterest River Strategy Board</h3>
-<p class="pin-desc">适合参考河流廊道、节点序列、分区分析与竖版图文排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/613545149268670221/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Studio Paola Vigano Regional Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-39-studio-paola-vigano-regional-plan.webp"], "适合参考区域景观网络、河谷结构和大尺度战略平面表达。", "Studio Paola Viganò", "https://studiopaolavigano.eu/", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Studio Paola Vigano Regional Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-39-studio-paola-vigano-regional-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Regional Plan</span><span class="pin-tag">Landscape Network</span><span class="pin-tag">Strategy</span></div>
-<h3>Studio Paola Vigano Regional Plan</h3>
-<p class="pin-desc">适合参考区域景观网络、河谷结构和大尺度战略平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://studiopaolavigano.eu/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Studio Paola Viganò</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Studio Paola Vigano Urban Axis Series", "Plan Inspiration", ["images/inspiration/plan/plan-ref-40-studio-paola-vigano-urban-axis-series-01.webp", "images/inspiration/plan/plan-ref-40-studio-paola-vigano-urban-axis-series-02.webp"], "适合参考线性城市轴线、多视角策略图和节点关系表达。", "Studio Paola Viganò", "https://studiopaolavigano.eu/", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Studio Paola Vigano Urban Axis Series" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-40-studio-paola-vigano-urban-axis-series-01.webp"/><span class="multi-badge">2 Images</span></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Urban Axis</span><span class="pin-tag">Analysis</span></div>
-<h3>Studio Paola Vigano Urban Axis Series</h3>
-<p class="pin-desc">适合参考线性城市轴线、多视角策略图和节点关系表达。</p>
-<div class="source-block"><a class="source-link" href="https://studiopaolavigano.eu/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Studio Paola Viganò</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Studio Paola Vigano Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-41-studio-paola-vigano-urban-plan.webp"], "适合参考街区更新、蓝色分析线稿和城市空间结构组织。", "Studio Paola Viganò", "https://studiopaolavigano.eu/", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Studio Paola Vigano Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-41-studio-paola-vigano-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Plan</span><span class="pin-tag">Block Strategy</span><span class="pin-tag">Blue Drawing</span></div>
-<h3>Studio Paola Vigano Urban Plan</h3>
-<p class="pin-desc">适合参考街区更新、蓝色分析线稿和城市空间结构组织。</p>
-<div class="source-block"><a class="source-link" href="https://studiopaolavigano.eu/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Studio Paola Viganò</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Tempelhofer Feld Strategy Series", "Plan Inspiration", ["images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-01.webp", "images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-02.webp", "images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-03.webp", "images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-04.webp", "images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-05.webp", "images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-06.webp"], "适合参考大型开放空间、公共活动节点、圆形分析图与多图叙事。", "LXSY Architekten", "https://lxsy.de/en/projects/tempelhofer-feld", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Tempelhofer Feld Strategy Series" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-42-tempelhofer-feld-strategy-series-01.webp"/><span class="multi-badge">6 Images</span></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Strategy Series</span><span class="pin-tag">Public Space</span></div>
-<h3>Tempelhofer Feld Strategy Series</h3>
-<p class="pin-desc">适合参考大型开放空间、公共活动节点、圆形分析图与多图叙事。</p>
-<div class="source-block"><a class="source-link" href="https://lxsy.de/en/projects/tempelhofer-feld" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：LXSY Architekten</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Reuse Box Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-43-reuse-box-site-plan.webp"], "适合参考再利用场地、建筑体量、绿地边界与轻量化总平表达。", "LXSY Architekten", "https://lxsy.de/en/projects/reusebox", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Reuse Box Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-43-reuse-box-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Reuse</span><span class="pin-tag">Site Plan</span><span class="pin-tag">Green Edge</span></div>
-<h3>Reuse Box Site Plan</h3>
-<p class="pin-desc">适合参考再利用场地、建筑体量、绿地边界与轻量化总平表达。</p>
-<div class="source-block"><a class="source-link" href="https://lxsy.de/en/projects/reusebox" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：LXSY Architekten</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Havel Meadows Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-44-havel-meadows-masterplan.webp"], "适合参考自然草甸、城市边界、运动场地与蓝绿空间衔接。", "MLA+", "https://mlaplus.com/projects/the-havel-meadows-a-natural-and-urban-extension/", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Havel Meadows Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-44-havel-meadows-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Masterplan</span><span class="pin-tag">Meadows</span><span class="pin-tag">Urban Edge</span></div>
-<h3>Havel Meadows Masterplan</h3>
-<p class="pin-desc">适合参考自然草甸、城市边界、运动场地与蓝绿空间衔接。</p>
-<div class="source-block"><a class="source-link" href="https://mlaplus.com/projects/the-havel-meadows-a-natural-and-urban-extension/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：MLA+</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Le Heron Ocean Urban Strategy", "Plan Inspiration", ["images/inspiration/plan/plan-ref-45-le-heron-ocean-urban-strategy.webp"], "适合参考滨海城市策略、生态廊道和浅色手绘感规划图面。", "Europan Europe", "https://www.europan-europe.eu/en/news/e17-portraits-le-heron-qui-voulait-voir-locean", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Le Heron Ocean Urban Strategy" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-45-le-heron-ocean-urban-strategy.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Urban Strategy</span><span class="pin-tag">Coastline</span><span class="pin-tag">Landscape</span></div>
-<h3>Le Heron Ocean Urban Strategy</h3>
-<p class="pin-desc">适合参考滨海城市策略、生态廊道和浅色手绘感规划图面。</p>
-<div class="source-block"><a class="source-link" href="https://www.europan-europe.eu/en/news/e17-portraits-le-heron-qui-voulait-voir-locean" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Europan Europe</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Bahrenfeld Landscape Axis Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-46-bahrenfeld-landscape-axis-plan.webp"], "适合参考景观轴线、城市绿廊和开放空间连续性表达。", "Karres en Brands", "https://www.karresenbrands.com/en/news/discussing-future-possibilities-for-landscape-axis-bahrenfeld-hamburg", false)'>
-<div class="pin-img has-image" style="--h:260px;--c:#f4f1eb;"><img alt="Bahrenfeld Landscape Axis Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-46-bahrenfeld-landscape-axis-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Landscape Axis</span><span class="pin-tag">Urban Green</span><span class="pin-tag">Plan</span></div>
-<h3>Bahrenfeld Landscape Axis Plan</h3>
-<p class="pin-desc">适合参考景观轴线、城市绿廊和开放空间连续性表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.karresenbrands.com/en/news/discussing-future-possibilities-for-landscape-axis-bahrenfeld-hamburg" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Karres en Brands</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Jessa Hospital Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-47-jessa-hospital-site-plan.webp"], "适合参考医疗园区总平、建筑组团、景观路径与功能边界组织。", "LOW Architecten", "https://low-architecten.be/projects/jessa-hospital/", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Jessa Hospital Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-47-jessa-hospital-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Hospital Campus</span><span class="pin-tag">Site Plan</span><span class="pin-tag">Green Network</span></div>
-<h3>Jessa Hospital Site Plan</h3>
-<p class="pin-desc">适合参考医疗园区总平、建筑组团、景观路径与功能边界组织。</p>
-<div class="source-block"><a class="source-link" href="https://low-architecten.be/projects/jessa-hospital/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：LOW Architecten</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Stationsweg Neighborhood Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-48-stationsweg-neighborhood-plan.webp"], "适合参考社区更新、住宅组团与生态开放空间网络。", "Karres en Brands", "https://www.karresenbrands.com/en/news/second-prize-for-life-in-the-stationsweg-in-moenchengladbach", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Stationsweg Neighborhood Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-48-stationsweg-neighborhood-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Neighborhood</span><span class="pin-tag">Green Living</span><span class="pin-tag">Urban Plan</span></div>
-<h3>Stationsweg Neighborhood Plan</h3>
-<p class="pin-desc">适合参考社区更新、住宅组团与生态开放空间网络。</p>
-<div class="source-block"><a class="source-link" href="https://www.karresenbrands.com/en/news/second-prize-for-life-in-the-stationsweg-in-moenchengladbach" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Karres en Brands</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Urban Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-49-pinterest-urban-masterplan.webp"], "适合参考城市总平、蓝色线稿、道路组织与重点节点表达。", "Pinterest", "https://www.pinterest.com/pin/402227810492584964/", true)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Pinterest Urban Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-49-pinterest-urban-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Urban Plan</span><span class="pin-tag">Blue Linework</span></div>
-<h3>Pinterest Urban Masterplan</h3>
-<p class="pin-desc">适合参考城市总平、蓝色线稿、道路组织与重点节点表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/402227810492584964/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Black White Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-50-pinterest-black-white-urban-plan.webp"], "适合参考黑白城市平面、空间轴线和极简分析表达。", "Pinterest", "https://www.pinterest.com/pin/749990144197805362/", true)'>
-<div class="pin-img has-image" style="--h:340px;--c:#f4f1eb;"><img alt="Pinterest Black White Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-50-pinterest-black-white-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Monochrome</span><span class="pin-tag">Urban Diagram</span></div>
-<h3>Pinterest Black White Urban Plan</h3>
-<p class="pin-desc">适合参考黑白城市平面、空间轴线和极简分析表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/749990144197805362/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Minimal Diagram Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-51-pinterest-minimal-diagram-plan.webp"], "适合参考低饱和场地策略、少量标注和留白型平面表达。", "Pinterest", "https://www.pinterest.com/pin/571253533977630929/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Minimal Diagram Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-51-pinterest-minimal-diagram-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Minimal Diagram</span><span class="pin-tag">Site Strategy</span></div>
-<h3>Pinterest Minimal Diagram Plan</h3>
-<p class="pin-desc">适合参考低饱和场地策略、少量标注和留白型平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/571253533977630929/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Grey Waterfront Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-52-pinterest-grey-waterfront-plan.webp"], "适合参考灰调滨水场地、建筑肌理与开放空间结构。", "Pinterest", "https://www.pinterest.com/pin/332703491222390362/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Grey Waterfront Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-52-pinterest-grey-waterfront-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Waterfront</span><span class="pin-tag">Grey Tone</span></div>
-<h3>Pinterest Grey Waterfront Plan</h3>
-<p class="pin-desc">适合参考灰调滨水场地、建筑肌理与开放空间结构。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/332703491222390362/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Urban Mobility Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-53-pinterest-urban-mobility-plan.webp"], "适合参考城市交通节点、道路剖切关系和分析图叠加表达。", "Pinterest", "https://www.pinterest.com/pin/270567890102787102/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Urban Mobility Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-53-pinterest-urban-mobility-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Mobility</span><span class="pin-tag">Urban Section Plan</span></div>
-<h3>Pinterest Urban Mobility Plan</h3>
-<p class="pin-desc">适合参考城市交通节点、道路剖切关系和分析图叠加表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/270567890102787102/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Brown Strategy Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-54-pinterest-brown-strategy-board.webp"], "适合参考棕色策略图、区域分析和图文并置的作品集排版。", "Pinterest", "https://www.pinterest.com/pin/717831628140864939/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Brown Strategy Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-54-pinterest-brown-strategy-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Strategy Board</span><span class="pin-tag">Brown Tone</span></div>
-<h3>Pinterest Brown Strategy Board</h3>
-<p class="pin-desc">适合参考棕色策略图、区域分析和图文并置的作品集排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/717831628140864939/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Landscape Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-55-pinterest-landscape-board.webp"], "适合参考景观分析板、平面节点和多栏信息排版。", "Pinterest", "https://www.pinterest.com/pin/717831628140864967/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Landscape Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-55-pinterest-landscape-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Landscape Board</span><span class="pin-tag">Composition</span></div>
-<h3>Pinterest Landscape Board</h3>
-<p class="pin-desc">适合参考景观分析板、平面节点和多栏信息排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/717831628140864967/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Regional Brown Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-56-pinterest-regional-brown-plan.webp"], "适合参考区域尺度规划、棕色地形肌理和分析图叙事。", "Pinterest", "https://www.pinterest.com/pin/717831628140864448/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Regional Brown Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-56-pinterest-regional-brown-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Regional Plan</span><span class="pin-tag">Earth Tone</span></div>
-<h3>Pinterest Regional Brown Plan</h3>
-<p class="pin-desc">适合参考区域尺度规划、棕色地形肌理和分析图叙事。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/717831628140864448/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Park Diagram Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-57-pinterest-park-diagram-board.webp"], "适合参考公园节点、圆形图解、铺装与植物关系表达。", "Pinterest", "https://www.pinterest.com/pin/717831628140870429/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Park Diagram Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-57-pinterest-park-diagram-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Park Diagram</span><span class="pin-tag">Node Analysis</span></div>
-<h3>Pinterest Park Diagram Board</h3>
-<p class="pin-desc">适合参考公园节点、圆形图解、铺装与植物关系表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/717831628140870429/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Pink Strategy Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-58-pinterest-pink-strategy-plan.webp"], "适合参考粉色策略线稿、空间动线和概念性图面表达。", "Pinterest", "https://www.pinterest.com/pin/826832812816769660/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Pink Strategy Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-58-pinterest-pink-strategy-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Pink Strategy</span><span class="pin-tag">Diagram</span></div>
-<h3>Pinterest Pink Strategy Plan</h3>
-<p class="pin-desc">适合参考粉色策略线稿、空间动线和概念性图面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/826832812816769660/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Blue Analytical Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-59-pinterest-blue-analytical-board.webp"], "适合参考蓝色水彩质感、分析箭头和竖版作品集构图。", "Pinterest", "https://www.pinterest.com/pin/539939442833763681/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Blue Analytical Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-59-pinterest-blue-analytical-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Blue Analysis</span><span class="pin-tag">Watercolor</span></div>
-<h3>Pinterest Blue Analytical Board</h3>
-<p class="pin-desc">适合参考蓝色水彩质感、分析箭头和竖版作品集构图。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/539939442833763681/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Green Regional Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-60-pinterest-green-regional-plan.webp"], "适合参考绿色区域规划、道路网络、生态斑块与图例说明。", "Pinterest", "https://www.pinterest.com/pin/686658274477479403/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Green Regional Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-60-pinterest-green-regional-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Green Strategy</span><span class="pin-tag">Regional Plan</span></div>
-<h3>Pinterest Green Regional Plan</h3>
-<p class="pin-desc">适合参考绿色区域规划、道路网络、生态斑块与图例说明。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/686658274477479403/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Circular Urban Strategy", "Plan Inspiration", ["images/inspiration/plan/plan-ref-61-pinterest-circular-urban-strategy.webp"], "适合参考圆形构图、城市战略分区和红绿对比分析图。", "Pinterest", "https://www.pinterest.com/pin/1005076841839202222/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Circular Urban Strategy" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-61-pinterest-circular-urban-strategy.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Circular Strategy</span><span class="pin-tag">Urban Plan</span></div>
-<h3>Pinterest Circular Urban Strategy</h3>
-<p class="pin-desc">适合参考圆形构图、城市战略分区和红绿对比分析图。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/1005076841839202222/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("COBA Urban Strategy Series", "Plan Inspiration", ["images/inspiration/plan/plan-ref-62-coba-urban-strategy-series-01.webp", "images/inspiration/plan/plan-ref-62-coba-urban-strategy-series-02.webp"], "适合参考城市更新策略、多张分析图和红色重点区域表达。", "COBA", "https://www.coba-strategie.fr/detail_reference.html", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="COBA Urban Strategy Series" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-62-coba-urban-strategy-series-01.webp"/><span class="multi-badge">2 Images</span></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Multi Image</span><span class="pin-tag">Urban Strategy</span><span class="pin-tag">COBA</span></div>
-<h3>COBA Urban Strategy Series</h3>
-<p class="pin-desc">适合参考城市更新策略、多张分析图和红色重点区域表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.coba-strategie.fr/detail_reference.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：COBA</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("COBA Landscape Strategy Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-63-coba-landscape-strategy-board.webp"], "适合参考景观策略板、蓝绿色系统、箭头导向和说明性排版。", "COBA", "https://www.coba-strategie.fr/detail_reference.html", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="COBA Landscape Strategy Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-63-coba-landscape-strategy-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Landscape Strategy</span><span class="pin-tag">Diagram Board</span><span class="pin-tag">COBA</span></div>
-<h3>COBA Landscape Strategy Board</h3>
-<p class="pin-desc">适合参考景观策略板、蓝绿色系统、箭头导向和说明性排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.coba-strategie.fr/detail_reference.html" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：COBA</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Railway Station Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-64-pinterest-railway-station-plan.webp"], "适合参考站城一体、交通节点、道路系统和周边绿地组织。", "Pinterest", "https://www.pinterest.com/pin/828521662736309923/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Railway Station Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-64-pinterest-railway-station-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Railway Station</span><span class="pin-tag">Urban Plan</span></div>
-<h3>Pinterest Railway Station Plan</h3>
-<p class="pin-desc">适合参考站城一体、交通节点、道路系统和周边绿地组织。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/828521662736309923/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Krasnoyarsk Central Park Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-65-krasnoyarsk-central-park-plan.webp"], "适合参考中央公园更新、滨水节点、轴线关系与清晰功能分区。", "Behance", "https://www.behance.net/gallery/110056741/Krasnoyarsk-Central-Park-redevelopment-concept?utm_source=Pinterest&amp;utm_medium=organic", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Krasnoyarsk Central Park Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-65-krasnoyarsk-central-park-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Central Park</span><span class="pin-tag">Redevelopment</span><span class="pin-tag">Waterfront</span></div>
-<h3>Krasnoyarsk Central Park Plan</h3>
-<p class="pin-desc">适合参考中央公园更新、滨水节点、轴线关系与清晰功能分区。</p>
-<div class="source-block"><a class="source-link" href="https://www.behance.net/gallery/110056741/Krasnoyarsk-Central-Park-redevelopment-concept?utm_source=Pinterest&amp;utm_medium=organic" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Behance</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("The Boat Park Waterfront Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-66-the-boat-park-waterfront-plan.webp"], "适合参考港口滨水、公园活动带与城市岸线平面表达。", "C.F. Møller", "https://www.cfmoller.com/p/The-Boat-Park-i3783.html?utm_source=Pinterest&amp;utm_medium=organic", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="The Boat Park Waterfront Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-66-the-boat-park-waterfront-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Waterfront</span><span class="pin-tag">Boat Park</span><span class="pin-tag">Harbor</span></div>
-<h3>The Boat Park Waterfront Plan</h3>
-<p class="pin-desc">适合参考港口滨水、公园活动带与城市岸线平面表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.cfmoller.com/p/The-Boat-Park-i3783.html?utm_source=Pinterest&amp;utm_medium=organic" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：C.F. Møller</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Red Urban Analysis Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-67-pinterest-red-urban-analysis-plan.webp"], "适合参考红色分析线稿、路径关系和城市空间策略表达。", "Pinterest", "https://www.pinterest.com/pin/443815738293981826/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Red Urban Analysis Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-67-pinterest-red-urban-analysis-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Red Analysis</span><span class="pin-tag">Urban Plan</span></div>
-<h3>Pinterest Red Urban Analysis Plan</h3>
-<p class="pin-desc">适合参考红色分析线稿、路径关系和城市空间策略表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/443815738293981826/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Small Site Diagram", "Plan Inspiration", ["images/inspiration/plan/plan-ref-68-pinterest-small-site-diagram.webp"], "适合参考小尺度场地分析、简洁标注和竖版图面排版。", "Pinterest", "https://www.pinterest.com/pin/670121619524236243/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Small Site Diagram" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-68-pinterest-small-site-diagram.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Site Diagram</span><span class="pin-tag">Soft Tone</span></div>
-<h3>Pinterest Small Site Diagram</h3>
-<p class="pin-desc">适合参考小尺度场地分析、简洁标注和竖版图面排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/670121619524236243/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Pink Urban Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-69-pinterest-pink-urban-plan.webp"], "适合参考粉红色城市平面、街区结构和竞赛图面视觉表达。", "Pinterest", "https://www.pinterest.com/pin/394698354865451248/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Pink Urban Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-69-pinterest-pink-urban-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Pink Urban</span><span class="pin-tag">Plan</span></div>
-<h3>Pinterest Pink Urban Plan</h3>
-<p class="pin-desc">适合参考粉红色城市平面、街区结构和竞赛图面视觉表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/394698354865451248/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Trail Planning Board", "Plan Inspiration", ["images/inspiration/plan/plan-ref-70-pinterest-trail-planning-board.webp"], "适合参考步道系统、路径节点、黑白拼贴与粉色重点信息排版。", "Pinterest", "https://www.pinterest.com/pin/643944446745460612/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Trail Planning Board" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-70-pinterest-trail-planning-board.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Planning Board</span><span class="pin-tag">Trail</span></div>
-<h3>Pinterest Trail Planning Board</h3>
-<p class="pin-desc">适合参考步道系统、路径节点、黑白拼贴与粉色重点信息排版。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/643944446745460612/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Collage Strategy Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-71-pinterest-collage-strategy-plan.webp"], "适合参考拼贴式策略图、图标系统、活动节点与概念表达。", "Pinterest", "https://www.pinterest.com/pin/424393964857560144/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Collage Strategy Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-71-pinterest-collage-strategy-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Collage Diagram</span><span class="pin-tag">Strategy</span></div>
-<h3>Pinterest Collage Strategy Plan</h3>
-<p class="pin-desc">适合参考拼贴式策略图、图标系统、活动节点与概念表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/424393964857560144/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Sketch Masterplan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-72-pinterest-sketch-masterplan.webp"], "适合参考手绘草图式总平、动线分析和构想阶段表达。", "Pinterest", "https://www.pinterest.com/pin/35254809578353024/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest Sketch Masterplan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-72-pinterest-sketch-masterplan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Sketch Plan</span><span class="pin-tag">Concept</span></div>
-<h3>Pinterest Sketch Masterplan</h3>
-<p class="pin-desc">适合参考手绘草图式总平、动线分析和构想阶段表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/35254809578353024/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest River Corridor Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-73-pinterest-river-corridor-plan.webp"], "适合参考河流廊道、线性场地和生态路径关系表达。", "Pinterest", "https://www.pinterest.com/pin/479070479121585277/", true)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Pinterest River Corridor Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-73-pinterest-river-corridor-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">River Corridor</span><span class="pin-tag">Landscape Plan</span></div>
-<h3>Pinterest River Corridor Plan</h3>
-<p class="pin-desc">适合参考河流廊道、线性场地和生态路径关系表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/479070479121585277/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Courtyard Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-74-pinterest-courtyard-plan.webp"], "适合参考庭院平面、树阵边界和黑白图纸风格表达。", "Pinterest", "https://www.pinterest.com/pin/760686193352130838/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Courtyard Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-74-pinterest-courtyard-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Courtyard</span><span class="pin-tag">Black White</span></div>
-<h3>Pinterest Courtyard Plan</h3>
-<p class="pin-desc">适合参考庭院平面、树阵边界和黑白图纸风格表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/760686193352130838/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Pinterest Blue Wash Site Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-75-pinterest-blue-wash-site-plan.webp"], "适合参考蓝色水洗质感、场地肌理和柔和手绘平面。", "Pinterest", "https://www.pinterest.com/pin/789185534743295593/", true)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Pinterest Blue Wash Site Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-75-pinterest-blue-wash-site-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Pinterest</span><span class="pin-tag">Blue Wash</span><span class="pin-tag">Site Plan</span></div>
-<h3>Pinterest Blue Wash Site Plan</h3>
-<p class="pin-desc">适合参考蓝色水洗质感、场地肌理和柔和手绘平面。</p>
-<div class="source-block"><a class="source-link" href="https://www.pinterest.com/pin/789185534743295593/" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：Pinterest</a><span>原始来源：未核实</span><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Musikhusparken Park Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-76-musikhusparken-park-plan.webp"], "适合参考城市公园、公共建筑周边绿地和简洁总平表达。", "SLETH", "https://www.sleth.dk/portfolio/musikhusparken/?privacy=updated", false)'>
-<div class="pin-img has-image" style="--h:300px;--c:#f4f1eb;"><img alt="Musikhusparken Park Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-76-musikhusparken-park-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Park Plan</span><span class="pin-tag">Urban Park</span><span class="pin-tag">Green Space</span></div>
-<h3>Musikhusparken Park Plan</h3>
-<p class="pin-desc">适合参考城市公园、公共建筑周边绿地和简洁总平表达。</p>
-<div class="source-block"><a class="source-link" href="https://www.sleth.dk/portfolio/musikhusparken/?privacy=updated" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：SLETH</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-<article class="pin" onclick='openModal("Hydrocycles Urban Water Plan", "Plan Inspiration", ["images/inspiration/plan/plan-ref-77-hydrocycles-urban-water-plan.webp"], "适合参考城市水循环、蓝红分析线稿和地形水文策略表达。", "DPA ETSAM", "https://archive.dpa-etsam.com/projects/hydrocycles", false)'>
-<div class="pin-img has-image" style="--h:380px;--c:#f4f1eb;"><img alt="Hydrocycles Urban Water Plan" decoding="async" loading="lazy" src="images/inspiration/plan/plan-ref-77-hydrocycles-urban-water-plan.webp"/></div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">Hydrocycles</span><span class="pin-tag">Water Strategy</span><span class="pin-tag">Urban Plan</span></div>
-<h3>Hydrocycles Urban Water Plan</h3>
-<p class="pin-desc">适合参考城市水循环、蓝红分析线稿和地形水文策略表达。</p>
-<div class="source-block"><a class="source-link" href="https://archive.dpa-etsam.com/projects/hydrocycles" onclick="event.stopPropagation()" rel="noopener noreferrer" target="_blank">来源：DPA ETSAM</a><span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>
-</div>
-</article>
-</div>
-<div class="board-note">
-        本模块仅用于设计学习、平面图灵感索引与来源跳转，不提供原图下载。图片版权归原作者所有；如涉及版权问题，请联系删除。
-      </div>
 </section>
 </main>
 <div class="modal" id="modal" onclick="closeModal(event)">
@@ -1763,6 +1090,104 @@
 <footer class="footer">
     BaoLong Lab · Plan Inspiration Board
   </footer>
+
+<script>
+    const PLAN_BOARD_BATCH = window.matchMedia && window.matchMedia('(max-width: 700px)').matches ? 18 : 36;
+    const PLAN_BOARD_STEP = 24;
+    let planBoardItems = [];
+    let planBoardVisible = 0;
+
+    function escapeHTML(value){
+      return String(value ?? '').replace(/[&<>"]/g, function(char){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char];
+      });
+    }
+
+    function renderPlanSource(item){
+      const sourceName = escapeHTML(item.sourceName || 'Source Pending');
+      const sourceUrl = item.sourceUrl || '#';
+      const sourceLink = sourceUrl && sourceUrl !== '#'
+        ? '<a class="source-link" href="' + escapeHTML(sourceUrl) + '" rel="noopener noreferrer" target="_blank">来源：' + sourceName + '</a>'
+        : '<span>来源：' + sourceName + '</span>';
+      const pinterestNote = item.isPinterest ? '<span>原始来源：未核实</span>' : '';
+      return '<div class="source-block">' + sourceLink + pinterestNote + '<span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>';
+    }
+
+    function renderPlanCard(item, index){
+      const images = Array.isArray(item.images) ? item.images : [];
+      const cover = item.cover || images[0] || '';
+      const tags = (item.tags || []).map(function(tag){ return '<span class="pin-tag">' + escapeHTML(tag) + '</span>'; }).join('');
+      const multiBadge = images.length > 1 ? '<span class="multi-badge">' + images.length + ' Images</span>' : '';
+      return '<article class="pin" data-plan-index="' + index + '">' +
+        '<div class="pin-img has-image" style="--h:' + escapeHTML(item.height || '300px') + ';--c:' + escapeHTML(item.color || '#f4f1eb') + ';">' +
+          '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(cover) + '"/>' + multiBadge +
+        '</div>' +
+        '<div class="pin-body">' +
+          '<div class="pin-tags">' + tags + '</div>' +
+          '<h3>' + escapeHTML(item.title) + '</h3>' +
+          '<p class="pin-desc">' + escapeHTML(item.desc || '') + '</p>' +
+          renderPlanSource(item) +
+        '</div>' +
+      '</article>';
+    }
+
+    function bindPlanCards(){
+      document.querySelectorAll('#planMasonry .pin').forEach(function(pin){
+        pin.addEventListener('click', function(){
+          const item = planBoardItems[Number(pin.dataset.planIndex)];
+          if(!item) return;
+          openModal(item.title, item.type || 'Plan Inspiration', item.images || [], item.desc || '', item.sourceName || '', item.sourceUrl || '', !!item.isPinterest);
+        });
+      });
+      document.querySelectorAll('#planMasonry .source-link').forEach(function(link){
+        link.addEventListener('click', function(event){ event.stopPropagation(); });
+      });
+      if(typeof injectPromptButtons === 'function') injectPromptButtons();
+    }
+
+    function updatePlanLoadMore(){
+      const btn = document.getElementById('planLoadMoreBtn');
+      const count = document.getElementById('planLoadMoreCount');
+      if(!btn || !count) return;
+      const total = planBoardItems.length;
+      count.textContent = total ? '已显示 ' + Math.min(planBoardVisible, total) + ' / ' + total + ' 张参考' : '暂无 Plan Board 数据';
+      btn.hidden = !total || planBoardVisible >= total;
+    }
+
+    function renderPlanBoard(reset){
+      const grid = document.getElementById('planMasonry');
+      if(!grid) return;
+      if(reset){ planBoardVisible = Math.min(PLAN_BOARD_BATCH, planBoardItems.length); }
+      const shown = planBoardItems.slice(0, planBoardVisible);
+      grid.innerHTML = shown.map(renderPlanCard).join('');
+      bindPlanCards();
+      updatePlanLoadMore();
+    }
+
+    function loadMorePlanBoard(){
+      planBoardVisible = Math.min(planBoardVisible + PLAN_BOARD_STEP, planBoardItems.length);
+      renderPlanBoard(false);
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn = document.getElementById('planLoadMoreBtn');
+      if(btn) btn.addEventListener('click', loadMorePlanBoard);
+      fetch('data/plan.json')
+        .then(function(res){
+          if(!res.ok) throw new Error('plan.json load failed');
+          return res.json();
+        })
+        .then(function(data){
+          planBoardItems = Array.isArray(data) ? data : [];
+          renderPlanBoard(true);
+        })
+        .catch(function(err){
+          const count = document.getElementById('planLoadMoreCount');
+          if(count) count.textContent = 'Plan Board 数据加载失败，请检查 data/plan.json 路径。';
+          console.error(err);
+        });
+    });
+  </script>
 <script>
     let modalImages = [];
     let modalIndex = 0;

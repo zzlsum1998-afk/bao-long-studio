@@ -1,0 +1,2792 @@
+[
+  {
+    "id": 1,
+    "title": "Color Reference 01",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-01.webp",
+    "cover": "images/inspiration/color/color-ref-01.webp",
+    "desc": "极简色彩参考板 01，主色参考：#374375 / #FFFCF5 / #BABDE2 / #895159 / #DFAEA1。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#374375",
+      "#FFFCF5",
+      "#BABDE2",
+      "#895159",
+      "#DFAEA1"
+    ],
+    "colorValues": "#374375 / #FFFCF5 / #BABDE2 / #895159 / #DFAEA1",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#374375 / #FFFCF5 / #BABDE2 / #895159 / #DFAEA1"
+  },
+  {
+    "id": 2,
+    "title": "Color Reference 02",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-02.webp",
+    "cover": "images/inspiration/color/color-ref-02.webp",
+    "desc": "极简色彩参考板 02，主色参考：#969044 / #3A3C16 / #F7F0E6 / #6A6C54 / #774C20。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#969044",
+      "#3A3C16",
+      "#F7F0E6",
+      "#6A6C54",
+      "#774C20"
+    ],
+    "colorValues": "#969044 / #3A3C16 / #F7F0E6 / #6A6C54 / #774C20",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#969044 / #3A3C16 / #F7F0E6 / #6A6C54 / #774C20"
+  },
+  {
+    "id": 3,
+    "title": "Color Reference 03",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-03.webp",
+    "cover": "images/inspiration/color/color-ref-03.webp",
+    "desc": "极简色彩参考板 03，主色参考：#415835 / #6CA77C / #F4ECE1 / #E5C677 / #907258。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#415835",
+      "#6CA77C",
+      "#F4ECE1",
+      "#E5C677",
+      "#907258"
+    ],
+    "colorValues": "#415835 / #6CA77C / #F4ECE1 / #E5C677 / #907258",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#415835 / #6CA77C / #F4ECE1 / #E5C677 / #907258"
+  },
+  {
+    "id": 4,
+    "title": "Color Reference 04",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-04.webp",
+    "cover": "images/inspiration/color/color-ref-04.webp",
+    "desc": "极简色彩参考板 04，主色参考：#E8E6DA / #D1BF9E / #8B7965 / #644833 / #1A1B12。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#E8E6DA",
+      "#D1BF9E",
+      "#8B7965",
+      "#644833",
+      "#1A1B12"
+    ],
+    "colorValues": "#E8E6DA / #D1BF9E / #8B7965 / #644833 / #1A1B12",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E8E6DA / #D1BF9E / #8B7965 / #644833 / #1A1B12"
+  },
+  {
+    "id": 5,
+    "title": "Color Reference 05",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-05.webp",
+    "cover": "images/inspiration/color/color-ref-05.webp",
+    "desc": "极简色彩参考板 05，主色参考：SW 7012 / SW 9611 / SW 7504 / SW 7580 / SW 7675。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "SW 7012",
+      "SW 9611",
+      "SW 7504",
+      "SW 7580",
+      "SW 7675"
+    ],
+    "colorValues": "SW 7012 / SW 9611 / SW 7504 / SW 7580 / SW 7675",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>SW 7012 / SW 9611 / SW 7504 / SW 7580 / SW 7675"
+  },
+  {
+    "id": 6,
+    "title": "Color Reference 06",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-06.webp",
+    "cover": "images/inspiration/color/color-ref-06.webp",
+    "desc": "极简色彩参考板 06，主色参考：#CACED0 / #232519 / #878567 / #564E39 / #D1BB97。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#CACED0",
+      "#232519",
+      "#878567",
+      "#564E39",
+      "#D1BB97"
+    ],
+    "colorValues": "#CACED0 / #232519 / #878567 / #564E39 / #D1BB97",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#CACED0 / #232519 / #878567 / #564E39 / #D1BB97"
+  },
+  {
+    "id": 7,
+    "title": "Color Reference 07",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-07.webp",
+    "cover": "images/inspiration/color/color-ref-07.webp",
+    "desc": "极简色彩参考板 07，主色参考：#FFF1E4 / #E7DBA9 / #F2C87E / #969D7B / #AB7261。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FFF1E4",
+      "#E7DBA9",
+      "#F2C87E",
+      "#969D7B",
+      "#AB7261"
+    ],
+    "colorValues": "#FFF1E4 / #E7DBA9 / #F2C87E / #969D7B / #AB7261",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FFF1E4 / #E7DBA9 / #F2C87E / #969D7B / #AB7261"
+  },
+  {
+    "id": 8,
+    "title": "Color Reference 08",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-08.webp",
+    "cover": "images/inspiration/color/color-ref-08.webp",
+    "desc": "极简色彩参考板 08，主色参考：#513229 / #F4F1E2 / #D8EBF9 / #FCE6B7 / #D7D4B1。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#513229",
+      "#F4F1E2",
+      "#D8EBF9",
+      "#FCE6B7",
+      "#D7D4B1"
+    ],
+    "colorValues": "#513229 / #F4F1E2 / #D8EBF9 / #FCE6B7 / #D7D4B1",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#513229 / #F4F1E2 / #D8EBF9 / #FCE6B7 / #D7D4B1"
+  },
+  {
+    "id": 9,
+    "title": "Color Reference 09",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-09.webp",
+    "cover": "images/inspiration/color/color-ref-09.webp",
+    "desc": "极简色彩参考板 09，主色参考：#606B8F / #A4BA9B / #C67256 / #EDDFBC / #454346。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#606B8F",
+      "#A4BA9B",
+      "#C67256",
+      "#EDDFBC",
+      "#454346"
+    ],
+    "colorValues": "#606B8F / #A4BA9B / #C67256 / #EDDFBC / #454346",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#606B8F / #A4BA9B / #C67256 / #EDDFBC / #454346"
+  },
+  {
+    "id": 10,
+    "title": "Color Reference 10",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-10.webp",
+    "cover": "images/inspiration/color/color-ref-10.webp",
+    "desc": "极简色彩参考板 10，主色参考：#B19782 / #C2AA94 / #D1C5BA / #DCD9D0 / #7D836C。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#B19782",
+      "#C2AA94",
+      "#D1C5BA",
+      "#DCD9D0",
+      "#7D836C"
+    ],
+    "colorValues": "#B19782 / #C2AA94 / #D1C5BA / #DCD9D0 / #7D836C",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#B19782 / #C2AA94 / #D1C5BA / #DCD9D0 / #7D836C"
+  },
+  {
+    "id": 11,
+    "title": "Color Reference 11",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-11.webp",
+    "cover": "images/inspiration/color/color-ref-11.webp",
+    "desc": "极简色彩参考板 11，主色参考：#F7F1E6 / #E8C5C0 / #C26D53 / #A2AE9A / #8FA1B2。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FBFAF9",
+      "#9BA7A6",
+      "#C37257",
+      "#E5C1BC",
+      "#DEB0A4"
+    ],
+    "colorValues": "#FBFAF9 / #9BA7A6 / #C37257 / #E5C1BC / #DEB0A4",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FBFAF9 / #9BA7A6 / #C37257 / #E5C1BC / #DEB0A4"
+  },
+  {
+    "id": 12,
+    "title": "Color Reference 12",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-12.webp",
+    "cover": "images/inspiration/color/color-ref-12.webp",
+    "desc": "极简色彩参考板 12，主色参考：#A74713 / #6CB4A5 / #E9D4AF / #DD9B4B / #442B15。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFCFC",
+      "#E2C9A4",
+      "#AD470D",
+      "#DC9647",
+      "#6FAF9F"
+    ],
+    "colorValues": "#FDFCFC / #E2C9A4 / #AD470D / #DC9647 / #6FAF9F",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDFCFC / #E2C9A4 / #AD470D / #DC9647 / #6FAF9F"
+  },
+  {
+    "id": 13,
+    "title": "Color Reference 13",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-13.webp",
+    "cover": "images/inspiration/color/color-ref-13.webp",
+    "desc": "极简色彩参考板 13，主色参考：#9D9E73 / #C7D9BA / #F7D070 / #F6DABF / #FAE9C5。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#E7DBB4",
+      "#A09F73",
+      "#F6C966",
+      "#AEAEA6"
+    ],
+    "colorValues": "#FCFCFC / #E7DBB4 / #A09F73 / #F6C966 / #AEAEA6",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #E7DBB4 / #A09F73 / #F6C966 / #AEAEA6"
+  },
+  {
+    "id": 14,
+    "title": "Color Reference 14",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-14.webp",
+    "cover": "images/inspiration/color/color-ref-14.webp",
+    "desc": "极简色彩参考板 14，主色参考：#7A9CB3 / #AD7556 / #DCCFB8 / #F1EFE6 / #53443D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFBFB",
+      "#AA6F51",
+      "#D8C2A9",
+      "#889CAC",
+      "#54423A"
+    ],
+    "colorValues": "#FCFBFB / #AA6F51 / #D8C2A9 / #889CAC / #54423A",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFBFB / #AA6F51 / #D8C2A9 / #889CAC / #54423A"
+  },
+  {
+    "id": 15,
+    "title": "Color Reference 15",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-15.webp",
+    "cover": "images/inspiration/color/color-ref-15.webp",
+    "desc": "极简色彩参考板 15，主色参考：#F8EFE0 / #C8A16C / #86893E / #777542 / #9CBEC1。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FBFAF8",
+      "#9EB7B8",
+      "#888936",
+      "#CCA674",
+      "#7B7544"
+    ],
+    "colorValues": "#FBFAF8 / #9EB7B8 / #888936 / #CCA674 / #7B7544",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FBFAF8 / #9EB7B8 / #888936 / #CCA674 / #7B7544"
+  },
+  {
+    "id": 16,
+    "title": "Color Reference 16",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-16.webp",
+    "cover": "images/inspiration/color/color-ref-16.webp",
+    "desc": "极简色彩参考板 16，主色参考：#FFE18B / #C1DBB3 / #A3BA84 / #6A886E / #4B687D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#9FB187",
+      "#658569",
+      "#48677C",
+      "#FCD87D"
+    ],
+    "colorValues": "#FCFCFC / #9FB187 / #658569 / #48677C / #FCD87D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FB187 / #658569 / #48677C / #FCD87D"
+  },
+  {
+    "id": 17,
+    "title": "Color Reference 17",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-17.webp",
+    "cover": "images/inspiration/color/color-ref-17.webp",
+    "desc": "极简色彩参考板 17，主色参考：#E5DEDB / #D9DAD5 / #82B181 / #E7B6A3 / #B7C799。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#F8F8F7",
+      "#E1AE99",
+      "#77AC79",
+      "#AFC193",
+      "#A9B795"
+    ],
+    "colorValues": "#F8F8F7 / #E1AE99 / #77AC79 / #AFC193 / #A9B795",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#F8F8F7 / #E1AE99 / #77AC79 / #AFC193 / #A9B795"
+  },
+  {
+    "id": 18,
+    "title": "Color Reference 18",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-18.webp",
+    "cover": "images/inspiration/color/color-ref-18.webp",
+    "desc": "极简色彩参考板 18，主色参考：#CBAA70 / #99AF5F / #DF9AAC / #CC7C72 / #899CAD。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#DD979E",
+      "#8897AD",
+      "#C9A960",
+      "#9CAA58"
+    ],
+    "colorValues": "#FCFCFC / #DD979E / #8897AD / #C9A960 / #9CAA58",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #DD979E / #8897AD / #C9A960 / #9CAA58"
+  },
+  {
+    "id": 19,
+    "title": "Color Reference 19",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-19.webp",
+    "cover": "images/inspiration/color/color-ref-19.webp",
+    "desc": "极简色彩参考板 19，主色参考：#E09820 / #91AA8A / #D3A67F / #C0C8A8 / #D8B050。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFCFC",
+      "#D7A65F",
+      "#91A88A",
+      "#E3971A",
+      "#B9C1A0"
+    ],
+    "colorValues": "#FDFCFC / #D7A65F / #91A88A / #E3971A / #B9C1A0",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FDFCFC / #D7A65F / #91A88A / #E3971A / #B9C1A0"
+  },
+  {
+    "id": 20,
+    "title": "Color Reference 20",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-20.webp",
+    "cover": "images/inspiration/color/color-ref-20.webp",
+    "desc": "极简色彩参考板 20，主色参考：#FCE997 / #FFC52D / #6C9EB3 / #183282 / #27091A。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFDFD",
+      "#F5DF89",
+      "#6799B1",
+      "#F9B829",
+      "#210916"
+    ],
+    "colorValues": "#FDFDFD / #F5DF89 / #6799B1 / #F9B829 / #210916",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FDFDFD / #F5DF89 / #6799B1 / #F9B829 / #210916"
+  },
+  {
+    "id": 21,
+    "title": "Color Reference 21",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-21.webp",
+    "cover": "images/inspiration/color/color-ref-21.webp",
+    "desc": "极简色彩参考板 21，主色参考：#F0D48D / #7D776B / #233F74 / #B28D46 / #A9A18C。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#A39E8C",
+      "#7A7265",
+      "#EEC87C",
+      "#203D72"
+    ],
+    "colorValues": "#FCFCFC / #A39E8C / #7A7265 / #EEC87C / #203D72",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #A39E8C / #7A7265 / #EEC87C / #203D72"
+  },
+  {
+    "id": 22,
+    "title": "Color Reference 22",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-22.webp",
+    "cover": "images/inspiration/color/color-ref-22.webp",
+    "desc": "极简色彩参考板 22，主色参考：#9FA5B5 / #F2AA77 / #D56709 / #57755C / #4B526A。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#515F60",
+      "#A0A4B1",
+      "#F09960",
+      "#D25F0A"
+    ],
+    "colorValues": "#FCFCFC / #515F60 / #A0A4B1 / #F09960 / #D25F0A",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #515F60 / #A0A4B1 / #F09960 / #D25F0A"
+  },
+  {
+    "id": 23,
+    "title": "Color Reference 23",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-23.webp",
+    "cover": "images/inspiration/color/color-ref-23.webp",
+    "desc": "极简色彩参考板 23，主色参考：#B5CA89 / #A3B27B / #8D8D4F / #FFBF73 / #D27538。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#939B5E",
+      "#F9B162",
+      "#D46E32",
+      "#AEC47D"
+    ],
+    "colorValues": "#FCFCFC / #939B5E / #F9B162 / #D46E32 / #AEC47D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #939B5E / #F9B162 / #D46E32 / #AEC47D"
+  },
+  {
+    "id": 24,
+    "title": "Color Reference 24",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-24.webp",
+    "cover": "images/inspiration/color/color-ref-24.webp",
+    "desc": "极简色彩参考板 24，主色参考：#F2D091 / #F0D3CB / #EEE2E6 / #C0D0E0 / #F0E0B8。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#F9F7F7",
+      "#F2D399",
+      "#BED1E4",
+      "#A1A1A2",
+      "#787979"
+    ],
+    "colorValues": "#F9F7F7 / #F2D399 / #BED1E4 / #A1A1A2 / #787979",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#F9F7F7 / #F2D399 / #BED1E4 / #A1A1A2 / #787979"
+  },
+  {
+    "id": 25,
+    "title": "Color Reference 25",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-25.webp",
+    "cover": "images/inspiration/color/color-ref-25.webp",
+    "desc": "极简色彩参考板 25，主色参考：#9EA1A7 / #93A9CB / #3D563F / #818757 / #CEBB61。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#9FA3AA",
+      "#94A8C9",
+      "#CAB657",
+      "#3C553D"
+    ],
+    "colorValues": "#FCFCFC / #9FA3AA / #94A8C9 / #CAB657 / #3C553D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FA3AA / #94A8C9 / #CAB657 / #3C553D"
+  },
+  {
+    "id": 26,
+    "title": "Color Reference 26",
+    "type": "Color Board · 单色系",
+    "colorType": "monochromatic",
+    "image": "images/inspiration/color/color-ref-26.webp",
+    "cover": "images/inspiration/color/color-ref-26.webp",
+    "desc": "极简色彩参考板 26，主色参考：#3E7FBF / #5786B4 / #98B177 / #4A765F / #7CB98D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#699B9B",
+      "#4E755D",
+      "#98AC6F",
+      "#3C7BB8"
+    ],
+    "colorValues": "#FCFCFC / #699B9B / #4E755D / #98AC6F / #3C7BB8",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "单色系"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #699B9B / #4E755D / #98AC6F / #3C7BB8"
+  },
+  {
+    "id": 27,
+    "title": "Color Reference 27",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-27.webp",
+    "cover": "images/inspiration/color/color-ref-27.webp",
+    "desc": "极简色彩参考板 27，主色参考：#A2BFD1 / #A7C4AE / #B4ABA4 / #D39076 / #E06B64。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FBFBFB",
+      "#ACACA3",
+      "#D38C72",
+      "#DC665F",
+      "#9EB8CB"
+    ],
+    "colorValues": "#FBFBFB / #ACACA3 / #D38C72 / #DC665F / #9EB8CB",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FBFBFB / #ACACA3 / #D38C72 / #DC665F / #9EB8CB"
+  },
+  {
+    "id": 28,
+    "title": "Color Reference 28",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-28.webp",
+    "cover": "images/inspiration/color/color-ref-28.webp",
+    "desc": "极简色彩参考板 28，主色参考：#B8CCDE / #3A6C8B / #B79F7F / #662C16 / #448F7D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFDFD",
+      "#B1C7D8",
+      "#B89977",
+      "#356A8D",
+      "#6B2711"
+    ],
+    "colorValues": "#FDFDFD / #B1C7D8 / #B89977 / #356A8D / #6B2711",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FDFDFD / #B1C7D8 / #B89977 / #356A8D / #6B2711"
+  },
+  {
+    "id": 29,
+    "title": "Color Reference 29",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-29.webp",
+    "cover": "images/inspiration/color/color-ref-29.webp",
+    "desc": "极简色彩参考板 29，主色参考：#E8B818 / #C4D6AC / #A8C8B0 / #79B68C / #D8E090。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFB",
+      "#CFDA99",
+      "#A2C5AB",
+      "#E7B312",
+      "#75B48A"
+    ],
+    "colorValues": "#FCFCFB / #CFDA99 / #A2C5AB / #E7B312 / #75B48A",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFB / #CFDA99 / #A2C5AB / #E7B312 / #75B48A"
+  },
+  {
+    "id": 30,
+    "title": "Color Reference 30",
+    "type": "Color Board · 单色系",
+    "colorType": "monochromatic",
+    "image": "images/inspiration/color/color-ref-30.webp",
+    "cover": "images/inspiration/color/color-ref-30.webp",
+    "desc": "极简色彩参考板 30，主色参考：#9CACA1 / #82979A / #8C9367 / #768661 / #B09747。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#919F9B",
+      "#9C8F56",
+      "#73805F",
+      "#717E5D"
+    ],
+    "colorValues": "#FCFCFC / #919F9B / #9C8F56 / #73805F / #717E5D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "单色系"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #919F9B / #9C8F56 / #73805F / #717E5D"
+  },
+  {
+    "id": 31,
+    "title": "Color Reference 31",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-31.webp",
+    "cover": "images/inspiration/color/color-ref-31.webp",
+    "desc": "极简色彩参考板 31，主色参考：#D0A028 / #AAC6B0 / #77A976 / #D7B84C / #A3BA9E。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#9EB6A0",
+      "#D2B14E",
+      "#70A172",
+      "#CD9929"
+    ],
+    "colorValues": "#FCFCFC / #9EB6A0 / #D2B14E / #70A172 / #CD9929",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9EB6A0 / #D2B14E / #70A172 / #CD9929"
+  },
+  {
+    "id": 32,
+    "title": "Color Reference 32",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-32.webp",
+    "cover": "images/inspiration/color/color-ref-32.webp",
+    "desc": "极简色彩参考板 32，主色参考：FBDAD3 / 99ACE7 / 82C277 / F3C947 / 562621。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFAF9",
+      "#53241E",
+      "#9AADE7",
+      "#85C16C",
+      "#F3C037"
+    ],
+    "colorValues": "#FCFAF9 / #53241E / #9AADE7 / #85C16C / #F3C037",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFAF9 / #53241E / #9AADE7 / #85C16C / #F3C037"
+  },
+  {
+    "id": 33,
+    "title": "Color Reference 33",
+    "type": "Color Board · 单色系",
+    "colorType": "monochromatic",
+    "image": "images/inspiration/color/color-ref-33.webp",
+    "cover": "images/inspiration/color/color-ref-33.webp",
+    "desc": "极简色彩参考板 33，主色参考：#707E31 / #BCC0A4 / #537D4E / #7A9689 / #305E56。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#ADB199",
+      "#4D7849",
+      "#6F7928",
+      "#758F83"
+    ],
+    "colorValues": "#FCFCFC / #ADB199 / #4D7849 / #6F7928 / #758F83",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "单色系"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #ADB199 / #4D7849 / #6F7928 / #758F83"
+  },
+  {
+    "id": 34,
+    "title": "Color Reference 34",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-34.webp",
+    "cover": "images/inspiration/color/color-ref-34.webp",
+    "desc": "极简色彩参考板 34，主色参考：#BABFA6 / #7E9673 / #B7A766 / #8C795B / #48664E。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#9C9B67",
+      "#AFB29D",
+      "#867154",
+      "#45604B"
+    ],
+    "colorValues": "#FCFCFC / #9C9B67 / #AFB29D / #867154 / #45604B",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9C9B67 / #AFB29D / #867154 / #45604B"
+  },
+  {
+    "id": 35,
+    "title": "Color Reference 35",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-35.webp",
+    "cover": "images/inspiration/color/color-ref-35.webp",
+    "desc": "极简色彩参考板 35，主色参考：D8CCC0 / 9AC6E3 / E5DCE1 / D0E8E8 / C8E8F0。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#F4F7F8",
+      "#A1CAE6",
+      "#D8C9BB",
+      "#A2A2A2",
+      "#C0BFC0"
+    ],
+    "colorValues": "#F4F7F8 / #A1CAE6 / #D8C9BB / #A2A2A2 / #C0BFC0",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#F4F7F8 / #A1CAE6 / #D8C9BB / #A2A2A2 / #C0BFC0"
+  },
+  {
+    "id": 36,
+    "title": "Color Reference 36",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-36.webp",
+    "cover": "images/inspiration/color/color-ref-36.webp",
+    "desc": "极简色彩参考板 36，主色参考：C10 M5 Y20 K0 / C60 M25 Y30 K0 / C65 M40 Y15 K0 / C80 M45 Y80 K10 / C50 M70 Y5 K0。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FAFAF9",
+      "#6892AE",
+      "#8D599D",
+      "#2D6946",
+      "#9DA2A6"
+    ],
+    "colorValues": "#FAFAF9 / #6892AE / #8D599D / #2D6946 / #9DA2A6",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FAFAF9 / #6892AE / #8D599D / #2D6946 / #9DA2A6"
+  },
+  {
+    "id": 37,
+    "title": "Color Reference 37",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-37.webp",
+    "cover": "images/inspiration/color/color-ref-37.webp",
+    "desc": "极简色彩参考板 37，主色参考：028 / 015 / 066 / 001 / 052。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFB",
+      "#DEA13B",
+      "#9D5A28",
+      "#2C6CA1",
+      "#86A3B7"
+    ],
+    "colorValues": "#FCFCFB / #DEA13B / #9D5A28 / #2C6CA1 / #86A3B7",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFB / #DEA13B / #9D5A28 / #2C6CA1 / #86A3B7"
+  },
+  {
+    "id": 38,
+    "title": "Color Reference 38",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-38.webp",
+    "cover": "images/inspiration/color/color-ref-38.webp",
+    "desc": "极简色彩参考板 38，主色参考：#FBFBF9 / #9697CB / #A0BFA5 / #677C4B / #2A3858。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#9FB6A0",
+      "#989ACB",
+      "#677648",
+      "#2B3757"
+    ],
+    "colorValues": "#FCFCFC / #9FB6A0 / #989ACB / #677648 / #2B3757",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FB6A0 / #989ACB / #677648 / #2B3757"
+  },
+  {
+    "id": 39,
+    "title": "Color Reference 39",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-39.webp",
+    "cover": "images/inspiration/color/color-ref-39.webp",
+    "desc": "极简色彩参考板 39，主色参考：#C77253 / #D9A87A / #D2C58F / #B2C3B7 / #709195。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#D5C48E",
+      "#CA6F4B",
+      "#DBA474",
+      "#B2C2B4"
+    ],
+    "colorValues": "#FCFCFC / #D5C48E / #CA6F4B / #DBA474 / #B2C2B4",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #D5C48E / #CA6F4B / #DBA474 / #B2C2B4"
+  },
+  {
+    "id": 40,
+    "title": "Color Reference 40",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-40.webp",
+    "cover": "images/inspiration/color/color-ref-40.webp",
+    "desc": "极简色彩参考板 40，主色参考：5888C0 / 7E7CA1 / B07080 / A8C0D0 / 80A0C8。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFCFC",
+      "#99AFC8",
+      "#AC6C7C",
+      "#5B86BD",
+      "#827BA0"
+    ],
+    "colorValues": "#FCFCFC / #99AFC8 / #AC6C7C / #5B86BD / #827BA0",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #99AFC8 / #AC6C7C / #5B86BD / #827BA0"
+  },
+  {
+    "id": 41,
+    "title": "Color Reference 41",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-41.webp",
+    "cover": "images/inspiration/color/color-ref-41.webp",
+    "desc": "极简色彩参考板 41，主色参考：#BA9F38 / #E1CC96 / #FCEBD0 / #B1BACA / #1D3B28。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFBF9",
+      "#DDC98F",
+      "#B79C37",
+      "#B0B8C9",
+      "#233D2A"
+    ],
+    "colorValues": "#FCFBF9 / #DDC98F / #B79C37 / #B0B8C9 / #233D2A",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFBF9 / #DDC98F / #B79C37 / #B0B8C9 / #233D2A"
+  },
+  {
+    "id": 42,
+    "title": "Color Reference 42",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-42.webp",
+    "cover": "images/inspiration/color/color-ref-42.webp",
+    "desc": "极简色彩参考板 42，主色参考：#AA8956 / #BF9488 / #E4CDBB / #F7E7DA / #DCDCB1。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FCFAF9",
+      "#DDCFAC",
+      "#B88B48",
+      "#CB9784",
+      "#A5A5A6"
+    ],
+    "colorValues": "#FCFAF9 / #DDCFAC / #B88B48 / #CB9784 / #A5A5A6",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#FCFAF9 / #DDCFAC / #B88B48 / #CB9784 / #A5A5A6"
+  },
+  {
+    "id": 43,
+    "title": "Color Reference 43",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-43.webp",
+    "cover": "images/inspiration/color/color-ref-43.webp",
+    "desc": "极简色彩参考板 43，主色参考：#7F6A9C / #C97D95 / #CA847D / #DC9674 / #8D93BD。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFCFC",
+      "#D88B72",
+      "#7D679B",
+      "#9095BA",
+      "#D77E95"
+    ],
+    "colorValues": "#FDFCFC / #D88B72 / #7D679B / #9095BA / #D77E95",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FDFCFC / #D88B72 / #7D679B / #9095BA / #D77E95"
+  },
+  {
+    "id": 44,
+    "title": "Color Reference 44",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-44.webp",
+    "cover": "images/inspiration/color/color-ref-44.webp",
+    "desc": "极简色彩参考板 44，主色参考：#FBC1AD / #B4A1B4 / #FFCE4A / #A38E3A / #BD7054。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDFCFC",
+      "#B49FB2",
+      "#F6BBA7",
+      "#FCC944",
+      "#A08A35"
+    ],
+    "colorValues": "#FDFCFC / #B49FB2 / #F6BBA7 / #FCC944 / #A08A35",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDFCFC / #B49FB2 / #F6BBA7 / #FCC944 / #A08A35"
+  },
+  {
+    "id": 45,
+    "title": "Color Reference 45",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-45.webp",
+    "cover": "images/inspiration/color/color-ref-45.webp",
+    "desc": "极简色彩参考板 45，主色参考：#216271 / #3c8fa4 / #9eac85 / #bfbca8 / #e5e2dd。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#226071",
+      "#3F8AA0",
+      "#99A780",
+      "#BCB6A1",
+      "#E2DFDA"
+    ],
+    "colorValues": "#226071 / #3F8AA0 / #99A780 / #BCB6A1 / #E2DFDA",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#226071 / #3F8AA0 / #99A780 / #BCB6A1 / #E2DFDA"
+  },
+  {
+    "id": 46,
+    "title": "Color Reference 46",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-46.webp",
+    "cover": "images/inspiration/color/color-ref-46.webp",
+    "desc": "极简色彩参考板 46，主色参考：#02748c / #db9f59 / #57c2c3 / #94c5c4 / #dbe1dd。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#DA994E",
+      "#55C5C2",
+      "#06788D",
+      "#A0C7C5",
+      "#DEE1DE"
+    ],
+    "colorValues": "#DA994E / #55C5C2 / #06788D / #A0C7C5 / #DEE1DE",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#DA994E / #55C5C2 / #06788D / #A0C7C5 / #DEE1DE"
+  },
+  {
+    "id": 47,
+    "title": "Color Reference 47",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-47.webp",
+    "cover": "images/inspiration/color/color-ref-47.webp",
+    "desc": "极简色彩参考板 47，主色参考：#8e7e6c / #a0a297 / #82b7cc / #f5d46b / #f3e0a7。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#9D9E96",
+      "#8B7A69",
+      "#82B1C5",
+      "#F4CE64",
+      "#EEDAA1"
+    ],
+    "colorValues": "#9D9E96 / #8B7A69 / #82B1C5 / #F4CE64 / #EEDAA1",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#9D9E96 / #8B7A69 / #82B1C5 / #F4CE64 / #EEDAA1"
+  },
+  {
+    "id": 48,
+    "title": "Color Reference 48",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-48.webp",
+    "cover": "images/inspiration/color/color-ref-48.webp",
+    "desc": "极简色彩参考板 48，主色参考：#5167A2 / #60693A / #C46428 / #E8E2C5 / #2E3118。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#546CA7",
+      "#636C3A",
+      "#C66929",
+      "#E5E0C3",
+      "#333718"
+    ],
+    "colorValues": "#546CA7 / #636C3A / #C66929 / #E5E0C3 / #333718",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#546CA7 / #636C3A / #C66929 / #E5E0C3 / #333718"
+  },
+  {
+    "id": 49,
+    "title": "Color Reference 49",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-49.webp",
+    "cover": "images/inspiration/color/color-ref-49.webp",
+    "desc": "极简色彩参考板 49，主色参考：#FFF1B5 / #C1DBE8 / #43302E。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#FDE8A1",
+      "#BED9EA",
+      "#422E2B"
+    ],
+    "colorValues": "#FDE8A1 / #BED9EA / #422E2B",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDE8A1 / #BED9EA / #422E2B"
+  },
+  {
+    "id": 50,
+    "title": "Color Reference 50",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-50.webp",
+    "cover": "images/inspiration/color/color-ref-50.webp",
+    "desc": "极简色彩参考板 50，主色参考：#df7e15 / #828549 / #d4be02 / #f1a76c / #e6d68f。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#DC7513",
+      "#D0B402",
+      "#7F8248",
+      "#F39C67",
+      "#EAD585"
+    ],
+    "colorValues": "#DC7513 / #D0B402 / #7F8248 / #F39C67 / #EAD585",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "350px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DC7513 / #D0B402 / #7F8248 / #F39C67 / #EAD585"
+  },
+  {
+    "id": 51,
+    "title": "Color Reference 51",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-51.webp",
+    "cover": "images/inspiration/color/color-ref-51.webp",
+    "desc": "极简色彩参考板 51，主色参考：#bf8a6c / #7f9f8e / #be6d63 / #c4c4ab / #c3c7b7。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#BF6F64",
+      "#BD886B",
+      "#819C8C",
+      "#C7C2A9",
+      "#C8CABA"
+    ],
+    "colorValues": "#BF6F64 / #BD886B / #819C8C / #C7C2A9 / #C8CABA",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#BF6F64 / #BD886B / #819C8C / #C7C2A9 / #C8CABA"
+  },
+  {
+    "id": 52,
+    "title": "Color Reference 52",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-52.webp",
+    "cover": "images/inspiration/color/color-ref-52.webp",
+    "desc": "极简色彩参考板 52，主色参考：#96b9b9 / #b3bea5 / #e4a273 / #c3a77f / #ddd9db。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#97BABA",
+      "#E29C6B",
+      "#B1BCA5",
+      "#DBD7D8",
+      "#C5A77E"
+    ],
+    "colorValues": "#97BABA / #E29C6B / #B1BCA5 / #DBD7D8 / #C5A77E",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#97BABA / #E29C6B / #B1BCA5 / #DBD7D8 / #C5A77E"
+  },
+  {
+    "id": 53,
+    "title": "Color Reference 53",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-53.webp",
+    "cover": "images/inspiration/color/color-ref-53.webp",
+    "desc": "极简色彩参考板 53，主色参考：#404930 / #bd962f / #efd36d / #bdd3d0 / #e5eae3。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#C0942A",
+      "#3E482D",
+      "#EBCB65",
+      "#B8CDC9",
+      "#E0E5DE"
+    ],
+    "colorValues": "#C0942A / #3E482D / #EBCB65 / #B8CDC9 / #E0E5DE",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "365px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#C0942A / #3E482D / #EBCB65 / #B8CDC9 / #E0E5DE"
+  },
+  {
+    "id": 54,
+    "title": "Color Reference 54",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-54.webp",
+    "cover": "images/inspiration/color/color-ref-54.webp",
+    "desc": "极简色彩参考板 54，主色参考：#FFE1BD / #D1632C / #C9BF81 / #EFE6D0 / #723A21 / #9CC1E2。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D95D1E",
+      "#FED7AC",
+      "#C5B773",
+      "#6D351A",
+      "#9ABCE0"
+    ],
+    "colorValues": "#D95D1E / #FED7AC / #C5B773 / #6D351A / #9ABCE0",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#D95D1E / #FED7AC / #C5B773 / #6D351A / #9ABCE0"
+  },
+  {
+    "id": 55,
+    "title": "Color Reference 55",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-55.webp",
+    "cover": "images/inspiration/color/color-ref-55.webp",
+    "desc": "极简色彩参考板 55，主色参考：#013f86 / #cc6e39 / #8e7770 / #94999c / #ccd3ce。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#063E84",
+      "#C76432",
+      "#87726C",
+      "#909497",
+      "#C3C9C5"
+    ],
+    "colorValues": "#063E84 / #C76432 / #87726C / #909497 / #C3C9C5",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#063E84 / #C76432 / #87726C / #909497 / #C3C9C5"
+  },
+  {
+    "id": 56,
+    "title": "Color Reference 56",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-56.webp",
+    "cover": "images/inspiration/color/color-ref-56.webp",
+    "desc": "极简色彩参考板 56，主色参考：#0c160d / #483210 / #4b592e / #c4920c / #e5e1dd。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#0C160C",
+      "#492F0C",
+      "#475227",
+      "#C38A0B",
+      "#E2DDD9"
+    ],
+    "colorValues": "#0C160C / #492F0C / #475227 / #C38A0B / #E2DDD9",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#0C160C / #492F0C / #475227 / #C38A0B / #E2DDD9"
+  },
+  {
+    "id": 57,
+    "title": "Color Reference 57",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-57.webp",
+    "cover": "images/inspiration/color/color-ref-57.webp",
+    "desc": "极简色彩参考板 57，主色参考：#466A33 / #71AF7D / #FDF6E9 / #EDCE76 / #937858。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#6BA374",
+      "#415E33",
+      "#FAF3E5",
+      "#E7C36E",
+      "#987C5D"
+    ],
+    "colorValues": "#6BA374 / #415E33 / #FAF3E5 / #E7C36E / #987C5D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "350px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#6BA374 / #415E33 / #FAF3E5 / #E7C36E / #987C5D"
+  },
+  {
+    "id": 58,
+    "title": "Color Reference 58",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-58.webp",
+    "cover": "images/inspiration/color/color-ref-58.webp",
+    "desc": "极简色彩参考板 58，主色参考：#38382f / #6d6f1e / #7e3132 / #beb495 / #efe7dc。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#343328",
+      "#696717",
+      "#762A2A",
+      "#BDB08E",
+      "#EBE2D6"
+    ],
+    "colorValues": "#343328 / #696717 / #762A2A / #BDB08E / #EBE2D6",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#343328 / #696717 / #762A2A / #BDB08E / #EBE2D6"
+  },
+  {
+    "id": 59,
+    "title": "Color Reference 59",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-59.webp",
+    "cover": "images/inspiration/color/color-ref-59.webp",
+    "desc": "极简色彩参考板 59，主色参考：#201d39 / #514575 / #a79dda / #e58500 / #f7c451。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#211D3C",
+      "#4F4277",
+      "#A298DA",
+      "#F08504",
+      "#FAB840"
+    ],
+    "colorValues": "#211D3C / #4F4277 / #A298DA / #F08504 / #FAB840",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#211D3C / #4F4277 / #A298DA / #F08504 / #FAB840"
+  },
+  {
+    "id": 60,
+    "title": "Color Reference 60",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-60.webp",
+    "cover": "images/inspiration/color/color-ref-60.webp",
+    "desc": "极简色彩参考板 60，主色参考：#659477 / #cc8561 / #fad8bc / #ced9c6 / #e1e3e0。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D0835B",
+      "#6B9378",
+      "#F5D1B6",
+      "#CDD5C3",
+      "#DFDFDD"
+    ],
+    "colorValues": "#D0835B / #6B9378 / #F5D1B6 / #CDD5C3 / #DFDFDD",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#D0835B / #6B9378 / #F5D1B6 / #CDD5C3 / #DFDFDD"
+  },
+  {
+    "id": 61,
+    "title": "Color Reference 61",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-61.webp",
+    "cover": "images/inspiration/color/color-ref-61.webp",
+    "desc": "极简色彩参考板 61，主色参考：#4F583B / #D9A450 / #F4B840 / #EAD7B2 / #F8F4E8。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#DBA248",
+      "#505A3A",
+      "#F1AF34",
+      "#EBD6B2",
+      "#F7F1E5"
+    ],
+    "colorValues": "#DBA248 / #505A3A / #F1AF34 / #EBD6B2 / #F7F1E5",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DBA248 / #505A3A / #F1AF34 / #EBD6B2 / #F7F1E5"
+  },
+  {
+    "id": 62,
+    "title": "Color Reference 62",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-62.webp",
+    "cover": "images/inspiration/color/color-ref-62.webp",
+    "desc": "极简色彩参考板 62，主色参考：#688B91 / #9CADB4 / #D0D6E1 / #AE5846 / #2E4143。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#CCD1DD",
+      "#9BAEB4",
+      "#7B989C",
+      "#B85741",
+      "#324242"
+    ],
+    "colorValues": "#CCD1DD / #9BAEB4 / #7B989C / #B85741 / #324242",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#CCD1DD / #9BAEB4 / #7B989C / #B85741 / #324242"
+  },
+  {
+    "id": 63,
+    "title": "Color Reference 63",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-63.webp",
+    "cover": "images/inspiration/color/color-ref-63.webp",
+    "desc": "极简色彩参考板 63，主色参考：#96b9b9 / #b3bea7 / #e4a278 / #c3a77f / #dadddb。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#96B6B8",
+      "#ACB9AB",
+      "#DD9D73",
+      "#C1A37B",
+      "#D9DAD9"
+    ],
+    "colorValues": "#96B6B8 / #ACB9AB / #DD9D73 / #C1A37B / #D9DAD9",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#96B6B8 / #ACB9AB / #DD9D73 / #C1A37B / #D9DAD9"
+  },
+  {
+    "id": 64,
+    "title": "Color Reference 64",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-64.webp",
+    "cover": "images/inspiration/color/color-ref-64.webp",
+    "desc": "极简色彩参考板 64，主色参考：#343B34 / #714D2D / #DBB857 / #728B24 / #EBE0CC。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#353D34",
+      "#774C26",
+      "#DDAC4F",
+      "#6F831F",
+      "#E3D6C4"
+    ],
+    "colorValues": "#353D34 / #774C26 / #DDAC4F / #6F831F / #E3D6C4",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "350px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#353D34 / #774C26 / #DDAC4F / #6F831F / #E3D6C4"
+  },
+  {
+    "id": 65,
+    "title": "Color Reference 65",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-65.webp",
+    "cover": "images/inspiration/color/color-ref-65.webp",
+    "desc": "极简色彩参考板 65，主色参考：#ACAD2B / #BFE3FC / #F0F9FF / #28361F / #596115。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#A6A524",
+      "#BFDCF8",
+      "#EFF6FC",
+      "#2A3920",
+      "#5F6417"
+    ],
+    "colorValues": "#A6A524 / #BFDCF8 / #EFF6FC / #2A3920 / #5F6417",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "365px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#A6A524 / #BFDCF8 / #EFF6FC / #2A3920 / #5F6417"
+  },
+  {
+    "id": 66,
+    "title": "Color Reference 66",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-66.webp",
+    "cover": "images/inspiration/color/color-ref-66.webp",
+    "desc": "极简色彩参考板 66，主色参考：#131414 / #54785C / #7B2900 / #B98666 / #C6C3BA。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#151715",
+      "#557359",
+      "#7E2901",
+      "#B88266",
+      "#C2BEB7"
+    ],
+    "colorValues": "#151715 / #557359 / #7E2901 / #B88266 / #C2BEB7",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#151715 / #557359 / #7E2901 / #B88266 / #C2BEB7"
+  },
+  {
+    "id": 67,
+    "title": "Color Reference 67",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-67.webp",
+    "cover": "images/inspiration/color/color-ref-67.webp",
+    "desc": "极简色彩参考板 67，主色参考：#316453 / #648056 / #949478 / #C4A97A / #F3BC9C。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#285C48",
+      "#69804F",
+      "#9C9975",
+      "#D0AB75",
+      "#F6BE9B"
+    ],
+    "colorValues": "#285C48 / #69804F / #9C9975 / #D0AB75 / #F6BE9B",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#285C48 / #69804F / #9C9975 / #D0AB75 / #F6BE9B"
+  },
+  {
+    "id": 68,
+    "title": "Color Reference 68",
+    "type": "Color Board · 单色系",
+    "colorType": "monochromatic",
+    "image": "images/inspiration/color/color-ref-68.webp",
+    "cover": "images/inspiration/color/color-ref-68.webp",
+    "desc": "极简色彩参考板 68，主色参考：#121810 / #3B5131 / #768572 / #BCBDB1 / #D9D5CF。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#131811",
+      "#6B7765",
+      "#37472C",
+      "#B6B8AE",
+      "#D8D3CD"
+    ],
+    "colorValues": "#131811 / #6B7765 / #37472C / #B6B8AE / #D8D3CD",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "单色系"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#131811 / #6B7765 / #37472C / #B6B8AE / #D8D3CD"
+  },
+  {
+    "id": 69,
+    "title": "Color Reference 69",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-69.webp",
+    "cover": "images/inspiration/color/color-ref-69.webp",
+    "desc": "极简色彩参考板 69，主色参考：#513229 / #F5F1E3 / #D9EBF8 / #FCE6BA / #D8D4B3。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#513229",
+      "#F5F1E3",
+      "#D9EBF8",
+      "#FCE6BA",
+      "#D8D4B3"
+    ],
+    "colorValues": "#513229 / #F5F1E3 / #D9EBF8 / #FCE6BA / #D8D4B3",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#513229 / #F5F1E3 / #D9EBF8 / #FCE6BA / #D8D4B3"
+  },
+  {
+    "id": 70,
+    "title": "Color Reference 70",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-70.webp",
+    "cover": "images/inspiration/color/color-ref-70.webp",
+    "desc": "极简色彩参考板 70，主色参考：#DDD9C9 / #839FA5 / #8C8A3D / #4C4A22 / #2A2F14。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#DDD9C9",
+      "#839FA5",
+      "#8C8A3D",
+      "#4C4A22",
+      "#2A2F14"
+    ],
+    "colorValues": "#DDD9C9 / #839FA5 / #8C8A3D / #4C4A22 / #2A2F14",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DDD9C9 / #839FA5 / #8C8A3D / #4C4A22 / #2A2F14"
+  },
+  {
+    "id": 71,
+    "title": "Color Reference 71",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-71.webp",
+    "cover": "images/inspiration/color/color-ref-71.webp",
+    "desc": "极简色彩参考板 71，主色参考：#D4CBC7 / #EFDCC3 / #F5EBE3 / #BA908B / #80864F。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D4CBC7",
+      "#EFDCC3",
+      "#F5EBE3",
+      "#BA908B",
+      "#80864F"
+    ],
+    "colorValues": "#D4CBC7 / #EFDCC3 / #F5EBE3 / #BA908B / #80864F",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D4CBC7 / #EFDCC3 / #F5EBE3 / #BA908B / #80864F"
+  },
+  {
+    "id": 72,
+    "title": "Color Reference 72",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-72.webp",
+    "cover": "images/inspiration/color/color-ref-72.webp",
+    "desc": "极简色彩参考板 72，主色参考：#ACCAB2 / #E9A752 / #E44720 / #7B714D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#ACCAB2",
+      "#E9A752",
+      "#E44720",
+      "#7B714D"
+    ],
+    "colorValues": "#ACCAB2 / #E9A752 / #E44720 / #7B714D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#ACCAB2 / #E9A752 / #E44720 / #7B714D"
+  },
+  {
+    "id": 73,
+    "title": "Color Reference 73",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-73.webp",
+    "cover": "images/inspiration/color/color-ref-73.webp",
+    "desc": "极简色彩参考板 73，主色参考：#788176 / #CCB999 / #5E1803。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#788176",
+      "#CCB999",
+      "#5E1803"
+    ],
+    "colorValues": "#788176 / #CCB999 / #5E1803",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#788176 / #CCB999 / #5E1803"
+  },
+  {
+    "id": 74,
+    "title": "Color Reference 74",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-74.webp",
+    "cover": "images/inspiration/color/color-ref-74.webp",
+    "desc": "极简色彩参考板 74，主色参考：#696642 / #45352D / #EBEAE5 / #C19BA8。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#696642",
+      "#45352D",
+      "#EBEAE5",
+      "#C19BA8"
+    ],
+    "colorValues": "#696642 / #45352D / #EBEAE5 / #C19BA8",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#696642 / #45352D / #EBEAE5 / #C19BA8"
+  },
+  {
+    "id": 75,
+    "title": "Color Reference 75",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-75.webp",
+    "cover": "images/inspiration/color/color-ref-75.webp",
+    "desc": "极简色彩参考板 75，主色参考：#BBC6BA / #C5A98F / #D89F76 / #9F5E4A / #EDD7BE。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#BBC6BA",
+      "#C5A98F",
+      "#D89F76",
+      "#9F5E4A",
+      "#EDD7BE"
+    ],
+    "colorValues": "#BBC6BA / #C5A98F / #D89F76 / #9F5E4A / #EDD7BE",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#BBC6BA / #C5A98F / #D89F76 / #9F5E4A / #EDD7BE"
+  },
+  {
+    "id": 76,
+    "title": "Color Reference 76",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-76.webp",
+    "cover": "images/inspiration/color/color-ref-76.webp",
+    "desc": "极简色彩参考板 76，主色参考：#D9CDBF / #8C7D6E / #A9BDC4 / #4B5244 / #121212。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D9CDBF",
+      "#8C7D6E",
+      "#A9BDC4",
+      "#4B5244",
+      "#121212"
+    ],
+    "colorValues": "#D9CDBF / #8C7D6E / #A9BDC4 / #4B5244 / #121212",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D9CDBF / #8C7D6E / #A9BDC4 / #4B5244 / #121212"
+  },
+  {
+    "id": 77,
+    "title": "Color Reference 77",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-77.webp",
+    "cover": "images/inspiration/color/color-ref-77.webp",
+    "desc": "极简色彩参考板 77，主色参考：#6E6E59 / #B68577 / #41392D / #CDB59F / #765E75。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#6E6E59",
+      "#B68577",
+      "#41392D",
+      "#CDB59F",
+      "#765E75"
+    ],
+    "colorValues": "#6E6E59 / #B68577 / #41392D / #CDB59F / #765E75",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#6E6E59 / #B68577 / #41392D / #CDB59F / #765E75"
+  },
+  {
+    "id": 78,
+    "title": "Color Reference 78",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-78.webp",
+    "cover": "images/inspiration/color/color-ref-78.webp",
+    "desc": "极简色彩参考板 78，主色参考：#D9C3AD / #8C99B8 / #F0C760。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D9C3AD",
+      "#8C99B8",
+      "#F0C760"
+    ],
+    "colorValues": "#D9C3AD / #8C99B8 / #F0C760",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#D9C3AD / #8C99B8 / #F0C760"
+  },
+  {
+    "id": 79,
+    "title": "Color Reference 79",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-79.webp",
+    "cover": "images/inspiration/color/color-ref-79.webp",
+    "desc": "极简色彩参考板 79，主色参考：#353B51 / #565F78 / #4E4D53 / #9F9C76 / #ECE6E0。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#353B51",
+      "#565F78",
+      "#4E4D53",
+      "#9F9C76",
+      "#ECE6E0"
+    ],
+    "colorValues": "#353B51 / #565F78 / #4E4D53 / #9F9C76 / #ECE6E0",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#353B51 / #565F78 / #4E4D53 / #9F9C76 / #ECE6E0"
+  },
+  {
+    "id": 80,
+    "title": "Color Reference 80",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-80.webp",
+    "cover": "images/inspiration/color/color-ref-80.webp",
+    "desc": "极简色彩参考板 80，主色参考：#9EACCB / #E0D8C8 / #8FA5A4 / #8C7456 / #24191D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#9EACCB",
+      "#E0D8C8",
+      "#8FA5A4",
+      "#8C7456",
+      "#24191D"
+    ],
+    "colorValues": "#9EACCB / #E0D8C8 / #8FA5A4 / #8C7456 / #24191D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#9EACCB / #E0D8C8 / #8FA5A4 / #8C7456 / #24191D"
+  },
+  {
+    "id": 81,
+    "title": "Color Reference 81",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-81.webp",
+    "cover": "images/inspiration/color/color-ref-81.webp",
+    "desc": "极简色彩参考板 81，主色参考：#868A62 / #46462D / #D9D1B9 / #7A9C9D / #603D28。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#868A62",
+      "#46462D",
+      "#D9D1B9",
+      "#7A9C9D",
+      "#603D28"
+    ],
+    "colorValues": "#868A62 / #46462D / #D9D1B9 / #7A9C9D / #603D28",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#868A62 / #46462D / #D9D1B9 / #7A9C9D / #603D28"
+  },
+  {
+    "id": 82,
+    "title": "Color Reference 82",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-82.webp",
+    "cover": "images/inspiration/color/color-ref-82.webp",
+    "desc": "极简色彩参考板 82，主色参考：#343956 / #797080 / #F5AD62 / #C28D76 / #251111。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#343956",
+      "#797080",
+      "#F5AD62",
+      "#C28D76",
+      "#251111"
+    ],
+    "colorValues": "#343956 / #797080 / #F5AD62 / #C28D76 / #251111",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#343956 / #797080 / #F5AD62 / #C28D76 / #251111"
+  },
+  {
+    "id": 83,
+    "title": "Color Reference 83",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-83.webp",
+    "cover": "images/inspiration/color/color-ref-83.webp",
+    "desc": "极简色彩参考板 83，主色参考：#210706 / #891D1A / #5E657B / #F1E6D2。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#210706",
+      "#891D1A",
+      "#5E657B",
+      "#F1E6D2"
+    ],
+    "colorValues": "#210706 / #891D1A / #5E657B / #F1E6D2",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#210706 / #891D1A / #5E657B / #F1E6D2"
+  },
+  {
+    "id": 84,
+    "title": "Color Reference 84",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-84.webp",
+    "cover": "images/inspiration/color/color-ref-84.webp",
+    "desc": "极简色彩参考板 84，主色参考：Olive RGB 124, 129, 73 / Honey RGB 191, 132, 20 / Cream RGB 243, 220, 153 / Linen RGB 225, 213, 191 / Earth RGB 59, 20, 3。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "Olive RGB 124, 129, 73",
+      "Honey RGB 191, 132, 20",
+      "Cream RGB 243, 220, 153",
+      "Linen RGB 225, 213, 191",
+      "Earth RGB 59, 20, 3"
+    ],
+    "colorValues": "Olive RGB 124, 129, 73 / Honey RGB 191, 132, 20 / Cream RGB 243, 220, 153 / Linen RGB 225, 213, 191 / Earth RGB 59, 20, 3",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>Olive RGB 124, 129, 73 / Honey RGB 191, 132, 20 / Cream RGB 243, 220, 153 / Linen RGB 225, 213, 191 / Earth RGB 59, 20, 3"
+  },
+  {
+    "id": 85,
+    "title": "Color Reference 85",
+    "type": "Color Board · 三角色",
+    "colorType": "triadic",
+    "image": "images/inspiration/color/color-ref-85.webp",
+    "cover": "images/inspiration/color/color-ref-85.webp",
+    "desc": "极简色彩参考板 85，主色参考：#4F556D / #81778A / #C7999B / #DFB29B / #F0C4A5。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#4F556D",
+      "#81778A",
+      "#C7999B",
+      "#DFB29B",
+      "#F0C4A5"
+    ],
+    "colorValues": "#4F556D / #81778A / #C7999B / #DFB29B / #F0C4A5",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "三角色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#4F556D / #81778A / #C7999B / #DFB29B / #F0C4A5"
+  },
+  {
+    "id": 86,
+    "title": "Color Reference 86",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-86.webp",
+    "cover": "images/inspiration/color/color-ref-86.webp",
+    "desc": "极简色彩参考板 86，主色参考：#E8DED8 / #CAB4AB / #C1B5AB / #CDC4BB / #BDB6A5。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#E8DED8",
+      "#CAB4AB",
+      "#C1B5AB",
+      "#CDC4BB",
+      "#BDB6A5"
+    ],
+    "colorValues": "#E8DED8 / #CAB4AB / #C1B5AB / #CDC4BB / #BDB6A5",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E8DED8 / #CAB4AB / #C1B5AB / #CDC4BB / #BDB6A5"
+  },
+  {
+    "id": 87,
+    "title": "Color Reference 87",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-87.webp",
+    "cover": "images/inspiration/color/color-ref-87.webp",
+    "desc": "极简色彩参考板 87，主色参考：Lace RGB 181, 172, 163 / Powder Blue RGB 196, 210, 236 / Dusty Blue RGB 132, 157, 187 / Cornflower Blue RGB 100, 142, 192 / Walnut RGB 82, 58, 51。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "Lace RGB 181, 172, 163",
+      "Powder Blue RGB 196, 210, 236",
+      "Dusty Blue RGB 132, 157, 187",
+      "Cornflower Blue RGB 100, 142, 192",
+      "Walnut RGB 82, 58, 51"
+    ],
+    "colorValues": "Lace RGB 181, 172, 163 / Powder Blue RGB 196, 210, 236 / Dusty Blue RGB 132, 157, 187 / Cornflower Blue RGB 100, 142, 192 / Walnut RGB 82, 58, 51",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>Lace RGB 181, 172, 163 / Powder Blue RGB 196, 210, 236 / Dusty Blue RGB 132, 157, 187 / Cornflower Blue RGB 100, 142, 192 / Walnut RGB 82, 58, 51"
+  },
+  {
+    "id": 88,
+    "title": "Color Reference 88",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-88.webp",
+    "cover": "images/inspiration/color/color-ref-88.webp",
+    "desc": "极简色彩参考板 88，主色参考：#E5E3E2 / #CEC8C0 / #B0A995 / #353026 / #817447。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#E5E3E2",
+      "#CEC8C0",
+      "#B0A995",
+      "#353026",
+      "#817447"
+    ],
+    "colorValues": "#E5E3E2 / #CEC8C0 / #B0A995 / #353026 / #817447",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E5E3E2 / #CEC8C0 / #B0A995 / #353026 / #817447"
+  },
+  {
+    "id": 89,
+    "title": "Color Reference 89",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-89.webp",
+    "cover": "images/inspiration/color/color-ref-89.webp",
+    "desc": "极简色彩参考板 89，主色参考：#442D1C / #77381F / #84592B / #9D906A / #E8D1A7。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#442D1C",
+      "#77381F",
+      "#84592B",
+      "#9D906A",
+      "#E8D1A7"
+    ],
+    "colorValues": "#442D1C / #77381F / #84592B / #9D906A / #E8D1A7",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#442D1C / #77381F / #84592B / #9D906A / #E8D1A7"
+  },
+  {
+    "id": 90,
+    "title": "Color Reference 90",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-90.webp",
+    "cover": "images/inspiration/color/color-ref-90.webp",
+    "desc": "极简色彩参考板 90，主色参考：#886759 / #E7D0CD / #ECE6E0 / #B8C1AE / #DFD4C4。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#886759",
+      "#E7D0CD",
+      "#ECE6E0",
+      "#B8C1AE",
+      "#DFD4C4"
+    ],
+    "colorValues": "#886759 / #E7D0CD / #ECE6E0 / #B8C1AE / #DFD4C4",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#886759 / #E7D0CD / #ECE6E0 / #B8C1AE / #DFD4C4"
+  },
+  {
+    "id": 91,
+    "title": "Color Reference 91",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-91.webp",
+    "cover": "images/inspiration/color/color-ref-91.webp",
+    "desc": "极简色彩参考板 91，主色参考：#BA7A4F / #6F3F2C / #EBE2DF / #9A8E85 / #472D23。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#BA7A4F",
+      "#6F3F2C",
+      "#EBE2DF",
+      "#9A8E85",
+      "#472D23"
+    ],
+    "colorValues": "#BA7A4F / #6F3F2C / #EBE2DF / #9A8E85 / #472D23",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#BA7A4F / #6F3F2C / #EBE2DF / #9A8E85 / #472D23"
+  },
+  {
+    "id": 92,
+    "title": "Color Reference 92",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-92.webp",
+    "cover": "images/inspiration/color/color-ref-92.webp",
+    "desc": "极简色彩参考板 92，主色参考：#473834 / #81839D / #E0BEA8 / #71888A / #1F3A44。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#473834",
+      "#81839D",
+      "#E0BEA8",
+      "#71888A",
+      "#1F3A44"
+    ],
+    "colorValues": "#473834 / #81839D / #E0BEA8 / #71888A / #1F3A44",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#473834 / #81839D / #E0BEA8 / #71888A / #1F3A44"
+  },
+  {
+    "id": 93,
+    "title": "Color Reference 93",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-93.webp",
+    "cover": "images/inspiration/color/color-ref-93.webp",
+    "desc": "极简色彩参考板 93，主色参考：#D0CCC0 / #DCD0B4 / #6C8888 / #405860 / #243034。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#D0CCC0",
+      "#DCD0B4",
+      "#6C8888",
+      "#405860",
+      "#243034"
+    ],
+    "colorValues": "#D0CCC0 / #DCD0B4 / #6C8888 / #405860 / #243034",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "330px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D0CCC0 / #DCD0B4 / #6C8888 / #405860 / #243034"
+  },
+  {
+    "id": 94,
+    "title": "Color Reference 94",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-94.webp",
+    "cover": "images/inspiration/color/color-ref-94.webp",
+    "desc": "极简色彩参考板 94，主色参考：#363E2F / #945631 / #D2BFA6 / #EFE7DB。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#363E2F",
+      "#945631",
+      "#D2BFA6",
+      "#EFE7DB"
+    ],
+    "colorValues": "#363E2F / #945631 / #D2BFA6 / #EFE7DB",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "360px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#363E2F / #945631 / #D2BFA6 / #EFE7DB"
+  },
+  {
+    "id": 95,
+    "title": "Color Reference 95",
+    "type": "Color Board · 邻近色",
+    "colorType": "analogous",
+    "image": "images/inspiration/color/color-ref-95.webp",
+    "cover": "images/inspiration/color/color-ref-95.webp",
+    "desc": "极简色彩参考板 95，主色参考：#25190B / #3F3817 / #86652B / #BBA4A6 / #7F654B。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#25190B",
+      "#3F3817",
+      "#86652B",
+      "#BBA4A6",
+      "#7F654B"
+    ],
+    "colorValues": "#25190B / #3F3817 / #86652B / #BBA4A6 / #7F654B",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "邻近色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "340px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#25190B / #3F3817 / #86652B / #BBA4A6 / #7F654B"
+  },
+  {
+    "id": 96,
+    "title": "Color Reference 96",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-96.webp",
+    "cover": "images/inspiration/color/color-ref-96.webp",
+    "desc": "极简色彩参考板 96，主色参考：#E6D1A2 / #FDEED5 / #C1A754 / #B8BFCF / #344D40。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#E6D1A2",
+      "#FDEED5",
+      "#C1A754",
+      "#B8BFCF",
+      "#344D40"
+    ],
+    "colorValues": "#E6D1A2 / #FDEED5 / #C1A754 / #B8BFCF / #344D40",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "370px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#E6D1A2 / #FDEED5 / #C1A754 / #B8BFCF / #344D40"
+  },
+  {
+    "id": 97,
+    "title": "Color Reference 97",
+    "type": "Color Board · 分裂互补",
+    "colorType": "split-complementary",
+    "image": "images/inspiration/color/color-ref-97.webp",
+    "cover": "images/inspiration/color/color-ref-97.webp",
+    "desc": "极简色彩参考板 97，主色参考：#AC6013 / #AEAD8D / #E4C1AC / #EBDFD2 / #B88D2E。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#AC6013",
+      "#AEAD8D",
+      "#E4C1AC",
+      "#EBDFD2",
+      "#B88D2E"
+    ],
+    "colorValues": "#AC6013 / #AEAD8D / #E4C1AC / #EBDFD2 / #B88D2E",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "分裂互补"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "320px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#AC6013 / #AEAD8D / #E4C1AC / #EBDFD2 / #B88D2E"
+  },
+  {
+    "id": 98,
+    "title": "Color Reference 98",
+    "type": "Color Board · 单色系",
+    "colorType": "monochromatic",
+    "image": "images/inspiration/color/color-ref-98.webp",
+    "cover": "images/inspiration/color/color-ref-98.webp",
+    "desc": "极简色彩参考板 98，主色参考：#AB5E1F / #592106 / #F5D0A0 / #9E4B0C / #A15F2E。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#AB5E1F",
+      "#592106",
+      "#F5D0A0",
+      "#9E4B0C",
+      "#A15F2E"
+    ],
+    "colorValues": "#AB5E1F / #592106 / #F5D0A0 / #9E4B0C / #A15F2E",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "单色系"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "355px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#AB5E1F / #592106 / #F5D0A0 / #9E4B0C / #A15F2E"
+  },
+  {
+    "id": 99,
+    "title": "Color Reference 99",
+    "type": "Color Board · 中性色",
+    "colorType": "neutral",
+    "image": "images/inspiration/color/color-ref-99.webp",
+    "cover": "images/inspiration/color/color-ref-99.webp",
+    "desc": "极简色彩参考板 99，主色参考：#986C4D / #805B3C / #2D2B1F / #430F08 / #191A1D。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#986C4D",
+      "#805B3C",
+      "#2D2B1F",
+      "#430F08",
+      "#191A1D"
+    ],
+    "colorValues": "#986C4D / #805B3C / #2D2B1F / #430F08 / #191A1D",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "中性色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "345px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#986C4D / #805B3C / #2D2B1F / #430F08 / #191A1D"
+  },
+  {
+    "id": 100,
+    "title": "Color Reference 100",
+    "type": "Color Board · 互补色",
+    "colorType": "complementary",
+    "image": "images/inspiration/color/color-ref-100.webp",
+    "cover": "images/inspiration/color/color-ref-100.webp",
+    "desc": "极简色彩参考板 100，主色参考：#828D8F / #404959 / #E5CF8C / #A6B4AC / #D9B872。适合用于低饱和、高级感、设计图面与封面配色。",
+    "colors": [
+      "#828D8F",
+      "#404959",
+      "#E5CF8C",
+      "#A6B4AC",
+      "#D9B872"
+    ],
+    "colorValues": "#828D8F / #404959 / #E5CF8C / #A6B4AC / #D9B872",
+    "tags": [
+      "色彩参考",
+      "低饱和",
+      "极简",
+      "互补色"
+    ],
+    "sourceName": "BaoLong Lab Color Reference",
+    "sourceUrl": "#",
+    "height": "375px",
+    "color": "#f1eee8",
+    "pinDescHtml": "<strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#828D8F / #404959 / #E5CF8C / #A6B4AC / #D9B872"
+  }
+]

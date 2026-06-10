@@ -955,7 +955,40 @@
   }
 }
 
-</style>
+
+    /* Color Board JSON loading / load more */
+    .load-more-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      margin:34px auto 0;
+      text-align:center;
+    }
+    .load-more-btn{
+      border:1px solid #111;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      min-width:180px;
+      min-height:48px;
+      padding:12px 22px;
+      cursor:pointer;
+      transition:.25s ease;
+      font-size:14px;
+    }
+    .load-more-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(0,0,0,.14);
+    }
+    .load-more-btn[hidden]{display:none;}
+    .load-more-count{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+  </style>
 <link href="css/common.css?v=74" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=74"></script>
 </head>
@@ -1049,1107 +1082,10 @@
 </div>
 </section>
 <section class="masonry-wrap">
-<div class="masonry">
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 01', 'Color Board · 互补色', 'images/inspiration/color/color-ref-01.webp', '极简色彩参考板 01，主色参考：#374375 / #FFFCF5 / #BABDE2 / #895159 / #DFAEA1。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 01" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-01.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 01</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#374375 / #FFFCF5 / #BABDE2 / #895159 / #DFAEA1</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 02', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-02.webp', '极简色彩参考板 02，主色参考：#969044 / #3A3C16 / #F7F0E6 / #6A6C54 / #774C20。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 02" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-02.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 02</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#969044 / #3A3C16 / #F7F0E6 / #6A6C54 / #774C20</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 03', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-03.webp', '极简色彩参考板 03，主色参考：#415835 / #6CA77C / #F4ECE1 / #E5C677 / #907258。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 03" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-03.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 03</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#415835 / #6CA77C / #F4ECE1 / #E5C677 / #907258</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 04', 'Color Board · 中性色', 'images/inspiration/color/color-ref-04.webp', '极简色彩参考板 04，主色参考：#E8E6DA / #D1BF9E / #8B7965 / #644833 / #1A1B12。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 04" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-04.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 04</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E8E6DA / #D1BF9E / #8B7965 / #644833 / #1A1B12</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 05', 'Color Board · 中性色', 'images/inspiration/color/color-ref-05.webp', '极简色彩参考板 05，主色参考：SW 7012 / SW 9611 / SW 7504 / SW 7580 / SW 7675。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 05" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-05.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 05</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>SW 7012 / SW 9611 / SW 7504 / SW 7580 / SW 7675</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 06', 'Color Board · 中性色', 'images/inspiration/color/color-ref-06.webp', '极简色彩参考板 06，主色参考：#CACED0 / #232519 / #878567 / #564E39 / #D1BB97。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 06" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-06.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 06</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#CACED0 / #232519 / #878567 / #564E39 / #D1BB97</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 07', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-07.webp', '极简色彩参考板 07，主色参考：#FFF1E4 / #E7DBA9 / #F2C87E / #969D7B / #AB7261。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 07" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-07.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 07</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FFF1E4 / #E7DBA9 / #F2C87E / #969D7B / #AB7261</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 08', 'Color Board · 中性色', 'images/inspiration/color/color-ref-08.webp', '极简色彩参考板 08，主色参考：#513229 / #F4F1E2 / #D8EBF9 / #FCE6B7 / #D7D4B1。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 08" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-08.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 08</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#513229 / #F4F1E2 / #D8EBF9 / #FCE6B7 / #D7D4B1</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 09', 'Color Board · 三角色', 'images/inspiration/color/color-ref-09.webp', '极简色彩参考板 09，主色参考：#606B8F / #A4BA9B / #C67256 / #EDDFBC / #454346。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 09" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-09.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 09</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#606B8F / #A4BA9B / #C67256 / #EDDFBC / #454346</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 10', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-10.webp', '极简色彩参考板 10，主色参考：#B19782 / #C2AA94 / #D1C5BA / #DCD9D0 / #7D836C。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 10" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-10.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 10</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#B19782 / #C2AA94 / #D1C5BA / #DCD9D0 / #7D836C</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 11', 'Color Board · 互补色', 'images/inspiration/color/color-ref-11.webp', '极简色彩参考板 11，主色参考：#F7F1E6 / #E8C5C0 / #C26D53 / #A2AE9A / #8FA1B2。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 11" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-11.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 11</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FBFAF9 / #9BA7A6 / #C37257 / #E5C1BC / #DEB0A4</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 12', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-12.webp', '极简色彩参考板 12，主色参考：#A74713 / #6CB4A5 / #E9D4AF / #DD9B4B / #442B15。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 12" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-12.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 12</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDFCFC / #E2C9A4 / #AD470D / #DC9647 / #6FAF9F</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 13', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-13.webp', '极简色彩参考板 13，主色参考：#9D9E73 / #C7D9BA / #F7D070 / #F6DABF / #FAE9C5。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 13" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-13.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 13</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #E7DBB4 / #A09F73 / #F6C966 / #AEAEA6</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 14', 'Color Board · 互补色', 'images/inspiration/color/color-ref-14.webp', '极简色彩参考板 14，主色参考：#7A9CB3 / #AD7556 / #DCCFB8 / #F1EFE6 / #53443D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 14" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-14.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 14</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFBFB / #AA6F51 / #D8C2A9 / #889CAC / #54423A</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 15', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-15.webp', '极简色彩参考板 15，主色参考：#F8EFE0 / #C8A16C / #86893E / #777542 / #9CBEC1。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 15" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-15.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 15</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FBFAF8 / #9EB7B8 / #888936 / #CCA674 / #7B7544</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 16', 'Color Board · 三角色', 'images/inspiration/color/color-ref-16.webp', '极简色彩参考板 16，主色参考：#FFE18B / #C1DBB3 / #A3BA84 / #6A886E / #4B687D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 16" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-16.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 16</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FB187 / #658569 / #48677C / #FCD87D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 17', 'Color Board · 互补色', 'images/inspiration/color/color-ref-17.webp', '极简色彩参考板 17，主色参考：#E5DEDB / #D9DAD5 / #82B181 / #E7B6A3 / #B7C799。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 17" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-17.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 17</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#F8F8F7 / #E1AE99 / #77AC79 / #AFC193 / #A9B795</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 18', 'Color Board · 三角色', 'images/inspiration/color/color-ref-18.webp', '极简色彩参考板 18，主色参考：#CBAA70 / #99AF5F / #DF9AAC / #CC7C72 / #899CAD。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 18" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-18.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 18</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #DD979E / #8897AD / #C9A960 / #9CAA58</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 19', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-19.webp', '极简色彩参考板 19，主色参考：#E09820 / #91AA8A / #D3A67F / #C0C8A8 / #D8B050。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 19" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-19.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 19</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FDFCFC / #D7A65F / #91A88A / #E3971A / #B9C1A0</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 20', 'Color Board · 互补色', 'images/inspiration/color/color-ref-20.webp', '极简色彩参考板 20，主色参考：#FCE997 / #FFC52D / #6C9EB3 / #183282 / #27091A。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 20" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-20.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 20</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FDFDFD / #F5DF89 / #6799B1 / #F9B829 / #210916</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 21', 'Color Board · 互补色', 'images/inspiration/color/color-ref-21.webp', '极简色彩参考板 21，主色参考：#F0D48D / #7D776B / #233F74 / #B28D46 / #A9A18C。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 21" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-21.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 21</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #A39E8C / #7A7265 / #EEC87C / #203D72</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 22', 'Color Board · 互补色', 'images/inspiration/color/color-ref-22.webp', '极简色彩参考板 22，主色参考：#9FA5B5 / #F2AA77 / #D56709 / #57755C / #4B526A。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 22" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-22.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 22</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #515F60 / #A0A4B1 / #F09960 / #D25F0A</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 23', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-23.webp', '极简色彩参考板 23，主色参考：#B5CA89 / #A3B27B / #8D8D4F / #FFBF73 / #D27538。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 23" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-23.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 23</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #939B5E / #F9B162 / #D46E32 / #AEC47D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 24', 'Color Board · 互补色', 'images/inspiration/color/color-ref-24.webp', '极简色彩参考板 24，主色参考：#F2D091 / #F0D3CB / #EEE2E6 / #C0D0E0 / #F0E0B8。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 24" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-24.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 24</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#F9F7F7 / #F2D399 / #BED1E4 / #A1A1A2 / #787979</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 25', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-25.webp', '极简色彩参考板 25，主色参考：#9EA1A7 / #93A9CB / #3D563F / #818757 / #CEBB61。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 25" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-25.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 25</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FA3AA / #94A8C9 / #CAB657 / #3C553D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 26', 'Color Board · 单色系', 'images/inspiration/color/color-ref-26.webp', '极简色彩参考板 26，主色参考：#3E7FBF / #5786B4 / #98B177 / #4A765F / #7CB98D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 26" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-26.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
-<h3>Color Reference 26</h3>
-<p class="pin-desc"><strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #699B9B / #4E755D / #98AC6F / #3C7BB8</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 27', 'Color Board · 三角色', 'images/inspiration/color/color-ref-27.webp', '极简色彩参考板 27，主色参考：#A2BFD1 / #A7C4AE / #B4ABA4 / #D39076 / #E06B64。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 27" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-27.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 27</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FBFBFB / #ACACA3 / #D38C72 / #DC665F / #9EB8CB</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 28', 'Color Board · 互补色', 'images/inspiration/color/color-ref-28.webp', '极简色彩参考板 28，主色参考：#B8CCDE / #3A6C8B / #B79F7F / #662C16 / #448F7D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 28" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-28.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 28</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FDFDFD / #B1C7D8 / #B89977 / #356A8D / #6B2711</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 29', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-29.webp', '极简色彩参考板 29，主色参考：#E8B818 / #C4D6AC / #A8C8B0 / #79B68C / #D8E090。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 29" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-29.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 29</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFB / #CFDA99 / #A2C5AB / #E7B312 / #75B48A</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 30', 'Color Board · 单色系', 'images/inspiration/color/color-ref-30.webp', '极简色彩参考板 30，主色参考：#9CACA1 / #82979A / #8C9367 / #768661 / #B09747。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 30" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-30.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
-<h3>Color Reference 30</h3>
-<p class="pin-desc"><strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #919F9B / #9C8F56 / #73805F / #717E5D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 31', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-31.webp', '极简色彩参考板 31，主色参考：#D0A028 / #AAC6B0 / #77A976 / #D7B84C / #A3BA9E。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 31" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-31.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 31</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9EB6A0 / #D2B14E / #70A172 / #CD9929</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 32', 'Color Board · 三角色', 'images/inspiration/color/color-ref-32.webp', '极简色彩参考板 32，主色参考：FBDAD3 / 99ACE7 / 82C277 / F3C947 / 562621。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 32" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-32.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 32</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FCFAF9 / #53241E / #9AADE7 / #85C16C / #F3C037</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 33', 'Color Board · 单色系', 'images/inspiration/color/color-ref-33.webp', '极简色彩参考板 33，主色参考：#707E31 / #BCC0A4 / #537D4E / #7A9689 / #305E56。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 33" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-33.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
-<h3>Color Reference 33</h3>
-<p class="pin-desc"><strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#FCFCFC / #ADB199 / #4D7849 / #6F7928 / #758F83</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 34', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-34.webp', '极简色彩参考板 34，主色参考：#BABFA6 / #7E9673 / #B7A766 / #8C795B / #48664E。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 34" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-34.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 34</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9C9B67 / #AFB29D / #867154 / #45604B</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 35', 'Color Board · 中性色', 'images/inspiration/color/color-ref-35.webp', '极简色彩参考板 35，主色参考：D8CCC0 / 9AC6E3 / E5DCE1 / D0E8E8 / C8E8F0。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 35" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-35.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 35</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#F4F7F8 / #A1CAE6 / #D8C9BB / #A2A2A2 / #C0BFC0</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 36', 'Color Board · 三角色', 'images/inspiration/color/color-ref-36.webp', '极简色彩参考板 36，主色参考：C10 M5 Y20 K0 / C60 M25 Y30 K0 / C65 M40 Y15 K0 / C80 M45 Y80 K10 / C50 M70 Y5 K0。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 36" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-36.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 36</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FAFAF9 / #6892AE / #8D599D / #2D6946 / #9DA2A6</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 37', 'Color Board · 互补色', 'images/inspiration/color/color-ref-37.webp', '极简色彩参考板 37，主色参考：028 / 015 / 066 / 001 / 052。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 37" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-37.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 37</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#FCFCFB / #DEA13B / #9D5A28 / #2C6CA1 / #86A3B7</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 38', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-38.webp', '极简色彩参考板 38，主色参考：#FBFBF9 / #9697CB / #A0BFA5 / #677C4B / #2A3858。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 38" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-38.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 38</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #9FB6A0 / #989ACB / #677648 / #2B3757</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 39', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-39.webp', '极简色彩参考板 39，主色参考：#C77253 / #D9A87A / #D2C58F / #B2C3B7 / #709195。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 39" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-39.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 39</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFCFC / #D5C48E / #CA6F4B / #DBA474 / #B2C2B4</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 40', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-40.webp', '极简色彩参考板 40，主色参考：5888C0 / 7E7CA1 / B07080 / A8C0D0 / 80A0C8。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 40" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-40.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 40</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#FCFCFC / #99AFC8 / #AC6C7C / #5B86BD / #827BA0</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 41', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-41.webp', '极简色彩参考板 41，主色参考：#BA9F38 / #E1CC96 / #FCEBD0 / #B1BACA / #1D3B28。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 41" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-41.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 41</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FCFBF9 / #DDC98F / #B79C37 / #B0B8C9 / #233D2A</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 42', 'Color Board · 中性色', 'images/inspiration/color/color-ref-42.webp', '极简色彩参考板 42，主色参考：#AA8956 / #BF9488 / #E4CDBB / #F7E7DA / #DCDCB1。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 42" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-42.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 42</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#FCFAF9 / #DDCFAC / #B88B48 / #CB9784 / #A5A5A6</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 43', 'Color Board · 三角色', 'images/inspiration/color/color-ref-43.webp', '极简色彩参考板 43，主色参考：#7F6A9C / #C97D95 / #CA847D / #DC9674 / #8D93BD。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 43" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-43.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 43</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#FDFCFC / #D88B72 / #7D679B / #9095BA / #D77E95</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 44', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-44.webp', '极简色彩参考板 44，主色参考：#FBC1AD / #B4A1B4 / #FFCE4A / #A38E3A / #BD7054。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 44" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-44.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 44</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDFCFC / #B49FB2 / #F6BBA7 / #FCC944 / #A08A35</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 45', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-45.webp', '极简色彩参考板 45，主色参考：#216271 / #3c8fa4 / #9eac85 / #bfbca8 / #e5e2dd。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 45" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-45.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 45</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#226071 / #3F8AA0 / #99A780 / #BCB6A1 / #E2DFDA</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 46', 'Color Board · 互补色', 'images/inspiration/color/color-ref-46.webp', '极简色彩参考板 46，主色参考：#02748c / #db9f59 / #57c2c3 / #94c5c4 / #dbe1dd。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 46" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-46.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 46</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#DA994E / #55C5C2 / #06788D / #A0C7C5 / #DEE1DE</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 47', 'Color Board · 中性色', 'images/inspiration/color/color-ref-47.webp', '极简色彩参考板 47，主色参考：#8e7e6c / #a0a297 / #82b7cc / #f5d46b / #f3e0a7。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 47" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-47.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 47</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#9D9E96 / #8B7A69 / #82B1C5 / #F4CE64 / #EEDAA1</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 48', 'Color Board · 三角色', 'images/inspiration/color/color-ref-48.webp', '极简色彩参考板 48，主色参考：#5167A2 / #60693A / #C46428 / #E8E2C5 / #2E3118。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 48" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-48.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 48</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#546CA7 / #636C3A / #C66929 / #E5E0C3 / #333718</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 49', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-49.webp', '极简色彩参考板 49，主色参考：#FFF1B5 / #C1DBE8 / #43302E。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 49" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-49.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 49</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#FDE8A1 / #BED9EA / #422E2B</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 50', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-50.webp', '极简色彩参考板 50，主色参考：#df7e15 / #828549 / #d4be02 / #f1a76c / #e6d68f。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-<img alt="Color Reference 50" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-50.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 50</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DC7513 / #D0B402 / #7F8248 / #F39C67 / #EAD585</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 51', 'Color Board · 中性色', 'images/inspiration/color/color-ref-51.webp', '极简色彩参考板 51，主色参考：#bf8a6c / #7f9f8e / #be6d63 / #c4c4ab / #c3c7b7。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 51" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-51.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 51</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#BF6F64 / #BD886B / #819C8C / #C7C2A9 / #C8CABA</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 52', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-52.webp', '极简色彩参考板 52，主色参考：#96b9b9 / #b3bea5 / #e4a273 / #c3a77f / #ddd9db。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 52" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-52.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 52</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#97BABA / #E29C6B / #B1BCA5 / #DBD7D8 / #C5A77E</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 53', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-53.webp', '极简色彩参考板 53，主色参考：#404930 / #bd962f / #efd36d / #bdd3d0 / #e5eae3。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:365px;--c:#f1eee8;">
-<img alt="Color Reference 53" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-53.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 53</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#C0942A / #3E482D / #EBCB65 / #B8CDC9 / #E0E5DE</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 54', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-54.webp', '极简色彩参考板 54，主色参考：#FFE1BD / #D1632C / #C9BF81 / #EFE6D0 / #723A21 / #9CC1E2。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 54" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-54.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 54</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#D95D1E / #FED7AC / #C5B773 / #6D351A / #9ABCE0</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 55', 'Color Board · 互补色', 'images/inspiration/color/color-ref-55.webp', '极简色彩参考板 55，主色参考：#013f86 / #cc6e39 / #8e7770 / #94999c / #ccd3ce。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 55" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-55.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 55</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#063E84 / #C76432 / #87726C / #909497 / #C3C9C5</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 56', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-56.webp', '极简色彩参考板 56，主色参考：#0c160d / #483210 / #4b592e / #c4920c / #e5e1dd。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 56" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-56.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 56</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#0C160C / #492F0C / #475227 / #C38A0B / #E2DDD9</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 57', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-57.webp', '极简色彩参考板 57，主色参考：#466A33 / #71AF7D / #FDF6E9 / #EDCE76 / #937858。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-<img alt="Color Reference 57" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-57.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 57</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#6BA374 / #415E33 / #FAF3E5 / #E7C36E / #987C5D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 58', 'Color Board · 互补色', 'images/inspiration/color/color-ref-58.webp', '极简色彩参考板 58，主色参考：#38382f / #6d6f1e / #7e3132 / #beb495 / #efe7dc。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 58" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-58.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 58</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#343328 / #696717 / #762A2A / #BDB08E / #EBE2D6</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 59', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-59.webp', '极简色彩参考板 59，主色参考：#201d39 / #514575 / #a79dda / #e58500 / #f7c451。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 59" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-59.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 59</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#211D3C / #4F4277 / #A298DA / #F08504 / #FAB840</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 60', 'Color Board · 互补色', 'images/inspiration/color/color-ref-60.webp', '极简色彩参考板 60，主色参考：#659477 / #cc8561 / #fad8bc / #ced9c6 / #e1e3e0。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 60" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-60.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 60</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#D0835B / #6B9378 / #F5D1B6 / #CDD5C3 / #DFDFDD</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 61', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-61.webp', '极简色彩参考板 61，主色参考：#4F583B / #D9A450 / #F4B840 / #EAD7B2 / #F8F4E8。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 61" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-61.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 61</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DBA248 / #505A3A / #F1AF34 / #EBD6B2 / #F7F1E5</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 62', 'Color Board · 三角色', 'images/inspiration/color/color-ref-62.webp', '极简色彩参考板 62，主色参考：#688B91 / #9CADB4 / #D0D6E1 / #AE5846 / #2E4143。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 62" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-62.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 62</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#CCD1DD / #9BAEB4 / #7B989C / #B85741 / #324242</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 63', 'Color Board · 互补色', 'images/inspiration/color/color-ref-63.webp', '极简色彩参考板 63，主色参考：#96b9b9 / #b3bea7 / #e4a278 / #c3a77f / #dadddb。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 63" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-63.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 63</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#96B6B8 / #ACB9AB / #DD9D73 / #C1A37B / #D9DAD9</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 64', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-64.webp', '极简色彩参考板 64，主色参考：#343B34 / #714D2D / #DBB857 / #728B24 / #EBE0CC。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:350px;--c:#f1eee8;">
-<img alt="Color Reference 64" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-64.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 64</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#353D34 / #774C26 / #DDAC4F / #6F831F / #E3D6C4</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 65', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-65.webp', '极简色彩参考板 65，主色参考：#ACAD2B / #BFE3FC / #F0F9FF / #28361F / #596115。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:365px;--c:#f1eee8;">
-<img alt="Color Reference 65" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-65.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 65</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#A6A524 / #BFDCF8 / #EFF6FC / #2A3920 / #5F6417</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 66', 'Color Board · 互补色', 'images/inspiration/color/color-ref-66.webp', '极简色彩参考板 66，主色参考：#131414 / #54785C / #7B2900 / #B98666 / #C6C3BA。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 66" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-66.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 66</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#151715 / #557359 / #7E2901 / #B88266 / #C2BEB7</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 67', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-67.webp', '极简色彩参考板 67，主色参考：#316453 / #648056 / #949478 / #C4A97A / #F3BC9C。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 67" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-67.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 67</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#285C48 / #69804F / #9C9975 / #D0AB75 / #F6BE9B</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 68', 'Color Board · 单色系', 'images/inspiration/color/color-ref-68.webp', '极简色彩参考板 68，主色参考：#121810 / #3B5131 / #768572 / #BCBDB1 / #D9D5CF。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 68" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-68.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
-<h3>Color Reference 68</h3>
-<p class="pin-desc"><strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#131811 / #6B7765 / #37472C / #B6B8AE / #D8D3CD</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 69', 'Color Board · 互补色', 'images/inspiration/color/color-ref-69.webp', '极简色彩参考板 69，主色参考：#513229 / #F5F1E3 / #D9EBF8 / #FCE6BA / #D8D4B3。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 69" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-69.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 69</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#513229 / #F5F1E3 / #D9EBF8 / #FCE6BA / #D8D4B3</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 70', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-70.webp', '极简色彩参考板 70，主色参考：#DDD9C9 / #839FA5 / #8C8A3D / #4C4A22 / #2A2F14。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 70" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-70.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 70</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#DDD9C9 / #839FA5 / #8C8A3D / #4C4A22 / #2A2F14</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 71', 'Color Board · 中性色', 'images/inspiration/color/color-ref-71.webp', '极简色彩参考板 71，主色参考：#D4CBC7 / #EFDCC3 / #F5EBE3 / #BA908B / #80864F。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 71" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-71.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 71</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D4CBC7 / #EFDCC3 / #F5EBE3 / #BA908B / #80864F</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 72', 'Color Board · 互补色', 'images/inspiration/color/color-ref-72.webp', '极简色彩参考板 72，主色参考：#ACCAB2 / #E9A752 / #E44720 / #7B714D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 72" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-72.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 72</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#ACCAB2 / #E9A752 / #E44720 / #7B714D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 73', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-73.webp', '极简色彩参考板 73，主色参考：#788176 / #CCB999 / #5E1803。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 73" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-73.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 73</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#788176 / #CCB999 / #5E1803</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 74', 'Color Board · 中性色', 'images/inspiration/color/color-ref-74.webp', '极简色彩参考板 74，主色参考：#696642 / #45352D / #EBEAE5 / #C19BA8。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 74" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-74.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 74</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#696642 / #45352D / #EBEAE5 / #C19BA8</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 75', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-75.webp', '极简色彩参考板 75，主色参考：#BBC6BA / #C5A98F / #D89F76 / #9F5E4A / #EDD7BE。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 75" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-75.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 75</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#BBC6BA / #C5A98F / #D89F76 / #9F5E4A / #EDD7BE</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 76', 'Color Board · 中性色', 'images/inspiration/color/color-ref-76.webp', '极简色彩参考板 76，主色参考：#D9CDBF / #8C7D6E / #A9BDC4 / #4B5244 / #121212。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 76" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-76.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 76</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D9CDBF / #8C7D6E / #A9BDC4 / #4B5244 / #121212</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 77', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-77.webp', '极简色彩参考板 77，主色参考：#6E6E59 / #B68577 / #41392D / #CDB59F / #765E75。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 77" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-77.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 77</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#6E6E59 / #B68577 / #41392D / #CDB59F / #765E75</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 78', 'Color Board · 三角色', 'images/inspiration/color/color-ref-78.webp', '极简色彩参考板 78，主色参考：#D9C3AD / #8C99B8 / #F0C760。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 78" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-78.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 78</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#D9C3AD / #8C99B8 / #F0C760</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 79', 'Color Board · 中性色', 'images/inspiration/color/color-ref-79.webp', '极简色彩参考板 79，主色参考：#353B51 / #565F78 / #4E4D53 / #9F9C76 / #ECE6E0。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 79" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-79.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 79</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#353B51 / #565F78 / #4E4D53 / #9F9C76 / #ECE6E0</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 80', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-80.webp', '极简色彩参考板 80，主色参考：#9EACCB / #E0D8C8 / #8FA5A4 / #8C7456 / #24191D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 80" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-80.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 80</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#9EACCB / #E0D8C8 / #8FA5A4 / #8C7456 / #24191D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 81', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-81.webp', '极简色彩参考板 81，主色参考：#868A62 / #46462D / #D9D1B9 / #7A9C9D / #603D28。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 81" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-81.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 81</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#868A62 / #46462D / #D9D1B9 / #7A9C9D / #603D28</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 82', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-82.webp', '极简色彩参考板 82，主色参考：#343956 / #797080 / #F5AD62 / #C28D76 / #251111。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 82" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-82.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 82</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#343956 / #797080 / #F5AD62 / #C28D76 / #251111</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 83', 'Color Board · 互补色', 'images/inspiration/color/color-ref-83.webp', '极简色彩参考板 83，主色参考：#210706 / #891D1A / #5E657B / #F1E6D2。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 83" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-83.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 83</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#210706 / #891D1A / #5E657B / #F1E6D2</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 84', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-84.webp', '极简色彩参考板 84，主色参考：Olive RGB 124, 129, 73 / Honey RGB 191, 132, 20 / Cream RGB 243, 220, 153 / Linen RGB 225, 213, 191 / Earth RGB 59, 20, 3。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 84" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-84.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 84</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>Olive RGB 124, 129, 73 / Honey RGB 191, 132, 20 / Cream RGB 243, 220, 153 / Linen RGB 225, 213, 191 / Earth RGB 59, 20, 3</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="triadic" onclick="openModal('Color Reference 85', 'Color Board · 三角色', 'images/inspiration/color/color-ref-85.webp', '极简色彩参考板 85，主色参考：#4F556D / #81778A / #C7999B / #DFB29B / #F0C4A5。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 85" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-85.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">三角色</span></div>
-<h3>Color Reference 85</h3>
-<p class="pin-desc"><strong>分类：</strong>三角色 / Color Board<br/><strong>主色：</strong>#4F556D / #81778A / #C7999B / #DFB29B / #F0C4A5</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 86', 'Color Board · 中性色', 'images/inspiration/color/color-ref-86.webp', '极简色彩参考板 86，主色参考：#E8DED8 / #CAB4AB / #C1B5AB / #CDC4BB / #BDB6A5。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 86" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-86.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 86</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E8DED8 / #CAB4AB / #C1B5AB / #CDC4BB / #BDB6A5</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 87', 'Color Board · 互补色', 'images/inspiration/color/color-ref-87.webp', '极简色彩参考板 87，主色参考：Lace RGB 181, 172, 163 / Powder Blue RGB 196, 210, 236 / Dusty Blue RGB 132, 157, 187 / Cornflower Blue RGB 100, 142, 192 / Walnut RGB 82, 58, 51。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 87" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-87.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 87</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>Lace RGB 181, 172, 163 / Powder Blue RGB 196, 210, 236 / Dusty Blue RGB 132, 157, 187 / Cornflower Blue RGB 100, 142, 192 / Walnut RGB 82, 58, 51</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 88', 'Color Board · 中性色', 'images/inspiration/color/color-ref-88.webp', '极简色彩参考板 88，主色参考：#E5E3E2 / #CEC8C0 / #B0A995 / #353026 / #817447。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 88" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-88.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 88</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#E5E3E2 / #CEC8C0 / #B0A995 / #353026 / #817447</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 89', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-89.webp', '极简色彩参考板 89，主色参考：#442D1C / #77381F / #84592B / #9D906A / #E8D1A7。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 89" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-89.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 89</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#442D1C / #77381F / #84592B / #9D906A / #E8D1A7</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 90', 'Color Board · 中性色', 'images/inspiration/color/color-ref-90.webp', '极简色彩参考板 90，主色参考：#886759 / #E7D0CD / #ECE6E0 / #B8C1AE / #DFD4C4。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 90" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-90.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 90</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#886759 / #E7D0CD / #ECE6E0 / #B8C1AE / #DFD4C4</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 91', 'Color Board · 中性色', 'images/inspiration/color/color-ref-91.webp', '极简色彩参考板 91，主色参考：#BA7A4F / #6F3F2C / #EBE2DF / #9A8E85 / #472D23。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 91" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-91.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 91</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#BA7A4F / #6F3F2C / #EBE2DF / #9A8E85 / #472D23</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 92', 'Color Board · 互补色', 'images/inspiration/color/color-ref-92.webp', '极简色彩参考板 92，主色参考：#473834 / #81839D / #E0BEA8 / #71888A / #1F3A44。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 92" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-92.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 92</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#473834 / #81839D / #E0BEA8 / #71888A / #1F3A44</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 93', 'Color Board · 中性色', 'images/inspiration/color/color-ref-93.webp', '极简色彩参考板 93，主色参考：#D0CCC0 / #DCD0B4 / #6C8888 / #405860 / #243034。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:330px;--c:#f1eee8;">
-<img alt="Color Reference 93" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-93.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 93</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#D0CCC0 / #DCD0B4 / #6C8888 / #405860 / #243034</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 94', 'Color Board · 互补色', 'images/inspiration/color/color-ref-94.webp', '极简色彩参考板 94，主色参考：#363E2F / #945631 / #D2BFA6 / #EFE7DB。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:360px;--c:#f1eee8;">
-<img alt="Color Reference 94" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-94.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 94</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#363E2F / #945631 / #D2BFA6 / #EFE7DB</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="analogous" onclick="openModal('Color Reference 95', 'Color Board · 邻近色', 'images/inspiration/color/color-ref-95.webp', '极简色彩参考板 95，主色参考：#25190B / #3F3817 / #86652B / #BBA4A6 / #7F654B。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:340px;--c:#f1eee8;">
-<img alt="Color Reference 95" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-95.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">邻近色</span></div>
-<h3>Color Reference 95</h3>
-<p class="pin-desc"><strong>分类：</strong>邻近色 / Color Board<br/><strong>主色：</strong>#25190B / #3F3817 / #86652B / #BBA4A6 / #7F654B</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 96', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-96.webp', '极简色彩参考板 96，主色参考：#E6D1A2 / #FDEED5 / #C1A754 / #B8BFCF / #344D40。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:370px;--c:#f1eee8;">
-<img alt="Color Reference 96" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-96.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 96</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#E6D1A2 / #FDEED5 / #C1A754 / #B8BFCF / #344D40</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="split-complementary" onclick="openModal('Color Reference 97', 'Color Board · 分裂互补', 'images/inspiration/color/color-ref-97.webp', '极简色彩参考板 97，主色参考：#AC6013 / #AEAD8D / #E4C1AC / #EBDFD2 / #B88D2E。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:320px;--c:#f1eee8;">
-<img alt="Color Reference 97" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-97.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">分裂互补</span></div>
-<h3>Color Reference 97</h3>
-<p class="pin-desc"><strong>分类：</strong>分裂互补 / Color Board<br/><strong>主色：</strong>#AC6013 / #AEAD8D / #E4C1AC / #EBDFD2 / #B88D2E</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="monochromatic" onclick="openModal('Color Reference 98', 'Color Board · 单色系', 'images/inspiration/color/color-ref-98.webp', '极简色彩参考板 98，主色参考：#AB5E1F / #592106 / #F5D0A0 / #9E4B0C / #A15F2E。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:355px;--c:#f1eee8;">
-<img alt="Color Reference 98" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-98.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">单色系</span></div>
-<h3>Color Reference 98</h3>
-<p class="pin-desc"><strong>分类：</strong>单色系 / Color Board<br/><strong>主色：</strong>#AB5E1F / #592106 / #F5D0A0 / #9E4B0C / #A15F2E</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="neutral" onclick="openModal('Color Reference 99', 'Color Board · 中性色', 'images/inspiration/color/color-ref-99.webp', '极简色彩参考板 99，主色参考：#986C4D / #805B3C / #2D2B1F / #430F08 / #191A1D。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:345px;--c:#f1eee8;">
-<img alt="Color Reference 99" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-99.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">中性色</span></div>
-<h3>Color Reference 99</h3>
-<p class="pin-desc"><strong>分类：</strong>中性色 / Color Board<br/><strong>主色：</strong>#986C4D / #805B3C / #2D2B1F / #430F08 / #191A1D</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
-<article class="pin" data-color-type="complementary" onclick="openModal('Color Reference 100', 'Color Board · 互补色', 'images/inspiration/color/color-ref-100.webp', '极简色彩参考板 100，主色参考：#828D8F / #404959 / #E5CF8C / #A6B4AC / #D9B872。适合用于低饱和、高级感、设计图面与封面配色。', 'BaoLong Lab Color Reference', '#')">
-<div class="pin-img has-image" style="--h:375px;--c:#f1eee8;">
-<img alt="Color Reference 100" decoding="async" loading="lazy" src="images/inspiration/color/color-ref-100.webp"/>
-</div>
-<div class="pin-body">
-<div class="pin-tags"><span class="pin-tag">色彩参考</span><span class="pin-tag">低饱和</span><span class="pin-tag">极简</span><span class="pin-tag">互补色</span></div>
-<h3>Color Reference 100</h3>
-<p class="pin-desc"><strong>分类：</strong>互补色 / Color Board<br/><strong>主色：</strong>#828D8F / #404959 / #E5CF8C / #A6B4AC / #D9B872</p>
-<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>
-</div>
-</article>
+<div class="masonry" id="colorMasonry" aria-live="polite"></div>
+<div class="load-more-wrap">
+  <button class="load-more-btn" id="colorLoadMoreBtn" type="button">加载更多</button>
+  <p class="load-more-count" id="colorLoadMoreCount">正在加载 Color Board...</p>
 </div>
 <div class="board-note">
         本模块用于 BaoLong Lab 色彩灵感归档，现已按色环关系进行初步分类：邻近色、互补色、分裂互补色、三角色、单色系与中性色。后续新增色彩板时，可继续按 color-ref-序号 的规则追加，并补充对应色彩关系。本次已追加至 Color Reference 100。
@@ -2175,6 +1111,113 @@
 <footer class="footer">
     BaoLong Lab · Inspiration Board
   </footer>
+
+<script>
+    const COLOR_BOARD_BATCH = window.matchMedia && window.matchMedia('(max-width: 700px)').matches ? 18 : 36;
+    const COLOR_BOARD_STEP = 24;
+    let colorBoardItems = [];
+    let colorBoardVisible = 0;
+    let currentColorFilter = 'all';
+
+    function escapeHTML(value){
+      return String(value ?? '').replace(/[&<>"]/g, function(char){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char];
+      });
+    }
+
+    function renderColorSource(item){
+      return '<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>';
+    }
+
+    function renderColorCard(item, index){
+      const tags = (item.tags || []).map(function(tag){ return '<span class="pin-tag">' + escapeHTML(tag) + '</span>'; }).join('');
+      const image = item.cover || item.image || '';
+      const colorValues = item.colorValues || '';
+      const pinDesc = '<strong>分类：</strong>' + escapeHTML((item.type || 'Color Board').replace('Color Board · ', '')) + ' / Color Board<br/><strong>主色：</strong>' + escapeHTML(colorValues);
+      return '<article class="pin" data-color-type="' + escapeHTML(item.colorType || '') + '" data-color-index="' + index + '">' +
+        '<div class="pin-img has-image" style="--h:' + escapeHTML(item.height || '330px') + ';--c:' + escapeHTML(item.color || '#f1eee8') + ';">' +
+          '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(image) + '"/>' +
+        '</div>' +
+        '<div class="pin-body">' +
+          '<div class="pin-tags">' + tags + '</div>' +
+          '<h3>' + escapeHTML(item.title) + '</h3>' +
+          '<p class="pin-desc">' + pinDesc + '</p>' +
+          renderColorSource(item) +
+        '</div>' +
+      '</article>';
+    }
+
+    function getFilteredColorItems(){
+      if(currentColorFilter === 'all') return colorBoardItems;
+      return colorBoardItems.filter(function(item){ return item.colorType === currentColorFilter; });
+    }
+
+    function bindColorCards(){
+      document.querySelectorAll('#colorMasonry .pin').forEach(function(pin){
+        pin.addEventListener('click', function(){
+          const item = colorBoardItems[Number(pin.dataset.colorIndex)];
+          if(!item) return;
+          openModal(item.title, item.type || 'Color Board', item.image || item.cover || '', item.desc || '', item.sourceName || 'BaoLong Lab Color Reference', item.sourceUrl || '#', item.colorValues || '');
+        });
+      });
+    }
+
+    function updateColorLoadMore(){
+      const btn = document.getElementById('colorLoadMoreBtn');
+      const count = document.getElementById('colorLoadMoreCount');
+      if(!btn || !count) return;
+      const total = getFilteredColorItems().length;
+      count.textContent = total ? '已显示 ' + Math.min(colorBoardVisible, total) + ' / ' + total + ' 张色卡' : '当前分类暂无色卡';
+      btn.hidden = !total || colorBoardVisible >= total;
+    }
+
+    function renderColorBoard(reset){
+      const grid = document.getElementById('colorMasonry');
+      if(!grid) return;
+      const filtered = getFilteredColorItems();
+      if(reset){ colorBoardVisible = Math.min(COLOR_BOARD_BATCH, filtered.length); }
+      const shown = filtered.slice(0, colorBoardVisible);
+      grid.innerHTML = shown.map(function(item){
+        const originalIndex = colorBoardItems.indexOf(item);
+        return renderColorCard(item, originalIndex);
+      }).join('');
+      bindColorCards();
+      updateColorLoadMore();
+    }
+
+    function loadMoreColorBoard(){
+      const filtered = getFilteredColorItems();
+      colorBoardVisible = Math.min(colorBoardVisible + COLOR_BOARD_STEP, filtered.length);
+      renderColorBoard(false);
+    }
+
+    function filterColorCards(type){
+      currentColorFilter = type;
+      document.querySelectorAll('.color-filter-tab').forEach(function(tab){
+        tab.classList.toggle('active', tab.dataset.filter === type);
+      });
+      renderColorBoard(true);
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn = document.getElementById('colorLoadMoreBtn');
+      if(btn) btn.addEventListener('click', loadMoreColorBoard);
+      fetch('data/color.json')
+        .then(function(res){
+          if(!res.ok) throw new Error('color.json load failed');
+          return res.json();
+        })
+        .then(function(data){
+          colorBoardItems = Array.isArray(data) ? data : [];
+          renderColorBoard(true);
+        })
+        .catch(function(err){
+          const count = document.getElementById('colorLoadMoreCount');
+          if(count) count.textContent = 'Color Board 数据加载失败，请检查 data/color.json 路径。';
+          console.error(err);
+        });
+    });
+  </script>
 <script>
     let currentColorValues = "";
 
@@ -2184,11 +1227,11 @@
       return match ? match[1].trim() : "";
     }
 
-    function openModal(title, type, imageOrColor, desc, source, url){
+    function openModal(title, type, imageOrColor, desc, source, url, exactColorValues){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;
-      currentColorValues = extractColorValueBlock(desc);
+      currentColorValues = exactColorValues || extractColorValueBlock(desc);
       document.getElementById("modalColorValues").textContent = currentColorValues ? "色值/色号：" + currentColorValues : "色值/色号：待补充";
       const copyBtn = document.getElementById("copyColorBtn");
       if(copyBtn){
@@ -2239,19 +1282,6 @@
     function closeModal(event){
       if(event && event.target !== document.getElementById("modal")) return;
       document.getElementById("modal").classList.remove("open");
-    }
-  </script>
-<script>
-    function filterColorCards(type){
-      const cards = document.querySelectorAll('.pin[data-color-type]');
-      const tabs = document.querySelectorAll('.color-filter-tab');
-      tabs.forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.filter === type);
-      });
-      cards.forEach(card => {
-        const matched = type === 'all' || card.dataset.colorType === type;
-        card.classList.toggle('is-hidden', !matched);
-      });
     }
   </script>
 <script>

@@ -52,7 +52,10 @@
     '配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。':'配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。',
     // footers
     'BaoLong Lab · Prompt Generator':'BaoLong Lab · Prompt 工具','BaoLong Lab · Resume Templates':'BaoLong Lab · 简历模板','BaoLong Lab · Plan Inspiration Board':'BaoLong Lab · 平面灵感板','BaoLong Lab · Inspiration Board':'BaoLong Lab · 灵感板',
-    '© 2026 BaoLong Lab. All rights reserved. All design assets, templates and visual materials are original works by BaoLong Lab.':'© 2026 BaoLong Lab. 保留所有权利。所有设计素材、模板与视觉内容均为 BaoLong Lab 原创作品。'
+    '© 2026 BaoLong Lab. All rights reserved. All design assets, templates and visual materials are original works by BaoLong Lab.':'© 2026 BaoLong Lab. 保留所有权利。BaoLong Lab 原创内容与工具版权归 BaoLong Lab 所有。灵感板块内容仅作学习参考与来源索引，版权归原作者所有；如涉及版权问题，请联系删除。',
+    '© 2026 BaoLong Lab. All rights reserved.':'© 2026 BaoLong Lab. 保留所有权利。',
+    'Original content and tools by BaoLong Lab.':'BaoLong Lab 原创内容与工具版权归 BaoLong Lab 所有。',
+    'Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.':'灵感板块内容仅作学习参考与来源索引，版权归原作者所有；如涉及版权问题，请联系删除。'
   };
   var titleMap={
     'BaoLong Lab | Design Assets Library':'BaoLong Lab | 设计素材与创作工具集合','Assets | BaoLong Lab':'素材库 | BaoLong Lab','Prompt Generator | BaoLong Lab':'Prompt 工具 | BaoLong Lab','Interaction | BaoLong Lab':'交互实验室 | BaoLong Lab','Resume Templates | BaoLong Lab':'简历模板 | BaoLong Lab','Plan Board | BaoLong Lab':'平面灵感板 | BaoLong Lab','Section Board | BaoLong Lab':'剖面灵感板 | BaoLong Lab','Other Board | BaoLong Lab':'综合灵感板 | BaoLong Lab','Color Board | BaoLong Lab':'色彩灵感板 | BaoLong Lab','Prompt Builder · BaoLong Lab':'Prompt Builder · BaoLong Lab','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器'
@@ -66,9 +69,9 @@
     var selectors=[
       '.site-header .nav a','.dropdown-content a','.mobile-menu-panel a','.mobile-menu-group','.mobile-menu-toggle','.header-actions .pill-btn',
       '.hero h1','.hero p','.copy .eyebrow','.copy h1','.copy p','.section-title','.section-title-main','.section-desc','.eyebrow','.tabs .tab',
-      '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.tool-card h3','.tool-card p','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.footer','footer'
+      '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.tool-card h3','.tool-card p','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.footer','footer','.footer-line'
     ];
-    return Array.prototype.slice.call(document.querySelectorAll(selectors.join(','))).filter(function(el){return !shouldSkip(el);});
+    return Array.prototype.slice.call(document.querySelectorAll(selectors.join(','))).filter(function(el){return !shouldSkip(el) && !el.classList.contains('legal-footer');});
   }
   function applyLanguage(lang){
     document.documentElement.setAttribute('lang',lang==='zh'?'zh-CN':'en');

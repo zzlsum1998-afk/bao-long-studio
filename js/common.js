@@ -104,45 +104,89 @@
     }
   }
   document.addEventListener('DOMContentLoaded',function(){markActiveNav();injectLanguageToggle();applyLanguage(getLang());});
-  document.addEventListener('click',function(e){if(!e.target.closest('.site-header'))closeMobileMenu();});
+  document.addEventListener('click',function(e){var panel=document.getElementById('mobileMenuPanel'); if(panel && panel.contains(e.target)) return; if(!e.target.closest('.site-header'))closeMobileMenu();});
   window.setBaoLongLanguage=setLang;
   window.getBaoLongLanguage=getLang;
 })();
 
-
-// v123 mobile menu scroll fix
+// v124 mobile menu final fix: move panel to body and lock page scroll while the panel scrolls
 (function(){
-  var savedScrollY = 0;
-  function getPanel(){ return document.getElementById('mobileMenuPanel'); }
-  function getToggle(){ return document.querySelector('.mobile-menu-toggle'); }
-  function lockPage(){
-    if(document.body.classList.contains('mobile-menu-open')) return;
-    savedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-    document.documentElement.classList.add('mobile-menu-open');
-    document.body.classList.add('mobile-menu-open');
-    document.body.style.position = 'fixed';
-    document.body.style.top = '-' + savedScrollY + 'px';
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
+  var savedScrollY=0;
+
+  function getPanel(){
+    return document.getElementById('mobileMenuPanel');
   }
+
+  function placePanel(){
+    var panel=getPanel();
+    if(panel && panel.parentElement!==document.body){
+      document.body.appendChild(panel);
+    }
+    return panel;
+  }
+
+  function lockPage(){
+    savedScrollY=window.scrollY || window.pageYOffset || 0;
+    document.body.classList.add('bl-menu-open');
+    document.body.style.position='fixed';
+    document.body.style.top='-' + savedScrollY + 'px';
+    document.body.style.left='0';
+    document.body.style.right='0';
+    document.body.style.width='100%';
+  }
+
   function unlockPage(){
-    document.documentElement.classList.remove('mobile-menu-open');
-    document.body.classList.remove('mobile-menu-open');
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
+    document.body.classList.remove('bl-menu-open');
+    document.body.style.position='';
+    document.body.style.top='';
+    document.body.style.left='';
+    document.body.style.right='';
+    document.body.style.width='';
     window.scrollTo(0, savedScrollY || 0);
   }
-  window.toggleMobileMenu = function(){
-    var panel=getPanel(); if(!panel) return;
+
+  window.toggleMobileMenu=function(){
+    var panel=placePanel();
+    if(!panel) return;
     var willOpen=!panel.classList.contains('open');
-    panel.classList.toggle('open', willOpen);
-    if(willOpen){ panel.scrollTop=0; lockPage(); } else { unlockPage(); }
+    if(willOpen){
+      panel.classList.add('open');
+      panel.scrollTop=0;
+      lockPage();
+    }else{
+      panel.classList.remove('open');
+      unlockPage();
+    }
   };
-  window.closeMobileMenu = function(){ var panel=getPanel(); if(panel) panel.classList.remove('open'); unlockPage(); };
-  document.addEventListener('wheel', function(event){var panel=getPanel(); if(!panel||!panel.classList.contains('open')) return; if(!panel.contains(event.target)) event.preventDefault();}, {passive:false});
-  document.addEventListener('touchmove', function(event){var panel=getPanel(); if(!panel||!panel.classList.contains('open')) return; if(!panel.contains(event.target)) event.preventDefault();}, {passive:false});
+
+  window.closeMobileMenu=function(){
+    var panel=getPanel();
+    if(panel && panel.classList.contains('open')){
+      panel.classList.remove('open');
+      unlockPage();
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded',function(){
+    placePanel();
+    var panel=getPanel();
+    if(panel){
+      panel.addEventListener('wheel',function(e){ e.stopPropagation(); },{passive:true});
+      panel.addEventListener('touchmove',function(e){ e.stopPropagation(); },{passive:true});
+    }
+  });
+
+  document.addEventListener('click',function(e){
+    var panel=getPanel();
+    var toggle=document.querySelector('.mobile-menu-toggle');
+    if(!panel || !panel.classList.contains('open')) return;
+    if(panel.contains(e.target) || (toggle && toggle.contains(e.target))) return;
+    window.closeMobileMenu();
+  });
+
+  window.addEventListener('resize',function(){
+    if(window.innerWidth>980){
+      window.closeMobileMenu();
+    }
+  });
 })();

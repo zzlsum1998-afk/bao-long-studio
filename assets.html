@@ -2370,6 +2370,24 @@
 </style>
 <link href="css/common.css?v=74" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=74"></script>
+
+
+/* v120 mobile menu scroll lock: let the menu scroll itself instead of the page behind it */
+<style>
+@media (max-width:900px), (max-width:780px){
+  .mobile-menu-panel{
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-y;
+    pointer-events:auto;
+  }
+  html.mobile-menu-open,
+  body.mobile-menu-open{
+    overflow:hidden !important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -4473,5 +4491,45 @@
     assetLangObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-lang'] });
     window.addEventListener('storage', () => updateProductsHeading(window.currentAssetFilter || initialFilter));
   </script>
+
+
+<!-- v120 mobile menu scroll lock: prevent background page from scrolling while menu is open -->
+<script>
+(function(){
+  function getPanel(){ return document.getElementById('mobileMenuPanel'); }
+  function setMenuState(open){
+    var panel = getPanel();
+    if(!panel) return;
+    panel.classList.toggle('open', !!open);
+    document.documentElement.classList.toggle('mobile-menu-open', !!open);
+    document.body.classList.toggle('mobile-menu-open', !!open);
+  }
+  window.toggleMobileMenu = function(){
+    var panel = getPanel();
+    if(!panel) return;
+    setMenuState(!panel.classList.contains('open'));
+  };
+  window.closeMobileMenu = function(){ setMenuState(false); };
+
+  document.addEventListener('click', function(event){
+    var panel = getPanel();
+    var toggle = document.querySelector('.mobile-menu-toggle');
+    if(!panel || !panel.classList.contains('open')) return;
+    if(panel.contains(event.target) || (toggle && toggle.contains(event.target))) return;
+    setMenuState(false);
+  });
+
+  document.addEventListener('keydown', function(event){
+    if(event.key === 'Escape') setMenuState(false);
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var panel = getPanel();
+    if(!panel) return;
+    panel.addEventListener('wheel', function(event){ event.stopPropagation(); }, {passive:true});
+    panel.addEventListener('touchmove', function(event){ event.stopPropagation(); }, {passive:true});
+  });
+})();
+</script>
 </body>
 </html>

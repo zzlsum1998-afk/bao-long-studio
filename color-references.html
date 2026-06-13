@@ -988,27 +988,36 @@
       font-size:13px;
       line-height:1.6;
     }
-  </style>
-<link href="css/common.css?v=74" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=74"></script>
-
-
-/* v120 mobile menu scroll lock: let the menu scroll itself instead of the page behind it */
-<style>
-@media (max-width:900px), (max-width:780px){
-  .mobile-menu-panel{
-    overflow-y:auto !important;
-    overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
-    touch-action:pan-y;
-    pointer-events:auto;
-  }
-  html.mobile-menu-open,
-  body.mobile-menu-open{
+  
+@media (max-width:900px){
+  body.mobile-menu-locked{
     overflow:hidden !important;
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+  }
+  .mobile-menu-panel{
+    position:fixed !important;
+    top:var(--mobile-menu-top, 86px) !important;
+    right:14px !important;
+    left:14px !important;
+    bottom:14px !important;
+    max-height:none !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    overscroll-behavior:contain !important;
+    -webkit-overflow-scrolling:touch !important;
+    touch-action:pan-y !important;
+    z-index:9999 !important;
+  }
+  .mobile-menu-panel.open{
+    display:block !important;
   }
 }
 </style>
+<link href="css/common.css?v=74" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=74"></script>
 </head>
 <body>
 <header class="site-header">
@@ -1333,35 +1342,75 @@
     });
   </script>
 
-
-<!-- v120 mobile menu scroll lock: prevent background page from scrolling while menu is open -->
 <script>
 (function(){
-  function getPanel(){ return document.getElementById('mobileMenuPanel'); }
-  function setMenuState(open){
-    var panel = getPanel();
-    if(!panel) return;
-    panel.classList.toggle('open', !!open);
-    document.documentElement.classList.toggle('mobile-menu-open', !!open);
-    document.body.classList.toggle('mobile-menu-open', !!open);
+  var savedScrollY = 0;
+
+  function getPanel(){
+    return document.getElementById('mobileMenuPanel');
   }
+
+  function setMenuTop(){
+    var panel = getPanel();
+    var header = panel ? panel.closest('header') : null;
+    if(!header){
+      header = document.querySelector('.site-header, .topbar, header');
+    }
+    var top = 86;
+    if(header){
+      top = Math.max(0, Math.round(header.getBoundingClientRect().bottom + 8));
+    }
+    document.documentElement.style.setProperty('--mobile-menu-top', top + 'px');
+  }
+
+  function lockPage(){
+    if(document.body.classList.contains('mobile-menu-locked')) return;
+    savedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    document.body.style.top = '-' + savedScrollY + 'px';
+    document.body.classList.add('mobile-menu-locked');
+  }
+
+  function unlockPage(){
+    if(!document.body.classList.contains('mobile-menu-locked')) return;
+    document.body.classList.remove('mobile-menu-locked');
+    document.body.style.top = '';
+    window.scrollTo(0, savedScrollY);
+  }
+
+  window.closeMobileMenu = function(){
+    var panel = getPanel();
+    if(panel) panel.classList.remove('open');
+    unlockPage();
+  };
+
   window.toggleMobileMenu = function(){
     var panel = getPanel();
     if(!panel) return;
-    setMenuState(!panel.classList.contains('open'));
+    if(panel.classList.contains('open')){
+      window.closeMobileMenu();
+      return;
+    }
+    setMenuTop();
+    panel.classList.add('open');
+    lockPage();
   };
-  window.closeMobileMenu = function(){ setMenuState(false); };
 
   document.addEventListener('click', function(event){
     var panel = getPanel();
     var toggle = document.querySelector('.mobile-menu-toggle');
     if(!panel || !panel.classList.contains('open')) return;
-    if(panel.contains(event.target) || (toggle && toggle.contains(event.target))) return;
-    setMenuState(false);
+    if((panel && panel.contains(event.target)) || (toggle && toggle.contains(event.target))) return;
+    window.closeMobileMenu();
   });
 
-  document.addEventListener('keydown', function(event){
-    if(event.key === 'Escape') setMenuState(false);
+  window.addEventListener('resize', function(){
+    var panel = getPanel();
+    if(panel && panel.classList.contains('open')) setMenuTop();
+  });
+
+  window.addEventListener('orientationchange', function(){
+    var panel = getPanel();
+    if(panel && panel.classList.contains('open')) setTimeout(setMenuTop, 120);
   });
 
   document.addEventListener('DOMContentLoaded', function(){

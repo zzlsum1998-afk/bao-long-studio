@@ -49,6 +49,33 @@
   }
   #status{display:none !important;}
   .spacer{flex:1}
+
+  .demo-back{
+    position:fixed;
+    left:16px;
+    top:calc(16px + env(safe-area-inset-top));
+    z-index:30;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 15px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(0,0,0,.30);
+    color:rgba(255,255,255,.92);
+    text-decoration:none;
+    font-size:13px;
+    line-height:1;
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 12px 36px rgba(0,0,0,.18);
+    transition:background .16s ease, transform .16s ease, border-color .16s ease;
+  }
+  .demo-back:hover{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.24);
+    transform:translateY(-1px);
+  }
   @media (max-width: 800px){
     #ui{gap:8px}
     .sliderWrap{padding:7px 10px}
@@ -60,6 +87,7 @@
   <script src="js/common.js?v=124" defer></script>
 </head>
 <body>
+<a class="demo-back" href="interaction.html" aria-label="返回交互实验室">← 返回交互实验室</a>
 <div id="wrap">
   <video id="cam" autoplay muted playsinline style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"></video>
   <canvas id="c"></canvas>

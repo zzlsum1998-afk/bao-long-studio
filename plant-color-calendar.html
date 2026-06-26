@@ -713,6 +713,32 @@
   .pc-btn.primary { background:#111; color:#fff; border-color:#111; }
   .pc-toast { position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(14px); opacity:0; pointer-events:none; background:#141414; color:#fff; border-radius:999px; padding:12px 18px; font-size:13px; transition:.18s ease; z-index:20; }
   .pc-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    .pc-back-wrap{
+      max-width:1500px;
+      margin:0 auto 22px;
+      display:flex;
+      align-items:center;
+    }
+    .pc-back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 15px;
+      background:rgba(255,255,255,.52);
+      color:#4f4b46;
+      font-size:13px;
+      line-height:1;
+      box-shadow:0 10px 30px rgba(30,25,18,.04);
+      transition:transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+    .pc-back-link:hover{
+      background:#fffaf2;
+      border-color:#cfc6b8;
+      transform:translateY(-1px);
+    }
   @media (max-width:980px) {
     .pc-page { padding:24px 18px 42px; }
     .pc-top { margin-bottom:36px; }
@@ -799,6 +825,7 @@
 <a href="login.html" onclick="closeMobileMenu()">Log in</a>
 </div>
 </header><main class="pc-page">
+<div class="pc-back-wrap"><a class="pc-back-link" href="interaction.html" aria-label="返回交互实验室">← 返回交互实验室</a></div>
 <section class="pc-hero">
       <div>
         <div class="pc-kicker">Interaction Lab · Plant Palette Tool</div>

@@ -1102,6 +1102,9 @@
       font-size:12px;
       line-height:1.5;
     }
+    body.color-extractor-lock{
+      overflow:hidden;
+    }
     .color-extractor-modal{
       position:fixed;
       inset:0;
@@ -1114,6 +1117,8 @@
       opacity:0;
       pointer-events:none;
       transition:opacity .22s ease;
+      overflow-y:auto;
+      overscroll-behavior:contain;
     }
     .color-extractor-modal.open{
       opacity:1;
@@ -1893,12 +1898,14 @@
       initColorExtractor();
       const modal = $('colorExtractorModal');
       if(modal) modal.classList.add('open');
+      document.body.classList.add('color-extractor-lock');
     };
 
     window.closeColorExtractor = function(event){
       const modal = $('colorExtractorModal');
       if(event && event.target !== modal) return;
       if(modal) modal.classList.remove('open');
+      document.body.classList.remove('color-extractor-lock');
     };
 
     function processExtractorFile(file){

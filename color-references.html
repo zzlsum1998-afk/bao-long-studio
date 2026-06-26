@@ -988,6 +988,510 @@
       font-size:13px;
       line-height:1.6;
     }
+
+
+    /* v128 Color Extractor entry + modal: scoped to Color Board only */
+    .color-tool-section{
+      max-width:1520px;
+      margin:0 auto;
+      padding:0 48px 14px;
+    }
+    .color-tool-panel{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:center;
+      gap:28px;
+      padding:24px 26px;
+      border:1px solid rgba(222,217,207,.96);
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,.98), rgba(255,255,255,0) 34%),
+        linear-gradient(135deg, rgba(255,255,255,.78), rgba(250,248,243,.72));
+      box-shadow:0 18px 46px rgba(35,32,28,.055);
+      overflow:hidden;
+    }
+    .color-tool-panel::after{
+      content:"";
+      position:absolute;
+      inset:auto 24px 18px auto;
+      width:180px;
+      height:180px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(223,174,161,.18), rgba(186,189,226,.16), rgba(150,144,68,.12));
+      filter:blur(4px);
+      opacity:.72;
+      pointer-events:none;
+    }
+    .color-tool-copy{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr);
+      gap:18px;
+      align-items:center;
+    }
+    .color-tool-mark{
+      width:86px;
+      height:86px;
+      border-radius:24px;
+      background:#f7f6f2;
+      border:1px solid rgba(222,217,207,.92);
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:7px;
+      padding:10px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);
+    }
+    .color-tool-dot{
+      border-radius:18px 20px 16px 22px;
+      border:1px solid rgba(0,0,0,.045);
+    }
+    .color-tool-dot:nth-child(1){background:#374375;}
+    .color-tool-dot:nth-child(2){background:#fffcf5;}
+    .color-tool-dot:nth-child(3){background:#babde2;}
+    .color-tool-dot:nth-child(4){background:#969044;}
+    .color-tool-kicker{
+      margin:0 0 7px;
+      color:#8a8378;
+      font-size:12px;
+      line-height:1;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .color-tool-title{
+      margin:0 0 8px;
+      color:#1c1c1c;
+      font-size:22px;
+      line-height:1.22;
+      letter-spacing:-.02em;
+    }
+    .color-tool-desc{
+      margin:0;
+      max-width:720px;
+      color:#5c5750;
+      font-size:14px;
+      line-height:1.75;
+    }
+    .color-tool-actions{
+      position:relative;
+      z-index:2;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .color-tool-btn{
+      border:1px solid #111;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      min-height:48px;
+      padding:0 22px;
+      font-size:14px;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .color-tool-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+    }
+    .color-tool-note{
+      color:#8a8378;
+      font-size:12px;
+      line-height:1.5;
+    }
+    .color-extractor-modal{
+      position:fixed;
+      inset:0;
+      z-index:160;
+      display:grid;
+      place-items:center;
+      padding:120px 24px 32px;
+      background:rgba(28,28,28,.42);
+      backdrop-filter:blur(14px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .22s ease;
+    }
+    .color-extractor-modal.open{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .color-extractor-card{
+      width:min(1080px, calc(100vw - 48px));
+      max-height:calc(100vh - 152px);
+      overflow:hidden;
+      border-radius:32px;
+      background:#f7f6f2;
+      border:1px solid rgba(222,217,207,.9);
+      box-shadow:0 30px 90px rgba(0,0,0,.24);
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+    }
+    .color-extractor-left{
+      padding:34px;
+      border-right:1px solid rgba(222,217,207,.82);
+      background:
+        radial-gradient(circle at 20% 8%, rgba(255,255,255,.95), rgba(255,255,255,0) 40%),
+        #f2f0ea;
+      min-height:560px;
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+    .color-extractor-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .color-extractor-head h2{
+      margin:6px 0 10px;
+      color:#1c1c1c;
+      font-size:34px;
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+    .color-extractor-head p{
+      margin:0;
+      color:#5c5750;
+      font-size:14px;
+      line-height:1.75;
+      max-width:420px;
+    }
+    .color-extractor-close{
+      width:42px;
+      height:42px;
+      flex:0 0 auto;
+      border:1px solid rgba(222,217,207,.9);
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
+      color:#1c1c1c;
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+      transition:.22s ease;
+    }
+    .color-extractor-close:hover{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+    .color-upload-zone{
+      position:relative;
+      flex:1;
+      min-height:280px;
+      border:1.5px dashed #cfc8bb;
+      border-radius:28px;
+      background:rgba(255,255,255,.54);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:30px;
+      cursor:pointer;
+      transition:.22s ease;
+      overflow:hidden;
+    }
+    .color-upload-zone:hover,
+    .color-upload-zone.drag-over{
+      background:rgba(255,255,255,.86);
+      border-color:#111;
+      transform:translateY(-2px);
+    }
+    .color-upload-zone input{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      opacity:0;
+      cursor:pointer;
+    }
+    .color-upload-icon{
+      width:72px;
+      height:72px;
+      margin:0 auto 18px;
+      border-radius:24px;
+      background:#111;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      letter-spacing:-.04em;
+    }
+    .color-upload-zone strong{
+      display:block;
+      color:#1c1c1c;
+      font-size:17px;
+      margin-bottom:8px;
+    }
+    .color-upload-zone span{
+      display:block;
+      color:#8a8378;
+      font-size:13px;
+      line-height:1.7;
+    }
+    .color-extractor-preview{
+      display:none;
+      flex:1;
+      min-height:280px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(222,217,207,.88);
+      background:#fff;
+    }
+    .color-extractor-preview img{
+      width:100%;
+      height:100%;
+      min-height:280px;
+      object-fit:cover;
+      display:block;
+    }
+    .color-extractor-right{
+      padding:34px;
+      overflow:auto;
+      background:#fffdf9;
+    }
+    .color-result-empty{
+      height:100%;
+      min-height:492px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(222,217,207,.72);
+      border-radius:28px;
+      background:linear-gradient(135deg, rgba(247,246,242,.8), rgba(255,255,255,.7));
+      color:#8a8378;
+      text-align:center;
+      padding:34px;
+      font-size:14px;
+      line-height:1.8;
+    }
+    .color-result-area{
+      display:none;
+    }
+    .color-result-label{
+      margin:0 0 12px;
+      color:#8a8378;
+      font-size:12px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .color-main-swatches{
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      gap:10px;
+      margin-bottom:28px;
+    }
+    .color-main-swatch{
+      min-height:84px;
+      border-radius:22px;
+      border:1px solid rgba(0,0,0,.055);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+      cursor:pointer;
+      transition:.2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .color-main-swatch:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 24px rgba(0,0,0,.10);
+    }
+    .color-main-swatch span{
+      position:absolute;
+      left:8px;
+      right:8px;
+      bottom:8px;
+      display:block;
+      padding:5px 6px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      color:#333;
+      font-size:10px;
+      line-height:1;
+      text-align:center;
+      font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .color-scheme-list{
+      display:grid;
+      gap:12px;
+      margin-bottom:26px;
+    }
+    .color-scheme-row{
+      display:grid;
+      grid-template-columns:98px minmax(0,1fr);
+      gap:12px;
+      align-items:center;
+    }
+    .color-scheme-name{
+      color:#5c5750;
+      font-size:13px;
+      line-height:1.35;
+    }
+    .color-scheme-chips{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:7px;
+    }
+    .color-scheme-chip{
+      height:42px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.055);
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    .color-scheme-chip:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(0,0,0,.09);
+    }
+    .color-extractor-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding-top:18px;
+      border-top:1px solid rgba(222,217,207,.82);
+    }
+    .color-extractor-action{
+      border:1px solid #111;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      min-height:44px;
+      padding:0 17px;
+      cursor:pointer;
+      font-size:13px;
+      transition:.22s ease;
+    }
+    .color-extractor-action.secondary{
+      background:#fff;
+      color:#1c1c1c;
+      border-color:#ded9cf;
+    }
+    .color-extractor-action:hover{
+      transform:translateY(-2px);
+    }
+    .color-extractor-toast{
+      position:fixed;
+      left:50%;
+      bottom:28px;
+      transform:translateX(-50%);
+      z-index:180;
+      min-width:140px;
+      text-align:center;
+      background:#111;
+      color:#fff;
+      border-radius:999px;
+      padding:11px 18px;
+      font-size:13px;
+      opacity:0;
+      pointer-events:none;
+      transition:.22s ease;
+    }
+    .color-extractor-toast.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-4px);
+    }
+    #colorExtractorCanvas{display:none;}
+    @media(max-width:900px){
+      .color-tool-section{
+        padding:0 18px 12px;
+      }
+      .color-tool-panel{
+        grid-template-columns:1fr;
+        gap:18px;
+        padding:18px;
+        border-radius:24px;
+      }
+      .color-tool-copy{
+        grid-template-columns:64px minmax(0,1fr);
+        gap:14px;
+      }
+      .color-tool-mark{
+        width:64px;
+        height:64px;
+        border-radius:20px;
+        padding:8px;
+        gap:5px;
+      }
+      .color-tool-title{
+        font-size:19px;
+      }
+      .color-tool-actions{
+        justify-content:space-between;
+        align-items:center;
+        white-space:normal;
+      }
+      .color-tool-note{
+        max-width:160px;
+      }
+      .color-extractor-modal{
+        padding:84px 12px 20px;
+      }
+      .color-extractor-card{
+        width:calc(100vw - 24px);
+        max-height:calc(100vh - 104px);
+        grid-template-columns:1fr;
+        border-radius:26px;
+        overflow:auto;
+      }
+      .color-extractor-left{
+        min-height:auto;
+        padding:22px;
+        border-right:0;
+        border-bottom:1px solid rgba(222,217,207,.82);
+      }
+      .color-extractor-head h2{
+        font-size:28px;
+      }
+      .color-upload-zone,
+      .color-extractor-preview{
+        min-height:220px;
+      }
+      .color-extractor-preview img{
+        min-height:220px;
+      }
+      .color-extractor-right{
+        padding:22px;
+      }
+      .color-result-empty{
+        min-height:220px;
+      }
+      .color-main-swatches{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+      }
+      .color-scheme-row{
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+    }
+    @media(max-width:520px){
+      .color-tool-copy{
+        grid-template-columns:1fr;
+      }
+      .color-tool-actions{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+      .color-tool-btn{
+        width:100%;
+      }
+      .color-tool-note{
+        max-width:none;
+      }
+      .color-main-swatches{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .color-main-swatch{
+        min-height:92px;
+      }
+      .color-scheme-chips{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
   </style>
 <link href="css/common.css?v=124" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=124"></script>
@@ -1064,6 +1568,28 @@
 <a class="tab active" href="color-references.html">Color Board</a>
 </div>
 </section>
+
+<section aria-label="Color extractor tool" class="color-tool-section">
+  <div class="color-tool-panel">
+    <div class="color-tool-copy">
+      <div class="color-tool-mark" aria-hidden="true">
+        <span class="color-tool-dot"></span>
+        <span class="color-tool-dot"></span>
+        <span class="color-tool-dot"></span>
+        <span class="color-tool-dot"></span>
+      </div>
+      <div>
+        <p class="color-tool-kicker">Color Extractor</p>
+        <h2 class="color-tool-title">从图片提取一组高级配色</h2>
+        <p class="color-tool-desc">上传参考图，快速提取主色调、生成同色系/互补色/分裂互补配色，并一键复制 HEX 色值。</p>
+      </div>
+    </div>
+    <div class="color-tool-actions">
+      <span class="color-tool-note">本地处理图片<br/>不会上传服务器</span>
+      <button class="color-tool-btn" type="button" onclick="openColorExtractor()">Try Color Extractor</button>
+    </div>
+  </div>
+</section>
 <section aria-label="Color relationship filter" class="color-filter-section">
 <div class="color-filter-panel">
 <div class="color-filter-copy">
@@ -1108,6 +1634,51 @@
 </div>
 </div>
 </div>
+
+<div class="color-extractor-modal" id="colorExtractorModal" onclick="closeColorExtractor(event)">
+  <div class="color-extractor-card" onclick="event.stopPropagation()">
+    <div class="color-extractor-left">
+      <div class="color-extractor-head">
+        <div>
+          <p class="color-tool-kicker">Color Extractor</p>
+          <h2>上传图片，提取配色</h2>
+          <p>适合从参考图、产品图、空间图里快速提取主色，并生成可复制的配色关系。</p>
+        </div>
+        <button class="color-extractor-close" type="button" aria-label="关闭色彩提取器" onclick="closeColorExtractor()">×</button>
+      </div>
+      <div class="color-upload-zone" id="colorUploadZone">
+        <input type="file" accept="image/*" id="colorFileInput" aria-label="上传图片提取色彩">
+        <div>
+          <div class="color-upload-icon">＋</div>
+          <strong>拖拽图片到这里，或点击上传</strong>
+          <span>支持 JPG、PNG、WEBP。图片仅在浏览器本地分析。</span>
+        </div>
+      </div>
+      <div class="color-extractor-preview" id="colorPreviewWrap">
+        <img id="colorPreviewImg" alt="上传的图片预览">
+      </div>
+      <canvas id="colorExtractorCanvas"></canvas>
+    </div>
+    <div class="color-extractor-right">
+      <div class="color-result-empty" id="colorResultEmpty">
+        上传一张图片后，这里会显示提取的主色调、推荐配色方案和可复制色值。
+      </div>
+      <div class="color-result-area" id="colorResultArea">
+        <p class="color-result-label">Extracted Palette</p>
+        <div class="color-main-swatches" id="colorMainSwatches"></div>
+        <p class="color-result-label">Generated Schemes</p>
+        <div class="color-scheme-list" id="colorSchemeRows"></div>
+        <div class="color-extractor-actions">
+          <button class="color-extractor-action" type="button" onclick="copyExtractorColors()">复制全部色值</button>
+          <button class="color-extractor-action secondary" type="button" onclick="exportExtractorCard()">导出色卡</button>
+          <button class="color-extractor-action secondary" type="button" onclick="resetColorExtractor()">重新上传</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="color-extractor-toast" id="colorExtractorToast"></div>
+
 <footer class="footer">
     BaoLong Lab · Inspiration Board
   </footer>
@@ -1284,6 +1855,348 @@
       document.getElementById("modal").classList.remove("open");
     }
   </script>
+
+<script>
+  (function(){
+    let extractorColors = [];
+    let extractorReady = false;
+
+    function $(id){ return document.getElementById(id); }
+
+    function initColorExtractor(){
+      if(extractorReady) return;
+      const fileInput = $('colorFileInput');
+      const uploadZone = $('colorUploadZone');
+      if(!fileInput || !uploadZone) return;
+      extractorReady = true;
+
+      uploadZone.addEventListener('dragover', function(event){
+        event.preventDefault();
+        uploadZone.classList.add('drag-over');
+      });
+      uploadZone.addEventListener('dragleave', function(){
+        uploadZone.classList.remove('drag-over');
+      });
+      uploadZone.addEventListener('drop', function(event){
+        event.preventDefault();
+        uploadZone.classList.remove('drag-over');
+        const file = event.dataTransfer && event.dataTransfer.files ? event.dataTransfer.files[0] : null;
+        if(file && file.type && file.type.startsWith('image/')) processExtractorFile(file);
+      });
+      fileInput.addEventListener('change', function(event){
+        const file = event.target.files ? event.target.files[0] : null;
+        if(file) processExtractorFile(file);
+      });
+    }
+
+    window.openColorExtractor = function(){
+      initColorExtractor();
+      const modal = $('colorExtractorModal');
+      if(modal) modal.classList.add('open');
+    };
+
+    window.closeColorExtractor = function(event){
+      const modal = $('colorExtractorModal');
+      if(event && event.target !== modal) return;
+      if(modal) modal.classList.remove('open');
+    };
+
+    function processExtractorFile(file){
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = function(){
+        const preview = $('colorPreviewImg');
+        const canvas = $('colorExtractorCanvas');
+        if(preview) preview.src = url;
+        if(canvas){
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d', { willReadFrequently:true });
+          ctx.drawImage(img, 0, 0);
+          extractorColors = extractColorsFromCanvas(canvas, 7);
+          renderExtractorResults(extractorColors);
+        }
+        const upload = $('colorUploadZone');
+        const previewWrap = $('colorPreviewWrap');
+        if(upload) upload.style.display = 'none';
+        if(previewWrap) previewWrap.style.display = 'block';
+      };
+      img.src = url;
+    }
+
+    function extractColorsFromCanvas(canvas, count){
+      const w = canvas.width;
+      const h = canvas.height;
+      const sampleW = Math.min(w, 120);
+      const sampleH = Math.min(h, 120);
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = sampleW;
+      tempCanvas.height = sampleH;
+      const tempCtx = tempCanvas.getContext('2d', { willReadFrequently:true });
+      tempCtx.drawImage(canvas, 0, 0, sampleW, sampleH);
+      const data = tempCtx.getImageData(0, 0, sampleW, sampleH).data;
+      let pixels = [];
+      for(let i = 0; i < data.length; i += 4){
+        const r = data[i], g = data[i+1], b = data[i+2], a = data[i+3];
+        if(a < 128) continue;
+        const brightness = (r + g + b) / 3;
+        const sat = getExtractorSaturation(r, g, b);
+        if(brightness > 246 || brightness < 10) continue;
+        if(sat < 0.035 && brightness > 235) continue;
+        pixels.push([r, g, b]);
+      }
+      if(pixels.length < 20){
+        pixels = [];
+        for(let i = 0; i < data.length; i += 4){
+          if(data[i+3] >= 128) pixels.push([data[i], data[i+1], data[i+2]]);
+        }
+      }
+      return kMeansExtractor(pixels, count).map(function(rgb){ return rgbToHexExtractor(rgb[0], rgb[1], rgb[2]).toUpperCase(); });
+    }
+
+    function getExtractorSaturation(r, g, b){
+      const max = Math.max(r, g, b) / 255;
+      const min = Math.min(r, g, b) / 255;
+      if(max === 0) return 0;
+      return (max - min) / max;
+    }
+
+    function kMeansExtractor(pixels, k){
+      if(!pixels.length) return [];
+      const centers = [];
+      const step = Math.max(1, Math.floor(pixels.length / k));
+      for(let i = 0; i < k; i++) centers.push([].concat(pixels[Math.min(i * step, pixels.length - 1)]));
+      for(let iter = 0; iter < 22; iter++){
+        const clusters = Array.from({length:k}, function(){ return []; });
+        pixels.forEach(function(pixel){
+          let best = 0;
+          let bestDistance = Infinity;
+          centers.forEach(function(center, index){
+            const d = colorDistance(pixel, center);
+            if(d < bestDistance){ bestDistance = d; best = index; }
+          });
+          clusters[best].push(pixel);
+        });
+        clusters.forEach(function(cluster, index){
+          if(!cluster.length) return;
+          centers[index] = [
+            Math.round(cluster.reduce(function(sum, p){ return sum + p[0]; }, 0) / cluster.length),
+            Math.round(cluster.reduce(function(sum, p){ return sum + p[1]; }, 0) / cluster.length),
+            Math.round(cluster.reduce(function(sum, p){ return sum + p[2]; }, 0) / cluster.length)
+          ];
+        });
+      }
+      const unique = [];
+      centers.forEach(function(center){
+        const hex = rgbToHexExtractor(center[0], center[1], center[2]);
+        if(!unique.some(function(item){ return colorDistance(center, item) < 28; })) unique.push(center);
+      });
+      while(unique.length < Math.min(k, centers.length)) unique.push(centers[unique.length]);
+      return unique.slice(0, k);
+    }
+
+    function colorDistance(a, b){
+      return Math.sqrt(Math.pow(a[0]-b[0],2) + Math.pow(a[1]-b[1],2) + Math.pow(a[2]-b[2],2));
+    }
+
+    function rgbToHexExtractor(r, g, b){
+      return '#' + [r, g, b].map(function(value){ return Math.max(0, Math.min(255, value)).toString(16).padStart(2, '0'); }).join('');
+    }
+
+    function hexToRgbExtractor(hex){
+      return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
+    }
+
+    function hexToHslExtractor(hex){
+      let rgb = hexToRgbExtractor(hex).map(function(v){ return v / 255; });
+      let r = rgb[0], g = rgb[1], b = rgb[2];
+      const max = Math.max(r,g,b), min = Math.min(r,g,b);
+      let h = 0, s = 0, l = (max + min) / 2;
+      if(max !== min){
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if(max === r) h = (g - b) / d + (g < b ? 6 : 0);
+        else if(max === g) h = (b - r) / d + 2;
+        else h = (r - g) / d + 4;
+        h /= 6;
+      }
+      return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+    }
+
+    function hslToHexExtractor(h, s, l){
+      s /= 100;
+      l /= 100;
+      const k = function(n){ return (n + h / 30) % 12; };
+      const a = s * Math.min(l, 1 - l);
+      const f = function(n){
+        return Math.round((l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)))) * 255);
+      };
+      return rgbToHexExtractor(f(0), f(8), f(4)).toUpperCase();
+    }
+
+    function generateExtractorSchemes(hex){
+      const hsl = hexToHslExtractor(hex);
+      const h = hsl[0], s = hsl[1], l = hsl[2];
+      return {
+        '同色系 Monochromatic': [
+          hslToHexExtractor(h, Math.max(8, s - 12), Math.min(92, l + 28)),
+          hslToHexExtractor(h, s, l),
+          hslToHexExtractor(h, Math.min(100, s + 8), Math.max(18, l - 18)),
+          hslToHexExtractor(h, Math.max(8, s - 22), Math.max(14, l - 32))
+        ],
+        '互补色 Complementary': [
+          hslToHexExtractor(h, s, l),
+          hslToHexExtractor(h, Math.max(8, s - 20), Math.min(88, l + 24)),
+          hslToHexExtractor((h + 180) % 360, Math.max(18, s - 10), Math.min(86, l + 12)),
+          hslToHexExtractor((h + 180) % 360, s, Math.max(18, l - 10))
+        ],
+        '分裂互补 Split': [
+          hslToHexExtractor(h, s, l),
+          hslToHexExtractor((h + 150) % 360, Math.max(18, s - 8), Math.min(86, l + 8)),
+          hslToHexExtractor((h + 210) % 360, Math.max(18, s - 8), Math.min(86, l + 8)),
+          hslToHexExtractor(h, Math.max(8, s - 25), Math.min(92, l + 26))
+        ]
+      };
+    }
+
+    function renderExtractorResults(colors){
+      const empty = $('colorResultEmpty');
+      const area = $('colorResultArea');
+      const swatches = $('colorMainSwatches');
+      const rows = $('colorSchemeRows');
+      if(empty) empty.style.display = 'none';
+      if(area) area.style.display = 'block';
+      if(swatches){
+        swatches.innerHTML = colors.map(function(hex){
+          return '<button class="color-main-swatch" type="button" style="background:' + hex + '" title="复制 ' + hex + '" onclick="copyExtractorText(\'' + hex + '\')"><span>' + hex + '</span></button>';
+        }).join('');
+      }
+      const main = colors[0] || '#8A8378';
+      const schemes = generateExtractorSchemes(main);
+      if(rows){
+        rows.innerHTML = Object.keys(schemes).map(function(name){
+          const chips = schemes[name].map(function(hex){
+            return '<button class="color-scheme-chip" type="button" style="background:' + hex + '" title="复制 ' + hex + '" onclick="copyExtractorText(\'' + hex + '\')"></button>';
+          }).join('');
+          return '<div class="color-scheme-row"><div class="color-scheme-name">' + name + '</div><div class="color-scheme-chips">' + chips + '</div></div>';
+        }).join('');
+      }
+    }
+
+    window.copyExtractorText = async function(text){
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(error){
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      showExtractorToast(text.length > 12 ? '已复制全部色值' : '已复制 ' + text);
+    };
+
+    window.copyExtractorColors = function(){
+      if(!extractorColors.length) return;
+      copyExtractorText(extractorColors.join('\n'));
+    };
+
+    window.resetColorExtractor = function(){
+      extractorColors = [];
+      const fileInput = $('colorFileInput');
+      const upload = $('colorUploadZone');
+      const previewWrap = $('colorPreviewWrap');
+      const preview = $('colorPreviewImg');
+      const empty = $('colorResultEmpty');
+      const area = $('colorResultArea');
+      if(fileInput) fileInput.value = '';
+      if(upload) upload.style.display = 'flex';
+      if(previewWrap) previewWrap.style.display = 'none';
+      if(preview) preview.removeAttribute('src');
+      if(empty) empty.style.display = 'flex';
+      if(area) area.style.display = 'none';
+    };
+
+    window.exportExtractorCard = function(){
+      if(!extractorColors.length) return;
+      const schemes = generateExtractorSchemes(extractorColors[0]);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const width = 920;
+      const pad = 46;
+      const sw = 96;
+      const gap = 12;
+      canvas.width = width;
+      canvas.height = 560;
+      ctx.fillStyle = '#F7F6F2';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#1C1C1C';
+      ctx.font = '24px sans-serif';
+      ctx.fillText('BaoLong Lab Color Palette', pad, 58);
+      ctx.fillStyle = '#77736B';
+      ctx.font = '13px sans-serif';
+      ctx.fillText('Extracted colors', pad, 86);
+      extractorColors.forEach(function(hex, index){
+        const x = pad + index * (sw + gap);
+        const y = 112;
+        drawRoundRect(ctx, x, y, sw, 100, 20, hex);
+        ctx.fillStyle = '#5C5750';
+        ctx.font = '12px monospace';
+        ctx.fillText(hex, x + 10, y + 124);
+      });
+      let y = 282;
+      Object.keys(schemes).forEach(function(name){
+        ctx.fillStyle = '#77736B';
+        ctx.font = '13px sans-serif';
+        ctx.fillText(name, pad, y + 18);
+        schemes[name].forEach(function(hex, index){
+          drawRoundRect(ctx, pad + 170 + index * 126, y, 112, 38, 14, hex);
+        });
+        y += 70;
+      });
+      const link = document.createElement('a');
+      link.download = 'baolong-color-palette.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showExtractorToast('色卡已导出');
+    };
+
+    function drawRoundRect(ctx, x, y, w, h, r, color){
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      if(ctx.roundRect){
+        ctx.roundRect(x, y, w, h, r);
+      }else{
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+      }
+      ctx.fill();
+    }
+
+    function showExtractorToast(message){
+      const toast = $('colorExtractorToast');
+      if(!toast) return;
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.clearTimeout(showExtractorToast.timer);
+      showExtractorToast.timer = window.setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+    }
+
+    document.addEventListener('DOMContentLoaded', initColorExtractor);
+  })();
+</script>
+
 <script>
     function navFilter(category){
       location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';

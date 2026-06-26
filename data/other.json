@@ -2463,5 +2463,1081 @@
     "sourceName": "Pinterest 链接",
     "sourceUrl": "https://www.pinterest.com/pin/773211829814785097/",
     "isPinterest": true
+  },
+  {
+    "id": "other-116",
+    "number": 116,
+    "title": "Pinterest Soft Urban Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Urban Axon",
+      "Soft Palette"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-116-pinterest-soft-urban-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-116-pinterest-soft-urban-axon.webp",
+    "height": "420px",
+    "color": "#f4f1eb",
+    "desc": "适合参考浅色轴测、街区更新和柔和城市空间表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/854980310549687041/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-117",
+    "number": 117,
+    "title": "Pinterest Urban Analysis Collage Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Analysis Board",
+      "Collage"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-117-pinterest-urban-analysis-collage-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-117-pinterest-urban-analysis-collage-board.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考城市分析展板、图文组合和高密度信息排版。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/599541769163974291/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-118",
+    "number": 118,
+    "title": "Pinterest Yellow Campus Concept Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Campus Board",
+      "Concept"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-118-pinterest-yellow-campus-concept-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-118-pinterest-yellow-campus-concept-board.webp",
+    "height": "346px",
+    "color": "#f4f1eb",
+    "desc": "适合参考校园概念展板、黄色动线强调和分析图整合。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/1074741898580262545/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-119",
+    "number": 119,
+    "title": "Pinterest Urban Renewal Strategy Boards",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Urban Renewal",
+      "Multi Image"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-119-pinterest-urban-renewal-strategy-boards-01.webp",
+      "images/inspiration/render/render-ref-119-pinterest-urban-renewal-strategy-boards-02.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-119-pinterest-urban-renewal-strategy-boards-01.webp",
+    "height": "368px",
+    "color": "#f4f1eb",
+    "desc": "适合参考城市更新策略、绿色网络和连续展板叙事。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/347692033744465188/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-120",
+    "number": 120,
+    "title": "Pinterest Eco Village Annotation Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Eco Village",
+      "Annotation"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-120-pinterest-eco-village-annotation-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-120-pinterest-eco-village-annotation-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考生态聚落轴测、文字标注和社区功能解析。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/860680178822160860/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-121",
+    "number": 121,
+    "title": "Bodegas Vinival Competition Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Competition Board",
+      "Winery",
+      "Architecture"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-121-bodegas-vinival-competition-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-121-bodegas-vinival-competition-board.webp",
+    "height": "367px",
+    "color": "#f4f1eb",
+    "desc": "适合参考建筑竞赛展板、酒庄空间和综合图文表达。",
+    "sourceName": "Competitions Archi",
+    "sourceUrl": "https://competitions.archi/competition/results-bodegas-vinival/?utm_source=Pinterest&utm_medium=organic&epik=dj0yJnU9Y2xwOFQxVlJobDdjLWpYUHotRlZpTWlYalRYaldhQUkmcD0wJm49Y2hwRTFXb3BXQTdwUnVrSklZZGh4QSZ0PUFBQUFBR290ZjAw",
+    "isPinterest": false
+  },
+  {
+    "id": "other-122",
+    "number": 122,
+    "title": "Pinterest Red Site Section Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Section Board",
+      "Red Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-122-pinterest-red-site-section-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-122-pinterest-red-site-section-board.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考红色重点标注、场地剖面和多图版面组织。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/943152346949824280/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-123",
+    "number": 123,
+    "title": "Pinterest Playground Strategy Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Playground",
+      "Strategy Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-123-pinterest-playground-strategy-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-123-pinterest-playground-strategy-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考活动场地轴测、儿童友好空间和策略标注。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/376543218869118914/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-124",
+    "number": 124,
+    "title": "Pinterest Modular Diagram Sequence",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Modular Diagram",
+      "Sequence"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-124-pinterest-modular-diagram-sequence.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-124-pinterest-modular-diagram-sequence.webp",
+    "height": "347px",
+    "color": "#f4f1eb",
+    "desc": "适合参考模块生成逻辑、体块拆解和步骤化图解。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/704250460492295966/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-125",
+    "number": 125,
+    "title": "Pinterest Mass Evolution Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Mass Evolution",
+      "Diagram"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-125-pinterest-mass-evolution-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-125-pinterest-mass-evolution-diagram.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考体量演变、粉色分析图和建筑生成过程。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/683069468519020394/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-126",
+    "number": 126,
+    "title": "Pinterest Red Diagram Process Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Process Diagram",
+      "Red Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-126-pinterest-red-diagram-process-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-126-pinterest-red-diagram-process-board.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考红色过程图、空间关系分析和概念推导。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/805511083393401689/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-127",
+    "number": 127,
+    "title": "Pinterest Yellow Spatial Typology Diagrams",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Typology",
+      "Yellow Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-127-pinterest-yellow-spatial-typology-diagrams.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-127-pinterest-yellow-spatial-typology-diagrams.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考黄色功能分区、空间类型和小尺度图解。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/373517362853456795/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-128",
+    "number": 128,
+    "title": "Pinterest Linear Process Analysis",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Linear Analysis",
+      "Process"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-128-pinterest-linear-process-analysis.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-128-pinterest-linear-process-analysis.webp",
+    "height": "309px",
+    "color": "#f4f1eb",
+    "desc": "适合参考线性场地分析、路径节点和分步骤策略图。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/160440805458781027/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-129",
+    "number": 129,
+    "title": "Superwien Glan Garden Urban Vision",
+    "type": "Other Inspiration",
+    "tags": [
+      "Urban Vision",
+      "Green Network",
+      "Superwien"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-129-superwien-glan-garden-urban-vision.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-129-superwien-glan-garden-urban-vision.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考绿色街区愿景、住宅群规划和水彩城市表达。",
+    "sourceName": "Superwien",
+    "sourceUrl": "https://superwien.com/portfolio/kooperatives-stadtebauliches-verfahren-glan-garten-salzburg/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-130",
+    "number": 130,
+    "title": "Superwien Klimaquartier Landscape Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Climate Quarter",
+      "Landscape Axon",
+      "Superwien"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-130-superwien-klimaquartier-landscape-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-130-superwien-klimaquartier-landscape-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考气候街区、蓝绿基础设施和景观轴测表达。",
+    "sourceName": "Superwien",
+    "sourceUrl": "https://superwien.com/portfolio/klimaquartier-melk/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-131",
+    "number": 131,
+    "title": "Octagon BCH Urban Campus Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Urban Campus",
+      "Blue Green",
+      "Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-131-octagon-bch-urban-campus-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-131-octagon-bch-urban-campus-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考校园街区、蓝绿空间和整体轴测展示。",
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://www.octagon-architekturkollektiv.net/arbeiten/bch/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-132",
+    "number": 132,
+    "title": "Octagon AAC City Collage",
+    "type": "Other Inspiration",
+    "tags": [
+      "City Collage",
+      "Community",
+      "Octagon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-132-octagon-aac-city-collage.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-132-octagon-aac-city-collage.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考城市拼贴、立面街景和社区生活化表达。",
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://www.octagon-architekturkollektiv.net/arbeiten/aac/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-133",
+    "number": 133,
+    "title": "Octagon ESF Diagram Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Diagram Board",
+      "Architecture",
+      "Octagon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-133-octagon-esf-diagram-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-133-octagon-esf-diagram-board.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考建筑群分析、轴测拆解和信息图式版面。",
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://octagon-architekturkollektiv.net/arbeiten/esf/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-134",
+    "number": 134,
+    "title": "Lorber Paul Solingen Quarter Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Urban Quarter",
+      "Courtyard",
+      "Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-134-lorber-paul-solingen-quarter-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-134-lorber-paul-solingen-quarter-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考新建街区、橙色体块和院落关系表达。",
+    "sourceName": "Lorber Paul",
+    "sourceUrl": "https://lorberpaul.de/projekte/neues-quartier-solingen/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-135",
+    "number": 135,
+    "title": "Lorber Paul Solingen Street View",
+    "type": "Other Inspiration",
+    "tags": [
+      "Street View",
+      "Public Space",
+      "Soft Rendering"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-135-lorber-paul-solingen-street-view.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-135-lorber-paul-solingen-street-view.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考街区透视、公共空间氛围和柔和彩色表达。",
+    "sourceName": "Lorber Paul",
+    "sourceUrl": "https://lorberpaul.de/projekte/neues-quartier-solingen/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-136",
+    "number": 136,
+    "title": "Cityförster Blue Green Neighbourhood Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Blue Green",
+      "Neighbourhood",
+      "Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-136-cityfoerster-blue-green-neighbourhood-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-136-cityfoerster-blue-green-neighbourhood-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考蓝绿邻里、社区更新和功能标注轴测。",
+    "sourceName": "Cityförster",
+    "sourceUrl": "https://www.cityfoerster.net/projects/blue_green_neighbourhoods_muenster-661-2.html",
+    "isPinterest": false
+  },
+  {
+    "id": "other-137",
+    "number": 137,
+    "title": "Cityförster Neighbourhood Landscape View",
+    "type": "Other Inspiration",
+    "tags": [
+      "Landscape View",
+      "Community",
+      "Blue Green"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-137-cityfoerster-neighbourhood-landscape-view.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-137-cityfoerster-neighbourhood-landscape-view.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考开放绿地、社区活动和低饱和景观效果图。",
+    "sourceName": "Cityförster",
+    "sourceUrl": "https://www.cityfoerster.net/projects/blue_green_neighbourhoods_muenster-661-2.html",
+    "isPinterest": false
+  },
+  {
+    "id": "other-138",
+    "number": 138,
+    "title": "Pinterest Blue Urban Framework Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Urban Framework",
+      "Blue Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-138-pinterest-blue-urban-framework-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-138-pinterest-blue-urban-framework-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考蓝色系统标注、城市框架和空间网络表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/771874823660772792/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-139",
+    "number": 139,
+    "title": "Pinterest Purple Campus Infrastructure Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Campus",
+      "Infrastructure"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-139-pinterest-purple-campus-infrastructure-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-139-pinterest-purple-campus-infrastructure-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考校园基础设施、紫色空间系统和轴测分析。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/512495632603849155/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-140",
+    "number": 140,
+    "title": "Pinterest Colorful Community Block Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Community Block",
+      "Colorful Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-140-pinterest-colorful-community-block-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-140-pinterest-colorful-community-block-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考彩色社区街区、功能混合和公共空间表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/328410997807864318/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-141",
+    "number": 141,
+    "title": "Nooma Big Playground Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Playground",
+      "Colorful",
+      "Nooma"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-141-nooma-big-playground-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-141-nooma-big-playground-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考游乐场轴测、黑底表现和彩色活动空间设计。",
+    "sourceName": "Nooma Studio",
+    "sourceUrl": "https://www.nooma.studio/bigplayground",
+    "isPinterest": false
+  },
+  {
+    "id": "other-142",
+    "number": 142,
+    "title": "Sasaki Stormwater Campus Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Stormwater",
+      "Campus",
+      "Sasaki"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-142-sasaki-stormwater-campus-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-142-sasaki-stormwater-campus-diagram.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考雨洪管理、校园蓝绿系统和生态动线表达。",
+    "sourceName": "Sasaki",
+    "sourceUrl": "https://www.sasaki.com/voices/stormwater-as-an-asset-on-urban-campuses/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-143",
+    "number": 143,
+    "title": "Sasaki Anant University Circular Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Campus",
+      "Circular Diagram",
+      "Sasaki"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-143-sasaki-anant-university-circular-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-143-sasaki-anant-university-circular-diagram.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考校园圆形分析、节点组织和黄色图解表达。",
+    "sourceName": "Sasaki",
+    "sourceUrl": "https://www.sasaki.com/projects/anant-national-university/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-144",
+    "number": 144,
+    "title": "Sasaki Collaborative Studio Clusters",
+    "type": "Other Inspiration",
+    "tags": [
+      "Studio Cluster",
+      "Campus",
+      "Sasaki"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-144-sasaki-collaborative-studio-clusters.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-144-sasaki-collaborative-studio-clusters.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考协作学习组团、校园空间和建筑景观一体化表达。",
+    "sourceName": "Sasaki",
+    "sourceUrl": "https://www.sasaki.com/projects/anant-national-university/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-145",
+    "number": 145,
+    "title": "BJP Brinkhaus Areal Street View",
+    "type": "Other Inspiration",
+    "tags": [
+      "Industrial Renewal",
+      "Street View",
+      "BJP"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-145-bjp-brinkhaus-areal-street-view.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-145-bjp-brinkhaus-areal-street-view.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考旧厂区更新、街景氛围和开放空间透视。",
+    "sourceName": "BJP Planer",
+    "sourceUrl": "https://www.bjp-planer.de/projekte/brinkhaus-areal---warendorf",
+    "isPinterest": false
+  },
+  {
+    "id": "other-146",
+    "number": 146,
+    "title": "BJP Brinkhaus Areal Diagram Series",
+    "type": "Other Inspiration",
+    "tags": [
+      "Industrial Renewal",
+      "Diagram Series",
+      "Multi Image"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-01.webp",
+      "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-02.webp",
+      "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-03.webp",
+      "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-04.webp",
+      "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-05.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-146-bjp-brinkhaus-areal-diagram-series-01.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考棕地更新、红绿策略图和多图连续分析表达。",
+    "sourceName": "BJP Planer",
+    "sourceUrl": "https://www.bjp-planer.de/projekte/brinkhaus-areal---warendorf",
+    "isPinterest": false
+  },
+  {
+    "id": "other-147",
+    "number": 147,
+    "title": "Felixx Healthy Tracks Landscape Network",
+    "type": "Other Inspiration",
+    "tags": [
+      "Healthy Tracks",
+      "Landscape Network",
+      "Felixx"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-147-felixx-healthy-tracks-landscape-network.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-147-felixx-healthy-tracks-landscape-network.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考健康绿道、线性景观和城市开放空间网络。",
+    "sourceName": "Felixx",
+    "sourceUrl": "https://www.felixx.nl/projects/healthy-tracks.html",
+    "isPinterest": false
+  },
+  {
+    "id": "other-148",
+    "number": 148,
+    "title": "Felixx Healthy Tracks Infrastructure Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Green Corridor",
+      "Infrastructure",
+      "Felixx"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-148-felixx-healthy-tracks-infrastructure-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-148-felixx-healthy-tracks-infrastructure-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考交通基础设施、绿道节点和蓝绿空间连接。",
+    "sourceName": "Felixx",
+    "sourceUrl": "https://www.felixx.nl/projects/healthy-tracks.html",
+    "isPinterest": false
+  },
+  {
+    "id": "other-149",
+    "number": 149,
+    "title": "Pinterest Garden Housing Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Garden Housing",
+      "Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-149-pinterest-garden-housing-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-149-pinterest-garden-housing-axon.webp",
+    "height": "301px",
+    "color": "#f4f1eb",
+    "desc": "适合参考花园住宅、低密社区和绿色庭院轴测。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/152348399885606354/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-150",
+    "number": 150,
+    "title": "Studio Paola Viganò Courtyard Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Courtyard",
+      "Pink Accent",
+      "Studio Paola Vigano"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-150-studio-paola-vigano-courtyard-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-150-studio-paola-vigano-courtyard-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考粉色场地表达、庭院空间和极简轴测图。",
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-151",
+    "number": 151,
+    "title": "Pinterest Blue Urban Story Board",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Story Board",
+      "Blue Drawing"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-151-pinterest-blue-urban-story-board.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-151-pinterest-blue-urban-story-board.webp",
+    "height": "325px",
+    "color": "#f4f1eb",
+    "desc": "适合参考蓝色手绘拼贴、城市叙事和小图组合表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/626844841908190301/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-152",
+    "number": 152,
+    "title": "Pinterest Red Building Assembly Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Building Assembly",
+      "Red Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-152-pinterest-red-building-assembly-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-152-pinterest-red-building-assembly-axon.webp",
+    "height": "257px",
+    "color": "#f4f1eb",
+    "desc": "适合参考红色建筑组团、结构关系和体块组合表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/715790934506218817/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-153",
+    "number": 153,
+    "title": "Pinterest Grey Rainwater Street Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Rainwater",
+      "Street Diagram"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-153-pinterest-grey-rainwater-street-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-153-pinterest-grey-rainwater-street-diagram.webp",
+    "height": "368px",
+    "color": "#f4f1eb",
+    "desc": "适合参考街道雨水系统、剖面关系和灰蓝技术图解。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/390476230214786524/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-154",
+    "number": 154,
+    "title": "Pinterest Green Building Section Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Building Section",
+      "Green System"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-154-pinterest-green-building-section-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-154-pinterest-green-building-section-diagram.webp",
+    "height": "368px",
+    "color": "#f4f1eb",
+    "desc": "适合参考建筑剖面、垂直绿化和空间结构分析。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/835558537108000018/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-155",
+    "number": 155,
+    "title": "Pinterest Pale Green Site Diagram",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Site Diagram",
+      "Pale Green"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-155-pinterest-pale-green-site-diagram.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-155-pinterest-pale-green-site-diagram.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考浅绿色总平、建筑嵌入和场地关系图解。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/970525788437166411/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-156",
+    "number": 156,
+    "title": "Pinterest Pastel Playground Map",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Playground Map",
+      "Pastel"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-156-pinterest-pastel-playground-map.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-156-pinterest-pastel-playground-map.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考粉彩地图、儿童活动场地和趣味化场景表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/970525788437166226/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-157",
+    "number": 157,
+    "title": "Pinterest Snow Cabin Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Cabin",
+      "Winter Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-157-pinterest-snow-cabin-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-157-pinterest-snow-cabin-axon.webp",
+    "height": "346px",
+    "color": "#f4f1eb",
+    "desc": "适合参考雪景小屋、冬季氛围和建筑轴测表现。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/827325394069349071/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-158",
+    "number": 158,
+    "title": "Behance Alpine Landscape Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Alpine Landscape",
+      "Axon",
+      "Behance"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-158-behance-alpine-landscape-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-158-behance-alpine-landscape-axon.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考山地景观、粉色路径和微地形空间表达。",
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/221043723/ALPINE-LANDSCAPE-ARCHITECTURE-PROJECT-RAMPA-SOE-PT1?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false
+  },
+  {
+    "id": "other-159",
+    "number": 159,
+    "title": "Pinterest Circular Pergola Sketch",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Pergola",
+      "Sketch"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-159-pinterest-circular-pergola-sketch.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-159-pinterest-circular-pergola-sketch.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考圆形构筑物、轻质廊架和柔和手绘表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/294352525667047359/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-160",
+    "number": 160,
+    "title": "Pinterest Courtyard Perspective Drawing",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Courtyard",
+      "Perspective"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-160-pinterest-courtyard-perspective-drawing.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-160-pinterest-courtyard-perspective-drawing.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考庭院透视、植物软装和室内外过渡空间。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/649925789979450241/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-161",
+    "number": 161,
+    "title": "Archisearch Into The Wild Pavilion View",
+    "type": "Other Inspiration",
+    "tags": [
+      "Wild Landscape",
+      "Pavilion",
+      "Archisearch"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-161-archisearch-into-the-wild-pavilion-view.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-161-archisearch-into-the-wild-pavilion-view.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考野生化场地、小型构筑物和自然化公共空间。",
+    "sourceName": "Archisearch",
+    "sourceUrl": "https://www.archisearch.gr/student-works/into-the-wild-a-process-of-discovery-%CE%AC%CE%B3%CF%81%CE%B9%CE%BF-%CE%B1%CF%83%CF%84%CE%B9%CE%BA%CF%8C-%CF%84%CE%BF%CF%80%CE%AF%CE%BF-%CE%BC%CE%AF%CE%B1-%CE%B4%CE%B9%CE%B1%CE%B4%CE%B9%CE%BA/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-162",
+    "number": 162,
+    "title": "Archisearch Into The Wild Concept Sketch",
+    "type": "Other Inspiration",
+    "tags": [
+      "Concept Sketch",
+      "Wild Urbanism",
+      "Archisearch"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-162-archisearch-into-the-wild-concept-sketch.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-162-archisearch-into-the-wild-concept-sketch.webp",
+    "height": "334px",
+    "color": "#f4f1eb",
+    "desc": "适合参考城市野生化、概念草图和空间想象表达。",
+    "sourceName": "Archisearch",
+    "sourceUrl": "https://www.archisearch.gr/student-works/into-the-wild-a-process-of-discovery-%CE%AC%CE%B3%CF%81%CE%B9%CE%BF-%CE%B1%CF%83%CF%84%CE%B9%CE%BA%CF%8C-%CF%84%CE%BF%CF%80%CE%AF%CE%BF-%CE%BC%CE%AF%CE%B1-%CE%B4%CE%B9%CE%B1%CE%B4%CE%B9%CE%BA/",
+    "isPinterest": false
+  },
+  {
+    "id": "other-163",
+    "number": 163,
+    "title": "Pinterest Interior Landscape Collage",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Interior Landscape",
+      "Collage"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-163-pinterest-interior-landscape-collage.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-163-pinterest-interior-landscape-collage.webp",
+    "height": "240px",
+    "color": "#f4f1eb",
+    "desc": "适合参考室内景观拼贴、窗景氛围和生活化空间表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/603130575141245172/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-164",
+    "number": 164,
+    "title": "Pinterest Blue Town Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Town Axon",
+      "Blue Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-164-pinterest-blue-town-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-164-pinterest-blue-town-axon.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考蓝色城镇轴测、建筑群关系和清爽分析表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/472455817165282496/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-165",
+    "number": 165,
+    "title": "Pinterest Red Linear Building Elevation",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Elevation",
+      "Red Accent"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-165-pinterest-red-linear-building-elevation.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-165-pinterest-red-linear-building-elevation.webp",
+    "height": "260px",
+    "color": "#f4f1eb",
+    "desc": "适合参考红色建筑立面、线性空间和抽象景观表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/393361348718269458/",
+    "isPinterest": true
+  },
+  {
+    "id": "other-166",
+    "number": 166,
+    "title": "Pinterest Green Courtyard House Axon",
+    "type": "Other Inspiration",
+    "tags": [
+      "Pinterest",
+      "Courtyard House",
+      "Green Axon"
+    ],
+    "images": [
+      "images/inspiration/render/render-ref-166-pinterest-green-courtyard-house-axon.webp"
+    ],
+    "cover": "images/inspiration/render/render-ref-166-pinterest-green-courtyard-house-axon.webp",
+    "height": "252px",
+    "color": "#f4f1eb",
+    "desc": "适合参考绿色庭院住宅、建筑与树木融合的轴测表达。",
+    "sourceName": "Pinterest 链接",
+    "sourceUrl": "https://www.pinterest.com/pin/720364902933645648/",
+    "isPinterest": true
   }
 ]

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Plant Mood Radar | BaoLong Lab</title><style>
+    :root{--bg:#f7f6f2;--paper:#fff;--ink:#1c1c1c;--muted:#77736b;--line:#ded9cf;--shadow:0 18px 50px rgba(0,0,0,.07);}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.01em;}
+    a{text-decoration:none;color:inherit} .hero{max-width:1500px;margin:0 auto;padding:86px 48px 70px;display:grid;grid-template-columns:1fr .82fr;gap:58px;align-items:center;}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:13px;color:var(--muted);font-weight:700;margin-bottom:18px;}
+    h1{margin:0;font-size:clamp(48px,7vw,92px);line-height:.95;letter-spacing:.02em;} .hero p{margin:24px 0 0;color:#4d4942;font-size:18px;line-height:1.75;max-width:720px;}
+    .mock{background:#111;color:#fff;min-height:520px;padding:34px;box-shadow:var(--shadow);display:grid;gap:18px;align-content:center;} .mock-card{border:1px solid rgba(255,255,255,.18);padding:22px;border-radius:24px;background:#202020;}
+    .mock-card h3{margin:0 0 10px;font-size:24px} .mock-card p{margin:0;color:#d6d1c8;line-height:1.65} .section{max-width:1500px;margin:0 auto;padding:60px 48px 90px;} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;min-height:220px;box-shadow:var(--shadow);} .card h3{margin:0 0 12px;font-size:26px} .card p{color:var(--muted);line-height:1.7}
+    @media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero,.section{padding:54px 22px}}
+
+    /* Unified BaoLong Lab header */
+    .site-header{
+      height:104px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:0 48px;
+      background:rgba(247,246,242,.94);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:330px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .brand-logo-img{
+      width:108px;
+      height:108px;
+      object-fit:contain;
+      flex:0 0 auto;
+      display:block;
+      background:transparent !important;
+      border-radius:0 !important;
+    }
+    .brand-mark{display:none !important;}
+    .brand-text{
+      font-size:16px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      color:#2a2927;
+      flex:1;
+      justify-content:center;
+    }
+    .nav a{
+      position:relative;
+      padding:8px 0;
+      white-space:nowrap;
+      color:inherit;
+      text-decoration:none;
+    }
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:0;
+      height:1px;
+      background:#111;
+      transition:.24s ease;
+    }
+    .nav a:hover::after{width:100%}
+    .nav-dropdown{position:relative;display:flex;align-items:center;}
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:34px;
+      left:50%;
+      transform:translateX(-50%);
+      min-width:210px;
+      background:#fff;
+      border:1px solid #ded9cf;
+      border-radius:18px;
+      padding:10px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+      z-index:200;
+    }
+    .nav-dropdown:hover .dropdown-content{display:block;}
+    .dropdown-content a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:14px;
+      color:#2a2927;
+    }
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{background:#f7f6f2;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:260px;
+      justify-content:flex-end;
+    }
+    .pill-btn{
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      padding:10px 18px;
+      background:rgba(255,255,255,.6);
+      cursor:pointer;
+      transition:.25s ease;
+      color:#1c1c1c;
+    }
+    .pill-btn:hover{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    @media (max-width:1200px){
+      .site-header{padding:0 28px}
+      .brand{min-width:auto}
+      .brand-logo-img{width:55px !important;height:55px !important;max-width:55px !important;max-height:55px !important;}
+      .nav{gap:16px;font-size:14px}
+      .header-actions{min-width:auto}
+    }
+    @media (max-width:900px){
+      .site-header{height:auto;align-items:flex-start;padding:18px 20px;flex-wrap:wrap;}
+      .brand-logo-img{width:44px !important;height:44px !important;max-width:44px !important;max-height:44px !important;}
+      .nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;gap:18px;padding-top:8px;}
+      .header-actions{display:none}
+      .dropdown-content{left:0;transform:none;}
+    }
+
+  
+
+    /* Mobile refinement: keep desktop unchanged, improve small-screen readability */
+    @media (max-width:900px){
+      body{
+        overflow-x:hidden;
+      }
+
+      .site-header{
+        height:auto !important;
+        min-height:70px;
+        padding:14px 16px !important;
+        gap:12px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+
+      .brand{
+        min-width:0 !important;
+        gap:10px;
+      }
+
+      .brand-logo-img{
+        width:38px;
+        height:auto;
+      }
+
+      .brand-text{
+        font-size:13px !important;
+        letter-spacing:.22em !important;
+        white-space:nowrap;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        gap:18px;
+        overflow-x:auto;
+        overflow-y:visible;
+        padding:4px 0 8px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .nav a{
+        font-size:14px;
+        white-space:nowrap;
+      }
+
+      .nav-dropdown{
+        flex:0 0 auto;
+      }
+
+      .dropdown-content{
+        top:34px;
+        left:0;
+      }
+
+      .header-actions{
+        display:none !important;
+      }
+
+      .hero{
+        min-height:auto !important;
+        padding:48px 18px;
+      }
+
+      .section{
+        padding:54px 18px !important;
+      }
+
+      .section-head{
+        display:block !important;
+      }
+
+      .section-title{
+        font-size:clamp(34px,11vw,54px) !important;
+        line-height:1.02;
+      }
+
+      .section-desc{
+        font-size:15px;
+        line-height:1.75;
+      }
+
+      .tabs{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        padding-bottom:6px;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .tabs::-webkit-scrollbar{
+        display:none;
+      }
+
+      .tab{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+
+      .masonry{
+        grid-template-columns:1fr !important;
+      }
+
+      .pin{
+        border-radius:24px !important;
+      }
+
+      .footer{
+        display:block !important;
+        padding:36px 18px !important;
+        font-size:13px;
+        line-height:1.7;
+      }
+    }
+
+
+
+    /* Mobile horizontal scroll fix: only nav can scroll sideways, page content stays vertical */
+    @media (max-width:900px){
+      html,
+      body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden !important;
+      }
+
+      body > *{
+        max-width:100vw;
+      }
+
+      .site-header{
+        max-width:100vw;
+        overflow-x:hidden !important;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        overflow-x:auto !important;
+        overflow-y:visible !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      main,
+      .hero,
+      .product-hero,
+      .section,
+      .masonry-wrap,
+      .tool-band,
+      .footer{
+        max-width:100vw !important;
+        overflow-x:hidden !important;
+      }
+
+      .hero-product-slide,
+      .news-slide,
+      .product-grid,
+      .masonry,
+      .tool-cards{
+        max-width:100% !important;
+      }
+
+      img,
+      video,
+      canvas,
+      svg{
+        max-width:100%;
+      }
+    }
+
+
+
+    /* Mobile dropdown menu: desktop navigation remains unchanged */
+    .mobile-menu-toggle,
+    .mobile-menu-panel{
+      display:none;
+    }
+
+    @media (max-width:900px){
+      .site-header{
+        position:sticky;
+        top:0;
+        display:flex;
+        align-items:center !important;
+        justify-content:space-between;
+        flex-wrap:nowrap !important;
+        overflow:visible !important;
+      }
+
+      .brand{
+        flex:1 1 auto;
+        min-width:0 !important;
+      }
+
+      .brand-text{
+        max-width:calc(100vw - 120px);
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .nav,
+      .header-actions{
+        display:none !important;
+      }
+
+      .mobile-menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 auto;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:rgba(255,255,255,.76);
+        padding:9px 14px;
+        font-size:13px;
+        color:#1c1c1c;
+        cursor:pointer;
+        letter-spacing:.04em;
+      }
+
+      .mobile-menu-panel{
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        right:14px;
+        left:14px;
+        z-index:80;
+        max-height:72vh;
+        overflow-y:auto;
+        background:rgba(255,255,255,.96);
+        border:1px solid var(--line);
+        border-radius:22px;
+        box-shadow:0 20px 48px rgba(0,0,0,.14);
+        padding:12px;
+        backdrop-filter:blur(18px);
+      }
+
+      .mobile-menu-panel.open{
+        display:block;
+      }
+
+      .mobile-menu-panel a{
+        display:block;
+        padding:12px 14px;
+        border-radius:14px;
+        color:#1c1c1c;
+        font-size:15px;
+        line-height:1.25;
+      }
+
+      .mobile-menu-panel a:hover{
+        background:#f3f0e8;
+      }
+
+      .mobile-menu-group{
+        margin:10px 8px 4px;
+        color:var(--muted);
+        font-size:11px;
+        line-height:1;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        font-weight:700;
+      }
+
+      html,
+      body{
+        overflow-x:hidden !important;
+      }
+    }
+
+
+
+    /* Gesture interaction case cards */
+    .interaction-cases{
+      max-width:1500px;
+      margin:0 auto;
+      padding:10px 48px 96px;
+    }
+    .case-head{
+      display:flex;
+      justify-content:space-between;
+      gap:28px;
+      align-items:flex-end;
+      margin-bottom:26px;
+      border-top:1px solid var(--line);
+      padding-top:54px;
+    }
+    .case-kicker{
+      margin-bottom:12px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .case-title{
+      margin:0;
+      font-size:clamp(34px,4.2vw,64px);
+      line-height:.98;
+      letter-spacing:-.03em;
+    }
+    .case-desc{
+      max-width:520px;
+      margin:0;
+      color:#5f5a51;
+      line-height:1.75;
+      font-size:15px;
+    }
+    .interaction-case-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .interaction-case-card{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:rgba(255,255,255,.72);
+      box-shadow:var(--shadow);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .interaction-case-card:hover{
+      transform:translateY(-4px);
+      border-color:#c8c1b4;
+      box-shadow:0 24px 60px rgba(0,0,0,.10);
+    }
+    .interaction-case-thumb{
+      width:100%;
+      aspect-ratio:1.35/1;
+      background:#ece8df;
+      overflow:hidden;
+    }
+    .interaction-case-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .plant-color-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:grid;
+      grid-template-columns:repeat(8,1fr);
+      gap:6px;
+      padding:24px;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(232,201,106,.34), transparent 24%),
+        radial-gradient(circle at 82% 76%, rgba(184,200,160,.34), transparent 26%),
+        #f7f5ef;
+    }
+    .plant-color-thumb span{
+      border-radius:14px;
+      border:1px solid rgba(22,22,22,.07);
+      box-shadow:0 8px 18px rgba(35,30,22,.06);
+    }
+    .plant-color-thumb::after{
+      content:"52 WEEK PLANT COLORS";
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(222,217,207,.86);
+      color:#4f4b46;
+      font-size:11px;
+      line-height:1;
+      letter-spacing:.16em;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+    }
+    .interaction-case-body{
+      padding:24px 24px 26px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      flex:1;
+    }
+    .interaction-case-type{
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .interaction-case-card h3{
+      margin:0;
+      font-size:26px;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .interaction-case-card p{
+      margin:0;
+      color:#6d675d;
+      font-size:14px;
+      line-height:1.75;
+    }
+    .case-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+    .case-tags span{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:6px 10px;
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      background:#f7f6f2;
+      color:#676158;
+      font-size:12px;
+      line-height:1;
+    }
+    .case-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+    .case-link,
+    .case-note{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:11px 15px;
+      border-radius:999px;
+      font-size:13px;
+      line-height:1;
+    }
+    .case-link{
+      background:#111;
+      color:#fff;
+      border:1px solid #111;
+    }
+    .case-note{
+      border:1px solid var(--line);
+      color:#514c45;
+      background:rgba(255,255,255,.56);
+    }
+    @media(max-width:900px){
+      .interaction-cases{padding:26px 18px 72px !important;}
+      .case-head{display:block;padding-top:38px;}
+      .case-desc{margin-top:16px;}
+      .interaction-case-grid{grid-template-columns:1fr;}
+    }
+
+
+  :root {
+    --bg:#f7f5ef;
+    --paper:#fffdfa;
+    --paper-soft:#f1eee7;
+    --ink:#161616;
+    --muted:#7b7770;
+    --line:#dfd9ce;
+    --line-soft:#ebe5da;
+    --shadow:0 24px 70px rgba(35,30,22,.10);
+    --radius:28px;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(238,217,168,.36), transparent 24%),
+      radial-gradient(circle at 88% 22%, rgba(189,203,164,.28), transparent 26%),
+      var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .pc-page { max-width:1440px; margin:0 auto; padding:38px 48px 64px; }
+  .pc-top { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:54px; }
+  .pc-brand { display:flex; align-items:center; gap:18px; letter-spacing:.42em; font-size:15px; }
+  .pc-logo { width:54px; height:54px; border:1px solid var(--line); border-radius:18px; display:grid; place-items:center; background:rgba(255,255,255,.48); }
+  .pc-logo::before { content:""; width:24px; height:30px; border:3px solid #111; border-radius:50% 50% 44% 44%; transform:rotate(-12deg); box-shadow:22px -1px 0 -2px #f7f5ef, 22px -1px 0 1px #111; }
+  .pc-nav { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:14px; }
+  .pc-pill { border:1px solid var(--line); border-radius:999px; padding:11px 18px; background:rgba(255,255,255,.42); }
+  .pc-hero { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end; margin-bottom:32px; }
+  .pc-kicker { color:#9c968d; letter-spacing:.2em; font-weight:700; font-size:13px; margin-bottom:16px; text-transform:uppercase; }
+  h1 { font-size:clamp(48px,7vw,112px); line-height:.92; letter-spacing:-.07em; margin:0 0 18px; }
+  .pc-subtitle { max-width:760px; color:#4f4b46; font-size:18px; line-height:1.8; margin:0; }
+  .pc-hero-card { width:310px; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.52); padding:18px; box-shadow:0 12px 42px rgba(30,25,18,.06); }
+  .pc-hero-card-title { font-size:13px; color:var(--muted); margin-bottom:12px; }
+  .pc-mini-strip { display:flex; height:54px; overflow:hidden; border-radius:16px; border:1px solid var(--line-soft); }
+  .pc-mini-strip span { flex:1; }
+  .pc-layout { display:grid; grid-template-columns:minmax(0,1fr) 390px; gap:28px; align-items:stretch; }
+  .pc-board { border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.58); box-shadow:var(--shadow); padding:28px; min-height:690px; }
+  .pc-board-head { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; padding-bottom:24px; border-bottom:1px solid var(--line-soft); margin-bottom:24px; }
+  .pc-section-title { margin:0; font-size:20px; letter-spacing:-.02em; }
+  .pc-section-desc { margin:8px 0 0; color:var(--muted); line-height:1.7; font-size:14px; }
+  .pc-season-tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+  .pc-season-tab { border:1px solid var(--line); border-radius:999px; background:#fffbf6; padding:9px 14px; font-size:13px; color:#4f4b46; cursor:pointer; }
+  .pc-season-tab.active { background:#111; color:#fff; border-color:#111; }
+  .season-row { scroll-margin-top:32px; margin-bottom:26px; }
+  .season-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; color:var(--muted); font-size:13px; }
+  .season-label { letter-spacing:.12em; text-transform:uppercase; font-weight:700; }
+  .cal-grid { display:grid; grid-template-columns:repeat(13, minmax(28px,1fr)); gap:8px; }
+  .cal-cell {
+    aspect-ratio:1;
+    border-radius:12px;
+    cursor:pointer;
+    position:relative;
+    border:1px solid rgba(22,22,22,.07);
+    transition:transform .18s ease, box-shadow .18s ease, border-radius .18s ease;
+    isolation:isolate;
+  }
+  .cal-cell::after {
+    content:attr(data-tip);
+    position:absolute;
+    left:50%; bottom:calc(100% + 10px);
+    transform:translateX(-50%) translateY(4px);
+    opacity:0; pointer-events:none;
+    white-space:nowrap;
+    background:#171716; color:white;
+    padding:7px 10px;
+    border-radius:999px;
+    font-size:12px;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+    transition:.16s ease;
+    z-index:8;
+  }
+  .cal-cell:hover { transform:scale(1.18); border-radius:16px; box-shadow:0 14px 30px rgba(22,22,22,.18); z-index:5; }
+  .cal-cell:hover::after { opacity:1; transform:translateX(-50%) translateY(0); }
+  .cal-cell.active { outline:3px solid #151515; outline-offset:3px; transform:scale(1.08); z-index:4; }
+  .pc-detail { position:sticky; top:24px; align-self:stretch; min-height:690px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,253,250,.82); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .pc-detail-empty { flex:1; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; padding:44px; color:var(--muted); line-height:1.8; }
+  .pc-detail-content { display:none; }
+  .pc-detail.visible .pc-detail-empty { display:none; }
+  .pc-detail.visible .pc-detail-content { display:flex; flex-direction:column; flex:1; }
+  .detail-hero { height:220px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.35); }
+  .detail-week { align-self:flex-start; border:1px solid rgba(255,255,255,.5); background:rgba(255,255,255,.28); backdrop-filter:blur(12px); border-radius:999px; padding:7px 12px; font-size:12px; color:rgba(0,0,0,.66); }
+  .detail-hex-big { align-self:flex-end; background:rgba(255,255,255,.82); border:1px solid rgba(0,0,0,.08); border-radius:999px; padding:10px 14px; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:13px; cursor:pointer; }
+  .detail-body { padding:24px; flex:1; display:flex; flex-direction:column; }
+  .plant-name { font-size:30px; line-height:1.1; letter-spacing:-.04em; margin:0; }
+  .plant-latin { margin-top:7px; color:#9b9488; font-style:italic; font-size:13px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0; }
+  .tag { border:1px solid var(--line); background:#f8f4ed; border-radius:999px; padding:7px 11px; color:#5e584f; font-size:12px; }
+  .desc { color:#575047; line-height:1.85; font-size:14px; margin:0; }
+  .detail-note { margin-top:14px; color:#9b9488; font-size:12px; line-height:1.65; }
+  .detail-subhead { margin:24px 0 10px; color:#9b9488; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+  .pairs { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .pair-swatch { height:58px; border-radius:14px; border:1px solid rgba(0,0,0,.08); cursor:pointer; position:relative; }
+  .pair-swatch::after { content:attr(data-hex); position:absolute; left:8px; bottom:8px; color:rgba(0,0,0,.54); font-family:ui-monospace,monospace; font-size:10px; background:rgba(255,255,255,.62); border-radius:999px; padding:3px 5px; opacity:0; transition:.14s ease; }
+  .pair-swatch:hover::after { opacity:1; }
+  .pc-actions { display:flex; gap:8px; margin-top:auto; padding-top:24px; }
+  .pc-btn { border:1px solid var(--line); background:#fffaf2; border-radius:999px; padding:10px 14px; font-size:13px; cursor:pointer; color:#191816; }
+  .pc-btn.primary { background:#111; color:#fff; border-color:#111; }
+  .pc-toast { position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(14px); opacity:0; pointer-events:none; background:#141414; color:#fff; border-radius:999px; padding:12px 18px; font-size:13px; transition:.18s ease; z-index:20; }
+  .pc-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    .pc-back-wrap{
+      max-width:1500px;
+      margin:0 auto 22px;
+      display:flex;
+      align-items:center;
+    }
+    .pc-back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 15px;
+      background:rgba(255,255,255,.52);
+      color:#4f4b46;
+      font-size:13px;
+      line-height:1;
+      box-shadow:0 10px 30px rgba(30,25,18,.04);
+      transition:transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+    .pc-back-link:hover{
+      background:#fffaf2;
+      border-color:#cfc6b8;
+      transform:translateY(-1px);
+    }
+  @media (max-width:980px) {
+    .pc-page { padding:24px 18px 42px; }
+    .pc-top { margin-bottom:36px; }
+    .pc-nav { display:none; }
+    .pc-hero { grid-template-columns:1fr; }
+    .pc-hero-card { width:100%; }
+    .pc-layout { grid-template-columns:1fr; }
+    .pc-board, .pc-detail { min-height:auto; }
+    .pc-detail { position:relative; top:auto; }
+    .pc-board-head { flex-direction:column; }
+    .pc-season-tabs { justify-content:flex-start; }
+    .cal-grid { gap:6px; }
+  }
+  @media (max-width:560px) {
+    h1 { font-size:48px; }
+    .pc-board { padding:18px; border-radius:22px; }
+    .cal-grid { grid-template-columns:repeat(7, 1fr); }
+    .pc-brand { font-size:12px; letter-spacing:.28em; }
+    .pc-logo { width:46px; height:46px; }
+  }
+
+
+/* Integrated page spacing: use existing BaoLong Lab header; keep plant tool content below it */
+.pc-page{padding-top:72px;}
+@media(max-width:900px){.pc-page{padding-top:42px;}}
+
+
+
+/* Plant Mood Radar page */
+
+  :root {
+    --bg:#f7f5ef;
+    --paper:#fffdfa;
+    --paper-soft:#f0ece3;
+    --ink:#161616;
+    --muted:#7b7770;
+    --muted-2:#a39c91;
+    --line:#ded8cc;
+    --line-soft:#eee7dc;
+    --shadow:0 24px 70px rgba(35,30,22,.10);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+    background:
+      radial-gradient(circle at 10% 6%, rgba(215,226,191,.45), transparent 26%),
+      radial-gradient(circle at 92% 18%, rgba(232,204,169,.38), transparent 28%),
+      radial-gradient(circle at 50% 100%, rgba(199,178,218,.18), transparent 34%),
+      var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  button{font:inherit}
+  .pm-page{max-width:1440px;margin:0 auto;padding:38px 48px 64px}
+  .pm-top{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:54px}
+  .pm-brand{display:flex;align-items:center;gap:18px;letter-spacing:.42em;font-size:15px;color:#1d1b18}
+  .pm-logo{width:54px;height:54px;border:1px solid var(--line);border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.48)}
+  .pm-logo::before{content:"";width:24px;height:30px;border:3px solid #111;border-radius:50% 50% 44% 44%;transform:rotate(-12deg);box-shadow:22px -1px 0 -2px #f7f5ef,22px -1px 0 1px #111}
+  .pm-nav{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+  .pm-pill{border:1px solid var(--line);border-radius:999px;padding:11px 18px;background:rgba(255,255,255,.42)}
+  .pm-hero{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:34px;align-items:end;margin-bottom:32px}
+  .pm-kicker{color:#9c968d;letter-spacing:.2em;font-weight:700;font-size:13px;margin-bottom:16px;text-transform:uppercase}
+  h1{font-size:clamp(48px,7vw,104px);line-height:.94;letter-spacing:-.07em;margin:0 0 18px}
+  .pm-subtitle{max-width:820px;color:#4f4b46;font-size:18px;line-height:1.85;margin:0}
+  .pm-hero-card{border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.55);padding:18px;box-shadow:0 12px 42px rgba(30,25,18,.06)}
+  .pm-hero-card-title{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .mini-radar{height:156px;border-radius:18px;border:1px solid var(--line-soft);background:linear-gradient(135deg,#fffdfa, #f0ece3);display:grid;place-items:center;position:relative;overflow:hidden}
+  .mini-radar::before{content:"";width:100px;height:100px;border:1px solid rgba(20,20,20,.14);border-radius:50%;position:absolute}
+  .mini-radar::after{content:"";width:86px;height:86px;background:rgba(90,135,94,.12);clip-path:polygon(50% 8%,85% 28%,78% 74%,50% 92%,17% 70%,20% 30%);border:1px solid rgba(90,135,94,.2)}
+  .pm-layout{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:28px;align-items:stretch}
+  .pm-panel,.pm-result{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.62);box-shadow:var(--shadow);min-height:740px}
+  .pm-panel{padding:28px}
+  .pm-result{position:sticky;top:24px;align-self:start;overflow:hidden;background:rgba(255,253,250,.86)}
+  .pm-board-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--line-soft);margin-bottom:22px}
+  .pm-section-title{margin:0;font-size:20px;letter-spacing:-.02em}
+  .pm-section-desc{margin:8px 0 0;color:var(--muted);line-height:1.7;font-size:14px;max-width:620px}
+  .pm-count{border:1px solid var(--line);border-radius:999px;background:#fffbf6;color:#5e584f;padding:10px 14px;font-size:13px;white-space:nowrap}
+  .dim-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .dim-tab{border:1px solid var(--line);background:#fffaf3;color:#5b554c;border-radius:999px;padding:10px 14px;font-size:13px;cursor:pointer;transition:.16s ease;display:flex;align-items:center;gap:8px}
+  .dim-tab .dot{width:8px;height:8px;border-radius:50%}
+  .dim-tab.active{background:#111;color:#fff;border-color:#111}
+  .pm-subhead{display:flex;justify-content:space-between;align-items:center;margin:18px 0 12px;color:#9b9488;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  .plant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:9px;min-height:210px}
+  .plant-chip{display:flex;align-items:center;gap:9px;min-height:46px;padding:10px 12px;border:1px solid var(--line-soft);background:rgba(255,253,250,.72);border-radius:15px;cursor:pointer;color:#5a554e;font-size:13px;transition:.16s ease;text-align:left}
+  .plant-chip:hover{transform:translateY(-2px);border-color:#c8bfb1;box-shadow:0 10px 24px rgba(35,30,22,.07)}
+  .plant-chip.selected{border-color:#151515;background:#fff;box-shadow:inset 0 0 0 1px #151515;color:#151515}
+  .plant-chip.disabled{opacity:.42;cursor:not-allowed;transform:none;box-shadow:none}
+  .chip-dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.08);flex-shrink:0}
+  .selected-bar{display:flex;flex-wrap:wrap;gap:8px;min-height:46px;border:1px dashed #d8d0c2;background:rgba(255,253,250,.45);border-radius:18px;padding:12px}
+  .selected-empty{font-size:13px;color:#aaa;display:flex;align-items:center}
+  .sel-tag{border:1px solid #d8d0c2;background:#fffaf2;border-radius:999px;color:#5d574e;padding:7px 10px 7px 8px;font-size:12px;display:flex;align-items:center;gap:7px;cursor:pointer}
+  .sel-tag:hover{border-color:#151515;color:#151515}
+  .pm-note{margin:16px 0 0;color:#9b9488;font-size:12px;line-height:1.7}
+  .result-empty{min-height:740px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);line-height:1.8;padding:44px}
+  .result-content{display:none;min-height:740px;flex-direction:column}
+  .pm-result.visible .result-empty{display:none}
+  .pm-result.visible .result-content{display:flex}
+  .radar-area{padding:26px 26px 18px;background:linear-gradient(135deg,rgba(255,253,250,.8),rgba(239,235,226,.72));border-bottom:1px solid var(--line-soft)}
+  .radar-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .radar-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9b9488;font-weight:700}
+  .radar-score{border:1px solid rgba(0,0,0,.08);background:rgba(255,255,255,.62);border-radius:999px;padding:7px 10px;color:#5f584f;font-size:12px}
+  .radar-svg-wrap{height:330px;display:grid;place-items:center}
+  #radarSvg{width:min(330px,100%);height:min(330px,100%);overflow:visible}
+  .mood-body{padding:26px;display:flex;flex-direction:column;flex:1}
+  .mood-title{font-size:30px;line-height:1.1;letter-spacing:-.04em;margin:0 0 10px}
+  .mood-desc{color:#575047;line-height:1.85;font-size:14px;margin:0}
+  .score-list{display:flex;flex-direction:column;gap:9px;margin-top:24px}
+  .score-row{display:grid;grid-template-columns:48px minmax(0,1fr) 34px;gap:10px;align-items:center;font-size:12px;color:#746d63}
+  .score-track{height:6px;background:#eee7dc;border-radius:999px;overflow:hidden}
+  .score-fill{height:100%;width:0;border-radius:999px;transition:width .35s ease}
+  .pm-actions{display:flex;gap:8px;margin-top:auto;padding-top:24px;flex-wrap:wrap}
+  .pm-btn{border:1px solid var(--line);background:#fffaf2;border-radius:999px;padding:10px 14px;font-size:13px;cursor:pointer;color:#191816}
+  .pm-btn.primary{background:#111;color:#fff;border-color:#111}
+  .pm-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(14px);opacity:0;pointer-events:none;background:#141414;color:#fff;border-radius:999px;padding:12px 18px;font-size:13px;transition:.18s ease;z-index:20}
+  .pm-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:1080px){
+    .pm-page{padding:24px 18px 42px}
+    .pm-top{margin-bottom:36px}
+    .pm-nav{display:none}
+    .pm-hero{grid-template-columns:1fr}
+    .pm-layout{grid-template-columns:1fr}
+    .pm-panel,.pm-result,.result-empty,.result-content{min-height:auto}
+    .pm-result{position:relative;top:auto}
+    .radar-svg-wrap{height:300px}
+  }
+  @media (max-width:560px){
+    h1{font-size:48px}
+    .pm-brand{font-size:12px;letter-spacing:.28em}
+    .pm-logo{width:46px;height:46px}
+    .pm-panel{padding:18px;border-radius:22px}
+    .pm-board-head{flex-direction:column}
+    .plant-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .plant-chip{font-size:12px;padding:9px}
+    .mood-title{font-size:26px}
+  }
+
+  .pm-back-wrap{
+    max-width:1500px;
+    margin:0 auto 22px;
+    display:flex;
+    align-items:center;
+  }
+  .pm-back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:10px 15px;
+    background:rgba(255,255,255,.52);
+    color:#4f4b46;
+    font-size:13px;
+    line-height:1;
+    box-shadow:0 10px 30px rgba(30,25,18,.04);
+    transition:transform .16s ease, background .16s ease, border-color .16s ease;
+    text-decoration:none;
+  }
+  .pm-back-link:hover{
+    background:#fffaf2;
+    border-color:#cfc6b8;
+    transform:translateY(-1px);
+  }
+</style>
+<link href="css/common.css?v=124" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=124"></script>
+</head><body><header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header><main class="pm-page">
+<div class="pm-back-wrap"><a class="pm-back-link" href="interaction.html" aria-label="返回交互实验室">← 返回交互实验室</a></div>
+
+<section class="pm-hero">
+    <div>
+      <div class="pm-kicker">Interaction Lab · Plant Mood Tool</div>
+      <h1>植物情绪雷达图</h1>
+      <p class="pm-subtitle">选择一组植物，观察它们在宁静、活力、自然、浪漫、野趣与都市感之间形成的空间情绪倾向。结果仅作设计灵感参考，不作为严谨植物学评估。</p>
+    </div>
+    <aside class="pm-hero-card" aria-label="radar preview">
+      <div class="pm-hero-card-title">Six mood dimensions</div>
+      <div class="mini-radar"></div>
+    </aside>
+  </section>
+
+  <section class="pm-layout">
+    <div class="pm-panel">
+      <div class="pm-board-head">
+        <div>
+          <h2 class="pm-section-title">Build a plant mood set</h2>
+          <p class="pm-section-desc">按情绪维度浏览植物，从 84 种常用景观植物中选择 2–8 种，生成一张组合氛围雷达图。</p>
+        </div>
+        <div class="pm-count" id="countHint">已选 0 / 8</div>
+      </div>
+
+      <div class="dim-tabs" id="dimTabs"></div>
+
+      <div class="pm-subhead"><span id="activeDimLabel">宁静植物</span><span id="activeDimCount">0 plants</span></div>
+      <div class="plant-grid" id="plantGrid"></div>
+
+      <div class="pm-subhead"><span>Selected plants</span><span>点击标签可移除</span></div>
+      <div class="selected-bar" id="selectedBar"><span class="selected-empty">还没有选择植物</span></div>
+      <p class="pm-note">说明：维度分数由植物代表色与景观经验标签共同生成，用于快速感受组合气质，不代表客观测量结果。</p>
+    </div>
+
+    <aside class="pm-result" id="resultPanel">
+      <div class="result-empty">选择植物后生成雷达图。<br>建议先从一个情绪维度中挑 2–4 种，再跨维度补充。</div>
+      <div class="result-content">
+        <div class="radar-area">
+          <div class="radar-title-row">
+            <span class="radar-label">Mood radar</span>
+            <span class="radar-score" id="selectedSummary">0 plants</span>
+          </div>
+          <div class="radar-svg-wrap"><svg id="radarSvg" viewBox="0 0 320 320" role="img" aria-label="植物情绪雷达图"></svg></div>
+        </div>
+        <div class="mood-body">
+          <h3 class="mood-title" id="moodTitle"></h3>
+          <p class="mood-desc" id="moodDesc"></p>
+          <div class="score-list" id="scoreList"></div>
+          <div class="pm-actions">
+            <button class="pm-btn primary" id="copyResult" type="button">复制分析结果</button>
+            <button class="pm-btn" id="clearAll" type="button">清空选择</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+</main>
+<div class="pm-toast" id="toast">已复制</div>
+<script>
+
+const DIMS = ['宁静','活力','自然','浪漫','野趣','都市感'];
+const DIM_COLORS = ['#6F91B8','#C9825A','#789B68','#C97E9B','#9B815C','#7D8790'];
+const DIM_NOTES = ['安静、舒缓、疗愈','明亮、热烈、外向','生态、松弛、亲近土地','柔软、花感、诗意','原生、粗粝、自由','克制、线性、现代'];
+function hslScore(hex, dim) {
+  const r = parseInt(hex.slice(1,3),16)/255, g = parseInt(hex.slice(3,5),16)/255, b = parseInt(hex.slice(5,7),16)/255;
+  const max = Math.max(r,g,b), min = Math.min(r,g,b), d = max-min;
+  let h = 0, s = 0, l = (max+min)/2;
+  if (d > 0) {
+    s = d / (1 - Math.abs(2*l-1));
+    if (max===r) h = ((g-b)/d + 6) % 6;
+    else if (max===g) h = (b-r)/d + 2;
+    else h = (r-g)/d + 4;
+    h *= 60;
+  }
+  const scores = [0,0,0,0,0,0];
+  scores[0] = (h>=200&&h<=280) ? 6+s*2+(1-s)*2 : Math.max(0, 4-(Math.min(Math.abs(h-240),Math.abs(h-240+360))/60)*1.5);
+  scores[0] += (1-s)*2 + l*2;
+  scores[1] = ((h<=60||h>=320) ? 5+s*3 : 2) + s*2 + (1-l)*1.5;
+  scores[2] = (h>=70&&h<=160) ? 5+s*2 : Math.max(0,3-(Math.min(Math.abs(h-115),360-Math.abs(h-115))/60)*1.5);
+  scores[2] += (1-s)*1;
+  scores[3] = (h>=290||h<=20) ? 5+l*3+(1-s)*1 : Math.max(0,3-Math.min(Math.abs(h-320),Math.abs(h-320+360))/60);
+  scores[4] = (1-l)*3 + (1-s)*2 + (h>=20&&h<=80?2:0);
+  scores[5] = (1-s)*4 + (h>=180&&h<=240?2:0) + (l>0.6?1:0);
+  return Math.min(10, Math.max(1, parseFloat(scores[dim].toFixed(1))));
+}
+const PLANTS_RAW = [
+  {name:'薰衣草',color:'#9888C8',adj:[3, -2, 0, 1, 0, -1]},
+  {name:'睡莲（白）',color:'#F0F0F0',adj:[4, -2, 1, 1, -1, 0]},
+  {name:'水杉',color:'#3A6A38',adj:[3, -2, 2, 0, 1, -1]},
+  {name:'竹',color:'#4A7A3A',adj:[4, -2, 1, 0, 0, -1]},
+  {name:'苔藓',color:'#5A7048',adj:[4, -2, 2, 0, 1, -1]},
+  {name:'蓝雪花',color:'#A0B8E0',adj:[4, -2, 0, 0, -1, 0]},
+  {name:'玉簪',color:'#D8E0D0',adj:[4, -2, 1, 1, -1, 0]},
+  {name:'鸢尾（蓝）',color:'#7E9BC8',adj:[4, -1, 0, 1, 0, 0]},
+  {name:'麦冬',color:'#5F7F55',adj:[4, -2, 2, 0, 0, -1]},
+  {name:'白玉兰',color:'#F5F0E8',adj:[4, -2, 0, 1, -1, 0]},
+  {name:'松',color:'#2A5028',adj:[3, -2, 2, 0, 1, -1]},
+  {name:'枯山水白砂',color:'#E8E4D8',adj:[4, -3, 0, 0, -1, 1]},
+  {name:'银叶草',color:'#C8D0C8',adj:[4, -2, 0, 0, -1, 1]},
+  {name:'蓝羊茅',color:'#9BAEAE',adj:[4, -2, 1, 0, 0, 1]},
+  {name:'向日葵',color:'#F0B820',adj:[-2, 4, 1, 0, 0, 0]},
+  {name:'美人蕉（红）',color:'#E05820',adj:[-2, 4, 0, -1, 1, 0]},
+  {name:'矮牵牛（橙）',color:'#E06030',adj:[-2, 4, 0, -1, 0, 0]},
+  {name:'一串红',color:'#E02828',adj:[-2, 4, 0, -1, 0, 1]},
+  {name:'石榴花',color:'#E83020',adj:[-2, 4, 0, -1, 0, 1]},
+  {name:'凌霄',color:'#E05820',adj:[-2, 4, 0, 0, 1, 0]},
+  {name:'月季（红）',color:'#D43858',adj:[-2, 4, 0, 1, 0, 1]},
+  {name:'金鸡菊',color:'#E8A020',adj:[-2, 4, 1, 0, 0, 0]},
+  {name:'百日草',color:'#E04838',adj:[-2, 4, 0, 0, 0, 0]},
+  {name:'郁金香（橙）',color:'#E89030',adj:[-2, 4, 0, 0, 0, 1]},
+  {name:'萱草',color:'#F0A030',adj:[-2, 4, 1, 0, 0, 0]},
+  {name:'天人菊',color:'#D86828',adj:[-2, 4, 1, -1, 1, 0]},
+  {name:'火炬花',color:'#D85028',adj:[-2, 4, 0, -1, 1, 1]},
+  {name:'虞美人（红）',color:'#D84038',adj:[-2, 4, 0, 1, 1, 0]},
+  {name:'狼尾草',color:'#C8B070',adj:[0, -2, 4, -1, 2, -1]},
+  {name:'细叶芒',color:'#B8A858',adj:[0, -2, 4, -1, 2, -1]},
+  {name:'芦苇',color:'#C8B870',adj:[1, -2, 4, 0, 2, -1]},
+  {name:'荻',color:'#C0A858',adj:[1, -2, 4, -1, 2, -1]},
+  {name:'柳树',color:'#7A9A58',adj:[1, -2, 4, 0, 1, -1]},
+  {name:'马鞭草',color:'#8878C0',adj:[1, -1, 4, 0, 1, -1]},
+  {name:'蒲苇',color:'#BEB08A',adj:[1, -2, 4, -1, 2, -1]},
+  {name:'野花组合',color:'#D4A060',adj:[0, -1, 4, -1, 2, -1]},
+  {name:'榆叶梅',color:'#D88A98',adj:[0, -1, 4, 1, 1, -1]},
+  {name:'木槿',color:'#A878C8',adj:[1, -1, 4, 1, 1, -1]},
+  {name:'桂花',color:'#E8B060',adj:[1, -1, 4, 1, 0, -1]},
+  {name:'银杏',color:'#E8C840',adj:[1, -1, 4, 1, 0, -1]},
+  {name:'鸡爪槭',color:'#E86828',adj:[0, 0, 4, 0, 1, -1]},
+  {name:'合欢',color:'#F0A0B0',adj:[1, -1, 4, 2, 0, -1]},
+  {name:'玫瑰（粉白）',color:'#F4C0D0',adj:[1, -1, 0, 4, -1, -1]},
+  {name:'绣球（白）',color:'#F0EEE8',adj:[1, -1, 0, 4, -1, 0]},
+  {name:'绣球（蓝）',color:'#80A8D8',adj:[1, -1, 0, 4, 0, 0]},
+  {name:'飞燕草',color:'#7888C8',adj:[1, -1, 0, 4, 0, 0]},
+  {name:'樱花',color:'#FFCCD8',adj:[1, -1, 0, 4, -1, 0]},
+  {name:'栀子花',color:'#F8F4E4',adj:[1, -1, 0, 4, -1, 0]},
+  {name:'铁线莲（紫）',color:'#8878B8',adj:[1, -1, 0, 4, 0, 0]},
+  {name:'紫藤',color:'#9080C0',adj:[1, -1, 0, 4, 0, 0]},
+  {name:'荷花（粉）',color:'#F0A8B8',adj:[1, -1, 1, 4, 0, 0]},
+  {name:'牡丹（白）',color:'#F5F0E8',adj:[1, -1, 0, 4, -1, 1]},
+  {name:'桃花',color:'#F4A0B0',adj:[1, -1, 0, 4, -1, 0]},
+  {name:'海棠',color:'#E87898',adj:[0, 0, 0, 4, -1, 0]},
+  {name:'丁香',color:'#C4A0D0',adj:[1, -1, 0, 4, 0, 0]},
+  {name:'山茶（红）',color:'#C83040',adj:[0, 0, 0, 4, 0, 0]},
+  {name:'蕨类',color:'#3A6030',adj:[1, -2, 2, -2, 4, -1]},
+  {name:'波斯菊',color:'#E890B8',adj:[0, -1, 1, 0, 4, -1]},
+  {name:'鼠尾草',color:'#7E78B8',adj:[1, -1, 1, -1, 4, -1]},
+  {name:'松果菊',color:'#B85A68',adj:[0, 0, 1, -1, 4, -1]},
+  {name:'蛇鞭菊',color:'#A070B0',adj:[0, -1, 1, -1, 4, -1]},
+  {name:'蓍草',color:'#D8C070',adj:[0, -2, 2, -1, 4, -1]},
+  {name:'滨菊',color:'#F0E8D8',adj:[1, -2, 1, 0, 4, -1]},
+  {name:'狗尾草',color:'#B8A060',adj:[0, -2, 2, -1, 4, -1]},
+  {name:'蓝刺头',color:'#6F86A8',adj:[1, -1, 1, -1, 4, -1]},
+  {name:'醉鱼草',color:'#9A78B8',adj:[0, -1, 1, 0, 4, -1]},
+  {name:'野菊',color:'#D8B848',adj:[0, -1, 2, -1, 4, -1]},
+  {name:'金露梅',color:'#D8A840',adj:[0, -1, 2, -1, 4, -1]},
+  {name:'紫穗狼尾草',color:'#8A6B78',adj:[0, -1, 1, -1, 4, -1]},
+  {name:'山桃草',color:'#E0A0B0',adj:[0, -1, 1, 0, 4, -1]},
+  {name:'大叶黄杨',color:'#3A6828',adj:[-2, 0, -1, -2, -2, 4]},
+  {name:'棕榈',color:'#5A8840',adj:[-2, 1, -1, -2, -1, 4]},
+  {name:'朱蕉',color:'#8A2828',adj:[-2, 1, -2, -2, -1, 4]},
+  {name:'龙舌兰',color:'#788848',adj:[-2, 0, -1, -3, 1, 4]},
+  {name:'修剪绿篱',color:'#3A7030',adj:[-2, 0, -2, -3, -2, 4]},
+  {name:'银叶菊',color:'#C0C8C0',adj:[-1, -1, -1, -2, -2, 4]},
+  {name:'南天竹',color:'#C84048',adj:[-1, 0, -1, -1, -1, 4]},
+  {name:'红枫',color:'#C03020',adj:[-1, 1, -1, -1, 0, 4]},
+  {name:'龟背竹',color:'#2F6B45',adj:[-2, 0, -1, -2, -1, 4]},
+  {name:'蒲葵',color:'#4F7D52',adj:[-2, 0, -1, -2, -1, 4]},
+  {name:'海桐球',color:'#4E6A3A',adj:[-2, 0, -2, -3, -2, 4]},
+  {name:'小叶女贞',color:'#536B43',adj:[-2, 0, -2, -3, -2, 4]},
+  {name:'黑松造型树',color:'#243A28',adj:[0, -1, 0, -1, 1, 4]},
+  {name:'花叶芒',color:'#B8B08C',adj:[-1, -1, 0, -2, 0, 4]}
+];
+const PLANTS = PLANTS_RAW.map(p => { const scores = DIMS.map((_, i) => Math.min(10, Math.max(1, Math.round(hslScore(p.color, i) + (p.adj[i]||0))))); const mainDim = scores.indexOf(Math.max(...scores)); return {...p, scores, mainDim}; });
+const dimGroups = DIMS.map((d, i) => ({dim:d, idx:i, plants:PLANTS.filter(p=>p.mainDim===i)}));
+let activeDim = 0; let selected = new Set();
+function showToast(msg){const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(showToast.t); showToast.t=setTimeout(()=>t.classList.remove('show'),1500)}
+function copyText(text){navigator.clipboard.writeText(text).then(()=>showToast('已复制'))}
+function getAvgScores(){const arr=[...selected].map(name=>PLANTS.find(p=>p.name===name)).filter(Boolean); if(!arr.length) return DIMS.map(()=>0); return DIMS.map((_,i)=>parseFloat((arr.reduce((s,p)=>s+p.scores[i],0)/arr.length).toFixed(1)))}
+function getMoodDesc(scores){const sorted=scores.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v); const a=sorted[0], b=sorted[1]; const descs={0:'宁静感占主导，整体更适合疗愈花园、静坐空间、低刺激的入口节点。',1:'活力感更突出，色彩和形态会更外向，适合儿童活动区、节庆花境或需要吸引视线的节点。',2:'自然感更强，组合会显得松弛、生态、贴近土地，适合自然式花境和乡野风格空间。',3:'浪漫气质明显，适合婚礼花园、柔和庭院、女性向商业空间或诗意花境。',4:'野趣感突出，带有原生、粗粝和自由生长的气质，适合荒野感花园和生态修复场景。',5:'都市感更明显，形态更克制、现代，适合商业街区、城市广场和极简景观。'}; return {title:DIMS[a.i]+' × '+DIMS[b.i], desc:descs[a.i]};}
+function renderTabs(){document.getElementById('dimTabs').innerHTML=dimGroups.map((g,i)=>`<button class="dim-tab${i===activeDim?' active':''}" type="button" onclick="switchDim(${i})"><span class="dot" style="background:${DIM_COLORS[i]}"></span>${g.dim}<span style="opacity:.62">${g.plants.length}</span></button>`).join('')}
+function switchDim(i){activeDim=i; renderTabs(); renderGrid()}
+function renderGrid(){const group=dimGroups[activeDim]; document.getElementById('activeDimLabel').textContent=group.dim+'植物'; document.getElementById('activeDimCount').textContent=group.plants.length+' plants'; const full=selected.size>=8; document.getElementById('plantGrid').innerHTML=group.plants.map(p=>{const is=selected.has(p.name); const dis=full&&!is; return `<button class="plant-chip${is?' selected':''}${dis?' disabled':''}" type="button" ${dis?'disabled':''} onclick="togglePlant('${p.name}')"><span class="chip-dot" style="background:${p.color}"></span><span>${p.name}</span></button>`}).join('')}
+function togglePlant(name){if(selected.has(name)) selected.delete(name); else if(selected.size<8) selected.add(name); renderGrid(); renderSelected(); updateResult()}
+function renderSelected(){document.getElementById('countHint').textContent=`已选 ${selected.size} / 8`; const bar=document.getElementById('selectedBar'); if(!selected.size){bar.innerHTML='<span class="selected-empty">还没有选择植物</span>'; return} bar.innerHTML=[...selected].map(name=>{const p=PLANTS.find(x=>x.name===name); return `<button class="sel-tag" type="button" onclick="togglePlant('${name}')"><span class="chip-dot" style="background:${p.color};width:8px;height:8px"></span>${name} ×</button>`}).join('')}
+function polar(cx,cy,r,angle){const rad=(angle-90)*Math.PI/180; return [cx+r*Math.cos(rad),cy+r*Math.sin(rad)]}
+function drawRadar(scores){const svg=document.getElementById('radarSvg'); const cx=160, cy=160, maxR=112; let html=''; for(let ring=2; ring<=10; ring+=2){const r=maxR*ring/10; const pts=DIMS.map((_,i)=>polar(cx,cy,r,i*60).join(',')).join(' '); html+=`<polygon points="${pts}" fill="none" stroke="rgba(30,25,18,.12)" stroke-width="1"/>`} DIMS.forEach((d,i)=>{const [x,y]=polar(cx,cy,maxR,i*60); html+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(30,25,18,.10)"/>`; const [lx,ly]=polar(cx,cy,maxR+28,i*60); html+=`<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="${DIM_COLORS[i]}">${d}</text>`}); const pts=scores.map((v,i)=>polar(cx,cy,maxR*v/10,i*60).join(',')).join(' '); html+=`<polygon points="${pts}" fill="rgba(120,155,104,.23)" stroke="#789B68" stroke-width="2.4"/>`; scores.forEach((v,i)=>{const [x,y]=polar(cx,cy,maxR*v/10,i*60); html+=`<circle cx="${x}" cy="${y}" r="4.6" fill="${DIM_COLORS[i]}" stroke="#fff" stroke-width="2"/>`}); svg.innerHTML=html}
+function updateResult(){const panel=document.getElementById('resultPanel'); if(!selected.size){panel.classList.remove('visible'); return} panel.classList.add('visible'); const scores=getAvgScores(); const mood=getMoodDesc(scores); document.getElementById('selectedSummary').textContent=selected.size+' plants'; document.getElementById('moodTitle').textContent=mood.title; document.getElementById('moodDesc').textContent=mood.desc; drawRadar(scores); document.getElementById('scoreList').innerHTML=DIMS.map((d,i)=>`<div class="score-row"><span style="color:${DIM_COLORS[i]}">${d}</span><div class="score-track"><div class="score-fill" style="width:${scores[i]*10}%;background:${DIM_COLORS[i]}"></div></div><strong>${scores[i]}</strong></div><div style="margin:-4px 0 2px 58px;color:#aaa;font-size:11px;line-height:1.4">${DIM_NOTES[i]}</div>`).join('')}
+document.getElementById('copyResult').onclick=()=>{if(!selected.size)return; const scores=getAvgScores(); const mood=getMoodDesc(scores); const plants=[...selected].join('、'); const scoreText=DIMS.map((d,i)=>`${d}: ${scores[i]}`).join('\n'); copyText(`植物组合：${plants}\n情绪倾向：${mood.title}\n${scoreText}\n说明：${mood.desc}`)};
+document.getElementById('clearAll').onclick=()=>{selected.clear(); renderGrid(); renderSelected(); updateResult()};
+renderTabs(); renderGrid(); renderSelected();
+
+</script>
+<footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+</footer>
+<script>
+    function toggleMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.toggle('open');
+    }
+
+    function closeMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(event){
+      const panel = document.getElementById('mobileMenuPanel');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if(!panel || !toggle) return;
+      if(panel.contains(event.target) || toggle.contains(event.target)) return;
+      panel.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

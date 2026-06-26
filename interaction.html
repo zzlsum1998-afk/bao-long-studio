@@ -533,6 +533,42 @@
       font-weight:800;
       backdrop-filter:blur(12px);
     }
+
+    .plant-mood-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(215,226,191,.45), transparent 26%),
+        radial-gradient(circle at 86% 24%, rgba(232,204,169,.38), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(199,178,218,.20), transparent 34%),
+        #f7f5ef;
+    }
+    .plant-mood-thumb svg{
+      width:74%;
+      max-width:230px;
+      overflow:visible;
+      filter:drop-shadow(0 18px 28px rgba(35,30,22,.10));
+    }
+    .plant-mood-thumb::after{
+      content:"PLANT MOOD RADAR";
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(222,217,207,.86);
+      color:#4f4b46;
+      font-size:11px;
+      line-height:1;
+      letter-spacing:.16em;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+    }
     .interaction-case-body{
       padding:24px 24px 26px;
       display:flex;
@@ -724,6 +760,46 @@
 </div>
 </div>
 </article>
+
+<article class="interaction-case-card">
+<div class="interaction-case-thumb" aria-hidden="true">
+<div class="plant-mood-thumb">
+<svg viewBox="0 0 260 260" role="img" aria-label="Plant mood radar preview">
+<polygon points="130,24 222,77 222,183 130,236 38,183 38,77" fill="none" stroke="rgba(30,25,18,.12)" stroke-width="1.4"></polygon>
+<polygon points="130,58 192,94 192,166 130,202 68,166 68,94" fill="none" stroke="rgba(30,25,18,.10)" stroke-width="1.2"></polygon>
+<line x1="130" y1="130" x2="130" y2="24" stroke="rgba(30,25,18,.10)"></line>
+<line x1="130" y1="130" x2="222" y2="77" stroke="rgba(30,25,18,.10)"></line>
+<line x1="130" y1="130" x2="222" y2="183" stroke="rgba(30,25,18,.10)"></line>
+<line x1="130" y1="130" x2="130" y2="236" stroke="rgba(30,25,18,.10)"></line>
+<line x1="130" y1="130" x2="38" y2="183" stroke="rgba(30,25,18,.10)"></line>
+<line x1="130" y1="130" x2="38" y2="77" stroke="rgba(30,25,18,.10)"></line>
+<polygon points="130,42 198,91 184,161 130,194 70,166 82,102" fill="rgba(120,155,104,.24)" stroke="#789B68" stroke-width="3"></polygon>
+<circle cx="130" cy="42" r="6" fill="#6F91B8" stroke="#fff" stroke-width="2"></circle>
+<circle cx="198" cy="91" r="6" fill="#C9825A" stroke="#fff" stroke-width="2"></circle>
+<circle cx="184" cy="161" r="6" fill="#789B68" stroke="#fff" stroke-width="2"></circle>
+<circle cx="130" cy="194" r="6" fill="#C97E9B" stroke="#fff" stroke-width="2"></circle>
+<circle cx="70" cy="166" r="6" fill="#9B815C" stroke="#fff" stroke-width="2"></circle>
+<circle cx="82" cy="102" r="6" fill="#7D8790" stroke="#fff" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<div class="interaction-case-body">
+<div class="interaction-case-type">Plant Mood Radar</div>
+<h3>植物情绪雷达图</h3>
+<p>从 84 种景观植物中选择组合，观察它们在宁静、活力、自然、浪漫、野趣与都市感之间形成的空间情绪倾向。</p>
+<div class="case-tags">
+<span>植物组合</span>
+<span>情绪雷达</span>
+<span>景观气质</span>
+<span>设计灵感</span>
+</div>
+<div class="case-actions">
+<a class="case-link" href="plant-emotion-radar.html">打开工具</a>
+<span class="case-note">结果仅作设计灵感参考，不作为严谨植物学评估</span>
+</div>
+</div>
+</article>
+
 
 </div>
 </section>

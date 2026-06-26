@@ -499,6 +499,40 @@
       object-fit:cover;
       display:block;
     }
+    .plant-color-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:grid;
+      grid-template-columns:repeat(8,1fr);
+      gap:6px;
+      padding:24px;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(232,201,106,.34), transparent 24%),
+        radial-gradient(circle at 82% 76%, rgba(184,200,160,.34), transparent 26%),
+        #f7f5ef;
+    }
+    .plant-color-thumb span{
+      border-radius:14px;
+      border:1px solid rgba(22,22,22,.07);
+      box-shadow:0 8px 18px rgba(35,30,22,.06);
+    }
+    .plant-color-thumb::after{
+      content:"52 WEEK PLANT COLORS";
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(222,217,207,.86);
+      color:#4f4b46;
+      font-size:11px;
+      line-height:1;
+      letter-spacing:.16em;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+    }
     .interaction-case-body{
       padding:24px 24px 26px;
       display:flex;
@@ -666,6 +700,31 @@
 </div>
 </div>
 </article>
+<article class="interaction-case-card">
+<div class="interaction-case-thumb" aria-hidden="true">
+<div class="plant-color-thumb">
+<span style="background:#E8C96A"></span><span style="background:#C8374A"></span><span style="background:#F5D080"></span><span style="background:#E8D840"></span><span style="background:#F5F0E8"></span><span style="background:#F4A0B0"></span><span style="background:#9B6BAC"></span><span style="background:#C06090"></span>
+<span style="background:#9080C0"></span><span style="background:#D4507A"></span><span style="background:#F0A0B8"></span><span style="background:#D43858"></span><span style="background:#80A8D8"></span><span style="background:#E05820"></span><span style="background:#F8D0E0"></span><span style="background:#D060A8"></span>
+<span style="background:#A878C8"></span><span style="background:#F0B820"></span><span style="background:#E8A020"></span><span style="background:#9888C8"></span><span style="background:#8878C0"></span><span style="background:#E85820"></span><span style="background:#E04838"></span><span style="background:#E8B060"></span>
+</div>
+</div>
+<div class="interaction-case-body">
+<div class="interaction-case-type">Plant Color Calendar</div>
+<h3>植物色彩年历</h3>
+<p>以 52 周为线索，浏览四季植物在花期、叶色、果实与景观状态中的代表色，并复制配色参考。</p>
+<div class="case-tags">
+<span>植物色彩</span>
+<span>四季节奏</span>
+<span>配色参考</span>
+<span>景观灵感</span>
+</div>
+<div class="case-actions">
+<a class="case-link" href="plant-color-calendar.html">打开工具</a>
+<span class="case-note">适合作为花境、庭院与景观配色灵感参考</span>
+</div>
+</div>
+</article>
+
 </div>
 </section>
 </main>

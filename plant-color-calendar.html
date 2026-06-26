@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Plant Color Calendar | BaoLong Lab</title><style>
+    :root{--bg:#f7f6f2;--paper:#fff;--ink:#1c1c1c;--muted:#77736b;--line:#ded9cf;--shadow:0 18px 50px rgba(0,0,0,.07);}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.01em;}
+    a{text-decoration:none;color:inherit} .hero{max-width:1500px;margin:0 auto;padding:86px 48px 70px;display:grid;grid-template-columns:1fr .82fr;gap:58px;align-items:center;}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:13px;color:var(--muted);font-weight:700;margin-bottom:18px;}
+    h1{margin:0;font-size:clamp(48px,7vw,92px);line-height:.95;letter-spacing:.02em;} .hero p{margin:24px 0 0;color:#4d4942;font-size:18px;line-height:1.75;max-width:720px;}
+    .mock{background:#111;color:#fff;min-height:520px;padding:34px;box-shadow:var(--shadow);display:grid;gap:18px;align-content:center;} .mock-card{border:1px solid rgba(255,255,255,.18);padding:22px;border-radius:24px;background:#202020;}
+    .mock-card h3{margin:0 0 10px;font-size:24px} .mock-card p{margin:0;color:#d6d1c8;line-height:1.65} .section{max-width:1500px;margin:0 auto;padding:60px 48px 90px;} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;min-height:220px;box-shadow:var(--shadow);} .card h3{margin:0 0 12px;font-size:26px} .card p{color:var(--muted);line-height:1.7}
+    @media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero,.section{padding:54px 22px}}
+
+    /* Unified BaoLong Lab header */
+    .site-header{
+      height:104px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:0 48px;
+      background:rgba(247,246,242,.94);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:330px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .brand-logo-img{
+      width:108px;
+      height:108px;
+      object-fit:contain;
+      flex:0 0 auto;
+      display:block;
+      background:transparent !important;
+      border-radius:0 !important;
+    }
+    .brand-mark{display:none !important;}
+    .brand-text{
+      font-size:16px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      color:#2a2927;
+      flex:1;
+      justify-content:center;
+    }
+    .nav a{
+      position:relative;
+      padding:8px 0;
+      white-space:nowrap;
+      color:inherit;
+      text-decoration:none;
+    }
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:0;
+      height:1px;
+      background:#111;
+      transition:.24s ease;
+    }
+    .nav a:hover::after{width:100%}
+    .nav-dropdown{position:relative;display:flex;align-items:center;}
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:34px;
+      left:50%;
+      transform:translateX(-50%);
+      min-width:210px;
+      background:#fff;
+      border:1px solid #ded9cf;
+      border-radius:18px;
+      padding:10px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+      z-index:200;
+    }
+    .nav-dropdown:hover .dropdown-content{display:block;}
+    .dropdown-content a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:14px;
+      color:#2a2927;
+    }
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{background:#f7f6f2;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:260px;
+      justify-content:flex-end;
+    }
+    .pill-btn{
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      padding:10px 18px;
+      background:rgba(255,255,255,.6);
+      cursor:pointer;
+      transition:.25s ease;
+      color:#1c1c1c;
+    }
+    .pill-btn:hover{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    @media (max-width:1200px){
+      .site-header{padding:0 28px}
+      .brand{min-width:auto}
+      .brand-logo-img{width:55px !important;height:55px !important;max-width:55px !important;max-height:55px !important;}
+      .nav{gap:16px;font-size:14px}
+      .header-actions{min-width:auto}
+    }
+    @media (max-width:900px){
+      .site-header{height:auto;align-items:flex-start;padding:18px 20px;flex-wrap:wrap;}
+      .brand-logo-img{width:44px !important;height:44px !important;max-width:44px !important;max-height:44px !important;}
+      .nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;gap:18px;padding-top:8px;}
+      .header-actions{display:none}
+      .dropdown-content{left:0;transform:none;}
+    }
+
+  
+
+    /* Mobile refinement: keep desktop unchanged, improve small-screen readability */
+    @media (max-width:900px){
+      body{
+        overflow-x:hidden;
+      }
+
+      .site-header{
+        height:auto !important;
+        min-height:70px;
+        padding:14px 16px !important;
+        gap:12px;
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+
+      .brand{
+        min-width:0 !important;
+        gap:10px;
+      }
+
+      .brand-logo-img{
+        width:38px;
+        height:auto;
+      }
+
+      .brand-text{
+        font-size:13px !important;
+        letter-spacing:.22em !important;
+        white-space:nowrap;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        gap:18px;
+        overflow-x:auto;
+        overflow-y:visible;
+        padding:4px 0 8px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      .nav a{
+        font-size:14px;
+        white-space:nowrap;
+      }
+
+      .nav-dropdown{
+        flex:0 0 auto;
+      }
+
+      .dropdown-content{
+        top:34px;
+        left:0;
+      }
+
+      .header-actions{
+        display:none !important;
+      }
+
+      .hero{
+        min-height:auto !important;
+        padding:48px 18px;
+      }
+
+      .section{
+        padding:54px 18px !important;
+      }
+
+      .section-head{
+        display:block !important;
+      }
+
+      .section-title{
+        font-size:clamp(34px,11vw,54px) !important;
+        line-height:1.02;
+      }
+
+      .section-desc{
+        font-size:15px;
+        line-height:1.75;
+      }
+
+      .tabs{
+        display:flex;
+        gap:10px;
+        overflow-x:auto;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        padding-bottom:6px;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .tabs::-webkit-scrollbar{
+        display:none;
+      }
+
+      .tab{
+        flex:0 0 auto;
+        white-space:nowrap;
+      }
+
+      .masonry{
+        grid-template-columns:1fr !important;
+      }
+
+      .pin{
+        border-radius:24px !important;
+      }
+
+      .footer{
+        display:block !important;
+        padding:36px 18px !important;
+        font-size:13px;
+        line-height:1.7;
+      }
+    }
+
+
+
+    /* Mobile horizontal scroll fix: only nav can scroll sideways, page content stays vertical */
+    @media (max-width:900px){
+      html,
+      body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden !important;
+      }
+
+      body > *{
+        max-width:100vw;
+      }
+
+      .site-header{
+        max-width:100vw;
+        overflow-x:hidden !important;
+      }
+
+      .nav{
+        display:flex !important;
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        overflow-x:auto !important;
+        overflow-y:visible !important;
+        flex-wrap:nowrap !important;
+        justify-content:flex-start !important;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+
+      .nav::-webkit-scrollbar{
+        display:none;
+      }
+
+      main,
+      .hero,
+      .product-hero,
+      .section,
+      .masonry-wrap,
+      .tool-band,
+      .footer{
+        max-width:100vw !important;
+        overflow-x:hidden !important;
+      }
+
+      .hero-product-slide,
+      .news-slide,
+      .product-grid,
+      .masonry,
+      .tool-cards{
+        max-width:100% !important;
+      }
+
+      img,
+      video,
+      canvas,
+      svg{
+        max-width:100%;
+      }
+    }
+
+
+
+    /* Mobile dropdown menu: desktop navigation remains unchanged */
+    .mobile-menu-toggle,
+    .mobile-menu-panel{
+      display:none;
+    }
+
+    @media (max-width:900px){
+      .site-header{
+        position:sticky;
+        top:0;
+        display:flex;
+        align-items:center !important;
+        justify-content:space-between;
+        flex-wrap:nowrap !important;
+        overflow:visible !important;
+      }
+
+      .brand{
+        flex:1 1 auto;
+        min-width:0 !important;
+      }
+
+      .brand-text{
+        max-width:calc(100vw - 120px);
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .nav,
+      .header-actions{
+        display:none !important;
+      }
+
+      .mobile-menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 auto;
+        border:1px solid var(--line);
+        border-radius:999px;
+        background:rgba(255,255,255,.76);
+        padding:9px 14px;
+        font-size:13px;
+        color:#1c1c1c;
+        cursor:pointer;
+        letter-spacing:.04em;
+      }
+
+      .mobile-menu-panel{
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        right:14px;
+        left:14px;
+        z-index:80;
+        max-height:72vh;
+        overflow-y:auto;
+        background:rgba(255,255,255,.96);
+        border:1px solid var(--line);
+        border-radius:22px;
+        box-shadow:0 20px 48px rgba(0,0,0,.14);
+        padding:12px;
+        backdrop-filter:blur(18px);
+      }
+
+      .mobile-menu-panel.open{
+        display:block;
+      }
+
+      .mobile-menu-panel a{
+        display:block;
+        padding:12px 14px;
+        border-radius:14px;
+        color:#1c1c1c;
+        font-size:15px;
+        line-height:1.25;
+      }
+
+      .mobile-menu-panel a:hover{
+        background:#f3f0e8;
+      }
+
+      .mobile-menu-group{
+        margin:10px 8px 4px;
+        color:var(--muted);
+        font-size:11px;
+        line-height:1;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        font-weight:700;
+      }
+
+      html,
+      body{
+        overflow-x:hidden !important;
+      }
+    }
+
+
+
+    /* Gesture interaction case cards */
+    .interaction-cases{
+      max-width:1500px;
+      margin:0 auto;
+      padding:10px 48px 96px;
+    }
+    .case-head{
+      display:flex;
+      justify-content:space-between;
+      gap:28px;
+      align-items:flex-end;
+      margin-bottom:26px;
+      border-top:1px solid var(--line);
+      padding-top:54px;
+    }
+    .case-kicker{
+      margin-bottom:12px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .case-title{
+      margin:0;
+      font-size:clamp(34px,4.2vw,64px);
+      line-height:.98;
+      letter-spacing:-.03em;
+    }
+    .case-desc{
+      max-width:520px;
+      margin:0;
+      color:#5f5a51;
+      line-height:1.75;
+      font-size:15px;
+    }
+    .interaction-case-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .interaction-case-card{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:rgba(255,255,255,.72);
+      box-shadow:var(--shadow);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .interaction-case-card:hover{
+      transform:translateY(-4px);
+      border-color:#c8c1b4;
+      box-shadow:0 24px 60px rgba(0,0,0,.10);
+    }
+    .interaction-case-thumb{
+      width:100%;
+      aspect-ratio:1.35/1;
+      background:#ece8df;
+      overflow:hidden;
+    }
+    .interaction-case-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .plant-color-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:grid;
+      grid-template-columns:repeat(8,1fr);
+      gap:6px;
+      padding:24px;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(232,201,106,.34), transparent 24%),
+        radial-gradient(circle at 82% 76%, rgba(184,200,160,.34), transparent 26%),
+        #f7f5ef;
+    }
+    .plant-color-thumb span{
+      border-radius:14px;
+      border:1px solid rgba(22,22,22,.07);
+      box-shadow:0 8px 18px rgba(35,30,22,.06);
+    }
+    .plant-color-thumb::after{
+      content:"52 WEEK PLANT COLORS";
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(222,217,207,.86);
+      color:#4f4b46;
+      font-size:11px;
+      line-height:1;
+      letter-spacing:.16em;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+    }
+    .interaction-case-body{
+      padding:24px 24px 26px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      flex:1;
+    }
+    .interaction-case-type{
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .interaction-case-card h3{
+      margin:0;
+      font-size:26px;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .interaction-case-card p{
+      margin:0;
+      color:#6d675d;
+      font-size:14px;
+      line-height:1.75;
+    }
+    .case-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+    .case-tags span{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:6px 10px;
+      border:1px solid #ded9cf;
+      border-radius:999px;
+      background:#f7f6f2;
+      color:#676158;
+      font-size:12px;
+      line-height:1;
+    }
+    .case-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+    .case-link,
+    .case-note{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:11px 15px;
+      border-radius:999px;
+      font-size:13px;
+      line-height:1;
+    }
+    .case-link{
+      background:#111;
+      color:#fff;
+      border:1px solid #111;
+    }
+    .case-note{
+      border:1px solid var(--line);
+      color:#514c45;
+      background:rgba(255,255,255,.56);
+    }
+    @media(max-width:900px){
+      .interaction-cases{padding:26px 18px 72px !important;}
+      .case-head{display:block;padding-top:38px;}
+      .case-desc{margin-top:16px;}
+      .interaction-case-grid{grid-template-columns:1fr;}
+    }
+
+
+  :root {
+    --bg:#f7f5ef;
+    --paper:#fffdfa;
+    --paper-soft:#f1eee7;
+    --ink:#161616;
+    --muted:#7b7770;
+    --line:#dfd9ce;
+    --line-soft:#ebe5da;
+    --shadow:0 24px 70px rgba(35,30,22,.10);
+    --radius:28px;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(238,217,168,.36), transparent 24%),
+      radial-gradient(circle at 88% 22%, rgba(189,203,164,.28), transparent 26%),
+      var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .pc-page { max-width:1440px; margin:0 auto; padding:38px 48px 64px; }
+  .pc-top { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:54px; }
+  .pc-brand { display:flex; align-items:center; gap:18px; letter-spacing:.42em; font-size:15px; }
+  .pc-logo { width:54px; height:54px; border:1px solid var(--line); border-radius:18px; display:grid; place-items:center; background:rgba(255,255,255,.48); }
+  .pc-logo::before { content:""; width:24px; height:30px; border:3px solid #111; border-radius:50% 50% 44% 44%; transform:rotate(-12deg); box-shadow:22px -1px 0 -2px #f7f5ef, 22px -1px 0 1px #111; }
+  .pc-nav { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:14px; }
+  .pc-pill { border:1px solid var(--line); border-radius:999px; padding:11px 18px; background:rgba(255,255,255,.42); }
+  .pc-hero { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end; margin-bottom:32px; }
+  .pc-kicker { color:#9c968d; letter-spacing:.2em; font-weight:700; font-size:13px; margin-bottom:16px; text-transform:uppercase; }
+  h1 { font-size:clamp(48px,7vw,112px); line-height:.92; letter-spacing:-.07em; margin:0 0 18px; }
+  .pc-subtitle { max-width:760px; color:#4f4b46; font-size:18px; line-height:1.8; margin:0; }
+  .pc-hero-card { width:310px; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.52); padding:18px; box-shadow:0 12px 42px rgba(30,25,18,.06); }
+  .pc-hero-card-title { font-size:13px; color:var(--muted); margin-bottom:12px; }
+  .pc-mini-strip { display:flex; height:54px; overflow:hidden; border-radius:16px; border:1px solid var(--line-soft); }
+  .pc-mini-strip span { flex:1; }
+  .pc-layout { display:grid; grid-template-columns:minmax(0,1fr) 390px; gap:28px; align-items:stretch; }
+  .pc-board { border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.58); box-shadow:var(--shadow); padding:28px; min-height:690px; }
+  .pc-board-head { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; padding-bottom:24px; border-bottom:1px solid var(--line-soft); margin-bottom:24px; }
+  .pc-section-title { margin:0; font-size:20px; letter-spacing:-.02em; }
+  .pc-section-desc { margin:8px 0 0; color:var(--muted); line-height:1.7; font-size:14px; }
+  .pc-season-tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+  .pc-season-tab { border:1px solid var(--line); border-radius:999px; background:#fffbf6; padding:9px 14px; font-size:13px; color:#4f4b46; cursor:pointer; }
+  .pc-season-tab.active { background:#111; color:#fff; border-color:#111; }
+  .season-row { scroll-margin-top:32px; margin-bottom:26px; }
+  .season-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; color:var(--muted); font-size:13px; }
+  .season-label { letter-spacing:.12em; text-transform:uppercase; font-weight:700; }
+  .cal-grid { display:grid; grid-template-columns:repeat(13, minmax(28px,1fr)); gap:8px; }
+  .cal-cell {
+    aspect-ratio:1;
+    border-radius:12px;
+    cursor:pointer;
+    position:relative;
+    border:1px solid rgba(22,22,22,.07);
+    transition:transform .18s ease, box-shadow .18s ease, border-radius .18s ease;
+    isolation:isolate;
+  }
+  .cal-cell::after {
+    content:attr(data-tip);
+    position:absolute;
+    left:50%; bottom:calc(100% + 10px);
+    transform:translateX(-50%) translateY(4px);
+    opacity:0; pointer-events:none;
+    white-space:nowrap;
+    background:#171716; color:white;
+    padding:7px 10px;
+    border-radius:999px;
+    font-size:12px;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+    transition:.16s ease;
+    z-index:8;
+  }
+  .cal-cell:hover { transform:scale(1.18); border-radius:16px; box-shadow:0 14px 30px rgba(22,22,22,.18); z-index:5; }
+  .cal-cell:hover::after { opacity:1; transform:translateX(-50%) translateY(0); }
+  .cal-cell.active { outline:3px solid #151515; outline-offset:3px; transform:scale(1.08); z-index:4; }
+  .pc-detail { position:sticky; top:24px; align-self:stretch; min-height:690px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,253,250,.82); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .pc-detail-empty { flex:1; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; padding:44px; color:var(--muted); line-height:1.8; }
+  .pc-detail-content { display:none; }
+  .pc-detail.visible .pc-detail-empty { display:none; }
+  .pc-detail.visible .pc-detail-content { display:flex; flex-direction:column; flex:1; }
+  .detail-hero { height:220px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.35); }
+  .detail-week { align-self:flex-start; border:1px solid rgba(255,255,255,.5); background:rgba(255,255,255,.28); backdrop-filter:blur(12px); border-radius:999px; padding:7px 12px; font-size:12px; color:rgba(0,0,0,.66); }
+  .detail-hex-big { align-self:flex-end; background:rgba(255,255,255,.82); border:1px solid rgba(0,0,0,.08); border-radius:999px; padding:10px 14px; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:13px; cursor:pointer; }
+  .detail-body { padding:24px; flex:1; display:flex; flex-direction:column; }
+  .plant-name { font-size:30px; line-height:1.1; letter-spacing:-.04em; margin:0; }
+  .plant-latin { margin-top:7px; color:#9b9488; font-style:italic; font-size:13px; }
+  .tags { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0; }
+  .tag { border:1px solid var(--line); background:#f8f4ed; border-radius:999px; padding:7px 11px; color:#5e584f; font-size:12px; }
+  .desc { color:#575047; line-height:1.85; font-size:14px; margin:0; }
+  .detail-note { margin-top:14px; color:#9b9488; font-size:12px; line-height:1.65; }
+  .detail-subhead { margin:24px 0 10px; color:#9b9488; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+  .pairs { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .pair-swatch { height:58px; border-radius:14px; border:1px solid rgba(0,0,0,.08); cursor:pointer; position:relative; }
+  .pair-swatch::after { content:attr(data-hex); position:absolute; left:8px; bottom:8px; color:rgba(0,0,0,.54); font-family:ui-monospace,monospace; font-size:10px; background:rgba(255,255,255,.62); border-radius:999px; padding:3px 5px; opacity:0; transition:.14s ease; }
+  .pair-swatch:hover::after { opacity:1; }
+  .pc-actions { display:flex; gap:8px; margin-top:auto; padding-top:24px; }
+  .pc-btn { border:1px solid var(--line); background:#fffaf2; border-radius:999px; padding:10px 14px; font-size:13px; cursor:pointer; color:#191816; }
+  .pc-btn.primary { background:#111; color:#fff; border-color:#111; }
+  .pc-toast { position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(14px); opacity:0; pointer-events:none; background:#141414; color:#fff; border-radius:999px; padding:12px 18px; font-size:13px; transition:.18s ease; z-index:20; }
+  .pc-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  @media (max-width:980px) {
+    .pc-page { padding:24px 18px 42px; }
+    .pc-top { margin-bottom:36px; }
+    .pc-nav { display:none; }
+    .pc-hero { grid-template-columns:1fr; }
+    .pc-hero-card { width:100%; }
+    .pc-layout { grid-template-columns:1fr; }
+    .pc-board, .pc-detail { min-height:auto; }
+    .pc-detail { position:relative; top:auto; }
+    .pc-board-head { flex-direction:column; }
+    .pc-season-tabs { justify-content:flex-start; }
+    .cal-grid { gap:6px; }
+  }
+  @media (max-width:560px) {
+    h1 { font-size:48px; }
+    .pc-board { padding:18px; border-radius:22px; }
+    .cal-grid { grid-template-columns:repeat(7, 1fr); }
+    .pc-brand { font-size:12px; letter-spacing:.28em; }
+    .pc-logo { width:46px; height:46px; }
+  }
+
+
+/* Integrated page spacing: use existing BaoLong Lab header; keep plant tool content below it */
+.pc-page{padding-top:72px;}
+@media(max-width:900px){.pc-page{padding-top:42px;}}
+
+</style>
+<link href="css/common.css?v=124" rel="stylesheet"/>
+<script defer="" src="js/common.js?v=124"></script>
+</head><body><header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header><main class="pc-page">
+<section class="pc-hero">
+      <div>
+        <div class="pc-kicker">Interaction Lab · Plant Palette Tool</div>
+        <h1>植物色彩年历</h1>
+        <p class="pc-subtitle">52 周植物代表色，用四季花期、叶色与果实变化整理一份可浏览、可复制、可参考的景观色彩工具。</p>
+      </div>
+      <aside class="pc-hero-card" aria-label="season preview">
+        <div class="pc-hero-card-title">Seasonal rhythm preview</div>
+        <div class="pc-mini-strip" id="miniStrip"></div>
+      </aside>
+    </section>
+
+    <section class="pc-layout">
+      <div class="pc-board">
+        <div class="pc-board-head">
+          <div>
+            <h2 class="pc-section-title">52 weeks · four seasons</h2>
+            <p class="pc-section-desc">扫过色块感受季节色彩节奏，点击查看植物、代表色、景观状态与搭配色。</p>
+          </div>
+          <div class="pc-season-tabs" id="seasonTabs"></div>
+        </div>
+        <div id="calendar"></div>
+      </div>
+
+      <aside class="pc-detail" id="detail">
+        <div class="pc-detail-empty">点击左侧任意色块，查看植物色彩详情。<br>每周代表一种季节状态，不等于严格花期。</div>
+        <div class="pc-detail-content">
+          <div class="detail-hero" id="detailHero">
+            <span class="detail-week" id="d-week"></span>
+            <button class="detail-hex-big" id="d-hex" type="button">#000000</button>
+          </div>
+          <div class="detail-body">
+            <h3 class="plant-name" id="d-name"></h3>
+            <div class="plant-latin" id="d-latin"></div>
+            <div class="tags">
+              <span class="tag" id="d-season"></span>
+              <span class="tag" id="d-state"></span>
+              <span class="tag" id="d-scene"></span>
+            </div>
+            <p class="desc" id="d-desc"></p>
+            <p class="detail-note">注：周数为季节色彩参考，具体花期会因地区与气候不同而变化。</p>
+            <div class="detail-subhead">Recommended pairing colors</div>
+            <div class="pairs" id="d-pairs"></div>
+            <div class="pc-actions">
+              <button class="pc-btn primary" id="copyPalette" type="button">复制本组色值</button>
+              <button class="pc-btn" id="clearActive" type="button">收起详情</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  
+</main>
+<div class="pc-toast" id="toast">已复制</div>
+<script>
+
+const plants = [
+  {w:1,name:"蜡梅",latin:"Chimonanthus praecox",color:"#E8C96A",state:"盛花期",desc:"寒冬中率先开放，花色金黄如蜡，带来一丝暖意。",pairs:["#C4934A","#F5E8C0","#8B6914"]},
+  {w:2,name:"山茶花",latin:"Camellia japonica",color:"#C8374A",state:"花蕾初绽",desc:"深冬至早春盛开，艳红色调在灰色天空下格外醒目。",pairs:["#1A3A2A","#E8A0A8","#8B2232"]},
+  {w:3,name:"结香",latin:"Edgeworthia chrysantha",color:"#F5D080",state:"花苞期",desc:"花苞密集，金黄色调柔和，是早春典型的暖色调植物。",pairs:["#7A6030","#FDF0C0","#B8902A"]},
+  {w:4,name:"迎春花",latin:"Jasminum nudiflorum",color:"#E8D840",state:"初花",desc:"枝条鲜绿，花朵明黄，是春天来临的第一个信号。",pairs:["#4A7A30","#FBF5A0","#A89020"]},
+  {w:5,name:"玉兰",latin:"Magnolia denudata",color:"#F5F0E8",state:"盛花期",desc:"纯白色大花先叶开放，洁净通透，带有淡淡清香。",pairs:["#8A7A6A","#D4C4B4","#4A4038"]},
+  {w:6,name:"桃花",latin:"Prunus persica",color:"#F4A0B0",state:"盛花期",desc:"粉嫩桃红，花量繁盛，是江南春色的代表色调。",pairs:["#C07080","#FDE0E8","#6A3040"]},
+  {w:7,name:"梨花",latin:"Pyrus serotina",color:"#F8F4EC",state:"盛花期",desc:"洁白如雪，花瓣轻薄，常与春雨、新绿搭配成景。",pairs:["#6A8A50","#D4E8C0","#4A5A38"]},
+  {w:8,name:"海棠",latin:"Malus spectabilis",color:"#E87898",state:"盛花期",desc:"花色由深粉到浅粉渐变，花型饱满，色调雅致温柔。",pairs:["#A04860","#F8C0D0","#603040"]},
+  {w:9,name:"紫玉兰",latin:"Magnolia liliiflora",color:"#9B6BAC",state:"盛花期",desc:"花瓣外紫内白，是玉兰家族中色调最为浓郁的品种。",pairs:["#F5F0E8","#D4B0D8","#5A3068"]},
+  {w:10,name:"紫荆",latin:"Cercis chinensis",color:"#C06090",state:"盛花期",desc:"先花后叶，枝干上密布玫红色小花，满树繁盛。",pairs:["#8A3860","#F0C0D8","#4A1830"]},
+  {w:11,name:"垂丝海棠",latin:"Malus halliana",color:"#E890A8",state:"盛花期",desc:"花梗细长下垂，花色粉红娇嫩，姿态轻盈婀娜。",pairs:["#904858","#FFCCD8","#502030"]},
+  {w:12,name:"樱花",latin:"Prunus serrulata",color:"#FFCCD8",state:"盛花期",desc:"浅粉至白色，花瓣薄如云霞，是春日最具代表性的景观色彩。",pairs:["#C89090","#FFE8F0","#805060"]},
+  {w:13,name:"丁香",latin:"Syringa vulgaris",color:"#C4A0D0",state:"初花",desc:"圆锥形花序，淡紫色调，香气浓郁，暮春的标志性植物。",pairs:["#8A6090","#E8D8F0","#503060"]},
+  {w:14,name:"紫藤",latin:"Wisteria sinensis",color:"#9080C0",state:"盛花期",desc:"长串下垂花序，蓝紫色调，是晚春最具视觉震撼力的藤本植物。",pairs:["#D4C8E8","#5A4880","#F0EEF8"]},
+  {w:15,name:"牡丹",latin:"Paeonia suffruticosa",color:"#D4507A",state:"盛花期",desc:"花大色艳，色系极为丰富，从纯白到深紫均有，代表色为玫红。",pairs:["#F8A8C0","#8A2040","#FDE8F0"]},
+  {w:16,name:"芍药",latin:"Paeonia lactiflora",color:"#F0A0B8",state:"盛花期",desc:"与牡丹相似但株型草本，花色柔和，是晚春的告别之花。",pairs:["#C07090","#FFD8E8","#703050"]},
+  {w:17,name:"月季",latin:"Rosa chinensis",color:"#D43858",state:"初花",desc:"四季均有花期，初夏第一波最盛，色彩饱和度高，艳而不俗。",pairs:["#F07090","#8A1828","#FFC0D0"]},
+  {w:18,name:"栀子花",latin:"Gardenia jasminoides",color:"#F8F4E4",state:"花苞期",desc:"纯白花瓣，香气馥郁浓烈，是初夏最具嗅觉感的白色系花卉。",pairs:["#5A7838","#D4D0B0","#2A3820"]},
+  {w:19,name:"绣球花",latin:"Hydrangea macrophylla",color:"#80A8D8",state:"初花",desc:"大型球状花序，颜色因土壤酸碱度而变，蓝紫色系最为常见。",pairs:["#C0C8E8","#405888","#E8ECF8"]},
+  {w:20,name:"合欢",latin:"Albizia julibrissin",color:"#F0A0B0",state:"初花",desc:"粉色丝状花序如绒球，傍晚合拢，是夏季特有的温柔色调。",pairs:["#C06878","#FFD8E0","#802840"]},
+  {w:21,name:"凌霄",latin:"Campsis grandiflora",color:"#E05820",state:"初花",desc:"橙红色喇叭形花朵，攀援高处怒放，是夏季最热烈的色调之一。",pairs:["#F09868","#802810","#FDE0C8"]},
+  {w:22,name:"睡莲",latin:"Nymphaea",color:"#F8D0E0",state:"盛花期",desc:"浮于水面，粉白为主，配合碧绿荷叶，形成经典水景色彩组合。",pairs:["#3A7850","#F5F0F8","#C080A0"]},
+  {w:23,name:"石榴花",latin:"Punica granatum",color:"#E83020",state:"盛花期",desc:"鲜红如火焰，花瓣皱褶，是仲夏庭院中最醒目的热烈色调。",pairs:["#F07850","#8A1008","#FFC8B8"]},
+  {w:24,name:"荷花",latin:"Nelumbo nucifera",color:"#F0A8B8",state:"初花",desc:"粉色花瓣出淤泥而不染，配合荷叶的深绿，是夏日水景的绝配。",pairs:["#2A5838","#FFD8E4","#C07090"]},
+  {w:25,name:"广玉兰",latin:"Magnolia grandiflora",color:"#F5F5F0",state:"盛花期",desc:"大型白花，花径可达30cm，叶背锈色，是南方夏季常见的白色系大花。",pairs:["#5A6840","#C8C8B8","#303820"]},
+  {w:26,name:"紫薇",latin:"Lagerstroemia indica",color:"#D060A8",state:"初花",desc:"花期长达百日，粉紫至红紫色系，树皮光滑，是夏秋过渡的重要观花树种。",pairs:["#F0C0DC","#803068","#FEE8F4"]},
+  {w:27,name:"木槿",latin:"Hibiscus syriacus",color:"#A878C8",state:"盛花期",desc:"花朵朝开暮落，淡紫至粉紫，花量持续整个夏季，极为耐看。",pairs:["#D8B8E8","#603888","#F0E4F8"]},
+  {w:28,name:"荷花",latin:"Nelumbo nucifera",color:"#E890A0",state:"盛花期",desc:"盛夏荷花最为丰茂，粉色花与碧绿荷叶铺满水面，色彩层次丰富。",pairs:["#1A5028","#F8D0D8","#902040"]},
+  {w:29,name:"向日葵",latin:"Helianthus annuus",color:"#F0B820",state:"盛花期",desc:"大型金黄色花序朝向太阳，是夏日能量感和阳光感的代表色。",pairs:["#8A6810","#FEE888","#3A2808"]},
+  {w:30,name:"金鸡菊",latin:"Coreopsis tinctoria",color:"#E8A020",state:"盛花期",desc:"橙黄色小花，花量极大，成片种植时形成金色花海效果。",pairs:["#A86808","#FEE0A0","#503008"]},
+  {w:31,name:"薰衣草",latin:"Lavandula angustifolia",color:"#9888C8",state:"尾花期",desc:"蓝紫色穗状花序，带有独特香气，大面积种植时色彩壮观。",pairs:["#D8D0F0","#5848A0","#F4F0FC"]},
+  {w:32,name:"马鞭草",latin:"Verbena bonariensis",color:"#8878C0",state:"盛花期",desc:"细茎顶端着生紫色小花，轻盈飘逸，是近年流行的新优花境植物。",pairs:["#C0B8E8","#404088","#E8E4F8"]},
+  {w:33,name:"美人蕉",latin:"Canna indica",color:"#E85820",state:"盛花期",desc:"橙红大花，叶片宽大，热带风情明显，适合水边和花境种植。",pairs:["#F09050","#801808","#FED8B8"]},
+  {w:34,name:"百日草",latin:"Zinnia elegans",color:"#E04838",state:"盛花期",desc:"花色极为丰富，红橙黄粉均有，花期长，是夏末秋初花坛的主力植物。",pairs:["#F09080","#901828","#FEE0D8"]},
+  {w:35,name:"桂花",latin:"Osmanthus fragrans",color:"#E8B060",state:"花苞期",desc:"金黄橙色小花，花量极多，香气浓郁，是秋天最具代表性的香花树种。",pairs:["#8A5820","#FFE0A8","#403010"]},
+  {w:36,name:"木芙蓉",latin:"Hibiscus mutabilis",color:"#F0A0B0",state:"初花",desc:"花色一日三变，早白午粉暮红，是秋季独特的色彩变化景观植物。",pairs:["#E06880","#FFD8E4","#803848"]},
+  {w:37,name:"桂花",latin:"Osmanthus fragrans",color:"#E0A040",state:"盛花期",desc:"中秋前后达到盛花期，全树金黄，十里飘香，是中国最具文化意蕴的花卉之一。",pairs:["#A06820","#FFE8B0","#503010"]},
+  {w:38,name:"菊花",latin:"Chrysanthemum morifolium",color:"#E8C840",state:"初花",desc:"黄色系菊花最为经典，花型繁多，是秋季庭院和公园的主要观赏植物。",pairs:["#A09020","#FFF0A0","#504808"]},
+  {w:39,name:"鸡爪槭",latin:"Acer palmatum",color:"#E86828",state:"叶色转红",desc:"羽状叶片开始由绿转橙，是日式园林中秋色最具代表性的观叶树木。",pairs:["#F0A878","#903818","#FEDCC8"]},
+  {w:40,name:"乌桕",latin:"Triadica sebifera",color:"#D84830",state:"叶色转红",desc:"秋叶鲜红，红叶期长，与水岸搭配尤为优美，有「中国红枫」之称。",pairs:["#F08860","#881818","#FED8C0"]},
+  {w:41,name:"银杏",latin:"Ginkgo biloba",color:"#E8C840",state:"叶色转黄",desc:"扇形叶片变为金黄，成片种植形成金色地毯效果，是最受欢迎的秋色叶树种之一。",pairs:["#A09020","#FEF8C0","#504808"]},
+  {w:42,name:"枫香",latin:"Liquidambar formosana",color:"#C84820",state:"红叶盛期",desc:"叶色从黄到橙到红渐变，色彩层次丰富，是中国本土最壮观的秋色树种之一。",pairs:["#E88850","#783010","#FED8A8"]},
+  {w:43,name:"红枫",latin:"Acer palmatum 'Atropurpureum'",color:"#C03020",state:"红叶盛期",desc:"整株叶片深红，全年保持红色，秋季最为鲜艳，是日式和现代园林的重要色叶植物。",pairs:["#E86858","#801818","#FEC8B8"]},
+  {w:44,name:"南天竹",latin:"Nandina domestica",color:"#C84048",state:"叶色转红",desc:"叶片和果实同时变红，红果点缀其中，是初冬最具观赏价值的小灌木。",pairs:["#E88888","#782028","#FEE0E0"]},
+  {w:45,name:"火棘",latin:"Pyracantha fortuneana",color:"#E84820",state:"果实成熟",desc:"橙红色小果实密集成串，在枝头宿存整个冬季，鸟类喜食。",pairs:["#F09060","#882010","#FED8B0"]},
+  {w:46,name:"构骨",latin:"Ilex cornuta",color:"#C03028",state:"红果期",desc:"冬青类植物，红色球形果实在绿叶衬托下格外鲜艳，是重要的冬季观果树种。",pairs:["#2A5828","#E87888","#FEC8D0"]},
+  {w:47,name:"山茶",latin:"Camellia japonica",color:"#C83040",state:"初花",desc:"深秋初冬开始开花，艳红色调与冬日灰绿形成强烈对比。",pairs:["#1A3828","#E87090","#802030"]},
+  {w:48,name:"冬青",latin:"Ilex chinensis",color:"#D03838",state:"红果期",desc:"红色果实在深绿叶片衬托下，是冬季景观中最温暖的色彩点缀。",pairs:["#1E4828","#F08888","#FEE0E0"]},
+  {w:49,name:"朱砂梅",latin:"Prunus mume",color:"#C03848",state:"初花",desc:"梅花中最为艳丽的品种，深红色，在雪中开放最为动人。",pairs:["#E07888","#801830","#FED0D8"]},
+  {w:50,name:"素心蜡梅",latin:"Chimonanthus praecox",color:"#F0E080",state:"花苞期",desc:"花瓣内外均为纯黄，是蜡梅中香气最为浓郁的品种。",pairs:["#A09030","#FEF8C0","#504810"]},
+  {w:51,name:"红梅",latin:"Prunus mume",color:"#D84060",state:"初花",desc:"隆冬时节，红梅迎雪开放，是中国传统文化中坚韧品格的象征。",pairs:["#F08098","#882038","#FED0E0"]},
+  {w:52,name:"绿梅",latin:"Prunus mume 'Viridis'",color:"#B8C8A0",state:"花苞期",desc:"花色浅绿带白，清雅独特，在岁末年初凛冬中默默绽放，低调而高洁。",pairs:["#507840","#E4F0D8","#283C18"]},
+
+];
+const seasons = [
+  {label:"春", full:"春 · 第1–13周", range:[1,13]},
+  {label:"夏", full:"夏 · 第14–26周", range:[14,26]},
+  {label:"秋", full:"秋 · 第27–39周", range:[27,39]},
+  {label:"冬", full:"冬 · 第40–52周", range:[40,52]},
+];
+let activeCell = null;
+let activePlant = null;
+
+function getSeasonByWeek(w) { return w<=13 ? "春" : w<=26 ? "夏" : w<=39 ? "秋" : "冬"; }
+function getSceneByWeek(w) {
+  if (w <= 13) return "春季花境";
+  if (w <= 26) return "夏季庭院";
+  if (w <= 39) return "秋色植物";
+  return "冬季观果";
+}
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => showToast("已复制 " + text.split('\\n')[0]));
+}
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => toast.classList.remove('show'), 1500);
+}
+function renderMiniStrip() {
+  const strip = document.getElementById('miniStrip');
+  plants.filter((_,i)=> i % 4 === 0).slice(0,13).forEach(p => {
+    const s = document.createElement('span');
+    s.style.background = p.color;
+    strip.appendChild(s);
+  });
+}
+function renderTabs() {
+  const tabs = document.getElementById('seasonTabs');
+  seasons.forEach((s, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'pc-season-tab' + (i===0 ? ' active' : '');
+    btn.textContent = s.full;
+    btn.type = 'button';
+    btn.onclick = () => {
+      document.querySelectorAll('.pc-season-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('season-' + i).scrollIntoView({behavior:'smooth', block:'start'});
+    };
+    tabs.appendChild(btn);
+  });
+}
+function renderCalendar() {
+  const cal = document.getElementById('calendar');
+  seasons.forEach((s, i) => {
+    const row = document.createElement('section');
+    row.className = 'season-row';
+    row.id = 'season-' + i;
+    const meta = document.createElement('div');
+    meta.className = 'season-meta';
+    meta.innerHTML = `<span class="season-label">${s.full}</span><span>13 colors</span>`;
+    const grid = document.createElement('div');
+    grid.className = 'cal-grid';
+    for (let w = s.range[0]; w <= s.range[1]; w++) {
+      const p = plants[w-1];
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'cal-cell';
+      cell.style.background = p.color;
+      cell.dataset.tip = `第${w}周 · ${p.name}`;
+      cell.setAttribute('aria-label', `第${w}周，${p.name}，${p.color}`);
+      cell.onclick = () => showDetail(w, cell);
+      grid.appendChild(cell);
+    }
+    row.appendChild(meta);
+    row.appendChild(grid);
+    cal.appendChild(row);
+  });
+}
+function showDetail(w, cell) {
+  const p = plants[w-1];
+  activePlant = {...p, w};
+  if (activeCell) activeCell.classList.remove('active');
+  activeCell = cell;
+  activeCell.classList.add('active');
+  const detail = document.getElementById('detail');
+  detail.classList.add('visible');
+  document.getElementById('detailHero').style.background = `linear-gradient(135deg, ${p.color}, rgba(255,255,255,.72))`;
+  document.getElementById('d-week').textContent = `Week ${w} · 第${w}周`;
+  document.getElementById('d-hex').textContent = p.color.toUpperCase();
+  document.getElementById('d-name').textContent = p.name;
+  document.getElementById('d-latin').textContent = p.latin;
+  document.getElementById('d-season').textContent = getSeasonByWeek(w);
+  document.getElementById('d-state').textContent = p.state;
+  document.getElementById('d-scene').textContent = getSceneByWeek(w);
+  document.getElementById('d-desc').textContent = p.desc;
+  const pairs = document.getElementById('d-pairs');
+  pairs.innerHTML = '';
+  [p.color, ...p.pairs].slice(0,4).forEach(c => {
+    const sw = document.createElement('button');
+    sw.type = 'button';
+    sw.className = 'pair-swatch';
+    sw.style.background = c;
+    sw.dataset.hex = c.toUpperCase();
+    sw.setAttribute('aria-label', '复制色值 ' + c.toUpperCase());
+    sw.onclick = () => copyText(c.toUpperCase());
+    pairs.appendChild(sw);
+  });
+  if (window.innerWidth <= 980) detail.scrollIntoView({behavior:'smooth', block:'start'});
+}
+document.getElementById('d-hex').onclick = () => activePlant && copyText(activePlant.color.toUpperCase());
+document.getElementById('copyPalette').onclick = () => {
+  if (!activePlant) return;
+  copyText([activePlant.color, ...activePlant.pairs].map(c=>c.toUpperCase()).join('\\n'));
+};
+document.getElementById('clearActive').onclick = () => {
+  if (activeCell) activeCell.classList.remove('active');
+  activeCell = null; activePlant = null;
+  document.getElementById('detail').classList.remove('visible');
+};
+renderMiniStrip(); renderTabs(); renderCalendar();
+
+</script>
+<script>
+    function navFilter(category){
+      location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
+      return false;
+    }
+  </script>
+<footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
+<span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+<span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+<span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span>
+</footer>
+<script>
+    function toggleMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.toggle('open');
+    }
+
+    function closeMobileMenu(){
+      const panel = document.getElementById('mobileMenuPanel');
+      if(panel) panel.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(event){
+      const panel = document.getElementById('mobileMenuPanel');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if(!panel || !toggle) return;
+      if(panel.contains(event.target) || toggle.contains(event.target)) return;
+      panel.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

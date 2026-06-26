@@ -1529,5 +1529,930 @@
     "isPinterest": false,
     "height": "380px",
     "color": "#f4f1eb"
+  },
+  {
+    "id": 77,
+    "title": "River Island Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-78-river-island-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-78-river-island-landscape-plan.webp",
+    "desc": "适合参考滨水岛屿公园、蓝绿网络与环形游线的平面表达。",
+    "tags": [
+      "River Island",
+      "Waterfront",
+      "Green Network"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/297237644133840913/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 78,
+    "title": "Soft River Corridor Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-79-soft-river-corridor-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-79-soft-river-corridor-plan.webp",
+    "desc": "适合参考自然河道修复、生态廊道和柔和水彩式总平表现。",
+    "tags": [
+      "River Corridor",
+      "Ecology",
+      "Soft Wash"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/790452172119715957/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 79,
+    "title": "Residential Green Block Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-80-residential-green-block-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-80-residential-green-block-plan.webp",
+    "desc": "适合参考居住区组团、公共绿地和步行空间的清爽平面。",
+    "tags": [
+      "Residential",
+      "Green Block",
+      "Community"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/785174516309404743/",
+    "isPinterest": true,
+    "height": "382px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 80,
+    "title": "Courtyard Public Space Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-81-courtyard-public-space-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-81-courtyard-public-space-plan.webp",
+    "desc": "适合参考小尺度公共庭院、节点铺装和场地边界组织。",
+    "tags": [
+      "Courtyard",
+      "Public Space",
+      "Site Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/53621051808307568/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 81,
+    "title": "Urban Renewal Block Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-82-urban-renewal-block-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-82-urban-renewal-block-plan.webp",
+    "desc": "适合参考城市更新地块、建筑围合和橙绿色动线分析。",
+    "tags": [
+      "Urban Renewal",
+      "Block Plan",
+      "Circulation"
+    ],
+    "sourceName": "SUPERWIEN",
+    "sourceUrl": "https://superwien.com/portfolio/kooperatives-stadtebauliches-verfahren-glan-garten-salzburg/",
+    "isPinterest": false,
+    "height": "375px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 82,
+    "title": "Green Garden District Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-83-green-garden-district-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-83-green-garden-district-plan.webp",
+    "desc": "适合参考绿色社区规划、开放空间骨架和粉绿配色表达。",
+    "tags": [
+      "Garden District",
+      "Urban Plan",
+      "Green Space"
+    ],
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://www.octagon-architekturkollektiv.net/arbeiten/bch/",
+    "isPinterest": false,
+    "height": "283px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 83,
+    "title": "Minimal Urban Analysis Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-84-minimal-urban-analysis-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-84-minimal-urban-analysis-plan.webp",
+    "desc": "适合参考极简线稿、更新策略标注和轻量化城市分析图。",
+    "tags": [
+      "Urban Analysis",
+      "Minimal",
+      "Diagram"
+    ],
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://www.octagon-architekturkollektiv.net/arbeiten/aac/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 84,
+    "title": "Mint Urban Infill Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-85-mint-urban-infill-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-85-mint-urban-infill-plan.webp",
+    "desc": "适合参考高密度街区、口袋绿地和明快薄荷色平面表达。",
+    "tags": [
+      "Urban Infill",
+      "Mint Green",
+      "Block Strategy"
+    ],
+    "sourceName": "Octagon Architekturkollektiv",
+    "sourceUrl": "https://octagon-architekturkollektiv.net/arbeiten/esf/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 85,
+    "title": "Landscape Settlement Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-86-landscape-settlement-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-86-landscape-settlement-masterplan.webp",
+    "desc": "适合参考居住片区、绿廊渗透和建筑组团的总平组织。",
+    "tags": [
+      "Settlement",
+      "Masterplan",
+      "Green Corridor"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/704672672980050959/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 86,
+    "title": "Circular Neighborhood Strategy Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-87-circular-neighborhood-strategy-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-87-circular-neighborhood-strategy-plan.webp",
+    "desc": "适合参考社区更新、圆形放大节点和多组团策略表达。",
+    "tags": [
+      "Neighborhood",
+      "Circular Diagram",
+      "Strategy"
+    ],
+    "sourceName": "Lorber Paul",
+    "sourceUrl": "https://lorberpaul.de/projekte/neues-quartier-solingen/",
+    "isPinterest": false,
+    "height": "298px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 87,
+    "title": "Linear Community Framework Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-88-linear-community-framework-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-88-linear-community-framework-plan.webp",
+    "desc": "适合参考线性社区结构、街区骨架和灰绿调总平。",
+    "tags": [
+      "Linear Framework",
+      "Community",
+      "Masterplan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/373517362853297492/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 88,
+    "title": "Forest Edge Residential Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-89-forest-edge-residential-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-89-forest-edge-residential-plan.webp",
+    "desc": "适合参考林缘居住片区、地形边界和生态缓冲带表达。",
+    "tags": [
+      "Forest Edge",
+      "Residential",
+      "Ecology"
+    ],
+    "sourceName": "CITYFÖRSTER",
+    "sourceUrl": "https://www.cityfoerster.net/projects/blue_green_neighbourhoods_muenster-661-2.html",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 89,
+    "title": "Light Blue Urban Line Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-90-light-blue-urban-line-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-90-light-blue-urban-line-plan.webp",
+    "desc": "适合参考浅蓝线稿、街区肌理和低干扰分析图表达。",
+    "tags": [
+      "Linework",
+      "Urban Fabric",
+      "Soft Blue"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/851602610836436328/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 90,
+    "title": "Housing Cluster Layout Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-91-housing-cluster-layout-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-91-housing-cluster-layout-plan.webp",
+    "desc": "适合参考住宅组团平面、院落关系和功能分区排布。",
+    "tags": [
+      "Housing",
+      "Cluster",
+      "Layout"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/626844841912180585/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 91,
+    "title": "Anant University Campus Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-92-anant-university-campus-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-92-anant-university-campus-masterplan.webp",
+    "desc": "适合参考校园总平、功能分区和手绘式综合色彩编码。",
+    "tags": [
+      "Campus",
+      "Masterplan",
+      "Program"
+    ],
+    "sourceName": "Sasaki",
+    "sourceUrl": "https://www.sasaki.com/projects/anant-national-university/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 92,
+    "title": "Open Space Strategy Diagram",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-93-open-space-strategy-diagram.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-93-open-space-strategy-diagram.webp",
+    "desc": "适合参考开放空间策略、红绿动线和图解式方案推演。",
+    "tags": [
+      "Open Space",
+      "Strategy",
+      "Diagram"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/810788739170436523/",
+    "isPinterest": true,
+    "height": "288px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 93,
+    "title": "Campus District Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-94-campus-district-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-94-campus-district-landscape-plan.webp",
+    "desc": "适合参考校园街区、体育场地与绿地系统的平面组织。",
+    "tags": [
+      "Campus District",
+      "Landscape",
+      "Public Realm"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/744219907221456259/",
+    "isPinterest": true,
+    "height": "353px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 94,
+    "title": "Waterfront Phasing Diagram Set",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-95-waterfront-phasing-diagram-set.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-95-waterfront-phasing-diagram-set.webp",
+    "desc": "适合参考滨水开发、阶段性图解和多图组合式策略表达。",
+    "tags": [
+      "Waterfront",
+      "Phasing",
+      "Diagram Set"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/203645423/osvoenie-pribrezhnyh-territorij-svijagi?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 95,
+    "title": "Ecological Lake District Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-96-ecological-lake-district-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-96-ecological-lake-district-plan.webp",
+    "desc": "适合参考湖区生态修复、绿色边界和城市水岸规划。",
+    "tags": [
+      "Lake District",
+      "Ecology",
+      "Waterfront"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/203645423/osvoenie-pribrezhnyh-territorij-svijagi?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 96,
+    "title": "ZAC des Ecottais Strategy Series",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-01.webp",
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-02.webp",
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-03.webp",
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-04.webp",
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-05.webp",
+      "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-06.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-97-zac-des-ecottais-strategy-series-01.webp",
+    "desc": "适合参考同一项目的多张策略图、交通组织、绿地结构与分期表达。",
+    "tags": [
+      "Strategy Series",
+      "Urban District",
+      "Multi Image"
+    ],
+    "sourceName": "Città UP",
+    "sourceUrl": "https://www.citta-up.fr/realisation/zac-des-ecottais-3/",
+    "isPinterest": false,
+    "height": "330px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 97,
+    "title": "Healthy Tracks Mobility Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-98-healthy-tracks-mobility-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-98-healthy-tracks-mobility-plan.webp",
+    "desc": "适合参考健康步道、慢行网络和蓝绿开放空间组织。",
+    "tags": [
+      "Mobility",
+      "Healthy Tracks",
+      "Blue Green"
+    ],
+    "sourceName": "Felixx",
+    "sourceUrl": "https://www.felixx.nl/projects/healthy-tracks.html",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 98,
+    "title": "Mulhouse Coteaux Activity Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-99-mulhouse-coteaux-activity-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-99-mulhouse-coteaux-activity-plan.webp",
+    "desc": "适合参考社区活动节点、公共设施标注和生活化场景分析。",
+    "tags": [
+      "Activity Plan",
+      "Community",
+      "Public Space"
+    ],
+    "sourceName": "Atelier Ruelle",
+    "sourceUrl": "https://www.atelier-ruelle.fr/projets/mulhouse-coteaux/",
+    "isPinterest": false,
+    "height": "302px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 99,
+    "title": "Brussels Open Space Network Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-100-brussels-open-space-network-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-100-brussels-open-space-network-plan.webp",
+    "desc": "适合参考区域开放空间网络、生态连接和城市绿地系统。",
+    "tags": [
+      "Open Space",
+      "Network",
+      "Regional Plan"
+    ],
+    "sourceName": "BUUR",
+    "sourceUrl": "https://buur.be/project/open-ruimte-netwerk-brussel/",
+    "isPinterest": false,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 100,
+    "title": "Soft Green Park Competition Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-101-soft-green-park-competition-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-101-soft-green-park-competition-plan.webp",
+    "desc": "适合参考公园竞赛图、轻柔植物肌理和大尺度绿地分区。",
+    "tags": [
+      "Park Plan",
+      "Competition",
+      "Soft Green"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/626844841903876638/",
+    "isPinterest": true,
+    "height": "302px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 101,
+    "title": "Ecological Urban Framework Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-102-ecological-urban-framework-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-102-ecological-urban-framework-plan.webp",
+    "desc": "适合参考生态框架、城市水系和绿色结构的综合表达。",
+    "tags": [
+      "Ecological Framework",
+      "Urban Plan",
+      "Water System"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/483011128770981023/",
+    "isPinterest": true,
+    "height": "283px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 102,
+    "title": "Layered Green Site Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-103-layered-green-site-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-103-layered-green-site-plan.webp",
+    "desc": "适合参考场地层次、圆形节点和浅绿灰调平面表现。",
+    "tags": [
+      "Layered Plan",
+      "Green Space",
+      "Site Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/621989398537268001/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 103,
+    "title": "Circular Plaza Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-104-circular-plaza-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-104-circular-plaza-landscape-plan.webp",
+    "desc": "适合参考圆形公共空间、建筑入口景观和简洁轴测式场地表达。",
+    "tags": [
+      "Circular Plaza",
+      "Public Realm",
+      "Landscape"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/106186503701568398/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 104,
+    "title": "Linear Green Corridor Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-105-linear-green-corridor-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-105-linear-green-corridor-plan.webp",
+    "desc": "适合参考线性绿廊、社区连接和窄长场地的空间组织。",
+    "tags": [
+      "Green Corridor",
+      "Linear Site",
+      "Community"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/856598791623219090/",
+    "isPinterest": true,
+    "height": "267px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 105,
+    "title": "Courtyard Landscape Layout",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-106-courtyard-landscape-layout.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-106-courtyard-landscape-layout.webp",
+    "desc": "适合参考庭院式住宅景观、树阵布置和灰绿平面表达。",
+    "tags": [
+      "Courtyard",
+      "Residential",
+      "Tree Layout"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/836262224577692437/",
+    "isPinterest": true,
+    "height": "316px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 106,
+    "title": "Minimal Residential Garden Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-107-minimal-residential-garden-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-107-minimal-residential-garden-plan.webp",
+    "desc": "适合参考小尺度住宅庭院、浅灰绿配色和干净留白排版。",
+    "tags": [
+      "Residential Garden",
+      "Minimal",
+      "Soft Layout"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/649925790015146829/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 107,
+    "title": "Yellow Route District Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-108-yellow-route-district-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-108-yellow-route-district-plan.webp",
+    "desc": "适合参考黄色动线强调、城市片区连接和轻量化策略标注。",
+    "tags": [
+      "Route Strategy",
+      "District Plan",
+      "Yellow Accent"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/619033911292957213/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 108,
+    "title": "Pocket Plaza Urban Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-109-pocket-plaza-urban-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-109-pocket-plaza-urban-plan.webp",
+    "desc": "适合参考口袋广场、街角更新和棕绿调公共空间设计。",
+    "tags": [
+      "Pocket Plaza",
+      "Urban Renewal",
+      "Public Realm"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/458241330828558629/",
+    "isPinterest": true,
+    "height": "265px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 109,
+    "title": "Town Square Regeneration Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-110-town-square-regeneration-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-110-town-square-regeneration-plan.webp",
+    "desc": "适合参考城镇广场、道路关系和低饱和活动空间表达。",
+    "tags": [
+      "Town Square",
+      "Regeneration",
+      "Urban Plan"
+    ],
+    "sourceName": "Illustrarch",
+    "sourceUrl": "https://illustrarch.com/projects/social/7514-town-square.html?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "370px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 110,
+    "title": "Street Greenery Retrofit Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-111-street-greenery-retrofit-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-111-street-greenery-retrofit-plan.webp",
+    "desc": "适合参考街道绿化改造、粉绿节点和城市缝合策略。",
+    "tags": [
+      "Street Greenery",
+      "Retrofit",
+      "Urban Block"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/744008800963574827/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 111,
+    "title": "Urban Fabric Strategy Map",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-112-urban-fabric-strategy-map.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-112-urban-fabric-strategy-map.webp",
+    "desc": "适合参考城市肌理、开放空间路径和综合性策略图排版。",
+    "tags": [
+      "Urban Fabric",
+      "Strategy Map",
+      "Open Space"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/421719952587784809/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 112,
+    "title": "Housing Landscape Analysis Board",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-113-housing-landscape-analysis-board.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-113-housing-landscape-analysis-board.webp",
+    "desc": "适合参考住宅景观分析、总平与说明图组合的展板表达。",
+    "tags": [
+      "Housing",
+      "Analysis Board",
+      "Landscape"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/563231497167364256/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 113,
+    "title": "Regional Water Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-114-regional-water-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-114-regional-water-landscape-plan.webp",
+    "desc": "适合参考区域水系、山谷绿廊和淡蓝绿色生态策略表达。",
+    "tags": [
+      "Regional Plan",
+      "Water System",
+      "Ecology"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 114,
+    "title": "Red Blue Infrastructure Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-115-red-blue-infrastructure-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-115-red-blue-infrastructure-plan.webp",
+    "desc": "适合参考红蓝基础设施、交通走廊和大尺度系统分析。",
+    "tags": [
+      "Infrastructure",
+      "Regional Strategy",
+      "Red Blue"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 115,
+    "title": "Light Green Valley Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-116-light-green-valley-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-116-light-green-valley-plan.webp",
+    "desc": "适合参考山谷城市、绿色廊道和淡色手绘总平。",
+    "tags": [
+      "Valley Plan",
+      "Green Corridor",
+      "Soft Drawing"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 116,
+    "title": "Island Landscape Concept Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-117-island-landscape-concept-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-117-island-landscape-concept-plan.webp",
+    "desc": "适合参考岛状场地、概念性景观结构和留白式表达。",
+    "tags": [
+      "Island Concept",
+      "Landscape",
+      "Diagram"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 117,
+    "title": "Dark Base Waterfront Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-118-dark-base-waterfront-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-118-dark-base-waterfront-masterplan.webp",
+    "desc": "适合参考深色底图、滨水结构和强对比方案展示。",
+    "tags": [
+      "Dark Base",
+      "Waterfront",
+      "Masterplan"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 118,
+    "title": "Blue Urban Network Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-119-blue-urban-network-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-119-blue-urban-network-plan.webp",
+    "desc": "适合参考蓝绿色城市网络、街区更新和水文关系表达。",
+    "tags": [
+      "Urban Network",
+      "Blue Green",
+      "Water Strategy"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 119,
+    "title": "Airport Edge Landscape Strategy",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-120-airport-edge-landscape-strategy.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-120-airport-edge-landscape-strategy.webp",
+    "desc": "适合参考机场周边、生态边界和蓝绿策略网络。",
+    "tags": [
+      "Airport Edge",
+      "Landscape Strategy",
+      "Network"
+    ],
+    "sourceName": "Studio Paola Viganò",
+    "sourceUrl": "https://studiopaolavigano.eu/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 120,
+    "title": "Garden Show Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-121-garden-show-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-121-garden-show-landscape-plan.webp",
+    "desc": "适合参考园艺展区、绿地分区和公园游线组织。",
+    "tags": [
+      "Garden Show",
+      "Park Plan",
+      "Landscape"
+    ],
+    "sourceName": "Grieger Harzer Dvorak",
+    "sourceUrl": "https://griegerharzerdvorak.com/landesgartenschau-badnenndorf/",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 121,
+    "title": "Into The Wild Urban Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-122-into-the-wild-urban-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-122-into-the-wild-urban-landscape-plan.webp",
+    "desc": "适合参考野生化城市景观、探索路径和生态更新策略。",
+    "tags": [
+      "Wild Urbanism",
+      "Ecology",
+      "Exploration"
+    ],
+    "sourceName": "Archisearch",
+    "sourceUrl": "https://www.archisearch.gr/student-works/into-the-wild-a-process-of-discovery-%CE%AC%CE%B3%CF%81%CE%B9%CE%BF-%CE%B1%CF%83%CF%84%CE%B9%CE%BA%CF%8C-%CF%84%CE%BF%CF%80%CE%AF%CE%BF-%CE%BC%CE%AF%CE%B1-%CE%B4%CE%B9%CE%B1%CE%B4%CE%B9%CE%BA/",
+    "isPinterest": false,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 122,
+    "title": "Youth Welfare Office Campus Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-123-youth-welfare-office-campus-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-123-youth-welfare-office-campus-plan.webp",
+    "desc": "适合参考公共服务建筑周边、校园式绿地和建筑-景观关系。",
+    "tags": [
+      "Campus Landscape",
+      "Public Service",
+      "Green Buffer"
+    ],
+    "sourceName": "Bez+Kock",
+    "sourceUrl": "https://www.bez-kock.de/en/projects/2157/episcopal-youth-welfare-office-wernau-2025-1st-prize-and-construction/",
+    "isPinterest": false,
+    "height": "285px",
+    "color": "#f4f1eb"
   }
 ]

@@ -468,7 +468,7 @@
     }
     .interaction-case-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:22px;
     }
     .interaction-case-card{
@@ -569,6 +569,62 @@
       font-weight:800;
       backdrop-filter:blur(12px);
     }
+
+    .seasonal-color-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(204,183,112,.34), transparent 28%),
+        radial-gradient(circle at 82% 76%, rgba(88,104,62,.28), transparent 30%),
+        linear-gradient(135deg,#f7f3e8,#e8dfca);
+    }
+    .seasonal-map{
+      width:78%;
+      max-width:240px;
+      aspect-ratio:1/1.08;
+      display:grid;
+      grid-template-columns:repeat(10,1fr);
+      grid-template-rows:repeat(11,1fr);
+      gap:3px;
+      padding:10px;
+      border:1px solid rgba(86,104,62,.16);
+      border-radius:24px;
+      background:rgba(255,253,247,.58);
+      box-shadow:0 20px 36px rgba(35,30,22,.10);
+      transform:rotate(-3deg);
+    }
+    .seasonal-map span{
+      border-radius:7px;
+      border:1px solid rgba(22,22,22,.04);
+    }
+    .seasonal-map span:nth-child(6n+1){background:#9bbf6a;}
+    .seasonal-map span:nth-child(6n+2){background:#4f7a3a;}
+    .seasonal-map span:nth-child(6n+3){background:#d4b07a;}
+    .seasonal-map span:nth-child(6n+4){background:#c8623f;}
+    .seasonal-map span:nth-child(6n+5){background:#7a8fb0;}
+    .seasonal-map span:nth-child(6n){background:#bdae8c;}
+    .seasonal-color-thumb::after{
+      content:"SEASONAL COLOR MAP";
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(222,217,207,.86);
+      color:#4f4b46;
+      font-size:11px;
+      line-height:1;
+      letter-spacing:.16em;
+      font-weight:800;
+      backdrop-filter:blur(12px);
+    }
+
     .interaction-case-body{
       padding:24px 24px 26px;
       display:flex;
@@ -639,6 +695,9 @@
       border:1px solid var(--line);
       color:#514c45;
       background:rgba(255,255,255,.56);
+    }
+    @media(max-width:1200px){
+      .interaction-case-grid{grid-template-columns:repeat(2,1fr);}
     }
     @media(max-width:900px){
       .interaction-cases{padding:26px 18px 72px !important;}
@@ -800,6 +859,100 @@
 </div>
 </article>
 
+
+<article class="interaction-case-card">
+<div class="interaction-case-thumb" aria-hidden="true">
+<div class="seasonal-color-thumb">
+<div class="seasonal-map">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+<div class="interaction-case-body">
+<div class="interaction-case-type">Seasonal Color Simulation</div>
+<h3>季相色谱</h3>
+<p>在画布上刷出种植分区，切换春夏秋冬并拖动时间轴，观察植物配置从初栽到成境的色彩变化。</p>
+<div class="case-tags">
+<span>季相推演</span>
+<span>种植设计</span>
+<span>四季色谱</span>
+<span>Canvas</span>
+</div>
+<div class="case-actions">
+<a class="case-link" href="seasonal-color-tool.html">打开工具</a>
+<span class="case-note">适合作为花境、庭院与种植配置的色彩推演参考</span>
+</div>
+</div>
+</article>
 
 </div>
 </section>

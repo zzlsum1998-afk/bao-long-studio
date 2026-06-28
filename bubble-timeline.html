@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bubble Timeline | BaoLong Lab</title>
+  <link href="css/common.css?v=124" rel="stylesheet"/>
+  <script defer src="js/common.js?v=124"></script>
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --paper: rgba(255,255,252,.84);
+      --ink: #23251f;
+      --muted: #6e7167;
+      --line: rgba(40, 43, 36, .12);
+      --deep: #2d4f49;
+      --shadow: 0 22px 56px rgba(41, 44, 35, .10);
+      --radius: 30px;
+      --agri: #8d8550;
+      --tech: #d8c089;
+      --finance: #d94a38;
+      --energy: #ef9a43;
+      --transport: #7fc2b9;
+      --metals: #6e79b7;
+      --realestate: #d59c91;
+      --other: #75624d;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(166, 192, 184, .22), transparent 26%),
+        radial-gradient(circle at 100% 0%, rgba(223, 191, 157, .18), transparent 18%),
+        linear-gradient(180deg, #f6f4ee, #ece8df 80%);
+      overflow-x: hidden;
+    }
+    .noise {
+      position: fixed; inset: 0; pointer-events: none; opacity: .22;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+    .wrap {
+      width: min(1380px, calc(100vw - 30px));
+      margin: 0 auto;
+      padding: 20px 0 26px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin-bottom: 14px; flex: 0 0 auto;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .brand-dot {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff8ea, #89aaa0 42%, #295248 100%);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.58), 0 12px 24px rgba(41,82,72,.18);
+    }
+    .brand strong { display:block; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+    .brand span { display:block; margin-top: 4px; font-size: 12px; color: var(--muted); }
+    .pill {
+      padding: 10px 14px; border-radius: 999px; font-size: 12px; color: var(--muted);
+      background: rgba(255,255,255,.45); border: 1px solid rgba(35,37,31,.10); backdrop-filter: blur(14px);
+    }
+
+    .workbench {
+      min-height: 0; flex: 1 1 auto;
+      display: grid; grid-template-columns: minmax(340px, .85fr) minmax(0, 2.1fr); gap: 18px;
+    }
+    .panel {
+      min-height: 0; background: var(--paper); border: 1px solid rgba(35,37,31,.09);
+      border-radius: var(--radius); box-shadow: var(--shadow); backdrop-filter: blur(20px);
+    }
+    .sidebar {
+      padding: 24px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin;
+      scrollbar-color: rgba(45,79,73,.25) transparent;
+    }
+    .sidebar::-webkit-scrollbar { width: 7px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(45,79,73,.22); border-radius: 999px; }
+    .kicker {
+      display: inline-block; padding: 7px 11px; border-radius: 999px; margin-bottom: 16px;
+      font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      background: rgba(45,79,73,.09); color: var(--deep);
+    }
+    h1 {
+      margin: 0; font-size: clamp(34px, 4.2vw, 58px); line-height: .94; letter-spacing: -.06em;
+      font-family: ui-serif, Georgia, "Times New Roman", serif; font-weight: 500;
+    }
+    .cn-title { margin-top: 12px; font-size: 18px; letter-spacing: .08em; color: #2b2f29; }
+    .desc {
+      margin: 16px 0 18px; color: var(--muted); font-size: 13px; line-height: 1.72;
+    }
+    .section { margin-top: 16px; padding: 16px; border-radius: 22px; background: rgba(255,255,255,.48); border: 1px solid rgba(35,37,31,.08); }
+    .section h3 {
+      margin: 0 0 10px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #365149;
+    }
+    .section p { margin: 0 0 10px; font-size: 12px; line-height: 1.6; color: var(--muted); }
+    .guide-list, .notes-list {
+      list-style: none; margin: 0; padding: 0; display: grid; gap: 8px;
+    }
+    .guide-list li, .notes-list li { font-size: 12px; line-height: 1.55; color: var(--muted); }
+    .guide-list li b, .notes-list li b { color: var(--ink); }
+
+    .upload-card {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.52);
+      border: 1px dashed rgba(45,79,73,.22);
+    }
+    .upload-card h3 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #365149;
+    }
+    .upload-card p {
+      margin: 0 0 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .file-input {
+      display: block;
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(35,37,31,.1);
+      background: rgba(255,255,255,.66);
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .paste-box {
+      width: 100%;
+      min-height: 116px;
+      resize: vertical;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(35,37,31,.1);
+      background: rgba(255,255,255,.66);
+      color: #30342d;
+      font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      outline: none;
+    }
+    .mapping-grid {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+    .mapping-row {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 10px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .mapping-row select,
+    .mapping-row input {
+      min-width: 0;
+      padding: 9px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(35,37,31,.1);
+      background: rgba(255,255,255,.68);
+      color: #31362f;
+      outline: none;
+      font: inherit;
+    }
+    .upload-status {
+      margin-top: 10px;
+      min-height: 18px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .table-guide {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(248,247,241,.7);
+      border: 1px solid rgba(35,37,31,.08);
+    }
+    .table-guide code {
+      display: block;
+      white-space: pre-wrap;
+      font: 11.5px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #4e564e;
+    }
+
+    .dataset-grid, .filter-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;
+    }
+    button, input { font: inherit; }
+    .dataset-btn, .filter-btn {
+      border: 1px solid rgba(35,37,31,.08); background: rgba(255,255,255,.60); color: #33382f;
+      border-radius: 18px; padding: 11px 12px; text-align: left; cursor: pointer;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .dataset-btn strong, .filter-btn strong { display:block; font-size: 12px; margin-bottom: 4px; }
+    .dataset-btn span, .filter-btn span { display:block; font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+    .dataset-btn:hover, .filter-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(41,44,35,.06); }
+    .dataset-btn.active, .filter-btn.active { background: rgba(45,79,73,.12); border-color: rgba(45,79,73,.25); }
+
+    .field-row { display: grid; gap: 8px; margin-top: 10px; }
+    .field-row label { font-size: 11px; color: var(--muted); }
+    .search {
+      width: 100%; padding: 11px 13px; border-radius: 16px; outline: none;
+      border: 1px solid rgba(35,37,31,.1); background: rgba(255,255,255,.65);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .mini-btn {
+      padding: 9px 12px; border-radius: 999px; border: 1px solid rgba(35,37,31,.1);
+      background: rgba(255,255,255,.62); color: #4f564c; cursor: pointer; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .mini-btn.dark { background: #2d4f49; color: #fffdf7; border-color: #2d4f49; }
+
+    .chart-card {
+      display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; min-height: 0; overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,252,.88), rgba(248,246,239,.92));
+    }
+    .chart-head {
+      padding: 22px 24px 10px; display:flex; justify-content: space-between; gap: 18px; align-items: flex-start;
+    }
+    .chart-head h2 {
+      margin: 0; font-size: 30px; line-height: 1.02; letter-spacing: -.04em; font-weight: 600;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+    }
+    .chart-head p { margin: 8px 0 0; font-size: 13px; line-height: 1.65; color: var(--muted); max-width: 780px; }
+
+    .legend-wrap {
+      padding: 0 24px 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 14px;
+      align-items: start;
+    }
+    .legend-block { display:flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+    .sector-legend {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      min-width: 72px;
+      color: var(--muted);
+      font-size: 10.5px;
+      text-align: center;
+    }
+    .sector-legend-shape {
+      width: 38px;
+      height: 19px;
+      border-top-left-radius: 999px;
+      border-top-right-radius: 999px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background: var(--legend-color, #ccc);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
+    }
+    .sector-legend-label {
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .size-guide {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 190px;
+      min-width: 0;
+      color: var(--muted);
+      overflow: visible;
+    }
+    .size-legend-svg {
+      width: 178px;
+      height: 62px;
+      display: block;
+      overflow: visible;
+    }
+    .size-arc {
+      fill: none;
+      stroke: rgba(35,37,31,.58);
+      stroke-width: 1.2;
+      vector-effect: non-scaling-stroke;
+    }
+    .size-baseline {
+      stroke: rgba(35,37,31,.40);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    .size-label {
+      font-size: 10.5px;
+      fill: rgba(35,37,31,.62);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .chart-stage {
+      position: relative; min-height: 0; margin: 8px 18px 0; border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(28,42,33,.04) 1px, transparent 1px) 0 0/72px 44px,
+        linear-gradient(0deg, rgba(28,42,33,.04) 1px, transparent 1px) 0 0/72px 44px,
+        rgba(255,255,255,.40);
+      border: 1px solid rgba(35,37,31,.08); overflow: hidden;
+    }
+    svg { width: 100%; height: 100%; display:block; }
+    .axis-text { font-size: 12px; fill: rgba(35,37,31,.86); }
+    .axis-text.year { font-size: 12px; font-weight: 700; }
+    .grid-line { stroke: rgba(35,37,31,.14); stroke-width: 1; }
+    .row-line { stroke: rgba(35,37,31,.12); stroke-width: 1; }
+    .bubble { mix-blend-mode: multiply; cursor: pointer; }
+    .bubble-core { fill: rgba(255,255,255,.28); pointer-events: none; }
+    .bubble.is-dim { opacity: .18; }
+    .y-label { font-size: 12px; fill: rgba(35,37,31,.88); }
+    .tooltip {
+      position: absolute; pointer-events:none; z-index:20; opacity: 0; transition: opacity .18s ease;
+      transform: translate(-50%, calc(-100% - 14px)); background: rgba(35,38,31,.90); color: #fffdf7;
+      border-radius: 14px; padding: 10px 12px; font-size: 12px; line-height: 1.5; box-shadow: 0 16px 30px rgba(0,0,0,.14);
+      white-space: nowrap;
+    }
+    .tooltip.show { opacity: 1; }
+    .tooltip b { display:block; margin-bottom: 2px; }
+
+    .chart-footer {
+      padding: 10px 24px 16px; display:flex; justify-content: space-between; gap: 12px; align-items:center;
+      color: var(--muted); font-size: 12px;
+    }
+
+    @media (max-width: 1280px) {
+      .legend-wrap {
+        grid-template-columns: 1fr;
+      }
+      .size-guide {
+        justify-content: flex-start;
+        width: 190px;
+      }
+      .legend-block {
+        gap: 10px;
+      }
+      .sector-legend {
+        min-width: 62px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .wrap { height: auto; min-height: 100vh; }
+      .workbench { grid-template-columns: 1fr; }
+      .sidebar, .chart-card { min-height: auto; }
+      .chart-card { min-height: 820px; }
+      .legend-wrap { grid-template-columns: 1fr; }
+      .chart-stage { min-height: 620px; }
+      .topbar { align-items: flex-start; }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: min(100vw - 20px, 1380px); padding-top: 16px; }
+      .pill { display:none; }
+      .sidebar { padding: 20px; }
+      h1 { font-size: 40px; }
+      .dataset-grid, .filter-grid { grid-template-columns: 1fr; }
+      .chart-head { padding: 20px 18px 8px; }
+      .legend-wrap { padding: 0 18px 8px; }
+      .chart-stage { margin: 8px 10px 0; min-height: 560px; }
+      .chart-footer { padding: 10px 18px 16px; flex-direction: column; align-items:flex-start; }
+      .mapping-row { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+
+    /* Site integration: keep BaoLong fixed navigation and turn this tool into one-screen desktop workbench */
+    body.bubble-timeline-page{
+      padding-top:104px !important;
+    }
+    body.bubble-timeline-page .site-header{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif !important;
+    }
+    body.bubble-timeline-page .wrap{
+      position:relative;
+      z-index:1;
+      height:calc(100vh - 104px);
+      padding:18px 0 24px;
+    }
+    body.bubble-timeline-page .legal-footer{
+      display:none;
+    }
+    @media (max-width:1100px){
+      body.bubble-timeline-page .wrap{
+        height:auto;
+        min-height:calc(100vh - 72px);
+      }
+    }
+    @media (max-width:980px){
+      body.bubble-timeline-page{
+        padding-top:72px !important;
+      }
+    }
+
+  </style>
+</head>
+<body class="bubble-timeline-page">
+  <header class="site-header">
+<a class="brand" href="index.html">
+<img alt="BaoLong Lab Logo" class="brand-logo-img" src="images/logo-eye.webp"/>
+<div class="brand-text">BAOLONG LAB</div>
+</a>
+<nav class="nav">
+<a href="index.html">All</a>
+<div class="nav-dropdown">
+<a href="assets.html">Assets ▼</a>
+<div class="dropdown-content">
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">Free</a>
+</div>
+</div>
+<a href="prompt-generator.html">Prompt Generator</a>
+<a href="interaction.html">Interaction</a>
+<a href="resume.html">Resume</a>
+<div class="nav-dropdown">
+<a href="plan-references.html">Inspiration Board ▼</a>
+<div class="dropdown-content">
+<a href="plan-references.html">Plan Board</a>
+<a href="section-references.html">Section Board</a>
+<a href="render-references.html">Other Board</a>
+<a href="color-references.html">Color Board</a>
+</div>
+</div>
+</nav>
+<div class="header-actions">
+<button class="pill-btn login-entry-btn" onclick="location.href='login.html'">Log in</button>
+</div>
+<button aria-label="Open menu" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">Menu</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+<a href="index.html" onclick="closeMobileMenu()">All</a>
+<div class="mobile-menu-group">Assets</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">Module Assets</a>
+<a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">People Assets</a>
+<a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">Plant Assets</a>
+<a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">Animal Assets</a>
+<a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">Textures</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">Free</a>
+<div class="mobile-menu-group">Tools</div>
+<a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt Generator</a>
+<a href="interaction.html" onclick="closeMobileMenu()">Interaction</a>
+<a href="resume.html" onclick="closeMobileMenu()">Resume</a>
+<div class="mobile-menu-group">Inspiration Board</div>
+<a href="plan-references.html" onclick="closeMobileMenu()">Plan Board</a>
+<a href="section-references.html" onclick="closeMobileMenu()">Section Board</a>
+<a href="render-references.html" onclick="closeMobileMenu()">Other Board</a>
+<a href="color-references.html" onclick="closeMobileMenu()">Color Board</a>
+<div class="mobile-menu-group">Account</div>
+<a href="login.html" onclick="closeMobileMenu()">Log in</a>
+</div>
+</header>
+  <div class="noise"></div>
+  <main class="wrap">
+    <section class="workbench">
+      <aside class="panel sidebar">
+        <div class="kicker">Data Visualization</div>
+        <h1>Bubble<br>Timeline</h1>
+        <div class="cn-title">气泡时间轴图</div>
+        <p class="desc">
+          这是一版独立预览：把一组按年份发生的数据事件，放到横向时间轴上，用气泡大小表示数值，用颜色表示分类，用纵向排列表示国家或地区。它比 Data Bloom Garden 更偏信息型和新闻图表型。
+        </p>
+
+        <section class="section">
+          <h3>How to read</h3>
+          <ul class="guide-list">
+            <li><b>横轴</b>：年份，帮助你看时间变化趋势。</li>
+            <li><b>纵轴</b>：国家 / 地区，用来区分每一行的对象。</li>
+            <li><b>气泡大小</b>：数值越大，圆越大。</li>
+            <li><b>气泡颜色</b>：表示行业或分类。</li>
+            <li><b>悬停</b>：显示国家、年份、金额、行业和项目说明。</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h3>Dataset</h3>
+          <div class="dataset-grid" id="datasetGrid"></div>
+        </section>
+
+        <section class="section">
+          <h3>Filters</h3>
+          <p>可以按行业筛选，也可以搜索国家名称。第一版先用内置示例数据预览结构和交互。</p>
+          <div class="filter-grid" id="filterGrid"></div>
+          <div class="field-row">
+            <label for="countrySearch">Country search</label>
+            <input class="search" id="countrySearch" placeholder="搜索国家，比如 Canada / Brazil" />
+          </div>
+          <div class="actions">
+            <button class="mini-btn dark" id="resetFilterBtn">Reset filters</button>
+            <button class="mini-btn" id="highlightLargeBtn">Highlight top deals</button>
+          </div>
+        </section>
+
+
+        <section class="section upload-card">
+          <h3>Upload your data</h3>
+          <p>可以上传 CSV 文件，也可以直接粘贴 CSV 文本。读入后，选择哪一列对应国家、年份、数值、分类和项目说明，再生成图表。</p>
+          <input class="file-input" id="csvFile" type="file" accept=".csv,text/csv" />
+          <textarea class="paste-box" id="csvText" spellcheck="false" placeholder="country,year,value,sector,title
+Australia,2007,8.4,Metals,Mining partnership
+Brazil,2010,7.6,Energy,Offshore support deal
+Canada,2012,7.9,Transport,Railway system deal"></textarea>
+          <div class="actions">
+            <button class="mini-btn" id="loadExampleBtn">Paste example</button>
+            <button class="mini-btn dark" id="parseDataBtn">Read data</button>
+            <button class="mini-btn" id="useBuiltInBtn">Use built-in</button>
+          </div>
+          <div class="mapping-grid" id="mappingBox" hidden>
+            <div class="mapping-row"><span>Country</span><select id="countryColumn"></select></div>
+            <div class="mapping-row"><span>Year</span><select id="yearColumn"></select></div>
+            <div class="mapping-row"><span>Value</span><select id="valueColumn"></select></div>
+            <div class="mapping-row"><span>Sector</span><select id="sectorColumn"></select></div>
+            <div class="mapping-row"><span>Title</span><select id="titleColumn"></select></div>
+            <div class="mapping-row"><span>Chart title</span><input id="customTitle" value="Uploaded bubble timeline" /></div>
+            <button class="mini-btn dark" id="generateUploadBtn">Generate chart</button>
+          </div>
+          <div class="upload-status" id="uploadStatus">表格建议字段：country, year, value, sector, title</div>
+          <div class="table-guide">
+            <code>推荐表头：
+country,year,value,sector,title
+Australia,2007,8.4,Metals,Mining partnership
+Brazil,2010,7.6,Energy,Offshore support deal
+Canada,2012,7.9,Transport,Railway system deal
+
+怎么用：
+1. country = 纵轴标签（国家 / 地区）
+2. year = 横轴年份（建议用数字）
+3. value = 气泡大小对应的数值
+4. sector = 颜色分类（如 Energy / Finance）
+5. title = 悬停时显示的项目说明（可选）</code>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Use cases</h3>
+          <ul class="notes-list">
+            <li><b>时间趋势</b>：看某几年数据是否集中爆发。</li>
+            <li><b>分类分布</b>：看不同行业在不同国家的分布。</li>
+            <li><b>项目比较</b>：快速识别大额项目和高频项目。</li>
+            <li><b>新闻图表</b>：适合搭配标题、图例和 hover 说明做成完整信息图。</li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="panel chart-card">
+        <div class="chart-head">
+          <div>
+            <h2 id="chartTitle">China worldwide investments and contracts by sector</h2>
+            <p id="chartDesc">Sample data preview · values shown as bubble size, sectors shown as color, years shown on the top axis.</p>
+          </div>
+        </div>
+        <div class="legend-wrap">
+          <div class="legend-block" id="legendBlock"></div>
+          <div class="size-guide" id="sizeGuide"></div>
+        </div>
+        <div class="chart-stage" id="chartStage">
+          <svg id="chartSvg" viewBox="0 0 1200 780" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Bubble timeline chart preview"></svg>
+          <div class="tooltip" id="tooltip"></div>
+        </div>
+        <div class="chart-footer">
+          <span id="footerNote">Hover over a bubble to see details. Click a category filter to isolate a sector.</span>
+          <span id="countNote">0 deals shown</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const sectorColors = {
+      Agriculture: getComputedStyle(document.documentElement).getPropertyValue('--agri').trim(),
+      Technology: getComputedStyle(document.documentElement).getPropertyValue('--tech').trim(),
+      Finance: getComputedStyle(document.documentElement).getPropertyValue('--finance').trim(),
+      Energy: getComputedStyle(document.documentElement).getPropertyValue('--energy').trim(),
+      Transport: getComputedStyle(document.documentElement).getPropertyValue('--transport').trim(),
+      Metals: getComputedStyle(document.documentElement).getPropertyValue('--metals').trim(),
+      'Real estate': getComputedStyle(document.documentElement).getPropertyValue('--realestate').trim(),
+      Other: getComputedStyle(document.documentElement).getPropertyValue('--other').trim()
+    };
+
+    const datasets = [
+      {
+        id: 'globalInvestments',
+        button: 'Global investments',
+        label: 'Investment sample',
+        title: 'China worldwide investments and contracts by sector',
+        desc: '参考新闻图表逻辑的示例数据：国家为纵轴，年份为横轴，金额为气泡大小，行业为颜色。',
+        unit: 'bn USD',
+        years: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014],
+        rows: ['Afghanistan','Algeria','Angola','Argentina','Australia','Brazil','Britain','Canada','Chile','Germany','Indonesia','Italy','Kazakhstan','Mexico','Poland','Portugal'],
+        deals: [
+          {country:'Australia', year:2007, value:8.4, sector:'Metals', title:'Mining partnership'},
+          {country:'Australia', year:2009, value:4.2, sector:'Technology', title:'Infrastructure systems'},
+          {country:'Australia', year:2013, value:6.6, sector:'Energy', title:'LNG cooperation'},
+          {country:'Brazil', year:2007, value:3.9, sector:'Finance', title:'Development financing'},
+          {country:'Brazil', year:2008, value:5.2, sector:'Energy', title:'Oil field agreement'},
+          {country:'Brazil', year:2010, value:7.6, sector:'Energy', title:'Offshore support deal'},
+          {country:'Brazil', year:2011, value:4.5, sector:'Energy', title:'Logistics upgrade'},
+          {country:'Brazil', year:2014, value:3.2, sector:'Transport', title:'Port expansion'},
+          {country:'Britain', year:2010, value:2.8, sector:'Finance', title:'Financial services stake'},
+          {country:'Britain', year:2011, value:1.9, sector:'Other', title:'Urban services contract'},
+          {country:'Britain', year:2012, value:2.2, sector:'Real estate', title:'Property development'},
+          {country:'Canada', year:2006, value:1.6, sector:'Technology', title:'Clean tech project'},
+          {country:'Canada', year:2010, value:5.8, sector:'Metals', title:'Resource investment'},
+          {country:'Canada', year:2012, value:7.9, sector:'Transport', title:'Railway system deal'},
+          {country:'Canada', year:2014, value:4.7, sector:'Energy', title:'Gas infrastructure'},
+          {country:'Chile', year:2005, value:1.2, sector:'Metals', title:'Copper supply contract'},
+          {country:'Chile', year:2009, value:4.6, sector:'Metals', title:'Mining acquisition'},
+          {country:'Germany', year:2008, value:2.7, sector:'Finance', title:'Industrial loan package'},
+          {country:'Germany', year:2013, value:2.1, sector:'Technology', title:'Manufacturing automation'},
+          {country:'Indonesia', year:2009, value:2.5, sector:'Energy', title:'Grid expansion'},
+          {country:'Indonesia', year:2011, value:3.4, sector:'Metals', title:'Nickel processing'},
+          {country:'Indonesia', year:2014, value:5.3, sector:'Energy', title:'Power generation'},
+          {country:'Italy', year:2008, value:1.8, sector:'Real estate', title:'Urban renewal'},
+          {country:'Italy', year:2011, value:3.6, sector:'Transport', title:'Port logistics'},
+          {country:'Kazakhstan', year:2007, value:2.1, sector:'Energy', title:'Pipeline services'},
+          {country:'Kazakhstan', year:2010, value:6.1, sector:'Energy', title:'Oilfield contract'},
+          {country:'Kazakhstan', year:2012, value:2.4, sector:'Metals', title:'Smelter upgrade'},
+          {country:'Mexico', year:2012, value:3.2, sector:'Transport', title:'Urban mobility'},
+          {country:'Mexico', year:2014, value:2.8, sector:'Finance', title:'Banking cooperation'},
+          {country:'Poland', year:2011, value:1.5, sector:'Other', title:'Public works package'},
+          {country:'Portugal', year:2011, value:2.9, sector:'Real estate', title:'Property fund entry'},
+          {country:'Portugal', year:2013, value:1.7, sector:'Finance', title:'Capital participation'},
+          {country:'Argentina', year:2009, value:4.0, sector:'Transport', title:'Freight corridor'},
+          {country:'Argentina', year:2010, value:2.3, sector:'Agriculture', title:'Food processing'},
+          {country:'Angola', year:2010, value:3.8, sector:'Energy', title:'Refinery support'},
+          {country:'Angola', year:2013, value:2.6, sector:'Energy', title:'Field services'},
+          {country:'Algeria', year:2006, value:1.9, sector:'Energy', title:'Drilling equipment'},
+          {country:'Afghanistan', year:2014, value:2.2, sector:'Transport', title:'Road network'},
+        ]
+      },
+      {
+        id: 'creativeIndustry',
+        button: 'Creative sample',
+        label: 'Creative sample',
+        title: 'Creative industry collaborations by category',
+        desc: '更贴近设计网站语境的示例：把不同国家或地区的合作项目放到时间轴里看趋势。',
+        unit: 'value',
+        years: [2016,2017,2018,2019,2020,2021,2022,2023,2024],
+        rows: ['Japan','South Korea','Singapore','Thailand','UK','France','Italy','USA','Canada','Australia','UAE','Brazil'],
+        deals: [
+          {country:'Japan', year:2017, value:2.2, sector:'Technology', title:'Interactive installation'},
+          {country:'Japan', year:2021, value:4.4, sector:'Technology', title:'Spatial media platform'},
+          {country:'South Korea', year:2019, value:2.6, sector:'Finance', title:'Brand investment round'},
+          {country:'South Korea', year:2023, value:3.3, sector:'Technology', title:'Immersive content'},
+          {country:'Singapore', year:2018, value:2.1, sector:'Finance', title:'Design innovation fund'},
+          {country:'Singapore', year:2022, value:3.8, sector:'Transport', title:'Exhibition mobility system'},
+          {country:'Thailand', year:2020, value:1.7, sector:'Other', title:'Cultural residency'},
+          {country:'UK', year:2016, value:1.5, sector:'Real estate', title:'Creative campus'},
+          {country:'UK', year:2022, value:2.9, sector:'Finance', title:'Studio financing'},
+          {country:'France', year:2018, value:2.5, sector:'Real estate', title:'Museum district'},
+          {country:'France', year:2024, value:3.1, sector:'Technology', title:'Digital archive'},
+          {country:'Italy', year:2019, value:2.0, sector:'Transport', title:'Biennale mobility'},
+          {country:'USA', year:2017, value:3.2, sector:'Technology', title:'Design software alliance'},
+          {country:'USA', year:2021, value:5.2, sector:'Finance', title:'Creative venture program'},
+          {country:'Canada', year:2020, value:1.8, sector:'Other', title:'Public art grant'},
+          {country:'Australia', year:2018, value:2.6, sector:'Agriculture', title:'Landscape ecology lab'},
+          {country:'UAE', year:2023, value:4.0, sector:'Real estate', title:'Cultural waterfront'},
+          {country:'Brazil', year:2024, value:2.3, sector:'Energy', title:'Low-carbon pavilion'}
+        ]
+      }
+    ];
+
+    const datasetGrid = document.getElementById('datasetGrid');
+    const filterGrid = document.getElementById('filterGrid');
+    const chartSvg = document.getElementById('chartSvg');
+    const chartStage = document.getElementById('chartStage');
+    const tooltip = document.getElementById('tooltip');
+    const chartTitle = document.getElementById('chartTitle');
+    const chartDesc = document.getElementById('chartDesc');
+    const legendBlock = document.getElementById('legendBlock');
+    const sizeGuide = document.getElementById('sizeGuide');
+    const countNote = document.getElementById('countNote');
+    const countrySearch = document.getElementById('countrySearch');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+    const highlightLargeBtn = document.getElementById('highlightLargeBtn');
+    const csvFile = document.getElementById('csvFile');
+    const csvText = document.getElementById('csvText');
+    const loadExampleBtn = document.getElementById('loadExampleBtn');
+    const parseDataBtn = document.getElementById('parseDataBtn');
+    const useBuiltInBtn = document.getElementById('useBuiltInBtn');
+    const mappingBox = document.getElementById('mappingBox');
+    const countryColumn = document.getElementById('countryColumn');
+    const yearColumn = document.getElementById('yearColumn');
+    const valueColumn = document.getElementById('valueColumn');
+    const sectorColumn = document.getElementById('sectorColumn');
+    const titleColumn = document.getElementById('titleColumn');
+    const customTitle = document.getElementById('customTitle');
+    const generateUploadBtn = document.getElementById('generateUploadBtn');
+    const uploadStatus = document.getElementById('uploadStatus');
+
+    let activeDataset = datasets[0];
+    let activeSector = 'All';
+    let highlightLarge = false;
+    let searchTerm = '';
+    let uploadedHeaders = [];
+    let uploadedRows = [];
+
+    function sectorsOf(dataset) {
+      return ['All', ...new Set(dataset.deals.map(d => d.sector).filter(Boolean))];
+    }
+
+    function renderDatasetButtons() {
+      datasetGrid.innerHTML = '';
+      const list = activeDataset.id === 'uploaded' ? [activeDataset, ...datasets] : datasets;
+      list.forEach(ds => {
+        const btn = document.createElement('button');
+        btn.className = 'dataset-btn' + (ds.id === activeDataset.id ? ' active' : '');
+        btn.innerHTML = `<strong>${ds.button || ds.label || ds.title}</strong><span>${ds.desc}</span>`;
+        btn.addEventListener('click', () => {
+          activeDataset = ds;
+          activeSector = 'All';
+          searchTerm = '';
+          countrySearch.value = '';
+          highlightLarge = false;
+          renderDatasetButtons();
+          renderFilterButtons();
+          renderChart();
+        });
+        datasetGrid.appendChild(btn);
+      });
+    }
+
+    function renderFilterButtons() {
+      filterGrid.innerHTML = '';
+      sectorsOf(activeDataset).forEach(sec => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (sec === activeSector ? ' active' : '');
+        const color = sec === 'All' ? 'rgba(45,79,73,.25)' : (sectorColors[sec] || dynamicSectorColor(sec));
+        btn.innerHTML = `<strong>${sec}</strong><span>${sec === 'All' ? 'Show all sectors' : 'Filter this category only'}</span>`;
+        btn.style.borderColor = sec === activeSector ? 'rgba(45,79,73,.24)' : 'rgba(35,37,31,.08)';
+        btn.style.boxShadow = sec === activeSector ? `inset 0 0 0 1px ${color}33` : 'none';
+        btn.addEventListener('click', () => {
+          activeSector = sec;
+          renderFilterButtons();
+          renderChart();
+        });
+        filterGrid.appendChild(btn);
+      });
+    }
+
+    function filteredDeals() {
+      return activeDataset.deals.filter(deal => {
+        const sectorOk = activeSector === 'All' || deal.sector === activeSector;
+        const searchOk = !searchTerm || deal.country.toLowerCase().includes(searchTerm);
+        return sectorOk && searchOk;
+      });
+    }
+
+    function dynamicSectorColor(name) {
+      const fallback = ['#8d8550','#d8c089','#d94a38','#ef9a43','#7fc2b9','#6e79b7','#d59c91','#75624d','#7fa88e','#b08f74'];
+      let hash = 0;
+      const s = String(name || 'Other');
+      for (let i = 0; i < s.length; i++) hash = ((hash << 5) - hash) + s.charCodeAt(i);
+      return fallback[Math.abs(hash) % fallback.length];
+    }
+
+    function renderLegend() {
+      legendBlock.innerHTML = '';
+      sectorsOf(activeDataset).slice(1).forEach(sec => {
+        const item = document.createElement('span');
+        item.className = 'sector-legend';
+        const color = sectorColors[sec] || dynamicSectorColor(sec);
+        item.innerHTML = `
+          <span class="sector-legend-shape" style="--legend-color:${color}"></span>
+          <span class="sector-legend-label">${sec}</span>
+        `;
+        legendBlock.appendChild(item);
+      });
+
+      sizeGuide.innerHTML = `
+        <svg class="size-legend-svg" viewBox="0 0 178 62" aria-label="Bubble size legend">
+          <line class="size-baseline" x1="8" y1="39" x2="170" y2="39"></line>
+          <path class="size-arc" d="M 20 39 A 12 12 0 0 1 44 39"></path>
+          <path class="size-arc" d="M 58 39 A 21 21 0 0 1 100 39"></path>
+          <path class="size-arc" d="M 112 39 A 29 29 0 0 1 170 39"></path>
+          <text class="size-label" x="32" y="57" text-anchor="middle">1</text>
+          <text class="size-label" x="79" y="57" text-anchor="middle">5</text>
+          <text class="size-label" x="141" y="57" text-anchor="middle">10</text>
+        </svg>
+      `;
+    }
+
+    function bubbleRadius(value, maxValue) {
+      const minR = 8;
+      const maxR = 52;
+      if (maxValue <= 0) return minR;
+      return minR + Math.sqrt(value / maxValue) * (maxR - minR);
+    }
+
+    function makeSvg(tag, attrs = {}, parent = chartSvg) {
+      const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+      parent.appendChild(el);
+      return el;
+    }
+
+    function renderChart() {
+      chartSvg.innerHTML = '';
+      chartTitle.textContent = activeDataset.title;
+      chartDesc.textContent = activeDataset.desc;
+      renderLegend();
+
+      const years = activeDataset.years;
+      const deals = filteredDeals();
+      const visibleRows = activeDataset.rows.filter(row => !searchTerm || row.toLowerCase().includes(searchTerm));
+      const rows = visibleRows.length ? visibleRows : activeDataset.rows;
+      const maxValue = Math.max(...activeDataset.deals.map(d => d.value), 10);
+      countNote.textContent = `${deals.length} deals shown`;
+
+      const width = 1200;
+      const height = 780;
+      const margin = { top: 70, right: 28, bottom: 30, left: 132 };
+      const plotW = width - margin.left - margin.right;
+      const plotH = height - margin.top - margin.bottom;
+      const rowGap = plotH / Math.max(rows.length, 1);
+      const yearGap = plotW / Math.max(years.length, 1);
+
+      // background grid
+      years.forEach((year, i) => {
+        const x = margin.left + yearGap * i + yearGap / 2;
+        makeSvg('line', { x1: x, y1: margin.top - 14, x2: x, y2: height - margin.bottom, class: 'grid-line' });
+        const labelBg = makeSvg('rect', {
+          x: x - 30, y: 16, width: 60, height: 22, rx: 0, fill: '#141512'
+        });
+        makeSvg('text', {
+          x, y: 31, 'text-anchor': 'middle', class: 'axis-text year', fill: '#fffef9'
+        }).textContent = year;
+      });
+
+      rows.forEach((row, i) => {
+        const y = margin.top + rowGap * i + rowGap / 2;
+        makeSvg('line', { x1: margin.left, y1: y, x2: width - margin.right, y2: y, class: 'row-line' });
+        makeSvg('text', {
+          x: margin.left - 10, y: y + 4, 'text-anchor': 'end', class: 'y-label'
+        }).textContent = row;
+      });
+
+      // bubbles
+      const yearIndex = Object.fromEntries(years.map((y,i)=>[y,i]));
+      const rowIndex = Object.fromEntries(rows.map((r,i)=>[r,i]));
+      deals.forEach((deal, idx) => {
+        if (!(deal.country in rowIndex) || !(deal.year in yearIndex)) return;
+        const baseX = margin.left + yearGap * yearIndex[deal.year] + yearGap / 2;
+        const baseY = margin.top + rowGap * rowIndex[deal.country] + rowGap / 2;
+        const jitterX = ((idx % 5) - 2) * 5.5;
+        const jitterY = (((idx * 3) % 7) - 3) * 2.8;
+        const x = baseX + jitterX;
+        const y = baseY + jitterY;
+        const r = bubbleRadius(deal.value, maxValue);
+        const sectorColor = sectorColors[deal.sector] || dynamicSectorColor(deal.sector);
+        const isTop = deal.value >= maxValue * 0.68;
+        const dim = highlightLarge && !isTop;
+
+        const g = makeSvg('g', { class: `bubble-group${dim ? ' is-dim' : ''}` });
+        const bubble = makeSvg('circle', {
+          cx: x, cy: y, r, fill: sectorColor, opacity: 0.88,
+          class: `bubble${dim ? ' is-dim' : ''}`
+        }, g);
+        makeSvg('circle', {
+          cx: x - r * 0.18, cy: y - r * 0.18, r: Math.max(5, r * 0.24), class: 'bubble-core'
+        }, g);
+
+        g.addEventListener('mouseenter', () => showTooltip(deal));
+        g.addEventListener('mousemove', moveTooltip);
+        g.addEventListener('mouseleave', hideTooltip);
+      });
+
+      let note = 'Hover over a bubble to see details. Click a category filter to isolate a sector.';
+      if (activeSector !== 'All') note = `Showing only: ${activeSector}.`;
+      if (searchTerm) note += ` Search filter: ${searchTerm}.`;
+      if (highlightLarge) note += ' Highlight mode: emphasising larger deals.';
+      document.getElementById('footerNote').textContent = note;
+    }
+
+    function showTooltip(deal) {
+      const unit = activeDataset.unit || 'value';
+      tooltip.innerHTML = `<b>${deal.country}</b>${deal.year} · ${deal.value} ${unit}<br>Sector: ${deal.sector}<br>Project: ${deal.title}`;
+      tooltip.classList.add('show');
+    }
+    function moveTooltip(event) {
+      const rect = chartStage.getBoundingClientRect();
+      tooltip.style.left = `${event.clientX - rect.left}px`;
+      tooltip.style.top = `${event.clientY - rect.top}px`;
+    }
+    function hideTooltip() { tooltip.classList.remove('show'); }
+
+
+    function parseCSV(raw) {
+      const rows = [];
+      let row = [];
+      let cell = '';
+      let quote = false;
+      for (let i = 0; i < raw.length; i++) {
+        const ch = raw[i];
+        const next = raw[i + 1];
+        if (ch === '"') {
+          if (quote && next === '"') { cell += '"'; i++; }
+          else { quote = !quote; }
+        } else if (ch === ',' && !quote) {
+          row.push(cell.trim()); cell = '';
+        } else if ((ch === '\n' || ch === '\r') && !quote) {
+          if (ch === '\r' && next === '\n') i++;
+          row.push(cell.trim()); cell = '';
+          if (row.some(v => v !== '')) rows.push(row);
+          row = [];
+        } else {
+          cell += ch;
+        }
+      }
+      row.push(cell.trim());
+      if (row.some(v => v !== '')) rows.push(row);
+      if (rows.length < 2) return { headers: [], rows: [] };
+      const headers = rows[0].map((h, i) => h || `Column ${i + 1}`);
+      const objects = rows.slice(1).map(values => {
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = values[i] || '');
+        return obj;
+      });
+      return { headers, rows: objects };
+    }
+
+    function fillSelect(select, headers, includeEmpty = false, emptyLabel = 'No column') {
+      select.innerHTML = '';
+      if (includeEmpty) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = emptyLabel;
+        select.appendChild(opt);
+      }
+      headers.forEach(h => {
+        const opt = document.createElement('option');
+        opt.value = h;
+        opt.textContent = h;
+        select.appendChild(opt);
+      });
+    }
+
+    function guessHeader(words, fallbackIndex = 0) {
+      const lower = uploadedHeaders.map(h => h.toLowerCase());
+      const found = lower.findIndex(h => words.some(w => h.includes(w)));
+      return uploadedHeaders[found >= 0 ? found : Math.min(fallbackIndex, uploadedHeaders.length - 1)] || '';
+    }
+
+    function readUploadedData(raw) {
+      const parsed = parseCSV(raw);
+      uploadedHeaders = parsed.headers;
+      uploadedRows = parsed.rows;
+      if (!uploadedHeaders.length || !uploadedRows.length) {
+        mappingBox.hidden = true;
+        uploadStatus.textContent = '没有读到有效数据，请确认第一行是表头，下面至少还有一行数据。';
+        return;
+      }
+      fillSelect(countryColumn, uploadedHeaders);
+      fillSelect(yearColumn, uploadedHeaders);
+      fillSelect(valueColumn, uploadedHeaders);
+      fillSelect(sectorColumn, uploadedHeaders);
+      fillSelect(titleColumn, uploadedHeaders, true, 'No title column');
+      countryColumn.value = guessHeader(['country', 'nation', '地区', '国家'], 0);
+      yearColumn.value = guessHeader(['year', '年份'], 1);
+      valueColumn.value = guessHeader(['value', 'amount', 'score', 'count', '金额', '数值'], 2);
+      sectorColumn.value = guessHeader(['sector', 'category', 'group', 'type', '行业', '分类'], 3);
+      titleColumn.value = guessHeader(['title', 'project', 'detail', 'name', '项目', '说明'], 4);
+      mappingBox.hidden = false;
+      uploadStatus.textContent = `已读取 ${uploadedRows.length} 行数据，请确认列对应关系。`;
+    }
+
+    csvFile.addEventListener('change', event => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        csvText.value = String(reader.result || '');
+        readUploadedData(csvText.value);
+      };
+      reader.readAsText(file);
+    });
+
+    loadExampleBtn.addEventListener('click', () => {
+      csvText.value = `country,year,value,sector,title
+Australia,2007,8.4,Metals,Mining partnership
+Brazil,2010,7.6,Energy,Offshore support deal
+Canada,2012,7.9,Transport,Railway system deal
+Germany,2013,2.1,Technology,Manufacturing automation
+Portugal,2011,2.9,Real estate,Property fund entry`;
+      readUploadedData(csvText.value);
+    });
+
+    parseDataBtn.addEventListener('click', () => readUploadedData(csvText.value));
+
+    generateUploadBtn.addEventListener('click', () => {
+      const cKey = countryColumn.value;
+      const yKey = yearColumn.value;
+      const vKey = valueColumn.value;
+      const sKey = sectorColumn.value;
+      const tKey = titleColumn.value;
+      const deals = uploadedRows.map((row, index) => {
+        const year = Number(String(row[yKey] || '').replace(/[^\d.-]/g, ''));
+        const value = Number(String(row[vKey] || '').replace(/,/g, '').replace(/[^\d.-]/g, ''));
+        const sector = sKey ? (row[sKey] || 'Other') : 'Other';
+        return {
+          country: row[cKey] || `Item ${index + 1}`,
+          year,
+          value,
+          sector: sectorColors[sector] ? sector : sector,
+          title: tKey ? (row[tKey] || 'Uploaded item') : 'Uploaded item'
+        };
+      }).filter(item => item.country && Number.isFinite(item.year) && Number.isFinite(item.value) && item.value > 0);
+
+      if (!deals.length) {
+        uploadStatus.textContent = '没有生成有效图表，请确认 year 和 value 列是数字。';
+        return;
+      }
+
+      const years = [...new Set(deals.map(d => d.year))].sort((a, b) => a - b);
+      const rows = [...new Set(deals.map(d => d.country))];
+      activeDataset = {
+        id: 'uploaded',
+        button: 'Uploaded',
+        label: 'Uploaded data',
+        title: customTitle.value || 'Uploaded bubble timeline',
+        desc: '你上传的数据正在以气泡时间轴显示：横轴为年份，纵轴为国家，大小为数值，颜色为分类。',
+        unit: 'value',
+        years,
+        rows,
+        deals
+      };
+      activeSector = 'All';
+      highlightLarge = false;
+      searchTerm = '';
+      countrySearch.value = '';
+      uploadStatus.textContent = `已生成 ${deals.length} 个数据点。可以继续用上面的筛选器查看。`;
+      renderDatasetButtons();
+      renderFilterButtons();
+      renderChart();
+    });
+
+    useBuiltInBtn.addEventListener('click', () => {
+      activeDataset = datasets[0];
+      activeSector = 'All';
+      highlightLarge = false;
+      searchTerm = '';
+      countrySearch.value = '';
+      mappingBox.hidden = true;
+      uploadStatus.textContent = '已切回内置示例数据。';
+      renderDatasetButtons();
+      renderFilterButtons();
+      renderChart();
+    });
+
+    countrySearch.addEventListener('input', () => {
+      searchTerm = countrySearch.value.trim().toLowerCase();
+      renderChart();
+    });
+
+    resetFilterBtn.addEventListener('click', () => {
+      activeSector = 'All';
+      highlightLarge = false;
+      searchTerm = '';
+      countrySearch.value = '';
+      renderFilterButtons();
+      renderChart();
+    });
+
+    highlightLargeBtn.addEventListener('click', () => {
+      highlightLarge = !highlightLarge;
+      highlightLargeBtn.classList.toggle('dark', highlightLarge);
+      renderChart();
+    });
+
+    renderDatasetButtons();
+    renderFilterButtons();
+    renderChart();
+  </script>
+
+  <script>
+    function navFilter(category){
+      location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
+      return false;
+    }
+  </script>
+</body>
+</html>

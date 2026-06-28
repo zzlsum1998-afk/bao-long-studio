@@ -786,6 +786,119 @@
       font-weight:700;
     }
 
+
+
+    /* Bubble Timeline preview card */
+    .bubble-timeline-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      min-height:220px;
+      border-radius:24px;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(35,37,31,.055) 1px, transparent 1px) 0 0/38px 32px,
+        linear-gradient(0deg, rgba(35,37,31,.045) 1px, transparent 1px) 0 0/38px 32px,
+        radial-gradient(circle at 18% 14%, rgba(127,194,185,.24), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(239,154,67,.20), transparent 26%),
+        linear-gradient(180deg,#fbfaf6,#efebe2);
+    }
+    .bubble-timeline-thumb::before{
+      content:"";
+      position:absolute;
+      left:28px;
+      right:24px;
+      top:42px;
+      height:128px;
+      border-left:1px solid rgba(35,37,31,.12);
+      border-bottom:1px solid rgba(35,37,31,.14);
+      background:
+        repeating-linear-gradient(90deg, transparent 0 42px, rgba(35,37,31,.05) 42px 43px),
+        repeating-linear-gradient(0deg, transparent 0 25px, rgba(35,37,31,.05) 25px 26px);
+      border-radius:18px;
+    }
+    .bubble-timeline-caption{
+      position:absolute;
+      left:18px;
+      top:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(32,35,30,.08);
+      color:#2d4f49;
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:800;
+      z-index:2;
+    }
+    .bubble-sample{
+      position:absolute;
+      border-radius:50%;
+      opacity:.82;
+      mix-blend-mode:multiply;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.32);
+      z-index:2;
+    }
+    .bubble-sample::after{
+      content:"";
+      position:absolute;
+      left:28%;
+      top:22%;
+      width:24%;
+      height:24%;
+      border-radius:50%;
+      background:rgba(255,255,255,.34);
+    }
+    .bubble-sample.b1{width:54px;height:54px;left:23%;top:44%;background:#ef9a43;}
+    .bubble-sample.b2{width:82px;height:82px;left:38%;top:34%;background:#6e79b7;}
+    .bubble-sample.b3{width:64px;height:64px;left:60%;top:47%;background:#7fc2b9;}
+    .bubble-sample.b4{width:46px;height:46px;left:73%;top:30%;background:#d94a38;}
+    .bubble-sample.b5{width:38px;height:38px;left:51%;top:64%;background:#75624d;}
+    .bubble-year-tags{
+      position:absolute;
+      left:44px;
+      right:28px;
+      top:48px;
+      display:flex;
+      justify-content:space-between;
+      gap:4px;
+      z-index:2;
+    }
+    .bubble-year-tags span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:34px;
+      height:16px;
+      background:#111;
+      color:#fffdf7;
+      font-size:8px;
+      line-height:1;
+    }
+    .bubble-sector-legend{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      display:flex;
+      gap:8px;
+      align-items:flex-end;
+      z-index:2;
+    }
+    .bubble-sector-legend span{
+      display:block;
+      width:28px;
+      height:14px;
+      border-top-left-radius:999px;
+      border-top-right-radius:999px;
+      background:var(--c);
+      opacity:.9;
+    }
+
 </style>
 <link href="css/common.css?v=124" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=124"></script>
@@ -1058,6 +1171,40 @@
 <div class="case-actions">
 <a class="case-link" href="data-bloom-garden.html">打开工具</a>
 <span class="case-note">适合作为艺术化数据展示与信息图灵感实验</span>
+</div>
+</div>
+</article>
+
+
+
+<article class="interaction-case-card">
+<div class="interaction-case-thumb" aria-hidden="true">
+<div class="bubble-timeline-thumb">
+<span class="bubble-timeline-caption">Bubble Timeline</span>
+<div class="bubble-year-tags"><span>2005</span><span>2008</span><span>2011</span><span>2014</span></div>
+<span class="bubble-sample b1"></span>
+<span class="bubble-sample b2"></span>
+<span class="bubble-sample b3"></span>
+<span class="bubble-sample b4"></span>
+<span class="bubble-sample b5"></span>
+<div class="bubble-sector-legend">
+<span style="--c:#8d8550"></span><span style="--c:#d8c089"></span><span style="--c:#d94a38"></span><span style="--c:#ef9a43"></span><span style="--c:#7fc2b9"></span><span style="--c:#6e79b7"></span>
+</div>
+</div>
+</div>
+<div class="interaction-case-body">
+<div class="interaction-case-type">Bubble Timeline Chart</div>
+<h3>气泡时间轴图</h3>
+<p>上传 CSV 或使用内置数据集，把年份、地区、数值和分类转化为可交互气泡时间轴，适合观察趋势、分布和重点项目。</p>
+<div class="case-tags">
+<span>数据可视化</span>
+<span>CSV 上传</span>
+<span>时间轴</span>
+<span>气泡图</span>
+</div>
+<div class="case-actions">
+<a class="case-link" href="bubble-timeline.html">打开工具</a>
+<span class="case-note">适合作为信息型数据展示、新闻图表与交互图表参考</span>
 </div>
 </div>
 </article>

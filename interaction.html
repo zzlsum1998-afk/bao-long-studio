@@ -706,6 +706,86 @@
       .interaction-case-grid{grid-template-columns:1fr;}
     }
 
+
+    /* Data Bloom Garden preview card */
+    .data-bloom-thumb{
+      position:relative;
+      width:100%;
+      height:100%;
+      min-height:220px;
+      border-radius:24px;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(49,88,79,.045) 1px, transparent 1px) 0 0/34px 34px,
+        linear-gradient(0deg, rgba(49,88,79,.035) 1px, transparent 1px) 0 0/34px 34px,
+        radial-gradient(circle at 18% 18%, rgba(145,165,173,.24), transparent 30%),
+        radial-gradient(circle at 84% 6%, rgba(216,185,144,.22), transparent 25%),
+        linear-gradient(180deg,#fbfaf5,#f1eee6);
+    }
+    .data-bloom-thumb::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:38%;
+      background:linear-gradient(180deg,transparent,rgba(216,185,144,.18));
+      pointer-events:none;
+    }
+    .bloom-sample{
+      position:absolute;
+      bottom:22px;
+      width:70px;
+      transform:translateX(-50%);
+    }
+    .bloom-sample i{
+      position:absolute;
+      left:50%;
+      bottom:0;
+      width:1px;
+      border-left:1.4px dashed rgba(43,55,46,.42);
+      transform:translateX(-50%);
+    }
+    .bloom-sample b{
+      position:absolute;
+      left:50%;
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      opacity:.58;
+      mix-blend-mode:multiply;
+    }
+    .bloom-sample em{
+      position:absolute;
+      left:50%;
+      bottom:-14px;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:rgba(32,35,30,.7);
+      transform:translateX(-50%);
+    }
+    .bloom-sample.s1{left:16%;height:125px}.bloom-sample.s1 i{height:92px}.bloom-sample.s1 b{bottom:95px;width:44px;height:44px;background:#b8c1ad;box-shadow:18px 0 0 rgba(184,193,173,.55),-16px 2px 0 rgba(184,193,173,.42),2px -16px 0 rgba(184,193,173,.45)}
+    .bloom-sample.s2{left:36%;height:170px}.bloom-sample.s2 i{height:135px}.bloom-sample.s2 b{bottom:140px;width:58px;height:58px;background:#779a80;box-shadow:22px 4px 0 rgba(119,154,128,.48),-20px 0 0 rgba(119,154,128,.4),0 -22px 0 rgba(119,154,128,.38)}
+    .bloom-sample.s3{left:58%;height:145px}.bloom-sample.s3 i{height:112px}.bloom-sample.s3 b{bottom:116px;width:50px;height:50px;background:#d2ad84;box-shadow:20px 0 0 rgba(210,173,132,.5),-18px 0 0 rgba(210,173,132,.38),0 -18px 0 rgba(210,173,132,.38)}
+    .bloom-sample.s4{left:78%;height:190px}.bloom-sample.s4 i{height:150px}.bloom-sample.s4 b{bottom:154px;width:64px;height:64px;background:#6f96a2;box-shadow:24px 3px 0 rgba(111,150,162,.43),-22px 0 0 rgba(111,150,162,.36),0 -24px 0 rgba(111,150,162,.35)}
+    .data-bloom-caption{
+      position:absolute;
+      left:18px;
+      top:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(255,255,255,.68);
+      border:1px solid rgba(32,35,30,.08);
+      color:#31584f;
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
 </style>
 <link href="css/common.css?v=124" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=124"></script>
@@ -950,6 +1030,34 @@
 <div class="case-actions">
 <a class="case-link" href="seasonal-color-tool.html">打开工具</a>
 <span class="case-note">适合作为花境、庭院与种植配置的色彩推演参考</span>
+</div>
+</div>
+</article>
+
+
+<article class="interaction-case-card">
+<div class="interaction-case-thumb" aria-hidden="true">
+<div class="data-bloom-thumb">
+<span class="data-bloom-caption">Data Bloom</span>
+<span class="bloom-sample s1"><i></i><b></b><em></em></span>
+<span class="bloom-sample s2"><i></i><b></b><em></em></span>
+<span class="bloom-sample s3"><i></i><b></b><em></em></span>
+<span class="bloom-sample s4"><i></i><b></b><em></em></span>
+</div>
+</div>
+<div class="interaction-case-body">
+<div class="interaction-case-type">Data Visualization Garden</div>
+<h3>数据开花花园</h3>
+<p>上传 CSV 或使用内置数据集，把每个数据项转化为一朵花：花茎高度、花朵大小与颜色共同表达数值和分类。</p>
+<div class="case-tags">
+<span>数据可视化</span>
+<span>CSV 上传</span>
+<span>艺术图表</span>
+<span>生成式花园</span>
+</div>
+<div class="case-actions">
+<a class="case-link" href="data-bloom-garden.html">打开工具</a>
+<span class="case-note">适合作为艺术化数据展示与信息图灵感实验</span>
 </div>
 </div>
 </article>

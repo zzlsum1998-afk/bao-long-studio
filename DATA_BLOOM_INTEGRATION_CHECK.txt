@@ -1,0 +1,20 @@
+Data Bloom Garden integration check
+
+Changed / added files:
+1. interaction.html
+   - Added a new Interaction Lab card: Data Bloom Garden / 数据开花花园.
+   - The new card links to data-bloom-garden.html.
+   - Added only card-specific preview CSS for the data-bloom thumbnail.
+   - Existing four interaction cards and links were kept unchanged.
+
+2. data-bloom-garden.html
+   - Integrated the approved v3 Data Bloom Garden workbench into the BaoLong Lab site.
+   - Replaced preview-only topbar with the official site header and logo.
+   - Linked common.css and common.js to keep the same navigation, mobile menu, login button, and language toggle behavior.
+   - Kept desktop one-screen workbench layout; mobile/tablet remain scrollable.
+   - CSV upload / paste data / column mapping / reading guide / growth controls are preserved.
+
+Checks performed:
+- JavaScript syntax check passed for inline scripts in interaction.html and data-bloom-garden.html.
+- No existing Inspiration Board, Prompt, Assets, Resume, or previous interaction files were modified.
+- No new image files are required; the new card thumbnail is CSS/SVG-like HTML only.

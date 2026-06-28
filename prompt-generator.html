@@ -1241,6 +1241,43 @@
 
     const promptCases = {"case01": {"id": "case01", "img": "images/prompt-cases/prompt-case-01.webp", "kicker": "Collage Landscape", "title": "马卡龙拼贴景观场景", "scene": "适用：作品集封面 / 景观场景 / 小红书展示", "tags": ["拼贴感", "马卡龙色", "景观场景"], "prompt": "collage-style composition, cut-out fragments from different images, layered and overlapping elements, mixed-scale objects, fragmented visual arrangement, flat spatial layout, heterogeneous imagery sources, assembled scene, stage-like composition, visual storytelling collage, eye-level perspective, Macaron color palette, pastel lavender 50%, mint green 25%, creamy white 15%, pastel pink accent 10%, sweet pastel atmosphere, modernist architecture style, minimalist buildings, clean lines, functional design, glass and steel structures, open floor plans, simple geometric forms, flat ground, terraces, slopes, lush trees, flowering shrubs, grass lawn, flower beds, cascading waterfall, natural pond, timber decking, public seating, design lighting, people sitting and chatting, children exploring the playground, people picnicking on the grass, overcast day, soft diffused lighting, realistic site layout, low saturation, white space, diffuse lighting, --ar 3:4 --raw --stylize 750 --v 6"}, "case02": {"id": "case02", "img": "images/prompt-cases/prompt-case-02.webp", "kicker": "Watercolor Scene", "title": "莫兰迪水彩景观场景", "scene": "适用：柔和效果图 / 概念表达 / 作品集图面", "tags": ["水彩", "莫兰迪", "柔和纸感"], "prompt": "hand-painted watercolor illustration, soft pigment diffusion, wet-on-wet technique, transparent watercolor washes, bleeding edges, delicate brush strokes, textured watercolor paper, fluid pigment flow, eye-level perspective, Morandi color palette, dusty blue 55%, sand beige 25%, soft warm gray 10%, muted rose pink 10%, low saturation colors, calm elegant atmosphere, modernist architecture style, minimalist buildings, clean lines, functional design, glass and steel structures, open floor plans, simple geometric forms, flat ground, terraces, slopes, lush trees, flowering shrubs, grass lawn, flower beds, cascading waterfall, natural pond, timber decking, public seating, design lighting, people sitting and chatting, children exploring the playground, people picnicking on the grass, overcast day, soft diffused lighting, realistic site layout, low saturation, white space, diffuse lighting, --ar 3:4 --raw --stylize 750 --v 6"}, "case03": {"id": "case03", "img": "images/prompt-cases/prompt-case-03.webp", "kicker": "Plan Collage", "title": "极简拼贴总平表达", "scene": "适用：总平面表达 / 竞赛图面 / 策略分析", "tags": ["总平面", "极简色", "拼贴分析"], "prompt": "collage-style composition, cut-out fragments from different images, layered and overlapping elements, mixed-scale objects, fragmented visual arrangement, flat spatial layout, heterogeneous imagery sources, assembled scene, stage-like composition, visual storytelling collage, isometric view, Minimalist color palette, pale beige 50%, pure white 25%, deep gray 15%, muted rust accent 10%, minimal architectural palette, postmodern architecture style, playful forms, bold colors, historical references, decorative elements mixed with modern structures, ironic and expressive architectural design, flat ground, terraces, slopes, lush trees, flower beds, groundcover, reflecting pool, fountain spray, stone paving, permeable concrete, design lighting, people interacting in the plaza, people observing the surroundings, people watching performances, overcast day, soft diffused lighting, realistic site layout, low saturation, white space, diffuse lighting, --ar 3:4 --raw --stylize 750 --v 6"}, "case04": {"id": "case04", "img": "images/prompt-cases/prompt-case-04.webp", "kicker": "Watercolor Cover", "title": "粉彩水彩空间封面", "scene": "适用：封面图 / 活动场景 / 氛围表达", "tags": ["粉彩", "水彩质感", "活动场景"], "prompt": "watercolor texture, soft edges, eye-level perspective, Macaron color palette, pastel pink 50%, pastel lavender 25%, baby blue 15%, butter yellow accent 10%, playful macaron palette, postmodern architecture style, playful forms, bold colors, historical references, decorative elements mixed with modern structures, ironic and expressive architectural design, terraces, lush trees, flowering shrubs, hedges, pond, fountain, people gathering together, people having conversations, people sharing moments, people taking photos, people painting outdoors, people watching performances, people talking with friends, people sitting and chatting, people resting on benches, for real landscape design, realistic site layout, public space use, avoid cartoon fantasy style, not a game scene, low saturation, white space, diffuse lighting, rough surface, no strong highlights, grain paper, sketch rendering , --no AI, digital look, watermark, text --ar 3:4 --raw --stylize 750 --v 6"}};
 
+
+    /* v136: lock the background page while detail modals are open. */
+    let __baolongModalScrollY = 0;
+    let __baolongModalPreviousBodyStyle = null;
+    function lockPageScroll(){
+      if(document.body.classList.contains('modal-scroll-locked')) return;
+      __baolongModalScrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      __baolongModalPreviousBodyStyle = {
+        position: document.body.style.position,
+        top: document.body.style.top,
+        left: document.body.style.left,
+        right: document.body.style.right,
+        width: document.body.style.width,
+        overflow: document.body.style.overflow
+      };
+      document.body.classList.add('modal-scroll-locked');
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + __baolongModalScrollY + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    }
+    function unlockPageScroll(){
+      if(!document.body.classList.contains('modal-scroll-locked')) return;
+      document.body.classList.remove('modal-scroll-locked');
+      const previous = __baolongModalPreviousBodyStyle || {};
+      document.body.style.position = previous.position || '';
+      document.body.style.top = previous.top || '';
+      document.body.style.left = previous.left || '';
+      document.body.style.right = previous.right || '';
+      document.body.style.width = previous.width || '';
+      document.body.style.overflow = previous.overflow || '';
+      window.scrollTo(0, __baolongModalScrollY || 0);
+      __baolongModalPreviousBodyStyle = null;
+    }
+
     function openPromptCase(caseId){
       const item = promptCases[caseId];
       const modal = document.getElementById('promptCaseModal');
@@ -1261,7 +1298,7 @@
       });
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
+      lockPageScroll();
     }
 
     function closePromptCase(){
@@ -1269,7 +1306,7 @@
       if(!modal) return;
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
+      unlockPageScroll();
     }
 
     function copyPromptCase(){

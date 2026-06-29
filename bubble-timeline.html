@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bubble Timeline | BaoLong Lab</title>
   <link href="css/common.css?v=124" rel="stylesheet"/>
-  <script defer src="js/common.js?v=124"></script>
+  <script defer src="js/common.js?v=144"></script>
   <style>
     :root {
       --bg: #f3f0e8;
@@ -182,6 +182,13 @@
       line-height: 1.5;
       color: var(--muted);
     }
+    .template-hint {
+      margin-top: 8px;
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .template-hint b { color: var(--ink); }
     .table-guide {
       margin-top: 10px;
       padding: 12px;
@@ -511,10 +518,12 @@ Australia,2007,8.4,Metals,Mining partnership
 Brazil,2010,7.6,Energy,Offshore support deal
 Canada,2012,7.9,Transport,Railway system deal"></textarea>
           <div class="actions">
-            <button class="mini-btn" id="loadExampleBtn">Paste example</button>
+            <button class="mini-btn" id="loadExampleBtn">Use sample data</button>
+            <button class="mini-btn" id="downloadTemplateBtn">Download template</button>
             <button class="mini-btn dark" id="parseDataBtn">Read data</button>
             <button class="mini-btn" id="useBuiltInBtn">Use built-in</button>
           </div>
+          <div class="template-hint"><b>字段说明：</b>country = 地区 / 国家；year = 年份；value = 气泡大小；sector = 分类颜色；title = 项目说明。</div>
           <div class="mapping-grid" id="mappingBox" hidden>
             <div class="mapping-row"><span>Country</span><select id="countryColumn"></select></div>
             <div class="mapping-row"><span>Year</span><select id="yearColumn"></select></div>
@@ -524,7 +533,7 @@ Canada,2012,7.9,Transport,Railway system deal"></textarea>
             <div class="mapping-row"><span>Chart title</span><input id="customTitle" value="Uploaded bubble timeline" /></div>
             <button class="mini-btn dark" id="generateUploadBtn">Generate chart</button>
           </div>
-          <div class="upload-status" id="uploadStatus">表格建议字段：country, year, value, sector, title</div>
+          <div class="upload-status" id="uploadStatus">表格建议字段：country, year, value, sector, title。也可以先下载模板照着填写。</div>
           <div class="table-guide">
             <code>推荐表头：
 country,year,value,sector,title
@@ -994,6 +1003,27 @@ Germany,2013,2.1,Technology,Manufacturing automation
 Portugal,2011,2.9,Real estate,Property fund entry`;
       readUploadedData(csvText.value);
     });
+
+    function downloadTemplateCSV() {
+      const template = `country,year,value,sector,title
+Australia,2007,8.4,Metals,Mining partnership
+Brazil,2010,7.6,Energy,Offshore support deal
+Canada,2012,7.9,Transport,Railway system deal
+Germany,2013,2.1,Technology,Manufacturing automation
+Portugal,2011,2.9,Real estate,Property fund entry`;
+      const blob = new Blob([template], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'bubble-timeline-template.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      uploadStatus.textContent = '已下载 CSV 模板：按 country, year, value, sector, title 五列填写即可。';
+    }
+
+    document.getElementById('downloadTemplateBtn').addEventListener('click', downloadTemplateCSV);
 
     parseDataBtn.addEventListener('click', () => readUploadedData(csvText.value));
 

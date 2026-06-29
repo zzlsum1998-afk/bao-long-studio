@@ -28,14 +28,14 @@
 *{box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
 body{
-  margin:0;min-height:100vh;height:100vh;color:var(--ink);display:flex;flex-direction:column;
+  margin:0;min-height:100vh;height:100vh;color:var(--ink);display:flex;flex-direction:column;display:flex;flex-direction:column;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
   background:
     radial-gradient(circle at 76% 18%,rgba(246,204,180,.36),transparent 29%),
     radial-gradient(circle at 34% 76%,rgba(191,236,232,.48),transparent 36%),
     linear-gradient(150deg,#fffdf8,#f4efe6);
 }
-.page{width:min(1480px,100%);height:auto;flex:1 1 auto;min-height:0;margin:auto;padding:10px 16px 12px;display:flex;flex-direction:column;overflow:hidden}
+.page{width:min(1480px,100%);height:calc(100vh - 106px);flex:1 1 auto;min-height:0;margin:auto;padding:10px 16px 12px;display:flex;flex-direction:column;overflow:hidden}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:14px;margin-bottom:8px;flex:0 0 auto}
 .eyebrow{font-size:11px;font-weight:850;letter-spacing:.16em;color:var(--teal2);text-transform:uppercase;margin-bottom:4px}
 h1{font-size:clamp(30px,3.4vw,46px);line-height:.95;letter-spacing:-.055em;margin:0}
@@ -93,11 +93,11 @@ input[type=file]{display:none}#csvInput{min-height:98px;max-height:128px;font-fa
 .viz{position:relative;min-height:0;height:100%;overflow:hidden;padding:10px;transition:padding .28s ease}
 .workspace.collapsed .viz{padding-left:8px}
 .viz:before{content:"";position:absolute;inset:14px;border:1px dashed rgba(24,63,61,.13);border-radius:24px;pointer-events:none}
-.svgwrap{position:absolute;inset:-14px 6px 58px 6px;transition:inset .32s cubic-bezier(.2,.8,.2,1),transform .32s cubic-bezier(.2,.8,.2,1)}
-.workspace.collapsed .svgwrap{inset:-22px 0 50px 0;transform:scale(1.06)}
+.svgwrap{position:absolute;inset:8px 6px 58px 6px;transition:inset .32s cubic-bezier(.2,.8,.2,1),transform .32s cubic-bezier(.2,.8,.2,1)}
+.workspace.collapsed .svgwrap{inset:2px 0 52px 0;transform:scale(1.02)}
 svg{transition:transform .32s cubic-bezier(.2,.8,.2,1);transform-origin:center}
-.workspace:not(.collapsed) svg{transform:scale(1.08)}
-.workspace.collapsed svg{transform:scale(1.15)}
+.workspace:not(.collapsed) svg{transform:scale(1)}
+.workspace.collapsed svg{transform:scale(1.06)}
 svg{width:100%;height:100%;display:block;overflow:visible}
 .blob{fill:url(#aquaGrad);opacity:.9}
 .backRing{fill:none;stroke:rgba(24,63,61,.07);stroke-width:1}
@@ -244,7 +244,7 @@ svg{width:100%;height:100%;display:block;overflow:visible}
     <section class="viz">
       <button class="toggleSidebarBtn" id="toggleSidebarBtn" type="button" aria-expanded="true" aria-controls="dataPanel"><span class="toggleIcon">←</span><span class="toggleText" data-i18n-zh="专注看图" data-i18n-en="Focus View">专注看图</span></button>
       <div class="hint" data-i18n-zh="上传数据 · 自动生成 · 专注看图 · 可导出 PNG" data-i18n-en="Upload · Generate · Focus View · Export PNG">上传数据 · 自动生成 · 专注看图 · 可导出 PNG</div>
-      <div class="svgwrap"><svg id="svg" viewBox="20 -12 880 800" preserveAspectRatio="xMidYMid meet" aria-label="Data Bloom Map"></svg></div>
+      <div class="svgwrap"><svg id="svg" viewBox="0 -80 920 900" preserveAspectRatio="xMidYMid meet" aria-label="Data Bloom Map"></svg></div>
       <div class="bottomStats" id="stats"></div>
       <div class="legend" data-i18n-zh="▲ count 控制主节点大小　— score 控制连线粗细　— subitems 控制外围小节点数量" data-i18n-en="▲ count controls node size — score controls link weight — subitems controls outer nodes">▲ count 控制主节点大小　— score 控制连线粗细　— subitems 控制外围小节点数量</div>
     </section>
@@ -329,7 +329,7 @@ function render(){
   const shown=data.filter(d=>filter==='all'||d.cat===filter);
   if(!shown.length){filter='all'; selectedId=data[0].id; return render();}
   const totalCount=shown.reduce((s,d)=>s+d.count,0);
-  const cx=452,cy=360,outer=244,inner=220,petal=314,nanoBase=352;
+  const cx=452,cy=360,outer=238,inner=214,petal=304,nanoBase=340;
   svg.innerHTML=`<defs><radialGradient id="aquaGrad"><stop offset="0%" stop-color="#eefcfa"/><stop offset="72%" stop-color="#dcf5f1"/><stop offset="100%" stop-color="#ccefe9" stop-opacity=".36"/></radialGradient></defs>`;
   svg.insertAdjacentHTML('beforeend',`
     <circle class="blob" cx="${cx}" cy="${cy}" r="248"></circle>

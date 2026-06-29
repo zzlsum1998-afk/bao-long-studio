@@ -41,6 +41,8 @@
     // interaction page
     'Interactive Tools & Creative Experiments.':'交互实验室与创意工具','Gesture Landscape Growth':'手势景观生长','Playable Visual Demo':'可体验视觉 Demo','Creative Interaction Lab':'创意交互实验室','Landscape Growth Demo':'景观生长 Demo','Interactive Lab':'交互实验室','Gesture Interaction':'手势交互',
     '这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。':'这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。',
+
+    'Data Bloom Generator':'数据花园生成器','Upload CSV or paste table data to generate a radial data bloom map, then focus the view and export it as PNG.':'上传 CSV 或粘贴表格数据，自动生成径向数据花园图谱，并支持专注看图与导出 PNG。','Data Visualization':'数据可视化','CSV Upload':'CSV 上传','PNG Export':'导出 PNG','Focus View':'专注看图','Designed for expressive infographic experiments and presentation-ready visual maps.':'适合作为信息图、汇报展示与数据视觉实验工具',
     // resume page
     'Editable Resume Templates + AI Polish.':'可编辑简历模板 + AI 优化','12 Templates':'12 套模板','AI Polish':'AI 优化','One-page Export':'一页导出','JD Match':'岗位匹配','Fill Once':'填写一次','Choose Template':'选择模板','Export PDF':'导出 PDF','✦ Free AI Uses Today: 3 / 3':'✦ 今日免费 AI 次数：3 / 3',
     '填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。':'填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。',
@@ -61,7 +63,7 @@
     'Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.':'灵感板块内容仅作学习参考与来源索引，版权归原作者所有；如涉及版权问题，请联系删除。'
   };
   var titleMap={
-    'BaoLong Lab | Design Assets Library':'BaoLong Lab | 设计素材与创作工具集合','Assets | BaoLong Lab':'素材库 | BaoLong Lab','Prompt Generator | BaoLong Lab':'Prompt 工具 | BaoLong Lab','Interaction | BaoLong Lab':'交互实验室 | BaoLong Lab','Resume Templates | BaoLong Lab':'简历模板 | BaoLong Lab','Plan Board | BaoLong Lab':'平面灵感板 | BaoLong Lab','Section Board | BaoLong Lab':'剖面灵感板 | BaoLong Lab','Other Board | BaoLong Lab':'综合灵感板 | BaoLong Lab','Color Board | BaoLong Lab':'色彩灵感板 | BaoLong Lab','Prompt Builder · BaoLong Lab':'Prompt Builder · BaoLong Lab','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器'
+    'BaoLong Lab | Design Assets Library':'BaoLong Lab | 设计素材与创作工具集合','Assets | BaoLong Lab':'素材库 | BaoLong Lab','Prompt Generator | BaoLong Lab':'Prompt 工具 | BaoLong Lab','Interaction | BaoLong Lab':'交互实验室 | BaoLong Lab','Resume Templates | BaoLong Lab':'简历模板 | BaoLong Lab','Plan Board | BaoLong Lab':'平面灵感板 | BaoLong Lab','Section Board | BaoLong Lab':'剖面灵感板 | BaoLong Lab','Other Board | BaoLong Lab':'综合灵感板 | BaoLong Lab','Color Board | BaoLong Lab':'色彩灵感板 | BaoLong Lab','Prompt Builder · BaoLong Lab':'Prompt Builder · BaoLong Lab','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器','Data Bloom Generator | BaoLong Lab':'数据花园生成器 | BaoLong Lab','数据花园生成器 | BaoLong Lab':'数据花园生成器 | BaoLong Lab'
   };
 
   function getLang(){return localStorage.getItem('baolongLanguage') || 'zh';}
@@ -70,7 +72,7 @@
   function normalizeText(t){return (t||'').replace(/\s+/g,' ').trim();}
   function collectTargets(){
     var selectors=[
-      '.site-header .nav a','.dropdown-content a','.mobile-menu-panel a','.mobile-menu-group','.mobile-menu-toggle','.header-actions .pill-btn',
+      '[data-bl-original-text]','.site-header .nav a','.dropdown-content a','.mobile-menu-panel a','.mobile-menu-group','.mobile-menu-toggle','.header-actions .pill-btn',
       '.hero h1','.hero p','.copy .eyebrow','.copy h1','.copy p','.section-title','.section-title-main','.section-desc','.eyebrow','.tabs .tab',
       '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.category-feature-link','.tool-band h2','.tool-band p','.tool-card h3','.tool-card p','.notes-header h2','.notes-header p','.note-visual h3','.note-visual p','.note-content h3','.note-content p','.note-link','.cta h2','.cta p','.asset-filter-tabs .tab','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.mock-card h3','.mock-card p','.interaction-case-type','.case-link','.case-note','.footer','footer','.footer-line'
     ];

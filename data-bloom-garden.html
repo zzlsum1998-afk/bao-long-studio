@@ -28,20 +28,24 @@
 *{box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
 body{
-  margin:0;min-height:100vh;height:100vh;color:var(--ink);
+  margin:0;min-height:100vh;height:100vh;color:var(--ink);display:flex;flex-direction:column;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
   background:
     radial-gradient(circle at 76% 18%,rgba(246,204,180,.36),transparent 29%),
     radial-gradient(circle at 34% 76%,rgba(191,236,232,.48),transparent 36%),
     linear-gradient(150deg,#fffdf8,#f4efe6);
 }
-.page{width:min(1480px,100%);height:calc(100vh - 106px);margin:auto;padding:8px 16px 12px;display:flex;flex-direction:column;overflow:hidden}
+.page{width:min(1480px,100%);height:auto;flex:1 1 auto;min-height:0;margin:auto;padding:10px 16px 12px;display:flex;flex-direction:column;overflow:hidden}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:14px;margin-bottom:8px;flex:0 0 auto}
 .eyebrow{font-size:11px;font-weight:850;letter-spacing:.16em;color:var(--teal2);text-transform:uppercase;margin-bottom:4px}
 h1{font-size:clamp(30px,3.4vw,46px);line-height:.95;letter-spacing:-.055em;margin:0}
 h1 span{color:#18aaa5}
 .subtitle{max-width:820px;margin:6px 0 0;color:var(--muted);line-height:1.45;font-size:12.5px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.filterBlock{border:1px solid rgba(24,63,61,.1);border-radius:18px;background:rgba(255,253,248,.52);padding:10px 11px;display:flex;flex-direction:column;gap:8px}
+.filterTitle{font-size:12px;font-weight:850;color:rgba(24,63,61,.72);letter-spacing:.04em}
+.filterBlock .chips{justify-content:flex-start;gap:7px}
+.filterBlock .chip{height:32px;padding:0 12px;font-size:12px}
 .chip,button{
   height:38px;border-radius:999px;border:1px solid var(--stroke);
   background:rgba(255,253,248,.78);padding:0 14px;color:var(--ink);
@@ -208,22 +212,7 @@ svg{width:100%;height:100%;display:block;overflow:visible}
 </div>
 </header>
 <main class="page">
-  <section class="hero">
-    <div>
-      <div class="eyebrow" data-i18n-zh="交互实验室 · C6 调整版" data-i18n-en="Interaction Lab · Prototype C6">交互实验室 · C6 调整版</div>
-      <h1><span>Data Bloom</span> Generator</h1>
-      <p class="subtitle" data-i18n-zh="上传 CSV 或粘贴表格数据，自动生成数据花园图谱。新版压缩了标题区和统计区，右侧图谱显示更大。" data-i18n-en="Upload CSV or paste table data to generate a Data Bloom map. This version uses a more compact header and a larger visualization area.">上传 CSV 或粘贴表格数据，自动生成数据花园图谱。新版压缩了标题区和统计区，右侧图谱显示更大。</p>
-    </div>
-    <div class="chips" id="filters">
-      <button class="chip active" data-filter="all" data-i18n-zh="全部" data-i18n-en="All">全部</button>
-      <button class="chip" data-filter="inspiration" data-i18n-zh="灵感库" data-i18n-en="Inspiration">灵感库</button>
-      <button class="chip" data-filter="assets" data-i18n-zh="素材" data-i18n-en="Assets">素材</button>
-      <button class="chip" data-filter="tools" data-i18n-zh="工具" data-i18n-en="Tools">工具</button>
-      <button class="chip" data-filter="lab" data-i18n-zh="实验" data-i18n-en="Lab">实验</button>
-    </div>
-  </section>
-
-  <section class="workspace" id="workspace">
+    <section class="workspace" id="workspace">
     <aside class="panel" id="dataPanel">
       <div>
         <h2 data-i18n-zh="上传数据" data-i18n-en="Upload Data">上传数据</h2>
@@ -237,6 +226,16 @@ svg{width:100%;height:100%;display:block;overflow:visible}
       </div>
       <div class="field"><label data-i18n-zh="CSV 数据 / 可从 Excel 复制粘贴" data-i18n-en="CSV Data / Paste from Excel">CSV 数据 / 可从 Excel 复制粘贴</label><textarea id="csvInput" spellcheck="false"></textarea></div>
       <div class="actions"><button class="primary" id="generateBtn" data-i18n-zh="生成图谱" data-i18n-en="Generate">生成图谱</button><button class="ghost" id="exportBtn" data-i18n-zh="导出 PNG" data-i18n-en="Export PNG">导出 PNG</button><button class="ghost" id="clearBtn" data-i18n-zh="清空" data-i18n-en="Clear">清空</button></div>
+      <div class="filterBlock">
+        <div class="filterTitle" data-i18n-zh="筛选分类" data-i18n-en="Filter Category">筛选分类</div>
+        <div class="chips" id="filters">
+      <button class="chip active" data-filter="all" data-i18n-zh="全部" data-i18n-en="All">全部</button>
+      <button class="chip" data-filter="inspiration" data-i18n-zh="灵感库" data-i18n-en="Inspiration">灵感库</button>
+      <button class="chip" data-filter="assets" data-i18n-zh="素材" data-i18n-en="Assets">素材</button>
+      <button class="chip" data-filter="tools" data-i18n-zh="工具" data-i18n-en="Tools">工具</button>
+      <button class="chip" data-filter="lab" data-i18n-zh="实验" data-i18n-en="Lab">实验</button>
+    </div>
+      </div>
       <div class="sep"></div>
       <div class="list" id="dataList"></div>
       <div class="detail" id="detailBox"></div>
@@ -493,7 +492,7 @@ function renderStats(microTotal,nanoTotal,shown){
 }
 
 function loadFromText(){const parsed=parseCSV($('csvInput').value);if(!parsed.length){toast(ui('invalid'));return}data=parsed;selectedId=data[0].id;filter='all';document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));render();toast(`${ui('generated')} ${data.length} ${ui('nodes')}`)}
-async function exportPNG(){if(!data.length){toast(ui('noData'));return}const svgEl=svg.cloneNode(true);const style=document.querySelector('style').textContent;const styleEl=document.createElement('style');styleEl.textContent=style;svgEl.insertBefore(styleEl,svgEl.firstChild);const svgText=new XMLSerializer().serializeToString(svgEl);const blob=new Blob([svgText],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1840;canvas.height=1580;const ctx=canvas.getContext('2d');ctx.fillStyle='#fffdf8';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);canvas.toBlob(pngBlob=>{const pngUrl=URL.createObjectURL(pngBlob);const a=document.createElement('a');a.href=pngUrl;a.download='data-bloom-generator-c5.png';a.click();URL.revokeObjectURL(pngUrl);toast(ui('exported'))})};img.onerror=()=>toast(ui('exportFailed'));img.src=url}
+async function exportPNG(){if(!data.length){toast(ui('noData'));return}const svgEl=svg.cloneNode(true);const style=document.querySelector('style').textContent;const styleEl=document.createElement('style');styleEl.textContent=style;svgEl.insertBefore(styleEl,svgEl.firstChild);const svgText=new XMLSerializer().serializeToString(svgEl);const blob=new Blob([svgText],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1840;canvas.height=1580;const ctx=canvas.getContext('2d');ctx.fillStyle='#fffdf8';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);canvas.toBlob(pngBlob=>{const pngUrl=URL.createObjectURL(pngBlob);const a=document.createElement('a');a.href=pngUrl;a.download='data-bloom-generator-c7.png';a.click();URL.revokeObjectURL(pngUrl);toast(ui('exported'))})};img.onerror=()=>toast(ui('exportFailed'));img.src=url}
 const workspace=$('workspace');const toggleSidebarBtn=$('toggleSidebarBtn');
 function setSidebarCollapsed(collapsed){workspace.classList.toggle('collapsed',collapsed);toggleSidebarBtn.querySelector('.toggleIcon').textContent=collapsed?'→':'←';toggleSidebarBtn.querySelector('.toggleText').textContent=collapsed?ui('edit'):ui('focus');toggleSidebarBtn.setAttribute('aria-expanded',String(!collapsed));try{localStorage.setItem('dataBloomSidebarCollapsed',collapsed?'1':'0')}catch(e){}}
 toggleSidebarBtn.onclick=()=>setSidebarCollapsed(!workspace.classList.contains('collapsed'));

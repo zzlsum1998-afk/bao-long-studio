@@ -2454,5 +2454,225 @@
     "isPinterest": false,
     "height": "285px",
     "color": "#f4f1eb"
+  },
+  {
+    "id": 123,
+    "title": "Minimal Apartment Floor Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-124-minimal-apartment-floor-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-124-minimal-apartment-floor-plan.webp",
+    "desc": "适合参考住宅室内平面、家具布置和黑白线稿表达。",
+    "tags": [
+      "Floor Plan",
+      "Residential",
+      "Minimal"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/906068018811219289/",
+    "isPinterest": true,
+    "height": "330px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 124,
+    "title": "Soft Community Garden Layout",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-125-soft-community-garden-layout.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-125-soft-community-garden-layout.webp",
+    "desc": "适合参考社区庭院、菜园式分区和浅粉绿总平表达。",
+    "tags": [
+      "Community Garden",
+      "Soft Green",
+      "Residential"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1006343479214713473/",
+    "isPinterest": true,
+    "height": "285px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 125,
+    "title": "Twin House Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-126-twin-house-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-126-twin-house-landscape-plan.webp",
+    "desc": "适合参考双栋住宅、庭院边界和轻柔植物配置平面。",
+    "tags": [
+      "Twin House",
+      "Residential",
+      "Garden Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/508554982937460619/",
+    "isPinterest": true,
+    "height": "275px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 126,
+    "title": "Lakeside Residential Cluster Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-127-lakeside-residential-cluster-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-127-lakeside-residential-cluster-plan.webp",
+    "desc": "适合参考滨水住宅组团、建筑围合和自然水景关系。",
+    "tags": [
+      "Lakeside",
+      "Residential Cluster",
+      "Water Landscape"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/56365432831722724/",
+    "isPinterest": true,
+    "height": "315px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 127,
+    "title": "Green Urban Park Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-128-green-urban-park-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-128-green-urban-park-masterplan.webp",
+    "desc": "适合参考城市公园总平、密集绿量和场地边界处理。",
+    "tags": [
+      "Urban Park",
+      "Green Space",
+      "Masterplan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1058275612446587372/",
+    "isPinterest": true,
+    "height": "340px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 128,
+    "title": "Soft Pond Garden Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-129-soft-pond-garden-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-129-soft-pond-garden-landscape-plan.webp",
+    "desc": "适合参考水池花园、曲线路径和浅灰绿植物肌理。",
+    "tags": [
+      "Pond Garden",
+      "Soft Landscape",
+      "Path System"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/456622849740139808/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 129,
+    "title": "Small Courtyard Tree Layout",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-130-small-courtyard-tree-layout.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-130-small-courtyard-tree-layout.webp",
+    "desc": "适合参考小尺度庭院、树阵布置和简洁平面构成。",
+    "tags": [
+      "Courtyard",
+      "Tree Layout",
+      "Small Site"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/458170962108648822/",
+    "isPinterest": true,
+    "height": "270px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 130,
+    "title": "Culver Pointe Landscape Framework",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-131-culver-pointe-landscape-framework.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-131-culver-pointe-landscape-framework.webp",
+    "desc": "适合参考办公园区景观框架、植物类型图例和网格化场地表达。",
+    "tags": [
+      "Landscape Framework",
+      "Campus Plan",
+      "Plant Typology"
+    ],
+    "sourceName": "RIOS",
+    "sourceUrl": "https://www.rios.com/projects/800-900-culver-pointe/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 131,
+    "title": "Skoleparken Courtyard Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-132-skoleparken-courtyard-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-132-skoleparken-courtyard-plan.webp",
+    "desc": "适合参考公共庭院、树阵空间和建筑围合中的绿地更新。",
+    "tags": [
+      "Courtyard Plan",
+      "Public Space",
+      "Green Renewal"
+    ],
+    "sourceName": "1:1 Landskab",
+    "sourceUrl": "https://1til1landskab.dk/en/project/skoleparken",
+    "isPinterest": false,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 132,
+    "title": "Axonometric Residential Site Board",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-133-axonometric-residential-site-board.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-133-axonometric-residential-site-board.webp",
+    "desc": "适合参考总平与轴测组合、住宅场地分析和竖版展板排版。",
+    "tags": [
+      "Site Board",
+      "Axonometric",
+      "Residential"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1136384918495634198/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 133,
+    "title": "Red Diagram Site Strategy Board",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-134-red-diagram-site-strategy-board.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-134-red-diagram-site-strategy-board.webp",
+    "desc": "适合参考红色策略图、场地分区推演和多图组合版式。",
+    "tags": [
+      "Strategy Board",
+      "Red Accent",
+      "Diagram"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/854980310552984071/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
   }
 ]

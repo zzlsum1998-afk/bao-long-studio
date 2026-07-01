@@ -56,7 +56,7 @@
     '综合灵感索引：用于收集建筑渲染、轴测、拼贴、展板、概念图、分析图等视觉参考。':'综合灵感索引：用于收集建筑渲染、轴测、拼贴、展板、概念图、分析图等视觉参考。',
     '配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。':'配色灵感索引：用于整理低饱和色彩、主辅色关系、图面氛围和高级感视觉搭配。',
     // footers
-    'BaoLong Lab · Prompt Generator':'BaoLong Lab · Prompt 工具','BaoLong Lab · Resume Templates':'BaoLong Lab · 简历模板','BaoLong Lab · Plan Inspiration Board':'BaoLong Lab · 平面灵感板','BaoLong Lab · Section Inspiration Board':'BaoLong Lab · 剖面灵感板','BaoLong Lab · Inspiration Board':'BaoLong Lab · 灵感板',
+    'BaoLong Lab · Prompt Generator':'BaoLong Lab · Prompt 工具','BaoLong Lab · Resume Templates':'BaoLong Lab · 简历模板','BaoLong Lab · Plan Inspiration Board':'BaoLong Lab · 平面灵感板','BaoLong Lab · Section Inspiration Board':'BaoLong Lab · 剖面灵感板','BaoLong Lab · Other Inspiration Board':'BaoLong Lab · 综合灵感板','BaoLong Lab · Inspiration Board':'BaoLong Lab · 灵感板',
     '© 2026 BaoLong Lab. All rights reserved. All design assets, templates and visual materials are original works by BaoLong Lab.':'© 2026 BaoLong Lab. 保留所有权利。BaoLong Lab 原创内容与工具版权归 BaoLong Lab 所有。灵感板块内容仅作学习参考与来源索引，版权归原作者所有；如涉及版权问题，请联系删除。',
     '© 2026 BaoLong Lab. All rights reserved.':'© 2026 BaoLong Lab. 保留所有权利。',
     'Original content and tools by BaoLong Lab.':'BaoLong Lab 原创内容与工具版权归 BaoLong Lab 所有。',

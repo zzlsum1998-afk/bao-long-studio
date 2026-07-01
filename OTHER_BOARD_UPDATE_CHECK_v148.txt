@@ -1,0 +1,15 @@
+Other Board 已整理完成（v148）
+
+本次处理结果：
+- 只更新 Other Board / render 体系
+- data/other.json：从 166 条 增加到 192 条
+- 新增卡片：26 张，编号 167–192
+- 新增图片文件：33 个
+- 图片路径沿用：images/inspiration/render/
+- 文件名沿用：render-ref-xxx-xxx.webp
+- 页面前台仍显示 Other Board，没有改回 Render Board
+- Pinterest 来源已按规则标注：原始来源：未核实
+- 已修正 render-references.html 页面底端文案：
+  英文模式：BaoLong Lab · Other Inspiration Board
+  中文模式：BaoLong Lab · 综合灵感板
+- 已检查：编号唯一、图片路径无缺失、页面其余板块未改动

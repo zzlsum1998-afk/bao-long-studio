@@ -1681,5 +1681,565 @@
     "isPinterest": true,
     "height": "320px",
     "color": "#f4f1eb"
+  },
+  {
+    "id": 85,
+    "title": "Soft Woodland Housing Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-85-soft-woodland-housing-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-85-soft-woodland-housing-section.webp",
+    "desc": "适合参考低饱和树林剖面、住宅空间与水岸环境叠合表达。",
+    "tags": [
+      "Woodland",
+      "Housing",
+      "Soft Collage"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1123648175792892225/",
+    "isPinterest": true,
+    "height": "370px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 86,
+    "title": "Park Tower Cutaway Collage",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-86-park-tower-cutaway-collage.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-86-park-tower-cutaway-collage.webp",
+    "desc": "适合参考城市公园剖面、竖向场景切分与红色标注层次。",
+    "tags": [
+      "Park Section",
+      "Vertical Cutaway",
+      "Red Accent"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/725501821263494570/",
+    "isPinterest": true,
+    "height": "370px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 87,
+    "title": "Split-Level House Section Plan",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-87-split-level-house-section-plan.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-87-split-level-house-section-plan.webp",
+    "desc": "适合参考住宅剖面与平面并置、下沉庭院和灰绿材质表达。",
+    "tags": [
+      "Split Level",
+      "House Section",
+      "Plan + Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1113303971658859570/",
+    "isPinterest": true,
+    "height": "340px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 88,
+    "title": "Green Roof Building Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-88-green-roof-building-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-88-green-roof-building-section.webp",
+    "desc": "适合参考屋顶花园剖面、半地下空间与简洁色块表达。",
+    "tags": [
+      "Green Roof",
+      "Semi Underground",
+      "Minimal"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/956452039624445861/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 89,
+    "title": "Lightweight Greenhouse Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-89-lightweight-greenhouse-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-89-lightweight-greenhouse-section.webp",
+    "desc": "适合参考轻结构温室剖面、植物空间与结构线稿表达。",
+    "tags": [
+      "Greenhouse",
+      "Light Structure",
+      "Botanical"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/309692911889079392/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 90,
+    "title": "Timber House Detail Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-90-timber-house-detail-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-90-timber-house-detail-section.webp",
+    "desc": "适合参考木构住宅剖面、坡屋顶细节与温暖材料表达。",
+    "tags": [
+      "Timber House",
+      "Roof Detail",
+      "Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/865676359638163733/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 91,
+    "title": "Layered Public Space Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-91-layered-public-space-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-91-layered-public-space-section.webp",
+    "desc": "适合参考公共空间剖面、上下层活动关系与绿色局部强调。",
+    "tags": [
+      "Public Space",
+      "Layered Section",
+      "Green Accent"
+    ],
+    "sourceName": "Archzig",
+    "sourceUrl": "https://www.archzig.com/",
+    "isPinterest": false,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 92,
+    "title": "Blue Structural Section Detail",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-92-blue-structural-section-detail.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-92-blue-structural-section-detail.webp",
+    "desc": "适合参考蓝色结构剖面、楼层关系与节点型图面表达。",
+    "tags": [
+      "Structure",
+      "Blue Line",
+      "Technical"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1130755418994525954/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 93,
+    "title": "Soft Green Residential Section Board",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-93-soft-green-residential-section-board.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-93-soft-green-residential-section-board.webp",
+    "desc": "适合参考浅绿色居住剖面、生活场景与展板式排版。",
+    "tags": [
+      "Residential",
+      "Green Tone",
+      "Section Board"
+    ],
+    "sourceName": "DPA ETSAM Archive",
+    "sourceUrl": "https://archive.dpa-etsam.com/projects/re-brota",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 94,
+    "title": "Pink Axonometric House Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-94-pink-axonometric-house-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-94-pink-axonometric-house-section.webp",
+    "desc": "适合参考淡粉轴测剖面、室内空间透明化与屋顶平台表达。",
+    "tags": [
+      "Axonometric",
+      "Pink Tone",
+      "Housing"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/67413325664757919/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 95,
+    "title": "Twin Cabin Section Studies",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-95-twin-cabin-section-studies.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-95-twin-cabin-section-studies.webp",
+    "desc": "适合参考木屋剖面组图、坡屋顶空间与轻线稿背景。",
+    "tags": [
+      "Cabin",
+      "Twin Section",
+      "Soft Line"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1005217579335625416/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 96,
+    "title": "Timber Terrace Detail Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-96-timber-terrace-detail-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-96-timber-terrace-detail-section.webp",
+    "desc": "适合参考木构平台剖面、细部结构与室外台阶关系。",
+    "tags": [
+      "Timber Detail",
+      "Terrace",
+      "Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/725501821266703684/",
+    "isPinterest": true,
+    "height": "370px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 97,
+    "title": "Blue Tropical House Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-97-blue-tropical-house-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-97-blue-tropical-house-section.webp",
+    "desc": "适合参考蓝紫色剖面图、热带住宅与室内外流线表达。",
+    "tags": [
+      "Tropical House",
+      "Blue Section",
+      "Interior"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/626844841924312108/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 98,
+    "title": "Gray Minimal Building Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-98-gray-minimal-building-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-98-gray-minimal-building-section.webp",
+    "desc": "适合参考灰阶建筑剖面、黑白材质块与克制氛围。",
+    "tags": [
+      "Minimal",
+      "Gray Tone",
+      "Building Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/114419646770930945/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 99,
+    "title": "Light Facade Section Elevation",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-99-light-facade-section-elevation.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-99-light-facade-section-elevation.webp",
+    "desc": "适合参考建筑立面剖面、淡色透明层次与树木背景。",
+    "tags": [
+      "Facade",
+      "Light Tone",
+      "Elevation"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/854346991849671500/",
+    "isPinterest": true,
+    "height": "240px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 100,
+    "title": "Monochrome House Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-100-monochrome-house-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-100-monochrome-house-section.webp",
+    "desc": "适合参考黑白建筑剖面、实体体块与地形关系表达。",
+    "tags": [
+      "Monochrome",
+      "Massing",
+      "Landscape"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/617485798888172411/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 101,
+    "title": "Pale Yellow Urban Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-101-pale-yellow-urban-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-101-pale-yellow-urban-section.webp",
+    "desc": "适合参考浅黄色体块剖面、城市远景与极简人物尺度。",
+    "tags": [
+      "Yellow Block",
+      "Urban Section",
+      "Minimal"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/310818811781390724/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 102,
+    "title": "Pink Facade Section Board",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-102-pink-facade-section-board.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-102-pink-facade-section-board.webp",
+    "desc": "适合参考粉色背景剖面、立面标注与小建筑构成。",
+    "tags": [
+      "Pink Board",
+      "Facade Section",
+      "Diagram"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/93731235979241669/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 103,
+    "title": "Small Facade Section Set",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-103-small-facade-section-set.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-103-small-facade-section-set.webp",
+    "desc": "适合参考小型建筑多视图、立面与剖面并列排版。",
+    "tags": [
+      "Multi View",
+      "Small Building",
+      "Clean Layout"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/641129696990335901/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 104,
+    "title": "Long Forest Pavilion Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-104-long-forest-pavilion-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-104-long-forest-pavilion-section.webp",
+    "desc": "适合参考细长展亭剖面、森林背景与红色局部标注。",
+    "tags": [
+      "Pavilion",
+      "Forest",
+      "Long Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/415949715576193993/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 105,
+    "title": "Soft Garden Pavilion Elevation",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-105-soft-garden-pavilion-elevation.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-105-soft-garden-pavilion-elevation.webp",
+    "desc": "适合参考轻盈亭廊立面、绿植氛围与极简底部留白。",
+    "tags": [
+      "Garden Pavilion",
+      "Elevation",
+      "Soft Green"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/286400857531884679/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 106,
+    "title": "Hillside Refuge Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-106-hillside-refuge-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-106-hillside-refuge-section.webp",
+    "desc": "适合参考山地庇护所剖面、坡地关系与轻结构表达。",
+    "tags": [
+      "Hillside",
+      "Refuge",
+      "Section"
+    ],
+    "sourceName": "ArchDaily",
+    "sourceUrl": "https://www.archdaily.com/1038565/hoguera-de-madera-refuge-mestizo-estudio-arquitectura?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 107,
+    "title": "Annotated Site Section Diagram",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-107-annotated-site-section-diagram.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-107-annotated-site-section-diagram.webp",
+    "desc": "适合参考场地剖面标注、蓝绿色线条与信息密度控制。",
+    "tags": [
+      "Annotated",
+      "Site Section",
+      "Blue Green"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/855543260479946263/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 108,
+    "title": "A-Frame Cabin Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-108-a-frame-cabin-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-108-a-frame-cabin-section.webp",
+    "desc": "适合参考 A 字屋剖面、木结构细节与室内空间层次。",
+    "tags": [
+      "A-Frame",
+      "Cabin",
+      "Structural"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/546413367287639395/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 109,
+    "title": "Timber Cabin Detail Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-109-timber-cabin-detail-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-109-timber-cabin-detail-section.webp",
+    "desc": "适合参考坡屋顶木屋剖面、细部标注与施工图式表达。",
+    "tags": [
+      "Timber Cabin",
+      "Roof Section",
+      "Detail"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/302515299985354040/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 110,
+    "title": "Exploded Small Pavilion Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-110-exploded-small-pavilion-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-110-exploded-small-pavilion-section.webp",
+    "desc": "适合参考小型建筑轴测拆解、剖面节点与构造分层。",
+    "tags": [
+      "Exploded Axon",
+      "Pavilion",
+      "Detail"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/798755683933739850/",
+    "isPinterest": true,
+    "height": "390px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 111,
+    "title": "Red Structural Detail Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-111-red-structural-detail-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-111-red-structural-detail-section.webp",
+    "desc": "适合参考红色结构节点、剖面细部与双栏图面排版。",
+    "tags": [
+      "Structural Detail",
+      "Red Line",
+      "Detail Board"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1030409589795193082/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 112,
+    "title": "Colorful Public Section Diagram",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-112-colorful-public-section-diagram.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-112-colorful-public-section-diagram.webp",
+    "desc": "适合参考彩色结构剖面、流线箭头与公共空间关系。",
+    "tags": [
+      "Circulation",
+      "Color Diagram",
+      "Public Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/674765956673491115/",
+    "isPinterest": true,
+    "height": "260px",
+    "color": "#f4f1eb"
   }
 ]

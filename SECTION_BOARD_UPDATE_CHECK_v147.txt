@@ -1,0 +1,50 @@
+BaoLong Lab · Section Board update v147
+
+Scope
+- Updated Section Board only.
+- Added new Section inspiration items 85–112 (28 items).
+- Added matching images under images/inspiration/section/.
+- Updated data/section.json from 84 items to 112 items.
+- Fixed section-references.html footer text from BaoLong Lab · Plan Inspiration Board to BaoLong Lab · Section Inspiration Board.
+- Added Chinese translation mapping for BaoLong Lab · Section Inspiration Board → BaoLong Lab · 剖面灵感板 in js/common.js.
+
+Files changed
+- data/section.json
+- section-references.html
+- js/common.js
+- images/inspiration/section/section-ref-85-soft-woodland-housing-section.webp
+- images/inspiration/section/section-ref-86-park-tower-cutaway-collage.webp
+- images/inspiration/section/section-ref-87-split-level-house-section-plan.webp
+- images/inspiration/section/section-ref-88-green-roof-building-section.webp
+- images/inspiration/section/section-ref-89-lightweight-greenhouse-section.webp
+- images/inspiration/section/section-ref-90-timber-house-detail-section.webp
+- images/inspiration/section/section-ref-91-layered-public-space-section.webp
+- images/inspiration/section/section-ref-92-blue-structural-section-detail.webp
+- images/inspiration/section/section-ref-93-soft-green-residential-section-board.webp
+- images/inspiration/section/section-ref-94-pink-axonometric-house-section.webp
+- images/inspiration/section/section-ref-95-twin-cabin-section-studies.webp
+- images/inspiration/section/section-ref-96-timber-terrace-detail-section.webp
+- images/inspiration/section/section-ref-97-blue-tropical-house-section.webp
+- images/inspiration/section/section-ref-98-gray-minimal-building-section.webp
+- images/inspiration/section/section-ref-99-light-facade-section-elevation.webp
+- images/inspiration/section/section-ref-100-monochrome-house-section.webp
+- images/inspiration/section/section-ref-101-pale-yellow-urban-section.webp
+- images/inspiration/section/section-ref-102-pink-facade-section-board.webp
+- images/inspiration/section/section-ref-103-small-facade-section-set.webp
+- images/inspiration/section/section-ref-104-long-forest-pavilion-section.webp
+- images/inspiration/section/section-ref-105-soft-garden-pavilion-elevation.webp
+- images/inspiration/section/section-ref-106-hillside-refuge-section.webp
+- images/inspiration/section/section-ref-107-annotated-site-section-diagram.webp
+- images/inspiration/section/section-ref-108-a-frame-cabin-section.webp
+- images/inspiration/section/section-ref-109-timber-cabin-detail-section.webp
+- images/inspiration/section/section-ref-110-exploded-small-pavilion-section.webp
+- images/inspiration/section/section-ref-111-red-structural-detail-section.webp
+- images/inspiration/section/section-ref-112-colorful-public-section-diagram.webp
+
+Verification
+- data/section.json is valid JSON.
+- Section item ids are unique and sorted.
+- New ids 85–112 all have existing cover image paths.
+- Pinterest entries keep isPinterest=true and will show 原始来源：未核实.
+- Non-Pinterest sources keep direct source links.
+- No changes were made to data/plan.json, data/color.json, data/other.json, Prompt cases, Assets, homepage, logo, or nav structure.

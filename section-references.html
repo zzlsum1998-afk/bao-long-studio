@@ -958,6 +958,8 @@
       gap:10px;
       margin:34px auto 0;
       text-align:center;
+      /* v153: do not let the Load More button become the browser scroll anchor. */
+      overflow-anchor:none;
     }
     .load-more-btn{
       border:1px solid #111;
@@ -1193,16 +1195,34 @@
     }
 
     function loadMoreSectionBoard(){
+      /* v153: preserve the reader's position.
+         Appending cards before the focused Load More button can make the browser
+         keep that button in view, which looks like the page jumps to the last row. */
+      const scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const btn = document.getElementById('sectionLoadMoreBtn');
+      if(btn) btn.blur();
+
       const targetVisible = Math.min(sectionBoardVisible + SECTION_BOARD_STEP, sectionBoardItems.length);
       appendSectionCards(sectionBoardVisible, targetVisible);
       sectionBoardVisible = targetVisible;
       bindSectionCards();
       updateSectionLoadMore();
+
+      window.requestAnimationFrame(function(){
+        window.scrollTo(scrollX, scrollY);
+        window.requestAnimationFrame(function(){
+          window.scrollTo(scrollX, scrollY);
+        });
+      });
     }
 
     document.addEventListener('DOMContentLoaded', function(){
       const btn = document.getElementById('sectionLoadMoreBtn');
-      if(btn) btn.addEventListener('click', loadMoreSectionBoard);
+      if(btn) {
+        btn.addEventListener('mousedown', function(event){ event.preventDefault(); });
+        btn.addEventListener('click', loadMoreSectionBoard);
+      }
       fetch('data/section.json')
         .then(function(res){
           if(!res.ok) throw new Error('section.json load failed');

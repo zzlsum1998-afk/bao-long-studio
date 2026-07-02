@@ -1,0 +1,25 @@
+BaoLong Inspiration Load More Scroll Fix v153
+
+Scope:
+- plan-references.html
+- section-references.html
+- render-references.html
+
+Fix:
+- Kept v151 stable grid order.
+- Kept v152 append-only load more rendering.
+- Added v153 scroll-position preservation after Load More.
+- Disabled Load More button as scroll anchor and blurred the button before appending new cards.
+
+Not changed:
+- data/*.json
+- image files
+- Color Board
+- Homepage
+- Navigation / logo
+- js/common.js
+
+Expected behavior:
+- Clicking Load More appends new cards without re-rendering old cards.
+- Existing cards do not reshuffle.
+- Page no longer jumps to the final row after loading more.

@@ -1,0 +1,12 @@
+BaoLong Color Board footer fix v150
+
+Files to upload/overwrite:
+1. color-references.html
+2. js/common.js
+
+Fixes:
+- Color page footer is now explicitly: BaoLong Lab · Color Inspiration Board
+- Chinese mode maps it to: BaoLong Lab · 色彩灵感板
+- color-references.html now loads js/common.js?v=150 to avoid old cached common.js.
+
+After uploading, wait for GitHub Actions green check, then hard refresh color-references.html.

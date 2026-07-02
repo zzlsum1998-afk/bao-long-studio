@@ -504,11 +504,12 @@
     @media(max-width:760px){
       .prompt-case-grid{grid-template-columns:1fr}
 
-      /* v156 Mobile Prompt Case Modal: keep detail card away from the fixed site header.
-         The modal stays below the 72px mobile nav, with a small breathing gap like Inspiration Board cards. */
+      /* v157 Mobile Prompt Case Modal: leave a clear gap below the sticky mobile header.
+         The top offset is also updated by JS from the real header height, so Safari / in-app browsers stay stable. */
       .prompt-modal{
-        padding:94px 14px 22px !important;
-        padding-top:calc(94px + env(safe-area-inset-top, 0px)) !important;
+        --prompt-mobile-modal-top:124px;
+        padding:124px 14px 22px !important;
+        padding-top:calc(var(--prompt-mobile-modal-top, 124px) + env(safe-area-inset-top, 0px)) !important;
         align-items:flex-start !important;
         justify-content:center !important;
         overflow:hidden !important;
@@ -516,8 +517,8 @@
       .prompt-modal-card{
         width:min(92vw, 560px) !important;
         border-radius:26px;
-        max-height:calc(100vh - 116px) !important;
-        max-height:calc(100dvh - 116px - env(safe-area-inset-top, 0px)) !important;
+        max-height:calc(100vh - var(--prompt-mobile-modal-top, 124px) - 28px) !important;
+        max-height:calc(100dvh - var(--prompt-mobile-modal-top, 124px) - 28px - env(safe-area-inset-top, 0px)) !important;
         margin:0 auto !important;
         overflow-y:auto;
         -webkit-overflow-scrolling:touch;
@@ -1624,10 +1625,20 @@
       __baolongModalPreviousBodyStyle = null;
     }
 
+    function setPromptMobileModalOffset(){
+      const modal = document.getElementById('promptCaseModal');
+      const header = document.querySelector('.site-header');
+      if(!modal || !header || window.innerWidth > 760) return;
+      const headerBottom = header.getBoundingClientRect().bottom || 0;
+      const topOffset = Math.max(124, Math.ceil(headerBottom + 24));
+      modal.style.setProperty('--prompt-mobile-modal-top', topOffset + 'px');
+    }
+
     function openPromptCase(caseId){
       const item = promptCases[caseId];
       const modal = document.getElementById('promptCaseModal');
       if(!item || !modal) return;
+      setPromptMobileModalOffset();
       document.getElementById('promptCaseImg').src = item.img;
       document.getElementById('promptCaseImg').alt = item.title;
       document.getElementById('promptCaseKicker').textContent = item.kicker;

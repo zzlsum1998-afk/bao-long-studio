@@ -1198,13 +1198,31 @@
       updateOtherLoadMore();
     }
 
-    function loadMoreOtherBoard(){
-      /* v154: Other Board only.
-         Keep append-only rendering, but do not force the page back to the old
-         scrollY. With the grid layout, restoring the old Y value can look like
-         the page slides upward after new cards are inserted. The button is
-         already blurred and prevented from becoming the scroll anchor below. */
+    function loadMoreOtherBoard(event){
+      /* v155: Other Board only.
+         Preserve the reader's current viewport without smooth-scroll animation.
+         The site-wide common.css enables smooth scrolling, so v153's scroll
+         restore could look like a small upward slide. v154 removed the restore,
+         but then the browser followed the Load More button to the new bottom.
+         This version keeps append-only rendering, disables scroll anchoring
+         during the DOM update, restores the exact viewport instantly, then
+         returns the page styles to their previous values. */
+      if(event) event.preventDefault();
+
+      const scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const docEl = document.documentElement;
+      const body = document.body;
+      const prevDocScrollBehavior = docEl.style.scrollBehavior;
+      const prevBodyScrollBehavior = body.style.scrollBehavior;
+      const prevDocOverflowAnchor = docEl.style.overflowAnchor;
+      const prevBodyOverflowAnchor = body.style.overflowAnchor;
       const btn = document.getElementById('otherLoadMoreBtn');
+
+      docEl.style.scrollBehavior = 'auto';
+      body.style.scrollBehavior = 'auto';
+      docEl.style.overflowAnchor = 'none';
+      body.style.overflowAnchor = 'none';
       if(btn) btn.blur();
 
       const targetVisible = Math.min(otherBoardVisible + OTHER_BOARD_STEP, otherBoardItems.length);
@@ -1212,6 +1230,17 @@
       otherBoardVisible = targetVisible;
       bindOtherCards();
       updateOtherLoadMore();
+
+      window.scrollTo(scrollX, scrollY);
+      window.requestAnimationFrame(function(){
+        window.scrollTo(scrollX, scrollY);
+        window.requestAnimationFrame(function(){
+          docEl.style.scrollBehavior = prevDocScrollBehavior;
+          body.style.scrollBehavior = prevBodyScrollBehavior;
+          docEl.style.overflowAnchor = prevDocOverflowAnchor;
+          body.style.overflowAnchor = prevBodyOverflowAnchor;
+        });
+      });
     }
 
     document.addEventListener('DOMContentLoaded', function(){

@@ -1199,11 +1199,11 @@
     }
 
     function loadMoreOtherBoard(){
-      /* v153: preserve the reader's position.
-         Appending cards before the focused Load More button can make the browser
-         keep that button in view, which looks like the page jumps to the last row. */
-      const scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      /* v154: Other Board only.
+         Keep append-only rendering, but do not force the page back to the old
+         scrollY. With the grid layout, restoring the old Y value can look like
+         the page slides upward after new cards are inserted. The button is
+         already blurred and prevented from becoming the scroll anchor below. */
       const btn = document.getElementById('otherLoadMoreBtn');
       if(btn) btn.blur();
 
@@ -1212,13 +1212,6 @@
       otherBoardVisible = targetVisible;
       bindOtherCards();
       updateOtherLoadMore();
-
-      window.requestAnimationFrame(function(){
-        window.scrollTo(scrollX, scrollY);
-        window.requestAnimationFrame(function(){
-          window.scrollTo(scrollX, scrollY);
-        });
-      });
     }
 
     document.addEventListener('DOMContentLoaded', function(){

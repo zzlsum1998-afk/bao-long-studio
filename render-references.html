@@ -493,6 +493,39 @@
   .pin-prompt-btn{width:100%;margin-top:0}
 }
 
+
+/* v158 Inspiration card spacing polish: keep the stable grid, but make same-row cards align cleanly. */
+.masonry{
+  align-items:stretch;
+  gap:20px 22px;
+}
+.pin{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.pin-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:16px 18px 17px;
+}
+.pin-tags{margin-bottom:10px}
+.pin-prompt-btn{align-self:flex-start;margin:0 0 12px;}
+.pin-desc{margin-bottom:12px !important;}
+.source-block{
+  margin-top:auto;
+  padding-top:11px;
+  gap:4px;
+  font-size:11.5px;
+  line-height:1.5;
+}
+@media (max-width:720px){
+  .pin{height:auto;}
+  .pin-prompt-btn{width:100%;align-self:stretch;margin:0 0 12px;}
+  .source-block{margin-top:14px;}
+}
+
   
 
     /* Mobile refinement: keep desktop unchanged, improve small-screen readability */

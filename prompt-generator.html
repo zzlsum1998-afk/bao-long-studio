@@ -503,8 +503,25 @@
     }
     @media(max-width:760px){
       .prompt-case-grid{grid-template-columns:1fr}
-      .prompt-modal{padding:14px;align-items:flex-end}
-      .prompt-modal-card{border-radius:26px;max-height:88vh}
+
+      /* v156 Mobile Prompt Case Modal: keep detail card away from the fixed site header.
+         The modal stays below the 72px mobile nav, with a small breathing gap like Inspiration Board cards. */
+      .prompt-modal{
+        padding:94px 14px 22px !important;
+        padding-top:calc(94px + env(safe-area-inset-top, 0px)) !important;
+        align-items:flex-start !important;
+        justify-content:center !important;
+        overflow:hidden !important;
+      }
+      .prompt-modal-card{
+        width:min(92vw, 560px) !important;
+        border-radius:26px;
+        max-height:calc(100vh - 116px) !important;
+        max-height:calc(100dvh - 116px - env(safe-area-inset-top, 0px)) !important;
+        margin:0 auto !important;
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+      }
       .prompt-modal-content{padding:28px 22px}
       .prompt-modal-content h3{font-size:28px}
       .prompt-modal-media,.prompt-modal-media img{min-height:260px}

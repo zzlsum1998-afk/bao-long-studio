@@ -1,0 +1,26 @@
+BaoLong Lab · Inspiration Board Load More Order Fix v151
+
+本次只处理灵感板块加载更多后的视觉顺序跳动问题。
+
+修改文件：
+1. plan-references.html
+2. section-references.html
+3. render-references.html
+
+修改内容：
+- 将 Plan / Section / Other Board 的 .masonry 从 CSS columns 瀑布流改为稳定 CSS grid。
+- 保留原有卡片、弹窗、来源链接、JSON 数据、图片路径与加载更多数量逻辑。
+- 未修改 data/*.json。
+- 未修改 images/*。
+- 未修改导航、首页、Color Board、Prompt、Resume、Interaction 等页面。
+
+原因说明：
+- 原来的 CSS columns 会在点击 Load More 后重新平衡列高度，导致已经出现的旧卡片重新分配位置。
+- 视觉上会像“第一行图片跳到别处”“加载出来的不像新图片”。
+- 改为 grid 后，卡片会按 JSON 顺序从左到右、从上到下稳定排列；点击 Load More 后旧卡片位置不再被瀑布流重新洗牌。
+
+检查结果：
+- plan-references.html 已改为 display:grid。
+- section-references.html 已改为 display:grid。
+- render-references.html 已改为 display:grid。
+- 未发现这三个页面继续使用 columns:4 260px。

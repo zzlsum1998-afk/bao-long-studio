@@ -98,12 +98,23 @@
       margin:0 auto;
     }
     .masonry{
-      columns:4 260px;
-      column-gap:22px;
+      /* v151: use stable grid order for Load More.
+         CSS columns re-balance after new cards are added, which makes old pins jump. */
+      columns:unset;
+      column-gap:0;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:22px;
+      align-items:start;
+      /* v152: keep already rendered cards stable when new batches are appended. */
+      overflow-anchor:none;
     }
+    @media (max-width:1180px){.masonry{grid-template-columns:repeat(3,minmax(0,1fr));}}
+    @media (max-width:760px){.masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}}
+    @media (max-width:520px){.masonry{grid-template-columns:1fr;}}
     .pin{
       break-inside:avoid;
-      margin:0 0 22px;
+      margin:0;
       background:#fff;
       border:1px solid var(--line);
       overflow:hidden;
@@ -1132,14 +1143,16 @@
     }
 
     function bindPlanCards(){
-      document.querySelectorAll('#planMasonry .pin').forEach(function(pin){
+      document.querySelectorAll('#planMasonry .pin:not([data-card-bound="true"])').forEach(function(pin){
+        pin.dataset.cardBound = 'true';
         pin.addEventListener('click', function(){
           const item = planBoardItems[Number(pin.dataset.planIndex)];
           if(!item) return;
           openModal(item.title, item.type || 'Plan Inspiration', item.images || [], item.desc || '', item.sourceName || '', item.sourceUrl || '', !!item.isPinterest);
         });
       });
-      document.querySelectorAll('#planMasonry .source-link').forEach(function(link){
+      document.querySelectorAll('#planMasonry .source-link:not([data-source-bound="true"])').forEach(function(link){
+        link.dataset.sourceBound = 'true';
         link.addEventListener('click', function(event){ event.stopPropagation(); });
       });
       if(typeof injectPromptButtons === 'function') injectPromptButtons();
@@ -1154,19 +1167,37 @@
       btn.hidden = !total || planBoardVisible >= total;
     }
 
+    function appendPlanCards(fromIndex, toIndex){
+      const grid = document.getElementById('planMasonry');
+      if(!grid || toIndex <= fromIndex) return;
+      const html = planBoardItems.slice(fromIndex, toIndex).map(function(item, offset){
+        return renderPlanCard(item, fromIndex + offset);
+      }).join('');
+      grid.insertAdjacentHTML('beforeend', html);
+    }
+
     function renderPlanBoard(reset){
       const grid = document.getElementById('planMasonry');
       if(!grid) return;
-      if(reset){ planBoardVisible = Math.min(PLAN_BOARD_BATCH, planBoardItems.length); }
-      const shown = planBoardItems.slice(0, planBoardVisible);
-      grid.innerHTML = shown.map(renderPlanCard).join('');
+      if(reset){
+        grid.innerHTML = '';
+        planBoardVisible = 0;
+      }
+      const targetVisible = reset
+        ? Math.min(PLAN_BOARD_BATCH, planBoardItems.length)
+        : Math.min(planBoardVisible, planBoardItems.length);
+      appendPlanCards(planBoardVisible, targetVisible);
+      planBoardVisible = targetVisible;
       bindPlanCards();
       updatePlanLoadMore();
     }
 
     function loadMorePlanBoard(){
-      planBoardVisible = Math.min(planBoardVisible + PLAN_BOARD_STEP, planBoardItems.length);
-      renderPlanBoard(false);
+      const targetVisible = Math.min(planBoardVisible + PLAN_BOARD_STEP, planBoardItems.length);
+      appendPlanCards(planBoardVisible, targetVisible);
+      planBoardVisible = targetVisible;
+      bindPlanCards();
+      updatePlanLoadMore();
     }
 
     document.addEventListener('DOMContentLoaded', function(){

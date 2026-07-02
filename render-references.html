@@ -98,12 +98,23 @@
       margin:0 auto;
     }
     .masonry{
-      columns:4 260px;
-      column-gap:22px;
+      /* v151: use stable grid order for Load More.
+         CSS columns re-balance after new cards are added, which makes old pins jump. */
+      columns:unset;
+      column-gap:0;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:22px;
+      align-items:start;
+      /* v152: keep already rendered cards stable when new batches are appended. */
+      overflow-anchor:none;
     }
+    @media (max-width:1180px){.masonry{grid-template-columns:repeat(3,minmax(0,1fr));}}
+    @media (max-width:760px){.masonry{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}}
+    @media (max-width:520px){.masonry{grid-template-columns:1fr;}}
     .pin{
       break-inside:avoid;
-      margin:0 0 22px;
+      margin:0;
       background:#fff;
       border:1px solid var(--line);
       overflow:hidden;
@@ -1136,14 +1147,16 @@
     }
 
     function bindOtherCards(){
-      document.querySelectorAll('#otherMasonry .pin').forEach(function(pin){
+      document.querySelectorAll('#otherMasonry .pin:not([data-card-bound="true"])').forEach(function(pin){
+        pin.dataset.cardBound = 'true';
         pin.addEventListener('click', function(){
           const item = otherBoardItems[Number(pin.dataset.otherIndex)];
           if(!item) return;
           openModal(item.title, item.type || 'Other Inspiration', item.images || [], item.desc || '', item.sourceName || '', item.sourceUrl || '', !!item.isPinterest);
         });
       });
-      document.querySelectorAll('#otherMasonry .source-link').forEach(function(link){
+      document.querySelectorAll('#otherMasonry .source-link:not([data-source-bound="true"])').forEach(function(link){
+        link.dataset.sourceBound = 'true';
         link.addEventListener('click', function(event){ event.stopPropagation(); });
       });
       if(typeof injectPromptButtons === 'function') injectPromptButtons();
@@ -1158,19 +1171,37 @@
       btn.hidden = !total || otherBoardVisible >= total;
     }
 
+    function appendOtherCards(fromIndex, toIndex){
+      const grid = document.getElementById('otherMasonry');
+      if(!grid || toIndex <= fromIndex) return;
+      const html = otherBoardItems.slice(fromIndex, toIndex).map(function(item, offset){
+        return renderOtherCard(item, fromIndex + offset);
+      }).join('');
+      grid.insertAdjacentHTML('beforeend', html);
+    }
+
     function renderOtherBoard(reset){
       const grid = document.getElementById('otherMasonry');
       if(!grid) return;
-      if(reset){ otherBoardVisible = Math.min(OTHER_BOARD_BATCH, otherBoardItems.length); }
-      const shown = otherBoardItems.slice(0, otherBoardVisible);
-      grid.innerHTML = shown.map(renderOtherCard).join('');
+      if(reset){
+        grid.innerHTML = '';
+        otherBoardVisible = 0;
+      }
+      const targetVisible = reset
+        ? Math.min(OTHER_BOARD_BATCH, otherBoardItems.length)
+        : Math.min(otherBoardVisible, otherBoardItems.length);
+      appendOtherCards(otherBoardVisible, targetVisible);
+      otherBoardVisible = targetVisible;
       bindOtherCards();
       updateOtherLoadMore();
     }
 
     function loadMoreOtherBoard(){
-      otherBoardVisible = Math.min(otherBoardVisible + OTHER_BOARD_STEP, otherBoardItems.length);
-      renderOtherBoard(false);
+      const targetVisible = Math.min(otherBoardVisible + OTHER_BOARD_STEP, otherBoardItems.length);
+      appendOtherCards(otherBoardVisible, targetVisible);
+      otherBoardVisible = targetVisible;
+      bindOtherCards();
+      updateOtherLoadMore();
     }
 
     document.addEventListener('DOMContentLoaded', function(){

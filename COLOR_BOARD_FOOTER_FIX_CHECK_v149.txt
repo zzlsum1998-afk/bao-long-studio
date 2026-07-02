@@ -1,0 +1,13 @@
+Color Board footer text fix v149
+
+Changed files:
+- color-references.html
+- js/common.js
+
+Fix:
+- Color Board footer now uses: BaoLong Lab · Color Inspiration Board
+- Chinese language display maps to: BaoLong Lab · 色彩灵感板
+
+Scope:
+- Only fixed the Color Board footer/title strip text shown as “BaoLong Lab · 灵感板”.
+- Did not change data/color.json, images, Other Board, Plan Board, Section Board, navigation, or layout.

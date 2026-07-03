@@ -1,0 +1,15 @@
+# robots.txt for baolonglab.com
+# 允许所有搜索引擎和 AI 爬虫抓取全站
+
+User-agent: *
+Allow: /
+
+# 不希望被收录的页面
+Disallow: /login.html
+Disallow: /prompt-tool.html
+Disallow: /resume-tool.html
+Disallow: /maintenance/
+Disallow: /netlify/
+
+# 网站地图位置
+Sitemap: https://baolonglab.com/sitemap.xml

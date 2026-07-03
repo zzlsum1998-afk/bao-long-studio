@@ -494,35 +494,38 @@
 }
 
 
-/* v158 Inspiration card spacing polish: keep the stable grid, but make same-row cards align cleanly. */
+/* v159 Inspiration desktop masonry restore: keep the v158 spacing polish,
+   but remove same-row equal-height stretching so the board feels like a natural waterfall again. */
 .masonry{
-  align-items:stretch;
-  gap:20px 22px;
+  gap:24px 22px;
+  grid-auto-rows:8px;
+  align-items:start;
 }
 .pin{
-  height:100%;
-  display:flex;
-  flex-direction:column;
+  height:auto;
+  display:block;
+  grid-row-end:span var(--masonry-span, 42);
 }
 .pin-body{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  padding:16px 18px 17px;
+  display:block;
+  padding:16px 18px 18px;
 }
 .pin-tags{margin-bottom:10px}
-.pin-prompt-btn{align-self:flex-start;margin:0 0 12px;}
+.pin-prompt-btn{margin:0 0 12px;}
 .pin-desc{margin-bottom:12px !important;}
 .source-block{
-  margin-top:auto;
+  margin-top:14px;
   padding-top:11px;
   gap:4px;
   font-size:11.5px;
   line-height:1.5;
 }
+@media (max-width:900px){
+  .masonry{grid-auto-rows:auto !important;}
+  .pin{grid-row-end:auto !important;height:auto;}
+}
 @media (max-width:720px){
-  .pin{height:auto;}
-  .pin-prompt-btn{width:100%;align-self:stretch;margin:0 0 12px;}
+  .pin-prompt-btn{width:100%;margin:0 0 12px;}
   .source-block{margin-top:14px;}
 }
 
@@ -1018,6 +1021,59 @@
       line-height:1.6;
     }
   </style>
+<script>
+    /* v159 desktop masonry sizing: visual waterfall without changing data, cards, source links or mobile layout. */
+    (function(){
+      let masonryResizeTimer = null;
+      function isSingleColumnMasonry(){
+        return window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+      }
+      window.resizeInspirationMasonry = function(){
+        document.querySelectorAll('.masonry').forEach(function(grid){
+          const pins = Array.prototype.slice.call(grid.querySelectorAll('.pin'));
+          if(!pins.length) return;
+          if(isSingleColumnMasonry()){
+            pins.forEach(function(pin){
+              pin.style.gridRowEnd = '';
+              pin.style.removeProperty('--masonry-span');
+            });
+            return;
+          }
+          const style = window.getComputedStyle(grid);
+          const rowHeight = parseFloat(style.getPropertyValue('grid-auto-rows')) || 8;
+          const rowGap = parseFloat(style.getPropertyValue('row-gap')) || 0;
+          pins.forEach(function(pin){
+            pin.style.gridRowEnd = '';
+            pin.style.removeProperty('--masonry-span');
+          });
+          window.requestAnimationFrame(function(){
+            pins.forEach(function(pin){
+              const height = pin.getBoundingClientRect().height;
+              const span = Math.max(1, Math.ceil((height + rowGap) / (rowHeight + rowGap)));
+              pin.style.setProperty('--masonry-span', span);
+              pin.style.gridRowEnd = 'span ' + span;
+            });
+          });
+        });
+      };
+      window.scheduleInspirationMasonry = function(){
+        window.requestAnimationFrame(function(){
+          window.resizeInspirationMasonry();
+          window.setTimeout(window.resizeInspirationMasonry, 160);
+        });
+      };
+      window.addEventListener('resize', function(){
+        window.clearTimeout(masonryResizeTimer);
+        masonryResizeTimer = window.setTimeout(window.scheduleInspirationMasonry, 120);
+      });
+      document.addEventListener('load', function(event){
+        if(event.target && event.target.matches && event.target.matches('.masonry img')){
+          window.scheduleInspirationMasonry();
+        }
+      }, true);
+      document.addEventListener('DOMContentLoaded', window.scheduleInspirationMasonry);
+    })();
+  </script>
 <link href="css/common.css?v=124" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=124"></script>
 </head>
@@ -1195,6 +1251,7 @@
         link.addEventListener('click', function(event){ event.stopPropagation(); });
       });
       if(typeof injectPromptButtons === 'function') injectPromptButtons();
+      if(typeof scheduleInspirationMasonry === 'function') scheduleInspirationMasonry();
     }
 
     function updateOtherLoadMore(){

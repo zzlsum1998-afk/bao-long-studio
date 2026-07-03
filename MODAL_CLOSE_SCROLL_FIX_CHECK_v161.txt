@@ -1,0 +1,21 @@
+BaoLong Lab v161 modal close scroll fix check
+
+Scope:
+- plan-references.html
+- section-references.html
+- render-references.html
+
+Fix:
+- Updated the inspiration detail modal scroll lock.
+- Removed the fixed-body scroll lock that could create a visible jump/slide when closing the modal.
+- Replaced it with overflow-based page locking that preserves the current scroll position.
+
+Not changed:
+- No CSS layout/masonry spacing changes.
+- No Load More batching/order changes.
+- No page structure changes.
+- Other Board naming remains unchanged.
+- No image/data/source path changes.
+
+Upload:
+- Replace only the three HTML files above.

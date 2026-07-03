@@ -1387,40 +1387,60 @@
     }
 
 
-    /* v136: lock the background page while detail modals are open. */
+    /* v161: lock the background page while detail modals are open, without fixing the body.
+       The previous fixed-body lock restored scroll after close, which caused a visible page slide/jump. */
     let __baolongModalScrollY = 0;
     let __baolongModalPreviousBodyStyle = null;
+    let __baolongModalPreviousDocStyle = null;
     function lockPageScroll(){
       if(document.body.classList.contains('modal-scroll-locked')) return;
-      __baolongModalScrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const docEl = document.documentElement;
+      __baolongModalScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
       __baolongModalPreviousBodyStyle = {
-        position: document.body.style.position,
-        top: document.body.style.top,
-        left: document.body.style.left,
-        right: document.body.style.right,
-        width: document.body.style.width,
-        overflow: document.body.style.overflow
+        overflow: document.body.style.overflow,
+        paddingRight: document.body.style.paddingRight,
+        overscrollBehavior: document.body.style.overscrollBehavior,
+        scrollBehavior: document.body.style.scrollBehavior
       };
+      __baolongModalPreviousDocStyle = {
+        overflow: docEl.style.overflow,
+        overscrollBehavior: docEl.style.overscrollBehavior,
+        scrollBehavior: docEl.style.scrollBehavior
+      };
+      const scrollbarGap = Math.max(0, window.innerWidth - docEl.clientWidth);
       document.body.classList.add('modal-scroll-locked');
-      document.body.style.position = 'fixed';
-      document.body.style.top = '-' + __baolongModalScrollY + 'px';
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
+      docEl.style.scrollBehavior = 'auto';
+      document.body.style.scrollBehavior = 'auto';
+      docEl.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      docEl.style.overscrollBehavior = 'none';
+      document.body.style.overscrollBehavior = 'none';
+      if(scrollbarGap > 0){
+        document.body.style.paddingRight = scrollbarGap + 'px';
+      }
     }
     function unlockPageScroll(){
       if(!document.body.classList.contains('modal-scroll-locked')) return;
+      const docEl = document.documentElement;
+      const targetScrollY = __baolongModalScrollY || 0;
       document.body.classList.remove('modal-scroll-locked');
-      const previous = __baolongModalPreviousBodyStyle || {};
-      document.body.style.position = previous.position || '';
-      document.body.style.top = previous.top || '';
-      document.body.style.left = previous.left || '';
-      document.body.style.right = previous.right || '';
-      document.body.style.width = previous.width || '';
-      document.body.style.overflow = previous.overflow || '';
-      window.scrollTo(0, __baolongModalScrollY || 0);
+      const previousBody = __baolongModalPreviousBodyStyle || {};
+      const previousDoc = __baolongModalPreviousDocStyle || {};
+      docEl.style.overflow = previousDoc.overflow || '';
+      docEl.style.overscrollBehavior = previousDoc.overscrollBehavior || '';
+      docEl.style.scrollBehavior = previousDoc.scrollBehavior || '';
+      document.body.style.overflow = previousBody.overflow || '';
+      document.body.style.paddingRight = previousBody.paddingRight || '';
+      document.body.style.overscrollBehavior = previousBody.overscrollBehavior || '';
+      document.body.style.scrollBehavior = previousBody.scrollBehavior || '';
+      window.requestAnimationFrame(function(){
+        const currentScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
+        if(Math.abs(currentScrollY - targetScrollY) > 2){
+          window.scrollTo(0, targetScrollY);
+        }
+      });
       __baolongModalPreviousBodyStyle = null;
+      __baolongModalPreviousDocStyle = null;
     }
 
     function openModal(title, type, images, desc, source, url, isPinterest){

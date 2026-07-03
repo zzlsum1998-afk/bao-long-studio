@@ -1,0 +1,17 @@
+BaoLong Lab v162 SEO head-only from latest package
+
+Modified files:
+- index.html
+- color-references.html
+- plan-references.html
+- section-references.html
+- render-references.html
+
+Scope:
+- Only <head> SEO metadata was updated: <title>, <meta name="description">, <link rel="canonical">.
+- Canonical URLs use https://www.baolonglab.com/.
+- No CSS, JS, masonry/load-more logic, modal close behavior, page structure, image paths, card content, or Other Board naming was intentionally changed.
+
+Upload note:
+- Upload/replace only the five HTML files above.
+- This check file is for review only and does not need to be uploaded.

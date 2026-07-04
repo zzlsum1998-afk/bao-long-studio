@@ -1,0 +1,51 @@
+SEO_HEAD_ONLY_RECHECK_v174
+
+Base package: baolong-terms-page-v173-full.zip
+
+Scope:
+- Head-only SEO recheck and refinement from v173.
+- Standardized public page title, meta description, canonical, Open Graph, Twitter Card and JSON-LD text.
+- Canonical / og:url / JSON-LD / sitemap references are kept on the official www domain: https://www.baolonglab.com/
+- Added missing meta description to 404.html while keeping noindex, follow.
+- Added og:locale zh_CN to public pages with Open Graph tags.
+- Kept privacy.html and terms.html as bilingual legal pages.
+
+Changed files:
+- index.html
+- assets.html
+- color-references.html
+- plan-references.html
+- section-references.html
+- render-references.html
+- prompt-generator.html
+- interaction.html
+- seasonal-color-tool.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- data-bloom-garden.html
+- bubble-timeline.html
+- interaction-landscape-growth.html
+- resume.html
+- privacy.html
+- terms.html
+- 404.html
+
+Not changed:
+- CSS files
+- JS files
+- JSON data files
+- Images and favicon files
+- Prompt Tool logic
+- Resume Tool logic
+- Inspiration Board / Load More logic
+- Page body content and visible layout
+
+Upload suggestion:
+- Use the v174 patch zip if you only want to overwrite changed root files.
+- Do not upload the zip itself into GitHub. Extract first and upload the contained files.
+
+Manual checks after deployment:
+1. Open https://www.baolonglab.com/ and several board pages normally.
+2. Check page source for canonical URLs using https://www.baolonglab.com/.
+3. Open https://www.baolonglab.com/sitemap.xml and confirm URLs keep www.
+4. Test /privacy.html, /terms.html and a fake 404 path.

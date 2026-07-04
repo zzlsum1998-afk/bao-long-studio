@@ -1,0 +1,22 @@
+BaoLong privacy + 404 logo unify v171
+
+Base:
+- Built from baolong-favicon-404-v170-full
+
+Changed files:
+1. privacy.html
+2. 404.html
+3. PRIVACY_404_LOGO_CHECK_v171.txt
+
+Change details:
+- Replaced the temporary beige CSS brand mark in privacy.html and 404.html.
+- Both pages now use the same navigation logo markup as the main site:
+  <img class="brand-logo-img" src="images/logo-eye.webp">
+  <span class="brand-text">BAOLONG LAB</span>
+- Kept existing page content, privacy text, 404 content, analytics code, favicon links and footer links unchanged.
+
+Not touched:
+- index.html and other existing public pages
+- CSS/JS/JSON data files
+- Prompt Tool, Resume Tool, Inspiration load-more logic
+- favicon.svg and apple-touch-icon.png

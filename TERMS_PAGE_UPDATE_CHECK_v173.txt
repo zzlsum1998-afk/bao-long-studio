@@ -1,0 +1,46 @@
+BaoLong Lab Terms Page Update v173
+
+Base package:
+baolong-privacy-404-bilingual-v172-revised-full.zip
+
+Scope:
+- Added root terms.html
+- Added Terms of Use link next to existing Privacy Policy footer link on public pages that already had the legal footer link
+- Added https://www.baolonglab.com/terms.html to sitemap.xml
+- Checked robots.txt keeps www sitemap and was not modified
+
+Touched files:
+- terms.html
+- sitemap.xml
+- 404.html
+- privacy.html
+- index.html
+- assets.html
+- color-references.html
+- plan-references.html
+- section-references.html
+- render-references.html
+- prompt-generator.html
+- interaction.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- resume.html
+
+Not touched:
+- css/
+- js/
+- data/*.json
+- images/
+- favicon.svg
+- apple-touch-icon.png
+- robots.txt
+- prompt-tool.html
+- resume-tool.html
+- login.html
+- Inspiration load-more logic
+
+Domain rule:
+- Canonical, sitemap, and robots remain on https://www.baolonglab.com/.
+
+Upload recommendation:
+For a safe patch upload, upload only the touched files listed above. Do not upload CSS, JS, JSON, images, favicon, robots, or tool files.

@@ -98,4 +98,10 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://www.baolonglab.com/terms.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

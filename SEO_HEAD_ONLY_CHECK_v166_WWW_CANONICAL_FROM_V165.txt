@@ -1,0 +1,26 @@
+SEO_HEAD_ONLY_CHECK_v166_WWW_CANONICAL_FROM_V165
+
+本次是在 v165 SEO head-only 安全版基础上做的一个小修正：
+- 只修正 canonical 域名
+- 从 https://baolonglab.com/... 统一改为 https://www.baolonglab.com/...
+- 保持 title 与 meta description 不变
+- 不改 CSS / JS / JSON / 图片 / 页面结构 / Prompt 工具逻辑
+
+原因：当前 GitHub Pages 自定义域名与正式访问地址记录为 https://www.baolonglab.com/，canonical 应与正式主域名保持一致，避免 www 与非 www 版本被搜索引擎视为重复页面。
+
+涉及页面：
+index.html
+assets.html
+color-references.html
+plan-references.html
+section-references.html
+render-references.html
+prompt-generator.html
+seasonal-color-tool.html
+plant-color-calendar.html
+plant-emotion-radar.html
+data-bloom-garden.html
+bubble-timeline.html
+interaction.html
+interaction-landscape-growth.html
+resume.html

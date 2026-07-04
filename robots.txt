@@ -1,4 +1,4 @@
-# robots.txt for baolonglab.com
+# robots.txt for www.baolonglab.com
 # 允许所有搜索引擎和 AI 爬虫抓取全站
 
 User-agent: *
@@ -12,4 +12,4 @@ Disallow: /maintenance/
 Disallow: /netlify/
 
 # 网站地图位置
-Sitemap: https://baolonglab.com/sitemap.xml
+Sitemap: https://www.baolonglab.com/sitemap.xml

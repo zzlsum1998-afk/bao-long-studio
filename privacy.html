@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="BaoLong Lab 隐私政策说明本站如何使用访问统计工具、处理基础访问数据，以及第三方链接和用户主动提供信息的相关说明。"/>
+<link rel="canonical" href="https://www.baolonglab.com/privacy.html"/>
+<title>隐私政策 | BaoLong Lab</title>
+<style>
+  :root{
+    --bg:#f7f6f2;
+    --paper:#ffffff;
+    --ink:#1c1c1c;
+    --muted:#77736b;
+    --line:#ded9cf;
+    --soft:#eeeae2;
+    --dark:#161616;
+    --accent:#d9c8a9;
+    --shadow:0 18px 50px rgba(0,0,0,.07);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    letter-spacing:.01em;
+  }
+  a{color:inherit;text-decoration:none}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    backdrop-filter:blur(18px);
+    background:rgba(247,246,242,.82);
+    border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .nav{
+    max-width:1180px;
+    margin:0 auto;
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:900;
+    letter-spacing:.04em;
+  }
+  .brand-mark{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 42% 40%, #111 0 17%, transparent 18%),
+      linear-gradient(135deg, #f1e4c8, #d7c19a);
+    border:1px solid rgba(0,0,0,.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    color:var(--muted);
+    font-size:14px;
+    font-weight:650;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .page{
+    max-width:920px;
+    margin:0 auto;
+    padding:72px 22px 40px;
+  }
+  .hero{
+    margin-bottom:28px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:28px;
+  }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:14px;
+  }
+  h1{
+    margin:0;
+    font-size:clamp(36px,7vw,72px);
+    line-height:.95;
+    letter-spacing:-.06em;
+  }
+  .lead{
+    margin:20px 0 0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.9;
+  }
+  .card{
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:var(--radius);
+    padding:34px;
+    box-shadow:var(--shadow);
+    margin:20px 0;
+  }
+  h2{
+    margin:0 0 14px;
+    font-size:22px;
+    letter-spacing:-.03em;
+  }
+  p,li{
+    color:#4d4942;
+    line-height:1.9;
+    font-size:15px;
+  }
+  ul{margin:10px 0 0;padding-left:1.2em}
+  .note{
+    background:var(--soft);
+    border-radius:18px;
+    padding:16px 18px;
+    color:#5f594f;
+    font-size:14px;
+  }
+  .back{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:26px;
+    height:44px;
+    padding:0 20px;
+    border-radius:999px;
+    background:var(--dark);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+  }
+  .legal-footer{
+    text-align:center;
+    margin:40px auto;
+    padding:0 22px;
+    font-size:12px;
+    line-height:1.8;
+    color:#666;
+  }
+  .legal-footer a{text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:720px){
+    .nav{padding:15px 16px}
+    .nav-links{gap:12px;font-size:12px}
+    .page{padding-top:54px}
+    .card{padding:24px;border-radius:22px}
+  }
+</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:site_name" content="BaoLong Lab"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="隐私政策 | BaoLong Lab"/>
+<meta property="og:description" content="BaoLong Lab 隐私政策说明本站如何使用访问统计工具、处理基础访问数据，以及第三方链接和用户主动提供信息的相关说明。"/>
+<meta property="og:url" content="https://www.baolonglab.com/privacy.html"/>
+<meta property="og:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="隐私政策 | BaoLong Lab"/>
+<meta name="twitter:description" content="BaoLong Lab 隐私政策说明本站如何使用访问统计工具、处理基础访问数据，以及第三方链接和用户主动提供信息的相关说明。"/>
+<meta name="twitter:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
+<script type="application/ld+json" id="baolong-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://www.baolonglab.com/privacy.html",
+  "name": "隐私政策 | BaoLong Lab",
+  "description": "BaoLong Lab 隐私政策说明本站如何使用访问统计工具、处理基础访问数据，以及第三方链接和用户主动提供信息的相关说明。",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "BaoLong Lab",
+    "url": "https://www.baolonglab.com/"
+  },
+  "inLanguage": "zh-CN"
+}
+</script>
+<!-- BaoLong analytics v169: Baidu Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?356720926df19533cb2c904cae909d33";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- /BaoLong analytics v169 -->
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>BaoLong Lab</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="assets.html">Assets</a>
+      <a href="prompt-generator.html">Prompt</a>
+      <a href="interaction.html">Interaction</a>
+    </div>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <div class="eyebrow">Privacy Policy</div>
+    <h1>隐私政策</h1>
+    <p class="lead">本页面说明 BaoLong Lab 在网站访问、数据统计、第三方链接与用户主动提供信息时的基础处理方式。当前版本为基础说明，后续如开放账号、邮箱登录、上传或付费功能，会继续更新。</p>
+  </section>
+
+  <section class="card">
+    <h2>1. 我们收集哪些信息</h2>
+    <p>当你访问 BaoLong Lab 时，网站可能通过访问统计工具收集基础访问数据，用于了解网站是否有人访问、页面打开情况、访问来源和设备环境。</p>
+    <ul>
+      <li>页面浏览、访问时间、访问来源、停留情况等统计信息；</li>
+      <li>浏览器、设备类型、操作系统、屏幕尺寸等基础环境信息；</li>
+      <li>由统计服务生成的匿名或半匿名访问标识。</li>
+    </ul>
+    <p>这些信息主要用于网站运营分析和页面优化，不用于直接识别具体个人身份。</p>
+  </section>
+
+  <section class="card">
+    <h2>2. 百度统计</h2>
+    <p>本站使用百度统计（Baidu Tongji）了解网站访问情况。百度统计可能会通过 Cookie 或类似技术记录访问数据，并生成访问报表。</p>
+    <p>我们使用这些数据判断哪些页面被访问、用户大致从哪里进入、网站改版是否有效，以及是否存在页面访问异常。</p>
+  </section>
+
+  <section class="card">
+    <h2>3. 用户主动提供的信息</h2>
+    <p>当前 BaoLong Lab 主要是公开浏览型网站。若你通过未来的表单、邮箱、登录、上传工具或其他方式主动提供信息，我们会仅在完成对应功能、回复请求、改进服务或必要的安全维护范围内使用。</p>
+    <p>在正式开放账号、上传、邮箱登录或付费功能前，我们会补充更完整的用户信息处理说明。</p>
+  </section>
+
+  <section class="card">
+    <h2>4. 第三方链接</h2>
+    <p>本站可能包含淘宝、Pinterest、作品来源、素材来源或其他第三方网站链接。点击这些链接后，你将离开 BaoLong Lab，相关网站如何收集和使用信息，应以对应第三方平台的政策为准。</p>
+  </section>
+
+  <section class="card">
+    <h2>5. Cookie 与本地存储</h2>
+    <p>部分页面可能使用 Cookie、本地存储或浏览器缓存来保存语言偏好、工具状态、页面交互状态或访问统计信息，以便提升使用体验。</p>
+  </section>
+
+  <section class="card">
+    <h2>6. 政策更新</h2>
+    <p>本政策可能会随着网站功能变化而更新。更新后会在本页面显示新的说明内容。</p>
+    <div class="note">最后更新：2026-07-04</div>
+  </section>
+
+  <a class="back" href="index.html">返回首页</a>
+</main>
+
+<footer class="legal-footer">
+  <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+  <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+  <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span><br/>
+  <span class="footer-line"><a href="privacy.html">隐私政策 / Privacy Policy</a></span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+BaoLong SEO structure check v168
+
+Base package: baolong-inspiration-loadmore-stable-v167-full.zip
+
+Scope:
+- Based on v167 with robots.txt and sitemap.xml already using https://www.baolonglab.com/
+- Public SEO pages updated: 15 HTML files
+- Added favicon.svg and apple-touch-icon.png
+- Added Open Graph / Twitter Card tags to the 15 public pages
+- Added JSON-LD structured data to the 15 public pages
+- Fixed index.html heading hierarchy: only the first hero slide remains <h1>; the other hero slide titles are <h2> with the same visual style
+- Added accessible hidden <h1> to data-bloom-garden.html and interaction-landscape-growth.html
+
+Not changed:
+- No image paths, JSON data files, prompt-tool logic, resume-tool logic, or Inspiration Board loading logic were edited.
+- robots.txt and sitemap.xml were left as v167 provided because they already use the www domain.
+
+Manual check suggestions after deployment:
+1. Home page opens normally.
+2. Prompt Generator page and Prompt Tool entry still display.
+3. Inspiration Board pages load cards and Load More works.
+4. Mobile menu still opens and scrolls correctly.
+5. Page source shows canonical / og:url using https://www.baolonglab.com/.

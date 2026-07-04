@@ -1,0 +1,64 @@
+BaoLong Lab v175 About Page Update Check
+
+Base: baolong-seo-head-only-v174-full
+Version: v175
+Date: 2026-07-04
+
+Goal:
+- Add About / 关于 BaoLong Lab page.
+- Keep official primary domain as https://www.baolonglab.com/.
+- Keep changes small and safe.
+
+Changed files:
+- about.html [new]
+- sitemap.xml [added https://www.baolonglab.com/about.html]
+- 404.html [footer link only]
+- assets.html [footer link only]
+- color-references.html [footer link only]
+- index.html [footer link only]
+- interaction.html [footer link only]
+- plan-references.html [footer link only]
+- plant-color-calendar.html [footer link only]
+- plant-emotion-radar.html [footer link only]
+- privacy.html [footer link only]
+- prompt-generator.html [footer link only]
+- render-references.html [footer link only]
+- resume.html [footer link only]
+- section-references.html [footer link only]
+- terms.html [footer link only]
+
+Not touched:
+- css/
+- js/
+- data/*.json
+- images/
+- favicon.svg
+- apple-touch-icon.png
+- robots.txt
+- prompt-tool.html
+- resume-tool.html
+- login.html
+- Inspiration load more logic
+- Prompt Tool logic
+- Resume Tool logic
+
+About page checks:
+- about.html has canonical: https://www.baolonglab.com/about.html
+- about.html has bilingual Chinese / English content
+- about.html uses existing legal-page style and header/logo pattern from privacy/terms
+- about.html has OG/Twitter meta and AboutPage JSON-LD
+- Baidu analytics snippet retained
+
+Footer links:
+- 关于 / About
+- 隐私政策 / Privacy Policy
+- 用户协议 / Terms of Use
+
+Upload recommendation:
+- Use baolong-about-page-v175-patch.zip.
+- Upload only the files inside the patch, not the zip itself.
+- Do not upload css/js/data/images folders.
+
+GitHub Pages note:
+- If build succeeds but deploy fails, treat it as a GitHub Pages deployment issue first.
+- Try Re-run failed jobs first; if still failing, use Settings > Pages > Branch None, save, then switch back to main/root.

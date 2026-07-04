@@ -1,0 +1,25 @@
+BaoLong privacy + 404 bilingual/nav-size v172
+
+Base:
+- Built from baolong-privacy-404-logo-v171-full
+
+Changed files:
+1. privacy.html
+2. 404.html
+3. PRIVACY_404_BILINGUAL_NAV_CHECK_v172.txt
+
+Change details:
+- Standardized the navigation logo size/style on privacy.html and 404.html.
+- Replaced the oversized v171 logo image markup with the same compact BaoLong Lab text + round brand mark style used by the standalone legal/error pages.
+- Added static Chinese + English bilingual text to privacy.html.
+- Added concise Chinese + English bilingual text to 404.html.
+- Kept favicon.svg and apple-touch-icon.png unchanged.
+- Kept Baidu Tongji analytics code on both pages.
+- Used root-relative links on the 404 page to avoid broken navigation from arbitrary missing URLs.
+
+Not touched:
+- index.html and other existing public pages
+- CSS/JS/JSON data files
+- Prompt Tool, Resume Tool, Inspiration load-more logic
+- favicon.svg and apple-touch-icon.png
+- sitemap.xml and robots.txt

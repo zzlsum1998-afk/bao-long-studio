@@ -1,0 +1,25 @@
+BaoLong privacy + 404 bilingual navigation fix v172 revised
+
+Base:
+- Built from baolong-privacy-404-logo-v171-full.zip, as requested.
+
+Changed/new files:
+- privacy.html
+- 404.html
+- images/logo-eye.webp
+- PRIVACY_404_BILINGUAL_NAV_CHECK_v172_REVISED.txt
+
+What changed:
+1. Rebuilt privacy.html and 404.html from the v171 base, not from the earlier wrong v172 base.
+2. Added the missing images/logo-eye.webp file used by the existing site header markup.
+3. Unified privacy/404 header logo sizing with the main site navigation style: desktop logo 108px container, mobile logo 44px.
+4. Kept static Chinese + English bilingual text for privacy and 404 pages.
+5. Used root-relative links on 404.html so links still work when users visit any nonexistent URL.
+
+Not touched:
+- index.html and other public pages
+- favicon.svg
+- apple-touch-icon.png
+- CSS/JS/JSON files
+- Prompt Tool, Resume Tool, Inspiration load-more logic
+- sitemap.xml and robots.txt

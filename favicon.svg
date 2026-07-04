@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="18" fill="#f7f3ea"/>
-  <ellipse cx="32" cy="32" rx="22" ry="15" fill="#111111"/>
-  <ellipse cx="32" cy="32" rx="11" ry="11" fill="#f7f3ea"/>
-  <circle cx="32" cy="32" r="5" fill="#111111"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BaoLong Lab favicon">
+  <rect width="64" height="64" rx="14" fill="#0c0c0c"/>
+  <ellipse cx="23.5" cy="28.5" rx="10.5" ry="15" fill="#ffffff"/>
+  <ellipse cx="40.5" cy="26.5" rx="12.0" ry="16.0" fill="#ffffff"/>
+  <circle cx="28.2" cy="38.0" r="4.2" fill="#0c0c0c"/>
+  <circle cx="35.8" cy="37.0" r="4.6" fill="#0c0c0c"/>
+  <rect x="24" y="40.8" width="16" height="10.6" rx="5.2" fill="#ab562f"/>
 </svg>

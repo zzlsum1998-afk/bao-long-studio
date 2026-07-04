@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, follow"/>
+<title>404 | BaoLong Lab</title>
+<link rel="canonical" href="https://www.baolonglab.com/404.html"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:site_name" content="BaoLong Lab"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="404 | BaoLong Lab"/>
+<meta property="og:description" content="你访问的页面可能已移动、改名或暂时不存在。返回 BaoLong Lab 继续浏览设计素材、Prompt 工具与灵感板。"/>
+<meta property="og:url" content="https://www.baolonglab.com/404.html"/>
+<meta property="og:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="404 | BaoLong Lab"/>
+<meta name="twitter:description" content="你访问的页面可能已移动、改名或暂时不存在。返回 BaoLong Lab 继续浏览设计素材、Prompt 工具与灵感板。"/>
+<meta name="twitter:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
+<style>
+  :root{
+    --bg:#f7f6f2;
+    --paper:#ffffff;
+    --ink:#1c1c1c;
+    --muted:#77736b;
+    --line:#ded9cf;
+    --soft:#efe9de;
+    --dark:#161616;
+    --shadow:0 18px 50px rgba(0,0,0,.07);
+    --radius:28px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    letter-spacing:.01em;
+  }
+  a{color:inherit;text-decoration:none}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    backdrop-filter:blur(18px);
+    background:rgba(247,246,242,.82);
+    border-bottom:1px solid rgba(0,0,0,.06);
+  }
+  .nav{
+    max-width:1180px;
+    margin:0 auto;
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.04em}
+  .brand-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 42% 40%, #111 0 17%, transparent 18%), linear-gradient(135deg, #f1e4c8, #d7c19a);
+    border:1px solid rgba(0,0,0,.12);box-shadow:0 10px 25px rgba(0,0,0,.08);
+  }
+  .nav-links{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:14px;font-weight:650}
+  .nav-links a:hover{color:var(--ink)}
+  .page{
+    min-height:calc(100vh - 78px);
+    max-width:1120px;
+    margin:0 auto;
+    padding:54px 22px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero{
+    width:min(100%, 980px);
+    display:grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    gap:28px;
+    align-items:stretch;
+  }
+  .panel,.card{
+    background:rgba(255,255,255,.74);
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  .panel{padding:34px 34px 30px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-size:12px;font-weight:800;margin-bottom:16px}
+  .code{font-size:clamp(58px, 13vw, 116px);line-height:.9;letter-spacing:-.08em;margin:0}
+  h1{margin:14px 0 0;font-size:clamp(30px,5vw,56px);line-height:.96;letter-spacing:-.05em}
+  .lead{margin:18px 0 0;color:var(--muted);font-size:16px;line-height:1.9}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border-radius:999px;
+    font-size:14px;font-weight:800;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--dark);color:#fff;box-shadow:0 12px 22px rgba(0,0,0,.12)}
+  .btn-secondary{background:#fff;color:var(--ink);border:1px solid rgba(0,0,0,.08)}
+  .card{padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+  .tip-title{margin:0;font-size:18px;letter-spacing:-.03em}
+  .tip-list{margin:16px 0 0;padding-left:1.2em;color:#4d4942;line-height:1.95;font-size:15px}
+  .tip-list a{text-decoration:underline;text-underline-offset:3px}
+  .soft-note{margin-top:18px;padding:14px 16px;border-radius:18px;background:var(--soft);color:#5e574d;font-size:14px;line-height:1.75}
+  .legal-footer{text-align:center;margin:16px auto 40px;padding:0 22px;font-size:12px;line-height:1.8;color:#666}
+  .legal-footer a{text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .nav{padding:15px 16px}
+    .nav-links{gap:12px;font-size:12px;flex-wrap:wrap;justify-content:flex-end}
+    .page{padding-top:36px;align-items:flex-start}
+    .panel,.card{padding:24px;border-radius:22px}
+    .actions{margin-top:22px}
+  }
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?356720926df19533cb2c904cae909d33";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>BaoLong Lab</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="assets.html">Assets</a>
+      <a href="prompt-generator.html">Prompt</a>
+      <a href="interaction.html">Interaction</a>
+    </div>
+  </nav>
+</header>
+<main class="page">
+  <section class="hero">
+    <div class="panel">
+      <div class="eyebrow">Page Not Found</div>
+      <p class="code">404</p>
+      <h1>这个页面可能已经移动、改名，或暂时不存在。</h1>
+      <p class="lead">你可以返回首页继续浏览 BaoLong Lab，也可以直接前往素材页、Prompt Generator 或 Inspiration Board。这个页面不会影响主站其他内容。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">返回首页</a>
+        <a class="btn btn-secondary" href="prompt-generator.html">前往 Prompt Generator</a>
+      </div>
+    </div>
+    <aside class="card">
+      <div>
+        <h2 class="tip-title">你也可以从这里继续</h2>
+        <ul class="tip-list">
+          <li><a href="assets.html">Assets 设计素材</a></li>
+          <li><a href="color-references.html">Color Board 灵感参考</a></li>
+          <li><a href="plan-references.html">Plan Board 灵感参考</a></li>
+          <li><a href="render-references.html">Other Board 灵感参考</a></li>
+          <li><a href="resume.html">Resume Templates 简历模板</a></li>
+        </ul>
+      </div>
+      <div class="soft-note">如果你是从旧链接、收藏夹或搜索结果进入，稍后刷新或返回首页重新进入即可。</div>
+    </aside>
+  </section>
+</main>
+<footer class="legal-footer">
+  <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
+  <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
+  <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span><br/>
+  <span class="footer-line"><a href="privacy.html">隐私政策 / Privacy Policy</a></span>
+</footer>
+</body>
+</html>

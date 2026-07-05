@@ -158,6 +158,12 @@
       font-weight:820;
     }
 
+    .login-title-copy,
+    .login-title-brand{
+      display:inline;
+      white-space:nowrap;
+    }
+
     .lead{
       margin:22px 0 0;
       max-width:670px;
@@ -380,6 +386,69 @@
     }
 
 
+    /* v194 login-only responsive refinement: keep the card beside the intro on narrowed desktop widths. */
+    @media (min-width:1101px) and (max-width:1500px){
+      .page{
+        grid-template-columns:minmax(0,1fr) minmax(400px,440px);
+        gap:clamp(28px,3vw,48px);
+        padding-left:clamp(32px,3.2vw,48px);
+        padding-right:clamp(32px,3.2vw,48px);
+      }
+
+      .intro{
+        min-width:0;
+        overflow:visible;
+      }
+
+      h1{
+        max-width:760px;
+        font-size:clamp(60px,5.75vw,86px);
+        line-height:.95;
+        letter-spacing:-.052em;
+      }
+
+      .login-title-brand{
+        display:block;
+      }
+
+      .lead{
+        max-width:640px;
+        font-size:clamp(16px,1.25vw,18px);
+        line-height:1.78;
+      }
+
+      .login-panel{
+        max-width:440px;
+        justify-self:end;
+      }
+    }
+
+    @media (min-width:1101px) and (max-width:1280px){
+      .page{
+        grid-template-columns:minmax(0,1fr) minmax(380px,410px);
+        gap:28px;
+      }
+
+      h1{
+        max-width:640px;
+        font-size:clamp(54px,5.55vw,72px);
+      }
+
+      .lead{
+        max-width:560px;
+        font-size:16px;
+      }
+
+      .feature-chip{
+        padding:9px 12px;
+        font-size:12px;
+      }
+
+      .login-panel{
+        max-width:410px;
+      }
+    }
+
     @media (min-width:1101px) and (max-height:820px){
       .login-header{height:86px;padding:0 42px}
       .brand-logo-img{width:72px;height:72px}
@@ -458,38 +527,29 @@
       .ghost-grid{grid-template-columns:1fr}
     }
   
-    /* Login page nav alignment patch: match BaoLong Lab main site header */
+    /* Login page nav alignment patch: match BaoLong Lab main site header without breaking compact desktop height. */
     @media (min-width:901px){
       .login-header{
-        height:104px !important;
-        padding:0 48px !important;
         display:flex !important;
         align-items:center !important;
         justify-content:space-between !important;
       }
 
       .brand{
-        min-width:330px !important;
         gap:18px !important;
       }
 
       .brand-logo-img{
-        width:108px !important;
-        height:108px !important;
-        max-width:108px !important;
-        max-height:108px !important;
         object-fit:contain !important;
         display:block !important;
         flex:0 0 auto !important;
       }
 
       .brand-text{
-        font-size:16px !important;
         letter-spacing:.34em !important;
       }
 
       .header-actions{
-        min-width:260px !important;
         justify-content:flex-end !important;
         gap:14px !important;
       }
@@ -497,11 +557,40 @@
       .pill-btn{
         border:1px solid var(--line) !important;
         border-radius:999px !important;
+        line-height:1 !important;
+        background:rgba(255,255,255,.6) !important;
+      }
+    }
+
+    @media (min-width:1101px) and (min-height:821px){
+      .login-header{
+        height:104px !important;
+        padding:0 48px !important;
+      }
+
+      .brand{
+        min-width:330px !important;
+      }
+
+      .brand-logo-img{
+        width:108px !important;
+        height:108px !important;
+        max-width:108px !important;
+        max-height:108px !important;
+      }
+
+      .brand-text{
+        font-size:16px !important;
+      }
+
+      .header-actions{
+        min-width:260px !important;
+      }
+
+      .pill-btn{
         padding:10px 18px !important;
         min-height:48px !important;
         font-size:14px !important;
-        line-height:1 !important;
-        background:rgba(255,255,255,.6) !important;
       }
 
       .page{
@@ -509,109 +598,14 @@
       }
     }
 
-
-    /* v193 Login responsive safety fix: keep the hero title inside the desktop grid when the browser is narrowed. */
-    @media (min-width:1101px){
-      .intro{
-        min-width:0;
-      }
-
-      h1{
-        max-width:100%;
-        word-break:keep-all;
-      }
-
-      .page{
-        grid-template-columns:minmax(0,1fr) minmax(380px,460px) !important;
-      }
-
-      .login-panel{
-        justify-self:center;
-        z-index:2;
-      }
-    }
-
-    @media (min-width:1101px) and (max-width:1500px){
-      .page{
-        gap:40px;
-        padding-left:42px;
-        padding-right:42px;
-      }
-
-      h1{
-        font-size:clamp(52px,5.85vw,86px);
-        line-height:.98;
-        letter-spacing:-.05em;
-      }
-
-      .lead{
-        max-width:620px;
-        font-size:17px;
-        line-height:1.78;
-      }
-
-      .feature-row{
-        max-width:620px;
-      }
-    }
-
-    @media (min-width:1101px) and (max-width:1240px){
-      .login-header{
-        padding-left:36px !important;
-        padding-right:36px !important;
-      }
-
-      .brand{
-        min-width:280px !important;
-      }
-
-      .brand-logo-img{
-        width:92px !important;
-        height:92px !important;
-        max-width:92px !important;
-        max-height:92px !important;
-      }
-
-      .page{
-        grid-template-columns:minmax(0,1fr) minmax(360px,420px) !important;
-        gap:28px;
-        padding-left:34px;
-        padding-right:34px;
-      }
-
-      h1{
-        font-size:clamp(46px,5.45vw,68px);
-      }
-
-      .lead{
-        max-width:540px;
-        font-size:16px;
-      }
-
-      .feature-chip{
-        padding:9px 12px;
-        font-size:12px;
-      }
-
-      .login-panel{
-        max-width:420px;
-      }
-
-      .panel-top h2{
-        font-size:36px;
-      }
-    }
-
-    @media (min-width:901px) and (max-width:1100px){
-      .page{
-        height:auto !important;
-        min-height:calc(100vh - 104px);
-      }
-    }
-
     @media (min-width:1101px) and (max-height:820px){
       .login-header{
         height:86px !important;
+        padding:0 42px !important;
+      }
+
+      .brand{
+        min-width:260px !important;
       }
 
       .brand-logo-img{
@@ -621,10 +615,22 @@
         max-height:72px !important;
       }
 
+      .brand-text{
+        font-size:15px !important;
+      }
+
+      .header-actions{
+        min-width:240px !important;
+      }
+
+      .pill-btn{
+        padding:9px 16px !important;
+        min-height:44px !important;
+        font-size:14px !important;
+      }
+
       .page{
         height:calc(100vh - 86px) !important;
-        padding-top:20px;
-        padding-bottom:20px;
       }
     }
 
@@ -645,7 +651,10 @@
   <main class="page">
     <section class="intro" aria-label="BaoLong Lab Login Intro">
       <p class="kicker" data-zh="登录入口" data-en="Member Entrance">登录入口</p>
-      <h1 data-zh="进入你的 BaoLong Lab" data-en="Enter your BaoLong Lab">进入你的 BaoLong Lab</h1>
+      <h1 class="login-title" aria-label="进入你的 BaoLong Lab">
+        <span class="login-title-copy" data-zh="进入你的" data-en="Enter your">进入你的</span>
+        <span class="login-title-brand">BaoLong Lab</span>
+      </h1>
       <p class="lead" data-zh="登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。当前账号系统尚未开放，本页先作为登录入口展示。" data-en="After logging in, this space can manage saved boards, prompts, resume templates and download records. The account system is not open yet, so this page is currently shown as the login entrance.">登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。当前账号系统尚未开放，本页先作为登录入口展示。</p>
       <div class="feature-row">
         <span class="feature-chip" data-zh="灵感板收藏" data-en="Saved Boards">灵感板收藏</span>
@@ -710,6 +719,8 @@
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
       document.title = lang === 'zh' ? '登录 | BaoLong Lab' : 'Log in | BaoLong Lab';
       document.querySelectorAll('[data-zh][data-en]').forEach(el => { el.textContent = el.dataset[lang]; });
+      const title = document.querySelector('.login-title');
+      if(title){ title.setAttribute('aria-label', lang === 'zh' ? '进入你的 BaoLong Lab' : 'Enter your BaoLong Lab'); }
       langBtn.textContent = '中文 / EN';
       langBtn.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换到中文');
     }

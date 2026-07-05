@@ -1,4 +1,4 @@
-// BaoLong Lab v73 common header/nav + language toggle
+// BaoLong Lab v192 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -76,7 +76,13 @@
       '.hero h1','.hero p','.copy .eyebrow','.copy h1','.copy p','.section-title','.section-title-main','.section-desc','.eyebrow','.tabs .tab',
       '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.category-feature-link','.tool-band h2','.tool-band p','.tool-card h3','.tool-card p','.notes-header h2','.notes-header p','.note-visual h3','.note-visual p','.note-content h3','.note-content p','.note-link','.cta h2','.cta p','.asset-filter-tabs .tab','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.mock-card h3','.mock-card p','.interaction-case-type','.case-link','.case-note','.footer','footer','.footer-line'
     ];
-    return Array.prototype.slice.call(document.querySelectorAll(selectors.join(','))).filter(function(el){return !shouldSkip(el) && !el.classList.contains('legal-footer');});
+    return Array.prototype.slice.call(document.querySelectorAll(selectors.join(','))).filter(function(el){
+      if(shouldSkip(el) || el.classList.contains('legal-footer')) return false;
+      // Preserve nested links (especially footer legal/contact links). Translating a parent with
+      // textContent would remove its <a href> children and make the links unclickable.
+      if(el.querySelector && el.querySelector('a')) return false;
+      return true;
+    });
   }
   function applyLanguage(lang){
     document.documentElement.setAttribute('lang',lang==='zh'?'zh-CN':'en');

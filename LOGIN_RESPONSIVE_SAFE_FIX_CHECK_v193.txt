@@ -1,0 +1,40 @@
+BaoLong Lab v193 - Login Responsive Safe Fix
+
+Base:
+- baolong-footer-links-click-fix-v192-full-noimage.zip
+
+Changed files:
+- login.html
+
+Fix target:
+- Desktop browser narrowed around medium widths: the login page hero title could overflow from the left intro grid column and appear behind / under the login panel.
+
+Fix method:
+- Added a scoped login.html CSS patch only.
+- Kept the two-column desktop layout, but constrained the intro column with min-width:0 and max-width:100% on h1.
+- Adjusted desktop-medium breakpoints between 1101px and 1500px to reduce hero title size, gap, and panel column width safely.
+- Restored safer behavior for 901px-1100px stacked layout so page height can remain auto and scroll normally.
+- Restored compact desktop-height behavior after the previous login header alignment override.
+
+Not touched:
+- images
+- data / JSON
+- favicon
+- sitemap.xml
+- robots.txt
+- css/common.css
+- js/common.js
+- Prompt Tool core logic
+- Prompt Generator core logic
+- Resume Tool
+- Inspiration load-more logic
+
+Checks:
+- js/common.js syntax check passed.
+- login.html inline script syntax check passed.
+- Non-image local HTML href check: 0 missing.
+- common.css references remain ?v=189.
+- common.js references remain ?v=192.
+- Active canonical URLs checked: no non-www canonical found.
+- sitemap.xml and robots.txt were not modified.
+- Patch package contains only login.html plus this check note.

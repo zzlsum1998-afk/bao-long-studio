@@ -2372,6 +2372,7 @@
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=192"></script>
+<script defer="" src="js/taobao-links.js?v=198"></script>
 
 <!-- BaoLong SEO structure v168 -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
@@ -4463,7 +4464,14 @@ var _hmt = _hmt || [];
       document.getElementById("detailPanel").classList.add("open");
     }
 
-    function openProductLink(){ if(currentProductLink) window.open(currentProductLink, "_blank"); }
+    function openProductLink(){
+      if(!currentProductLink) return;
+      if(window.openTaobaoSmart){
+        window.openTaobaoSmart(currentProductLink);
+      }else{
+        window.open(currentProductLink, "_blank", "noopener,noreferrer");
+      }
+    }
     function closeDetail(event){ if(event && event.target !== document.getElementById("detailPanel")) return; document.getElementById("detailPanel").classList.remove("open"); }
     function scrollToTop(){ window.scrollTo({top:0, behavior:'smooth'}); }
     function toggleMobileMenu(){ const panel = document.getElementById('mobileMenuPanel'); if(panel) panel.classList.toggle('open'); }

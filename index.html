@@ -2924,6 +2924,7 @@ body{
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=192"></script>
+<script defer="" src="js/taobao-links.js?v=198"></script>
 
 <!-- BaoLong SEO structure v168 -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
@@ -4277,8 +4278,11 @@ var _hmt = _hmt || [];
     }
 
     function openProductLink(){
-      if(currentProductLink){
-        window.open(currentProductLink, "_blank");
+      if(!currentProductLink) return;
+      if(window.openTaobaoSmart){
+        window.openTaobaoSmart(currentProductLink);
+      }else{
+        window.open(currentProductLink, "_blank", "noopener,noreferrer");
       }
     }
 
@@ -4332,7 +4336,11 @@ var _hmt = _hmt || [];
     const TAOBAO_SHOP_URL = "https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx";
 
     function openExternal(){
-      window.open(TAOBAO_SHOP_URL, "_blank", "noopener,noreferrer");
+      if(window.openTaobaoSmart){
+        window.openTaobaoSmart(TAOBAO_SHOP_URL);
+      }else{
+        window.open(TAOBAO_SHOP_URL, "_blank", "noopener,noreferrer");
+      }
     }
 
     function openResumeTool(){

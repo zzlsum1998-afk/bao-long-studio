@@ -687,7 +687,7 @@
     const productFilterMeta = {
       "All": {
         title: "Editor's Picks",
-        desc: "商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。"
+        desc: "商品展示区采用大图网格，便于快速浏览素材封面与分类。点击商品可查看详情，购买按钮跳转至对应平台。"
       },
       "Module Diagrams": {
         title: "Module Diagrams",
@@ -756,7 +756,7 @@
       if(!list.length){
         grid.innerHTML = `
           <div class="empty-state" style="grid-column:1 / -1;padding:48px 24px;border:1px solid var(--line);border-radius:24px;background:#faf9f6;text-align:center;color:var(--muted)">
-            当前分类下暂时还没有商品，后续可以继续补充这一类素材。
+            当前分类下暂无可展示内容，可以切换到其他分类继续浏览。
           </div>
         `;
         return;
@@ -828,7 +828,7 @@
       `;
       document.getElementById("detailDesc").innerHTML = `
         <p>${item.desc.join("</p><p>")}</p>
-        <p><strong>Purchase:</strong> 点击按钮可跳转商品链接，后期可替换为淘宝、小红书或私信入口。</p>
+        <p><strong>Purchase:</strong> 点击按钮可跳转商品链接，根据不同商品进入购买、咨询或获取页面。</p>
       `;
       document.getElementById("detailBuyBtn").disabled = !currentProductLink;
       document.getElementById("detailPanel").classList.add("open");
@@ -886,7 +886,7 @@
     }
 
     function openExternal(){
-      alert("这里后期替换为淘宝 / 小红书商品链接。");
+      alert("商品链接准备中，请稍后查看或通过联系入口咨询。");
     }
 
     function openResumeTool(){

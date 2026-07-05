@@ -962,20 +962,20 @@ var _hmt = _hmt || [];
 <div class="ai-badge" data-bl-original-text="✦ Free AI Uses Today: 3 / 3">✦ 今日免费 AI 次数：3 / 3</div>
 <div class="resume-upload-card">
 <strong data-bl-original-text="Upload Existing Resume">上传已有简历</strong>
-<p>后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。</p>
+<p>可上传旧简历图片或文件，识别功能开放后会自动提取内容并填入简历表单。支持 JPEG / JPG / PNG / Word / PDF 等常见格式。</p>
 <div class="resume-upload-actions">
 <label class="resume-upload-btn">
               Upload Resume
               <input accept=".jpeg,.jpg,.png,.pdf,.doc,.docx" class="resume-upload-file" onchange="handleResumeUploadPlaceholder(this)" type="file"/>
 </label>
-<span class="resume-upload-status" id="resumeUploadStatus">Recognition backend not connected yet.</span>
+<span class="resume-upload-status" id="resumeUploadStatus">识别功能准备中，可先选择文件。</span>
 </div>
 </div>
 <div class="feature-list">
 <div class="feature"><strong data-bl-original-text="12 Templates">12 套模板</strong><span>多种简历排版风格，适合不同岗位和求职场景。</span></div>
 <div class="feature"><strong data-bl-original-text="AI Polish">AI 优化</strong><span>优化工作经历、项目经历、获奖经历和个人简介。</span></div>
 <div class="feature"><strong data-bl-original-text="One-page Export">一页导出</strong><span>页面预览与 PDF 导出保持一致，减少手动排版。</span></div>
-<div class="feature"><strong data-bl-original-text="JD Match">岗位匹配</strong><span>后续可根据岗位要求优化简历重点和表达方式。</span></div>
+<div class="feature"><strong data-bl-original-text="JD Match">岗位匹配</strong><span>可根据岗位要求优化简历重点和表达方式。</span></div>
 </div>
 <div class="actions">
 <button class="primary-btn" onclick="location.href='resume-tool.html'">Try Resume Tool</button>
@@ -987,7 +987,7 @@ var _hmt = _hmt || [];
 <div class="section-head">
 <div>
 <h2 class="section-title-main" data-bl-original-text="Resume Templates">简历模板</h2>
-<p class="section-desc">像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。</p>
+<p class="section-desc">使用真实简历成品图展示模板，快速预览不同风格与版式差异。</p>
 </div>
 <button class="secondary-btn" onclick="location.href='resume-tool.html'">Open Tool</button>
 </div>
@@ -1098,12 +1098,12 @@ function handleResumeUploadPlaceholder(input){
   const lowerName = file.name.toLowerCase();
   const okByExt = [".jpeg",".jpg",".png",".pdf",".doc",".docx"].some(ext => lowerName.endsWith(ext));
   if(!okByExt){
-    alert("目前前端设计支持 JPEG / JPG / PNG / Word / PDF。后端接入后会继续做格式校验。");
+    alert("当前识别功能正在准备中，现阶段请先使用可编辑表单填写简历内容。");
     input.value = "";
     if(status) status.textContent = "Unsupported file type.";
     return;
   }
-  if(status) status.textContent = "Selected: " + file.name + "（识别功能后端接入后启用）";
+  if(status) status.textContent = "已选择：" + file.name + "（识别功能准备中）";
 }
 </script>
 <script>

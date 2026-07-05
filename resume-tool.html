@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- BaoLong analytics v169: Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?356720926df19533cb2c904cae909d33";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- /BaoLong analytics v169 -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume Studio｜设计感简历生成器</title>
@@ -3949,7 +3937,7 @@ Xiaohongshu Creator｜2024 - Present｜Content Account｜Shared landscape, archi
           <button class="btn btn-dark ai-btn" id="optimizeByJobBtn" type="button" style="margin-top:8px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
             <span>🎯</span><span id="optimizeByJobBtnText">根据岗位要求优化简历</span>
           </button>
-          <div class="ai-note">建议后期商业化时限制次数：比如体验版 3 次、付费版 10/30 次，避免你的 API 余额被反复消耗。</div>
+          <div class="ai-note">当前为体验次数提示，可根据实际使用情况调整每日 AI 优化次数。</div>
         </div>
       </div>
 
@@ -5638,7 +5626,7 @@ Japanese｜Basic</textarea>
     if(isAiRequest(input)){
       const used = getUsedCount();
       if(used >= DAILY_FREE_LIMIT){
-        alert("今天的免费 AI 优化次数已用完。你可以明天继续使用，或后续购买更多次数。");
+        alert("今天的免费 AI 优化次数已用完。你可以明天继续使用，或等待更多使用次数开放。");
         return new Response(JSON.stringify({
           error: "Daily free AI limit reached"
         }), {

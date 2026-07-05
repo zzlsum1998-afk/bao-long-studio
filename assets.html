@@ -4401,7 +4401,7 @@ var _hmt = _hmt || [];
     function renderProducts(list = products){
       const grid = document.getElementById("productGrid");
       if(!list.length){
-        grid.innerHTML = `<div class="empty-state" style="grid-column:1 / -1;padding:48px 24px;border:1px solid var(--line);border-radius:24px;background:#faf9f6;text-align:center;color:var(--muted)">当前分类下暂时还没有商品，后续可以继续补充这一类素材。</div>`;
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1 / -1;padding:48px 24px;border:1px solid var(--line);border-radius:24px;background:#faf9f6;text-align:center;color:var(--muted)">当前分类下暂无可展示内容，可以切换到其他分类继续浏览。</div>`;
         return;
       }
       grid.innerHTML = list.map((item) => `
@@ -4456,7 +4456,7 @@ var _hmt = _hmt || [];
           ${item.images.map((src, i) => `<button class="detail-thumb ${i === 0 ? "active" : ""}" onclick="setDetailImage(${i})" type="button"><img src="${src}" alt="${item.title} detail ${i + 1}" loading="lazy" / decoding="async"></button>`).join("")}
         </div>`;
       const isFreeItem = String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
-      document.getElementById("detailDesc").innerHTML = `<p>${item.desc.join("</p><p>")}</p><p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接获取素材，请在详情描述中查看提取码。" : "点击按钮可跳转商品链接，后期可替换为淘宝、小红书或私信入口。"}</p>`;
+      document.getElementById("detailDesc").innerHTML = `<p>${item.desc.join("</p><p>")}</p><p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接获取素材，请在详情描述中查看提取码。" : "点击按钮可跳转商品链接，根据不同商品进入购买、咨询或获取页面。"}</p>`;
       const detailBuyBtn = document.getElementById("detailBuyBtn");
       detailBuyBtn.textContent = isFreeItem ? "获取素材" : "Go to Taobao";
       detailBuyBtn.disabled = !currentProductLink;

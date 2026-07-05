@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- BaoLong analytics v169: Baidu Tongji -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?356720926df19533cb2c904cae909d33";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- /BaoLong analytics v169 -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>登录 | BaoLong Lab</title>
@@ -539,7 +527,7 @@ var _hmt = _hmt || [];
     <section class="intro" aria-label="BaoLong Lab Login Intro">
       <p class="kicker" data-zh="登录入口" data-en="Member Entrance">登录入口</p>
       <h1 data-zh="进入你的 BaoLong Lab" data-en="Enter your BaoLong Lab">进入你的 BaoLong Lab</h1>
-      <p class="lead" data-zh="登录后，后续可以接入收藏灵感板、保存 Prompt、管理简历模板和下载记录。当前页面先保留前端入口，方便后面接真实账号系统。" data-en="After logging in, this space can connect saved boards, prompts, resume templates and download records. This page keeps the front-end entrance ready for future account integration.">登录后，后续可以接入收藏灵感板、保存 Prompt、管理简历模板和下载记录。当前页面先保留前端入口，方便后面接真实账号系统。</p>
+      <p class="lead" data-zh="登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。当前账号系统尚未开放，本页先作为登录入口展示。" data-en="After logging in, this space can manage saved boards, prompts, resume templates and download records. The account system is not open yet, so this page is currently shown as the login entrance.">登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。当前账号系统尚未开放，本页先作为登录入口展示。</p>
       <div class="feature-row">
         <span class="feature-chip" data-zh="灵感板收藏" data-en="Saved Boards">灵感板收藏</span>
         <span class="feature-chip" data-zh="Prompt 记录" data-en="Prompt History">Prompt 记录</span>
@@ -554,7 +542,7 @@ var _hmt = _hmt || [];
           <span class="status-dot" aria-hidden="true"></span>
         </div>
         <h2 data-zh="欢迎回来" data-en="Welcome back">欢迎回来</h2>
-        <p data-zh="先用轻量登录页承接入口，后续可以继续接邮箱验证码、账号密码或第三方登录。" data-en="Start with a lightweight login entrance, then connect email codes, password login or third-party login later.">先用轻量登录页承接入口，后续可以继续接邮箱验证码、账号密码或第三方登录。</p>
+        <p data-zh="先用轻量登录页承接入口，可根据需要开放邮箱验证码、账号密码或第三方登录。" data-en="Start with a lightweight login entrance, then open email codes, password login or third-party login when needed.">先用轻量登录页承接入口，可根据需要开放邮箱验证码、账号密码或第三方登录。</p>
       </div>
 
       <form class="login-form" id="loginForm">
@@ -581,7 +569,7 @@ var _hmt = _hmt || [];
           <button class="ghost-btn" type="button" onclick="location.href='index.html'" data-zh="先逛逛" data-en="Browse first">先逛逛</button>
         </div>
 
-        <div class="panel-note" data-zh="提示：这个版本是前端登录页，占位给后续后端接口使用；不会真的提交账号密码。" data-en="Note: this is a front-end login page prepared for future backend integration. It does not submit real account credentials.">提示：这个版本是前端登录页，占位给后续后端接口使用；不会真的提交账号密码。</div>
+        <div class="panel-note" data-zh="提示：当前登录功能尚未开放，不会提交账号密码。" data-en="Note: the login function is not open yet. It does not submit real account credentials.">提示：当前登录功能尚未开放，不会提交账号密码。</div>
       </form>
     </section>
   </main>
@@ -612,9 +600,9 @@ var _hmt = _hmt || [];
     function showToast(type){
       const lang = getLang();
       const textMap = {
-        login: { zh:'登录接口还没接入，后续接后端后这里就可以真正登录。', en:'Login API is not connected yet. This will work after backend integration.' },
-        signup: { zh:'注册入口已预留，后续可以接邮箱验证码或账号系统。', en:'Sign-up entrance is reserved for future email code or account system.' },
-        reset: { zh:'找回密码入口已预留，后续接账号系统后启用。', en:'Password reset is reserved for future account integration.' }
+        login: { zh:'当前登录功能尚未开放，开放后即可在这里登录。', en:'Login is not open yet. This entrance will work after the account system is available.' },
+        signup: { zh:'当前注册功能尚未开放，开放后可使用邮箱验证码或账号系统。', en:'Sign-up is not open yet. It can support email codes or an account system when available.' },
+        reset: { zh:'当前找回密码功能尚未开放，账号系统开放后启用。', en:'Password reset is not open yet. It will be available with the account system.' }
       };
       toast.textContent = textMap[type][lang];
       toast.classList.add('show');

@@ -46,8 +46,8 @@
     // resume page
     'Editable Resume Templates + AI Polish.':'可编辑简历模板 + AI 优化','12 Templates':'12 套模板','AI Polish':'AI 优化','One-page Export':'一页导出','JD Match':'岗位匹配','Fill Once':'填写一次','Choose Template':'选择模板','Export PDF':'导出 PDF','✦ Free AI Uses Today: 3 / 3':'✦ 今日免费 AI 次数：3 / 3',
     '填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。':'填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。',
-    '后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。':'后续可上传旧简历图片或文件，自动识别文字并填入简历表单。前端先保留入口，后端接入后支持 JPEG / JPG / PNG / Word / PDF。',
-    '像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。':'像 Toffu 的商品卡片一样展示模板，使用真实简历成品图快速预览不同风格。',
+    '可上传旧简历图片或文件，识别功能开放后会自动提取内容并填入简历表单。支持 JPEG / JPG / PNG / Word / PDF 等常见格式。':'可上传旧简历图片或文件，识别功能开放后会自动提取内容并填入简历表单。支持 JPEG / JPG / PNG / Word / PDF 等常见格式。',
+    '使用真实简历成品图展示模板，快速预览不同风格与版式差异。':'使用真实简历成品图展示模板，快速预览不同风格与版式差异。',
     '把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。':'把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。',
     // inspiration board pages
     'Plan Inspiration Board':'平面灵感板','Section Inspiration Board':'剖面灵感板','Other Inspiration Board':'综合灵感板','Color Inspiration Board':'色彩灵感板','Inspiration':'灵感参考',

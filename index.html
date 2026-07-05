@@ -4045,7 +4045,7 @@ var _hmt = _hmt || [];
                   "免费植物素材小样",
                   "文件格式：PNG",
                   "适合场景：平面图、分析图、作品集场景表达",
-                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+                  "获取方式：点击按钮跳转素材获取链接，以详情说明为准"
             ]
       },
       {
@@ -4069,7 +4069,7 @@ var _hmt = _hmt || [];
                   "免费人物素材小样",
                   "文件格式：PNG",
                   "适合场景：活动分析图、人物尺度表达、作品集排版",
-                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+                  "获取方式：点击按钮跳转素材获取链接，以详情说明为准"
             ]
       },
       {
@@ -4093,7 +4093,7 @@ var _hmt = _hmt || [];
                   "免费 Prompt 模板小样",
                   "文件格式：TXT / PDF",
                   "适合场景：MidJourney 建筑插画、拼贴风、平面图表达",
-                  "获取方式：点击按钮跳转百度网盘链接，后期替换为真实链接"
+                  "获取方式：点击按钮跳转素材获取链接，以详情说明为准"
             ]
       }
 ];
@@ -4104,7 +4104,7 @@ var _hmt = _hmt || [];
     const productFilterMeta = {
       "All": {
         title: "Editor's Picks",
-        desc: "商品展示区可以像 Toffu 一样用大图网格。点击商品进入详情说明，购买按钮跳转外部平台。"
+        desc: "商品展示区采用大图网格，便于快速浏览素材封面与分类。点击商品可查看详情，购买按钮跳转至对应平台。"
       },
       "Module Diagrams": {
         title: "Module Diagrams",
@@ -4183,7 +4183,7 @@ var _hmt = _hmt || [];
       if(!list.length){
         grid.innerHTML = `
           <div class="empty-state" style="grid-column:1 / -1;padding:48px 24px;border:1px solid var(--line);border-radius:24px;background:#faf9f6;text-align:center;color:var(--muted)">
-            当前分类下暂时还没有商品，后续可以继续补充这一类素材。
+            当前分类下暂无可展示内容，可以切换到其他分类继续浏览。
           </div>
         `;
         return;
@@ -4268,7 +4268,7 @@ var _hmt = _hmt || [];
       const isFreeItem = String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
       document.getElementById("detailDesc").innerHTML = `
         <p>${item.desc.join("</p><p>")}</p>
-        <p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接，后期替换为真实链接。" : "点击按钮可跳转商品链接，后期可替换为淘宝、小红书或私信入口。"}</p>
+        <p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转素材获取链接，请以详情说明为准。" : "点击按钮可跳转商品链接，根据不同商品进入购买、咨询或获取页面。"}</p>
       `;
       const detailBuyBtn = document.getElementById("detailBuyBtn");
       detailBuyBtn.textContent = isFreeItem ? "获取素材" : "Go to Taobao";

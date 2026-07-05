@@ -1242,7 +1242,7 @@ var _hmt = _hmt || [];
 <button class="close" onclick="closeModal()">×</button>
 <div class="eyebrow" id="modalType">Inspiration</div>
 <h2 id="modalTitle">Inspiration Card</h2>
-<p id="modalDesc">这里后期可以放参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
+<p id="modalDesc">这里展示参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
 <p class="modal-source-note" id="modalSource">来源信息</p>
 <div class="modal-actions">
 <a class="modal-source-btn disabled" href="#" id="modalLink" rel="noopener noreferrer" target="_blank">Add Source Link</a>
@@ -1261,7 +1261,7 @@ var _hmt = _hmt || [];
 <button class="prompt-apply-btn" onclick="applyPromptToTool(event)" type="button">应用到 Prompt 工具</button>
 <button class="prompt-copy-btn" onclick="copyExtractedPrompt(event)" type="button">复制 Prompt</button>
 </div>
-<div class="prompt-note" id="promptExtractNote">接口已预留：后期可将本地映射替换为 AI 视觉分析 API。</div>
+<div class="prompt-note" id="promptExtractNote">Prompt 会根据当前卡片信息生成，可复制后继续调整。</div>
 </div>
 <small>说明：该卡片只作为灵感索引入口，不提供下载；正式上线时建议使用低清缩略图并标注原始来源。</small>
 </div>
@@ -1681,7 +1681,7 @@ var _hmt = _hmt || [];
         navigator.clipboard.writeText(text);
       }
       const note = document.getElementById('promptExtractNote');
-      if(note) note.textContent = '已复制 Prompt。接口已预留，后期可替换为 AI 视觉分析 API。';
+      if(note) note.textContent = '已复制 Prompt，可继续粘贴到图像生成工具中调整。';
     }
 
     function injectPromptButtons(){

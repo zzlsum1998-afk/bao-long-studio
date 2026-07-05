@@ -1098,7 +1098,7 @@ function handleResumeUploadPlaceholder(input){
   const lowerName = file.name.toLowerCase();
   const okByExt = [".jpeg",".jpg",".png",".pdf",".doc",".docx"].some(ext => lowerName.endsWith(ext));
   if(!okByExt){
-    alert("当前识别功能正在准备中，现阶段请先使用可编辑表单填写简历内容。");
+    alert("文件识别功能正在准备中，请先使用可编辑表单填写简历内容。");
     input.value = "";
     if(status) status.textContent = "Unsupported file type.";
     return;

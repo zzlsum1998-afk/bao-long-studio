@@ -189,3 +189,31 @@ body.bl-menu-open{
     padding:16px !important;
   }
 }
+
+/* v189 desktop nav stability: reserve header/action width so language toggle and bilingual labels do not push nav items sideways */
+@media (min-width:981px){
+  .site-header .header-actions{
+    min-width:210px!important;
+  }
+  .site-header .nav>a,
+  .site-header .nav-dropdown>a{
+    text-align:center!important;
+    flex:0 0 auto!important;
+  }
+  .site-header .nav>a[href="index.html"]{min-width:44px!important;}
+  .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:84px!important;}
+  .site-header .nav>a[href="prompt-generator.html"]{min-width:126px!important;}
+  .site-header .nav>a[href="interaction.html"]{min-width:108px!important;}
+  .site-header .nav>a[href="resume.html"]{min-width:98px!important;}
+  .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:148px!important;}
+  .site-header .nav-dropdown{justify-content:center!important;}
+}
+@media (min-width:981px) and (max-width:1280px){
+  .site-header .header-actions{min-width:178px!important;}
+  .site-header .nav>a[href="index.html"]{min-width:36px!important;}
+  .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:74px!important;}
+  .site-header .nav>a[href="prompt-generator.html"]{min-width:112px!important;}
+  .site-header .nav>a[href="interaction.html"]{min-width:96px!important;}
+  .site-header .nav>a[href="resume.html"]{min-width:84px!important;}
+  .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:132px!important;}
+}

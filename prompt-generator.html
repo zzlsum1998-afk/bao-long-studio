@@ -145,15 +145,6 @@
       line-height:.96;
       letter-spacing:.02em;
     }
-    .prompt-generator-hero-title{
-      font-size:clamp(54px,5.8vw,94px);
-      line-height:1.02;
-      letter-spacing:.01em;
-      max-width:760px;
-    }
-    .prompt-generator-hero-title span{
-      display:block;
-    }
     .copy p{
       color:#4d4942;
       font-size:18px;
@@ -1073,26 +1064,26 @@ var _hmt = _hmt || [];
 <nav class="nav">
 <a href="index.html">全部</a>
 <div class="nav-dropdown">
-<a href="assets.html">素材 ▼</a>
+<a href="assets.html">素材库 ▼</a>
 <div class="dropdown-content">
-<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">模块图素材</a>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">模块素材</a>
 <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">人物素材</a>
 <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">植物素材</a>
 <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">动物素材</a>
 <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">纹理</a>
-<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">免费资源</a>
+<a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">免费素材</a>
 </div>
 </div>
 <a href="prompt-generator.html">Prompt 工具</a>
 <a href="interaction.html">交互实验室</a>
-<a href="resume.html">简历</a>
+<a href="resume.html">简历模板</a>
 <div class="nav-dropdown">
 <a href="plan-references.html">灵感板 ▼</a>
 <div class="dropdown-content">
-<a href="plan-references.html">平面图</a>
-<a href="section-references.html">剖面图</a>
-<a href="render-references.html">其他参考</a>
-<a href="color-references.html">色彩</a>
+<a href="plan-references.html">平面灵感</a>
+<a href="section-references.html">剖面灵感</a>
+<a href="render-references.html">综合灵感</a>
+<a href="color-references.html">色彩灵感</a>
 </div>
 </div>
 </nav>
@@ -1102,22 +1093,22 @@ var _hmt = _hmt || [];
 <button aria-label="打开菜单" class="mobile-menu-toggle" onclick="toggleMobileMenu()" type="button">菜单</button>
 <div class="mobile-menu-panel" id="mobileMenuPanel">
 <a href="index.html" onclick="closeMobileMenu()">全部</a>
-<div class="mobile-menu-group">素材</div>
-<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块图素材</a>
+<div class="mobile-menu-group">素材库</div>
+<a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块素材</a>
 <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">人物素材</a>
 <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">植物素材</a>
 <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">动物素材</a>
 <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">纹理</a>
-<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费资源</a>
+<a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费素材</a>
 <div class="mobile-menu-group">工具</div>
 <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt 工具</a>
 <a href="interaction.html" onclick="closeMobileMenu()">交互实验室</a>
-<a href="resume.html" onclick="closeMobileMenu()">简历</a>
+<a href="resume.html" onclick="closeMobileMenu()">简历模板</a>
 <div class="mobile-menu-group">灵感板</div>
-<a href="plan-references.html" onclick="closeMobileMenu()">平面图</a>
-<a href="section-references.html" onclick="closeMobileMenu()">剖面图</a>
-<a href="render-references.html" onclick="closeMobileMenu()">其他参考</a>
-<a href="color-references.html" onclick="closeMobileMenu()">色彩</a>
+<a href="plan-references.html" onclick="closeMobileMenu()">平面灵感</a>
+<a href="section-references.html" onclick="closeMobileMenu()">剖面灵感</a>
+<a href="render-references.html" onclick="closeMobileMenu()">综合灵感</a>
+<a href="color-references.html" onclick="closeMobileMenu()">色彩灵感</a>
 <div class="mobile-menu-group">账户</div>
 <a href="login.html" onclick="closeMobileMenu()">登录</a>
 </div>
@@ -1146,7 +1137,7 @@ var _hmt = _hmt || [];
 </div>
 <div class="copy">
 <div class="eyebrow" data-bl-original-text="Prompt Generator">Prompt 工具</div>
-<h1 class="prompt-generator-hero-title" data-bl-original-text="Prompt Generator Hero Title" data-prompt-generator-title="true"><span>建筑景观</span><span>Prompt 工具</span></h1>
+<h1 data-bl-original-text="Landscape &amp; Architecture Prompt Builder.">景观建筑<br/>Prompt 生成器</h1>
 <p>把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。</p>
 <div class="tagline" data-bl-original-text="✦ Based on your prompt system">✦ 基于你的 Prompt 系统</div>
 <div class="feature-list">
@@ -1799,21 +1790,21 @@ var _hmt = _hmt || [];
       const navLabels = {
         zh: {
           all: '全部',
-          assets: '素材 ▼',
-          moduleAssets: '模块图素材',
+          assets: '素材库 ▼',
+          moduleAssets: '模块素材',
           peopleAssets: '人物素材',
           plantAssets: '植物素材',
           animalAssets: '动物素材',
           textures: '纹理',
-          free: '免费资源',
+          free: '免费素材',
           prompt: 'Prompt 工具',
           interaction: '交互实验室',
-          resume: '简历',
+          resume: '简历模板',
           inspiration: '灵感板 ▼',
-          plan: '平面图',
-          section: '剖面图',
-          other: '其他参考',
-          color: '色彩',
+          plan: '平面灵感',
+          section: '剖面灵感',
+          other: '综合灵感',
+          color: '色彩灵感',
           login: '登录',
           menu: '菜单',
           toolsGroup: '工具',
@@ -1902,14 +1893,6 @@ var _hmt = _hmt || [];
           setText(findLink(inspirationMenu, function(href){ return href === 'color-references.html'; }), t.color);
         }
 
-        const title = document.querySelector('[data-prompt-generator-title]');
-        if(title){
-          title.innerHTML = lang === 'zh'
-            ? '<span>建筑景观</span><span>Prompt 工具</span>'
-            : '<span>Architectural</span><span>Prompt Builder</span>';
-          title.setAttribute('data-bl-original-text', 'Prompt Generator Hero Title');
-        }
-
         const loginBtn = document.querySelector('.login-entry-btn');
         setText(loginBtn, t.login);
 
@@ -1921,7 +1904,7 @@ var _hmt = _hmt || [];
         if(panel){
           setText(findLink(panel, function(href){ return href === 'index.html'; }), t.all);
           const groups = panel.querySelectorAll('.mobile-menu-group');
-          setText(groups[0], lang === 'zh' ? '素材' : t.assets.replace(' ▼',''));
+          setText(groups[0], lang === 'zh' ? '素材库' : t.assets.replace(' ▼',''));
           setText(groups[1], t.toolsGroup);
           setText(groups[2], t.inspirationGroup);
           setText(groups[3], t.accountGroup);

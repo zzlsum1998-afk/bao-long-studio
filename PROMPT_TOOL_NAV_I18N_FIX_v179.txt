@@ -1,0 +1,25 @@
+BaoLong Lab v179 - Prompt Tool navigation i18n fix
+
+Base: baolong-prompt-nav-i18n-hard-fix-v178-full.zip
+
+Changed file:
+- prompt-tool.html
+
+Purpose:
+- Fix the navigation bar inside the actual Prompt Tool / Prompt Library page.
+- Chinese mode should show Chinese navigation labels on prompt-tool.html.
+- Desktop and mobile menu labels are updated.
+
+Not changed:
+- prompt-generator.html
+- CSS files
+- JS files
+- JSON data
+- images
+- favicon
+- sitemap.xml / robots.txt
+- Resume Tool
+- Inspiration load-more logic
+
+Check after deploy:
+https://www.baolonglab.com/prompt-tool.html?v=179

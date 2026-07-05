@@ -2892,83 +2892,31 @@ body{
     }
 
 
-    /* v182: Home hero left-right balance fix
-       Keep the homepage hero as a calm two-column entry area and prevent mixed h1/h2 slides from using different title scales. */
-    .product-hero{
-      min-height:640px;
-      text-align:left;
-    }
-
-    .hero-product-track{
-      height:640px;
-    }
-
-    .hero-product-slide{
-      grid-template-columns:minmax(0, 1.04fr) minmax(380px, .96fr);
-      max-width:1500px;
-      margin:0 auto;
-      padding:96px 72px 72px;
-      gap:clamp(42px,5vw,82px);
-    }
-
-    .hero-product-copy{
-      max-width:620px;
-      padding:10px 0;
-    }
-
+    /* v183: Home hero stable title fix
+       Keep the original left-right carousel structure, but prevent language switching from creating oversized single-line Chinese titles. */
     .product-hero .hero-product-copy h1,
     .product-hero .hero-product-copy h2{
-      margin:0;
-      font-size:clamp(42px,4.8vw,72px);
-      line-height:1.04;
-      letter-spacing:.018em;
-      font-weight:760;
-      text-wrap:balance;
-      overflow-wrap:normal;
-      word-break:keep-all;
+      font-size:clamp(46px,5.6vw,76px) !important;
+      line-height:1.03 !important;
+      letter-spacing:.02em !important;
+      font-weight:760 !important;
+      white-space:normal !important;
+      word-break:normal !important;
+      overflow-wrap:normal !important;
     }
 
-    .product-hero .hero-product-copy p{
-      margin-top:22px;
-      max-width:560px;
-      font-size:18px;
-      line-height:1.78;
-    }
-
-    .product-hero .hero-actions{
-      margin-top:28px;
-    }
-
-    .product-hero .hero-banner-card,
-    .product-hero .product-mock.resume.banner-resume,
-    .product-hero .reference-hero-mock.banner-reference,
-    .product-hero .prompt-hero-mock.banner-prompt{
-      max-width:720px;
-    }
-
-    @media (max-width:1180px){
-      .hero-product-slide{
-        grid-template-columns:minmax(0, 1fr) minmax(340px, .92fr);
-        padding-left:54px;
-        padding-right:54px;
-        gap:36px;
-      }
-
+    @media (min-width:901px) and (max-width:1280px){
       .product-hero .hero-product-copy h1,
       .product-hero .hero-product-copy h2{
-        font-size:clamp(40px,5.2vw,64px);
+        font-size:clamp(42px,7vw,68px) !important;
       }
     }
 
     @media (max-width:900px){
-      .product-hero{
-        min-height:760px !important;
-      }
-
       .product-hero .hero-product-copy h1,
       .product-hero .hero-product-copy h2{
-        font-size:clamp(36px,10.5vw,58px) !important;
-        line-height:1.04 !important;
+        font-size:clamp(38px,12vw,58px) !important;
+        line-height:1.05 !important;
       }
     }
 
@@ -4524,5 +4472,50 @@ var _hmt = _hmt || [];
     startNotesAutoPlay();
   })();
 </script>
+
+<script>
+  /* v183: restore intentional Chinese line breaks for homepage hero titles after the global language switch updates textContent. */
+  (function(){
+    var heroTitleZhHtml={
+      'Design Assets Creator Bundle.':'设计素材<br/>创作工具集合',
+      'Editable Resume Templates.':'可编辑<br/>简历模板',
+      'Plan, Section & Other Board.':'平面、剖面<br/>与综合灵感板',
+      'Architectural Prompt Builder.':'建筑景观<br/>Prompt 工具'
+    };
+
+    function currentLang(){
+      try{
+        if(typeof window.getBaoLongLanguage==='function') return window.getBaoLongLanguage();
+        return localStorage.getItem('baolongLanguage') || 'zh';
+      }catch(e){
+        return 'zh';
+      }
+    }
+
+    function applyHeroTitleBreaks(){
+      var lang=currentLang();
+      document.querySelectorAll('#heroProductCarousel .hero-product-copy h1, #heroProductCarousel .hero-product-copy h2').forEach(function(title){
+        var original=title.getAttribute('data-bl-original-text') || title.dataset.blOriginalText;
+        if(lang==='zh' && heroTitleZhHtml[original]){
+          title.innerHTML=heroTitleZhHtml[original];
+        }else if(lang==='en' && original){
+          title.textContent=original;
+        }
+      });
+    }
+
+    function scheduleHeroTitleFix(){
+      window.setTimeout(applyHeroTitleBreaks, 0);
+      window.setTimeout(applyHeroTitleBreaks, 80);
+    }
+
+    document.addEventListener('DOMContentLoaded', scheduleHeroTitleFix);
+    document.addEventListener('click', function(event){
+      if(event.target.closest && event.target.closest('.language-toggle')) scheduleHeroTitleFix();
+    });
+    window.addEventListener('storage', scheduleHeroTitleFix);
+  })();
+</script>
+
 </body>
 </html>

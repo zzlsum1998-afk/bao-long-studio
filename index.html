@@ -2892,26 +2892,86 @@ body{
     }
 
 
+    /* v182: Home hero left-right balance fix
+       Keep the homepage hero as a calm two-column entry area and prevent mixed h1/h2 slides from using different title scales. */
+    .product-hero{
+      min-height:640px;
+      text-align:left;
+    }
 
-    /* v181 homepage hero carousel title consistency
-       Scope: homepage hero carousel only. Keep nav, tool logic, CSS/JS files untouched. */
-    @media (min-width:901px){
+    .hero-product-track{
+      height:640px;
+    }
+
+    .hero-product-slide{
+      grid-template-columns:minmax(0, 1.04fr) minmax(380px, .96fr);
+      max-width:1500px;
+      margin:0 auto;
+      padding:96px 72px 72px;
+      gap:clamp(42px,5vw,82px);
+    }
+
+    .hero-product-copy{
+      max-width:620px;
+      padding:10px 0;
+    }
+
+    .product-hero .hero-product-copy h1,
+    .product-hero .hero-product-copy h2{
+      margin:0;
+      font-size:clamp(42px,4.8vw,72px);
+      line-height:1.04;
+      letter-spacing:.018em;
+      font-weight:760;
+      text-wrap:balance;
+      overflow-wrap:normal;
+      word-break:keep-all;
+    }
+
+    .product-hero .hero-product-copy p{
+      margin-top:22px;
+      max-width:560px;
+      font-size:18px;
+      line-height:1.78;
+    }
+
+    .product-hero .hero-actions{
+      margin-top:28px;
+    }
+
+    .product-hero .hero-banner-card,
+    .product-hero .product-mock.resume.banner-resume,
+    .product-hero .reference-hero-mock.banner-reference,
+    .product-hero .prompt-hero-mock.banner-prompt{
+      max-width:720px;
+    }
+
+    @media (max-width:1180px){
+      .hero-product-slide{
+        grid-template-columns:minmax(0, 1fr) minmax(340px, .92fr);
+        padding-left:54px;
+        padding-right:54px;
+        gap:36px;
+      }
+
       .product-hero .hero-product-copy h1,
       .product-hero .hero-product-copy h2{
-        font-size:clamp(48px,5.6vw,76px) !important;
-        line-height:1.03 !important;
-        letter-spacing:.018em !important;
-        max-width:760px !important;
-        text-wrap:balance;
-      }
-
-      html[lang="zh-CN"] .product-hero .hero-product-copy h1,
-      html[lang="zh-CN"] .product-hero .hero-product-copy h2{
-        font-size:clamp(46px,4.2vw,64px) !important;
-        line-height:1.06 !important;
-        letter-spacing:.02em !important;
+        font-size:clamp(40px,5.2vw,64px);
       }
     }
+
+    @media (max-width:900px){
+      .product-hero{
+        min-height:760px !important;
+      }
+
+      .product-hero .hero-product-copy h1,
+      .product-hero .hero-product-copy h2{
+        font-size:clamp(36px,10.5vw,58px) !important;
+        line-height:1.04 !important;
+      }
+    }
+
 
 </style>
 <link href="css/common.css?v=124" rel="stylesheet"/>

@@ -145,6 +145,15 @@
       line-height:.96;
       letter-spacing:.02em;
     }
+    .prompt-generator-hero-title{
+      font-size:clamp(54px,5.8vw,94px);
+      line-height:1.02;
+      letter-spacing:.01em;
+      max-width:760px;
+    }
+    .prompt-generator-hero-title span{
+      display:block;
+    }
     .copy p{
       color:#4d4942;
       font-size:18px;
@@ -1137,7 +1146,7 @@ var _hmt = _hmt || [];
 </div>
 <div class="copy">
 <div class="eyebrow" data-bl-original-text="Prompt Generator">Prompt 工具</div>
-<h1 data-bl-original-text="Landscape &amp; Architecture Prompt Builder.">景观建筑<br/>Prompt 生成器</h1>
+<h1 class="prompt-generator-hero-title" data-bl-original-text="Prompt Generator Hero Title" data-prompt-generator-title="true"><span>建筑景观</span><span>Prompt 工具</span></h1>
 <p>把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。</p>
 <div class="tagline" data-bl-original-text="✦ Based on your prompt system">✦ 基于你的 Prompt 系统</div>
 <div class="feature-list">
@@ -1884,11 +1893,21 @@ var _hmt = _hmt || [];
           setText(findLink(nav, function(href){ return href === 'interaction.html'; }), t.interaction);
           setText(findLink(nav, function(href){ return href === 'resume.html'; }), t.resume);
           const navDropdowns = nav.querySelectorAll('.nav-dropdown');
-          setText(navDropdowns[1] ? navDropdowns[1].querySelector(':scope > a') : null, t.inspiration);
-          setText(findLink(navDropdowns[1], function(href){ return href === 'plan-references.html'; }), t.plan);
-          setText(findLink(navDropdowns[1], function(href){ return href === 'section-references.html'; }), t.section);
-          setText(findLink(navDropdowns[1], function(href){ return href === 'render-references.html'; }), t.other);
-          setText(findLink(navDropdowns[1], function(href){ return href === 'color-references.html'; }), t.color);
+          const inspirationDropdown = navDropdowns[1] || null;
+          const inspirationMenu = inspirationDropdown ? inspirationDropdown.querySelector('.dropdown-content') : null;
+          setText(inspirationDropdown ? inspirationDropdown.querySelector(':scope > a') : null, t.inspiration);
+          setText(findLink(inspirationMenu, function(href){ return href === 'plan-references.html'; }), t.plan);
+          setText(findLink(inspirationMenu, function(href){ return href === 'section-references.html'; }), t.section);
+          setText(findLink(inspirationMenu, function(href){ return href === 'render-references.html'; }), t.other);
+          setText(findLink(inspirationMenu, function(href){ return href === 'color-references.html'; }), t.color);
+        }
+
+        const title = document.querySelector('[data-prompt-generator-title]');
+        if(title){
+          title.innerHTML = lang === 'zh'
+            ? '<span>建筑景观</span><span>Prompt 工具</span>'
+            : '<span>Architectural</span><span>Prompt Builder</span>';
+          title.setAttribute('data-bl-original-text', 'Prompt Generator Hero Title');
         }
 
         const loginBtn = document.querySelector('.login-entry-btn');

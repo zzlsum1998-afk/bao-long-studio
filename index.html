@@ -2891,6 +2891,28 @@ body{
       }
     }
 
+
+
+    /* v181 homepage hero carousel title consistency
+       Scope: homepage hero carousel only. Keep nav, tool logic, CSS/JS files untouched. */
+    @media (min-width:901px){
+      .product-hero .hero-product-copy h1,
+      .product-hero .hero-product-copy h2{
+        font-size:clamp(48px,5.6vw,76px) !important;
+        line-height:1.03 !important;
+        letter-spacing:.018em !important;
+        max-width:760px !important;
+        text-wrap:balance;
+      }
+
+      html[lang="zh-CN"] .product-hero .hero-product-copy h1,
+      html[lang="zh-CN"] .product-hero .hero-product-copy h2{
+        font-size:clamp(46px,4.2vw,64px) !important;
+        line-height:1.06 !important;
+        letter-spacing:.02em !important;
+      }
+    }
+
 </style>
 <link href="css/common.css?v=124" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=124"></script>

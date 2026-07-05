@@ -208,12 +208,130 @@ body.bl-menu-open{
   .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:148px!important;}
   .site-header .nav-dropdown{justify-content:center!important;}
 }
-@media (min-width:981px) and (max-width:1280px){
-  .site-header .header-actions{min-width:178px!important;}
-  .site-header .nav>a[href="index.html"]{min-width:36px!important;}
-  .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:74px!important;}
-  .site-header .nav>a[href="prompt-generator.html"]{min-width:112px!important;}
-  .site-header .nav>a[href="interaction.html"]{min-width:96px!important;}
-  .site-header .nav>a[href="resume.html"]{min-width:84px!important;}
-  .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:132px!important;}
+/* v197 desktop compact nav: prevent brand/nav overlap before mobile breakpoint */
+@media (min-width:981px) and (max-width:1380px){
+  .site-header{
+    padding:0 24px!important;
+    gap:14px!important;
+  }
+  .site-header .brand{
+    min-width:250px!important;
+    gap:14px!important;
+  }
+  .site-header .brand-logo-img{
+    width:86px!important;
+    height:86px!important;
+    min-width:86px!important;
+    max-width:86px!important;
+    min-height:86px!important;
+    max-height:86px!important;
+  }
+  .site-header .brand-text{
+    font-size:14px!important;
+    letter-spacing:.28em!important;
+  }
+  .site-header .nav{
+    gap:14px!important;
+    font-size:14px!important;
+  }
+  .site-header .nav>a,
+  .site-header .nav-dropdown>a{
+    font-size:14px!important;
+  }
+  .site-header .nav>a:hover,
+  .site-header .nav>a:focus,
+  .site-header .nav>a:active,
+  .site-header .nav>a.is-active,
+  .site-header .nav-dropdown>a:hover,
+  .site-header .nav-dropdown>a:focus,
+  .site-header .nav-dropdown>a:active,
+  .site-header .nav-dropdown>a.is-active{
+    font-size:14px!important;
+  }
+  .site-header .header-actions{
+    min-width:166px!important;
+    gap:8px!important;
+  }
+  .site-header .pill-btn,
+  .site-header .header-actions .pill-btn{
+    height:38px!important;
+    padding:9px 12px!important;
+    font-size:13px!important;
+  }
+  .site-header .pill-btn:hover,
+  .site-header .header-actions .pill-btn:hover{
+    font-size:13px!important;
+  }
+  .site-header .header-actions .language-toggle{
+    min-width:86px!important;
+  }
+  .site-header .nav>a[href="index.html"]{min-width:34px!important;}
+  .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:68px!important;}
+  .site-header .nav>a[href="prompt-generator.html"]{min-width:104px!important;}
+  .site-header .nav>a[href="interaction.html"]{min-width:88px!important;}
+  .site-header .nav>a[href="resume.html"]{min-width:76px!important;}
+  .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:120px!important;}
+}
+@media (min-width:981px) and (max-width:1120px){
+  .site-header{
+    padding:0 18px!important;
+    gap:10px!important;
+  }
+  .site-header .brand{
+    min-width:205px!important;
+    gap:10px!important;
+  }
+  .site-header .brand-logo-img{
+    width:64px!important;
+    height:64px!important;
+    min-width:64px!important;
+    max-width:64px!important;
+    min-height:64px!important;
+    max-height:64px!important;
+  }
+  .site-header .brand-text{
+    font-size:12.5px!important;
+    letter-spacing:.22em!important;
+  }
+  .site-header .nav{
+    gap:7px!important;
+    font-size:12.5px!important;
+  }
+  .site-header .nav>a,
+  .site-header .nav-dropdown>a{
+    font-size:12.5px!important;
+  }
+  .site-header .nav>a:hover,
+  .site-header .nav>a:focus,
+  .site-header .nav>a:active,
+  .site-header .nav>a.is-active,
+  .site-header .nav-dropdown>a:hover,
+  .site-header .nav-dropdown>a:focus,
+  .site-header .nav-dropdown>a:active,
+  .site-header .nav-dropdown>a.is-active{
+    font-size:12.5px!important;
+  }
+  .site-header .header-actions{
+    min-width:136px!important;
+    gap:7px!important;
+  }
+  .site-header .pill-btn,
+  .site-header .header-actions .pill-btn{
+    height:34px!important;
+    padding:8px 9px!important;
+    font-size:12px!important;
+  }
+  .site-header .pill-btn:hover,
+  .site-header .header-actions .pill-btn:hover{
+    font-size:12px!important;
+  }
+  .site-header .header-actions .language-toggle{
+    min-width:78px!important;
+  }
+  .site-header .nav>a[href="index.html"]{min-width:28px!important;}
+  .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:58px!important;}
+  .site-header .nav>a[href="prompt-generator.html"]{min-width:94px!important;}
+  .site-header .nav>a[href="interaction.html"]{min-width:78px!important;}
+  .site-header .nav>a[href="resume.html"]{min-width:66px!important;}
+  .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:110px!important;}
 }

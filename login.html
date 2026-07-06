@@ -743,7 +743,7 @@
         <span class="hero-title-line hero-title-prefix" data-zh="进入你的" data-en="Enter your">进入你的</span>
         <span class="hero-title-line hero-title-brand">BaoLong Lab</span>
       </h1>
-      <p class="lead" data-zh="登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。账号功能正在逐步开放，本页先作为入口预览。" data-en="After logging in, this space can manage saved boards, prompts, resume templates and download records. The account system is not open yet, so this page is currently shown as the login entrance.">登录后可集中管理收藏灵感板、Prompt、简历模板和下载记录。账号功能正在逐步开放，本页先作为入口预览。</p>
+      <p class="lead" data-zh="账号功能开放后，可集中管理收藏灵感板、Prompt、简历模板和下载记录。登录入口正在准备中，页面不会提交真实账号信息。" data-en="After the account system opens, this space can manage saved boards, prompts, resume templates and download records. The login entrance is being prepared and does not submit real account information.">账号功能开放后，可集中管理收藏灵感板、Prompt、简历模板和下载记录。登录入口正在准备中，页面不会提交真实账号信息。</p>
       <div class="feature-row">
         <span class="feature-chip" data-zh="灵感板收藏" data-en="Saved Boards">灵感板收藏</span>
         <span class="feature-chip" data-zh="Prompt 记录" data-en="Prompt History">Prompt 记录</span>
@@ -758,7 +758,7 @@
           <span class="status-dot" aria-hidden="true"></span>
         </div>
         <h2 data-zh="欢迎回来" data-en="Welcome back">欢迎回来</h2>
-        <p data-zh="登录入口正在逐步开放，后续可支持邮箱验证码、账号密码或第三方登录。" data-en="Start with a lightweight login entrance, then open email codes, password login or third-party login when needed.">登录入口正在逐步开放，后续可支持邮箱验证码、账号密码或第三方登录。</p>
+        <p data-zh="登录入口正在准备中，后续可支持邮箱验证码、账号密码或第三方登录。" data-en="The login entrance is being prepared and may support email codes, password login or third-party login later.">登录入口正在准备中，后续可支持邮箱验证码、账号密码或第三方登录。</p>
       </div>
 
       <form class="login-form" id="loginForm">
@@ -785,7 +785,7 @@
           <button class="ghost-btn" type="button" onclick="location.href='index.html'" data-zh="先逛逛" data-en="Browse first">先逛逛</button>
         </div>
 
-        <div class="panel-note" data-zh="提示：当前登录功能尚未开放，不会提交账号密码。" data-en="Note: the login function is not open yet. It does not submit real account credentials.">提示：当前登录功能尚未开放，不会提交账号密码。</div>
+        <div class="panel-note" data-zh="提示：账号系统正在准备中，页面不会提交账号密码。" data-en="Note: the account system is being prepared. This page does not submit account credentials.">提示：账号系统正在准备中，页面不会提交账号密码。</div>
       </form>
     </section>
   </main>
@@ -818,9 +818,9 @@
     function showToast(type){
       const lang = getLang();
       const textMap = {
-        login: { zh:'当前登录功能尚未开放，开放后即可在这里登录。', en:'Login is not open yet. This entrance will work after the account system is available.' },
-        signup: { zh:'当前注册功能尚未开放，开放后可使用邮箱验证码或账号系统。', en:'Sign-up is not open yet. It can support email codes or an account system when available.' },
-        reset: { zh:'当前找回密码功能尚未开放，账号系统开放后启用。', en:'Password reset is not open yet. It will be available with the account system.' }
+        login: { zh:'账号系统正在准备中，暂时无法登录。', en:'The account system is being prepared. Login is not available yet.' },
+        signup: { zh:'账号系统正在准备中，暂时无法创建账号。', en:'The account system is being prepared. Sign-up is not available yet.' },
+        reset: { zh:'账号系统正在准备中，暂时无法找回密码。', en:'The account system is being prepared. Password reset is not available yet.' }
       };
       toast.textContent = textMap[type][lang];
       toast.classList.add('show');

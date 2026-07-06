@@ -1,4 +1,4 @@
-// BaoLong Lab v202 common header/nav + language toggle
+// BaoLong Lab v203 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -18,8 +18,8 @@
     '把平面图、剖面图、效果图整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。':'把平面图、剖面图、综合图面整理为灵感索引：低清缩略图、来源标注、风格标签与原链接跳转，不提供下载。',
     '把构图、建筑风格、色彩、细节、氛围和非 AI 感关键词组合成可直接复制的 MidJourney Prompt。':'把构图、建筑风格、色彩、细节、氛围和非 AI 感关键词组合成可直接复制的 MidJourney Prompt。',
     '从素材整理、Prompt 生成、交互实验、简历制作到灵感参考，按照不同任务场景进入对应模块。':'从素材整理、Prompt 生成、交互实验、简历制作到灵感参考，按照不同任务场景进入对应模块。',
-    '首页先展示 16 个精选素材，更多分类与完整商品可以进入 Assets 页面查看。':'首页先展示 16 个精选素材，更多分类与完整商品可以进入素材库页面查看。',
-    'Assets':'素材库','设计素材 / 商品资源':'设计素材 / 商品资源','Prompt Generator':'Prompt 工具','提示词生成 / 图面风格':'提示词生成 / 图面风格','Interaction':'交互实验室','交互实验 / 可玩 Demo':'交互实验 / 可玩 Demo','Resume':'简历模板','简历模板 / 在线工具':'简历模板 / 在线工具','Inspiration Board':'灵感板','灵感参考 / 图面案例':'灵感参考 / 图面案例',
+    '这里精选展示部分素材，更多分类与完整内容可进入素材库页面查看。':'这里精选展示部分素材，更多分类与完整内容可进入素材库页面查看。',
+    'Assets':'素材库','设计素材 / 商品资源':'设计素材 / 商品资源','Prompt Generator':'Prompt 工具','提示词生成 / 图面风格':'提示词生成 / 图面风格','Interaction':'交互实验室','交互实验 / 视觉工具':'交互实验 / 视觉工具','Resume':'简历模板','简历模板 / 在线工具':'简历模板 / 在线工具','Inspiration Board':'灵感板','灵感参考 / 图面案例':'灵感参考 / 图面案例',
     'Resume Templates':'简历模板','Resume Tool':'简历生成器','Prompt Tool':'Prompt 工具','Interaction Lab':'交互实验室','Visual Kit Library':'视觉素材库','Visual Asset Library':'视觉素材库',
     'Basic information input, layout preview and PDF export.':'基础信息填写、版式预览与 PDF 导出。','Prompt references for architectural illustration, collage style, children’s space and activity diagrams.':'建筑插画、拼贴风、儿童空间、活动分析图提示词。','Lightweight interaction experiments such as plant calendars, emotion radars and timeline tools.':'植物日历、情绪雷达、时间轴等轻量交互实验。','Visual references for covers, product displays, design expression and inspiration boards.':'封面、产品展示、设计表达与灵感参考整理。','简历模板展示、AI 优化入口与 PDF 导出工具。':'简历模板展示、AI 优化入口与 PDF 导出工具。','建筑插画、拼贴风、儿童空间、活动分析图提示词。':'建筑插画、拼贴风、儿童空间、活动分析图提示词。','小红书封面、产品展示、设计表达资源库。':'小红书封面、产品展示、设计表达资源库。','简历精修、作品集页面、小红书视觉策划。':'简历精修、作品集页面、小红书视觉策划。',
     // assets page
@@ -29,7 +29,7 @@
     // prompt page
     'Landscape & Architecture Prompt Builder.':'景观建筑 Prompt 生成器','Prompt Categories':'Prompt 分类','Prompt Inspiration':'Prompt 灵感','How It Works':'使用流程','✦ Based on your prompt system':'✦ 基于你的 Prompt 系统',
     '把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。':'把图面风格、构图角度、色彩、建筑要素、景观要素、人物活动和画幅比例组合成可复制的 MidJourney 指令。',
-    '把复杂选择变成资源卡片，用户先理解这个工具能做什么，再进入真正的 Prompt Builder。':'把复杂选择变成资源卡片，让用户先理解工具能做什么，再进入真正的 Prompt Builder。',
+    '将风格、构图、色彩和元素拆成清晰卡片，便于按创作需求逐步组合 Prompt。':'将风格、构图、色彩和元素拆成清晰卡片，便于按创作需求逐步组合 Prompt。',
     '查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。':'查看不同图面风格的生成效果，点开卡片即可看到完整提示词，并一键复制到 MidJourney 继续测试。',
     '从风格选择到最终 Prompt 输出，保持清晰的工具路径。':'从风格选择到最终 Prompt 输出，保持清晰的工具路径。',
     'Structured Prompt':'结构化 Prompt','Random Inspiration':'随机灵感','Landscape Elements':'景观元素','Copy-ready Output':'可复制输出',
@@ -39,8 +39,8 @@
     'Visual Style':'视觉风格','Composition Angle':'构图角度','Color Palette':'色彩方案','Architecture Elements':'建筑元素','People Activities':'人物活动','Light & Mood':'光影氛围','Aspect Ratio':'画幅比例','Upload Existing Resume':'上传已有简历',
     'Design Assets Creator Bundle.':'设计素材与创作工具集合','Editable Resume Templates.':'可编辑简历模板','Architectural Prompt Builder.':'建筑景观 Prompt 工具','Assets Library.':'素材库',
     // interaction page
-    'Interactive Tools & Creative Experiments.':'交互实验室与创意工具','Gesture Landscape Growth':'手势景观生长','Playable Visual Demo':'可体验视觉 Demo','Creative Interaction Lab':'创意交互实验室','Landscape Growth Demo':'景观生长 Demo','Interactive Lab':'交互实验室','Gesture Interaction':'手势交互',
-    '这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。':'这里会集中放可直接体验的视觉交互 Demo，例如手势识别、景观生长、生成式图形和网页互动实验，让用户可以在网站上玩起来。',
+    'Interactive Tools & Creative Experiments.':'交互实验室与创意工具','Gesture Landscape Growth':'手势景观生长','Playable Visual Demo':'可体验视觉工具','Creative Interaction Lab':'创意交互实验室','Landscape Growth Demo':'景观生长交互','Interactive Lab':'交互实验室','Gesture Interaction':'手势交互',
+    '这里整理可直接体验的视觉交互工具，例如手势识别、景观生长、生成式图形和网页互动实验。':'这里整理可直接体验的视觉交互工具，例如手势识别、景观生长、生成式图形和网页互动实验。',
 
     'Data Bloom Generator':'数据花园生成器','Upload CSV or paste table data to generate a radial data bloom map, then focus the view and export it as PNG.':'上传 CSV 或粘贴表格数据，自动生成径向数据花园图谱，并支持专注看图与导出 PNG。','Data Visualization':'数据可视化','CSV Upload':'CSV 上传','PNG Export':'导出 PNG','Focus View':'专注看图','Designed for expressive infographic experiments and presentation-ready visual maps.':'适合作为信息图、汇报展示与数据视觉实验工具',
     // resume page
@@ -48,7 +48,7 @@
     '填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。':'填写一次信息，切换多套模板，使用 AI 优化经历、生成简介、翻译简历，并一键导出 PDF。',
     '可上传旧简历图片或文件，识别功能开放后会自动提取内容并填入简历表单。支持 JPEG / JPG / PNG / Word / PDF 等常见格式。':'可上传旧简历图片或文件，识别功能开放后会自动提取内容并填入简历表单。支持 JPEG / JPG / PNG / Word / PDF 等常见格式。',
     '使用真实简历成品图展示模板，快速预览不同风格与版式差异。':'使用真实简历成品图展示模板，快速预览不同风格与版式差异。',
-    '把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。':'把简历工具包装成清晰的使用流程，而不是让用户一进来就面对复杂表单。',
+    '从填写信息、选择模板到优化与导出，按清晰步骤完成简历制作。':'从填写信息、选择模板到优化与导出，按清晰步骤完成简历制作。',
     // inspiration board pages
     'Plan Inspiration Board':'平面灵感板','Section Inspiration Board':'剖面灵感板','Other Inspiration Board':'综合灵感板','Color Inspiration Board':'色彩灵感板','Inspiration':'灵感参考',
     '平面图灵感索引：用于收集总平面、景观平面、城市更新图面、场地策略和作品集板式参考。':'平面图灵感索引：用于收集总平面、景观平面、城市更新图面、场地策略和作品集板式参考。',

@@ -1,4 +1,4 @@
-// BaoLong Lab v204 common header/nav + language toggle
+// BaoLong Lab v205 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -114,6 +114,7 @@
     "Gesture recognition":"手势识别",
     "Landscape growth":"景观生长",
     "Interaction experiment":"互动实验",
+    "Canvas":"画布",
     "Open experience":"打开体验",
     "Allow camera access when prompted by the browser for gesture interaction.":"进入体验时，请根据浏览器提示允许摄像头权限",
     "Plant Color Calendar":"植物色彩年历",
@@ -131,6 +132,7 @@
     "Landscape mood":"景观气质",
     "Design inspiration":"设计灵感",
     "Results are for design inspiration only, not botanical assessment.":"结果仅作设计灵感参考，不作为严谨植物学评估",
+    "Seasonal Color Simulation":"季相色彩模拟",
     "Seasonal Color Timeline":"季相色谱",
     "Brush planting zones on the canvas, switch seasons and drag the timeline to observe planting colors from early growth to maturity.":"在画布上刷出种植分区，切换春夏秋冬并拖动时间轴，观察植物配置从初栽到成境的色彩变化。",
     "Seasonal simulation":"季相推演",
@@ -227,7 +229,7 @@
     var selectors=[
       '[data-bl-original-text]','.site-header .nav a','.dropdown-content a','.mobile-menu-panel a','.mobile-menu-group','.mobile-menu-toggle','.header-actions .pill-btn',
       '.hero h1','.hero p','.copy .eyebrow','.copy h1','.copy p','.section-title','.section-title-main','.section-desc','.eyebrow','.tabs .tab',
-      '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.category-feature-link','.tool-band h2','.tool-band p','.tool-card h3','.tool-card p','.notes-header h2','.notes-header p','.note-visual h3','.note-visual p','.note-content h3','.note-content p','.note-link','.cta h2','.cta p','.asset-filter-tabs .tab','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.mock-card h3','.mock-card p','.interaction-case-type','.case-link','.case-note','.footer','footer','.footer-line'
+      '.primary-btn','.secondary-btn','.category-feature-copy h3','.category-feature-copy p','.category-feature-link','.tool-band h2','.tool-band p','.tool-card h3','.tool-card p','.notes-header h2','.notes-header p','.note-visual h3','.note-visual p','.note-content h3','.note-content p','.note-link','.cta h2','.cta p','.asset-filter-tabs .tab','.feature strong','.feature span','.step h3','.step p','.tagline','.ai-badge','.card h3','.card p','.mock-card h3','.mock-card p','.interaction-case-type','.interaction-case-body h3','.interaction-case-body > p','.case-tags span','.case-link','.case-note','.footer','footer','.footer-line'
     ];
     return Array.prototype.slice.call(document.querySelectorAll(selectors.join(','))).filter(function(el){
       if(shouldSkip(el) || el.classList.contains('legal-footer')) return false;

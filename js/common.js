@@ -1,4 +1,4 @@
-// BaoLong Lab v209 common header/nav + language toggle
+// BaoLong Lab v213 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -247,6 +247,8 @@
   }
   function applyLanguage(lang){
     document.documentElement.setAttribute('lang',lang==='zh'?'zh-CN':'en');
+    document.documentElement.setAttribute('data-bl-lang',lang==='en'?'en':'zh');
+    document.documentElement.classList.remove('bl-lang-applied');
     collectTargets().forEach(function(el){
       if(!el.dataset.blOriginalText){el.dataset.blOriginalText=normalizeText(el.textContent);}
       var original=el.dataset.blOriginalText;
@@ -258,6 +260,7 @@
     if(lang==='zh' && titleMap[originalTitle]) document.title=titleMap[originalTitle];
     if(lang==='en') document.title=originalTitle;
     document.querySelectorAll('.language-toggle').forEach(function(btn){btn.textContent='中文 / EN';btn.setAttribute('aria-label',lang==='zh'?'Switch to English':'切换到中文');btn.dataset.currentLang=lang;});
+    document.documentElement.classList.add('bl-lang-applied');
   }
   function injectLanguageToggle(){
     if(document.querySelector('.language-toggle')) return;

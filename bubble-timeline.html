@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Bubble Timeline 是气泡时间轴交互工具，可用于展示事件、阶段、趋势与多维信息，适合作品集、网页交互和信息可视化练习。"/>
 <link rel="canonical" href="https://www.baolonglab.com/bubble-timeline.html"/>
   <title>Bubble Timeline 气泡时间轴 | BaoLong Lab</title>
   <link href="css/common.css?v=197" rel="stylesheet"/>
-  <script defer src="js/common.js?v=211"></script>
+  <script defer src="js/common.js?v=213"></script>
   <style>
     :root {
       --bg: #f3f0e8;

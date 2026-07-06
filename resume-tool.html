@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume Studio｜设计感简历生成器</title>
@@ -3775,7 +3791,7 @@
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=197" />
-  <script src="js/common.js?v=211" defer></script>
+  <script src="js/common.js?v=213" defer></script>
 </head>
 <body>
 <header class="site-header">

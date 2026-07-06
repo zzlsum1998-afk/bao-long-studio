@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta content="BaoLong Lab Interaction Lab 收录网页动效、视觉交互实验与可视化工具，适合体验设计、作品集亮点展示和创意前端练习。" name="description"/>
 <link href="https://www.baolonglab.com/interaction.html" rel="canonical"/><title>交互实验室 Interaction Lab | BaoLong Lab</title><style>
     :root{--bg:#f7f6f2;--paper:#fff;--ink:#1c1c1c;--muted:#77736b;--line:#ded9cf;--shadow:0 18px 50px rgba(0,0,0,.07);}
@@ -903,7 +919,7 @@
 
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 <!-- BaoLong SEO structure v168 -->
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>

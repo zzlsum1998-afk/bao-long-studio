@@ -4,6 +4,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta content="BaoLong Lab Assets 收录模块图、人物、植物、动物、纹理与免费素材，适合作品集排版、分析图、拼贴表达和视觉展示。" name="description"/>
 <link href="https://www.baolonglab.com/assets.html" rel="canonical"/>
 <title>设计素材库 Assets | BaoLong Lab</title>
@@ -2371,7 +2387,7 @@
 
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 <script defer="" src="js/taobao-links.js?v=198"></script>
 <!-- BaoLong SEO structure v168 -->
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>

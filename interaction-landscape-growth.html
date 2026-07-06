@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="description" content="景观生长交互通过鼠标或触控生成生长式景观画面，用于展示动态视觉、交互体验、空间生成和创意网页效果。"/>
@@ -87,7 +103,7 @@
 </style>
 
   <link rel="stylesheet" href="css/common.css?v=197" />
-  <script src="js/common.js?v=211" defer></script>
+  <script src="js/common.js?v=213" defer></script>
 
 <!-- BaoLong SEO structure v168 -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>

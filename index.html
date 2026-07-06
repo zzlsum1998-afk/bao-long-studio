@@ -4,6 +4,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta content="BaoLong Lab 为建筑、景观与视觉创作者整理设计素材、AI Prompt 案例、交互实验、简历工具与空间灵感板，帮助快速搭建参考与创作流程。" name="description"/>
 <link href="https://www.baolonglab.com/" rel="canonical"/>
 <title>BaoLong Lab | 设计素材、AI Prompt 与灵感板</title>
@@ -2931,7 +2947,7 @@ body{
 
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 <script defer="" src="js/taobao-links.js?v=198"></script>
 <!-- BaoLong SEO structure v168 -->
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>

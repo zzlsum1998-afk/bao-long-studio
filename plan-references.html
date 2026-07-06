@@ -5,6 +5,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta name="description" content="BaoLong Lab Plan Board 收录平面图与总平面参考，适用于空间布局、动线组织、场地分析、图面表达和设计灵感整理。"/>
 <link rel="canonical" href="https://www.baolonglab.com/plan-references.html"/>
 <title>Plan Board 平面图参考 | BaoLong Lab</title>
@@ -1104,7 +1120,7 @@
     })();
   </script>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 
 <!-- BaoLong SEO structure v168 -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>

@@ -4,6 +4,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta content="BaoLong Lab Resume 提供设计感简历模板与在线编辑入口，适合求职、转岗、作品集申请、一页式简历整理和视觉排版参考。" name="description"/>
 <link href="https://www.baolonglab.com/resume.html" rel="canonical"/>
 <title>简历模板与在线简历工具 | BaoLong Lab</title>
@@ -836,7 +852,7 @@
 
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 <!-- BaoLong SEO structure v168 -->
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>

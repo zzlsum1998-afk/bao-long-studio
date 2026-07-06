@@ -4,6 +4,22 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){
+      try{
+        var lang = localStorage.getItem('baolongLanguage') || 'zh';
+        document.documentElement.setAttribute('data-bl-lang', lang === 'en' ? 'en' : 'zh');
+        setTimeout(function(){document.documentElement.classList.add('bl-lang-fallback-ready');}, 2000);
+      }catch(e){
+        document.documentElement.setAttribute('data-bl-lang','zh');
+      }
+    })();
+  </script>
+  <style id="bl-language-boot-style">
+    html[data-bl-lang="en"]:not(.bl-lang-applied):not(.bl-lang-fallback-ready) body{
+      visibility:hidden;
+    }
+  </style>
 <meta content="BaoLong Lab Prompt 案例库整理建筑、景观、产品与视觉生成提示词，拆解构图、风格、色彩、氛围和细节，辅助 AI 出图。" name="description"/>
 <link href="https://www.baolonglab.com/prompt-generator.html" rel="canonical"/>
 <title>AI Prompt 案例库 | BaoLong Lab</title>
@@ -1006,7 +1022,7 @@
 
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
-<script defer="" src="js/common.js?v=211"></script>
+<script defer="" src="js/common.js?v=213"></script>
 <link as="image" href="images/prompt-cases/prompt-case-01.webp" rel="preload"/>
 <link as="image" href="images/prompt-cases/prompt-case-02.webp" rel="preload"/>
 <link as="image" href="images/prompt-cases/prompt-case-03.webp" rel="preload"/>

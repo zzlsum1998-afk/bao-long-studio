@@ -1,0 +1,47 @@
+BaoLong Lab v212 - Navigation initial language render fix
+
+Base package:
+- baolong-common-cache-unify-v211-full-noimage.zip
+
+Purpose:
+- Reduce the visible short English flash in the top navigation, especially when the site is used in Chinese mode.
+
+What changed:
+- Converted the static, first-paint navigation text on common-header pages from English to Chinese.
+- Added data-bl-original-text attributes to each changed nav/menu label so the existing language switch can still restore English mode correctly.
+- Did not change common.js language logic.
+- Did not change CSS layout rules.
+
+Changed files:
+- assets.html
+- bubble-timeline.html
+- color-references.html
+- data-bloom-garden.html
+- index.html
+- interaction.html
+- plan-references.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- prompt-generator.html
+- render-references.html
+- resume-tool.html
+- resume.html
+- section-references.html
+
+Safety checks:
+- Only the 14 HTML files above differ from v211.
+- No visible English nav/menu labels remain in common-header pages using js/common.js?v=211.
+- Every changed common header has 37 data-bl-original-text attributes for language restoration.
+- js/common.js was not modified.
+- css/common.css was not modified.
+- data/*.json files still parse correctly.
+- images/ folder is not included in the full-noimage package.
+- prompt-tool.html remains about 60KB.
+- fonts/ contains 115 local .woff2 files.
+- __bundler/manifest was not restored.
+- Google Fonts CDN was not added.
+- robots.txt and sitemap.xml keep https://www.baolonglab.com/ and do not contain https://baolonglab.com.
+
+Notes:
+- This targets the navigation flash caused by English static HTML being painted before common.js applies Chinese.
+- If a very slight flash remains in deeper page content, that would need a separate content-level first-paint language pass. This v212 intentionally limits scope to navigation.

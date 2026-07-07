@@ -1,0 +1,34 @@
+BaoLong Lab v217 - Static bilingual English title formalization
+
+Base package:
+- baolong-prompt-tool-mobile-menu-lock-v216-full-noimage.zip
+
+Purpose:
+- Replace repeated generic "English" subheadings in static bilingual pages with matching English section titles.
+- Keep bilingual footer links as-is, e.g. "关于 / About · 联系 / Contact · 隐私政策 / Privacy Policy · 用户协议 / Terms of Use".
+
+Changed files:
+- about.html
+- contact.html
+- privacy.html
+- terms.html
+
+Details:
+- Replaced all <h3>English</h3> blocks in the four static bilingual pages.
+- Updated only the local .en-block h3 styling inside those pages so translated headings are not forced into all-caps.
+- Did not change body text, footer link wording, navigation, language scripts, or page structure.
+
+Safety checks:
+- No images folder included in the full-noimage package.
+- No data/*.json files changed.
+- js/common.js unchanged.
+- css/common.css unchanged.
+- prompt-tool.html unchanged and remains lightweight after v208 split.
+- fonts/*.woff2 still preserved.
+- No __bundler/manifest restored.
+- No Google Fonts CDN introduced.
+- robots.txt, sitemap.xml, and canonical domain rules unchanged.
+- Official domain remains https://www.baolonglab.com/ where present.
+
+Recommended next baseline:
+- baolong-static-bilingual-en-titles-v217-full-noimage.zip

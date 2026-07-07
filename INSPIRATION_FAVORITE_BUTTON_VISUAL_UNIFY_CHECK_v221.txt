@@ -1,0 +1,53 @@
+BaoLong Lab v221 — Inspiration Board 收藏按钮视觉统一检查
+
+基准版本：
+- baolong-prompt-local-favorites-v220-full-noimage.zip
+
+本次目标：
+- 将 Inspiration Board 四个页面的收藏桃心按钮视觉统一成 Prompt 卡片收藏按钮的样式。
+- 只做视觉统一，不改收藏逻辑、不改 JSON 数据结构、不动图片。
+
+本次修改文件：
+- js/inspiration-favorites.js
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+
+具体改动：
+1. Inspiration Board 收藏按钮 `.pin-favorite-btn` 视觉参数对齐 Prompt 卡片 `.prompt-save-btn`：
+   - 尺寸统一为 36px × 36px
+   - top / right 统一为 12px
+   - z-index 统一提升到 6
+   - 边框、白色半透明底、阴影、hover / saved 状态保持与 Prompt 收藏按钮一致
+2. 四个 Inspiration 页面引用版本从：
+   - js/inspiration-favorites.js?v=219
+   更新为：
+   - js/inspiration-favorites.js?v=221
+   以避免浏览器继续缓存旧样式脚本。
+3. 收藏按钮逻辑未改：
+   - localStorage key 保持 `baolong.inspirationFavorites.v1`
+   - 已收藏 / 全部筛选逻辑不变
+   - 点击桃心不打开弹窗的逻辑不变
+   - Color Board 与色彩筛选的组合逻辑不变
+
+安全检查：
+- 未修改 data/*.json
+- 未修改 images
+- 未修改 css/common.css
+- 未修改 js/common.js
+- 未修改 js/prompt-favorites.js
+- 未修改 prompt-generator.html
+- 未修改 Prompt Tool 核心拆分文件
+- 未修改 robots.txt / sitemap.xml / canonical
+- full-noimage 包内没有 images 文件夹
+- prompt-tool.html 仍约 60KB，没有回退为 6MB 旧版
+- fonts/ 中仍有 115 个本地 .woff2 字体
+- 未出现 __bundler/manifest
+- 未出现 Google Fonts CDN
+
+部署后建议检查：
+1. Plan / Section / Other / Color 四个 Inspiration 页面收藏按钮样式是否与 Prompt 卡片一致。
+2. 点击桃心是否正常切换 ♡ / ♥。
+3. 点击桃心是否不会误触发卡片弹窗。
+4. 已收藏筛选是否正常。

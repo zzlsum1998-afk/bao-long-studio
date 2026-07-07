@@ -1,4 +1,4 @@
-/* BaoLong Lab v219 Inspiration Board local favorites.
+/* BaoLong Lab v221 Inspiration Board local favorites.
    Static-site only: saves cards in localStorage on the visitor's current browser. */
 (function(){
   'use strict';
@@ -196,10 +196,10 @@
       '.favorite-filter-btn{border:1px solid rgba(17,17,17,.14);background:#fff;color:#111;border-radius:999px;padding:8px 13px;font-size:12px;line-height:1;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}',
       '.favorite-filter-btn:hover,.favorite-filter-btn.active{background:#111;color:#fff;border-color:#111;transform:translateY(-1px)}',
       '.pin-img{position:relative}',
-      '.pin-favorite-btn{position:absolute;right:12px;top:12px;z-index:5;width:34px;height:34px;border-radius:999px;border:1px solid rgba(17,17,17,.12);background:rgba(255,255,255,.86);color:#111;display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.12);backdrop-filter:blur(12px);transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}',
+      '.pin-favorite-btn{position:absolute;right:12px;top:12px;z-index:6;width:36px;height:36px;border-radius:999px;border:1px solid rgba(17,17,17,.13);background:rgba(255,255,255,.88);color:#111;display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1;cursor:pointer;box-shadow:0 14px 30px rgba(0,0,0,.13);backdrop-filter:blur(12px);transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}',
       '.pin-favorite-btn:hover,.pin-favorite-btn.saved{background:#111;color:#fff;border-color:#111;transform:translateY(-1px)}',
       '.pin-favorite-btn:focus-visible,.favorite-filter-btn:focus-visible{outline:2px solid #111;outline-offset:3px}',
-      '@media(max-width:720px){.favorite-filter-bar{border-radius:22px;align-items:flex-start;flex-direction:column;padding:14px;margin-bottom:18px}.favorite-filter-copy{white-space:normal}.favorite-filter-actions{justify-content:flex-start}.pin-favorite-btn{width:36px;height:36px;right:10px;top:10px}}'
+      '@media(max-width:720px){.favorite-filter-bar{border-radius:22px;align-items:flex-start;flex-direction:column;padding:14px;margin-bottom:18px}.favorite-filter-copy{white-space:normal}.favorite-filter-actions{justify-content:flex-start}.pin-favorite-btn{width:36px;height:36px;right:12px;top:12px}}'
     ].join('\n');
     document.head.appendChild(style);
   }

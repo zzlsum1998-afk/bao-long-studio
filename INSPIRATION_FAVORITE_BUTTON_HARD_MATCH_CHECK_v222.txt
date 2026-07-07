@@ -1,0 +1,45 @@
+BaoLong Lab v222 – Inspiration 收藏按钮样式硬匹配修复
+
+Base: v221 收藏按钮视觉统一版
+
+Goal:
+- 解决 Inspiration Board 收藏按钮在实际页面中仍显示为浏览器默认按钮风格、没有完全匹配 Prompt 卡片收藏按钮的问题。
+
+Root cause:
+- Inspiration Board 的收藏按钮样式由 js/inspiration-favorites.js 动态注入。
+- 虽然视觉参数已基本对齐 Prompt 卡片，但缺少 button 自身的显式重置，部分浏览器仍会保留默认 button appearance / font，导致看起来不像 Prompt 卡片的圆形桃心按钮。
+
+Fix:
+1. js/inspiration-favorites.js
+   - 给 .pin-favorite-btn 增加：
+     - appearance:none
+     - -webkit-appearance:none
+     - font:inherit
+     - padding:0
+     - margin:0
+   - 给 .favorite-filter-btn 增加：
+     - appearance:none
+     - -webkit-appearance:none
+     - font:inherit
+   - 其余收藏逻辑不改。
+
+2. 缓存版本更新
+   - plan-references.html
+   - section-references.html
+   - render-references.html
+   - color-references.html
+   - 将 js/inspiration-favorites.js 引用从 ?v=221 更新为 ?v=222，避免浏览器继续吃旧样式。
+
+Files changed:
+- js/inspiration-favorites.js
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+- INSPIRATION_FAVORITE_BUTTON_HARD_MATCH_CHECK_v222.txt
+
+Not touched:
+- Prompt 收藏逻辑与样式
+- Prompt Generator 弹窗/复制逻辑
+- common.css / common.js
+- 图片 / JSON / sitemap / robots / favicon / Resume Tool

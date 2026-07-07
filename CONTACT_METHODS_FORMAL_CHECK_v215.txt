@@ -1,0 +1,47 @@
+BaoLong Lab v215 Contact 联系方式正式版检查说明
+
+基准：
+- v214 full-noimage
+- 输入包：baolong-login-copy-formal-v214-full-noimage.zip
+
+本次目标：
+- 优化 Contact 页面联系方式表达
+- 保留淘宝入口
+- 新增邮箱 hello@baolonglab.com
+- 新增微信备注说明
+- 去掉“后续 / 准备中 / still being refined / dedicated email / contact form”等未完成口吻
+- 不编造具体微信号或二维码
+
+本次修改文件：
+- contact.html
+
+主要改动：
+1. Contact 页面改为三种联系入口：
+   - 淘宝店铺：适合素材购买咨询、资源链接问题、订单相关反馈和轻量留言
+   - 邮箱：hello@baolonglab.com，适合合作授权、网站反馈、来源更正、版权说明和正式沟通
+   - 微信：适合国内快速沟通，添加时请备注“BaoLong Lab”
+2. 更新 Contact 页 meta description、OG/Twitter description 和 JSON-LD description
+3. JSON-LD Organization 中新增 email: hello@baolonglab.com
+4. 增加联系方式卡片样式，仅写在 contact.html 内部样式中
+5. 更新最后更新时间为 2026-07-07
+6. 保留安全提示：请勿通过非官方入口提交敏感个人信息，账号、付款和订单信息以官方平台页面为准
+
+安全检查：
+- 仅 contact.html 有内容差异
+- 未修改 js/common.js
+- 未修改 css/common.css
+- 未修改 data/*.json
+- 未修改 robots.txt
+- 未修改 sitemap.xml
+- canonical / sitemap / robots 保持 https://www.baolonglab.com/
+- full-noimage 包内没有 images/ 文件夹
+- Prompt Tool 仍保持 v208 拆分状态：
+  - prompt-tool.html 约 60KB
+  - fonts/ 本地字体文件仍为 115 个 .woff2
+  - 未恢复 __bundler/manifest
+  - 未使用 Google Fonts CDN
+- data/*.json 解析正常
+
+说明：
+- 邮箱已按 hello@baolonglab.com 预先接入。
+- 微信没有写具体微信号或二维码，避免编造联系方式；后续拿到工作微信号或二维码后，可以单独做一个小 patch 补充。

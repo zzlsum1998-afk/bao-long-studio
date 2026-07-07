@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="联系 BaoLong Lab：用于素材咨询、工具反馈、合作沟通、来源更正与版权移除请求。"/>
+<meta name="description" content="联系 BaoLong Lab：通过淘宝店铺、hello@baolonglab.com 或微信备注进行素材咨询、工具反馈、合作授权、来源更正与版权移除请求。"/>
 <link rel="canonical" href="https://www.baolonglab.com/contact.html"/>
 <title>联系 Contact | BaoLong Lab</title>
 <style>
@@ -242,6 +242,65 @@
   .contact-action.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
   .contact-list{margin:12px 0 0;padding-left:1.2em}
   .contact-list li{margin:6px 0}
+
+  .contact-methods{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-top:20px;
+  }
+  .contact-method{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-height:220px;
+    padding:22px;
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:22px;
+    background:rgba(255,255,255,.68);
+  }
+  .method-kicker{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .method-title{
+    margin:0;
+    color:var(--ink);
+    font-size:18px;
+    line-height:1.25;
+    letter-spacing:-.03em;
+  }
+  .method-body{
+    margin:0;
+    color:#5a554d;
+    font-size:14px;
+    line-height:1.75;
+  }
+  .method-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:max-content;
+    max-width:100%;
+    min-height:38px;
+    margin-top:auto;
+    padding:0 14px;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.14);
+    background:#fff;
+    color:#161616;
+    font-size:13px;
+    font-weight:800;
+  }
+  .method-link.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+  .contact-safe-note{margin-top:18px}
+  @media (max-width:820px){
+    .contact-methods{grid-template-columns:1fr}
+    .contact-method{min-height:auto}
+  }
   @media (max-width:720px){
     .page{padding-top:54px}
     .card{padding:24px;border-radius:22px}
@@ -253,12 +312,12 @@
 <meta property="og:locale" content="zh_CN"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="联系 Contact | BaoLong Lab"/>
-<meta property="og:description" content="联系 BaoLong Lab：用于素材咨询、工具反馈、合作沟通、来源更正与版权移除请求。"/>
+<meta property="og:description" content="联系 BaoLong Lab：通过淘宝店铺、hello@baolonglab.com 或微信备注进行素材咨询、工具反馈、合作授权、来源更正与版权移除请求。"/>
 <meta property="og:url" content="https://www.baolonglab.com/contact.html"/>
 <meta property="og:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="联系 Contact | BaoLong Lab"/>
-<meta name="twitter:description" content="联系 BaoLong Lab：用于素材咨询、工具反馈、合作沟通、来源更正与版权移除请求。"/>
+<meta name="twitter:description" content="联系 BaoLong Lab：通过淘宝店铺、hello@baolonglab.com 或微信备注进行素材咨询、工具反馈、合作授权、来源更正与版权移除请求。"/>
 <meta name="twitter:image" content="https://www.baolonglab.com/images/baolong-og-cover.png"/>
 <script type="application/ld+json" id="baolong-schema">
 {
@@ -267,7 +326,7 @@
   "@id": "https://www.baolonglab.com/contact.html#webpage",
   "url": "https://www.baolonglab.com/contact.html",
   "name": "联系 Contact | BaoLong Lab",
-  "description": "联系 BaoLong Lab：用于素材咨询、工具反馈、合作沟通、来源更正与版权移除请求。",
+  "description": "联系 BaoLong Lab：通过淘宝店铺、hello@baolonglab.com 或微信备注进行素材咨询、工具反馈、合作授权、来源更正与版权移除请求。",
   "isPartOf": {
     "@type": "WebSite",
     "name": "BaoLong Lab",
@@ -277,6 +336,7 @@
     "@type": "Organization",
     "name": "BaoLong Lab",
     "url": "https://www.baolonglab.com/",
+    "email": "hello@baolonglab.com",
     "sameAs": [
       "https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx"
     ]
@@ -316,21 +376,36 @@ var _hmt = _hmt || [];
   <section class="hero">
     <div class="eyebrow">Contact BaoLong Lab</div>
     <h1>联系 BaoLong Lab</h1>
-    <p class="lead">如果你想咨询素材、工具、合作、来源更正或版权移除，可以通过这里联系 BaoLong Lab。</p>
-    <p class="lead-en">For asset questions, tool feedback, collaboration inquiries, source corrections, or removal requests, please use the current contact channel below.</p>
+    <p class="lead">如果你想咨询素材、工具反馈、合作授权、来源更正或版权移除，可以通过淘宝店铺、邮箱或微信备注联系 BaoLong Lab。</p>
+    <p class="lead-en">For asset questions, tool feedback, collaboration, licensing, source corrections, or removal requests, please contact BaoLong Lab through Taobao, email, or WeChat note.</p>
   </section>
 
   <section class="card">
-    <h2>1. 当前联系入口</h2>
-    <p>你可以通过淘宝店铺留言联系 BaoLong Lab，适合用于素材购买咨询、资源问题反馈、合作沟通与网站内容更正说明。</p>
-    <p>如果是版权、来源标注或移除请求，请在留言中尽量附上：对应页面链接、具体卡片或图片位置、你的处理诉求，以及必要的权属说明。</p>
-    <div class="contact-actions">
-      <a class="contact-action primary" href="https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx" target="_blank" rel="noopener noreferrer">打开淘宝店铺 / Open Taobao Shop</a>
-      <a class="contact-action" href="/about.html">查看关于页面 / About</a>
+    <h2>1. 联系方式</h2>
+    <p>不同类型的问题可以选择不同入口。素材购买和轻量咨询可以走淘宝；合作、授权、反馈和正式说明建议使用邮箱；国内快速沟通可以使用微信，并备注「BaoLong Lab」。</p>
+    <div class="contact-methods">
+      <div class="contact-method">
+        <div class="method-kicker">Taobao Store</div>
+        <h3 class="method-title">淘宝店铺</h3>
+        <p class="method-body">适合素材购买咨询、资源链接问题、订单相关反馈和轻量留言。</p>
+        <a class="method-link primary" href="https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx" target="_blank" rel="noopener noreferrer">打开淘宝店铺</a>
+      </div>
+      <div class="contact-method">
+        <div class="method-kicker">Email</div>
+        <h3 class="method-title">邮箱联系</h3>
+        <p class="method-body">适合合作授权、网站反馈、来源更正、版权说明和正式沟通。</p>
+        <a class="method-link" href="mailto:hello@baolonglab.com">hello@baolonglab.com</a>
+      </div>
+      <div class="contact-method">
+        <div class="method-kicker">WeChat</div>
+        <h3 class="method-title">微信沟通</h3>
+        <p class="method-body">适合国内用户快速沟通。添加微信时，请备注「BaoLong Lab」，方便识别来意。</p>
+        <span class="method-link">备注：BaoLong Lab</span>
+      </div>
     </div>
     <div class="en-block">
       <h3>English</h3>
-      <p class="en">BaoLong Lab currently uses the Taobao shop message channel as the available contact entrance. It can be used for asset questions, purchase inquiries, collaboration messages, website corrections, and removal requests.</p>
+      <p class="en">Taobao is suitable for asset purchase questions and lightweight messages. Email is recommended for collaboration, licensing, website feedback, source corrections, copyright notes, and formal communication. For WeChat contact, please add the note “BaoLong Lab”.</p>
     </div>
   </section>
 
@@ -350,13 +425,14 @@ var _hmt = _hmt || [];
   </section>
 
   <section class="card">
-    <h2>3. 说明</h2>
-    <p>本页提供 BaoLong Lab 当前可访问的反馈与合作入口，方便处理合作咨询、资源问题和版权反馈。</p>
+    <h2>3. 提交说明</h2>
+    <p>为了更快处理你的信息，建议在联系时说明对应页面、具体卡片或图片位置、问题类型，以及你希望如何处理。</p>
+    <div class="note contact-safe-note">请勿通过非官方入口提交敏感个人信息。账号、付款和订单信息请以官方平台页面为准。</div>
     <div class="en-block">
       <h3>English</h3>
-      <p class="en">BaoLong Lab is still being refined. If a dedicated email address, contact form, or additional official contact channel is added later, this page will be updated. For now, this page provides a real reachable entrance for contact and feedback.</p>
+      <p class="en">To help us respond more clearly, please include the related page, card or image location, issue type, and your requested action when contacting BaoLong Lab. Please do not submit sensitive personal information through unofficial channels.</p>
     </div>
-    <div class="note">最后更新 / Last updated：2026-07-05</div>
+    <div class="note">最后更新 / Last updated：2026-07-07</div>
   </section>
 
   <a class="back" href="/index.html">返回首页 / Back Home</a>

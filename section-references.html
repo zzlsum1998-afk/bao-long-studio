@@ -1284,6 +1284,7 @@ var _hmt = _hmt || [];
     BaoLong Lab · Section Inspiration Board
   </footer>
 
+<script defer="" src="js/inspiration-favorites.js?v=219"></script>
 <script>
     const SECTION_BOARD_BATCH = window.matchMedia && window.matchMedia('(max-width: 700px)').matches ? 18 : 36;
     const SECTION_BOARD_STEP = 24;
@@ -1306,6 +1307,11 @@ var _hmt = _hmt || [];
       return '<div class="source-block">' + sourceLink + pinterestNote + '<span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>';
     }
 
+    function getFilteredSectionItems(){
+      const items = Array.isArray(sectionBoardItems) ? sectionBoardItems : [];
+      return window.BLInspirationFavorites ? window.BLInspirationFavorites.filterItems('section', items) : items;
+    }
+
     function renderSectionCard(item, index){
       const images = Array.isArray(item.images) ? item.images : [];
       const cover = item.cover || images[0] || '';
@@ -1314,6 +1320,7 @@ var _hmt = _hmt || [];
       return '<article class="pin" data-section-index="' + index + '">' +
         '<div class="pin-img has-image" style="--h:' + escapeHTML(item.height || '300px') + ';--c:' + escapeHTML(item.color || '#f4f1eb') + ';">' +
           '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(cover) + '"/>' + multiBadge +
+          (window.BLInspirationFavorites ? window.BLInspirationFavorites.buttonHTML('section', item) : '') +
         '</div>' +
         '<div class="pin-body">' +
           '<div class="pin-tags">' + tags + '</div>' +
@@ -1325,6 +1332,7 @@ var _hmt = _hmt || [];
     }
 
     function bindSectionCards(){
+      if(window.BLInspirationFavorites) window.BLInspirationFavorites.bindButtons('#sectionMasonry');
       document.querySelectorAll('#sectionMasonry .pin:not([data-card-bound="true"])').forEach(function(pin){
         pin.dataset.cardBound = 'true';
         pin.addEventListener('click', function(){
@@ -1345,16 +1353,17 @@ var _hmt = _hmt || [];
       const btn = document.getElementById('sectionLoadMoreBtn');
       const count = document.getElementById('sectionLoadMoreCount');
       if(!btn || !count) return;
-      const total = sectionBoardItems.length;
-      count.textContent = total ? '已显示 ' + Math.min(sectionBoardVisible, total) + ' / ' + total + ' 张参考' : '暂无 Section Board 数据';
+      const total = getFilteredSectionItems().length;
+      count.textContent = total ? '已显示 ' + Math.min(sectionBoardVisible, total) + ' / ' + total + (window.BLInspirationFavorites && window.BLInspirationFavorites.isSavedMode('section') ? ' 张收藏' : ' 张参考') : (window.BLInspirationFavorites && window.BLInspirationFavorites.isSavedMode('section') ? '暂无已收藏 Section 参考' : '暂无 Section Board 数据');
       btn.hidden = !total || sectionBoardVisible >= total;
     }
 
     function appendSectionCards(fromIndex, toIndex){
       const grid = document.getElementById('sectionMasonry');
       if(!grid || toIndex <= fromIndex) return;
-      const html = sectionBoardItems.slice(fromIndex, toIndex).map(function(item, offset){
-        return renderSectionCard(item, fromIndex + offset);
+      const filteredItems = getFilteredSectionItems();
+      const html = filteredItems.slice(fromIndex, toIndex).map(function(item){
+        return renderSectionCard(item, sectionBoardItems.indexOf(item));
       }).join('');
       grid.insertAdjacentHTML('beforeend', html);
     }
@@ -1367,8 +1376,8 @@ var _hmt = _hmt || [];
         sectionBoardVisible = 0;
       }
       const targetVisible = reset
-        ? Math.min(SECTION_BOARD_BATCH, sectionBoardItems.length)
-        : Math.min(sectionBoardVisible, sectionBoardItems.length);
+        ? Math.min(SECTION_BOARD_BATCH, getFilteredSectionItems().length)
+        : Math.min(sectionBoardVisible, getFilteredSectionItems().length);
       appendSectionCards(sectionBoardVisible, targetVisible);
       sectionBoardVisible = targetVisible;
       bindSectionCards();
@@ -1383,7 +1392,7 @@ var _hmt = _hmt || [];
       if(btn) btn.blur();
 
       const runAppend = function(){
-        const targetVisible = Math.min(sectionBoardVisible + SECTION_BOARD_STEP, sectionBoardItems.length);
+        const targetVisible = Math.min(sectionBoardVisible + SECTION_BOARD_STEP, getFilteredSectionItems().length);
         appendSectionCards(sectionBoardVisible, targetVisible);
         sectionBoardVisible = targetVisible;
         bindSectionCards();
@@ -1402,6 +1411,12 @@ var _hmt = _hmt || [];
       if(btn) {
         btn.addEventListener('mousedown', function(event){ event.preventDefault(); });
         btn.addEventListener('click', loadMoreSectionBoard);
+      }
+      if(window.BLInspirationFavorites){
+        window.BLInspirationFavorites.mountControls({board:'section', gridId:'sectionMasonry', onChange:function(){ renderSectionBoard(true); }});
+        document.addEventListener('baolong:favoriteschange', function(event){
+          if(event.detail && event.detail.board === 'section' && window.BLInspirationFavorites.isSavedMode('section')) renderSectionBoard(true);
+        });
       }
       fetch('data/section.json')
         .then(function(res){

@@ -1,0 +1,44 @@
+BaoLong Lab v219 - Inspiration Board local favorites foundation
+
+Base:
+- baolong-login-header-button-hover-v218-full-noimage.zip
+
+Scope:
+- Adds local browser favorites for Inspiration Board pages only.
+- No login, backend, account sync, JSON schema change, or Prompt card favorite integration in this version.
+
+Changed / added files:
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+- js/inspiration-favorites.js
+
+Feature behavior:
+- Each Inspiration card on Plan / Section / Other / Color gets a heart button.
+- Empty heart: not saved. Filled heart: saved.
+- Saved data is stored in localStorage key: baolong.inspirationFavorites.v1
+- Each board page gets a small local filter bar:
+  - 全部 / All
+  - 已收藏 / Saved
+- Saved view filters cards on the current board.
+- Color Board saved view respects the existing color relationship filter.
+- Clicking the heart does not open the card modal.
+- Existing source links and modal opening remain unchanged.
+
+Safety checks:
+- data/*.json unchanged.
+- images folder is not included in full-noimage package.
+- css/common.css unchanged.
+- js/common.js unchanged.
+- Prompt Tool split resources unchanged.
+- prompt-tool.html remains lightweight, about 60KB.
+- fonts folder still contains 115 local .woff2 files.
+- No __bundler/manifest restored.
+- No Google Fonts CDN added.
+- robots.txt / sitemap.xml / canonical rules unchanged.
+
+Notes:
+- This is a static-site/localStorage feature. Favorites stay on the user's current browser only.
+- Switching devices, browsers, or clearing site data may lose local favorites.
+- Account/cloud favorites can be added later after backend/login is available.

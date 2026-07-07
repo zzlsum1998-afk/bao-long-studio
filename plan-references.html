@@ -1284,6 +1284,7 @@ var _hmt = _hmt || [];
     BaoLong Lab · Plan Inspiration Board
   </footer>
 
+<script defer="" src="js/inspiration-favorites.js?v=219"></script>
 <script>
     const PLAN_BOARD_BATCH = window.matchMedia && window.matchMedia('(max-width: 700px)').matches ? 18 : 36;
     const PLAN_BOARD_STEP = 24;
@@ -1306,6 +1307,11 @@ var _hmt = _hmt || [];
       return '<div class="source-block">' + sourceLink + pinterestNote + '<span>仅作灵感参考，版权归原作者所有。</span><span>如涉及版权问题，请联系删除。</span></div>';
     }
 
+    function getFilteredPlanItems(){
+      const items = Array.isArray(planBoardItems) ? planBoardItems : [];
+      return window.BLInspirationFavorites ? window.BLInspirationFavorites.filterItems('plan', items) : items;
+    }
+
     function renderPlanCard(item, index){
       const images = Array.isArray(item.images) ? item.images : [];
       const cover = item.cover || images[0] || '';
@@ -1314,6 +1320,7 @@ var _hmt = _hmt || [];
       return '<article class="pin" data-plan-index="' + index + '">' +
         '<div class="pin-img has-image" style="--h:' + escapeHTML(item.height || '300px') + ';--c:' + escapeHTML(item.color || '#f4f1eb') + ';">' +
           '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(cover) + '"/>' + multiBadge +
+          (window.BLInspirationFavorites ? window.BLInspirationFavorites.buttonHTML('plan', item) : '') +
         '</div>' +
         '<div class="pin-body">' +
           '<div class="pin-tags">' + tags + '</div>' +
@@ -1325,6 +1332,7 @@ var _hmt = _hmt || [];
     }
 
     function bindPlanCards(){
+      if(window.BLInspirationFavorites) window.BLInspirationFavorites.bindButtons('#planMasonry');
       document.querySelectorAll('#planMasonry .pin:not([data-card-bound="true"])').forEach(function(pin){
         pin.dataset.cardBound = 'true';
         pin.addEventListener('click', function(){
@@ -1345,16 +1353,17 @@ var _hmt = _hmt || [];
       const btn = document.getElementById('planLoadMoreBtn');
       const count = document.getElementById('planLoadMoreCount');
       if(!btn || !count) return;
-      const total = planBoardItems.length;
-      count.textContent = total ? '已显示 ' + Math.min(planBoardVisible, total) + ' / ' + total + ' 张参考' : '暂无 Plan Board 数据';
+      const total = getFilteredPlanItems().length;
+      count.textContent = total ? '已显示 ' + Math.min(planBoardVisible, total) + ' / ' + total + (window.BLInspirationFavorites && window.BLInspirationFavorites.isSavedMode('plan') ? ' 张收藏' : ' 张参考') : (window.BLInspirationFavorites && window.BLInspirationFavorites.isSavedMode('plan') ? '暂无已收藏 Plan 参考' : '暂无 Plan Board 数据');
       btn.hidden = !total || planBoardVisible >= total;
     }
 
     function appendPlanCards(fromIndex, toIndex){
       const grid = document.getElementById('planMasonry');
       if(!grid || toIndex <= fromIndex) return;
-      const html = planBoardItems.slice(fromIndex, toIndex).map(function(item, offset){
-        return renderPlanCard(item, fromIndex + offset);
+      const filteredItems = getFilteredPlanItems();
+      const html = filteredItems.slice(fromIndex, toIndex).map(function(item){
+        return renderPlanCard(item, planBoardItems.indexOf(item));
       }).join('');
       grid.insertAdjacentHTML('beforeend', html);
     }
@@ -1367,8 +1376,8 @@ var _hmt = _hmt || [];
         planBoardVisible = 0;
       }
       const targetVisible = reset
-        ? Math.min(PLAN_BOARD_BATCH, planBoardItems.length)
-        : Math.min(planBoardVisible, planBoardItems.length);
+        ? Math.min(PLAN_BOARD_BATCH, getFilteredPlanItems().length)
+        : Math.min(planBoardVisible, getFilteredPlanItems().length);
       appendPlanCards(planBoardVisible, targetVisible);
       planBoardVisible = targetVisible;
       bindPlanCards();
@@ -1383,7 +1392,7 @@ var _hmt = _hmt || [];
       if(btn) btn.blur();
 
       const runAppend = function(){
-        const targetVisible = Math.min(planBoardVisible + PLAN_BOARD_STEP, planBoardItems.length);
+        const targetVisible = Math.min(planBoardVisible + PLAN_BOARD_STEP, getFilteredPlanItems().length);
         appendPlanCards(planBoardVisible, targetVisible);
         planBoardVisible = targetVisible;
         bindPlanCards();
@@ -1402,6 +1411,12 @@ var _hmt = _hmt || [];
       if(btn) {
         btn.addEventListener('mousedown', function(event){ event.preventDefault(); });
         btn.addEventListener('click', loadMorePlanBoard);
+      }
+      if(window.BLInspirationFavorites){
+        window.BLInspirationFavorites.mountControls({board:'plan', gridId:'planMasonry', onChange:function(){ renderPlanBoard(true); }});
+        document.addEventListener('baolong:favoriteschange', function(event){
+          if(event.detail && event.detail.board === 'plan' && window.BLInspirationFavorites.isSavedMode('plan')) renderPlanBoard(true);
+        });
       }
       fetch('data/plan.json')
         .then(function(res){

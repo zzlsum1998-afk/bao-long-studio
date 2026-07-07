@@ -2241,5 +2241,305 @@
     "isPinterest": true,
     "height": "260px",
     "color": "#f4f1eb"
+  },
+  {
+    "id": 113,
+    "title": "Soft Garden Landscape Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-113-soft-garden-landscape-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-113-soft-garden-landscape-section.webp",
+    "desc": "适合参考柔和景观剖面、植物层次与低饱和手绘氛围。",
+    "tags": [
+      "Landscape Section",
+      "Soft Drawing",
+      "Planting"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/240641071/When-a-Landscape-Section-Starts-Breathing?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 114,
+    "title": "Pastel Park Activity Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-114-pastel-park-activity-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-114-pastel-park-activity-section.webp",
+    "desc": "适合参考公园活动剖面、儿童尺度与轻盈淡彩表达。",
+    "tags": [
+      "Park Section",
+      "Activity",
+      "Pastel"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/240641071/When-a-Landscape-Section-Starts-Breathing?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 115,
+    "title": "Green Community Landscape Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-115-green-community-landscape-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-115-green-community-landscape-section.webp",
+    "desc": "适合参考社区绿地剖面、乔灌草层次与柔和场景叙事。",
+    "tags": [
+      "Community",
+      "Green Section",
+      "Soft Drawing"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/240641071/When-a-Landscape-Section-Starts-Breathing?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "260px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 116,
+    "title": "Vertical Building Green Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-116-vertical-building-green-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-116-vertical-building-green-section.webp",
+    "desc": "适合参考建筑剖面透视、垂直绿化与室内外空间关系。",
+    "tags": [
+      "Building Section",
+      "Vertical Green",
+      "Perspective"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/304907837266536627/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 117,
+    "title": "Residential Axon Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-117-residential-axon-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-117-residential-axon-section.webp",
+    "desc": "适合参考住宅轴测剖面、庭院界面与街角空间关系。",
+    "tags": [
+      "Residential",
+      "Axon Section",
+      "Courtyard"
+    ],
+    "sourceName": "PARC Architectes",
+    "sourceUrl": "https://www.parc-architectes.eu/fr?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "340px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 118,
+    "title": "Tower Axon Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-118-tower-axon-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-118-tower-axon-section.webp",
+    "desc": "适合参考塔楼轴测剖面、立面色彩与基地关系表达。",
+    "tags": [
+      "Tower",
+      "Axon",
+      "Urban"
+    ],
+    "sourceName": "BplusB",
+    "sourceUrl": "https://bplusb.nl/project/schiehaven/?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "340px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 119,
+    "title": "Pink Community Urban Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-119-pink-community-urban-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-119-pink-community-urban-section.webp",
+    "desc": "适合参考社区建筑剖面、街道界面与粉色重点空间表达。",
+    "tags": [
+      "Community",
+      "Urban Section",
+      "Pink Accent"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/672091944415665927/",
+    "isPinterest": true,
+    "height": "280px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 120,
+    "title": "Timber Community Building Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-120-timber-community-building-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-120-timber-community-building-section.webp",
+    "desc": "适合参考坡屋顶公共建筑剖面、木结构氛围与室内活动场景。",
+    "tags": [
+      "Timber",
+      "Community",
+      "Interior Section"
+    ],
+    "sourceName": "KOMAAN Architecten",
+    "sourceUrl": "https://www.komaanarchitecten.be/nl/projects/kasteel-van-heers",
+    "isPinterest": false,
+    "height": "340px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 121,
+    "title": "Blue Waterfront Landscape Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-121-blue-waterfront-landscape-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-121-blue-waterfront-landscape-section.webp",
+    "desc": "适合参考滨水地形剖面、水体关系与浅蓝分析图面。",
+    "tags": [
+      "Waterfront",
+      "Landscape Section",
+      "Blue Diagram"
+    ],
+    "sourceName": "Archidiaries",
+    "sourceUrl": "https://archidiaries.com/academic-projects/roots-for-renewal-rewilding-ladywell-baths-through-adaptive-reuse-masters-design-project/?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "240px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 122,
+    "title": "Airy Landscape Section Board",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-122-airy-landscape-section-board.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-122-airy-landscape-section-board.webp",
+    "desc": "适合参考轻盈景观剖面、场地装置与留白型展板排版。",
+    "tags": [
+      "Landscape Board",
+      "Airy",
+      "Section"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/742108844878304655/",
+    "isPinterest": true,
+    "height": "460px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 123,
+    "title": "Coiko Synergy Axon Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-123-coiko-synergy-axon-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-123-coiko-synergy-axon-section.webp",
+    "desc": "适合参考社区轴测剖面、功能分层与活泼插画式空间表达。",
+    "tags": [
+      "Axon Section",
+      "Community",
+      "Program"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/739927413804494313/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 124,
+    "title": "Layered Roof Axon Section",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-124-layered-roof-axon-section.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-124-layered-roof-axon-section.webp",
+    "desc": "适合参考屋顶分层轴测、建筑更新与平剖结合表达。",
+    "tags": [
+      "Layered Roof",
+      "Axon",
+      "Reuse"
+    ],
+    "sourceName": "Plan Común",
+    "sourceUrl": "https://www.plancomun.com/new-page-10?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 125,
+    "title": "Colorful Forest Section Diagram",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-125-colorful-forest-section-diagram.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-125-colorful-forest-section-diagram.webp",
+    "desc": "适合参考森林场地剖面、彩色流线与多层空间关系。",
+    "tags": [
+      "Forest Section",
+      "Color Diagram",
+      "Circulation"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/962151907917205247/",
+    "isPinterest": true,
+    "height": "520px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 126,
+    "title": "Ecological Section Analysis Board",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-126-ecological-section-analysis-board.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-126-ecological-section-analysis-board.webp",
+    "desc": "适合参考生态剖面展板、场地细节放大与灰度信息排版。",
+    "tags": [
+      "Ecology",
+      "Analysis Board",
+      "Section"
+    ],
+    "sourceName": "KGL Akademi",
+    "sourceUrl": "https://kglakademi.dk/da/project/sympoietic-landscapes",
+    "isPinterest": false,
+    "height": "520px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 127,
+    "title": "Ecological Site Section Board",
+    "type": "Section Inspiration",
+    "images": [
+      "images/inspiration/section/section-ref-127-ecological-site-section-board.webp"
+    ],
+    "cover": "images/inspiration/section/section-ref-127-ecological-site-section-board.webp",
+    "desc": "适合参考生态场地剖面、平剖组合与研究型图面排版。",
+    "tags": [
+      "Site Section",
+      "Ecology",
+      "Research Board"
+    ],
+    "sourceName": "KGL Akademi",
+    "sourceUrl": "https://kglakademi.dk/da/project/sympoietic-landscapes",
+    "isPinterest": false,
+    "height": "520px",
+    "color": "#f4f1eb"
   }
 ]

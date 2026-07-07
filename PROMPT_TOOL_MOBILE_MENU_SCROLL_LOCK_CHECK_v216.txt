@@ -1,0 +1,49 @@
+BaoLong Lab v216 - Prompt Tool mobile menu scroll lock fix
+
+Base package:
+- baolong-contact-methods-formal-v215-full-noimage.zip
+
+Goal:
+- Fix Prompt Tool mobile menu issue where page/background content can still scroll while the menu panel is open.
+
+Changed files:
+- prompt-tool.html
+
+Changes made:
+1. Enhanced Prompt Tool mobile menu script:
+   - Opening mobile menu now locks the page behind it.
+   - Closing menu restores the original scroll position.
+   - Clicking outside the menu closes it.
+   - Pressing Escape closes it.
+   - Clicking a menu link closes it.
+   - Resizing to desktop width closes it.
+   - aria-expanded is updated on the menu button.
+
+2. Added mobile menu panel scroll containment:
+   - -webkit-overflow-scrolling: touch;
+   - overscroll-behavior: contain;
+   - body.mobile-menu-open { overflow: hidden; }
+
+Safety checks:
+- Only prompt-tool.html changed.
+- js/common.js unchanged.
+- css/common.css unchanged.
+- js/prompt-tool-core.js unchanged.
+- js/prompt-tool-ui.js unchanged.
+- data/*.json unchanged.
+- robots.txt unchanged.
+- sitemap.xml unchanged.
+- canonical URLs unchanged and still use https://www.baolonglab.com/.
+- Prompt Tool remains split/lightweight; prompt-tool.html is still about 60KB, not 6MB.
+- No __bundler/manifest found.
+- No Google Fonts CDN found.
+- fonts/ still contains 115 local .woff2 files.
+- full-noimage package contains no images/ folder.
+
+Suggested test:
+- On mobile, open prompt-tool.html.
+- Tap the menu button.
+- Try scrolling the page background: it should stay locked.
+- Scroll inside the menu panel: the panel can still scroll.
+- Tap outside the menu: it should close.
+- Tap a menu link: it should close/navigate normally.

@@ -668,8 +668,11 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
     background:#fff; border:1px solid var(--line);
     border-radius:var(--r-l); box-shadow:0 22px 56px rgba(26,23,20,.18);
     padding:12px; max-height:72vh; overflow-y:auto; display:none;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
   }
   .mobile-menu-panel.open{ display:block; }
+  body.mobile-menu-open{ overflow:hidden; }
   .mobile-menu-panel a{ display:block; padding:11px 14px; border-radius:11px; font-size:14.5px; color:var(--ink); }
   .mobile-menu-panel a:hover{ background:var(--paper-2); }
   .mobile-menu-group{
@@ -1239,19 +1242,91 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
 
 
 <script>
-function toggleMobileMenu(){
-  var panel=document.getElementById('mobileMenuPanel');
-  if(panel) panel.classList.toggle('open');
+/* PROMPT_TOOL_MOBILE_MENU_SCROLL_LOCK_v216
+   Keeps Prompt Tool mobile navigation isolated:
+   menu open locks the page behind it, panel itself can still scroll. */
+var promptToolMobileMenuScrollY=0;
+
+function getPromptToolMobileMenuPanels(){
+  return Array.prototype.slice.call(document.querySelectorAll('.mobile-menu-panel'));
+}
+function getPromptToolPrimaryMobileMenu(){
+  return document.querySelector('.site-header .mobile-menu-panel') || document.getElementById('mobileMenuPanel') || document.querySelector('.mobile-menu-panel');
+}
+function setPromptToolMenuButtonState(isOpen){
+  var btn=document.querySelector('.mobile-menu-toggle');
+  if(btn) btn.setAttribute('aria-expanded',isOpen ? 'true' : 'false');
+}
+function lockPromptToolMobileScroll(){
+  var body=document.body;
+  if(!body || body.classList.contains('mobile-menu-open')) return;
+  promptToolMobileMenuScrollY=window.scrollY || document.documentElement.scrollTop || 0;
+  body.dataset.promptToolScrollY=String(promptToolMobileMenuScrollY);
+  body.style.position='fixed';
+  body.style.top=(-promptToolMobileMenuScrollY)+'px';
+  body.style.left='0';
+  body.style.right='0';
+  body.style.width='100%';
+  body.style.overflow='hidden';
+  document.documentElement.style.overflow='hidden';
+  body.classList.add('mobile-menu-open');
+}
+function unlockPromptToolMobileScroll(){
+  var body=document.body;
+  if(!body) return;
+  var saved=parseInt(body.dataset.promptToolScrollY || String(promptToolMobileMenuScrollY || 0),10) || 0;
+  body.classList.remove('mobile-menu-open');
+  body.style.position='';
+  body.style.top='';
+  body.style.left='';
+  body.style.right='';
+  body.style.width='';
+  body.style.overflow='';
+  document.documentElement.style.overflow='';
+  delete body.dataset.promptToolScrollY;
+  window.scrollTo(0,saved);
 }
 function closeMobileMenu(){
-  var panel=document.getElementById('mobileMenuPanel');
-  if(panel) panel.classList.remove('open');
+  var panels=getPromptToolMobileMenuPanels();
+  panels.forEach(function(panel){ panel.classList.remove('open'); });
+  setPromptToolMenuButtonState(false);
+  unlockPromptToolMobileScroll();
+}
+function openPromptToolMobileMenu(){
+  var primary=getPromptToolPrimaryMobileMenu();
+  if(!primary) return;
+  getPromptToolMobileMenuPanels().forEach(function(panel){ panel.classList.remove('open'); });
+  primary.classList.add('open');
+  setPromptToolMenuButtonState(true);
+  lockPromptToolMobileScroll();
+}
+function toggleMobileMenu(){
+  var primary=getPromptToolPrimaryMobileMenu();
+  if(!primary) return;
+  if(primary.classList.contains('open')) closeMobileMenu();
+  else openPromptToolMobileMenu();
 }
 function navFilter(filter){
   var target='assets.html?filter=' + encodeURIComponent(filter) + '#products';
   window.location.href=target;
   return false;
 }
+document.addEventListener('click',function(event){
+  var target=event.target;
+  if(!target || !document.body.classList.contains('mobile-menu-open')) return;
+  if(target.closest && (target.closest('.mobile-menu-panel') || target.closest('.mobile-menu-toggle'))) return;
+  closeMobileMenu();
+});
+document.addEventListener('keydown',function(event){
+  if(event.key==='Escape') closeMobileMenu();
+});
+document.addEventListener('click',function(event){
+  var link=event.target && event.target.closest ? event.target.closest('.mobile-menu-panel a') : null;
+  if(link) closeMobileMenu();
+});
+window.addEventListener('resize',function(){
+  if(window.innerWidth>1080) closeMobileMenu();
+});
 </script>
 
 

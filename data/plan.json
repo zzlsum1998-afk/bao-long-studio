@@ -2674,5 +2674,325 @@
     "isPinterest": true,
     "height": "360px",
     "color": "#f4f1eb"
+  },
+  {
+    "id": 134,
+    "title": "Pastel Community Garden Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-135-pastel-community-garden-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-135-pastel-community-garden-plan.webp",
+    "desc": "适合参考柔和社区花园、种植分区和生活化庭院平面表达。",
+    "tags": [
+      "Community Garden",
+      "Pastel Plan",
+      "Planting Layout"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1006343479214713473/",
+    "isPinterest": true,
+    "height": "290px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 135,
+    "title": "Linear Building Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-136-linear-building-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-136-linear-building-landscape-plan.webp",
+    "desc": "适合参考线性建筑周边景观、入口动线和淡彩总平表达。",
+    "tags": [
+      "Linear Site",
+      "Building Plan",
+      "Soft Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/785033778844501268/",
+    "isPinterest": true,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 136,
+    "title": "Grand Lilas Forest Campus Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-137-grand-lilas-forest-campus-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-137-grand-lilas-forest-campus-plan.webp",
+    "desc": "适合参考林地式场地总平、建筑与森林边界和绿色基底表达。",
+    "tags": [
+      "Forest Campus",
+      "Site Plan",
+      "Green Base"
+    ],
+    "sourceName": "Plan Común",
+    "sourceUrl": "https://www.plancomun.com/54grandlilas/",
+    "isPinterest": false,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 137,
+    "title": "Terraced Green Corridor Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-138-terraced-green-corridor-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-138-terraced-green-corridor-plan.webp",
+    "desc": "适合参考高差场地、绿色廊道组织和折线式步行系统。",
+    "tags": [
+      "Green Corridor",
+      "Terrace",
+      "Path System"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/856598791623219090/",
+    "isPinterest": true,
+    "height": "290px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 138,
+    "title": "Linear Waterfront Urban Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-139-linear-waterfront-urban-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-139-linear-waterfront-urban-plan.webp",
+    "desc": "适合参考滨水线性空间、慢行界面和城市更新平面构成。",
+    "tags": [
+      "Waterfront",
+      "Linear Plan",
+      "Urban Renewal"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/610660030736920209/",
+    "isPinterest": true,
+    "height": "360px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 139,
+    "title": "Playful Schoolyard Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-140-playful-schoolyard-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-140-playful-schoolyard-masterplan.webp",
+    "desc": "适合参考校园活动场地、游戏空间分区和柔和儿童尺度总平。",
+    "tags": [
+      "Schoolyard",
+      "Play Space",
+      "Campus Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/56365432831722724/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 140,
+    "title": "Compact Courtyard Site Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-141-compact-courtyard-site-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-141-compact-courtyard-site-plan.webp",
+    "desc": "适合参考紧凑城市地块、庭院组织和蓝绿色场地平面表达。",
+    "tags": [
+      "Courtyard",
+      "Compact Site",
+      "Urban Plan"
+    ],
+    "sourceName": "Pinterest",
+    "sourceUrl": "https://www.pinterest.com/pin/1078893654496690193/",
+    "isPinterest": true,
+    "height": "320px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 141,
+    "title": "Munich North Green Strategy Map",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-142-munich-north-green-strategy-map.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-142-munich-north-green-strategy-map.webp",
+    "desc": "适合参考区域尺度绿色战略、生态廊道和城市边缘结构分析。",
+    "tags": [
+      "Strategy Map",
+      "Green Network",
+      "Regional Plan"
+    ],
+    "sourceName": "Urban Catalyst",
+    "sourceUrl": "https://urbancatalyst.de/projekt/ideenwerkstatt-muenchner-norden/",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 142,
+    "title": "Werkstadt Grasbrook Urban Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-143-werkstadt-grasbrook-urban-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-143-werkstadt-grasbrook-urban-plan.webp",
+    "desc": "适合参考大型片区更新、街区开放空间和高饱和总平配色。",
+    "tags": [
+      "Urban Plan",
+      "District Renewal",
+      "Open Space"
+    ],
+    "sourceName": "MVRDV",
+    "sourceUrl": "https://www.mvrdv.com/projects/427/werkstadt-grasbrook?photo=18780",
+    "isPinterest": false,
+    "height": "280px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 143,
+    "title": "Campus Master Plan Diagram",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-144-campus-master-plan-diagram.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-144-campus-master-plan-diagram.webp",
+    "desc": "适合参考校园总体规划、功能节点关系和轴测式策略图表达。",
+    "tags": [
+      "Campus Plan",
+      "Masterplan",
+      "Diagram"
+    ],
+    "sourceName": "Sasaki",
+    "sourceUrl": "https://www.sasaki.com/projects/university-of-north-dakota-academic-master-plan/",
+    "isPinterest": false,
+    "height": "270px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 144,
+    "title": "Village Network Landscape Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-145-village-network-landscape-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-145-village-network-landscape-plan.webp",
+    "desc": "适合参考村落更新、街巷网络和低饱和社区空间平面。",
+    "tags": [
+      "Village Plan",
+      "Network",
+      "Community"
+    ],
+    "sourceName": "Behance",
+    "sourceUrl": "https://www.behance.net/gallery/232785807/MAAK-Graduation-Project",
+    "isPinterest": false,
+    "height": "300px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 145,
+    "title": "Courtyard Garden Site Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-146-courtyard-garden-site-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-146-courtyard-garden-site-plan.webp",
+    "desc": "适合参考建筑庭院、花园分区和灰绿色景观平面表达。",
+    "tags": [
+      "Courtyard Garden",
+      "Site Plan",
+      "Soft Green"
+    ],
+    "sourceName": "Lorber Paul",
+    "sourceUrl": "https://lorberpaul.de/projekte/cafedrale-immanuel/?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "290px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 146,
+    "title": "Rewilding Urban Fabric Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-147-rewilding-urban-fabric-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-147-rewilding-urban-fabric-plan.webp",
+    "desc": "适合参考城市再野化、既有肌理更新和淡彩叠图式场地分析。",
+    "tags": [
+      "Rewilding",
+      "Urban Fabric",
+      "Adaptive Reuse"
+    ],
+    "sourceName": "ArchiDiaries",
+    "sourceUrl": "https://archidiaries.com/academic-projects/roots-for-renewal-rewilding-ladywell-baths-through-adaptive-reuse-masters-design-project/?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "270px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 147,
+    "title": "Regenerative Wetland Masterplan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-148-regenerative-wetland-masterplan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-148-regenerative-wetland-masterplan.webp",
+    "desc": "适合参考湿地修复、再生建筑场景和深绿色生态总平表达。",
+    "tags": [
+      "Wetland",
+      "Regenerative",
+      "Ecology"
+    ],
+    "sourceName": "ArchiDiaries",
+    "sourceUrl": "https://archidiaries.com/academic-projects/natures-atelier-masters-design-thesis-on-regenerative-architecture/",
+    "isPinterest": false,
+    "height": "310px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 148,
+    "title": "Red Ecological Cemetery Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-149-red-ecological-cemetery-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-149-red-ecological-cemetery-plan.webp",
+    "desc": "适合参考红色叠线策略、纪念性场地和生态墓园空间推演。",
+    "tags": [
+      "Cemetery Plan",
+      "Red Diagram",
+      "Ecological"
+    ],
+    "sourceName": "ArchiDiaries",
+    "sourceUrl": "https://archidiaries.com/academic-projects/cathedral-for-death-a-sustainable-necropolis-next-to-the-palermitani-catacombs-sicily-masters-design-project-on-religious-architecture/",
+    "isPinterest": false,
+    "height": "330px",
+    "color": "#f4f1eb"
+  },
+  {
+    "id": 149,
+    "title": "Pastel Residential Floor Plan",
+    "type": "Plan Inspiration",
+    "images": [
+      "images/inspiration/plan/plan-ref-150-pastel-residential-floor-plan.webp"
+    ],
+    "cover": "images/inspiration/plan/plan-ref-150-pastel-residential-floor-plan.webp",
+    "desc": "适合参考室内平面、柔和配色和住宅空间图纸版式。",
+    "tags": [
+      "Floor Plan",
+      "Pastel",
+      "Residential"
+    ],
+    "sourceName": "Illustrarch",
+    "sourceUrl": "https://illustrarch.com/inspirational-stories/55205-inspirational-stories-6-vishakha-tiwari-architecture-candy.html?utm_source=Pinterest&utm_medium=organic",
+    "isPinterest": false,
+    "height": "320px",
+    "color": "#f4f1eb"
   }
 ]

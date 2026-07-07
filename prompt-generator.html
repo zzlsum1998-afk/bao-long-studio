@@ -1020,6 +1020,121 @@
       font-weight:650;
     }
 
+    /* v220 Prompt case local favorites */
+    .prompt-case-card{
+      position:relative;
+      display:block;
+    }
+    .prompt-save-btn{
+      position:absolute;
+      top:12px;
+      right:12px;
+      z-index:6;
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      border:1px solid rgba(17,17,17,.13);
+      background:rgba(255,255,255,.88);
+      color:#111;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:0 14px 30px rgba(0,0,0,.13);
+      backdrop-filter:blur(12px);
+      transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+    }
+    .prompt-save-btn:hover,
+    .prompt-save-btn.saved{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    .prompt-save-btn:focus-visible,
+    .prompt-favorite-filter-btn:focus-visible{
+      outline:2px solid #111;
+      outline-offset:3px;
+    }
+    .prompt-favorite-filter-bar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      margin:0 0 22px;
+      padding:13px 16px;
+      border:1px solid rgba(17,17,17,.09);
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      box-shadow:0 18px 46px rgba(0,0,0,.045);
+      backdrop-filter:blur(16px);
+    }
+    .prompt-favorite-copy{
+      font-size:12px;
+      letter-spacing:.03em;
+      color:rgba(17,17,17,.54);
+      white-space:nowrap;
+    }
+    .prompt-favorite-actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .prompt-favorite-filter-btn{
+      border:1px solid rgba(17,17,17,.14);
+      background:#fff;
+      color:#111;
+      border-radius:999px;
+      padding:8px 13px;
+      font-size:12px;
+      line-height:1;
+      cursor:pointer;
+      transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+    }
+    .prompt-favorite-filter-btn:hover,
+    .prompt-favorite-filter-btn.active{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+      transform:translateY(-1px);
+    }
+    .prompt-favorite-empty{
+      margin:18px 0 0;
+      padding:22px;
+      border:1px dashed rgba(17,17,17,.18);
+      border-radius:22px;
+      background:rgba(255,255,255,.62);
+      color:var(--muted);
+      text-align:center;
+      line-height:1.7;
+      font-size:14px;
+    }
+    .prompt-favorite-empty[hidden]{
+      display:none !important;
+    }
+    @media(max-width:720px){
+      .prompt-favorite-filter-bar{
+        border-radius:22px;
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px;
+        margin-bottom:18px;
+      }
+      .prompt-favorite-copy{white-space:normal}
+      .prompt-favorite-actions{justify-content:flex-start}
+      .prompt-save-btn{
+        width:38px;
+        height:38px;
+        right:10px;
+        top:10px;
+      }
+    }
+
+
 </style>
 <link href="css/common.css?v=197" rel="stylesheet"/>
 <script defer="" src="js/common.js?v=213"></script>
@@ -1230,7 +1345,7 @@ var _hmt = _hmt || [];
 <button class="secondary-btn" onclick="location.href='prompt-tool.html'">Build Your Prompt</button>
 </div>
 <div class="prompt-case-grid">
-<button class="prompt-case-card" onclick="openPromptCase('case01')" type="button">
+<article class="prompt-case-card" data-prompt-id="case01" role="button" tabindex="0">
 <div aria-label="马卡龙拼贴景观场景" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-01.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Collage Landscape</div>
@@ -1239,8 +1354,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>拼贴感</span><span>马卡龙色</span><span>景观场景</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case02')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case02" role="button" tabindex="0">
 <div aria-label="莫兰迪水彩景观场景" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-02.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Watercolor Scene</div>
@@ -1249,8 +1364,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>水彩</span><span>莫兰迪</span><span>柔和纸感</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case03')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case03" role="button" tabindex="0">
 <div aria-label="极简拼贴总平表达" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-03.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Plan Collage</div>
@@ -1259,8 +1374,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>总平面</span><span>极简色</span><span>拼贴分析</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case04')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case04" role="button" tabindex="0">
 <div aria-label="粉彩水彩空间封面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-04.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Watercolor Cover</div>
@@ -1269,8 +1384,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>粉彩</span><span>水彩质感</span><span>活动场景</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case05')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case05" role="button" tabindex="0">
 <div aria-label="淡彩城市更新公共建筑" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-05.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Pastel Urban Renewal</div>
@@ -1279,8 +1394,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>城市更新</span><span>淡彩竞赛</span><span>新旧融合</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case06')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case06" role="button" tabindex="0">
 <div aria-label="淡彩建筑插画渲染" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-06.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Pastel Architecture</div>
@@ -1289,8 +1404,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>淡彩插画</span><span>建筑底图</span><span>纸张肌理</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case07')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case07" role="button" tabindex="0">
 <div aria-label="浅绿手绘建筑表现" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-07.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Soft Green Rendering</div>
@@ -1299,8 +1414,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>浅灰绿</span><span>手绘感</span><span>低饱和</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case08')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case08" role="button" tabindex="0">
 <div aria-label="手工纸质拼贴建筑" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-08.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Paper Collage</div>
@@ -1309,8 +1424,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>纸质拼贴</span><span>手工感</span><span>低饱和</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case09')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case09" role="button" tabindex="0">
 <div aria-label="粉色单色拼贴剖面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-09.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Pink Section Collage</div>
@@ -1319,8 +1434,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>粉色单色</span><span>剖面表达</span><span>纸张拼贴</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case10')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case10" role="button" tabindex="0">
 <div aria-label="蓝线生态建筑分析图" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-10.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Blue Line Analysis</div>
@@ -1329,8 +1444,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>蓝色线稿</span><span>生态分析</span><span>清爽图纸</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case11')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case11" role="button" tabindex="0">
 <div aria-label="浅绿色生态剖面插画" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-11.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Sage Green Section</div>
@@ -1339,8 +1454,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>浅绿色</span><span>生态剖面</span><span>平面植物</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case12')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case12" role="button" tabindex="0">
 <div aria-label="蓝灰淡彩拼贴剖面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-12.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Blue Grey Collage</div>
@@ -1349,8 +1464,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>蓝灰淡彩</span><span>半透明</span><span>拼贴剖面</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case13')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case13" role="button" tabindex="0">
 <div aria-label="柔和材质拼贴剖面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-13.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Material Collage</div>
@@ -1359,8 +1474,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>材质拼贴</span><span>柔和光影</span><span>非水彩</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case14')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case14" role="button" tabindex="0">
 <div aria-label="景观线稿实景渲染" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-14.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Photoreal Landscape</div>
@@ -1369,8 +1484,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>实景渲染</span><span>景观线稿</span><span>真实材质</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case15')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case15" role="button" tabindex="0">
 <div aria-label="建筑景观线稿实景" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-15.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Photoreal Perspective</div>
@@ -1379,8 +1494,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>透视线稿</span><span>实景效果</span><span>自然光影</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
-<button class="prompt-case-card" onclick="openPromptCase('case16')" type="button">
+</article>
+<article class="prompt-case-card" data-prompt-id="case16" role="button" tabindex="0">
 <div aria-label="生态景观建筑剖面" class="prompt-case-img" role="img" style="background-image:url('images/prompt-cases/prompt-case-16.webp')"></div>
 <div class="prompt-case-body">
 <div class="prompt-case-kicker">Ecological Section</div>
@@ -1389,7 +1504,7 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags"><span>生态剖面</span><span>植物层次</span><span>根系土壤</span></div>
 <div class="prompt-case-app">生成工具：<strong>Midjourney</strong></div>
 </div>
-</button>
+</article>
 </div>
 </section>
 <div aria-hidden="true" class="prompt-modal" id="promptCaseModal">
@@ -1654,6 +1769,7 @@ var _hmt = _hmt || [];
   }
 };
 
+    window.BaoLongPromptCases = promptCases;
 
     /* v176: lock the background page while prompt case modal is open, without fixing the body.
        The previous fixed-body lock restored scroll on close, which could create a visible page slide/jump. */
@@ -1794,6 +1910,7 @@ var _hmt = _hmt || [];
       if(event.target === modal) closePromptCase();
     });
   </script>
+<script defer="" src="js/prompt-favorites.js?v=220"></script>
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
 <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>

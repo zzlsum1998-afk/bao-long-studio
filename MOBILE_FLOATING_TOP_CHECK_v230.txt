@@ -1,0 +1,33 @@
+BaoLong Lab v230 – 移动端回到顶部按钮安全区微调版
+
+Base: v229 Interaction 页面回到顶部按钮补充版
+
+Goal:
+- 检查并优化卡片类页面右下角 ✦ 回到顶部按钮在移动端的可用性。
+
+Files changed:
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+- prompt-generator.html
+- interaction.html
+- MOBILE_FLOATING_TOP_CHECK_v230.txt
+
+Mobile refinement:
+1. 保留原来的移动端尺寸：48px × 48px。
+2. 保留右下角 18px 间距，并增加 iOS / 刘海屏 / Home Indicator 安全区适配：
+   bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+3. 增加 touch-action: manipulation，降低移动端点击延迟/误触感。
+4. 增加 -webkit-tap-highlight-color: transparent，减少移动端点击时的默认高亮。
+
+Checked:
+- 6 个页面各只有 1 个 .floating-top-btn。
+- 6 个页面各只有 1 个 scrollCurrentPageTop()。
+- 6 个页面按钮均为 ✦，功能仍是回到当前页面顶部，不是回首页。
+- 移动端规则均包含 48px 尺寸、right:18px、safe-area bottom。
+- 按钮 z-index 仍为 30，低于移动菜单 panel / inspiration modal / prompt modal，不会盖住弹窗或菜单。
+- 未改 common.css / common.js。
+- 未改收藏逻辑、Prompt Tool、Resume Tool。
+- 未改 JSON / data / images / sitemap / robots / favicon。
+- 未改 .masonry 容器结构。

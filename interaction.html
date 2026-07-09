@@ -918,7 +918,7 @@
     }
 
 
-    /* v229 Interaction current-page back-to-top floating button: matches homepage index floating button style */
+    /* v230 Interaction current-page back-to-top floating button: mobile safe-area refinement */
     .floating-top-btn{
       appearance:none;
       -webkit-appearance:none;
@@ -939,6 +939,8 @@
       line-height:1;
       box-shadow:0 14px 34px rgba(0,0,0,.2);
       cursor:pointer;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
       transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
     }
     .floating-top-btn:hover{
@@ -954,6 +956,7 @@
         height:48px;
         right:18px;
         bottom:18px;
+        bottom:calc(18px + env(safe-area-inset-bottom, 0px));
         font-size:21px;
       }
     }

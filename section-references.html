@@ -366,6 +366,46 @@
     .source-link{color:#4f4940;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
     .source-link:hover{color:#111}
     .multi-badge{position:absolute;right:12px;bottom:12px;z-index:3;border-radius:999px;background:rgba(17,17,17,.72);color:#fff;font-size:11px;letter-spacing:.04em;padding:6px 9px;backdrop-filter:blur(8px)}
+
+    .desktop-multi-label{display:inline}
+    .mobile-multi-label{display:none}
+    .pin-mobile-image-nav{display:none}
+    @media(max-width:900px){
+      .pin-img.has-image.is-carousel{touch-action:pan-y}
+      .desktop-multi-label{display:none}
+      .mobile-multi-label{display:inline}
+      .pin-mobile-image-nav{
+        appearance:none;
+        -webkit-appearance:none;
+        border:1px solid rgba(255,255,255,.78);
+        background:rgba(255,255,255,.84);
+        color:#111;
+        position:absolute;
+        top:50%;
+        z-index:5;
+        width:36px;
+        height:36px;
+        border-radius:999px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font:inherit;
+        font-size:24px;
+        line-height:1;
+        box-shadow:0 10px 24px rgba(0,0,0,.13);
+        backdrop-filter:blur(12px);
+        cursor:pointer;
+        transform:translateY(-50%);
+        transition:transform .18s ease,background .18s ease,border-color .18s ease;
+        -webkit-tap-highlight-color:transparent;
+        touch-action:manipulation;
+      }
+      .pin-mobile-image-nav.prev{left:12px}
+      .pin-mobile-image-nav.next{right:12px}
+      .pin-mobile-image-nav:hover{background:#fff;border-color:#fff}
+      .pin-mobile-image-nav:active{transform:translateY(-50%) scale(.96)}
+      .pin-mobile-image-nav:focus-visible{outline:2px solid #111;outline-offset:2px}
+    }
     .modal-img.has-image::before{display:none}
     .modal-img img{width:100%;height:100%;min-height:560px;object-fit:contain;object-position:center;display:block;background:#f7f6f2}
     .modal-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.65);background:rgba(17,17,17,.48);color:#fff;font-size:28px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -1362,10 +1402,11 @@ var _hmt = _hmt || [];
       const images = Array.isArray(item.images) ? item.images : [];
       const cover = item.cover || images[0] || '';
       const tags = (item.tags || []).map(function(tag){ return '<span class="pin-tag">' + escapeHTML(tag) + '</span>'; }).join('');
-      const multiBadge = images.length > 1 ? '<span class="multi-badge">' + images.length + ' Images</span>' : '';
+      const multiBadge = images.length > 1 ? '<span class="multi-badge"><span class="desktop-multi-label">' + images.length + ' Images</span><span class="mobile-multi-label" data-mobile-image-count>1 / ' + images.length + '</span></span>' : '';
+      const mobileCarousel = images.length > 1 ? '<button class="pin-mobile-image-nav prev" type="button" aria-label="上一张图片 / Previous image" data-image-step="-1">‹</button><button class="pin-mobile-image-nav next" type="button" aria-label="下一张图片 / Next image" data-image-step="1">›</button>' : '';
       return '<article class="pin" data-section-index="' + index + '">' +
-        '<div class="pin-img has-image" style="--h:' + escapeHTML(item.height || '300px') + ';--c:' + escapeHTML(item.color || '#f4f1eb') + ';">' +
-          '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(cover) + '"/>' + multiBadge +
+        '<div class="pin-img has-image' + (images.length > 1 ? ' is-carousel' : '') + '" data-mobile-image-index="0" style="--h:' + escapeHTML(item.height || '300px') + ';--c:' + escapeHTML(item.color || '#f4f1eb') + ';">' +
+          '<img alt="' + escapeHTML(item.title) + '" decoding="async" loading="lazy" src="' + escapeHTML(cover) + '"/>' + multiBadge + mobileCarousel +
           (window.BLInspirationFavorites ? window.BLInspirationFavorites.buttonHTML('section', item) : '') +
         '</div>' +
         '<div class="pin-body">' +
@@ -1377,8 +1418,35 @@ var _hmt = _hmt || [];
       '</article>';
     }
 
+
+    function changeSectionCardImage(pin, step){
+      if(!pin) return;
+      const item = sectionBoardItems[Number(pin.dataset.sectionIndex)];
+      const images = Array.isArray(item && item.images) ? item.images : [];
+      if(images.length < 2) return;
+      const imgWrap = pin.querySelector('.pin-img');
+      const img = imgWrap ? imgWrap.querySelector('img') : null;
+      if(!imgWrap || !img) return;
+      const current = Number(imgWrap.dataset.mobileImageIndex || 0);
+      const next = (current + step + images.length) % images.length;
+      imgWrap.dataset.mobileImageIndex = String(next);
+      img.src = images[next];
+      img.alt = (item.title || 'Inspiration image') + ' ' + (next + 1);
+      const counter = pin.querySelector('[data-mobile-image-count]');
+      if(counter) counter.textContent = (next + 1) + ' / ' + images.length;
+    }
+
     function bindSectionCards(){
       if(window.BLInspirationFavorites) window.BLInspirationFavorites.bindButtons('#sectionMasonry');
+      document.querySelectorAll('#sectionMasonry .pin-mobile-image-nav:not([data-carousel-bound="true"])').forEach(function(btn){
+        btn.dataset.carouselBound = 'true';
+        btn.addEventListener('click', function(event){
+          event.preventDefault();
+          event.stopPropagation();
+          const step = Number(btn.dataset.imageStep || 1);
+          changeSectionCardImage(btn.closest('.pin'), step);
+        });
+      });
       document.querySelectorAll('#sectionMasonry .pin:not([data-card-bound="true"])').forEach(function(pin){
         pin.dataset.cardBound = 'true';
         pin.addEventListener('click', function(){

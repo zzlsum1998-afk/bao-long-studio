@@ -1,0 +1,36 @@
+BaoLong Lab v231 – 移动端灵感板卡片内多图切换版
+
+Base: v230 移动端回到顶部按钮安全区微调版
+
+Goal:
+- 在移动端 Plan / Section / Other 卡片列表里，给多图卡片增加卡片内左右切换。
+- 用户无需点开卡片，就可以在当前卡片图片区域查看第 2、3 张图。
+- 点开卡片本身仍保持原有移动端信息详情逻辑。
+
+Files changed:
+- plan-references.html
+- section-references.html
+- render-references.html
+- MOBILE_INLINE_MULTI_IMAGE_CHECK_v231.txt
+
+Changes:
+1. 多图卡片图片区域新增移动端左右切换按钮：
+   - 左侧：‹
+   - 右侧：›
+2. 单图卡片不显示切换按钮，保持原样。
+3. 移动端多图角标从 “N Images” 切换为 “1 / N”，切图时同步更新为 “2 / N”等。
+4. 桌面端仍保持原来的 “N Images” 角标与弹窗多图浏览逻辑。
+5. 点击左右切换按钮时使用 preventDefault + stopPropagation，避免误触打开卡片详情。
+6. 卡片图片容器高度不改变，只替换 img.src，避免 .masonry 卡片被撑大。
+
+Checked:
+- Only 3 HTML files changed from v230: plan-references.html, section-references.html, render-references.html.
+- Inline scripts syntax check passed for plan/section/render pages.
+- Plan / Section / Other each has mobile carousel controls and per-card image switch function.
+- JSON/data unchanged.
+- Images unchanged.
+- common.css / common.js unchanged.
+- Inspiration favorites JS unchanged.
+- Prompt Generator / Prompt Tool / Resume Tool unchanged.
+- sitemap / robots / favicon unchanged.
+- Other Board still displays as Other Board, not Render Board.

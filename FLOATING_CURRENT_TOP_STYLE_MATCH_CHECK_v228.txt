@@ -1,0 +1,29 @@
+BaoLong Lab v228 – 卡片页回到顶部按钮样式对齐首页版
+
+Base: v227 卡片页当前页回到顶部按钮版
+
+Goal:
+- 保留 v227 的“回到当前页面顶部”功能；
+- 将灵感板与 Prompt 卡片页右下角浮动按钮的视觉样式，进一步对齐首页 index 的浮动按钮观感。
+
+Files changed:
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+- prompt-generator.html
+- FLOATING_CURRENT_TOP_STYLE_MATCH_CHECK_v228.txt
+
+Changes:
+1. 保留按钮位置、尺寸、黑色圆形底、阴影、hover 上浮与回到顶部逻辑不变。
+2. 将按钮内部符号由 “↑” 调整为与首页一致的 “✦”。
+3. 不新增回首页链接，仍然是回到当前页面顶部。
+
+Checked:
+- 5 个页面都保留回到顶部功能
+- 5 个页面按钮符号已改为 ✦
+- 未改 common.css / common.js
+- 未改收藏逻辑 / Prompt Tool / Resume Tool
+- 未改 JSON / data / images / sitemap / robots / favicon
+- 未改 .masonry 容器结构
+- Other Board 前台仍显示为 Other Board

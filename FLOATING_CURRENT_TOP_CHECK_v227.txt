@@ -1,0 +1,37 @@
+BaoLong Lab v227 – Card pages current-page back-to-top button
+
+Base: v225 Other Board update full-noimages.
+
+Goal:
+- Correct v226 misunderstanding: this version does NOT add a Back Home / 首页 link.
+- It adds a floating button that scrolls the CURRENT page back to the top, matching the homepage floating button position.
+
+Changed pages:
+- plan-references.html
+- section-references.html
+- render-references.html
+- color-references.html
+- prompt-generator.html
+
+Behavior:
+- Fixed bottom-right black circular button with visible icon: ↑
+- title / aria-label: 回到顶部 / Back to top
+- click runs window.scrollTo({top:0, behavior:'smooth'})
+- desktop: 58px circle, right/bottom 32px
+- mobile: 48px circle, right/bottom 18px
+- z-index: 30, below Inspiration modals and Prompt modal, so it will not cover modals.
+
+Safety notes:
+- No Back Home link was added.
+- No homepage/navigation changes.
+- No common.css/common.js changes.
+- No favorite JS changes.
+- No Prompt Tool core changes.
+- No Prompt Generator modal/copy/favorites logic changes.
+- No Inspiration load-more/favorites logic changes.
+- No JSON/data/images/sitemap/robots/favicon/Resume Tool changes.
+
+Checks:
+- The five target pages each contain exactly one .floating-top-btn.
+- .masonry containers remain unchanged in the Inspiration Board pages.
+- render-references.html still displays Other Board and was not renamed back to Render Board.

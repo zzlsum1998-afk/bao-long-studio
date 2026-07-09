@@ -1167,6 +1167,49 @@ var _hmt = _hmt || [];
 </script>
 <!-- /BaoLong analytics v169 -->
 <!-- /BaoLong SEO structure v168 -->
+
+<style>
+  /* v227 current-page back-to-top floating button: matches homepage floating position */
+  .floating-top-btn{
+    appearance:none;
+    -webkit-appearance:none;
+    border:0;
+    position:fixed;
+    right:32px;
+    bottom:32px;
+    z-index:30;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font:inherit;
+    font-size:24px;
+    line-height:1;
+    box-shadow:0 14px 34px rgba(0,0,0,.2);
+    cursor:pointer;
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .floating-top-btn:hover{
+    transform:translateY(-5px) scale(1.04);
+  }
+  .floating-top-btn:focus-visible{
+    outline:2px solid #111;
+    outline-offset:3px;
+  }
+  @media(max-width:720px){
+    .floating-top-btn{
+      width:48px;
+      height:48px;
+      right:18px;
+      bottom:18px;
+      font-size:21px;
+    }
+  }
+</style>
+
 </head>
 <body>
 <header class="site-header">
@@ -1741,6 +1784,8 @@ var _hmt = _hmt || [];
       return false;
     }
   </script>
+
+<button class="floating-top-btn" type="button" onclick="scrollCurrentPageTop(event)" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">↑</button>
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
 <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
@@ -1799,5 +1844,16 @@ var _hmt = _hmt || [];
     document.querySelectorAll('.modal-img.has-image img').forEach(tuneModalImage);
   })();
 </script>
+
+<script>
+  function scrollCurrentPageTop(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+</script>
+
 </body>
 </html>

@@ -1,0 +1,36 @@
+BaoLong Lab v229 – Interaction 页面回到顶部按钮补充版
+
+Base: v228 卡片页回到顶部按钮样式对齐首页版
+
+Goal:
+- 在 Interaction 主页面增加与卡片页一致的“回到当前页面顶部”浮动按钮。
+- 按钮样式对齐首页 index 的黑色圆形 ✦ 浮动按钮。
+
+Files changed:
+- interaction.html
+- INTERACTION_CURRENT_TOP_BUTTON_CHECK_v229.txt
+
+Changes:
+1. interaction.html 新增右下角浮动按钮：
+   - class: .floating-top-btn
+   - visible icon: ✦
+   - title / aria-label: 回到顶部 / Back to top
+   - function: scrollCurrentPageTop(event)
+2. 点击后平滑回到当前 interaction.html 页面顶部。
+3. 按钮位置与首页浮动按钮保持一致：
+   - desktop: 58px, right/bottom 32px
+   - mobile: 48px, right/bottom 18px
+4. z-index: 30，低于站点导航与弹窗层级，不影响页面卡片点击。
+
+Not touched:
+- plan-references.html / section-references.html / render-references.html / color-references.html / prompt-generator.html
+- common.css / common.js
+- Prompt Tool / Prompt Generator logic / Resume Tool
+- Inspiration favorites / Prompt favorites
+- JSON / data / images / sitemap / robots / favicon
+
+Checked:
+- interaction.html has exactly one .floating-top-btn
+- scrollCurrentPageTop exists once
+- Interaction cards remain inside .interaction-case-grid
+- Navigation and mobile menu scripts are unchanged

@@ -2,6 +2,7 @@
 <html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="baolong-build" content="v233">
 <title>Prompt Library · BaoLong Lab</title>
 
 <link rel="stylesheet" href="css/prompt-tool-fonts.css?v=208">
@@ -878,26 +879,6 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
     </div>
 
   </header>
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-  <a href="index.html" onclick="closeMobileMenu()">全部</a>
-  <div class="mobile-menu-group">素材</div>
-  <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块图素材</a>
-  <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">人物素材</a>
-  <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">植物素材</a>
-  <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">动物素材</a>
-  <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">纹理</a>
-  <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费资源</a>
-  <div class="mobile-menu-group">工具</div>
-  <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt 工具</a>
-  <a href="interaction.html" onclick="closeMobileMenu()">交互实验室</a>
-  <a href="resume.html" onclick="closeMobileMenu()">简历</a>
-  <div class="mobile-menu-group">灵感板</div>
-  <a href="plan-references.html" onclick="closeMobileMenu()">平面图</a>
-  <a href="section-references.html" onclick="closeMobileMenu()">剖面图</a>
-  <a href="render-references.html" onclick="closeMobileMenu()">其他参考</a>
-  <div class="mobile-menu-group">账户</div>
-  <a href="login.html" onclick="closeMobileMenu()">Log in</a>
-</div>
 
 <!-- ============ WORKSPACE ============ -->
 <div class="workspace">
@@ -909,7 +890,7 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
       <div class="nav-item active" onclick="go('s1')"><span class="ni-num">01</span><span class="ni-label">画面语言</span></div>
       <div class="nav-item" onclick="go('s2')"><span class="ni-num">02</span><span class="ni-label">观看方式</span></div>
       <div class="nav-item" onclick="go('s3')"><span class="ni-num">03</span><span class="ni-label">色彩气质</span></div>
-      <div class="nav-item" onclick="go('s4')"><span class="ni-num">04</span><span class="ni-label">空间类型</span></div>
+      <div class="nav-item" onclick="go('s4')"><span class="ni-num">04</span><span class="ni-label">设计风格</span></div>
       <div class="nav-item" onclick="go('s5')"><span class="ni-num">05</span><span class="ni-label">场景元素</span></div>
       <div class="nav-item" onclick="go('s6')"><span class="ni-num">06</span><span class="ni-label">人物状态</span></div>
       <div class="nav-item" onclick="go('s7')"><span class="ni-num">07</span><span class="ni-label">光影情绪</span></div>
@@ -991,12 +972,12 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
     </section>
 
     <!-- 04 -->
-    <section class="section" id="s4" data-screen-label="04 空间类型">
+    <section class="section" id="s4" data-screen-label="04 设计风格">
       <div class="section-head">
         <span class="section-num">04</span>
         <div class="section-title-wrap">
-          <h2 class="section-title">空间类型</h2>
-          <span class="section-en">Spatial Type</span>
+          <h2 class="section-title">设计风格</h2>
+          <span class="section-en">Design Style</span>
         </div>
       </div>
       <div class="grid">
@@ -1009,6 +990,11 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
         <div class="card" data-val="modernist architecture style, minimalist buildings, clean lines, functional design, glass and steel structures, open floor plans, simple geometric forms">现代主义</div>
         <div class="card" data-val="postmodern architecture style, playful forms, bold colors, historical references, decorative elements mixed with modern structures, ironic and expressive architectural design">后现代主义</div>
         <div class="card" data-val="deconstructivist architecture style, fragmented structures, irregular geometry, dynamic forms, asymmetrical composition, experimental contemporary architecture">解构主义</div>
+        <div class="card" data-val="parametric design, algorithmic generative forms, flowing organic geometry, digital fabrication aesthetic, computational architecture">参数化设计</div>
+        <div class="card" data-val="ecological naturalism, native planting, restored wetlands, minimal human intervention, biodiversity-focused design, rewilded landscape">生态自然主义</div>
+        <div class="card" data-val="Japanese zen garden style, raked gravel, moss-covered stones, minimal composition, quiet contemplative atmosphere, karesansui aesthetic">日式枯山水</div>
+        <div class="card" data-val="contemporary Chinese garden style, modern interpretation of classical elements, borrowed scenery, courtyard layout, refined minimal ink-inspired palette">新中式园林</div>
+        <div class="card" data-val="minimalist landscape design, clean geometric hardscape, restrained material palette, negative-space composition, contemporary Scandinavian-influenced simplicity">极简现代景观</div>
       </div>
     </section>
 
@@ -1122,6 +1108,10 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
         <div class="card" data-val="golden hour, warm sunlight, long shadows">黄金时段</div>
         <div class="card" data-val="blue hour, twilight, soft ambient light">蓝调时刻</div>
         <div class="card" data-val="overcast day, soft diffused lighting">阴天柔光</div>
+        <div class="card" data-val="misty morning, soft fog, hazy diffused light, quiet atmospheric depth">晨雾氤氲</div>
+        <div class="card" data-val="night scene, warm architectural lighting, glowing windows, ambient street lamps, deep blue night sky">夜景灯光</div>
+        <div class="card" data-val="post-rain freshness, wet reflective surfaces, clean crisp air, soft overcast light, glistening pavement">雨后清新</div>
+        <div class="card" data-val="backlit silhouettes, strong rim light, dramatic contrast, low sun behind the subjects">逆光剪影</div>
       </div>
     </section>
 
@@ -1236,7 +1226,7 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
 
 
 
-<script src="js/prompt-tool-core.js?v=208"></script>
+<script src="js/prompt-tool-core.js?v=233"></script>
 <script src="js/prompt-tool-ui.js?v=208"></script>
 
 

@@ -1,0 +1,32 @@
+BaoLong Lab v233 · Prompt Tool Consistency & Cache Refresh Check
+
+Base package
+- Built strictly from baolong-prompt-tool-adaptive-logic-v232-full-noimages.zip.
+
+Changed files only
+- prompt-tool.html
+- prompt-generator.html
+- plan-references.html
+- section-references.html
+- render-references.html
+- PROMPT_TOOL_CONSISTENCY_CACHE_FIX_CHECK_v233.txt
+
+Fixes
+1. Confirmed v232 Prompt Tool source already contains “设计风格 / Design Style”; no old “空间类型 / Spatial Type” remains in Prompt Tool source.
+2. Changed all Prompt Generator entry URLs to prompt-tool.html?v=233 so visitors do not keep reopening a cached old Prompt Tool HTML document.
+3. Changed Plan / Section / Other “generate prompt” entries to prompt-tool.html?from=inspiration&v=233 while preserving the original from=inspiration parameter.
+4. Updated Prompt Generator’s static preview so it no longer advertises the removed fixed ending “low saturation, white space, diffuse lighting”.
+5. Aligned Prompt Generator category 04/05 with the actual Prompt Tool: 04 设计风格 / Design Style; 05 场景元素 / Scene Elements.
+6. Expanded the Prompt Generator lighting description to include the four v232 additions.
+7. Removed the old generic low-saturation / white-space / diffuse-light ending from the four early copyable Prompt case examples and replaced it with the same neutral professional finish used by v232. Style-specific low-saturation wording in intentionally low-saturation cases remains unchanged.
+8. Removed one duplicated mobile menu panel from prompt-tool.html; the complete header menu remains unchanged.
+9. Added a non-visual v233 build marker and refreshed the Prompt Tool core script query from ?v=232 to ?v=233. Prompt core logic itself is unchanged from v232.
+
+Checks
+- Prompt Tool has exactly one #mobileMenuPanel.
+- No “空间类型 / Spatial Type” remains in prompt-tool.html or prompt-tool-core.js.
+- All JavaScript syntax and all JSON files pass validation.
+- All non-image relative file references resolve.
+- www canonical, sitemap and robots rules remain unchanged.
+- No images, JSON/data, CSS, common.js, favorites, Resume Tool, Interaction tools, sitemap, robots, favicon or Netlify files were changed.
+- Package remains full-noimages.

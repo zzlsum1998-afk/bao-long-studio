@@ -1,0 +1,15 @@
+BaoLong Lab v245 was created from v244 full-noimages-plus-template-assets to fix Prompt text overflowing outside the dark Prompt box in the desktop detail modal.
+
+Changed files:
+- prompt-generator.html
+- PROMPT_MODAL_TEXT_OVERFLOW_FIX_CHECK_v245.txt
+
+What changed:
+1. Kept the v244 desktop modal structure: full image on the left, independently scrolling content on the right.
+2. Prevented direct children of `.prompt-modal-content` from shrinking inside the height-constrained flex column.
+3. Long Prompt text now keeps the dark background around its full content instead of spilling visually below the box.
+4. Action buttons remain after the Prompt content and move naturally with the right-column scroll.
+
+Not changed:
+- No changes to Prompt card data, Prompt copy, workflow buttons, case16/case17 logic, Template Generator, Prompt Tool, navigation, favorites, common.css/common.js, or other pages.
+- No changes to the v244 left-side image `contain` behavior.

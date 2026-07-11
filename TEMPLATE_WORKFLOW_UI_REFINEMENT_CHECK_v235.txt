@@ -1,0 +1,42 @@
+BaoLong Lab template workflow UI refinement v235
+Base: baolong-image-template-case16-pilot-v234-full-noimages-plus-template-assets
+Scope: refine only the independent template workflow pilot page; do not modify the formal site navigation system or API wiring.
+
+Changed files:
+- template-generator.html
+- css/template-generator.css
+- js/template-generator.js
+- TEMPLATE_WORKFLOW_UI_REFINEMENT_CHECK_v235.txt
+
+Main updates:
+1. Header refined to align more closely with BaoLong Lab visual language.
+   - Removed visible “PILOT” and “模拟原型·不调用 API” user-facing labels.
+   - Kept a simplified workflow header instead of full site navigation.
+   - Added a clear “返回 Prompt 灵感 / Back to Prompt Inspiration” button.
+
+2. Prompt display logic refined.
+   - “查看 Prompt / View Prompt” is still available after generation.
+   - The dialog now shows only a user-facing, copy-ready prompt.
+   - Internal structure-protection rules and hidden system constraints are not shown.
+
+3. Case image continuity improved.
+   - The left example image now first tries to use the same prompt-card cover path for case16.
+   - If that image is unavailable in a noimages package, it safely falls back to the local template reference image.
+
+4. Result actions improved.
+   - Download button kept and promoted as the primary action.
+   - Regenerate / View Prompt / Reset remain available.
+
+5. No backend/API changes.
+   - Still a frontend-only mock generation flow.
+   - No .env, API key, provider exposure, pricing, or real model call added.
+
+Not changed:
+- prompt-generator.html
+- Prompt Tool core logic
+- common.css / common.js
+- favorites
+- Resume Tool
+- Inspiration Boards
+- canonical / sitemap / robots
+- formal site v233 structure

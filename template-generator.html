@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
   <meta name="baolong-prototype" content="image-template-case16-pilot-v234">
-  <title>BaoLong Lab · Image Template P0 v4</title>
+  <title>BaoLong Lab · Image Template</title>
   <link rel="stylesheet" href="css/template-generator.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="prompt-generator.html#prompt-cases" aria-label="返回 Prompt 灵感 / Back to Prompt Inspiration">
-      <span class="brand-mark" aria-hidden="true">
-        <span class="eye eye-left"></span>
-        <span class="eye eye-right"></span>
-        <span class="nose"></span>
-      </span>
-      <span class="brand-name">BAOLONG LAB</span>
-    </a>
+    <div class="brand-wrap">
+      <a class="brand" href="index.html" aria-label="BaoLong Lab 首页 / BaoLong Lab Home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="eye eye-left"></span>
+          <span class="eye eye-right"></span>
+          <span class="nose"></span>
+        </span>
+        <span class="brand-name">BAOLONG LAB</span>
+      </a>
+      <span class="workflow-label" data-i18n="workflowLabel">Prompt 工作流</span>
+    </div>
 
     <div class="prototype-title">
-      <span class="prototype-kicker">IMAGE TEMPLATE · PILOT</span>
+      <span class="prototype-kicker" data-i18n="templateKicker">IMAGE TEMPLATE</span>
       <strong id="headerTemplateTitle">建筑剖面淡彩表达</strong>
     </div>
 
     <div class="top-actions">
-      <span class="mock-badge" data-i18n="mockBadge">模拟原型 · 不调用 API</span>
+      <a class="top-link back-link" id="backToPromptButton" href="prompt-generator.html#prompt-cases" data-i18n="backToPrompt">返回 Prompt 灵感</a>
       <button class="lang-toggle" type="button" id="langToggle" aria-label="切换语言">EN</button>
     </div>
   </header>
@@ -153,7 +156,7 @@
         </div>
 
         <div class="result-actions" id="resultActions" hidden>
-          <a class="secondary-button" id="downloadButton" href="images/template-p0/result-demo.png" download="baolong-template-result-demo.png" data-i18n="download">下载结果</a>
+          <a class="primary-button action-primary" id="downloadButton" href="images/template-p0/result-demo.png" download="baolong-template-result-demo.png" data-i18n="download">下载图片</a>
           <button class="secondary-button" type="button" id="regenerateButton" data-i18n="regenerate">重新生成</button>
           <button class="text-button" type="button" id="detailButton" data-i18n="viewDetail">查看 Prompt</button>
           <button class="text-button" type="button" id="resetButton" data-i18n="reset">重置</button>
@@ -166,15 +169,15 @@
     <div class="dialog-shell">
       <div class="dialog-heading">
         <div>
-          <small data-i18n="detailKicker">GENERATION DETAIL</small>
-          <h2 data-i18n="detailTitle">生成详情</h2>
+          <small data-i18n="detailKicker">PROMPT PREVIEW</small>
+          <h2 data-i18n="detailTitle">本次 Prompt</h2>
         </div>
         <button class="dialog-close" type="button" id="detailClose" aria-label="关闭">×</button>
       </div>
       <div class="detail-grid">
         <article>
           <div class="detail-heading">
-            <h3 data-i18n="promptTitle">实际 Prompt</h3>
+            <h3 data-i18n="promptTitle">可复制 Prompt</h3>
             <button type="button" class="copy-button" id="copyPromptButton" data-i18n="copy">复制</button>
           </div>
           <pre id="promptPreview"></pre>
@@ -182,10 +185,10 @@
         <article>
           <h3 data-i18n="generationInfoTitle">生成信息</h3>
           <dl>
-            <div><dt data-i18n="templateIdLabel">模板 ID</dt><dd id="templateIdOutput"></dd></div>
+            <div><dt data-i18n="templateNameLabel">模板</dt><dd id="templateNameOutput"></dd></div>
             <div><dt data-i18n="inputMode">输入方式</dt><dd data-i18n="twoImages">项目原图 + 模板参考图</dd></div>
             <div><dt data-i18n="outputMode">输出</dt><dd id="outputSpec">1 image · PNG · 2K</dd></div>
-            <div><dt data-i18n="prototypeStatus">原型状态</dt><dd data-i18n="noApi">未连接真实 API</dd></div>
+            <div><dt data-i18n="promptScopeLabel">说明</dt><dd data-i18n="promptScope">仅显示可复制的用户版 Prompt，结构约束与系统规则默认隐藏。</dd></div>
           </dl>
         </article>
       </div>

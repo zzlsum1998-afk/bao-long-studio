@@ -1,0 +1,28 @@
+BaoLong Lab template workflow result summary removal v239
+Base: baolong-image-template-case16-pilot-v238-full-noimages-plus-template-assets
+Scope: remove only the three result-summary cards below the generated image.
+
+Changed files:
+- template-generator.html
+- css/template-generator.css
+- js/template-generator.js
+- TEMPLATE_RESULT_SUMMARY_REMOVAL_CHECK_v239.txt
+
+Removed from result area:
+- 结构保护 / 已启用
+- 模板风格 / 生态淡彩
+- 当前状态 / 流程演示
+
+Kept unchanged:
+- generated / demo result image
+- download image button
+- regenerate button
+- view and copy Prompt
+- reset button
+- upload and parameter area
+- case16 color controls and hidden Prompt v2 mapping
+- header, return link, language switch, logo path
+- prompt-generator.html and all formal-site modules
+- API/backend behavior
+
+No image files were added or modified.

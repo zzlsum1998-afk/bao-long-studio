@@ -100,6 +100,15 @@
         <form id="parameterForm" class="parameter-form">
           <div id="dynamicParameters" class="dynamic-parameters"></div>
 
+          <details class="advanced-settings" id="advancedSettingsPanel" hidden>
+            <summary>
+              <span data-i18n="advancedSettings">高级设置</span>
+              <span class="advanced-settings-count" id="advancedSettingsCount">2 项</span>
+            </summary>
+            <p class="advanced-settings-hint" data-i18n="advancedSettingsHint">仅在需要时调整生态与人物处理。</p>
+            <div id="advancedParameters" class="dynamic-parameters"></div>
+          </details>
+
           <fieldset class="notes-field">
             <legend data-i18n="notesLabel">补充要求 <span>（选填）</span></legend>
             <textarea id="notes" maxlength="120" data-i18n-placeholder="notesPlaceholder" placeholder="例如：保留左侧大树与地下车库，不增加新人物。"></textarea>

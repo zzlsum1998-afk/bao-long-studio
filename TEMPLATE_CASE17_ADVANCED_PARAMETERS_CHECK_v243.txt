@@ -1,0 +1,30 @@
+BaoLong Lab v243 was created from v242 full-noimages-plus-template-assets to finalize the first reusable parameter structure for the ecological architectural section workflow.
+
+Changed files:
+- template-generator.html
+- css/template-generator.css
+- js/template-generator.js
+- prompt-generator.html
+- TEMPLATE_CASE17_ADVANCED_PARAMETERS_CHECK_v243.txt
+
+Main updates:
+1. Main workflow UI remains simple:
+   - Color Intensity: Light / Standard / Enhanced
+   - Additional Notes
+2. Added a collapsed Advanced Settings section containing:
+   - Ecology Treatment: Follow Source / Light Supplement
+   - People Handling: Follow Source / Remove People
+3. Updated the hidden workflow prompt to the universal-source logic validated with `source-nobasement.png`:
+   - Image 1 is the sole project/structure source.
+   - Elements absent from the source must not be invented.
+   - Basement, garage, car, stairs, roads, water, levels, rooms, and large structures are no longer hard-coded as required content.
+   - Light ecology supplementation is limited to small secondary planting inside existing site/soil boundaries.
+   - Remove People permits only human removal and preserves all other content.
+4. Updated the user-visible copyable Prompt so it reflects the selected color, ecology, and people parameters without exposing hidden constraints.
+5. Updated the case17 Prompt Library modal prompt to use universal wording. Existing case16 content remains unchanged.
+6. Updated the structure note and note placeholder to remove test-image-specific wording.
+
+Not changed:
+- No changes to case1-case16 cards or case16 prompt content.
+- No changes to Prompt Tool, favorites, navigation, Resume Tool, Inspiration Boards, common.css/common.js, canonical, sitemap, robots, or backend/API wiring.
+- No API request or cost was produced during this code update.

@@ -55,10 +55,6 @@
         zh:['正在分析项目原图','正在应用模板参数','正在生成图像'],
         en:['Analyzing project image','Applying template parameters','Generating image']
       },
-      resultSummary: {
-        zh:[['结构保护','已启用'],['模板风格','生态淡彩'],['当前状态','流程演示']],
-        en:[['Structure guard','Enabled'],['Template style','Ecological soft color'],['Status','Workflow demo']]
-      },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildEcologicalVisiblePrompt,
       promptBuilder: buildEcologicalSectionPrompt
@@ -121,10 +117,6 @@
         zh:['正在分析项目原图','正在应用模板参数','正在生成图像'],
         en:['Analyzing project image','Applying template parameters','Generating image']
       },
-      resultSummary: {
-        zh:[['结构保护','已启用'],['模板风格','低饱和淡彩'],['当前状态','流程演示']],
-        en:[['Structure guard','Enabled'],['Template style','Muted soft color'],['Status','Workflow demo']]
-      },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildArchitecturalVisiblePrompt,
       promptBuilder: buildArchitecturalPrompt
@@ -186,10 +178,6 @@
       loading: {
         zh:['正在分析项目原图','正在应用模板参数','正在生成图像'],
         en:['Analyzing project image','Applying template parameters','Generating image']
-      },
-      resultSummary: {
-        zh:[['关系保护','已启用'],['模板风格','景观淡彩'],['当前状态','流程演示']],
-        en:[['Relationship guard','Enabled'],['Template style','Landscape soft color'],['Status','Workflow demo']]
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildLandscapeVisiblePrompt,
@@ -446,7 +434,6 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
 
     setList($('#bestForList'), activeTemplate.bestFor[state.lang]);
     setList($('#notForList'), activeTemplate.notFor[state.lang]);
-    renderResultSummary();
   }
 
   function renderParameters({preserveValues = true} = {}) {
@@ -510,19 +497,6 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
     });
   }
 
-  function renderResultSummary() {
-    const container = $('#resultSummary');
-    container.innerHTML = '';
-    activeTemplate.resultSummary[state.lang].forEach(([label, value]) => {
-      const item = document.createElement('div');
-      const span = document.createElement('span');
-      const strong = document.createElement('strong');
-      span.textContent = label;
-      strong.textContent = value;
-      item.append(span, strong);
-      container.appendChild(item);
-    });
-  }
 
   function updateGenerateState() {
     generateButton.disabled = !state.sourceReady;

@@ -1,0 +1,17 @@
+BaoLong Lab v240 was created from v239 full-noimages-plus-template-assets to remove the extra explanatory note row from the Prompt Preview modal.
+
+Changed files:
+- template-generator.html
+- js/template-generator.js
+- PROMPT_PREVIEW_NOTE_REMOVAL_CHECK_v240.txt
+
+What changed:
+1. Removed the “说明 / Note” row from the Prompt Preview modal generation info panel.
+2. Removed the unused i18n keys related to that note from `js/template-generator.js`.
+3. Kept the copyable user Prompt block, template name, input mode, and output info unchanged.
+4. Did not expose hidden prompt logic, structural constraints, or system rules in the UI.
+
+Not changed:
+- No changes to Prompt Generator, Prompt Tool, favorites, navigation, Resume Tool, Inspiration Boards, common.css/common.js, or other site modules.
+- No change to case16 parameter logic finalized in v238.
+- No change to the result actions, download button, or previously removed result summary cards.

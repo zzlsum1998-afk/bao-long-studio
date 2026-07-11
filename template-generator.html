@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="baolong-prototype" content="image-template-case16-pilot-v236">
+  <meta name="baolong-prototype" content="image-template-case16-pilot-v247">
   <title>BaoLong Lab · Image Template</title>
   <link rel="stylesheet" href="css/template-generator.css">
 </head>
@@ -20,7 +20,7 @@
 
     <div class="prototype-title">
       <span class="prototype-kicker" data-i18n="templateKicker">IMAGE TEMPLATE</span>
-      <strong id="headerTemplateTitle">建筑剖面淡彩表达</strong>
+      <strong id="headerTemplateTitle">生态景观建筑剖面</strong>
     </div>
 
     <div class="top-actions">
@@ -36,22 +36,22 @@
           <span class="step-index">01</span>
           <div>
             <p class="panel-kicker" data-i18n="caseKicker">模板案例</p>
-            <h2 id="caseTemplateTitle">建筑剖面淡彩表达</h2>
+            <h2 id="caseTemplateTitle">生态景观建筑剖面</h2>
           </div>
         </div>
 
-        <p class="template-summary" id="templateSummary">保留原有结构，增加淡彩、植物与环境层次。</p>
+        <p class="template-summary" id="templateSummary">保留建筑剖面结构，增强低饱和植物、地表与土壤生态层次。</p>
 
         <figure class="case-figure">
-          <img id="styleReferenceImage" src="images/template-p0/style-reference.png" alt="淡彩建筑景观剖面参考图">
-          <figcaption id="caseCaption">目标风格参考：细线、低饱和淡彩、建筑与景观一体表达</figcaption>
+          <img id="styleReferenceImage" src="images/template-p0/style-reference.png" alt="生态景观建筑剖面参考图">
+          <figcaption id="caseCaption">目标风格：精细线稿、低饱和淡彩、建筑与生态系统一体表达</figcaption>
         </figure>
 
         <div class="template-tags" id="templateTags" aria-label="模板适用标签"></div>
 
         <div class="structure-note">
           <span class="note-dot" aria-hidden="true"></span>
-          <p><strong id="priorityTitle">结构保护：</strong><span id="priorityCopy">优先保留屋顶、楼层、地下车库与主要空间关系。</span></p>
+          <p><strong id="priorityTitle">结构保护：</strong><span id="priorityCopy">以上传原图为唯一结构依据，只处理原图中实际存在的建筑、空间、地形与场地元素。</span></p>
         </div>
 
         <details class="fit-details">
@@ -84,7 +84,7 @@
             <span class="upload-icon" aria-hidden="true">＋</span>
             <strong data-i18n="uploadTitle">上传项目原图</strong>
             <p data-i18n="uploadCopy">拖入 PNG / JPG / WebP，或点击选择文件</p>
-            <small data-i18n="uploadLimit">P0 仅做前端预览，图片不会上传</small>
+            <small data-i18n="uploadLimit">当前仅做前端预览，图片不会上传</small>
           </div>
           <div class="upload-preview" id="uploadPreview" hidden>
             <img id="sourcePreview" alt="项目原图预览">
@@ -111,7 +111,7 @@
 
           <fieldset class="notes-field">
             <legend data-i18n="notesLabel">补充要求 <span>（选填）</span></legend>
-            <textarea id="notes" maxlength="120" data-i18n-placeholder="notesPlaceholder" placeholder="例如：保留左侧大树与地下车库，不增加新人物。"></textarea>
+            <textarea id="notes" maxlength="120" data-i18n-placeholder="notesPlaceholder" placeholder="例如：保留左侧大树，弱化土层，不改变屋顶结构。"></textarea>
             <div class="field-meta"><span data-i18n="notesHint">最多 120 字</span><span><b id="notesCount">0</b>/120</span></div>
           </fieldset>
         </form>
@@ -147,14 +147,14 @@
           <div class="result-loading" id="resultLoading" hidden>
             <div class="loading-orbit"><span></span></div>
             <strong id="loadingTitle">正在读取项目结构</strong>
-            <p data-i18n="loadingCopy">P0 使用定时动画模拟图片生成任务。</p>
+            <p data-i18n="loadingCopy">请稍候，生成完成后会自动显示结果。</p>
             <div class="progress-track"><span id="progressBar"></span></div>
           </div>
 
           <div class="result-success" id="resultSuccess" hidden>
             <div class="result-image-wrap">
-              <img src="images/template-p0/result-demo.png" id="resultImage" alt="模拟生成结果">
-              <span class="result-label" data-i18n="mockResult">模拟生成结果</span>
+              <img src="images/template-p0/result-demo.png" id="resultImage" alt="流程示例图">
+              <span class="result-label" data-i18n="mockResult">流程示例图</span>
             </div>
           </div>
         </div>

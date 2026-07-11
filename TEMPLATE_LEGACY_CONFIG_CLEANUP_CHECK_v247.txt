@@ -1,0 +1,19 @@
+BaoLong Lab · Template Legacy Config Cleanup Check v247
+
+Base:
+- baolong-image-template-case16-pilot-v246-full-noimages-plus-template-assets.zip
+
+Changed files:
+- js/template-generator.js
+- template-generator.html
+- TEMPLATE_LEGACY_CONFIG_CLEANUP_CHECK_v247.txt
+
+Completed:
+1. Removed legacy template config: architectural-section-soft-color-v1.
+2. Removed legacy template config: landscape-section-soft-color-v1.
+3. Removed prompt-builder functions used only by those deleted configs.
+4. Kept ecological-architectural-section-v1 as the only available template config.
+5. Updated prototype source marker from v236 to v247.
+6. Replaced stale P0/static fallback wording and the fixed underground-garage example with current generic copy.
+7. Did not modify case16, Prompt Generator, favorites, Prompt Tool, Resume Tool, Inspiration Board, common.css/common.js, data, sitemap, robots, favicon, images, or Netlify legacy files.
+8. Patch package preserves original paths.

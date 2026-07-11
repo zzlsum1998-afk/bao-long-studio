@@ -1,0 +1,16 @@
+BaoLong Lab v246 was created from v245 full-noimages-plus-template-assets to remove the generation-tool label from Prompt Library cards.
+
+Changed files:
+- prompt-generator.html
+- PROMPT_CARD_TOOL_LABEL_REMOVAL_CHECK_v246.txt
+
+What changed:
+1. Removed the bottom “生成工具 / Generation Tool” pill from all 17 Prompt Library cards.
+2. Removed only the now-unused `.prompt-case-app` local CSS from `prompt-generator.html`.
+3. Kept all card images, titles, descriptions, tags, favorites, modal data, copy actions, and workflow entry logic unchanged.
+4. The dedicated case17 workflow card still opens normally and still shows “使用此模板 / Use this template” inside its detail modal.
+
+Not changed:
+- No changes to case1–case17 Prompt text or card data.
+- No changes to the Prompt detail modal layout fixes from v244/v245.
+- No changes to Template Generator, Prompt Tool, common.css/common.js, navigation, favorites, Resume Tool, or Inspiration Boards.

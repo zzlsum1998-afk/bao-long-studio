@@ -1,0 +1,17 @@
+BaoLong Lab v244 was created from v243 full-noimages-plus-template-assets to fix oversized/cropped images in Prompt case detail modals.
+
+Changed files:
+- prompt-generator.html
+- PROMPT_MODAL_IMAGE_CONTAIN_SCROLL_CHECK_v244.txt
+
+What changed:
+1. Prompt detail modal images now use `object-fit: contain` instead of `cover`, so the full case image remains visible instead of being heavily cropped.
+2. On desktop widths above 1100px, the modal uses a stable viewport-bounded height.
+3. The left image panel remains fixed within that height.
+4. The right content panel scrolls independently when a Prompt is long.
+5. Prompt Library card thumbnails are unchanged and continue using the existing card styles.
+
+Not changed:
+- No Prompt card data or Prompt text changes.
+- No workflow/template parameter changes.
+- No changes to Prompt Tool, navigation, favorites, Resume Tool, Inspiration Boards, common.css/common.js, or other pages.

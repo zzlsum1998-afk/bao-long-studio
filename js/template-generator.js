@@ -4,10 +4,10 @@
 
   const sharedTranslations = {
     zh: {
-      mockBadge:'模拟原型 · 不调用 API', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'P0 仅做前端预览，图片不会上传', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树与地下车库，不增加新人物。', notesHint:'最多 120 字', estimateLabel:'输出设置', creditUnit:'张图片', generate:'生成图片', resultKicker:'生成结果', resultTitle:'预览与操作', emptyTitle:'结果会显示在这里', emptyCopy:'上传项目图并点击生成，体验完整流程。', loadingCopy:'P0 使用定时动画模拟图片生成任务。', mockResult:'模拟生成结果', download:'下载结果', regenerate:'重新生成', reset:'重置', detailKicker:'GENERATION DETAIL', detailTitle:'生成详情', promptTitle:'实际 Prompt', copy:'复制', copied:'已复制', generationInfoTitle:'生成信息', templateIdLabel:'模板 ID', inputMode:'输入方式', twoImages:'项目原图 + 模板参考图', outputMode:'输出', prototypeStatus:'原型状态', noApi:'未连接真实 API', viewDetail:'查看 Prompt'
+      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'当前仅做前端预览，图片不会上传', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树与地下车库，不增加新人物。', notesHint:'最多 120 字', estimateLabel:'输出设置', creditUnit:'张图片', generate:'生成图片', resultKicker:'生成结果', resultTitle:'预览与操作', emptyTitle:'结果会显示在这里', emptyCopy:'上传项目图并点击生成，体验完整流程。', loadingCopy:'当前使用前端模拟流程演示生成状态。', mockResult:'示例结果图', download:'下载图片', regenerate:'重新生成', reset:'重置', detailKicker:'PROMPT PREVIEW', detailTitle:'本次 Prompt', promptTitle:'可复制 Prompt', copy:'复制', copied:'已复制', generationInfoTitle:'生成信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'项目原图 + 模板参考图', outputMode:'输出', promptScopeLabel:'说明', promptScope:'仅显示可复制的用户版 Prompt，结构约束与系统规则默认隐藏。', viewDetail:'查看 Prompt'
     },
     en: {
-      mockBadge:'Mock Prototype · No API Call', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'P0 only previews locally. The image is not uploaded.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree and underground garage; add no new people.', notesHint:'Up to 120 characters', estimateLabel:'Output', creditUnit:'image', generate:'Generate Image', resultKicker:'GENERATION RESULT', resultTitle:'Preview & Actions', emptyTitle:'Your result will appear here', emptyCopy:'Upload a project image and generate to experience the flow.', loadingCopy:'P0 uses a timed animation to simulate an image-generation task.', mockResult:'Mock Result', download:'Download Result', regenerate:'Regenerate', reset:'Reset', detailKicker:'GENERATION DETAIL', detailTitle:'Generation Details', promptTitle:'Final Prompt', copy:'Copy', copied:'Copied', generationInfoTitle:'Generation Information', templateIdLabel:'Template ID', inputMode:'Input', twoImages:'Project image + template reference', outputMode:'Output', prototypeStatus:'Prototype', noApi:'No real API connected', viewDetail:'View Prompt'
+      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'This prototype only previews locally. The image is not uploaded.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree and underground garage; add no new people.', notesHint:'Up to 120 characters', estimateLabel:'Output', creditUnit:'image', generate:'Generate Image', resultKicker:'RESULT', resultTitle:'Preview & Actions', emptyTitle:'Your result will appear here', emptyCopy:'Upload a project image and generate to preview the full flow.', loadingCopy:'This screen currently uses a frontend-only mock generation sequence.', mockResult:'Sample result', download:'Download Image', regenerate:'Regenerate', reset:'Reset', detailKicker:'PROMPT PREVIEW', detailTitle:'Prompt Preview', promptTitle:'Copy-ready Prompt', copy:'Copy', copied:'Copied', generationInfoTitle:'Generation Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Project image + template reference', outputMode:'Output', promptScopeLabel:'Note', promptScope:'Only the copy-ready user prompt is shown here. Structural constraints and system rules remain hidden.', viewDetail:'View Prompt'
     }
   };
 
@@ -34,6 +34,8 @@
       },
       assets: {
         source:'images/template-p0/source-demo.png',
+        display:'images/prompt-cases/prompt-case-16.webp',
+        displayFallback:'images/template-p0/style-reference.png',
         reference:'images/template-p0/style-reference.png',
         result:'images/template-p0/result-demo.png',
         sourceName:'ecological-section-source-demo.png',
@@ -74,6 +76,7 @@
         en:[['Structure guard','Enabled'],['Template style','Ecological soft color'],['Mock time','12.8s']]
       },
       outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildEcologicalVisiblePrompt,
       promptBuilder: buildEcologicalSectionPrompt
     },
 
@@ -139,6 +142,7 @@
         en:[['Structure guard','Enabled'],['Template style','Muted soft color'],['Mock time','12.8s']]
       },
       outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildArchitecturalVisiblePrompt,
       promptBuilder: buildArchitecturalPrompt
     },
 
@@ -204,6 +208,7 @@
         en:[['Relationship guard','Enabled'],['Template style','Landscape soft color'],['Mock time','12.8s']]
       },
       outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildLandscapeVisiblePrompt,
       promptBuilder: buildLandscapePrompt
     }
   };
@@ -312,6 +317,77 @@
     return `Image 1 is the only source for site structure, terrain, buildings, roads, and major planting positions. Image 2 is used only as reference for light linework, muted soft color, and landscape-section presentation.\n\nPreserve the section relationships, terrain, building outlines, road boundaries, water, retaining walls, major tree positions, and spatial scale of Image 1. Do not add structures, move roads, or redesign the site.\n\nThis is a ${site} project. Keep a white background and clear linework, apply ${color}, and ${planting}. Build a restrained and readable hierarchy among planting, ground, and architecture.\n\nAvoid photorealistic rendering, heavy watercolor paper texture, saturated color, dramatic lighting, and unrelated new landscape elements.${notesText ? `\n\nUser note: ${notesText}` : ''}`;
   }
 
+  function buildEcologicalVisiblePrompt({lang, values, notesText}) {
+    const sectionMap = {
+      architectural:{zh:'建筑剖面',en:'architectural section'},
+      landscape:{zh:'景观剖面',en:'landscape section'},
+      integrated:{zh:'建筑景观综合剖面',en:'integrated architectural-landscape section'}
+    };
+    const colorMap = {
+      low:{zh:'低色彩浓度',en:'low color intensity'},
+      medium:{zh:'中色彩浓度',en:'medium color intensity'},
+      high:{zh:'高色彩浓度',en:'higher color intensity while remaining restrained'}
+    };
+    const ecologyMap = {
+      low:{zh:'轻度生态增强',en:'light ecological enhancement'},
+      medium:{zh:'中等生态增强',en:'medium ecological enhancement'},
+      high:{zh:'较强生态增强',en:'stronger ecological enhancement'}
+    };
+    const section = sectionMap[values.sectionType]?.[lang] || sectionMap.integrated[lang];
+    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.medium[lang];
+    const ecology = ecologyMap[values.ecologyEnhancement]?.[lang] || ecologyMap.medium[lang];
+    if (lang === 'zh') {
+      return `生态景观建筑剖面，${section}，${color}，${ecology}，保留原有建筑剖面关系、主要空间关系与地下车库，白色背景，细腻线稿，低饱和淡彩，植物、地表与土壤层次清晰，整体气质克制、干净、专业。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+    }
+    return `Ecological architectural section, ${section}, ${color}, ${ecology}, preserve the original section relationships, key spatial relationships, and underground garage; white background, delicate linework, muted soft color, clear planting, ground, and soil layers, restrained, clean, and professional overall atmosphere.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+  }
+
+  function buildArchitecturalVisiblePrompt({lang, values, notesText}) {
+    const projectMap = {
+      residential:{zh:'住宅建筑',en:'residential building'}, public:{zh:'公共建筑',en:'public building'}, commercial:{zh:'商业空间',en:'commercial project'}, landscape:{zh:'景观构筑物',en:'landscape structure'}
+    };
+    const colorMap = {
+      low:{zh:'低色彩浓度',en:'low color intensity'},
+      medium:{zh:'中色彩浓度',en:'medium color intensity'},
+      high:{zh:'高色彩浓度',en:'higher color intensity while remaining restrained'}
+    };
+    const landscapeMap = {
+      low:{zh:'轻度景观增强',en:'light landscape enhancement'},
+      medium:{zh:'中等景观增强',en:'medium landscape enhancement'},
+      high:{zh:'较强景观增强',en:'stronger landscape enhancement'}
+    };
+    const type = projectMap[values.projectType]?.[lang] || projectMap.residential[lang];
+    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.medium[lang];
+    const landscape = landscapeMap[values.landscapeEnhancement]?.[lang] || landscapeMap.medium[lang];
+    if (lang === 'zh') {
+      return `建筑剖面淡彩表达，${type}，${color}，${landscape}，保留原有建筑结构和主要空间关系，强化植物与环境层次，白色背景，细线稿，低饱和淡彩，整体干净、专业、留白充足。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+    }
+    return `Architectural section soft-color rendering, ${type}, ${color}, ${landscape}, preserve the original building structure and key spatial relationships, enhance planting and environmental depth, white background, fine linework, muted soft color, clean professional composition with generous white space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+  }
+
+  function buildLandscapeVisiblePrompt({lang, values, notesText}) {
+    const siteMap = {
+      residential:{zh:'居住景观',en:'residential landscape'}, park:{zh:'公园绿地',en:'park and green space'}, campus:{zh:'校园与公共空间',en:'campus and public realm'}, waterfront:{zh:'滨水场地',en:'waterfront site'}
+    };
+    const colorMap = {
+      low:{zh:'低色彩浓度',en:'low color intensity'},
+      medium:{zh:'中色彩浓度',en:'medium color intensity'},
+      high:{zh:'高色彩浓度',en:'higher color intensity while remaining restrained'}
+    };
+    const plantingMap = {
+      low:{zh:'轻度植物增强',en:'light planting enhancement'},
+      medium:{zh:'中等植物增强',en:'medium planting enhancement'},
+      high:{zh:'较强植物增强',en:'stronger planting enhancement'}
+    };
+    const site = siteMap[values.siteType]?.[lang] || siteMap.residential[lang];
+    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.medium[lang];
+    const planting = plantingMap[values.plantingDensity]?.[lang] || plantingMap.medium[lang];
+    if (lang === 'zh') {
+      return `景观剖面淡彩增强，${site}，${color}，${planting}，保留原有地形、道路、建筑轮廓与主要植物位置，强化植物与地表层次，白色背景，清晰线稿，低饱和淡彩，整体轻盈、克制、可读。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+    }
+    return `Landscape section soft-color enhancement, ${site}, ${color}, ${planting}, preserve original terrain, roads, building outlines, and key planting positions, strengthen planting and ground hierarchy, white background, clear linework, muted soft color, light restrained and readable overall feeling.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+  }
+
   function t(value) {
     if (typeof value === 'string') return value;
     return value?.[state.lang] || value?.zh || '';
@@ -326,21 +402,29 @@
     });
   }
 
+  function setImageWithFallback(image, primarySrc, fallbackSrc) {
+    image.onerror = () => {
+      image.onerror = null;
+      if (fallbackSrc && image.src !== new URL(fallbackSrc, window.location.href).href) image.src = fallbackSrc;
+    };
+    image.src = primarySrc;
+  }
+
   function renderTemplateStaticContent() {
     const title = t(activeTemplate.title);
-    document.title = `${title} · P0 v4 · BaoLong Lab`;
+    document.title = `${title} · BaoLong Lab`; 
     $('#headerTemplateTitle').textContent = title;
     $('#caseTemplateTitle').textContent = title;
     $('#templateSummary').textContent = t(activeTemplate.summary);
     $('#caseCaption').textContent = t(activeTemplate.caption);
-    $('#styleReferenceImage').src = activeTemplate.assets.reference;
+    setImageWithFallback($('#styleReferenceImage'), activeTemplate.assets.display || activeTemplate.assets.reference, activeTemplate.assets.displayFallback || activeTemplate.assets.reference);
     $('#styleReferenceImage').alt = t(activeTemplate.imageAlt);
     $('#resultImage').src = activeTemplate.assets.result;
     $('#downloadButton').href = activeTemplate.assets.result;
     $('#downloadButton').download = activeTemplate.assets.downloadName;
     $('#priorityTitle').textContent = t(activeTemplate.priorityTitle);
     $('#priorityCopy').textContent = t(activeTemplate.priorityCopy);
-    $('#templateIdOutput').textContent = activeTemplateId;
+    $('#templateNameOutput').textContent = title;
     $('#outputSpec').textContent = activeTemplate.outputSpec;
 
     const tags = $('#templateTags');
@@ -453,7 +537,8 @@
   }
 
   function promptText() {
-    return activeTemplate.promptBuilder({
+    const builder = activeTemplate.visiblePromptBuilder || activeTemplate.promptBuilder;
+    return builder({
       lang:state.lang,
       values:state.parameterValues,
       notesText:notes.value.trim()
@@ -592,6 +677,22 @@
       selection.addRange(range);
     }
   });
+
+
+  const backButton = $('#backToPromptButton');
+  if (backButton) {
+    backButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      try {
+        const ref = document.referrer ? new URL(document.referrer) : null;
+        if (ref && /prompt-generator\.html$/i.test(ref.pathname)) {
+          window.history.back();
+          return;
+        }
+      } catch {}
+      window.location.href = backButton.getAttribute('href');
+    });
+  }
 
   $('#langToggle').addEventListener('click', () => {
     state.lang = state.lang === 'zh' ? 'en' : 'zh';

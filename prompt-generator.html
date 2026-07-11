@@ -501,6 +501,12 @@
       font-size:13px;
       min-height:18px;
     }
+    .prompt-workflow-btn{
+      text-decoration:none;
+    }
+    .prompt-workflow-btn[hidden]{
+      display:none !important;
+    }
 
     /* Keep prompt detail modal away from the fixed navigation, matching Inspiration Board spacing. */
     @media(min-width:761px){
@@ -1564,7 +1570,8 @@ var _hmt = _hmt || [];
 <div class="prompt-case-tags" id="promptCaseTags"></div>
 <div class="prompt-text-box" id="promptCaseText"></div>
 <div class="actions" style="margin-top:0">
-<button class="primary-btn" onclick="copyPromptCase()" type="button">Copy Prompt</button>
+<a class="primary-btn prompt-workflow-btn" hidden id="promptWorkflowButton" href="template-generator.html">使用此模板 / Use this template</a>
+<button class="primary-btn" id="promptCopyButton" onclick="copyPromptCase()" type="button">Copy Prompt</button>
 <button class="secondary-btn" onclick="closePromptCase()" type="button">Close</button>
 </div>
 <div class="copy-status" id="promptCopyStatus"></div>
@@ -1802,6 +1809,7 @@ var _hmt = _hmt || [];
   },
   "case16": {
     "id": "case16",
+    "workflowTemplate": "ecological-architectural-section-v1",
     "img": "images/prompt-cases/prompt-case-16.webp",
     "kicker": "Ecological Section",
     "title": "生态景观建筑剖面",
@@ -1894,6 +1902,28 @@ var _hmt = _hmt || [];
       document.getElementById('promptCaseScene').textContent = item.scene;
       document.getElementById('promptCaseText').textContent = item.prompt;
       document.getElementById('promptCopyStatus').textContent = '';
+
+      const workflowButton = document.getElementById('promptWorkflowButton');
+      const copyButton = document.getElementById('promptCopyButton');
+      if(workflowButton){
+        if(item.workflowTemplate){
+          workflowButton.hidden = false;
+          workflowButton.href = 'template-generator.html?template=' + encodeURIComponent(item.workflowTemplate);
+          workflowButton.setAttribute('aria-label', '使用此模板 / Use this template');
+          if(copyButton){
+            copyButton.classList.remove('primary-btn');
+            copyButton.classList.add('secondary-btn');
+          }
+        }else{
+          workflowButton.hidden = true;
+          workflowButton.removeAttribute('href');
+          if(copyButton){
+            copyButton.classList.remove('secondary-btn');
+            copyButton.classList.add('primary-btn');
+          }
+        }
+      }
+
       const tagBox = document.getElementById('promptCaseTags');
       tagBox.innerHTML = '';
       item.tags.forEach(function(tag){

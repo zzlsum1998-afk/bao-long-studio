@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="baolong-prototype" content="image-template-case16-pilot-v234">
+  <title>BaoLong Lab · Image Template P0 v4</title>
+  <link rel="stylesheet" href="css/template-generator.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="prompt-generator.html#prompt-cases" aria-label="返回 Prompt 灵感 / Back to Prompt Inspiration">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="eye eye-left"></span>
+        <span class="eye eye-right"></span>
+        <span class="nose"></span>
+      </span>
+      <span class="brand-name">BAOLONG LAB</span>
+    </a>
+
+    <div class="prototype-title">
+      <span class="prototype-kicker">IMAGE TEMPLATE · PILOT</span>
+      <strong id="headerTemplateTitle">建筑剖面淡彩表达</strong>
+    </div>
+
+    <div class="top-actions">
+      <span class="mock-badge" data-i18n="mockBadge">模拟原型 · 不调用 API</span>
+      <button class="lang-toggle" type="button" id="langToggle" aria-label="切换语言">EN</button>
+    </div>
+  </header>
+
+  <main id="top" class="page-shell">
+    <section class="workspace" aria-label="模板生成工作区">
+      <aside class="case-panel panel">
+        <div class="panel-heading">
+          <span class="step-index">01</span>
+          <div>
+            <p class="panel-kicker" data-i18n="caseKicker">模板案例</p>
+            <h2 id="caseTemplateTitle">建筑剖面淡彩表达</h2>
+          </div>
+        </div>
+
+        <p class="template-summary" id="templateSummary">保留原有结构，增加淡彩、植物与环境层次。</p>
+
+        <figure class="case-figure">
+          <img id="styleReferenceImage" src="images/template-p0/style-reference.png" alt="淡彩建筑景观剖面参考图">
+          <figcaption id="caseCaption">目标风格参考：细线、低饱和淡彩、建筑与景观一体表达</figcaption>
+        </figure>
+
+        <div class="template-tags" id="templateTags" aria-label="模板适用标签"></div>
+
+        <div class="structure-note">
+          <span class="note-dot" aria-hidden="true"></span>
+          <p><strong id="priorityTitle">结构保护：</strong><span id="priorityCopy">优先保留屋顶、楼层、地下车库与主要空间关系。</span></p>
+        </div>
+
+        <details class="fit-details">
+          <summary data-i18n="scopeToggle">查看适用范围</summary>
+          <div class="fit-grid">
+            <div>
+              <h3 data-i18n="bestForTitle">适合</h3>
+              <ul id="bestForList"></ul>
+            </div>
+            <div>
+              <h3 data-i18n="notForTitle">暂不适合</h3>
+              <ul class="muted-list" id="notForList"></ul>
+            </div>
+          </div>
+        </details>
+      </aside>
+
+      <section class="input-panel panel">
+        <div class="panel-heading">
+          <span class="step-index">02</span>
+          <div>
+            <p class="panel-kicker" data-i18n="inputKicker">项目输入</p>
+            <h2 data-i18n="inputTitle">上传与参数</h2>
+          </div>
+        </div>
+
+        <div class="upload-card" id="uploadCard" tabindex="0" role="button" aria-label="上传项目原图">
+          <input id="sourceInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+          <div class="upload-empty" id="uploadEmpty">
+            <span class="upload-icon" aria-hidden="true">＋</span>
+            <strong data-i18n="uploadTitle">上传项目原图</strong>
+            <p data-i18n="uploadCopy">拖入 PNG / JPG / WebP，或点击选择文件</p>
+            <small data-i18n="uploadLimit">P0 仅做前端预览，图片不会上传</small>
+          </div>
+          <div class="upload-preview" id="uploadPreview" hidden>
+            <img id="sourcePreview" alt="项目原图预览">
+            <div class="preview-overlay">
+              <strong id="sourceFilename">source.png</strong>
+              <span data-i18n="replaceImage">点击或拖入新图替换</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="text-button demo-button" type="button" id="useDemoButton" data-i18n="useDemo">使用示例原图</button>
+
+        <form id="parameterForm" class="parameter-form">
+          <div id="dynamicParameters" class="dynamic-parameters"></div>
+
+          <fieldset class="notes-field">
+            <legend data-i18n="notesLabel">补充要求 <span>（选填）</span></legend>
+            <textarea id="notes" maxlength="120" data-i18n-placeholder="notesPlaceholder" placeholder="例如：保留左侧大树与地下车库，不增加新人物。"></textarea>
+            <div class="field-meta"><span data-i18n="notesHint">最多 120 字</span><span><b id="notesCount">0</b>/120</span></div>
+          </fieldset>
+        </form>
+
+        <div class="generate-box">
+          <div>
+            <span data-i18n="estimateLabel">输出设置</span>
+            <strong>1 <span data-i18n="creditUnit">张图片</span></strong>
+          </div>
+          <button class="primary-button" type="button" id="generateButton" disabled>
+            <span data-i18n="generate">生成图片</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="result-panel panel" aria-live="polite">
+        <div class="panel-heading">
+          <span class="step-index">03</span>
+          <div>
+            <p class="panel-kicker" data-i18n="resultKicker">生成结果</p>
+            <h2 data-i18n="resultTitle">预览与操作</h2>
+          </div>
+        </div>
+
+        <div class="result-stage" id="resultStage">
+          <div class="result-empty" id="resultEmpty">
+            <span class="result-symbol" aria-hidden="true">✦</span>
+            <strong data-i18n="emptyTitle">结果会显示在这里</strong>
+            <p data-i18n="emptyCopy">上传项目图并点击生成，体验完整流程。</p>
+          </div>
+
+          <div class="result-loading" id="resultLoading" hidden>
+            <div class="loading-orbit"><span></span></div>
+            <strong id="loadingTitle">正在读取项目结构</strong>
+            <p data-i18n="loadingCopy">P0 使用定时动画模拟图片生成任务。</p>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+
+          <div class="result-success" id="resultSuccess" hidden>
+            <div class="result-image-wrap">
+              <img src="images/template-p0/result-demo.png" id="resultImage" alt="模拟生成结果">
+              <span class="result-label" data-i18n="mockResult">模拟生成结果</span>
+            </div>
+            <div class="result-summary" id="resultSummary"></div>
+          </div>
+        </div>
+
+        <div class="result-actions" id="resultActions" hidden>
+          <a class="secondary-button" id="downloadButton" href="images/template-p0/result-demo.png" download="baolong-template-result-demo.png" data-i18n="download">下载结果</a>
+          <button class="secondary-button" type="button" id="regenerateButton" data-i18n="regenerate">重新生成</button>
+          <button class="text-button" type="button" id="detailButton" data-i18n="viewDetail">查看 Prompt</button>
+          <button class="text-button" type="button" id="resetButton" data-i18n="reset">重置</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="detail-dialog" id="detailDialog">
+    <div class="dialog-shell">
+      <div class="dialog-heading">
+        <div>
+          <small data-i18n="detailKicker">GENERATION DETAIL</small>
+          <h2 data-i18n="detailTitle">生成详情</h2>
+        </div>
+        <button class="dialog-close" type="button" id="detailClose" aria-label="关闭">×</button>
+      </div>
+      <div class="detail-grid">
+        <article>
+          <div class="detail-heading">
+            <h3 data-i18n="promptTitle">实际 Prompt</h3>
+            <button type="button" class="copy-button" id="copyPromptButton" data-i18n="copy">复制</button>
+          </div>
+          <pre id="promptPreview"></pre>
+        </article>
+        <article>
+          <h3 data-i18n="generationInfoTitle">生成信息</h3>
+          <dl>
+            <div><dt data-i18n="templateIdLabel">模板 ID</dt><dd id="templateIdOutput"></dd></div>
+            <div><dt data-i18n="inputMode">输入方式</dt><dd data-i18n="twoImages">项目原图 + 模板参考图</dd></div>
+            <div><dt data-i18n="outputMode">输出</dt><dd id="outputSpec">1 image · PNG · 2K</dd></div>
+            <div><dt data-i18n="prototypeStatus">原型状态</dt><dd data-i18n="noApi">未连接真实 API</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/template-generator.js"></script>
+</body>
+</html>

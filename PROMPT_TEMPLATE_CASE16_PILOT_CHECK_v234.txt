@@ -1,0 +1,39 @@
+BaoLong Lab v234 — Prompt Card → Shared Image Template Pilot
+
+Base:
+- baolong-prompt-tool-consistency-cache-fix-v233-full-noimages
+- baolong-image-template-p0-shared-layout-v4
+
+Purpose:
+- Safely test the first Prompt-card-to-template workflow without connecting a real API.
+- Only case16 (生态景观建筑剖面 / Ecological Section) receives “使用此模板 / Use this template”.
+- Clicking the card still opens the original detail modal first. The whole card does not jump directly to the generator.
+
+Changed existing file:
+- prompt-generator.html
+  - Added workflowTemplate only to case16.
+  - Added one conditional modal button.
+  - Other 15 Prompt cards still show only their original view/copy/favorite behavior.
+  - Existing Prompt text, favorites, modal scroll lock, navigation and Prompt Tool links were not changed.
+
+New files:
+- template-generator.html
+- css/template-generator.css
+- js/template-generator.js
+- images/template-p0/source-demo.png
+- images/template-p0/style-reference.png
+- images/template-p0/result-demo.png
+- PROMPT_TEMPLATE_CASE16_PILOT_CHECK_v234.txt
+
+Template mapping:
+- case16 → template-generator.html?template=ecological-architectural-section-v1
+- The template title is loaded dynamically from templateId.
+- The hidden workflow Prompt uses three layers: structure guard, template style, and negative constraints.
+- The original visible Prompt on the card remains unchanged.
+
+Safety boundaries:
+- No real API call.
+- No .env or API key.
+- No provider/model/cost shown to users.
+- No changes to common.css, common.js, Prompt Tool core/UI, Resume Tool, favorites scripts, navigation, Inspiration Board, sitemap, robots or canonical URLs.
+- Official www canonical rules remain untouched.

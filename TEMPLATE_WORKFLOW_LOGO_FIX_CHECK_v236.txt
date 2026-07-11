@@ -1,0 +1,27 @@
+BaoLong Lab template workflow logo fix v236
+Base: baolong-image-template-case16-pilot-v235-full-noimages-plus-template-assets
+
+Changed files:
+- template-generator.html
+- css/template-generator.css
+- TEMPLATE_WORKFLOW_LOGO_FIX_CHECK_v236.txt
+
+Update:
+- Replaced the CSS-drawn temporary eye logo with the formal BaoLong Lab logo reference:
+  images/logo-eye.webp
+- No image file was added to this noimages package. The existing deployed image path is reused.
+- Desktop workflow header uses the formal logo at 64px within the compact 76px workflow header.
+- Mobile uses 44px to match the site's mobile logo sizing.
+- Download Image behavior is unchanged: the button remains hidden before generation and appears as the primary action after a result is generated.
+
+Not changed:
+- js/template-generator.js
+- prompt-generator.html
+- common.css / common.js
+- Prompt Tool
+- favorites
+- navigation on other pages
+- Resume Tool
+- Inspiration Boards
+- canonical / sitemap / robots
+- API/backend logic

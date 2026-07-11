@@ -23,7 +23,7 @@
         en:['Ecological section','Structure first','Planting layers']
       },
       priorityTitle: { zh:'结构保护：', en:'Structure guard: ' },
-      priorityCopy: { zh:'优先保留屋顶、楼层、墙体、地下车库、汽车与原有剖切关系。', en:'Prioritize the roof, levels, walls, underground garage, car, and original section relationships.' },
+      priorityCopy: { zh:'优先保留画幅、屋顶、楼层、墙体、楼梯、地下车库、汽车、材料系统与原有剖切关系。', en:'Prioritize the canvas, roof, levels, walls, stairs, underground garage, car, material system, and original section relationships.' },
       bestFor: {
         zh:['建筑剖面、建筑景观综合剖面与基础线稿','希望保留结构，只增强植物与生态表达','需要低饱和竞赛图纸与作品集质感'],
         en:['Architectural and architecture-landscape sections or clean line drawings','Projects that must preserve structure while enhancing ecology','Presentation boards needing muted competition-style graphics']
@@ -43,27 +43,11 @@
       },
       parameters: [
         {
-          id:'sectionType', type:'select', label:{zh:'剖面类型',en:'Section Type'}, default:'integrated',
+          id:'colorIntensity', type:'segmented', label:{zh:'色彩浓度',en:'Color Intensity'}, default:'standard',
           options:[
-            {value:'architectural',label:{zh:'建筑剖面',en:'Architectural Section'}},
-            {value:'landscape',label:{zh:'景观剖面',en:'Landscape Section'}},
-            {value:'integrated',label:{zh:'建筑景观综合剖面',en:'Integrated Section'}}
-          ]
-        },
-        {
-          id:'colorIntensity', type:'segmented', label:{zh:'色彩浓度',en:'Color Intensity'}, default:'medium',
-          options:[
-            {value:'low',label:{zh:'低',en:'Low'}},
-            {value:'medium',label:{zh:'中',en:'Medium'}},
-            {value:'high',label:{zh:'高',en:'High'}}
-          ]
-        },
-        {
-          id:'ecologyEnhancement', type:'segmented', label:{zh:'生态增强',en:'Ecology Enhancement'}, default:'medium',
-          options:[
-            {value:'low',label:{zh:'弱',en:'Low'}},
-            {value:'medium',label:{zh:'中',en:'Medium'}},
-            {value:'high',label:{zh:'强',en:'High'}}
+            {value:'light',label:{zh:'淡',en:'Light'}},
+            {value:'standard',label:{zh:'标准',en:'Standard'}},
+            {value:'strong',label:{zh:'强化',en:'Enhanced'}}
           ]
         }
       ],
@@ -244,29 +228,65 @@
   const promptPreview = $('#promptPreview');
 
   function buildEcologicalSectionPrompt({lang, values, notesText}) {
-    const sectionMap = {
-      architectural:{zh:'建筑剖面',en:'architectural section'},
-      landscape:{zh:'景观剖面',en:'landscape section'},
-      integrated:{zh:'建筑景观综合剖面',en:'integrated architectural-landscape section'}
-    };
     const colorMap = {
-      low:{zh:'极淡、接近透明的浅灰绿、米白、浅蓝灰和少量柔和土黄色',en:'very pale, nearly transparent sage green, off-white, light blue-gray, and subtle ochre'},
-      medium:{zh:'低饱和浅灰绿、米白、浅蓝灰和柔和土黄色，形成适度层次',en:'muted sage green, off-white, light blue-gray, and soft ochre with moderate separation'},
-      high:{zh:'仍保持低饱和，但加强植物、地表和土壤层之间的色彩区分',en:'retain low saturation while increasing distinction among planting, ground, and soil layers'}
+      light:{
+        zh:'使用极淡、接近透明的浅灰绿、米白、浅蓝灰和少量柔和土黄色。整体接近轻微平涂，建筑主体保持接近白色，保留大量白色留白。',
+        en:'Use very pale, nearly transparent sage green, off-white, light blue-gray, and small touches of soft ochre. Keep the image close to a light wash, preserve the building body near white, and retain generous white space.'
+      },
+      standard:{
+        zh:'使用低饱和浅灰绿、米白、浅蓝灰和柔和土黄色，形成适度、克制且清晰的色彩层次，建筑结构始终保持清楚。',
+        en:'Use muted sage green, off-white, light blue-gray, and soft ochre to create moderate, restrained, and readable color layers while keeping the architectural structure clear.'
+      },
+      strong:{
+        zh:'仍然保持低饱和，仅通过已有区域的明度、透明度和颜色差异，加强植物、建筑、地表与土壤之间的区分。不得新增材料纹理，不得改变材料类型、构造形式、纹理方向或建筑细节，不得把屋顶、墙面、楼板或室内地面重新解释为木结构或其他新材料。',
+        en:'Keep the palette low in saturation and strengthen distinction among planting, architecture, ground, and soil only through brightness, opacity, and color differences within existing regions. Do not add material textures or change material types, construction forms, texture directions, or architectural details. Do not reinterpret the roof, walls, slabs, or interior floors as timber construction or any new material.'
+      }
     };
-    const ecologyMap = {
-      low:{zh:'仅整理图1中已有植物、地表和土壤信息，不增加新的生态要素',en:'only refine the planting, ground, and soil information already present in Image 1 without adding new ecological elements'},
-      medium:{zh:'在图1已有室外与地下范围内，适度增强乔木、灌木、地被、根系和土壤层次，但保持原有位置与边界',en:'moderately enhance trees, shrubs, groundcover, roots, and soil layers only within the existing outdoor and underground areas of Image 1 while preserving positions and boundaries'},
-      high:{zh:'在不改变建筑、道路、地形和剖切边界的前提下，丰富已有植物群落、根系与渗水层次，不新增大型景观构筑物',en:'enrich existing planting communities, roots, and infiltration layers without changing buildings, roads, terrain, or section boundaries, and without adding large landscape structures'}
-    };
-    const section = sectionMap[values.sectionType]?.[lang] || sectionMap.integrated[lang];
-    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.medium[lang];
-    const ecology = ecologyMap[values.ecologyEnhancement]?.[lang] || ecologyMap.medium[lang];
+    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.standard[lang];
 
     if (lang === 'zh') {
-      return `【结构保护层】\n图1是建筑结构、空间内容、地形和剖切关系的唯一依据。图2只用于参考精细线条、低饱和淡彩、植物表达和专业生态剖面的视觉方式，不得复制图2中的具体建筑、道路、人物、标注或场景内容。\n\n完整保留图1的画幅与构图、屋顶形式、建筑轮廓、楼层数量与高度、墙体、楼板、柱子、门窗、楼梯、室内布局、家具、人物、地下车库、汽车、基础、地面线、地形边界和剖切关系。不得增加、删除、移动、替换或重新设计任何建筑空间与主要场地要素。\n\n【模板风格层】\n这是一个${section}项目。保持白色或暖白色背景、细而清晰的技术线稿和充分留白。使用${color}进行克制的半透明平涂。${ecology}。植物应轻盈、图形化、具有植物学线稿感，但不得遮挡建筑剖面；地下表达应服务于原有结构可读性。\n\n【禁止项】\n不要写实摄影，不要商业地产效果图，不要厚重水彩，不要强烈纸纹，不要粗黑线，不要高饱和，不要强烈阴影，不要夜景，不要赛博朋克，不要新增楼层、房间、道路、水体、车辆或大型构筑物，不要新增文字、编号、箭头、图例、logo 或水印。地下车库、汽车、屋顶、楼层和室内空间必须保持不变。${notesText ? `\n\n【用户补充】\n${notesText}` : ''}`;
+      return `【图像使用规则】
+图1是项目原图，是建筑结构、空间内容、地形、构图与剖切关系的唯一依据。
+图2只用于参考精细线条、低饱和淡彩、植物表达和专业生态剖面的视觉语言。
+不得复制图2中的具体建筑、道路、人物、标注、构造、材料或场景内容。
+
+【严格结构保护】
+完整保留图1的画幅比例、取景范围、主体位置与尺度，不得裁切、放大、缩小、旋转或重新构图。
+完整保留屋顶坡度、屋檐、建筑轮廓、楼层数量与高度、墙体、楼板、柱子、门窗、开口、楼梯、室内布局、房间数量与位置、家具、人物、地下车库、汽车、基础、地面线、地形边界和剖切关系。
+不得增加、删除、移动、替换、合并或重新设计任何建筑空间与主要场地要素。
+
+尤其禁止新增或改变室内楼梯、室外台阶、坡道、扶梯、平台、通道和交通流线；
+禁止新增梁、檩条、屋架、木构件、吊顶构造或其他结构构件；
+禁止改变车库边界、汽车位置与大小、屋面构造、墙体厚度、房间边界和开口位置。
+
+【模板表达】
+将图1转换为精致的生态景观建筑剖面表达图。保持白色或暖白色背景、细而清晰的技术线稿和充分留白。${color}
+
+植物与生态表达固定为自然、克制：仅在图1已有室外与地下范围内，适度整理和增强已有乔木、灌木、地被、土壤与根系层次。新增的根系或土壤纹理只能位于已有植物根部与既有地下土层中，不得改变原有植物位置、数量、场地边界、道路、地形和剖切关系，不得遮挡建筑结构。
+
+【禁止项】
+不要写实摄影，不要商业地产效果图，不要厚重水彩，不要强烈纸纹，不要粗黑线，不要高饱和，不要强烈阴影，不要夜景，不要赛博朋克。
+不要新增楼层、房间、道路、水体、车辆、大型树木、大型构筑物或任何交通构件。
+不要新增文字、编号、箭头、图例、Logo 或水印。
+不要改变建筑材料系统，不要新增木梁、木檩条、木屋架、木饰面、砖墙或新的材料纹理。
+地下车库、汽车、屋顶、楼层、室内空间、楼梯、台阶、坡道和全部开口必须保持不变。${notesText ? `\n\n【用户补充】\n${notesText}` : ''}`;
     }
-    return `[STRUCTURE GUARD]\nImage 1 is the only source of architectural structure, spatial content, terrain, and section relationships. Image 2 is used only as a visual reference for fine linework, muted soft color, planting expression, and professional ecological-section presentation. Do not copy any specific building, road, person, annotation, or scene content from Image 2.\n\nPreserve the exact canvas and composition, roof form, building outline, number and height of levels, walls, slabs, columns, openings, stairs, interior layout, furniture, people, underground garage, car, foundations, ground line, terrain boundaries, and section logic of Image 1. Do not add, delete, move, replace, or redesign architectural spaces or major site elements.\n\n[TEMPLATE STYLE]\nThis is an ${section} project. Keep a white or warm-white background, fine readable technical linework, and generous white space. Apply ${color} in restrained translucent flat layers. ${ecology}. Planting should remain light, graphic, and botanical in line quality without covering the architectural section. Underground expression must support the readability of the existing structure.\n\n[NEGATIVE CONSTRAINTS]\nAvoid photorealistic rendering, commercial real-estate visualization, heavy watercolor, strong paper texture, thick black lines, saturated colors, dramatic shadows, night scenes, cyberpunk styling, new levels, rooms, roads, water bodies, vehicles, or large structures. Add no new text, numbers, arrows, legends, logos, or watermarks. The garage, car, roof, levels, and interior spaces must remain unchanged.${notesText ? `\n\n[USER NOTE]\n${notesText}` : ''}`;
+
+    return `[IMAGE RULES]
+Image 1 is the sole source for architectural structure, spatial content, terrain, composition, and section relationships. Image 2 is used only as a visual reference for fine linework, muted soft color, planting expression, and professional ecological-section language. Do not copy any specific building, road, person, annotation, construction detail, material, or scene content from Image 2.
+
+[STRICT STRUCTURE GUARD]
+Preserve the exact aspect ratio, framing, subject position, and scale of Image 1. Do not crop, enlarge, reduce, rotate, or recompose it. Preserve the roof pitch and eaves, building outline, number and height of levels, walls, slabs, columns, doors, windows, openings, stairs, interior layout, room count and positions, furniture, people, underground garage, car, foundations, ground line, terrain boundaries, and section relationships. Do not add, remove, move, replace, merge, or redesign architectural spaces or major site elements.
+
+Especially do not add or alter interior stairs, exterior steps, ramps, escalators, platforms, passages, or circulation routes. Do not add beams, purlins, roof trusses, timber components, ceiling structures, or other structural elements. Do not change garage boundaries, car position or scale, roof construction, wall thickness, room boundaries, or opening positions.
+
+[TEMPLATE EXPRESSION]
+Transform Image 1 into a refined ecological landscape architectural section. Keep a white or warm-white background, fine readable technical linework, and generous white space. ${color}
+
+Keep planting and ecological expression natural and restrained. Only refine and moderately enhance existing trees, shrubs, groundcover, soil, and root layers within the outdoor and underground areas already present in Image 1. Any added roots or soil textures must remain below existing planting and within existing soil layers. Do not change planting positions or quantities, site boundaries, roads, terrain, or section relationships, and do not obscure the architecture.
+
+[NEGATIVE CONSTRAINTS]
+Avoid photorealistic photography, commercial real-estate visualization, heavy watercolor, strong paper texture, thick black lines, saturated color, dramatic shadows, night scenes, and cyberpunk styling. Do not add levels, rooms, roads, water bodies, vehicles, large trees, large structures, or circulation elements. Add no text, numbers, arrows, legends, logos, or watermarks. Do not change the building material system or add timber beams, timber purlins, timber roof trusses, timber finishes, brick walls, or new material textures. The underground garage, car, roof, levels, interior spaces, stairs, steps, ramps, and all openings must remain unchanged.${notesText ? `\n\n[USER NOTE]\n${notesText}` : ''}`;
   }
 
   function buildArchitecturalPrompt({lang, values, notesText}) {
@@ -318,28 +338,16 @@
   }
 
   function buildEcologicalVisiblePrompt({lang, values, notesText}) {
-    const sectionMap = {
-      architectural:{zh:'建筑剖面',en:'architectural section'},
-      landscape:{zh:'景观剖面',en:'landscape section'},
-      integrated:{zh:'建筑景观综合剖面',en:'integrated architectural-landscape section'}
-    };
     const colorMap = {
-      low:{zh:'低色彩浓度',en:'low color intensity'},
-      medium:{zh:'中色彩浓度',en:'medium color intensity'},
-      high:{zh:'高色彩浓度',en:'higher color intensity while remaining restrained'}
+      light:{zh:'淡色彩',en:'light color'},
+      standard:{zh:'标准色彩',en:'standard color'},
+      strong:{zh:'强化色彩',en:'enhanced color'}
     };
-    const ecologyMap = {
-      low:{zh:'轻度生态增强',en:'light ecological enhancement'},
-      medium:{zh:'中等生态增强',en:'medium ecological enhancement'},
-      high:{zh:'较强生态增强',en:'stronger ecological enhancement'}
-    };
-    const section = sectionMap[values.sectionType]?.[lang] || sectionMap.integrated[lang];
-    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.medium[lang];
-    const ecology = ecologyMap[values.ecologyEnhancement]?.[lang] || ecologyMap.medium[lang];
+    const color = colorMap[values.colorIntensity]?.[lang] || colorMap.standard[lang];
     if (lang === 'zh') {
-      return `生态景观建筑剖面，${section}，${color}，${ecology}，保留原有建筑剖面关系、主要空间关系与地下车库，白色背景，细腻线稿，低饱和淡彩，植物、地表与土壤层次清晰，整体气质克制、干净、专业。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+      return `生态景观建筑剖面，${color}，保留原有画幅、建筑结构、楼梯、地下车库、汽车与主要空间关系，白色或暖白色背景，精细技术线稿，低饱和淡彩，植物、地表与土壤层次自然克制，整体干净、专业、留白充足。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
     }
-    return `Ecological architectural section, ${section}, ${color}, ${ecology}, preserve the original section relationships, key spatial relationships, and underground garage; white background, delicate linework, muted soft color, clear planting, ground, and soil layers, restrained, clean, and professional overall atmosphere.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+    return `Ecological architectural section, ${color}, preserve the original canvas, building structure, stairs, underground garage, car, and key spatial relationships; white or warm-white background, fine technical linework, muted soft color, natural restrained planting, ground, and soil layers, clean professional composition with generous white space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
   }
 
   function buildArchitecturalVisiblePrompt({lang, values, notesText}) {

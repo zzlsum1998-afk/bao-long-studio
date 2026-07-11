@@ -1,0 +1,20 @@
+BaoLong Lab v242 was created from v241 full-noimages-plus-template-assets to repair the new workflow card modal opening.
+
+Changed files:
+- prompt-generator.html
+- PROMPT_WORKFLOW_CARD_OPEN_FIX_CHECK_v242.txt
+
+Root cause:
+- The case17 data object was inserted before case16 was properly closed, and an extra closing brace remained at the end of `promptCases`.
+- This caused the inline Prompt modal script to fail parsing, so case17 could not open.
+
+Fixes:
+1. Repaired the `case16` / `case17` object boundary and the final `promptCases` closing braces.
+2. Kept case16 as an existing normal Prompt card and did not change its Prompt text.
+3. Removed the workflow binding from case16 so only the dedicated case17 workflow card displays “使用此模板 / Use this template”.
+4. Kept case17 card markup, image, tags, copyable Prompt, and template target unchanged.
+5. Did not modify card CSS, Prompt Tool, Template Generator, favorites logic, navigation, common.css/common.js, or other site modules.
+
+Validation:
+- The repaired inline Prompt script passes JavaScript syntax validation.
+- `prompt-favorites.js` automatically binds case17 because it uses the existing `.prompt-case-card[data-prompt-id]` system.

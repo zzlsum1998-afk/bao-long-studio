@@ -4,16 +4,16 @@
 
   const sharedTranslations = {
     zh: {
-      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'当前仅做前端预览，图片不会上传', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树与地下车库，不增加新人物。', notesHint:'最多 120 字', estimateLabel:'输出设置', creditUnit:'张图片', generate:'生成图片', resultKicker:'生成结果', resultTitle:'预览与操作', emptyTitle:'结果会显示在这里', emptyCopy:'上传项目图并点击生成，体验完整流程。', loadingCopy:'请稍候，生成完成后会自动显示结果。', mockResult:'流程示例图', download:'下载图片', regenerate:'重新生成', reset:'重置', detailKicker:'PROMPT PREVIEW', detailTitle:'本次 Prompt', promptTitle:'可复制 Prompt', copy:'复制', copied:'已复制', generationInfoTitle:'生成信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'项目原图 + 模板参考图', outputMode:'输出', viewDetail:'查看 Prompt'
+      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'当前仅做前端预览，图片不会上传', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树，弱化土层，不改变屋顶结构。', notesHint:'最多 120 字', advancedSettings:'高级设置', advancedSettingsHint:'仅在需要时调整生态与人物处理。', settingsUnit:'项', estimateLabel:'输出设置', creditUnit:'张图片', generate:'生成图片', resultKicker:'生成结果', resultTitle:'预览与操作', emptyTitle:'结果会显示在这里', emptyCopy:'上传项目图并点击生成，体验完整流程。', loadingCopy:'请稍候，生成完成后会自动显示结果。', mockResult:'流程示例图', download:'下载图片', regenerate:'重新生成', reset:'重置', detailKicker:'PROMPT PREVIEW', detailTitle:'本次 Prompt', promptTitle:'可复制 Prompt', copy:'复制', copied:'已复制', generationInfoTitle:'生成信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'项目原图 + 模板参考图', outputMode:'输出', viewDetail:'查看 Prompt'
     },
     en: {
-      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'This prototype only previews locally. The image is not uploaded.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree and underground garage; add no new people.', notesHint:'Up to 120 characters', estimateLabel:'Output', creditUnit:'image', generate:'Generate Image', resultKicker:'RESULT', resultTitle:'Preview & Actions', emptyTitle:'Your result will appear here', emptyCopy:'Upload a project image and generate to preview the full flow.', loadingCopy:'Please wait. The result will appear automatically when generation is complete.', mockResult:'Workflow sample', download:'Download Image', regenerate:'Regenerate', reset:'Reset', detailKicker:'PROMPT PREVIEW', detailTitle:'Prompt Preview', promptTitle:'Copy-ready Prompt', copy:'Copy', copied:'Copied', generationInfoTitle:'Generation Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Project image + template reference', outputMode:'Output', viewDetail:'View Prompt'
+      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'This prototype only previews locally. The image is not uploaded.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree, soften the soil layer, and preserve the roof structure.', notesHint:'Up to 120 characters', advancedSettings:'Advanced Settings', advancedSettingsHint:'Adjust ecology and people handling only when needed.', settingsUnit:'settings', estimateLabel:'Output', creditUnit:'image', generate:'Generate Image', resultKicker:'RESULT', resultTitle:'Preview & Actions', emptyTitle:'Your result will appear here', emptyCopy:'Upload a project image and generate to preview the full flow.', loadingCopy:'Please wait. The result will appear automatically when generation is complete.', mockResult:'Workflow sample', download:'Download Image', regenerate:'Regenerate', reset:'Reset', detailKicker:'PROMPT PREVIEW', detailTitle:'Prompt Preview', promptTitle:'Copy-ready Prompt', copy:'Copy', copied:'Copied', generationInfoTitle:'Generation Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Project image + template reference', outputMode:'Output', viewDetail:'View Prompt'
     }
   };
 
   const templateConfigs = {
     'ecological-architectural-section-v1': {
-      sourceCaseId:'case16',
+      sourceCaseId:'case17',
       title: { zh:'生态景观建筑剖面', en:'Ecological Architectural Section' },
       summary: { zh:'保留建筑剖面结构，增强低饱和植物、地表与土壤生态层次。', en:'Preserve the architectural section while enhancing muted planting, ground, and soil ecology layers.' },
       caption: { zh:'目标风格：精细线稿、低饱和淡彩、建筑与生态系统一体表达', en:'Target style: precise linework, muted soft color, and integrated architecture-ecology presentation.' },
@@ -23,7 +23,7 @@
         en:['Ecological section','Structure first','Planting layers']
       },
       priorityTitle: { zh:'结构保护：', en:'Structure guard: ' },
-      priorityCopy: { zh:'优先保留画幅、屋顶、楼层、墙体、楼梯、地下车库、汽车、材料系统与原有剖切关系。', en:'Prioritize the canvas, roof, levels, walls, stairs, underground garage, car, material system, and original section relationships.' },
+      priorityCopy: { zh:'以上传原图为唯一结构依据，只处理原图中实际存在的建筑、空间、地形与场地元素。', en:'Use the uploaded image as the sole structural source and only process architecture, space, terrain, and site elements that actually exist in it.' },
       bestFor: {
         zh:['建筑剖面、建筑景观综合剖面与基础线稿','希望保留结构，只增强植物与生态表达','需要低饱和竞赛图纸与作品集质感'],
         en:['Architectural and architecture-landscape sections or clean line drawings','Projects that must preserve structure while enhancing ecology','Presentation boards needing muted competition-style graphics']
@@ -48,6 +48,20 @@
             {value:'light',label:{zh:'淡',en:'Light'}},
             {value:'standard',label:{zh:'标准',en:'Standard'}},
             {value:'strong',label:{zh:'强化',en:'Enhanced'}}
+          ]
+        },
+        {
+          id:'ecologyTreatment', type:'segmented', advanced:true, label:{zh:'生态处理',en:'Ecology Treatment'}, default:'follow',
+          options:[
+            {value:'follow',label:{zh:'跟随原图',en:'Follow Source'}},
+            {value:'light',label:{zh:'轻度补充',en:'Light Supplement'}}
+          ]
+        },
+        {
+          id:'peopleHandling', type:'segmented', advanced:true, label:{zh:'人物处理',en:'People Handling'}, default:'follow',
+          options:[
+            {value:'follow',label:{zh:'跟随原图',en:'Follow Source'}},
+            {value:'remove',label:{zh:'去除人物',en:'Remove People'}}
           ]
         }
       ],
@@ -230,51 +244,74 @@
         en:'Keep the palette low in saturation and strengthen distinction among planting, architecture, ground, and soil only through brightness, opacity, and color differences within existing regions. Do not add material textures or change material types, construction forms, texture directions, or architectural details. Do not reinterpret the roof, walls, slabs, or interior floors as timber construction or any new material.'
       }
     };
+    const ecologyMap = {
+      follow:{
+        zh:'生态处理采用“跟随原图”：仅整理和轻度细化图1中实际存在的植物、地表、土层与根系；图1中没有出现的生态元素不得新增。',
+        en:'Ecology treatment follows the source: only refine and lightly clarify planting, ground, soil, and roots that actually exist in Image 1. Do not add ecological elements that are absent from the source.'
+      },
+      light:{
+        zh:'生态处理采用“轻度补充”：优先保留图1已有生态元素；若原图植物较少，只能在既有室外与土层边界内少量补充低矮灌木、草本、地被及合理根系线条，作为辅助表达。不得新增大型树木，不得改变地形、道路、建筑边界或剖切关系，不得遮挡建筑。',
+        en:'Ecology treatment uses light supplementation: preserve existing ecological elements first. If planting is sparse, add only a small amount of low shrubs, herbaceous planting, groundcover, and plausible root lines within existing outdoor and soil boundaries as secondary expression. Do not add large trees, change terrain, roads, building boundaries, or section relationships, or obscure the architecture.'
+      }
+    };
+    const peopleMap = {
+      follow:{
+        zh:'人物处理采用“跟随原图”：图1中已有的人物保持数量、位置、尺度与姿态关系；图1中没有人物时不得新增。',
+        en:'People handling follows the source: preserve the number, position, scale, and pose relationships of people already present in Image 1. If the source has no people, add none.'
+      },
+      remove:{
+        zh:'人物处理采用“去除人物”：允许仅删除图1中的人物轮廓，并自然补齐人物背后的原有界面；除此之外不得删除或改变家具、设备、空间、建筑与场地元素，也不得新增人物。',
+        en:'People handling removes people: only human figures may be removed, with the original surfaces behind them restored naturally. Do not delete or alter furniture, equipment, spaces, architecture, or site elements, and do not add new people.'
+      }
+    };
     const color = colorMap[values.colorIntensity]?.[lang] || colorMap.standard[lang];
+    const ecology = ecologyMap[values.ecologyTreatment]?.[lang] || ecologyMap.follow[lang];
+    const people = peopleMap[values.peopleHandling]?.[lang] || peopleMap.follow[lang];
 
     if (lang === 'zh') {
       return `【图像使用规则】
-图1是项目原图，是建筑结构、空间内容、地形、构图与剖切关系的唯一依据。
+图1是用户上传的项目原图，是画幅、构图、建筑结构、空间内容、地形、场地元素和剖切关系的唯一依据。
 图2只用于参考精细线条、低饱和淡彩、植物表达和专业生态剖面的视觉语言。
 不得复制图2中的具体建筑、道路、人物、标注、构造、材料或场景内容。
 
-【严格结构保护】
-完整保留图1的画幅比例、取景范围、主体位置与尺度，不得裁切、放大、缩小、旋转或重新构图。
-完整保留屋顶坡度、屋檐、建筑轮廓、楼层数量与高度、墙体、楼板、柱子、门窗、开口、楼梯、室内布局、房间数量与位置、家具、人物、地下车库、汽车、基础、地面线、地形边界和剖切关系。
-不得增加、删除、移动、替换、合并或重新设计任何建筑空间与主要场地要素。
+【通用结构保护】
+除下方“生态处理”和“人物处理”明确允许的变化外，只保留并优化图1中实际存在的内容。完整保留图1的画幅比例、取景范围、主体位置与尺度，以及图1中真实出现的建筑轮廓、屋顶、楼层、墙体、楼板、柱子、门窗、开口、楼梯、室内空间、家具、地下空间、车库、汽车、道路、水体、地形、植物、基础、地面线和剖切关系。
 
-尤其禁止新增或改变室内楼梯、室外台阶、坡道、扶梯、平台、通道和交通流线；
-禁止新增梁、檩条、屋架、木构件、吊顶构造或其他结构构件；
-禁止改变车库边界、汽车位置与大小、屋面构造、墙体厚度、房间边界和开口位置。
+图1中存在的主要元素必须保持位置、数量、尺度和相互关系不变；图1中没有出现的建筑、空间、交通与大型场地元素绝对不得自行添加。特别禁止凭空新增地下室、地下车库、汽车、楼梯、室外台阶、坡道、平台、道路、水体、楼层、房间、大型树木、大型构筑物、梁、檩条、屋架、吊顶或其他结构与交通构件。不得增加、删除、移动、替换、合并或重新设计任何主要建筑空间与场地要素。
 
 【模板表达】
 将图1转换为精致的生态景观建筑剖面表达图。保持白色或暖白色背景、细而清晰的技术线稿和充分留白。${color}
 
-植物与生态表达固定为自然、克制：仅在图1已有室外与地下范围内，适度整理和增强已有乔木、灌木、地被、土壤与根系层次。新增的根系或土壤纹理只能位于已有植物根部与既有地下土层中，不得改变原有植物位置、数量、场地边界、道路、地形和剖切关系，不得遮挡建筑结构。
+${ecology}
+根系或土壤纹理只能出现在合理的既有地表与地下土层中，不得生成新的地下空间或工程构造。
+
+${people}
 
 【禁止项】
 不要写实摄影，不要商业地产效果图，不要厚重水彩，不要强烈纸纹，不要粗黑线，不要高饱和，不要强烈阴影，不要夜景，不要赛博朋克。
-不要新增楼层、房间、道路、水体、车辆、大型树木、大型构筑物或任何交通构件。
 不要新增文字、编号、箭头、图例、Logo 或水印。
 不要改变建筑材料系统，不要新增木梁、木檩条、木屋架、木饰面、砖墙或新的材料纹理。
-地下车库、汽车、屋顶、楼层、室内空间、楼梯、台阶、坡道和全部开口必须保持不变。${notesText ? `\n\n【用户补充】\n${notesText}` : ''}`;
+最终结果必须忠实于图1，只改变表达风格、色彩层次及参数明确允许的内容，不改变项目设计本身。${notesText ? `\n\n【用户补充】\n${notesText}` : ''}`;
     }
 
     return `[IMAGE RULES]
-Image 1 is the sole source for architectural structure, spatial content, terrain, composition, and section relationships. Image 2 is used only as a visual reference for fine linework, muted soft color, planting expression, and professional ecological-section language. Do not copy any specific building, road, person, annotation, construction detail, material, or scene content from Image 2.
+Image 1 is the user-uploaded project source and the sole reference for framing, composition, architectural structure, spatial content, terrain, site elements, and section relationships. Image 2 is used only as a visual reference for fine linework, muted soft color, planting expression, and professional ecological-section language. Do not copy any specific building, road, person, annotation, construction detail, material, or scene content from Image 2.
 
-[STRICT STRUCTURE GUARD]
-Preserve the exact aspect ratio, framing, subject position, and scale of Image 1. Do not crop, enlarge, reduce, rotate, or recompose it. Preserve the roof pitch and eaves, building outline, number and height of levels, walls, slabs, columns, doors, windows, openings, stairs, interior layout, room count and positions, furniture, people, underground garage, car, foundations, ground line, terrain boundaries, and section relationships. Do not add, remove, move, replace, merge, or redesign architectural spaces or major site elements.
+[UNIVERSAL STRUCTURE GUARD]
+Except for changes explicitly allowed by Ecology Treatment and People Handling below, preserve and refine only content that actually exists in Image 1. Preserve its aspect ratio, framing, subject position and scale, and all real building outlines, roofs, levels, walls, slabs, columns, doors, windows, openings, stairs, interior spaces, furniture, underground spaces, garages, cars, roads, water, terrain, planting, foundations, ground lines, and section relationships.
 
-Especially do not add or alter interior stairs, exterior steps, ramps, escalators, platforms, passages, or circulation routes. Do not add beams, purlins, roof trusses, timber components, ceiling structures, or other structural elements. Do not change garage boundaries, car position or scale, roof construction, wall thickness, room boundaries, or opening positions.
+Major elements present in Image 1 must retain their position, quantity, scale, and relationships. Never add architectural, spatial, circulation, or large site elements absent from the source. Especially do not invent basements, underground garages, cars, stairs, exterior steps, ramps, platforms, roads, water bodies, levels, rooms, large trees, large structures, beams, purlins, roof trusses, ceilings, or other structural and circulation elements. Do not add, remove, move, replace, merge, or redesign major architectural spaces or site elements.
 
 [TEMPLATE EXPRESSION]
 Transform Image 1 into a refined ecological landscape architectural section. Keep a white or warm-white background, fine readable technical linework, and generous white space. ${color}
 
-Keep planting and ecological expression natural and restrained. Only refine and moderately enhance existing trees, shrubs, groundcover, soil, and root layers within the outdoor and underground areas already present in Image 1. Any added roots or soil textures must remain below existing planting and within existing soil layers. Do not change planting positions or quantities, site boundaries, roads, terrain, or section relationships, and do not obscure the architecture.
+${ecology}
+Roots or soil textures may appear only within plausible existing ground and underground soil layers and must not create new underground spaces or engineering structures.
+
+${people}
 
 [NEGATIVE CONSTRAINTS]
-Avoid photorealistic photography, commercial real-estate visualization, heavy watercolor, strong paper texture, thick black lines, saturated color, dramatic shadows, night scenes, and cyberpunk styling. Do not add levels, rooms, roads, water bodies, vehicles, large trees, large structures, or circulation elements. Add no text, numbers, arrows, legends, logos, or watermarks. Do not change the building material system or add timber beams, timber purlins, timber roof trusses, timber finishes, brick walls, or new material textures. The underground garage, car, roof, levels, interior spaces, stairs, steps, ramps, and all openings must remain unchanged.${notesText ? `\n\n[USER NOTE]\n${notesText}` : ''}`;
+Avoid photorealistic photography, commercial real-estate visualization, heavy watercolor, strong paper texture, thick black lines, saturated color, dramatic shadows, night scenes, and cyberpunk styling. Add no text, numbers, arrows, legends, logos, or watermarks. Do not change the building material system or add timber beams, timber purlins, timber roof trusses, timber finishes, brick walls, or new material textures. The final result must remain faithful to Image 1 and may change only visual presentation, color hierarchy, and content explicitly allowed by the selected parameters.${notesText ? `\n\n[USER NOTE]\n${notesText}` : ''}`;
   }
 
   function buildArchitecturalPrompt({lang, values, notesText}) {
@@ -331,11 +368,21 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
       standard:{zh:'标准色彩',en:'standard color'},
       strong:{zh:'强化色彩',en:'enhanced color'}
     };
+    const ecologyMap = {
+      follow:{zh:'跟随原图',en:'follow the source'},
+      light:{zh:'轻度补充',en:'light supplementation'}
+    };
+    const peopleMap = {
+      follow:{zh:'跟随原图',en:'follow the source'},
+      remove:{zh:'去除人物',en:'remove people'}
+    };
     const color = colorMap[values.colorIntensity]?.[lang] || colorMap.standard[lang];
+    const ecology = ecologyMap[values.ecologyTreatment]?.[lang] || ecologyMap.follow[lang];
+    const people = peopleMap[values.peopleHandling]?.[lang] || peopleMap.follow[lang];
     if (lang === 'zh') {
-      return `生态景观建筑剖面，${color}，保留原有画幅、建筑结构、楼梯、地下车库、汽车与主要空间关系，白色或暖白色背景，精细技术线稿，低饱和淡彩，植物、地表与土壤层次自然克制，整体干净、专业、留白充足。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+      return `生态景观建筑剖面，${color}，以上传的项目原图为唯一结构依据，保留原图中实际存在的建筑轮廓、空间关系、地形与主要场地元素，不新增原图中不存在的地下空间、车辆、交通构件或其他大型元素。生态处理：${ecology}；人物处理：${people}。白色或暖白色背景，精细技术线稿，低饱和淡彩，整体干净、专业、留白充足。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
     }
-    return `Ecological architectural section, ${color}, preserve the original canvas, building structure, stairs, underground garage, car, and key spatial relationships; white or warm-white background, fine technical linework, muted soft color, natural restrained planting, ground, and soil layers, clean professional composition with generous white space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+    return `Ecological architectural section, ${color}, using the uploaded project image as the sole structural source. Preserve the architecture, spatial relationships, terrain, and major site elements that actually exist in the source, and do not add absent underground spaces, vehicles, circulation elements, or other large elements. Ecology treatment: ${ecology}; people handling: ${people}. White or warm-white background, fine technical linework, muted soft color, clean professional composition, and generous white space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
   }
 
   function buildArchitecturalVisiblePrompt({lang, values, notesText}) {
@@ -437,10 +484,19 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
   }
 
   function renderParameters({preserveValues = true} = {}) {
-    const container = $('#dynamicParameters');
+    const primaryContainer = $('#dynamicParameters');
+    const advancedContainer = $('#advancedParameters');
+    const advancedPanel = $('#advancedSettingsPanel');
     const previousValues = preserveValues ? {...state.parameterValues} : {};
     state.parameterValues = {};
-    container.innerHTML = '';
+    primaryContainer.innerHTML = '';
+    advancedContainer.innerHTML = '';
+
+    const advancedParameters = activeTemplate.parameters.filter((parameter) => parameter.advanced);
+    advancedPanel.hidden = advancedParameters.length === 0;
+    $('#advancedSettingsCount').textContent = state.lang === 'zh'
+      ? `${advancedParameters.length} ${sharedTranslations.zh.settingsUnit}`
+      : `${advancedParameters.length} ${sharedTranslations.en.settingsUnit}`;
 
     activeTemplate.parameters.forEach((parameter) => {
       const fieldset = document.createElement('fieldset');
@@ -474,7 +530,7 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
 
       if (parameter.type === 'segmented') {
         const group = document.createElement('div');
-        group.className = 'segmented';
+        group.className = `segmented segmented-${parameter.options.length}`;
         group.dataset.parameterId = parameter.id;
         parameter.options.forEach((option) => {
           const button = document.createElement('button');
@@ -493,7 +549,8 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
         fieldset.appendChild(group);
       }
 
-      container.appendChild(fieldset);
+      const target = parameter.advanced ? advancedContainer : primaryContainer;
+      target.appendChild(fieldset);
     });
   }
 

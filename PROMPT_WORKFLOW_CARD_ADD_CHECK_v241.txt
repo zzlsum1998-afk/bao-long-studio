@@ -1,0 +1,21 @@
+BaoLong Lab v241 was created from v240 full-noimages-plus-template-assets to add a dedicated Prompt Library card for the ecological architectural section workflow.
+
+Changed files:
+- prompt-generator.html
+- PROMPT_WORKFLOW_CARD_ADD_CHECK_v241.txt
+
+What changed:
+1. Added a new Prompt Library card `case17` after the existing case16 card.
+2. The new card uses the existing BaoLong prompt card style with a dedicated workflow-facing title: `生态景观建筑剖面工作流`.
+3. The new card image uses the existing local asset `images/template-p0/result-demo.png`, so no extra large image package is required.
+4. Added corresponding modal data for `case17`, including:
+   - workflow template id `ecological-architectural-section-v1`
+   - concise user-facing copyable prompt
+   - workflow tags and scene description
+5. Kept the existing prompt case modal behavior, copy button, and “使用此模板 / Use this template” entry unchanged.
+6. Did not change any other prompt cards, Prompt Tool logic, Template Generator logic, navigation, Inspiration Boards, or other site modules.
+
+Not changed:
+- Existing case1–case16 card content remains unchanged.
+- No CSS/global style changes were made; the new card reuses the current BaoLong Prompt Library card system.
+- No new external assets or CDN dependencies were added.

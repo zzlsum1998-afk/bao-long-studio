@@ -1,0 +1,20 @@
+BaoLong Lab v249 · case17 template sample sync
+
+Base: v248 Forest Garden workflow full-noimages-plus-template-assets
+
+Changed:
+- js/template-generator.js
+- template-generator.html
+- CASE17_TEMPLATE_SAMPLE_SYNC_CHECK_v249.txt
+
+Fix:
+- case17 Prompt card already used images/template-p0/result-demo.png.
+- The shared template page had separately displayed images/prompt-cases/prompt-case-16.webp.
+- The case17 template-page display image now also uses images/template-p0/result-demo.png, so the card and template example match.
+- Bumped template-generator.js cache query from v248 to v249.
+
+Unchanged:
+- case16 / case18 data and workflow mappings
+- Forest Garden assets and parameters
+- Prompt Tool, favorites, Resume Tool, Inspiration Board
+- common.css/common.js, data, images, sitemap, robots, favicon and Netlify history files

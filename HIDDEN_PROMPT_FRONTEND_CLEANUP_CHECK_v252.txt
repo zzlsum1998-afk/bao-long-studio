@@ -1,0 +1,39 @@
+BaoLong Lab · Hidden Prompt Frontend Cleanup Check · v252
+==========================================================
+
+Base
+- v251 full: baolong-urban-program-diagram-workflow-v251-full-noimages-plus-template-assets.zip
+- New version: v252 Hidden Prompt Security Cleanup
+
+Changed website files
+1. js/template-generator.js
+   - Removed full production prompt builders for case17, case18, and case19.
+   - Kept only public visiblePromptBuilder summaries for case17-case20.
+   - Removed runtime fallback to activeTemplate.promptBuilder.
+   - Added non-secret privateScriptRef values that point to the separate offline vault index.
+2. template-generator.html
+   - Updated js/template-generator.js cache query from v251 to v252.
+3. HIDDEN_PROMPT_FRONTEND_CLEANUP_CHECK_v252.txt
+   - This check record.
+
+Unchanged
+- prompt-generator.html and case17-case20 public card summaries
+- Prompt Tool
+- Prompt favorites and Inspiration favorites
+- Resume Tool
+- Inspiration Board pages and data
+- css/common.css and js/common.js
+- SEO, canonical, sitemap, robots, favicon
+- Netlify legacy files
+- Existing template images and workflow configuration
+
+Security result
+- No full production Hidden Prompt remains in static HTML/JS.
+- No .env, API key, provider endpoint, model ID, or real API request was added.
+- Static pages retain only Template ID, UI configuration, public summaries, and non-secret offline script filenames.
+- Full prompts and final POC scripts are stored only in the separate private archive:
+  BaoLong_Lab_Hidden_Prompt_Vault_v1.zip
+
+Important
+- Never upload the private vault to the website repository, GitHub Pages, public cloud folders, or a shared link.
+- The privateScriptRef strings are only file-name hints and are not loaded by the browser.

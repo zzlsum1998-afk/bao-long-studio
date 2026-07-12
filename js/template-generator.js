@@ -72,6 +72,53 @@
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildEcologicalVisiblePrompt,
       promptBuilder: buildEcologicalSectionPrompt
+    },
+    'forest-garden-ecological-section-v1': {
+      sourceCaseId:'case18',
+      title: { zh:'森林花园生态剖面', en:'Forest Garden Ecological Section' },
+      summary: { zh:'保留建筑或景观剖面关系，转化为带横向细纹、土层根系与克制生态层次的研究型图面。', en:'Preserve architectural or landscape section relationships while adding horizontal line texture, soil-root articulation, and restrained ecological layers.' },
+      caption: { zh:'目标风格：明显横向细纹、精细灰白线稿、土层根系与少量暗红生态点缀', en:'Target style: visible horizontal line texture, fine grayscale linework, soil-root articulation, and restrained dark-red ecological accents.' },
+      imageAlt: { zh:'森林花园生态剖面参考图', en:'Forest garden ecological section reference' },
+      tags: {
+        zh:['森林花园','研究型剖面','土层根系'],
+        en:['Forest garden','Research section','Soil and roots']
+      },
+      priorityTitle: { zh:'原图保护：', en:'Source guard: ' },
+      priorityCopy: { zh:'以上传原图为唯一结构与场地依据，只改变图面表达和所选生态强度。', en:'Use the uploaded image as the sole structural and site source; change only graphic expression and the selected ecology intensity.' },
+      bestFor: {
+        zh:['建筑剖面、景观剖面与场地线稿','希望突出植物—地表—土壤—根系关系','需要安静、克制的生态研究图与作品集图面'],
+        en:['Architectural, landscape, and site section line drawings','Projects emphasizing planting-ground-soil-root relationships','Calm ecological research graphics and portfolio presentation']
+      },
+      notFor: {
+        zh:['要求 CAD 级逐像素锁定的施工剖面','透视效果图、实景照片或需要重新设计场地的任务'],
+        en:['Construction sections requiring CAD-level pixel locking','Perspective renders, photographs, or tasks requiring site redesign']
+      },
+      assets: {
+        source:'images/template-forest-garden/source-demo.png',
+        display:'images/template-forest-garden/result-demo.png',
+        displayFallback:'images/template-forest-garden/style-reference.png',
+        reference:'images/template-forest-garden/style-reference.png',
+        result:'images/template-forest-garden/result-demo.png',
+        sourceName:'forest-garden-section-source-demo.png',
+        downloadName:'baolong-forest-garden-ecological-section-demo.png'
+      },
+      parameters: [
+        {
+          id:'ecologyIntensity', type:'segmented', label:{zh:'生态表达',en:'Ecology Intensity'}, default:'standard',
+          options:[
+            {value:'light',label:{zh:'轻',en:'Light'}},
+            {value:'standard',label:{zh:'标准',en:'Standard'}},
+            {value:'strong',label:{zh:'强化',en:'Enhanced'}}
+          ]
+        }
+      ],
+      loading: {
+        zh:['正在分析项目原图','正在应用生态表达参数','正在生成图像'],
+        en:['Analyzing project image','Applying ecology intensity','Generating image']
+      },
+      outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildForestGardenVisiblePrompt,
+      promptBuilder: buildForestGardenPrompt
     }
   };
 
@@ -211,6 +258,79 @@ Avoid photorealistic photography, commercial real-estate visualization, heavy wa
       return `生态景观建筑剖面，${color}，以上传的项目原图为唯一结构依据，保留原图中实际存在的建筑轮廓、空间关系、地形与主要场地元素，不新增原图中不存在的地下空间、车辆、交通构件或其他大型元素。生态处理：${ecology}；人物处理：${people}。白色或暖白色背景，精细技术线稿，低饱和淡彩，整体干净、专业、留白充足。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
     }
     return `Ecological architectural section, ${color}, using the uploaded project image as the sole structural source. Preserve the architecture, spatial relationships, terrain, and major site elements that actually exist in the source, and do not add absent underground spaces, vehicles, circulation elements, or other large elements. Ecology treatment: ${ecology}; people handling: ${people}. White or warm-white background, fine technical linework, muted soft color, clean professional composition, and generous white space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+  }
+
+  function buildForestGardenPrompt({lang, values, notesText}) {
+    const ecologyMap = {
+      light:{
+        zh:'生态表达采用“轻”：尽量跟随图1原有状态，只轻微整理已有植物、地表和土层关系。根系仅在必要位置少量可见，土壤剖面保持简洁，不使植物明显增密，也不遮挡主体。',
+        en:'Use light ecology expression: closely follow Image 1 and only lightly clarify existing planting, ground, and soil relationships. Keep roots sparse and soil articulation simple; do not noticeably densify planting or obscure the subject.'
+      },
+      standard:{
+        zh:'生态表达采用“标准”：在图1既有场地逻辑内，适度增强植物层次、土壤剖面和根系说明感。土层界面更清楚、根系更连贯、植物更有组织，但保持克制、通透与主体可读性。',
+        en:'Use standard ecology expression: within the existing site logic of Image 1, moderately strengthen planting layers, soil section clarity, and root articulation. Keep soil interfaces clearer, roots more continuous, and planting more organized while preserving restraint and readability.'
+      },
+      strong:{
+        zh:'生态表达采用“强化”：在图1既有场地范围内，明显增强植物—地表—土壤—根系之间的生态说明感，使土壤剖面、根系网络和低饱和生态点缀比标准档更清晰。不得遮挡主体、堆满植物或新增任何交通构件与构筑物。',
+        en:'Use enhanced ecology expression: within the existing site boundaries of Image 1, clearly strengthen planting-ground-soil-root relationships so soil sections, root networks, and muted ecological accents read more strongly than the standard level. Do not obscure the subject, overcrowd planting, or add circulation elements or structures.'
+      }
+    };
+    const ecology = ecologyMap[values.ecologyIntensity]?.[lang] || ecologyMap.standard[lang];
+
+    if (lang === 'zh') {
+      return `【图像角色】
+图1是用户上传的项目原图，是画幅比例、取景范围、构图、建筑结构、空间内容、地形、场地元素和剖切关系的唯一依据。
+图2只用于参考森林花园生态说明图的视觉语言，包括精细植物线稿、植物层次、土层与根系表达、浅灰横向背景纹理、灰白主色、少量暗红或灰粉点缀、研究型图面气质和充分留白。
+不得复制图2中的具体建筑、植物个体与树形组合、动物、道路、地图、文字、标题、编号、箭头、分析图、图例、说明栏或版式组件。
+
+【通用结构保护】
+只保留并优化图1中实际存在的内容。完整保留图1的画幅比例、取景范围、主体位置与尺度，以及图1中真实出现的建筑轮廓、屋顶、楼层、墙体、楼板、柱子、门窗、开口、楼梯、室内空间、家具、人物、动物、地下空间、车库、汽车、道路、水体、平台、步道、地形、植物、基础、地面线和剖切关系。
+图1中存在的元素必须保持位置、数量、尺度和相互关系不变；图1中没有出现的元素绝对不得自行添加。特别禁止凭空新增或删除地下空间、车库、汽车、楼梯、室外台阶、坡道、平台、道路、水体、人物、动物、楼层、房间、大型树木群、主要建筑体量、大型构筑物、梁、檩条、屋架、吊顶或其他结构与交通构件。不得增加、删除、移动、替换、合并或重新设计任何主要建筑空间与场地要素。
+
+【森林花园固定表达】
+将图1转换为精致、克制、研究型的森林花园生态建筑或景观剖面表达图。保持暖白至浅灰背景、细而清晰的技术线稿、轻柔植物轮廓、充分留白和安静的说明图气质。
+在天空及大面积空白背景区域中加入连续、均匀、清晰可见的浅灰横向平行细线纹理。横线密度中等、间距稳定，从画面左侧连续延伸至右侧，在正常浏览尺寸下可明确识别；纹理灰度明显区别于纯白背景，但仍低于主体线稿。不得淡化为几乎不可见的纸纹，也不得变成网格、污渍、颗粒或随机噪点。纹理只出现在天空和空白背景，不覆盖建筑、植物、地形、土层、水体、文字或比例尺。
+整体以暖白、浅灰和石墨灰为主，植物大部分保持灰白细线稿，仅使用少量低饱和灰绿、灰粉、暗酒红或红棕色作为生态信息点缀；既有土层可使用克制的深灰剖面与细密浅色根系，色彩不得遮挡主体结构。
+
+${ecology}
+所有生态变化只能发生在图1已有的植物、地表、水体和土层范围内。生态线条、植物密度和根系不得遮挡建筑轮廓、柱、楼板、开口、室内空间、平台、步道、基础和主要地形线。
+
+【禁止项】
+不要写实摄影，不要商业地产效果图，不要厚重水彩，不要浓重纸张肌理，不要粗黑线，不要高饱和，不要强烈阴影，不要戏剧性光照，不要夜景，不要赛博朋克，不要油画或三维渲染质感。
+不要新增文字、标题、编号、箭头、图例、Logo、水印、地图、分析小图、圆形图表或说明栏。
+不要改变建筑材料系统，不要新增木梁、木檩条、木屋架、木饰面、砖墙或新的材料纹理。
+最终结果必须忠实于图1，只改变森林花园图面表达与所选生态强度，不改变项目设计本身。${notesText ? `\n\n【用户补充】\n${notesText}` : ''}`;
+    }
+
+    return `[IMAGE ROLES]
+Image 1 is the user-uploaded project source and the sole reference for aspect ratio, framing, composition, architecture, spatial content, terrain, site elements, and section relationships. Image 2 is used only for Forest Garden visual language: fine botanical linework, planting layers, soil-root articulation, visible pale-gray horizontal background lines, grayscale hierarchy, restrained dark-red or dusty-pink accents, research-graphic character, and generous negative space. Do not copy specific buildings, individual plants, tree groupings, animals, roads, maps, text, titles, labels, arrows, diagrams, legends, sidebars, or layout components from Image 2.
+
+[UNIVERSAL SOURCE GUARD]
+Preserve and refine only content that actually exists in Image 1. Preserve its aspect ratio, framing, subject position and scale, and all existing architecture, roofs, levels, walls, slabs, columns, openings, stairs, interiors, furniture, people, animals, underground spaces, garages, cars, roads, water, platforms, paths, terrain, planting, foundations, ground lines, and section relationships. Elements present in Image 1 must retain their position, quantity, scale, and relationships. Never add or remove absent underground spaces, garages, cars, stairs, exterior steps, ramps, platforms, roads, water, people, animals, levels, rooms, large tree groups, major building masses, large structures, beams, purlins, roof trusses, ceilings, or circulation elements. Do not add, remove, move, replace, merge, or redesign major architectural or site elements.
+
+[FOREST GARDEN EXPRESSION]
+Transform Image 1 into a refined, restrained, research-oriented Forest Garden architectural or landscape section. Use a warm-white to pale-gray background, fine readable technical linework, soft planting outlines, ample negative space, and a quiet explanatory-graphic character.
+Add continuous, uniform, clearly visible pale-gray horizontal parallel lines only across sky and broad empty background areas. Use medium density and stable spacing, extending from left to right and remaining legible at normal viewing size. The lines must read above pure white but below the main subject linework. Do not reduce them to nearly invisible paper grain or turn them into grids, stains, particles, or random noise. Do not place them over architecture, planting, terrain, soil, water, text, or scale bars.
+Keep the palette warm white, pale gray, and graphite gray. Preserve most planting as grayscale linework and use only small amounts of muted gray-green, dusty pink, dark wine red, or red-brown as ecological accents. Existing soil may use restrained dark-gray section fills and fine pale roots without obscuring the subject.
+
+${ecology}
+All ecological changes must stay within planting, ground, water, and soil areas already present in Image 1. Ecology linework, planting density, and roots must not obscure architecture, columns, slabs, openings, interiors, platforms, paths, foundations, or major terrain lines.
+
+[NEGATIVE CONSTRAINTS]
+Avoid photorealism, commercial real-estate visualization, heavy watercolor, strong paper texture, thick black lines, high saturation, dramatic shadows, theatrical lighting, night scenes, cyberpunk, oil-painting, or 3D-rendered appearance. Add no text, titles, numbers, arrows, legends, logos, watermarks, maps, analysis diagrams, circular charts, or sidebars. Do not change material systems or add timber beams, purlins, roof trusses, timber finishes, brick walls, or new material textures. The final result must remain faithful to Image 1 and may change only Forest Garden graphic expression and the selected ecology intensity.${notesText ? `\n\n[USER NOTE]\n${notesText}` : ''}`;
+  }
+
+  function buildForestGardenVisiblePrompt({lang, values, notesText}) {
+    const ecologyMap = {
+      light:{zh:'轻生态表达',en:'light ecology'},
+      standard:{zh:'标准生态表达',en:'standard ecology'},
+      strong:{zh:'强化生态表达',en:'enhanced ecology'}
+    };
+    const ecology = ecologyMap[values.ecologyIntensity]?.[lang] || ecologyMap.standard[lang];
+    if (lang === 'zh') {
+      return `森林花园生态剖面，${ecology}。以上传的项目原图为唯一结构与场地依据，保留原图中实际存在的建筑、平台、步道、水体、地形、植物、人物与剖切关系，不新增原图中不存在的空间、交通构件或大型场地元素。采用连续清晰的浅灰横向细纹背景、精细灰白技术线稿、少量低饱和灰粉与暗红点缀，以及克制的土层和根系说明，整体专业、安静、研究型且留白充分。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
+    }
+    return `Forest Garden ecological section with ${ecology}. Use the uploaded project image as the sole structural and site source. Preserve existing architecture, platforms, paths, water, terrain, planting, people, and section relationships, and do not add absent spaces, circulation elements, or large site features. Use clearly visible pale-gray horizontal background lines, fine grayscale technical linework, restrained dusty-pink and dark-red accents, and controlled soil-root articulation for a quiet research-oriented graphic with generous negative space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
   }
 
   function t(value) {

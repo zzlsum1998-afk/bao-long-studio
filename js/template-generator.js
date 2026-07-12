@@ -34,7 +34,7 @@
       },
       assets: {
         source:'images/template-p0/source-demo.png',
-        display:'images/prompt-cases/prompt-case-16.webp',
+        display:'images/template-p0/result-demo.png',
         displayFallback:'images/template-p0/style-reference.png',
         reference:'images/template-p0/style-reference.png',
         result:'images/template-p0/result-demo.png',

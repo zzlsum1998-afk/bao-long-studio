@@ -1,0 +1,33 @@
+BaoLong Lab · v251 城市功能分区轴测图解工作流检查
+
+基准
+- 基于 v250 full-noimages-plus-template-assets。
+- 新增 case20，不改动 case16 / case17 / case18 / case19 的定位与配置。
+
+新增工作流
+- 卡片：case20
+- 标题：城市功能分区轴测图解工作流
+- Template ID：urban-axonometric-program-diagram-v1
+- 前台参数：无。已验证的锁色、白色线稿、严格结构保护与地面白色圆点纹理作为固定模板规则。
+- 不自动生成文字、标签、图例或箭头；箭头留给用户后期添加。
+
+新增资产
+- images/template-urban-program-diagram/source-demo.png
+- images/template-urban-program-diagram/style-reference.png
+- images/template-urban-program-diagram/result-demo.png
+
+改动文件
+- prompt-generator.html
+- template-generator.html
+- js/template-generator.js
+- images/template-urban-program-diagram/*
+- URBAN_PROGRAM_DIAGRAM_WORKFLOW_CHECK_v251.txt
+
+Hidden Prompt 安全
+- v251 静态前端没有加入本工作流的完整生产指令。
+- 前端仅保留公开可见的简短 Prompt 摘要与 Template ID。
+- 没有 API Key、.env、Provider Endpoint、模型 ID 或真实 API 调用。
+- 正式接入后端时，完整指令必须只保存在服务端，前端仅提交 Template ID、用户图片与补充要求。
+
+保护范围
+- 未改动 css/common.css、js/common.js、Prompt Tool 核心文件、Resume Tool、Inspiration Board、收藏脚本、data JSON、SEO、favicon、sitemap、robots 与 Netlify 历史文件。

@@ -1,0 +1,51 @@
+BaoLong Lab · Urban Birdview Workflow Check · v250
+====================================================
+
+Base package:
+- baolong-case17-template-sample-sync-v249-full-noimages-plus-template-assets.zip
+
+Added workflow card:
+- case19: 城市鸟瞰景观图解工作流
+- workflowTemplate: urban-birdview-landscape-diagram-v1
+- Entry remains inside the existing prompt detail modal via “使用此模板”.
+
+Validated workflow logic:
+- Image 1 remains the sole source for city structure, building massing, roofs, roads, plazas, paving, people, vehicles, and spatial relationships.
+- Image 2 supplies only low-saturation diagrammatic flat-color landscape language.
+- Annotation labels and analytical color blocks are ignored.
+- Front-end parameter is limited to two tested spatial strategies:
+  1) 跟随原图 / Follow Source
+  2) 受控延展 / Controlled Extension
+- Default: 受控延展 / Controlled Extension
+- Unstable light / standard / strong greening levels were not added.
+- No advanced settings are shown for this template.
+- Additional notes remain optional, maximum 120 characters.
+
+Required template assets:
+- images/template-urban-birdview/source-demo.png
+- images/template-urban-birdview/style-reference.jpg
+- images/template-urban-birdview/result-demo.png
+
+Changed files:
+- prompt-generator.html
+- template-generator.html
+- js/template-generator.js
+- images/template-urban-birdview/source-demo.png
+- images/template-urban-birdview/style-reference.jpg
+- images/template-urban-birdview/result-demo.png
+- URBAN_BIRDVIEW_WORKFLOW_CHECK_v250.txt
+
+Protected / not changed:
+- case16, case17, case18 configuration and assets
+- Prompt Tool core logic
+- Prompt favorites and Inspiration favorites
+- Resume Tool and Inspiration Board
+- css/common.css and js/common.js
+- data JSON files
+- sitemap.xml, robots.txt, favicon files
+- Netlify legacy backend files
+
+Security / runtime:
+- Front-end prototype only.
+- No .env, API key, provider name, model ID, or real image-generation API call is included.
+- No generation cost can be produced by this website package.

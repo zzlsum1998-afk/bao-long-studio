@@ -119,6 +119,52 @@
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildForestGardenVisiblePrompt,
       promptBuilder: buildForestGardenPrompt
+    },
+    'urban-birdview-landscape-diagram-v1': {
+      sourceCaseId:'case19',
+      title: { zh:'城市鸟瞰景观图解', en:'Urban Birdview Landscape Diagram' },
+      summary: { zh:'保留城市鸟瞰结构，以低饱和图解式平涂表达，并在“跟随原图 / 受控延展”之间选择景观策略。', en:'Preserve the urban birdview structure, apply muted diagrammatic flat color, and choose between following the source or controlled landscape extension.' },
+      caption: { zh:'目标风格：灰白建筑线稿、低饱和面状绿地、图解式树群与清晰城市空间层级', en:'Target style: pale architectural linework, muted area-based greenery, diagrammatic tree groups, and clear urban spatial hierarchy.' },
+      imageAlt: { zh:'城市鸟瞰景观图解参考图', en:'Urban birdview landscape diagram reference' },
+      tags: {
+        zh:['城市鸟瞰','景观图解','受控介入'],
+        en:['Urban birdview','Landscape diagram','Controlled intervention']
+      },
+      priorityTitle: { zh:'结构保护：', en:'Structure guard: ' },
+      priorityCopy: { zh:'以上传原图为唯一城市结构依据；建筑、道路、广场与主要硬质空间不因景观策略而改变。', en:'Use the uploaded image as the sole urban-structure source; buildings, roads, plazas, and primary hardscape remain unchanged by the landscape strategy.' },
+      bestFor: {
+        zh:['城市鸟瞰、轴测图、城市设计与景观总图','需要保留建筑与道路，只优化景观图解表达','需要在原图绿化范围与合理景观延展之间选择'],
+        en:['Urban birdviews, axonometric diagrams, urban design, and landscape masterplans','Projects preserving buildings and roads while improving landscape graphics','Projects choosing between source-bound planting and controlled landscape extension']
+      },
+      notFor: {
+        zh:['要求 CAD 级逐像素锁定的施工图','实景照片、透视效果图或需要重新设计建筑与道路的任务'],
+        en:['Construction drawings requiring CAD-level pixel locking','Photographs, perspective renders, or tasks requiring redesigned buildings and roads']
+      },
+      assets: {
+        source:'images/template-urban-birdview/source-demo.png',
+        display:'images/template-urban-birdview/result-demo.png',
+        displayFallback:'images/template-urban-birdview/style-reference.jpg',
+        reference:'images/template-urban-birdview/style-reference.jpg',
+        result:'images/template-urban-birdview/result-demo.png',
+        sourceName:'urban-birdview-source-demo.png',
+        downloadName:'baolong-urban-birdview-landscape-diagram-demo.png'
+      },
+      parameters: [
+        {
+          id:'landscapeStrategy', type:'segmented', label:{zh:'景观策略',en:'Landscape Strategy'}, default:'controlled',
+          options:[
+            {value:'follow',label:{zh:'跟随原图',en:'Follow Source'}},
+            {value:'controlled',label:{zh:'受控延展',en:'Controlled Extension'}}
+          ]
+        }
+      ],
+      loading: {
+        zh:['正在分析城市结构','正在应用景观策略','正在生成图像'],
+        en:['Analyzing urban structure','Applying landscape strategy','Generating image']
+      },
+      outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildUrbanBirdviewVisiblePrompt,
+      promptBuilder: buildUrbanBirdviewPrompt
     }
   };
 
@@ -331,6 +377,104 @@ Avoid photorealism, commercial real-estate visualization, heavy watercolor, stro
       return `森林花园生态剖面，${ecology}。以上传的项目原图为唯一结构与场地依据，保留原图中实际存在的建筑、平台、步道、水体、地形、植物、人物与剖切关系，不新增原图中不存在的空间、交通构件或大型场地元素。采用连续清晰的浅灰横向细纹背景、精细灰白技术线稿、少量低饱和灰粉与暗红点缀，以及克制的土层和根系说明，整体专业、安静、研究型且留白充分。${notesText ? `\n\n补充要求：${notesText}` : ''}`;
     }
     return `Forest Garden ecological section with ${ecology}. Use the uploaded project image as the sole structural and site source. Preserve existing architecture, platforms, paths, water, terrain, planting, people, and section relationships, and do not add absent spaces, circulation elements, or large site features. Use clearly visible pale-gray horizontal background lines, fine grayscale technical linework, restrained dusty-pink and dark-red accents, and controlled soil-root articulation for a quiet research-oriented graphic with generous negative space.${notesText ? `\n\nAdditional note: ${notesText}` : ''}`;
+  }
+
+  function buildUrbanBirdviewPrompt({lang, values, notesText}) {
+    const strategyMap = {
+      follow:{
+        zh:'采用“跟随原图”策略。只处理图1中已经明确存在的树木、树池、种植盒、庭院绿地、退界绿带、屋顶绿化或其他清晰可识别的种植区域。允许在这些既有绿地内部整理植物层次、补足地被与灌木、统一树群表达，使原有绿化更完整、更协调，但不得扩大任何绿化边界。图1中没有明确绿化依据的道路边缘、背景空地、硬质铺地、广场、屋顶和开放空间必须保持原状，不新增树木、草地或种植带。即使原图绿化较少，也要保持克制；本模式的目标是尊重原图绿化范围，只做内部优化，不进行空间扩张。',
+        en:'Use the Follow Source strategy. Work only within trees, tree pits, planting beds, courtyard planting, setback green strips, green roofs, or other planting areas clearly present in Image 1. Refine planting layers, groundcover, shrubs, and tree-group consistency inside those existing areas, but do not expand any planting boundary. Road edges, background voids, hardscape, plazas, roofs, and open spaces without clear planting evidence must remain unchanged. Even when planting is sparse, remain restrained; this mode improves existing planting internally without spatial expansion.'
+      },
+      controlled:{
+        zh:'采用“受控延展”策略。先完整保留并优化图1中已经存在的树木、树池、种植盒、庭院绿地、退界绿带和其他明确绿化区域，再允许沿这些既有绿化线索，向与其直接相邻、边界清楚且具备合理景观条件的空间做小至中等范围的连续延展。可延展位置仅包括建筑退界、道路边缘的非通行带、庭院边缘、相邻开放空间和明确可景观化的灰空间；延展必须与原有绿地相连或具有清楚的场地依据。不得跨越或侵占机动车道、斑马线、主要人行通道、建筑轮廓、核心硬质广场和主要交通空间；不得在无依据的背景空地或屋顶新增孤立绿化。本模式的目标是在不改变城市结构与硬质空间秩序的前提下，形成比“跟随原图”更连续、更完整的低饱和景观网络，而不是重新设计整个场地。',
+        en:'Use the Controlled Extension strategy. First preserve and refine all trees, tree pits, planting beds, courtyard planting, setback green strips, and other clear green areas already present in Image 1. Then allow small-to-moderate continuous extension only from those existing planting cues into directly adjacent, clearly bounded spaces with plausible landscape conditions. Eligible areas are limited to building setbacks, non-circulation strips along roads, courtyard edges, adjacent open spaces, and clearly landscapeable residual spaces. Every extension must connect to existing planting or have a clear site basis. Do not cross into or occupy vehicle lanes, crossings, primary pedestrian routes, building footprints, core hard plazas, or major circulation spaces, and do not add isolated planting to unsupported background voids or roofs. The goal is a more continuous muted landscape network than Follow Source without redesigning the site.'
+      }
+    };
+    const strategy = strategyMap[values.landscapeStrategy]?.[lang] || strategyMap.controlled[lang];
+
+    if (lang === 'zh') {
+      return `【图像角色】
+图1是用户上传的城市鸟瞰 / 轴测项目原图，是画幅比例、取景范围、建筑体量、屋顶轮廓、道路走向、广场边界、开放空间、水体、人物、车辆、树木与城市空间关系的唯一依据。
+图2只用于参考低饱和、图解式平涂的城市鸟瞰景观表达，包括灰白建筑线稿、成片绿地组织、图解式树群、清晰色块边界、整体留白与安静的作品集图面气质。
+不得复制图2中的具体城市、建筑、山体、云、道路布局、公园形状、树木组合、人物活动与整体构图。
+
+【原图保护】
+只保留并优化图1中实际存在的内容。完整保留图1的画幅比例、取景范围、视角、主体位置与尺度，以及图1中真实出现的建筑数量、建筑体量、屋顶、道路、街巷、广场、院落、开放空间、水体、人物、车辆、树木、铺地和场地边界。
+图1中已有的元素必须保持位置、数量、尺度和相互关系不变；图1中没有的建筑、道路、水体、广场、桥梁、地形、人物、车辆和大型绿地不得新增。
+不得移动、合并、删除或重新设计建筑体量、道路网络、街角关系、广场边界、屋顶轮廓和主要公共空间。
+
+【标注与色块处理】
+忽略图1中的文字、编号、箭头、图例、标签、彩色标注块和说明性界面元素；这些内容不得被复制、重绘或转化为新的建筑、铺地、绿地、水体或交通设施。
+若图1中存在青色、粉色、黄色、蓝色等分析色块，只把它们视为原图标注，不得直接照搬为最终颜色和材质。
+
+【城市鸟瞰景观图解表达】
+将图1转换为精致、克制、低饱和、图解式平涂的城市鸟瞰景观图解 / 轴测表达。
+建筑以暖白、浅灰和非常轻的细线表现，保持体量清晰、立面和屋顶层级可读；远景建筑可更淡，但不得缺失或变形。
+道路、广场和硬质铺地保持浅灰白、低对比、边界清楚；人物和车辆保持少量、细小、低存在感。
+景观绿化采用边界清晰的浅灰绿、鼠尾草绿、橄榄绿、浅黄绿与少量深绿点缀进行成片平涂；树冠和树群保持统一、图解化、克制，不做写实渲染。
+绿化表达必须以“面状绿地 + 图解式树群”为主，而不是只零散增加单棵街树。
+整体保持专业、安静、留白充足的城市设计作品集与竞赛图纸气质，不做商业地产鸟瞰效果图，不做水彩晕染。
+
+【景观空间策略】
+${strategy}
+两种模式都必须保持图1建筑、道路、广场、铺地和交通关系不变；模式差异只在于是否允许绿化边界向相邻合理空间延展。
+无法明确判断为绿地或可景观化空间的区域，默认保持原有硬质或中性表达，不主动填绿。
+
+【色彩与表现控制】
+整体色彩低饱和、柔和、统一。建筑保持浅灰白与极浅灰关系，绿化以低饱和灰绿、浅橄榄绿、浅黄绿为主，局部可使用更深一档绿色形成层次，但必须克制。
+色块边界应干净、清晰、平涂，不出现水彩晕染、厚重纸纹、写实材质、强烈阴影或高饱和色块。
+整体更像景观规划图解和城市设计鸟瞰表达，而不是写实效果图。
+
+【禁止项】
+不要写实摄影，不要商业地产效果图，不要高饱和，不要强阴影，不要戏剧性光照，不要夜景，不要厚重水彩，不要油画或三维渲染质感。
+不要新增文字、标题、编号、箭头、图例、Logo、水印、地图、分析小图或说明栏。
+不要改变建筑材料系统，不要新增复杂立面、玻璃幕墙、屋顶构筑物或新的交通设施。
+最终结果必须忠实于图1，只改变表达方式、色彩层次与所选景观空间策略，不得改变项目设计本身。${notesText ? `
+
+【用户补充】
+${notesText}` : ''}`;
+    }
+
+    return `[IMAGE ROLES]
+Image 1 is the user-uploaded urban birdview or axonometric project source and the sole reference for aspect ratio, framing, building massing, roof outlines, road alignments, plaza boundaries, open spaces, water, people, vehicles, trees, and urban spatial relationships. Image 2 is used only as a reference for muted diagrammatic flat-color urban landscape expression: pale architectural linework, area-based greenery, diagrammatic tree groups, clean color boundaries, generous negative space, and a quiet portfolio character. Do not copy the specific city, buildings, mountains, clouds, road layout, park shapes, tree groupings, activities, or composition from Image 2.
+
+[SOURCE GUARD]
+Preserve and refine only content that actually exists in Image 1. Preserve its aspect ratio, framing, viewpoint, subject position and scale, and all existing building counts, massing, roofs, roads, streets, plazas, courtyards, open spaces, water, people, vehicles, trees, paving, and site boundaries. Existing elements must retain their positions, quantities, scales, and relationships. Do not add absent buildings, roads, water, plazas, bridges, terrain, people, vehicles, or large green areas. Do not move, merge, remove, or redesign building massing, road networks, corner relationships, plaza boundaries, roof outlines, or primary public spaces.
+
+[ANNOTATION HANDLING]
+Ignore text, numbers, arrows, legends, labels, colored annotation blocks, and interface-style analytical elements in Image 1. Do not reproduce, redraw, or reinterpret them as architecture, paving, greenery, water, or transportation. Treat cyan, pink, yellow, blue, and similar analytical color blocks only as source annotations, not as final materials or colors.
+
+[URBAN BIRDVIEW LANDSCAPE DIAGRAM]
+Transform Image 1 into a refined, restrained, muted, diagrammatic flat-color urban birdview or axonometric landscape diagram. Use warm white, pale gray, and very light linework for architecture while keeping massing, façades, and roof hierarchy readable. Distant buildings may be lighter but must not disappear or deform. Keep roads, plazas, and hardscape pale gray-white, low contrast, and clearly bounded; keep people and vehicles small and low in visual presence. Use clean-edged pale gray-green, sage, olive, yellow-green, and restrained dark-green accents for area-based planting. Keep tree crowns and groups consistent, diagrammatic, and non-photorealistic. Greenery must read primarily as area-based planting plus diagrammatic tree groups rather than isolated street trees. Maintain a professional, quiet urban-design portfolio and competition-board character with generous negative space; avoid commercial visualization and watercolor bleeding.
+
+[LANDSCAPE STRATEGY]
+${strategy}
+Both strategies must preserve buildings, roads, plazas, paving, and circulation relationships. The only difference is whether planting boundaries may extend into adjacent justified spaces. When a space cannot clearly be identified as planting or landscapeable area, retain its original hardscape or neutral expression rather than filling it with greenery.
+
+[COLOR AND GRAPHIC CONTROL]
+Keep the palette muted, soft, and unified. Architecture remains pale gray-white; greenery uses muted gray-green, pale olive, and yellow-green with restrained darker accents. Color boundaries must be clean, flat, and diagrammatic, without watercolor bleeding, heavy paper texture, realistic materials, dramatic shadows, or high-saturation blocks. The result should read as a landscape-planning and urban-design diagram, not a photorealistic rendering.
+
+[NEGATIVE CONSTRAINTS]
+Avoid photorealism, commercial real-estate visualization, high saturation, strong shadows, theatrical lighting, night scenes, heavy watercolor, oil-painting, or 3D-rendered appearance. Add no text, titles, numbers, arrows, legends, logos, watermarks, maps, analysis diagrams, or sidebars. Do not change material systems or add complex façades, curtain walls, roof structures, or new transportation facilities. The final result must remain faithful to Image 1 and may change only visual presentation, color hierarchy, and the selected landscape strategy.${notesText ? `
+
+[USER NOTE]
+${notesText}` : ''}`;
+  }
+
+  function buildUrbanBirdviewVisiblePrompt({lang, values, notesText}) {
+    const strategyMap = {
+      follow:{zh:'跟随原图',en:'Follow Source'},
+      controlled:{zh:'受控延展',en:'Controlled Extension'}
+    };
+    const strategy = strategyMap[values.landscapeStrategy]?.[lang] || strategyMap.controlled[lang];
+    if (lang === 'zh') {
+      return `城市鸟瞰景观图解，景观策略：${strategy}。以上传的项目原图为唯一城市结构依据，保留原图中的建筑体量、屋顶、道路、广场、铺地、人物、车辆与主要空间关系，不复制风格参考图中的具体城市内容。采用灰白建筑细线、低饱和图解式平涂、面状绿地与统一树群表达；景观变化遵循所选策略，整体专业、安静、层级清楚。${notesText ? `
+
+补充要求：${notesText}` : ''}`;
+    }
+    return `Urban birdview landscape diagram with the ${strategy} strategy. Use the uploaded project image as the sole urban-structure source. Preserve building massing, roofs, roads, plazas, paving, people, vehicles, and primary spatial relationships, and do not copy specific city content from the style reference. Use pale architectural linework, muted diagrammatic flat color, area-based greenery, and consistent tree groups. Apply landscape changes only according to the selected strategy, with a quiet professional hierarchy.${notesText ? `
+
+Additional note: ${notesText}` : ''}`;
   }
 
   function t(value) {

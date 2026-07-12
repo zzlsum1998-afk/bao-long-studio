@@ -1,0 +1,31 @@
+BaoLong Lab v248 · Forest Garden Workflow Integration
+
+Base: v247 full-noimages-plus-template-assets
+
+Changed:
+- prompt-generator.html
+- template-generator.html
+- js/template-generator.js
+- images/template-forest-garden/source-demo.png
+- images/template-forest-garden/style-reference.png
+- images/template-forest-garden/result-demo.png
+
+Added case18: 森林花园生态剖面工作流
+workflowTemplate: forest-garden-ecological-section-v1
+
+Template parameters:
+- 生态表达：轻 / 标准 / 强化
+- Default: 标准
+- 补充要求：沿用共用模板页，最多 120 字
+
+Fixed template language:
+- Calibrated visible horizontal background lines
+- Fine grayscale linework
+- Restrained gray-green / dusty-pink / dark-red accents
+- Soil and root articulation
+- Image 1 remains the sole structural and site source
+
+Safety / scope:
+- Prototype only; no real API call or API key included
+- case16 and case17 remain unchanged
+- No changes to Prompt Tool, favorites, Resume Tool, Inspiration Board, common.css/common.js, data, sitemap, robots, favicon, or Netlify history files

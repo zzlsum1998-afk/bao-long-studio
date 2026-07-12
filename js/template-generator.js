@@ -165,6 +165,43 @@
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildUrbanBirdviewVisiblePrompt,
       promptBuilder: buildUrbanBirdviewPrompt
+    },
+    'urban-axonometric-program-diagram-v1': {
+      sourceCaseId:'case20',
+      title: { zh:'城市功能分区轴测图解', en:'Urban Axonometric Program Diagram' },
+      summary: { zh:'严格保留城市轴测结构，以锁定色板、白色建筑线稿和地面白色圆点纹理强化功能分区表达。', en:'Strictly preserve the urban axonometric structure while using a locked palette, white architectural linework, and ground-only white dot texture to clarify program zones.' },
+      caption: { zh:'目标风格：灰白城市背景、玫红与青蓝重点建筑、白色立面线稿、橙绿场地分区与地面白色圆点纹理', en:'Target style: pale urban context, magenta and cyan key buildings, white façade linework, orange-green site zones, and white dot texture on ground surfaces only.' },
+      imageAlt: { zh:'城市功能分区轴测图解参考图', en:'Urban axonometric program diagram reference' },
+      tags: {
+        zh:['城市轴测','功能分区','白线锁色'],
+        en:['Urban axonometric','Program zoning','White linework']
+      },
+      priorityTitle: { zh:'严格结构保护：', en:'Strict structure guard: ' },
+      priorityCopy: { zh:'以上传原图为唯一结构与场地依据，逐一保留建筑、附属体量、场地设施、绿化边界、水体与项目边界；只清理文字框、引线等标注层。', en:'Use the uploaded image as the sole structural and site source. Preserve every building, attached mass, site object, planting boundary, water edge, and project boundary; remove only annotation layers such as text boxes and leader lines.' },
+      bestFor: {
+        zh:['城市设计轴测图、街区鸟瞰与功能分区分析图','希望保留原方案，只增强功能层级与竞赛图表达','需要鲜明锁色、白色建筑线稿与克制地面纹理'],
+        en:['Urban-design axonometrics, block birdviews, and program-zoning diagrams','Projects that preserve the design while strengthening hierarchy and competition-board graphics','Presentations needing a vivid locked palette, white architectural linework, and restrained ground texture']
+      },
+      notFor: {
+        zh:['要求 CAD 级逐像素锁定的施工图','实景照片、透视效果图或需要重新设计建筑与场地的任务','需要模型自动生成准确文字、标签或流线箭头的任务'],
+        en:['Construction drawings requiring CAD-level pixel locking','Photographs, perspective renders, or tasks requiring building and site redesign','Tasks requiring automatically generated accurate labels, text, or circulation arrows']
+      },
+      assets: {
+        source:'images/template-urban-program-diagram/source-demo.png',
+        display:'images/template-urban-program-diagram/result-demo.png',
+        displayFallback:'images/template-urban-program-diagram/style-reference.png',
+        reference:'images/template-urban-program-diagram/style-reference.png',
+        result:'images/template-urban-program-diagram/result-demo.png',
+        sourceName:'urban-program-diagram-source-demo.png',
+        downloadName:'baolong-urban-axonometric-program-diagram-demo.png'
+      },
+      parameters: [],
+      loading: {
+        zh:['正在分析城市轴测结构','正在应用锁色与白线图解','正在生成图像'],
+        en:['Analyzing the urban axonometric structure','Applying locked color and white linework','Generating image']
+      },
+      outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildUrbanProgramDiagramVisiblePrompt
     }
   };
 
@@ -473,6 +510,18 @@ ${notesText}` : ''}`;
 补充要求：${notesText}` : ''}`;
     }
     return `Urban birdview landscape diagram with the ${strategy} strategy. Use the uploaded project image as the sole urban-structure source. Preserve building massing, roofs, roads, plazas, paving, people, vehicles, and primary spatial relationships, and do not copy specific city content from the style reference. Use pale architectural linework, muted diagrammatic flat color, area-based greenery, and consistent tree groups. Apply landscape changes only according to the selected strategy, with a quiet professional hierarchy.${notesText ? `
+
+Additional note: ${notesText}` : ''}`;
+  }
+
+  // Public preview only. The production instruction set is intentionally not shipped in the static client.
+  function buildUrbanProgramDiagramVisiblePrompt({lang, notesText}) {
+    if (lang === 'zh') {
+      return `城市功能分区轴测图解。以上传的项目原图为唯一结构与场地依据，严格保留建筑数量、位置、体量、屋顶、场地边界、道路、水体、纪念物、座椅、线性设施与原有绿化范围。采用灰白城市背景、玫红与青蓝重点建筑、彩色体块上的白色立面线稿、橙绿场地分区，以及只出现在地面的克制白色圆点纹理。清理文字框和引线，不自动生成文字、标签、图例或箭头。${notesText ? `
+
+补充要求：${notesText}` : ''}`;
+    }
+    return `Urban axonometric program diagram. Use the uploaded project image as the sole structural and site source. Strictly preserve building count, position, massing, roofs, site boundaries, roads, water, monuments, seating, linear facilities, and existing planting limits. Use a pale urban context, magenta and cyan key buildings, white façade linework over colored masses, orange-green site zoning, and restrained white dot texture on ground surfaces only. Remove text boxes and leader lines, and do not generate labels, legends, text, or arrows automatically.${notesText ? `
 
 Additional note: ${notesText}` : ''}`;
   }

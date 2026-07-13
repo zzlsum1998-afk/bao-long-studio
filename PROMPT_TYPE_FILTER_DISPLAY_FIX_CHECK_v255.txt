@@ -1,0 +1,21 @@
+BaoLong Lab · Prompt 内容类型筛选显示修复 · v255
+
+基准：v254 Prompt 灵感内容分类版。
+
+问题：
+- 筛选按钮状态会切换；
+- JS 也会为不匹配卡片设置 hidden；
+- 但页面已有 .prompt-case-card { display:block; }，覆盖了浏览器对 hidden 的默认 display:none，导致卡片仍然显示。
+
+修复：
+- 仅在 prompt-generator.html 增加：
+  .prompt-case-card[hidden] { display:none !important; }
+- 不修改筛选逻辑、收藏键、卡片配置、弹窗、复制、工作流跳转或其他页面。
+
+回归：
+- 全部：21 张；
+- Prompt 灵感：16 张；
+- 图片工作流：5 张；
+- 内容类型可与“全部 / 已收藏”组合；
+- 隐藏卡片不占网格位置；
+- 收藏与详情打开逻辑保持不变。

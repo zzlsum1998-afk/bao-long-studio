@@ -207,6 +207,85 @@
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildUrbanProgramDiagramVisiblePrompt
+    },
+    'architectural-analysis-base-diagram-v1': {
+      sourceCaseId:'case21',
+      privateScriptRef:'BaoLong_Lab_Hidden_Prompt_Vault_v1/case21_architectural_analysis_base_diagram/seedream_case21_final.py', // Offline index only; the private vault will be updated separately and is never loaded by the static client.
+      title: { zh:'四类建筑分析图底图', en:'Four-Panel Architectural Diagram Base' },
+      summary: { zh:'严格保留项目结构并统一白模线稿，生成区域高亮、重点体量、屋顶露台和节点四类无文字图解底图。', en:'Strictly preserve the project structure, unify pale massing and linework, and generate four text-free diagram bases for area, massing, roof/terrace, and node emphasis.' },
+      caption: { zh:'目标风格：统一白模、浅灰细线、低饱和高亮、四宫格一致性与后期标注留白', en:'Target style: unified pale massing, fine gray linework, muted highlights, consistent four-panel layout, and space for later annotation.' },
+      imageAlt: { zh:'四类建筑分析图底图工作流示例', en:'Four-panel architectural diagram base workflow sample' },
+      tags: {
+        zh:['四宫格','分析底图','后期标注'],
+        en:['Four panels','Diagram bases','Post annotation']
+      },
+      priorityTitle: { zh:'表达边界：', en:'Expression boundary: ' },
+      priorityCopy: { zh:'AI 只负责结构保护、白模化与图解底图；准确文字、箭头和专业结论由用户后期添加。', en:'AI handles structure preservation, pale-massing conversion, and diagram bases only. Accurate labels, arrows, and professional conclusions are added later by the user.' },
+      bestFor: {
+        zh:['建筑轴测、城市设计鸟瞰与体量分析图','需要四张结构一致、可继续编辑的图解底图','计划在 PPT、Figma、Illustrator 等工具中补充标签与箭头'],
+        en:['Architectural axonometrics, urban-design birdviews, and massing diagrams','Projects needing four structurally consistent bases for further editing','Workflows that add labels and arrows later in PPT, Figma, or Illustrator']
+      },
+      notFor: {
+        zh:['要求 AI 自动给出可靠专业分析结论的任务','要求自动生成准确文字、图例或流线箭头的任务','要求 CAD 级逐像素锁定的施工图'],
+        en:['Tasks requiring AI to provide reliable professional conclusions automatically','Tasks requiring accurate automatic labels, legends, or circulation arrows','Construction drawings requiring CAD-level pixel locking']
+      },
+      assets: {
+        source:'images/template-architectural-analysis-base/source-demo.png',
+        display:'images/template-architectural-analysis-base/result-demo.png',
+        displayFallback:'images/template-architectural-analysis-base/style-reference.jpg',
+        reference:'images/template-architectural-analysis-base/style-reference.jpg',
+        result:'images/template-architectural-analysis-base/result-demo.png',
+        sourceName:'architectural-analysis-source-demo.png',
+        downloadName:'baolong-four-panel-architectural-diagram-base-demo.png'
+      },
+      notesPlaceholder: {
+        zh:'例如：区域图高亮中心开放空间；重点体量图突出主塔楼；屋顶图强调共享露台；节点图保留 3 个点位。',
+        en:'Example: highlight the central open space, emphasize the main tower, mark shared terraces, and keep three node locations.'
+      },
+      parameters: [
+        {
+          id:'panelTopLeft', type:'select', uniqueGroup:'analysisPanelTypes', label:{zh:'左上分析',en:'Top Left'}, default:'area',
+          options:[
+            {value:'area',label:{zh:'区域高亮图',en:'Area Highlight'}},
+            {value:'mass',label:{zh:'重点体量图',en:'Key Massing'}},
+            {value:'roof',label:{zh:'屋顶露台高亮图',en:'Roof / Terrace'}},
+            {value:'node',label:{zh:'节点图',en:'Node Diagram'}}
+          ]
+        },
+        {
+          id:'panelTopRight', type:'select', uniqueGroup:'analysisPanelTypes', label:{zh:'右上分析',en:'Top Right'}, default:'mass',
+          options:[
+            {value:'area',label:{zh:'区域高亮图',en:'Area Highlight'}},
+            {value:'mass',label:{zh:'重点体量图',en:'Key Massing'}},
+            {value:'roof',label:{zh:'屋顶露台高亮图',en:'Roof / Terrace'}},
+            {value:'node',label:{zh:'节点图',en:'Node Diagram'}}
+          ]
+        },
+        {
+          id:'panelBottomLeft', type:'select', uniqueGroup:'analysisPanelTypes', label:{zh:'左下分析',en:'Bottom Left'}, default:'roof',
+          options:[
+            {value:'area',label:{zh:'区域高亮图',en:'Area Highlight'}},
+            {value:'mass',label:{zh:'重点体量图',en:'Key Massing'}},
+            {value:'roof',label:{zh:'屋顶露台高亮图',en:'Roof / Terrace'}},
+            {value:'node',label:{zh:'节点图',en:'Node Diagram'}}
+          ]
+        },
+        {
+          id:'panelBottomRight', type:'select', uniqueGroup:'analysisPanelTypes', label:{zh:'右下分析',en:'Bottom Right'}, default:'node',
+          options:[
+            {value:'area',label:{zh:'区域高亮图',en:'Area Highlight'}},
+            {value:'mass',label:{zh:'重点体量图',en:'Key Massing'}},
+            {value:'roof',label:{zh:'屋顶露台高亮图',en:'Roof / Terrace'}},
+            {value:'node',label:{zh:'节点图',en:'Node Diagram'}}
+          ]
+        }
+      ],
+      loading: {
+        zh:['正在锁定项目结构','正在生成四类图解底图','正在排版四宫格'],
+        en:['Locking project structure','Generating four diagram bases','Composing the four-panel board']
+      },
+      outputSpec:'1 board · 4 panels · PNG · 2K',
+      visiblePromptBuilder: buildArchitecturalAnalysisBaseVisiblePrompt
     }
   };
 
@@ -310,6 +389,26 @@ Additional note: ${notesText}` : ''}`;
 Additional note: ${notesText}` : ''}`;
   }
 
+  // Public preview only. Full production instructions remain outside the static client.
+  function buildArchitecturalAnalysisBaseVisiblePrompt({lang, values, notesText}) {
+    const typeMap = {
+      area:{zh:'区域高亮图',en:'Area Highlight'},
+      mass:{zh:'重点体量图',en:'Key Massing'},
+      roof:{zh:'屋顶露台高亮图',en:'Roof / Terrace Highlight'},
+      node:{zh:'节点图',en:'Node Diagram'}
+    };
+    const ordered = [values.panelTopLeft, values.panelTopRight, values.panelBottomLeft, values.panelBottomRight]
+      .map((value) => typeMap[value]?.[lang] || typeMap.area[lang]);
+    if (lang === 'zh') {
+      return `四类建筑分析图底图。以上传的项目原图为唯一结构依据，严格保留建筑体量、相对位置、道路、场地边界、轴测视角和整体构图；统一为白色或近白色体块、浅灰细线与低饱和图解风格。四宫格顺序：左上 ${ordered[0]}；右上 ${ordered[1]}；左下 ${ordered[2]}；右下 ${ordered[3]}。只生成无文字图解底图，不自动给出专业结论、准确标签或流线箭头，最终文字与箭头由用户后期添加。${notesText ? `
+
+补充要求：${notesText}` : ''}`;
+    }
+    return `Four-panel architectural diagram bases. Use the uploaded project image as the sole structural source and strictly preserve massing, relative positions, roads, site boundaries, axonometric view, and overall composition. Convert the drawing into pale or near-white masses, fine gray linework, and muted diagram graphics. Panel order: top left ${ordered[0]}; top right ${ordered[1]}; bottom left ${ordered[2]}; bottom right ${ordered[3]}. Generate text-free diagram bases only; do not provide professional conclusions, accurate labels, or circulation arrows automatically. The user adds final labels and arrows later.${notesText ? `
+
+Additional note: ${notesText}` : ''}`;
+  }
+
   function t(value) {
     if (typeof value === 'string') return value;
     return value?.[state.lang] || value?.zh || '';
@@ -400,7 +499,21 @@ Additional note: ${notesText}` : ''}`;
           select.appendChild(node);
         });
         select.addEventListener('change', () => {
-          state.parameterValues[parameter.id] = select.value;
+          const previousValue = state.parameterValues[parameter.id];
+          const nextValue = select.value;
+          if (parameter.uniqueGroup) {
+            const conflict = activeTemplate.parameters.find((item) =>
+              item.id !== parameter.id &&
+              item.uniqueGroup === parameter.uniqueGroup &&
+              state.parameterValues[item.id] === nextValue
+            );
+            if (conflict) {
+              state.parameterValues[conflict.id] = previousValue;
+              const conflictSelect = document.querySelector(`select[data-parameter-id="${conflict.id}"]`);
+              if (conflictSelect) conflictSelect.value = previousValue;
+            }
+          }
+          state.parameterValues[parameter.id] = nextValue;
           updatePrompt();
         });
         wrap.appendChild(select);
@@ -533,6 +646,7 @@ Additional note: ${notesText}` : ''}`;
     $$('[data-i18n-placeholder]').forEach((node) => {
       node.placeholder = sharedTranslations[state.lang][node.dataset.i18nPlaceholder];
     });
+    if (activeTemplate.notesPlaceholder) notes.placeholder = t(activeTemplate.notesPlaceholder);
     $('#langToggle').textContent = state.lang === 'zh' ? 'EN' : '中';
     renderTemplateStaticContent();
     renderParameters({preserveValues:true});

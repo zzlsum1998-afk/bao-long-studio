@@ -1,0 +1,26 @@
+BaoLong Lab v257｜建筑与景观综合叙事拼贴工作流接入检查
+
+基准：v256 中文文案补全版 full-noimages-plus-template-assets
+新增：case22 / architectural-landscape-narrative-collage-v1
+
+本轮修改：
+- prompt-generator.html
+- template-generator.html
+- js/template-generator.js
+- css/template-generator.css
+- images/template-narrative-collage/*
+- NARRATIVE_COLLAGE_WORKFLOW_CHECK_v257.txt
+
+功能：
+- Prompt 灵感新增“建筑与景观综合叙事拼贴工作流”卡片。
+- 工作流自动进入“图片工作流 / Workflows”分类。
+- 共用工作台针对该模板支持 3–6 张多图选择、拖拽与预览。
+- 参数：拼贴层次、前景提取、描边强度、网格强度、图面色调。
+- 结果演示使用 Test07 最终测试图。
+- 前端仅保留公开预览说明，不包含完整 Hidden Prompt、API Key、模型 Endpoint 或生产脚本。
+
+回归边界：
+- 未修改 css/common.css、js/common.js。
+- 未修改收藏键与收藏逻辑。
+- 未修改已有 case01–case21 配置和工作流资产。
+- 未修改 Inspiration Board、Prompt Tool 核心逻辑、Resume Tool、SEO、robots、sitemap。

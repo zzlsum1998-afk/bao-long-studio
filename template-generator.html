@@ -82,12 +82,13 @@
           <input id="sourceInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
           <div class="upload-empty" id="uploadEmpty">
             <span class="upload-icon" aria-hidden="true">＋</span>
-            <strong data-i18n="uploadTitle">上传项目原图</strong>
-            <p data-i18n="uploadCopy">拖入 PNG / JPG / WebP，或点击选择文件</p>
-            <small data-i18n="uploadLimit">当前仅做前端预览，图片不会上传</small>
+            <strong id="uploadTitleText" data-i18n="uploadTitle">上传项目原图</strong>
+            <p id="uploadCopyText" data-i18n="uploadCopy">拖入 PNG / JPG / WebP，或点击选择文件</p>
+            <small id="uploadLimitText" data-i18n="uploadLimit">当前仅做前端预览，图片不会上传</small>
           </div>
           <div class="upload-preview" id="uploadPreview" hidden>
             <img id="sourcePreview" alt="项目原图预览">
+            <div id="sourcePreviewGrid" class="source-preview-grid" hidden></div>
             <div class="preview-overlay">
               <strong id="sourceFilename">source.png</strong>
               <span data-i18n="replaceImage">点击或拖入新图替换</span>
@@ -190,7 +191,7 @@
           <h3 data-i18n="generationInfoTitle">生成信息</h3>
           <dl>
             <div><dt data-i18n="templateNameLabel">模板</dt><dd id="templateNameOutput"></dd></div>
-            <div><dt data-i18n="inputMode">输入方式</dt><dd data-i18n="twoImages">项目原图 + 模板参考图</dd></div>
+            <div><dt data-i18n="inputMode">输入方式</dt><dd id="inputModeOutput" data-i18n="twoImages">项目原图 + 模板参考图</dd></div>
             <div><dt data-i18n="outputMode">输出</dt><dd id="outputSpec">1 image · PNG · 2K</dd></div>
           </dl>
         </article>
@@ -198,6 +199,6 @@
     </div>
   </dialog>
 
-  <script src="js/template-generator.js?v=253"></script>
+  <script src="js/template-generator.js?v=257"></script>
 </body>
 </html>

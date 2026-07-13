@@ -1,0 +1,21 @@
+BaoLong Lab · Prompt Generator 中文文案补全检查 · v256
+
+基准：v255 Prompt 类型筛选显示修复版。
+
+本轮仅修复 Prompt Generator 中文模式下两处仍显示英文的说明文案：
+1. Hero 说明：
+   Combine visual language, composition angle, color, design style, scene elements, human activities, lighting and aspect ratio into copy-ready MidJourney prompts.
+   → 把视觉语言、构图角度、色彩、设计风格、场景元素、人物活动、光影和画幅比例组合成可直接复制的 MidJourney Prompt。
+2. “结构化 Prompt”卡片说明：
+   Break down prompts by visual language, composition, color, design style, scene elements, people, lighting and ratio.
+   → 按视觉语言、构图、色彩、设计风格、场景元素、人物、光影和画幅比例拆解 Prompt。
+
+修改文件：
+- js/common.js
+- prompt-generator.html（仅将 common.js 缓存版本更新为 ?v=256）
+- 本检查文件
+
+回归边界：
+- 英文模式继续显示原英文文案。
+- 不修改 Prompt 分类、图片工作流筛选、收藏、弹窗、复制或工作流配置。
+- 不修改 css/common.css、template-generator、Prompt Tool 核心逻辑、图片、JSON、SEO、sitemap 或 robots。

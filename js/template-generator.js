@@ -286,6 +286,105 @@
       },
       outputSpec:'1 board · 4 panels · PNG · 2K',
       visiblePromptBuilder: buildArchitecturalAnalysisBaseVisiblePrompt
+    },
+    'architectural-landscape-narrative-collage-v1': {
+      sourceCaseId:'case22',
+      privateScriptRef:'BaoLong_Lab_Hidden_Prompt_Vault_v1/case22_narrative_collage/seedream_case22_final.py', // Offline index only; the private vault will be updated separately and is never loaded by the static client.
+      title: { zh:'建筑与景观综合叙事拼贴', en:'Architectural + Landscape Narrative Collage' },
+      summary: { zh:'将多张建筑、景观与场地素材组织成一张低饱和、错落分层、可继续标注的前期叙事拼贴底图。', en:'Organize multiple architecture, landscape, and site images into one muted, layered narrative collage base ready for later annotation.' },
+      caption: { zh:'目标风格：建筑与景观综合叙事、选择性轻描边、错落遮挡、连续浅色网格与克制留白', en:'Target style: integrated architecture-landscape narrative, selective light outlines, staggered overlaps, continuous pale grids, and restrained negative space.' },
+      imageAlt: { zh:'建筑与景观综合叙事拼贴工作流示例', en:'Architectural and landscape narrative collage workflow sample' },
+      tags: {
+        zh:['多图融合','叙事拼贴','后期标注'],
+        en:['Multi-image','Narrative collage','Post annotation']
+      },
+      priorityTitle: { zh:'视觉边界：', en:'Visual boundary: ' },
+      priorityCopy: { zh:'AI 只根据上传内容进行视觉组织与自动要素选择，不预设具体对象，不生成事实判断、专业结论或文字说明。', en:'AI only organizes the uploaded visual content and selects suitable elements automatically. It does not preset specific objects or generate factual judgments, professional conclusions, or labels.' },
+      bestFor: {
+        zh:['建筑与景观前期分析、场地叙事与概念拼贴','拥有 3–6 张相关项目、场地、环境或细节图片','计划在 PPT、Figma、Illustrator 中继续添加标题与说明'],
+        en:['Early architecture-landscape analysis, site narrative, and concept collage','Projects with 3–6 related site, environment, project, or detail images','Workflows that add titles and notes later in PPT, Figma, or Illustrator']
+      },
+      notFor: {
+        zh:['要求模型自动完成可靠事实分析或历史判断的任务','只上传一张图片却要求稳定多层拼贴的任务','要求自动生成准确文字、时间线或专业结论的任务'],
+        en:['Tasks requiring reliable factual or historical analysis from the model','Single-image inputs that still require stable multi-layer collage','Tasks requiring accurate automatic text, timelines, or professional conclusions']
+      },
+      assets: {
+        source:'images/template-narrative-collage/source-demo.png',
+        demoSources:[
+          'images/template-narrative-collage/source-01.jpg',
+          'images/template-narrative-collage/source-02.jpg',
+          'images/template-narrative-collage/source-03.jpg',
+          'images/template-narrative-collage/source-04.jpg',
+          'images/template-narrative-collage/source-05.jpg'
+        ],
+        display:'images/template-narrative-collage/result-demo.png',
+        displayFallback:'images/template-narrative-collage/style-reference.png',
+        reference:'images/template-narrative-collage/style-reference.png',
+        result:'images/template-narrative-collage/result-demo.png',
+        sourceName:{zh:'5 张项目图片',en:'5 project images'},
+        downloadName:'baolong-architectural-landscape-narrative-collage-demo.png'
+      },
+      multiSource:true,
+      sourceLimit:6,
+      uploadText: {
+        title:{zh:'上传 3–6 张项目图片',en:'Upload 3–6 project images'},
+        copy:{zh:'拖入多张 PNG / JPG / WebP，或点击批量选择',en:'Drop multiple PNG / JPG / WebP files, or click to select'},
+        limit:{zh:'当前仅做前端预览，图片不会上传',en:'This prototype only previews locally. Images are not uploaded.'}
+      },
+      inputDescription:{zh:'多张项目图 + 模板参考图',en:'Multiple project images + template reference'},
+      advancedHint:{zh:'仅在需要时调整整体图面色调。',en:'Adjust the overall board tone only when needed.'},
+      notesPlaceholder: {
+        zh:'例如：整体更克制，网格更明显，减少前景焦点数量，保留更多顶部留白。',
+        en:'Example: use a quieter composition, strengthen the grid, reduce foreground focal elements, and retain more top space.'
+      },
+      parameters: [
+        {
+          id:'collageLayering', type:'segmented', label:{zh:'拼贴层次',en:'Collage Layering'}, default:'standard',
+          options:[
+            {value:'light',label:{zh:'克制',en:'Restrained'}},
+            {value:'standard',label:{zh:'标准',en:'Standard'}},
+            {value:'strong',label:{zh:'增强',en:'Enhanced'}}
+          ]
+        },
+        {
+          id:'foregroundFocus', type:'segmented', label:{zh:'前景提取',en:'Foreground Focus'}, default:'standard',
+          options:[
+            {value:'light',label:{zh:'轻',en:'Light'}},
+            {value:'standard',label:{zh:'标准',en:'Standard'}},
+            {value:'clear',label:{zh:'明显',en:'Clear'}}
+          ]
+        },
+        {
+          id:'outlineIntensity', type:'segmented', label:{zh:'描边强度',en:'Outline Intensity'}, default:'light',
+          options:[
+            {value:'none',label:{zh:'无',en:'None'}},
+            {value:'light',label:{zh:'轻',en:'Light'}},
+            {value:'medium',label:{zh:'中',en:'Medium'}}
+          ]
+        },
+        {
+          id:'gridStrength', type:'segmented', label:{zh:'网格强度',en:'Grid Strength'}, default:'enhanced',
+          options:[
+            {value:'light',label:{zh:'轻',en:'Light'}},
+            {value:'standard',label:{zh:'标准',en:'Standard'}},
+            {value:'enhanced',label:{zh:'增强',en:'Enhanced'}}
+          ]
+        },
+        {
+          id:'boardTone', type:'segmented', advanced:true, label:{zh:'图面色调',en:'Board Tone'}, default:'warmgray',
+          options:[
+            {value:'gray',label:{zh:'灰白',en:'Gray'}},
+            {value:'warmgray',label:{zh:'暖灰',en:'Warm Gray'}},
+            {value:'dustyrose',label:{zh:'灰粉',en:'Dusty Rose'}}
+          ]
+        }
+      ],
+      loading: {
+        zh:['正在读取多张项目图片','正在组织建筑与景观片段','正在生成叙事拼贴底图'],
+        en:['Reading project images','Organizing architecture and landscape fragments','Generating the narrative collage base']
+      },
+      outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildNarrativeCollageVisiblePrompt
     }
   };
 
@@ -298,6 +397,7 @@
     lang:'zh',
     sourceReady:false,
     sourceObjectUrl:null,
+    sourceObjectUrls:[],
     parameterValues:{},
     timerIds:[],
     loadingStep:0
@@ -308,6 +408,7 @@
   const uploadEmpty = $('#uploadEmpty');
   const uploadPreview = $('#uploadPreview');
   const sourcePreview = $('#sourcePreview');
+  const sourcePreviewGrid = $('#sourcePreviewGrid');
   const sourceFilename = $('#sourceFilename');
   const generateButton = $('#generateButton');
   const resultEmpty = $('#resultEmpty');
@@ -409,6 +510,48 @@ Additional note: ${notesText}` : ''}`;
 Additional note: ${notesText}` : ''}`;
   }
 
+  // Public preview only. Full production instructions remain in the private offline vault.
+  function buildNarrativeCollageVisiblePrompt({lang, values, notesText}) {
+    const layeringMap = {
+      light:{zh:'克制拼贴层次',en:'restrained collage layering'},
+      standard:{zh:'标准拼贴层次',en:'standard collage layering'},
+      strong:{zh:'增强拼贴层次',en:'enhanced collage layering'}
+    };
+    const focusMap = {
+      light:{zh:'轻前景提取',en:'light foreground extraction'},
+      standard:{zh:'标准前景提取',en:'standard foreground extraction'},
+      clear:{zh:'明显前景提取',en:'clear foreground extraction'}
+    };
+    const outlineMap = {
+      none:{zh:'不使用描边',en:'no outlines'},
+      light:{zh:'轻量选择性描边',en:'light selective outlines'},
+      medium:{zh:'中等选择性描边',en:'medium selective outlines'}
+    };
+    const gridMap = {
+      light:{zh:'轻网格',en:'light grid'},
+      standard:{zh:'标准网格',en:'standard grid'},
+      enhanced:{zh:'增强浅色网格',en:'enhanced pale grid'}
+    };
+    const toneMap = {
+      gray:{zh:'灰白色调',en:'gray-white tone'},
+      warmgray:{zh:'暖灰色调',en:'warm-gray tone'},
+      dustyrose:{zh:'灰粉色调',en:'dusty-rose tone'}
+    };
+    const layering = layeringMap[values.collageLayering]?.[lang] || layeringMap.standard[lang];
+    const focus = focusMap[values.foregroundFocus]?.[lang] || focusMap.standard[lang];
+    const outline = outlineMap[values.outlineIntensity]?.[lang] || outlineMap.light[lang];
+    const grid = gridMap[values.gridStrength]?.[lang] || gridMap.enhanced[lang];
+    const tone = toneMap[values.boardTone]?.[lang] || toneMap.warmgray[lang];
+    if (lang === 'zh') {
+      return `建筑与景观综合叙事拼贴，输入为多张相关项目与场地图片。仅根据实际上传内容组织一个稳定中景主底板、少量前景焦点与辅助片段，不预设具体对象，不生成事实判断或专业结论。图面参数：${layering}；${focus}；${outline}；${grid}；${tone}。采用低饱和分析板语言、错落遮挡、不规则片段与后期标注留白；不生成文字、标题、时间线或箭头。${notesText ? `
+
+补充要求：${notesText}` : ''}`;
+    }
+    return `Architectural and landscape narrative collage using multiple related project and site images. Organize one stable midground base, a small number of foreground focal fragments, and restrained supporting fragments from the uploaded content only. Do not preset specific objects or generate factual or professional conclusions. Settings: ${layering}; ${focus}; ${outline}; ${grid}; ${tone}. Use a muted analytical-board language with staggered overlaps, irregular fragments, and space for later annotation. Do not generate text, titles, timelines, or arrows.${notesText ? `
+
+Additional note: ${notesText}` : ''}`;
+  }
+
   function t(value) {
     if (typeof value === 'string') return value;
     return value?.[state.lang] || value?.zh || '';
@@ -447,6 +590,14 @@ Additional note: ${notesText}` : ''}`;
     $('#priorityCopy').textContent = t(activeTemplate.priorityCopy);
     $('#templateNameOutput').textContent = title;
     $('#outputSpec').textContent = activeTemplate.outputSpec;
+    $('#inputModeOutput').textContent = activeTemplate.inputDescription ? t(activeTemplate.inputDescription) : sharedTranslations[state.lang].twoImages;
+    sourceInput.multiple = Boolean(activeTemplate.multiSource);
+    if (activeTemplate.uploadText) {
+      $('#uploadTitleText').textContent = t(activeTemplate.uploadText.title);
+      $('#uploadCopyText').textContent = t(activeTemplate.uploadText.copy);
+      $('#uploadLimitText').textContent = t(activeTemplate.uploadText.limit);
+    }
+    if (activeTemplate.advancedHint) $('#advancedSettingsPanel .advanced-settings-hint').textContent = t(activeTemplate.advancedHint);
 
     const tags = $('#templateTags');
     tags.innerHTML = '';
@@ -551,7 +702,17 @@ Additional note: ${notesText}` : ''}`;
     generateButton.disabled = !state.sourceReady;
   }
 
+  function clearSourceObjectUrls() {
+    if (state.sourceObjectUrl) URL.revokeObjectURL(state.sourceObjectUrl);
+    state.sourceObjectUrl = null;
+    state.sourceObjectUrls.forEach((url) => URL.revokeObjectURL(url));
+    state.sourceObjectUrls = [];
+  }
+
   function showSource(src, filename) {
+    sourcePreviewGrid.innerHTML = '';
+    sourcePreviewGrid.hidden = true;
+    sourcePreview.hidden = false;
     sourcePreview.src = src;
     sourceFilename.textContent = filename;
     uploadEmpty.hidden = true;
@@ -560,9 +721,34 @@ Additional note: ${notesText}` : ''}`;
     updateGenerateState();
   }
 
-  function useFile(file) {
-    if (!file || !file.type.startsWith('image/')) return;
-    if (state.sourceObjectUrl) URL.revokeObjectURL(state.sourceObjectUrl);
+  function showMultipleSources(items, filename) {
+    sourcePreview.hidden = true;
+    sourcePreviewGrid.innerHTML = '';
+    items.forEach((item) => {
+      const image = document.createElement('img');
+      image.src = item.src;
+      image.alt = item.name || '';
+      sourcePreviewGrid.appendChild(image);
+    });
+    sourcePreviewGrid.hidden = false;
+    sourceFilename.textContent = filename;
+    uploadEmpty.hidden = true;
+    uploadPreview.hidden = false;
+    state.sourceReady = items.length >= 3;
+    updateGenerateState();
+  }
+
+  function useFiles(fileList) {
+    const files = Array.from(fileList || []).filter((file) => file.type.startsWith('image/'));
+    if (!files.length) return;
+    clearSourceObjectUrls();
+    if (activeTemplate.multiSource) {
+      const limited = files.slice(0, activeTemplate.sourceLimit || 6);
+      state.sourceObjectUrls = limited.map((file) => URL.createObjectURL(file));
+      showMultipleSources(limited.map((file, index) => ({src:state.sourceObjectUrls[index], name:file.name})), state.lang === 'zh' ? `${limited.length} 张图片` : `${limited.length} images`);
+      return;
+    }
+    const file = files[0];
     state.sourceObjectUrl = URL.createObjectURL(file);
     showSource(state.sourceObjectUrl, file.name);
   }
@@ -617,12 +803,14 @@ Additional note: ${notesText}` : ''}`;
 
   function resetPrototype() {
     clearTimers();
-    if (state.sourceObjectUrl) URL.revokeObjectURL(state.sourceObjectUrl);
-    state.sourceObjectUrl = null;
+    clearSourceObjectUrls();
     state.sourceReady = false;
     sourceInput.value = '';
     uploadEmpty.hidden = false;
     uploadPreview.hidden = true;
+    sourcePreviewGrid.innerHTML = '';
+    sourcePreviewGrid.hidden = true;
+    sourcePreview.hidden = false;
     resultEmpty.hidden = false;
     resultLoading.hidden = true;
     resultSuccess.hidden = true;
@@ -661,7 +849,7 @@ Additional note: ${notesText}` : ''}`;
       sourceInput.click();
     }
   });
-  sourceInput.addEventListener('change', () => useFile(sourceInput.files[0]));
+  sourceInput.addEventListener('change', () => useFiles(sourceInput.files));
   ['dragenter','dragover'].forEach((name) => uploadCard.addEventListener(name, (event) => {
     event.preventDefault();
     uploadCard.classList.add('is-dragover');
@@ -670,10 +858,15 @@ Additional note: ${notesText}` : ''}`;
     event.preventDefault();
     uploadCard.classList.remove('is-dragover');
   }));
-  uploadCard.addEventListener('drop', (event) => useFile(event.dataTransfer.files[0]));
+  uploadCard.addEventListener('drop', (event) => useFiles(event.dataTransfer.files));
 
   $('#useDemoButton').addEventListener('click', () => {
-    showSource(activeTemplate.assets.source, activeTemplate.assets.sourceName);
+    clearSourceObjectUrls();
+    if (activeTemplate.multiSource && Array.isArray(activeTemplate.assets.demoSources)) {
+      showMultipleSources(activeTemplate.assets.demoSources.map((src, index) => ({src, name:`demo-${index + 1}`})), t(activeTemplate.assets.sourceName));
+      return;
+    }
+    showSource(activeTemplate.assets.source, t(activeTemplate.assets.sourceName));
   });
 
   notes.addEventListener('input', () => {

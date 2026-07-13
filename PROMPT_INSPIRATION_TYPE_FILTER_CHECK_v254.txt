@@ -1,0 +1,28 @@
+BaoLong Lab · Prompt 灵感内容分类检查 v254
+
+基准：v253（四类建筑分析图底图工作流接入版）
+
+本次目标：
+- 在同一个 Prompt 灵感页面内区分“Prompt 灵感”和“图片工作流”。
+- 保留原有“全部 / 已收藏”本地收藏筛选，并支持与内容类型组合筛选。
+- 不拆新页面，不改共用工作台，不改 Prompt 弹窗、复制和收藏存储键。
+
+修改文件：
+1. prompt-generator.html
+2. js/prompt-favorites.js
+3. PROMPT_INSPIRATION_TYPE_FILTER_CHECK_v254.txt
+
+实现内容：
+- 新增内容类型筛选：全部 / Prompt 灵感 / 图片工作流。
+- 工作流识别以 promptCases 中是否存在 workflowTemplate 为准，不写死 case 编号。
+- 卡片新增轻量身份标识：提示词 / Prompt；工作流 / Workflow。
+- 内容类型筛选可与“全部 / 已收藏”组合使用。
+- 页面说明调整为同时覆盖普通 Prompt 卡片和图片工作流。
+- 无结果状态统一为“没有符合当前筛选的卡片”。
+
+回归范围：
+- 21 张卡片仍完整保留。
+- case01–case16 识别为 Prompt；case17–case21 识别为 Workflow。
+- 工作流详情仍显示“使用此模板”；普通卡片仍以复制 Prompt 为主。
+- localStorage key 保持 baolong.promptFavorites.v1。
+- 未修改 css/common.css、js/common.js、模板工作台、Hidden Prompt、图片资产、SEO、收藏数据结构主键或其他页面。

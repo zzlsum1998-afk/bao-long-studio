@@ -1,0 +1,25 @@
+BaoLong Lab v253 · 四类建筑分析图底图工作流接入检查
+
+基准：v252 Hidden Prompt 前端清理版。
+
+本次修改：
+- prompt-generator.html：新增 case21 工作流卡片。
+- template-generator.html：脚本缓存更新为 ?v=253。
+- js/template-generator.js：新增 architectural-analysis-base-diagram-v1 公共前端配置。
+- images/template-architectural-analysis-base/：新增 source-demo、style-reference、result-demo。
+
+模板定义：
+- Template ID：architectural-analysis-base-diagram-v1
+- 标题：四类建筑分析图底图工作流
+- 四类输出：区域高亮图、重点体量图、屋顶露台高亮图、节点图。
+- 用户可调整四类图在 2×2 四宫格中的排列顺序；选择冲突时自动交换。
+- AI 只负责结构保护、白模化与图解底图；文字、箭头和专业结论由用户后期添加。
+
+安全边界：
+- 静态前端仅包含 visiblePromptBuilder 公共摘要。
+- 未写入完整生产 Hidden Prompt、API Key、模型 ID、Provider Endpoint 或真实生成接口。
+- privateScriptRef 仅为未来私有 Vault 文件名索引，浏览器不加载该文件。
+- 本轮未修改 css/common.css、js/common.js、收藏、Prompt Tool、Resume Tool、Inspiration、SEO、sitemap 或 robots。
+
+资产说明：
+- result-demo 由已完成的真实 Seedream 测试面板组合而成，用于展示四类底图形态，不代表自动专业分析结论。

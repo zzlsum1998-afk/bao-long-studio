@@ -1,0 +1,56 @@
+BAOLONG LAB · COLOR BOARD CSS EXTERNALIZATION CHECK v273
+
+Base version
+- baolong-technical-debt-read-only-audit-v272-full-noimages-plus-template-assets.zip
+
+Scope
+- Modified: color-references.html
+- Added: css/color-board.css
+- Added: css/color-board-floating.css
+- Added: COLOR_BOARD_CSS_EXTERNALIZATION_CHECK_v273.txt
+
+Migration details
+- Preserved the small language boot / anti-flash inline style in color-references.html.
+- Moved the main Color Board inline CSS to css/color-board.css.
+- Moved the current-page floating back-to-top button CSS to css/color-board-floating.css.
+- Preserved stylesheet cascade order:
+  1. css/color-board.css?v=273
+  2. css/common.css?v=197
+  3. css/color-board-floating.css?v=273
+- No CSS selector, property value, media query, or declaration order was intentionally changed.
+
+Source equivalence
+- Main CSS characters: 37684
+- Main CSS lines: 1498
+- Main CSS SHA-256: 3b29ab87ad25687e9d7e50c8eb63d169eb97ef1fa1d19e50ef4f9216c5c5ab75
+- Floating CSS characters: 1035
+- Floating CSS lines: 44
+- Floating CSS SHA-256: 7fa032f3fb6bdbc53720ab55db98b05a4ac00dfaf8c6ae9494d1fe21aaa04312
+- url(...) references in migrated CSS: 0
+- @import statements in migrated CSS: 0
+
+Protected areas not modified
+- data/color.json and all image assets
+- Color relationship filters and card rendering
+- Local favorites and localStorage keys
+- Modal open / close behavior and scroll handling
+- Mobile layout and responsive rules
+- Language switching and visible copy
+- css/common.css and js/common.js
+- Other Inspiration Boards, Prompt pages, workflows, Resume Tool, SEO files, robots and sitemap
+
+Validation checklist
+- color-references.html retains exactly one inline <style> block: language boot only.
+- color-references.html references each new CSS file exactly once.
+- Main Color Board CSS loads before css/common.css.
+- Floating button CSS loads after css/common.css.
+- Both migrated CSS files have balanced braces.
+- No other site file is changed relative to v272, except this check document.
+
+Manual browser regression
+- Desktop and mobile Color Board layout
+- All / analogous / complementary / triadic / split-complementary filters
+- Favorite button and Saved filter
+- Card modal, close button, body scroll restore
+- Language switching and hard refresh
+- Back-to-top floating button

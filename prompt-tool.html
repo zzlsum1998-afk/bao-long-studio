@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="baolong-build" content="v265">
+<meta name="baolong-build" content="v266">
 <title>Prompt Library · BaoLong Lab</title>
 
 <link rel="stylesheet" href="css/prompt-tool-fonts.css?v=208">
@@ -14,36 +14,35 @@
 <header class="site-header">
     <a class="brand" href="index.html">
       <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
-      <div class="brand-text">BaoLong Lab</div>
+      <div class="brand-text">BAOLONG LAB</div>
     </a>
 
     <nav class="nav">
       <a href="index.html">全部</a>
 
       <div class="nav-dropdown">
-        <a href="assets.html">素材 ▼</a>
+        <a href="assets.html">素材库 ▼</a>
         <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">模块图素材</a>
+          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">模块素材</a>
           <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">人物素材</a>
           <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">植物素材</a>
           <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">动物素材</a>
           <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">纹理</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">免费资源</a>
+          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">免费素材</a>
         
         </div>
       </div>
 
       <a href="prompt-generator.html">Prompt 工具</a>
       <a href="interaction.html">交互实验室</a>
-      <a href="resume.html">简历</a>
 
       <div class="nav-dropdown">
         <a href="plan-references.html">灵感板 ▼</a>
         <div class="dropdown-content">
-          <a href="plan-references.html">平面图</a>
-          <a href="section-references.html">剖面图</a>
-          <a href="render-references.html">其他参考</a>
-          <a href="color-references.html">色彩</a>
+          <a href="plan-references.html">平面灵感</a>
+          <a href="section-references.html">剖面灵感</a>
+          <a href="render-references.html">综合灵感</a>
+          <a href="color-references.html">色彩灵感</a>
         </div>
       </div>
     </nav>
@@ -55,24 +54,23 @@
     <button class="mobile-menu-toggle" type="button" aria-label="打开菜单" onclick="toggleMobileMenu()">菜单</button>
     <div class="mobile-menu-panel" id="mobileMenuPanel">
       <a href="index.html" onclick="closeMobileMenu()">全部</a>
-      <div class="mobile-menu-group">素材</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块图素材</a>
+      <div class="mobile-menu-group">素材库</div>
+      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块素材</a>
       <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">人物素材</a>
       <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">植物素材</a>
       <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">动物素材</a>
       <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">纹理</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费资源</a>
+      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费素材</a>
       <div class="mobile-menu-group">工具</div>
       <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt 工具</a>
       <a href="interaction.html" onclick="closeMobileMenu()">交互实验室</a>
-      <a href="resume.html" onclick="closeMobileMenu()">简历</a>
       <div class="mobile-menu-group">灵感板</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">平面图</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">剖面图</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">其他参考</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">色彩</a>
+      <a href="plan-references.html" onclick="closeMobileMenu()">平面灵感</a>
+      <a href="section-references.html" onclick="closeMobileMenu()">剖面灵感</a>
+      <a href="render-references.html" onclick="closeMobileMenu()">综合灵感</a>
+      <a href="color-references.html" onclick="closeMobileMenu()">色彩灵感</a>
       <div class="mobile-menu-group">账户</div>
-      <a href="login.html" onclick="closeMobileMenu()">Log in</a>
+      <a href="login.html" onclick="closeMobileMenu()">登录</a>
     </div>
 
   </header>
@@ -518,16 +516,16 @@ window.addEventListener('resize',function(){
 
 
 <script>
-/* PROMPT_TOOL_NAV_BILINGUAL_BRIDGE_v188
+/* PROMPT_TOOL_NAV_BILINGUAL_BRIDGE_v266
    Fixes only Prompt Tool page header/nav labels after the bundled page renders.
    Keeps Prompt Tool logic, CSS, JS, JSON, images, favicon, sitemap and robots untouched. */
 (function(){
   var navLabels={
     zh:{
-      all:'全部',assets:'素材库 ▼',moduleAssets:'模块素材',peopleAssets:'人物素材',plantAssets:'植物素材',animalAssets:'动物素材',textures:'纹理',free:'免费素材',prompt:'Prompt 工具',interaction:'交互实验室',resume:'简历模板',inspiration:'灵感板 ▼',plan:'平面灵感',section:'剖面灵感',other:'综合灵感',color:'色彩灵感',login:'登录',menu:'菜单',assetsGroup:'素材',toolsGroup:'工具',inspirationGroup:'灵感板',accountGroup:'账户'
+      all:'全部',assets:'素材库 ▼',moduleAssets:'模块素材',peopleAssets:'人物素材',plantAssets:'植物素材',animalAssets:'动物素材',textures:'纹理',free:'免费素材',prompt:'Prompt 工具',interaction:'交互实验室',inspiration:'灵感板 ▼',plan:'平面灵感',section:'剖面灵感',other:'综合灵感',color:'色彩灵感',login:'登录',menu:'菜单',assetsGroup:'素材库',toolsGroup:'工具',inspirationGroup:'灵感板',accountGroup:'账户'
     },
     en:{
-      all:'All',assets:'Assets ▼',moduleAssets:'Module Assets',peopleAssets:'People Assets',plantAssets:'Plant Assets',animalAssets:'Animal Assets',textures:'Textures',free:'Free',prompt:'Prompt Generator',interaction:'Interaction',resume:'Resume',inspiration:'Inspiration Board ▼',plan:'Plan Board',section:'Section Board',other:'Other Board',color:'Color Board',login:'Log in',menu:'Menu',assetsGroup:'Assets',toolsGroup:'Tools',inspirationGroup:'Inspiration Board',accountGroup:'Account'
+      all:'All',assets:'Assets ▼',moduleAssets:'Module Assets',peopleAssets:'People Assets',plantAssets:'Plant Assets',animalAssets:'Animal Assets',textures:'Textures',free:'Free',prompt:'Prompt Generator',interaction:'Interaction',inspiration:'Inspiration Board ▼',plan:'Plan Board',section:'Section Board',other:'Other Board',color:'Color Board',login:'Log in',menu:'Menu',assetsGroup:'Assets',toolsGroup:'Tools',inspirationGroup:'Inspiration Board',accountGroup:'Account'
     }
   };
 
@@ -576,7 +574,6 @@ window.addEventListener('resize',function(){
     setText(findLink(nav,function(href,onclick){return href.indexOf('Free')>-1 || onclick.indexOf('Free')>-1;}),t.free);
     setText(findLink(nav,function(href){return href==='prompt-generator.html';}),t.prompt);
     setText(findLink(nav,function(href){return href==='interaction.html';}),t.interaction);
-    setText(findLink(nav,function(href){return href==='resume.html';}),t.resume);
     var dropdowns=nav.querySelectorAll('.nav-dropdown');
     var board=dropdowns.length>1?dropdowns[1]:null;
     setText(board?board.querySelector(':scope > a'):null,t.inspiration);
@@ -600,7 +597,6 @@ window.addEventListener('resize',function(){
     setText(findLink(panel,function(href){return href.indexOf('Free')>-1;}),t.free);
     setText(findLink(panel,function(href){return href==='prompt-generator.html';}),t.prompt);
     setText(findLink(panel,function(href){return href==='interaction.html';}),t.interaction);
-    setText(findLink(panel,function(href){return href==='resume.html';}),t.resume);
     setText(findLink(panel,function(href){return href==='plan-references.html';}),t.plan);
     setText(findLink(panel,function(href){return href==='section-references.html';}),t.section);
     setText(findLink(panel,function(href){return href==='render-references.html';}),t.other);

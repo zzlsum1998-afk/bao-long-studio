@@ -1,0 +1,37 @@
+BaoLong Lab · Prompt Tool 导航对齐检查 v266
+
+基础版本
+- baolong-prompt-tool-css-externalization-v265-full-noimages-plus-template-assets.zip
+
+本轮目标
+- 仅修复 prompt-tool.html 顶部与移动端导航仍保留“简历”入口的问题。
+- 将 Prompt Tool 导航项目、文字与当前全站导航保持一致。
+- 不修改 Prompt Tool 核心功能、页面主体、样式、词库或其他页面。
+
+实际修改
+1. prompt-tool.html
+   - 桌面端导航删除“简历 / 简历模板”入口。
+   - 移动端导航删除“简历”入口。
+   - 品牌文字统一为 BAOLONG LAB。
+   - 素材、灵感板下拉文字与当前全站导航统一：
+     素材库 / 模块素材 / 免费素材 / 平面灵感 / 剖面灵感 / 综合灵感 / 色彩灵感。
+   - 移动端账户入口中文统一为“登录”。
+   - 同步清理页面内 Prompt Tool 导航双语桥接中的 resume 字段和匹配逻辑。
+   - baolong-build 更新为 v266。
+
+未修改
+- css/prompt-tool.css
+- css/prompt-tool-fonts.css
+- js/prompt-tool-core.js
+- js/prompt-tool-ui.js
+- Prompt 生成逻辑、词库、分类、复制、移动端菜单逻辑
+- 首页、Prompt Generator、图片工作流、收藏、图片、JSON、SEO 与其他页面
+
+检查结果
+- Prompt Tool 桌面端导航链接序列与 index.html 一致。
+- Prompt Tool 移动端导航链接序列与 index.html 一致。
+- Prompt Tool 移动端分组与 index.html 一致。
+- prompt-tool.html 中已无 resume.html 导航链接。
+- 导航双语桥接中已无 resume 文案与查找逻辑。
+- 页面内联 JavaScript 语法检查通过。
+- 除 prompt-tool.html 与本检查文件外，其余 v265 文件保持不变。

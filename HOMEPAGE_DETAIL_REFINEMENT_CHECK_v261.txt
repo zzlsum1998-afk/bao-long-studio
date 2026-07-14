@@ -1,0 +1,25 @@
+BaoLong Lab · Homepage Detail Refinement Check · v261
+
+Base
+- Built directly from baolong-visual-creation-positioning-v260-full-noimages-plus-template-assets.zip.
+- Scope is limited to homepage information refinement and spacing.
+
+Changed files
+- index.html
+- css/index.css
+- js/index-i18n.js
+- HOMEPAGE_DETAIL_REFINEMENT_CHECK_v261.txt
+
+Refinements
+1. Removed the explanatory paragraph beside “从你现在需要的地方开始 / Start from what you need right now.”
+2. Removed the technical release paragraph beneath the featured Prompt & AI workflow heading.
+3. Removed the public CASE17–CASE22 English index strip beneath the three representative workflow cards.
+4. Tightened the vertical gap between the featured workflow section and “四个方向，都围绕视觉创作”.
+5. Updated homepage-only cache query versions for index.css and index-i18n.js to v261.
+6. Removed only the two now-unused homepage translation entries.
+
+Regression boundaries
+- No HTML page was added.
+- No navigation, common.css, common.js, Prompt Generator behavior, workflow configuration, Template Generator, favorites, images, JSON data, SEO, robots or sitemap was changed.
+- Existing four creation-area cards and their links remain unchanged.
+- Existing six workflow cards/configurations remain unchanged; only the redundant homepage case-label strip was removed.

@@ -1,0 +1,26 @@
+BaoLong Lab · Prompt Generator CSS Externalization Check v267
+
+Base
+- baolong-prompt-tool-nav-alignment-v266-full-noimages-plus-template-assets.zip
+
+Scope
+- Modified: prompt-generator.html
+- Added: css/prompt-generator.css
+- Added: css/prompt-generator-floating.css
+- Added: PROMPT_GENERATOR_CSS_EXTERNALIZATION_CHECK_v267.txt
+
+Migration
+- Preserved the small inline language boot style (`#bl-language-boot-style`) to prevent English-mode flash.
+- Moved the original main Prompt Generator style block to `css/prompt-generator.css?v=267`.
+- Moved the original floating back-to-top button style block to `css/prompt-generator-floating.css?v=267`.
+- Preserved the original cascade order: main page CSS remains before `css/common.css`; floating-button CSS remains after the SEO/analytics head content and before `</head>`.
+- No CSS values, selectors, media queries, comments, HTML structure, copy, links, scripts, card data, workflow settings, favorites, modal behavior, filters, or SEO content were changed.
+
+Static verification
+- Main CSS extracted byte-for-byte from the original inline block.
+- Floating CSS extracted byte-for-byte from the original inline block.
+- `prompt-generator.html` now contains only the required language boot inline style.
+- Both new stylesheet links occur exactly once.
+- No `url(...)` paths required rebasing.
+- `css/common.css` and `js/common.js` were not modified.
+- All files outside this scope are unchanged from v266.

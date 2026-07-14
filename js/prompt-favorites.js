@@ -1,11 +1,18 @@
-/* BaoLong Lab v254 Prompt case local favorites + content-type filtering.
+/* BaoLong Lab v259 Prompt case local favorites + content-type filtering.
    Static-site only: saves cards in localStorage on the visitor's current browser. */
 (function(){
   'use strict';
 
   var STORAGE_KEY = 'baolong.promptFavorites.v1';
   var mode = 'all';
-  var typeMode = 'all';
+  var typeMode = (function(){
+    try{
+      var requested = new URLSearchParams(window.location.search).get('type');
+      return requested === 'prompt' || requested === 'workflow' ? requested : 'all';
+    }catch(err){
+      return 'all';
+    }
+  })();
 
   function readStore(){
     try{

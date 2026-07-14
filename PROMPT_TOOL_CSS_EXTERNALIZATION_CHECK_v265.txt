@@ -1,0 +1,40 @@
+BAOLONG LAB · PROMPT TOOL CSS EXTERNALIZATION CHECK · v265
+Date: 2026-07-15
+Base: baolong-inspiration-board-css-externalization-v264-full-noimages-plus-template-assets.zip
+
+1. Scope
+- Modified: prompt-tool.html
+- Added: css/prompt-tool.css
+- Added: PROMPT_TOOL_CSS_EXTERNALIZATION_CHECK_v265.txt
+
+2. Migration
+- Moved the single main inline <style> block from prompt-tool.html into css/prompt-tool.css.
+- The extracted CSS content is preserved verbatim, including selector order, declarations, media queries and comments.
+- prompt-tool.html now loads css/prompt-tool.css?v=265 immediately after css/prompt-tool-fonts.css?v=208.
+- Updated the non-visual baolong-build metadata marker from v233 to v265.
+
+3. Intentionally unchanged
+- Prompt generation logic and vocabulary.
+- js/prompt-tool-core.js?v=233.
+- js/prompt-tool-ui.js?v=208.
+- css/prompt-tool-fonts.css?v=208 and all local WOFF2 files.
+- HTML structure, visible copy, links, navigation bridge, mobile menu and console behavior.
+- All other pages, common.css/common.js, images, data, SEO files and workflow files.
+
+4. Static verification
+- The source contained exactly one inline style block: 28,193 characters / 804 lines.
+- The new css/prompt-tool.css matches that source block byte-for-byte.
+- prompt-tool.html contains no remaining <style> block.
+- The new stylesheet is referenced exactly once.
+- All referenced local CSS, JS and image files remain present.
+- Every file other than the three items listed in Scope is byte-identical to v264.
+
+5. Browser regression checklist
+Desktop and mobile:
+- Header/logo/navigation and language toggle.
+- Left category rail and mobile category tabs.
+- Prompt builder controls, selectors, buttons and chips.
+- Generated prompt console: collapsed/expanded states, copy and clear actions.
+- Mobile menu open/close and background scroll lock.
+- Chinese/English switching.
+- Strong refresh to confirm the external stylesheet loads.

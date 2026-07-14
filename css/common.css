@@ -204,7 +204,7 @@ body.bl-menu-open{
   .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:84px!important;}
   .site-header .nav>a[href="prompt-generator.html"]{min-width:126px!important;}
   .site-header .nav>a[href="interaction.html"]{min-width:108px!important;}
-  .site-header .nav>a[href="resume.html"]{min-width:98px!important;}
+  .site-header .nav>a[href^="prompt-generator.html?type=workflow"]{min-width:98px!important;}
   .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:148px!important;}
   .site-header .nav-dropdown{justify-content:center!important;}
 }
@@ -269,7 +269,7 @@ body.bl-menu-open{
   .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:68px!important;}
   .site-header .nav>a[href="prompt-generator.html"]{min-width:104px!important;}
   .site-header .nav>a[href="interaction.html"]{min-width:88px!important;}
-  .site-header .nav>a[href="resume.html"]{min-width:76px!important;}
+  .site-header .nav>a[href^="prompt-generator.html?type=workflow"]{min-width:76px!important;}
   .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:120px!important;}
 }
 @media (min-width:981px) and (max-width:1120px){
@@ -332,6 +332,6 @@ body.bl-menu-open{
   .site-header .nav>.nav-dropdown>a[href="assets.html"]{min-width:58px!important;}
   .site-header .nav>a[href="prompt-generator.html"]{min-width:94px!important;}
   .site-header .nav>a[href="interaction.html"]{min-width:78px!important;}
-  .site-header .nav>a[href="resume.html"]{min-width:66px!important;}
+  .site-header .nav>a[href^="prompt-generator.html?type=workflow"]{min-width:66px!important;}
   .site-header .nav>.nav-dropdown>a[href="plan-references.html"]{min-width:110px!important;}
 }

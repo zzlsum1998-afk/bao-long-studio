@@ -1,0 +1,29 @@
+BAOLONG LAB · Resume Tool 打印导航条修复检查 · v271
+
+基准版本
+- baolong-resume-tool-css-externalization-v270-full-noimages-plus-template-assets.zip
+
+问题
+- 浏览器“打印 / 保存为 PDF”预览中，页面顶部仍出现全站导航栏。
+- 根因：css/common.css 在 Resume Tool CSS 之后加载，并使用 .site-header { display:flex!important; }，覆盖了较早的打印隐藏规则。
+
+本轮修改
+1. resume-tool.html
+   - 在 common.css 之后新增打印专用样式：
+     css/resume-tool-print.css?v=271（media="print"）
+2. css/resume-tool-print.css
+   - 仅在打印介质生效。
+   - 强制隐藏全站 site-header、移动菜单、Resume Tool topbar、编辑区和预览工具栏。
+   - 将已隐藏的顶部条高度、边距和边框归零，避免 PDF 顶部残留空白。
+
+未修改
+- Resume Tool 主 CSS 与模板样式
+- 编辑、预览、模板切换、照片、保存、打印和 PDF JS 逻辑
+- common.css / common.js
+- 导航、文案、其他页面、图片、数据、SEO
+
+验收
+- 屏幕页面顶部导航保持原样。
+- 点击“打印 / 保存为 PDF”后，PDF 预览只出现简历 A4 页面。
+- 顶部不再出现 BAOLONG LAB 导航条、菜单按钮或额外留白。
+- 仍为 1 页，背景图形选项与保存为 PDF 正常。

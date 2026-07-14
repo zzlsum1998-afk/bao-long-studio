@@ -1,4 +1,4 @@
-// BaoLong Lab v213 common header/nav + language toggle
+// BaoLong Lab v258 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
@@ -225,9 +225,16 @@
     'Original content and tools by BaoLong Lab.':'BaoLong Lab 原创内容与工具版权归 BaoLong Lab 所有。',
     'Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.':'灵感板块内容仅作学习参考与来源索引，版权归原作者所有；如涉及版权问题，请联系删除。'
   };
+  // v258: allow a page to register its own copy without bloating the shared map.
+  if(window.BAOLONG_PAGE_ZH_MAP && typeof window.BAOLONG_PAGE_ZH_MAP==='object'){
+    Object.assign(zhMap, window.BAOLONG_PAGE_ZH_MAP);
+  }
   var titleMap={
     'BaoLong Lab | Design Assets Library':'BaoLong Lab | 设计素材与创作工具集合','Assets | BaoLong Lab':'素材库 | BaoLong Lab','Prompt Generator | BaoLong Lab':'Prompt 工具 | BaoLong Lab','Interaction | BaoLong Lab':'交互实验室 | BaoLong Lab','Resume Templates | BaoLong Lab':'简历模板 | BaoLong Lab','Plan Board | BaoLong Lab':'平面灵感板 | BaoLong Lab','Section Board | BaoLong Lab':'剖面灵感板 | BaoLong Lab','Other Board | BaoLong Lab':'综合灵感板 | BaoLong Lab','Color Board | BaoLong Lab':'色彩灵感板 | BaoLong Lab','Prompt Builder · BaoLong Lab':'Prompt Builder · BaoLong Lab','Resume Studio｜设计感简历生成器':'Resume Studio｜设计感简历生成器','Data Bloom Generator | BaoLong Lab':'数据花园生成器 | BaoLong Lab','数据花园生成器 | BaoLong Lab':'数据花园生成器 | BaoLong Lab'
   };
+  if(window.BAOLONG_PAGE_TITLE_MAP && typeof window.BAOLONG_PAGE_TITLE_MAP==='object'){
+    Object.assign(titleMap, window.BAOLONG_PAGE_TITLE_MAP);
+  }
 
   function getLang(){return localStorage.getItem('baolongLanguage') || 'zh';}
   function setLang(lang){localStorage.setItem('baolongLanguage',lang);applyLanguage(lang);}

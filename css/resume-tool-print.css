@@ -1,0 +1,30 @@
+/* Resume Tool print-only override v271
+   Loaded after common.css so the global site header never enters PDF output. */
+body > .site-header,
+body > .site-header .nav,
+body > .site-header .header-actions,
+body > .site-header .mobile-menu-toggle,
+body > .site-header .mobile-menu-panel,
+.app > .topbar,
+.editor,
+.control-panel,
+.preview-toolbar,
+#resumeAiUsageBadge {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body > .site-header,
+.app > .topbar {
+  width: 0 !important;
+  height: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  position: static !important;
+}

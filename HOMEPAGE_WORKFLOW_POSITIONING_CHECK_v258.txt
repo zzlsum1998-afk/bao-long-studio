@@ -1,0 +1,57 @@
+BaoLong Lab v258 · 首页定位与做图旅程重组检查
+整理日期：2026-07-14
+
+一、版本基准
+- 直接基于 v257：baolong-narrative-collage-workflow-v257-full-noimages-plus-template-assets.zip
+- 本轮不新增 HTML 页面，不新增图片工作流，不修改 Vault。
+- 网站开发基准升级为 v258；私有生产 Vault 仍为 v1.2 case22。
+
+二、本轮目标
+把首页从“分类导航 + 商品轮播”的展示框架，重组为“建筑与景观 AI 工作流平台”的清晰叙事：
+找参考 → 定色彩与风格 → 选择真实测试工作流 → 进入共用工作台。
+
+三、实际修改文件
+1. index.html
+   - 更新 title、description、Open Graph、Twitter 与 Schema 首页定位。
+   - Hero 第一屏明确“建筑与景观 AI 工作流平台”。
+   - Hero 四屏改为：平台总览 / 找参考 / 选工作流 / 素材与实验补充。
+   - 新增“四步做图路径”区块。
+   - 新增 3 个代表性真实测试工作流展示，并列出 case17–case22。
+   - 主入口重排为：灵感板 / Prompt 与图片工作流 / 视觉素材 / 交互实验室。
+   - Resume Tool 从首页主线移到“实验与独立工具”。
+   - 方法笔记第三项由 Resume 示例改为图片工作流系统。
+   - 精选素材明确为主线之后的辅助表达资源。
+2. css/index.css（新增）
+   - v258 新增首页样式全部进入外部 CSS。
+   - 未继续向 index.html 的旧大型 style 块写入新规则。
+3. js/index-i18n.js（新增）
+   - 保存 v258 首页专属中英文文案与 title 映射，只由首页加载。
+4. js/common.js
+   - 仅新增页面级语言映射扩展钩子，避免把首页 100+ 条文案继续塞进全站公共映射。
+   - 未改导航、菜单、收藏或其他公共逻辑。
+5. HOMEPAGE_WORKFLOW_POSITIONING_CHECK_v258.txt（新增）
+
+四、CSS 止损规则（从 v258 起）
+- 首页新增大块样式一律进入 css/index.css，不再继续写入页面内联 style。
+- 真正全站共用规则才进入 css/common.css；页面专属规则不塞入 common.css。
+- v258 不搬迁旧的约 2900 行首页内联 CSS，避免“重组信息架构 + 大规模样式迁移”同时发生。
+- 旧内联 CSS 在后续专门版本中按页面逐步迁移和清理。
+
+五、能力与安全边界
+- 首页可以使用“平台”定位，但仍不宣称静态站已经接入正式在线生图后端。
+- 真实 API 仍为本地 POC；完整 Hidden Prompt、API Key、Endpoint、模型配置和生产脚本未进入前端。
+- case17–case22 为已接入工作流；候选 case23 仍暂停，不出现在首页工作流清单中。
+
+六、未修改范围
+- 未修改 css/common.css、js/taobao-links.js；js/common.js 仅增加页面级语言映射扩展钩子。
+- 未修改 Prompt Generator、Template Generator、Prompt Tool、Resume Tool、Inspiration Board 页面与逻辑。
+- 未修改收藏键、收藏逻辑、加载更多、导航结构、favicon、robots、sitemap、canonical 主域名。
+- 未修改或新增 images；v257 已包含的模板必要资产继续沿用。
+
+七、回归检查
+- Hero 仍保留 4 屏，沿用原轮播函数与 4 个 dots，不改变计数逻辑。
+- 新工作流链接均使用已存在的 Template ID：case20、case21、case22。
+- 首页所有新文案均提供 data-bl-original-text 英文源文，兼容现有中英文切换。
+- 新 CSS 包含桌面、平板、手机与 prefers-reduced-motion 适配。
+- index.html 先加载 js/index-i18n.js?v=258，再加载 js/common.js?v=258，保证新首页文案可中英文往返切换；其他页面无需加载首页专属文案。
+- patch 必须保留 index.html、css/index.css 的真实目录结构。

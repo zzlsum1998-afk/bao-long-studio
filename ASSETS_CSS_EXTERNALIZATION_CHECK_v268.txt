@@ -1,0 +1,36 @@
+BaoLong Lab · Assets CSS Externalization Check v268
+
+基准版本
+- baolong-prompt-generator-css-externalization-v267-full-noimages-plus-template-assets.zip
+
+本轮目标
+- 仅将 assets.html 的主内联 CSS 原样迁移到独立外部文件。
+- 保持页面视觉、页面结构、素材数据、筛选、弹窗、淘宝跳转、语言切换与其他交互完全不变。
+
+实际改动
+1. 修改 assets.html
+   - 保留语言首屏防闪样式 bl-language-boot-style。
+   - 删除原主内联 style 块。
+   - 在 css/common.css 之前新增 css/assets.css?v=268 引用，保持原样式覆盖顺序。
+2. 新增 css/assets.css
+   - 内容为原 assets.html 主 style 块逐字符迁移。
+3. 新增本检查文件。
+
+明确未修改
+- css/common.css 与 js/common.js
+- assets.html 的 HTML 结构、文案、SEO、导航与脚本逻辑
+- 素材数据、分类筛选、收藏/下载/淘宝相关逻辑与弹窗
+- images、JSON/data、Prompt Tool、Prompt Generator、图片工作流、Resume Tool 与其他页面
+
+静态检查
+- assets.html 仅剩语言首屏防闪内联 style。
+- css/assets.css 与原主内联 CSS 内容一致。
+- css/assets.css 在 css/common.css 之前加载，加载顺序未改变。
+- 外置 CSS 不包含相对 url() 资源引用，不存在迁移后路径变化风险。
+- 除 assets.html、css/assets.css 和本检查文件外，其余文件与 v267 保持一致。
+
+建议人工回归
+- 桌面端与移动端页面整体布局、标题、分类栏、卡片、按钮与页脚。
+- 分类筛选、素材预览弹窗、关闭弹窗、滚动锁定及相关按钮。
+- 中文/英文切换、顶部导航和淘宝/外链跳转。
+- 强制刷新后确认外部 CSS 正常加载。

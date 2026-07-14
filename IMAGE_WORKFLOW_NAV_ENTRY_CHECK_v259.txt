@@ -1,0 +1,28 @@
+BaoLong Lab v259 — 图片工作流导航入口测试版
+
+基准：v258 首页定位版
+目标：仅将全站顶部 / 移动导航中的“简历模板”替换为“图片工作流”，复用现有 prompt-generator.html，不新增 HTML 页面。
+
+实现：
+1. 导航链接：prompt-generator.html?type=workflow#prompt-cases
+2. prompt-generator.html 读取 type=workflow，进入后自动选中“图片工作流 / Workflows”筛选，仅显示 case17–case22。
+3. common.js 区分同一路径的普通 Prompt 入口与 Workflow 深链接，避免两个导航项同时出现激活下划线。
+4. common.css 将原“简历模板”稳定宽度槽位转移给“图片工作流”，减少桌面导航位移。
+5. Prompt Tool 独立导航桥同步更新；未修改其核心生成逻辑。
+6. 简历页面与简历工具保留，未删除；首页底部现有“简历工具”入口继续可用。
+
+未修改：
+- 首页区块顺序、黑色区块与视觉叙事
+- Prompt 卡片数据、case01–case22、弹窗与收藏 key
+- template-generator.html 与所有工作流配置
+- Inspiration Board 数据 / 图片 / 收藏 / 加载更多
+- Resume Tool 核心逻辑
+- SEO、robots、sitemap、favicon、图片资产
+
+回归检查：
+- 标准导航 14 个页面：桌面 + 移动入口均替换
+- Prompt Tool：桌面 + 移动入口及中英文桥均替换
+- 中文显示：图片工作流；英文显示：Image Workflows
+- workflow 深链接自动筛选；无 query 时仍保持原“全部”显示
+- active nav 不双亮
+- common.css / common.js / prompt-favorites.js 缓存版本更新为 v259

@@ -838,7 +838,7 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
 
       <a href="prompt-generator.html">Prompt 工具</a>
       <a href="interaction.html">交互实验室</a>
-      <a href="resume.html">简历</a>
+      <a href="prompt-generator.html?type=workflow#prompt-cases">图片工作流</a>
 
       <div class="nav-dropdown">
         <a href="plan-references.html">灵感板 ▼</a>
@@ -868,7 +868,7 @@ body.edit-mode .btn-add-card{ display:inline-flex; }
       <div class="mobile-menu-group">工具</div>
       <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt 工具</a>
       <a href="interaction.html" onclick="closeMobileMenu()">交互实验室</a>
-      <a href="resume.html" onclick="closeMobileMenu()">简历</a>
+      <a href="prompt-generator.html?type=workflow#prompt-cases" onclick="closeMobileMenu()">图片工作流</a>
       <div class="mobile-menu-group">灵感板</div>
       <a href="plan-references.html" onclick="closeMobileMenu()">平面图</a>
       <a href="section-references.html" onclick="closeMobileMenu()">剖面图</a>
@@ -1327,10 +1327,10 @@ window.addEventListener('resize',function(){
 (function(){
   var navLabels={
     zh:{
-      all:'全部',assets:'素材库 ▼',moduleAssets:'模块素材',peopleAssets:'人物素材',plantAssets:'植物素材',animalAssets:'动物素材',textures:'纹理',free:'免费素材',prompt:'Prompt 工具',interaction:'交互实验室',resume:'简历模板',inspiration:'灵感板 ▼',plan:'平面灵感',section:'剖面灵感',other:'综合灵感',color:'色彩灵感',login:'登录',menu:'菜单',assetsGroup:'素材',toolsGroup:'工具',inspirationGroup:'灵感板',accountGroup:'账户'
+      all:'全部',assets:'素材库 ▼',moduleAssets:'模块素材',peopleAssets:'人物素材',plantAssets:'植物素材',animalAssets:'动物素材',textures:'纹理',free:'免费素材',prompt:'Prompt 工具',interaction:'交互实验室',workflows:'图片工作流',inspiration:'灵感板 ▼',plan:'平面灵感',section:'剖面灵感',other:'综合灵感',color:'色彩灵感',login:'登录',menu:'菜单',assetsGroup:'素材',toolsGroup:'工具',inspirationGroup:'灵感板',accountGroup:'账户'
     },
     en:{
-      all:'All',assets:'Assets ▼',moduleAssets:'Module Assets',peopleAssets:'People Assets',plantAssets:'Plant Assets',animalAssets:'Animal Assets',textures:'Textures',free:'Free',prompt:'Prompt Generator',interaction:'Interaction',resume:'Resume',inspiration:'Inspiration Board ▼',plan:'Plan Board',section:'Section Board',other:'Other Board',color:'Color Board',login:'Log in',menu:'Menu',assetsGroup:'Assets',toolsGroup:'Tools',inspirationGroup:'Inspiration Board',accountGroup:'Account'
+      all:'All',assets:'Assets ▼',moduleAssets:'Module Assets',peopleAssets:'People Assets',plantAssets:'Plant Assets',animalAssets:'Animal Assets',textures:'Textures',free:'Free',prompt:'Prompt Generator',interaction:'Interaction',workflows:'Image Workflows',inspiration:'Inspiration Board ▼',plan:'Plan Board',section:'Section Board',other:'Other Board',color:'Color Board',login:'Log in',menu:'Menu',assetsGroup:'Assets',toolsGroup:'Tools',inspirationGroup:'Inspiration Board',accountGroup:'Account'
     }
   };
 
@@ -1379,7 +1379,7 @@ window.addEventListener('resize',function(){
     setText(findLink(nav,function(href,onclick){return href.indexOf('Free')>-1 || onclick.indexOf('Free')>-1;}),t.free);
     setText(findLink(nav,function(href){return href==='prompt-generator.html';}),t.prompt);
     setText(findLink(nav,function(href){return href==='interaction.html';}),t.interaction);
-    setText(findLink(nav,function(href){return href==='resume.html';}),t.resume);
+    setText(findLink(nav,function(href){return href.indexOf('prompt-generator.html?type=workflow')===0;}),t.workflows);
     var dropdowns=nav.querySelectorAll('.nav-dropdown');
     var board=dropdowns.length>1?dropdowns[1]:null;
     setText(board?board.querySelector(':scope > a'):null,t.inspiration);
@@ -1403,7 +1403,7 @@ window.addEventListener('resize',function(){
     setText(findLink(panel,function(href){return href.indexOf('Free')>-1;}),t.free);
     setText(findLink(panel,function(href){return href==='prompt-generator.html';}),t.prompt);
     setText(findLink(panel,function(href){return href==='interaction.html';}),t.interaction);
-    setText(findLink(panel,function(href){return href==='resume.html';}),t.resume);
+    setText(findLink(panel,function(href){return href.indexOf('prompt-generator.html?type=workflow')===0;}),t.workflows);
     setText(findLink(panel,function(href){return href==='plan-references.html';}),t.plan);
     setText(findLink(panel,function(href){return href==='section-references.html';}),t.section);
     setText(findLink(panel,function(href){return href==='render-references.html';}),t.other);

@@ -1,14 +1,14 @@
-// BaoLong Lab v259 common header/nav + language toggle
+// BaoLong Lab v258 common header/nav + language toggle
 (function(){
   window.toggleMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.toggle('open');};
   window.closeMobileMenu=function(){var p=document.getElementById('mobileMenuPanel');if(p)p.classList.remove('open');};
   if(typeof window.navFilter!=='function'){window.navFilter=function(){return true;};}
-  function normalizeNavTarget(href){try{var u=new URL(href,location.href);var path=(u.pathname.split('/').pop()||'index.html');var type=u.searchParams.get('type');if(path==='prompt-generator.html' && type==='workflow')return path+'?type=workflow';return path;}catch(e){return href;}}
-  function markActiveNav(){var current=normalizeNavTarget(location.href);document.querySelectorAll('.site-header .nav a').forEach(function(a){var target=normalizeNavTarget(a.getAttribute('href')||'');a.classList.toggle('is-active',target===current);});}
+  function normalizePath(href){try{var u=new URL(href,location.href);return (u.pathname.split('/').pop()||'index.html');}catch(e){return href;}}
+  function markActiveNav(){var current=normalizePath(location.href);document.querySelectorAll('.site-header .nav a').forEach(function(a){var target=normalizePath(a.getAttribute('href')||'');if(target===current)a.classList.add('is-active');});}
 
   var zhMap={
     // common navigation
-    'All':'全部','Assets ▼':'素材库 ▼','Module Assets':'模块素材','People Assets':'人物素材','Plant Assets':'植物素材','Animal Assets':'动物素材','Textures':'纹理','Free':'免费素材','Prompt Generator':'Prompt 工具','Interaction':'交互实验室','Resume':'简历模板','Image Workflows':'图片工作流','Inspiration Board ▼':'灵感板 ▼','Inspiration Board':'灵感板','Plan Board':'平面灵感','Section Board':'剖面灵感','Other Board':'综合灵感','Color Board':'色彩灵感','Tools':'工具','Shop Preview':'商品预览','Quick Links':'快捷入口','Menu':'菜单','Log in':'登录',
+    'All':'全部','Assets ▼':'素材库 ▼','Module Assets':'模块素材','People Assets':'人物素材','Plant Assets':'植物素材','Animal Assets':'动物素材','Textures':'纹理','Free':'免费素材','Prompt Generator':'Prompt 工具','Interaction':'交互实验室','Resume':'简历模板','Inspiration Board ▼':'灵感板 ▼','Inspiration Board':'灵感板','Plan Board':'平面灵感','Section Board':'剖面灵感','Other Board':'综合灵感','Color Board':'色彩灵感','Tools':'工具','Shop Preview':'商品预览','Quick Links':'快捷入口','Menu':'菜单','Log in':'登录',
     // common buttons
     'View on Taobao':'去淘宝查看','See Details':'查看详情','View Resume Templates':'查看简历模板','Buy Template':'购买模板','Explore Board':'进入灵感板','Open Prompt Generator':'打开 Prompt 工具','View Workflow':'查看流程','View More':'查看更多','Open Resume Tool':'打开简历工具','Go to Taobao':'去淘宝','Back to Products':'返回商品','View All Assets':'查看全部素材','View Free':'查看免费素材','Try Prompt Builder':'试用 Prompt 工具','View Categories':'查看分类','Open Tool':'打开工具','Build Your Prompt':'生成你的 Prompt','Copy Prompt':'复制 Prompt','Close':'关闭','Try Resume Tool':'试用简历工具','View Templates':'查看模板','Other Board':'综合灵感','Ready to build your prompt?':'开始生成你的 Prompt','Use the full Prompt Builder after entering the tool page.':'进入工具页后，可以使用完整的 Prompt Builder 交互功能。','Ready to build your resume?':'准备好生成你的简历了吗？','Use the full resume generator after entering the tool page.':'进入工具页后，可以继续使用完整的简历生成器功能。',
     // home page
@@ -35,7 +35,6 @@
     "Free":"免费素材",
     "Interaction":"交互实验室",
     "Resume":"简历模板",
-    "Image Workflows":"图片工作流",
     "Inspiration Board ▼":"灵感板 ▼",
     "Inspiration Board":"灵感板",
     "Plan Board":"平面灵感",

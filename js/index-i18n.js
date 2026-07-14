@@ -1,4 +1,4 @@
-// BaoLong Lab v258 homepage-only language map.
+// BaoLong Lab v260 homepage-only language map.
 // Loaded before common.js so the shared language engine can merge it.
 window.BAOLONG_PAGE_ZH_MAP = {
   "All": "全部",
@@ -23,9 +23,6 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "Tools": "工具",
   "Inspiration Board": "灵感板",
   "Account": "账户",
-  "Architecture & Landscape AI Workflows": "建筑与景观 AI 工作流",
-  "An AI Workflow Platform for Architecture and Landscape.": "建筑与景观 AI 工作流平台",
-  "From finding references and defining color to choosing tested image workflows, BaoLong Lab connects scattered image-making steps into a clearer production path.": "从找参考、定色彩、拆风格，到选择经过真实测试的图片工作流，BaoLong Lab 把分散的做图步骤连接成一条更清楚的生产路径。",
   "Browse Image Workflows": "浏览图片工作流",
   "Start with Inspiration": "从灵感板开始",
   "01 / Find References": "01 / 找参考",
@@ -40,12 +37,8 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "View Prompt Inspiration": "查看 Prompt 灵感",
   "03 / Complete the Expression": "03 / 补齐表达",
   "Use assets and experiments as supporting tools.": "用素材与实验补齐表达过程",
-  "Transparent assets, layout resources and interaction experiments remain available as supporting modules, while image workflows stay at the center of the platform.": "透明素材、版式资源与交互实验继续作为辅助模块存在，图片工作流则成为平台主线。",
   "Open Assets Library": "进入素材库",
   "Enter Interaction Lab": "进入交互实验室",
-  "ONE VISUAL WORKFLOW": "一条完整做图路径",
-  "Four steps, connected around making the image.": "围绕做图，把四个步骤连起来",
-  "BaoLong Lab is not a collection of unrelated entrances. References, color, prompts and image workflows are organized as one production chain, so each step can lead naturally to the next.": "BaoLong Lab 不是一组互不相关的入口。灵感参考、色彩、Prompt 与图片工作流被整理成同一条生产链，让每一步都能自然进入下一步。",
   "Find References": "找参考",
   "Browse plans, sections and visual cases to identify composition, hierarchy and expression methods.": "浏览平面、剖面与综合图面案例，先判断构图、层级和表达方法。",
   "Open Inspiration Boards": "进入灵感板",
@@ -70,7 +63,6 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "Preserve the original axonometric structure while applying restrained color locking, white outlines and controlled ground textures.": "保留原始轴测结构，同时应用克制锁色、白色描边与受控地面纹理。",
   "PLATFORM ENTRANCES": "平台入口",
   "Continue exploring the platform.": "继续探索平台",
-  "The image-making workflow is the main path. Inspiration, prompts, assets and interaction experiments remain connected as supporting modules.": "图片工作流是平台主线；灵感、Prompt、素材与交互实验作为相互连接的辅助模块继续存在。",
   "Inspiration Boards": "灵感板",
   "Plans / sections / visual cases / color": "平面 / 剖面 / 综合图面 / 色彩",
   "Organize references as an index for reading composition, hierarchy, color and expression methods, instead of copying a single image.": "把参考图整理成可检索的视觉索引，用于判断构图、层级、色彩和表达方法，而不是直接复制单张图片。",
@@ -96,7 +88,6 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "Interaction Lab": "交互实验室",
   "Interaction experiments / playable visual tools": "交互实验 / 可体验视觉工具",
   "Gesture, animation, cursor and generative web experiments extend static visual ideas into playable and presentable experiences.": "通过手势、动画、鼠标反馈与生成式网页实验，把静态视觉想法延展成可体验、可演示的场景。",
-  "This is the experimental branch of BaoLong Lab, kept separate from the main image-workflow path but open for continued exploration.": "这是 BaoLong Lab 的实验分支，与图片工作流主线分开呈现，但会持续保留和探索。",
   "Interactive experience": "互动体验",
   "Generative web": "生成式网页",
   "Lab projects": "实验项目",
@@ -120,20 +111,65 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "A useful AI workflow is more than one prompt. It organizes input roles, structure protection, parameters, testing records and capability boundaries into a process that can be reviewed and reused.": "真正有价值的 AI 工作流不只是一段 Prompt，而是把输入角色、结构保护、参数、测试记录和能力边界整理成可复核、可复用的流程。",
   "Supporting Assets": "辅助表达的素材资源",
   "After the main visual direction is clear, use selected assets to complete layout, annotation, collage and presentation details.": "主图方向明确后，可以继续用精选素材补充排版、标注、拼贴和展示细节。",
-  "LAB & MORE TOOLS": "实验与独立工具",
-  "Beyond the main workflow, the lab keeps experimenting.": "主线之外，继续保留实验与独立工具",
-  "Architecture and landscape image workflows are the platform’s main path. Interaction experiments, the resume tool, visual assets and research notes remain as independent entrances without competing for the core narrative.": "建筑与景观图片工作流是平台主线；交互实验、简历工具、视觉素材与研究笔记作为独立入口继续存在，不再与主线争夺首页叙事。",
   "Playable web experiments with gestures, animation, generative graphics and visual interaction.": "手势、动画、生成式图形与视觉交互网页实验。",
   "Resume Tool": "简历工具",
   "An independent product for resume templates, content input, layout preview and PDF export.": "独立的简历模板、内容填写、版式预览与 PDF 导出工具。",
   "Visual Asset Library": "视觉素材库",
   "Supporting transparent assets and layout resources for portfolios and presentation boards.": "为作品集与汇报版面提供辅助透明素材和排版资源。",
   "About BaoLong Lab": "关于 BaoLong Lab",
-  "Read the positioning, methods, product boundaries and ongoing research direction behind the platform.": "了解平台背后的定位、方法、产品边界与持续研究方向。",
-  "An AI workflow platform for architecture and landscape visual creation.": "面向建筑与景观视觉创作的 AI 工作流平台。",
-  "For purchases or collaboration enquiries, please use the linked Taobao, Xiaohongshu or contact entrances.": "如需购买素材或咨询合作，请前往对应的淘宝、小红书或联系入口。"
+  "Read the positioning, methods, product boundaries and ongoing research direction behind the platform.": "了解平台背后的定位、方法、产品边界与持续研究方向。"
 };
 
+// v260 visual-creation positioning additions.
+Object.assign(window.BAOLONG_PAGE_ZH_MAP, {
+  "Architecture & Landscape Visual Creation": "建筑与景观视觉创作",
+  "A Visual Creation Platform for Architecture and Landscape.": "建筑与景观视觉创作平台",
+  "From inspiration references and prompts to AI image workflows, visual assets and interactive expression, BaoLong Lab brings the tools and content around image-making into one place.": "从灵感参考、Prompt 与 AI 图片工作流，到视觉素材和交互表达，BaoLong Lab 把围绕“做图”的内容与工具整理在同一个平台里。",
+  "Explore Creation Areas": "探索创作入口",
+  "Inspiration & References": "灵感与参考",
+  "Find visual directions, not copies.": "找到方向，而不是照搬参考",
+  "Plans, sections, visual boards and color references are organized by source and expression method, helping you read composition, hierarchy and palette while building your own visual direction.": "平面、剖面、综合图面与色彩参考按来源和表达方法整理，帮助你看清构图、层级与配色，再形成自己的视觉方向。",
+  "Prompt & AI Workflows": "Prompt 与 AI 图片工作流",
+  "Browse ideas, generate prompts, or try a tested workflow.": "看 Prompt、生成提示词，也可以尝试图片工作流",
+  "The same Prompt area brings together reusable prompt cards, a prompt builder and image workflows validated through real Seedream tests.": "同一个 Prompt 区域里，既可以浏览可复用的提示词卡片、组合 Prompt，也可以进入经过真实 Seedream 测试的图片工作流。",
+  "Open Prompt Area": "进入 Prompt 区域",
+  "Browse Workflow Cards": "查看工作流卡片",
+  "Assets & Interactive Expression": "素材与交互表达",
+  "Complete the image, then explore how to present it.": "补齐图面，也探索更有趣的呈现方式",
+  "Visual assets support layout and collage, while interaction experiments extend static images into playable and presentable experiences.": "视觉素材可以辅助排版与拼贴，交互实验则把静态图面延展成可体验、可演示的表达方式。",
+  "VISUAL CREATION AREAS": "围绕做图",
+  "Start from what you need right now.": "从你现在需要的地方开始",
+  "There is no fixed order. Inspiration, prompts and AI workflows, visual assets, and interactive expression can be entered independently or connected when useful.": "这里不是必须依次完成的流程。找灵感、看 Prompt、尝试 AI 工作流、补充素材或探索交互表达，都可以独立进入，也可以彼此连接。",
+  "Find Inspiration": "找灵感",
+  "Browse plans, sections, visual cases and color references to read composition, hierarchy and drawing language.": "浏览平面、剖面、综合图面与色彩参考，判断构图、层级和表达语言。",
+  "Explore Prompts and Workflows": "看 Prompt 与工作流",
+  "Browse prompt cards, use the prompt builder, or try image workflows validated through real generation tests.": "浏览提示词卡片、使用生成工具，或尝试经过真实出图测试的图片工作流。",
+  "Find Visual Assets": "找素材",
+  "Use people, plants, textures, diagrams and layout resources whenever the image needs more detail or structure.": "在图面需要补充细节、层次或排版时，查找人物、植物、纹理与模块素材。",
+  "Explore Interactive Expression": "探索交互表达",
+  "Extend static visual outcomes through motion, cursor response, generative graphics and playable web experiments.": "通过动画、鼠标反馈、生成式图形与网页实验，拓展静态做图成果的呈现方式。",
+  "PROMPT & AI WORKFLOWS": "Prompt 与 AI 图片工作流",
+  "From prompt ideas to tested image workflows.": "从 Prompt 灵感，到真实测试的图片工作流",
+  "This is one of BaoLong Lab’s visual creation areas. The current six workflows are published only after real API testing, parameter review and capability-boundary checks.": "这是 BaoLong Lab 围绕视觉创作提供的一组能力。当前 6 个图片工作流都经过真实 API 测试、参数复核与能力边界检查后才发布。",
+  "CREATION AREAS": "创作入口",
+  "Four areas, all centered on visual creation.": "四个方向，都围绕视觉创作",
+  "Choose the area that matches the task in front of you. There is no fixed starting point or required sequence.": "根据眼前的任务自由进入，没有固定起点，也不要求按照同一顺序使用。",
+  "Use this area when you need a visual direction, a moodboard or a comparison between different drawing languages.": "适合在寻找图面方向、整理 Moodboard 或比较不同表达语言时使用。",
+  "Use this area to browse prompt ideas, build a prompt or continue into a tested AI image workflow.": "适合浏览提示词思路、组合 Prompt，或继续进入经过测试的 AI 图片工作流。",
+  "Use visual assets whenever the image needs layout support, annotation, collage elements or presentation details.": "适合在图面需要补充排版、标注、拼贴元素或展示细节时使用。",
+  "Use this area when you want to extend static visual outcomes into motion, interaction or a more playful presentation.": "适合希望把静态做图成果延展成动画、交互或更有趣展示方式时使用。",
+  "MORE BAOLONG LAB": "更多 BaoLong Lab",
+  "Tools, services and the platform behind the work.": "工具、服务与平台背后的更多入口",
+  "Alongside the visual creation areas, BaoLong Lab keeps direct service, contact, independent tools and platform information easy to find.": "除了围绕做图的主要内容，BaoLong Lab 也保留素材服务、联系入口、独立工具与平台说明。",
+  "Taobao Store": "淘宝店铺",
+  "Browse available assets, templates and related purchase services.": "查看现有素材、模板与相关购买服务。",
+  "Contact & Collaboration": "联系与合作",
+  "Use email, WeChat notes or the store entrance for questions, feedback and collaboration.": "通过邮箱、微信备注或店铺入口咨询、反馈与合作。",
+  "A visual creation platform for architecture and landscape.": "面向建筑与景观创作者的视觉创作平台。",
+  "For purchases or collaboration enquiries, please use the Taobao store or contact page.": "如需购买素材或咨询合作，请前往淘宝店铺或联系页面。"
+});
+
 window.BAOLONG_PAGE_TITLE_MAP = {
-  "BaoLong Lab | Architecture & Landscape AI Workflow Platform": "BaoLong Lab | 建筑与景观 AI 工作流平台"
+  "BaoLong Lab | Architecture & Landscape Visual Creation Platform": "BaoLong Lab | 建筑与景观视觉创作平台"
 };
+

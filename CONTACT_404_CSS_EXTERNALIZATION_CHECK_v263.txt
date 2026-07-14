@@ -1,0 +1,34 @@
+BaoLong Lab v263 · Contact / 404 CSS Externalization Check
+
+Base
+- baolong-static-info-css-externalization-v262-full-noimages-plus-template-assets.zip
+
+Changed files only
+- contact.html
+- 404.html
+- css/contact.css
+- css/not-found.css
+- CONTACT_404_CSS_EXTERNALIZATION_CHECK_v263.txt
+
+What changed
+1. Extracted the existing contact.html inline <style> block unchanged into css/contact.css.
+2. Extracted the existing 404.html inline <style> block unchanged into css/not-found.css.
+3. Replaced each inline block with one versioned external stylesheet link using ?v=263.
+4. No HTML structure, copy, links, navigation, JavaScript, SEO metadata, responsive rules, or visual values were redesigned.
+
+Safety boundary
+- Did not modify css/common.css or js/common.js.
+- Did not modify the homepage, Prompt pages, image workflows, template generator, favorites, images, JSON/data, robots, sitemap, or other pages.
+- Did not merge the two page styles with static-info-pages.css in this round; exact page-specific externalization was chosen to avoid selector and cascade regressions.
+
+Verification
+- contact.html: zero inline <style> blocks; exactly one css/contact.css?v=263 reference.
+- 404.html: zero inline <style> blocks; exactly one css/not-found.css?v=263 reference.
+- External CSS content matches the removed inline CSS rule-for-rule.
+- CSS braces are balanced.
+- Full and patch packages preserve the original directory structure.
+
+User regression check
+- Open Contact and 404 in desktop and mobile widths.
+- Confirm header/logo/navigation, typography, cards/buttons, spacing, footer, bilingual behavior, and page links look and work exactly as in v262.
+- Hard refresh once to confirm the new external CSS files load without stale cache.

@@ -1,0 +1,33 @@
+BaoLong Lab v262 · 静态信息页 CSS 外部化检查
+
+基准
+- 直接基于 v261 full-noimages-plus-template-assets。
+
+本轮目标
+- 将 about.html、privacy.html、terms.html 中完全相同的内联 CSS 抽离为一个页面组外部样式文件。
+- 不改变页面结构、文案、视觉、导航、SEO 或功能。
+
+实际修改
+- 新增 css/static-info-pages.css
+- 修改 about.html
+- 修改 privacy.html
+- 修改 terms.html
+- 新增本检查文件
+
+迁移规则
+1. 只抽离三页中逐字符一致的 225 行样式，不合并到 css/common.css。
+2. 三页统一引用 css/static-info-pages.css?v=262。
+3. 不修改任何 CSS 规则内容，仅改变存放位置。
+4. 不触碰首页、Prompt、图片工作流、Inspiration Board、Resume Tool、收藏、图片、JSON、JS、robots、sitemap 或 canonical。
+5. 后续新样式优先进入对应页面组或页面专属外部 CSS；只有真正全站共用的规则才进入 common.css。
+
+静态检查结果
+- 三个原内联样式块 SHA-256 一致。
+- 外部 CSS 内容与原样式内容一致。
+- about.html / privacy.html / terms.html 已无 style 标签。
+- 三页均且仅引用一次 css/static-info-pages.css?v=262。
+- 未修改 css/common.css、js/common.js 或其他页面。
+
+版本结论
+- v262 为首批低风险 CSS 技术债迁移版本。
+- 当前网站代码基准升级为 v262。

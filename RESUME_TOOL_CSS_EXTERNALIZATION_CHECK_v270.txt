@@ -1,0 +1,33 @@
+BAOLONG LAB · RESUME TOOL CSS EXTERNALIZATION CHECK v270
+
+Base version
+- baolong-homepage-css-externalization-v269-full-noimages-plus-template-assets.zip
+
+Scope
+- Modified: resume-tool.html
+- Added: css/resume-tool.css
+- Added: RESUME_TOOL_CSS_EXTERNALIZATION_CHECK_v270.txt
+
+Migration result
+- Retained the small inline language boot/flicker-prevention style block.
+- Moved the main Resume Tool style block to css/resume-tool.css.
+- Main migrated CSS: 3769 lines / 90043 characters.
+- New load order remains equivalent:
+  1. language boot inline style
+  2. css/resume-tool.css?v=270
+  3. css/common.css?v=197
+- No CSS selectors, declarations, media queries, print rules, comments, or values were intentionally changed.
+- The migrated CSS contains no url(...) or @import paths, so moving it into css/ introduces no relative asset-path change.
+
+Protected areas not modified
+- Resume content editing, template selection, live preview, photo controls, contact controls, module ordering, local save/reset, language behavior, PDF/print logic, download behavior, and all inline JavaScript.
+- css/common.css and js/common.js.
+- Navigation structure and copy.
+- Other HTML pages, images, JSON/data, Prompt tools, image workflows, favorites, SEO, robots, sitemap, and Netlify legacy files.
+
+Static verification
+- resume-tool.html contains exactly one remaining <style> block: bl-language-boot-style.
+- resume-tool.html references css/resume-tool.css?v=270 exactly once.
+- css/resume-tool.css content equals the original main inline style content byte-for-byte after UTF-8 extraction.
+- CSS brace counts are balanced.
+- All files outside this scope remain byte-identical to v269.

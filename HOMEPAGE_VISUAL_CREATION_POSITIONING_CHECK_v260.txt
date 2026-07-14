@@ -1,0 +1,36 @@
+BaoLong Lab v260 — Homepage Visual Creation Positioning Check
+
+Base
+- Built directly from v258 full package.
+- The rejected v259 navigation experiment was not used as the code base.
+
+Positioning
+- Homepage positioning changed to: Architecture & Landscape Visual Creation Platform / 建筑与景观视觉创作平台.
+- Image workflows are presented as one capability among inspiration, Prompt/AI, visual assets and interactive expression.
+- The former linear four-step production-chain language was removed.
+
+Homepage
+- First hero slide now explains the broader visual-creation platform.
+- Hero map now shows References / Prompt & AI / Assets / Interaction.
+- The formerly black second section is now a light, parallel four-entry area.
+- Featured workflows remain visible, but no longer claim to be the platform main path.
+- Detailed platform entries are described as four equal creation areas with no required order.
+- Final dark section now contains Taobao Store / Contact & Collaboration / Resume Tool / About BaoLong Lab.
+- No Xiaohongshu profile URL was present in the v258 source, so no unverified external URL was invented.
+
+Navigation
+- Resume was removed from shared desktop and mobile navigation.
+- Prompt navigation remains unchanged and still opens prompt-generator.html.
+- No Image Workflow top-level navigation item was added.
+- Resume pages and Resume Tool remain available through the homepage closing section and direct URLs.
+
+Files
+- index.html
+- css/index.css
+- js/index-i18n.js
+- Shared-navigation-only removal in: assets.html, bubble-timeline.html, color-references.html, data-bloom-garden.html, interaction.html, plan-references.html, plant-color-calendar.html, plant-emotion-radar.html, prompt-generator.html, render-references.html, resume-tool.html, resume.html, section-references.html
+
+Safety / Regression Boundaries
+- No new HTML page was added.
+- No changes to images, JSON/data, Prompt Generator logic, workflow configuration, Template Generator, favorites, Resume Tool logic, Inspiration loading, SEO files, robots or sitemap.
+- Existing full + path-preserving patch delivery rule retained.

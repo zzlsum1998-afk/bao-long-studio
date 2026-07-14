@@ -1,0 +1,49 @@
+BaoLong Lab v269 · 首页 CSS 外置迁移检查
+
+基准版本
+- baolong-assets-css-externalization-v268-full-noimages-plus-template-assets.zip
+
+本轮目标
+- 只迁移 index.html 的首页主内联 CSS。
+- 保持页面视觉、结构、文案、轮播、导航、多语言与全部交互不变。
+- 不在本轮清理旧选择器、删除历史 JS、合并 CSS 或改动首页设计。
+
+实际改动
+1. index.html
+   - 删除原首页主 <style> 样式块。
+   - 在原样式位置新增：css/index-base.css?v=269。
+   - 保留 bl-language-boot-style 首屏语言防闪内联样式。
+   - 保持样式层叠顺序：
+     css/index-base.css?v=269
+     → css/common.css?v=197
+     → css/index.css?v=261
+
+2. css/index-base.css
+   - 原首页主样式逐字符迁移，共 2923 行、62876 字符。
+   - 选择器、属性、数值、媒体查询、注释和排列顺序均未修改。
+   - 原样式不包含 url()、字体或图片相对路径，无目录迁移风险。
+
+未修改范围
+- css/common.css
+- css/index.css
+- js/common.js
+- js/index-i18n.js
+- js/taobao-links.js
+- 首页 HTML 内容与内联功能脚本
+- 图片、JSON、Prompt、工作流、素材库、收藏、Resume Tool
+- canonical、robots、sitemap 与其他 SEO 文件
+- 其他页面
+
+静态检查
+- index.html 只保留 1 个首屏语言防闪 <style>。
+- css/index-base.css 与 v268 原首页主内联 CSS 内容一致。
+- 新 CSS 引用只出现 1 次。
+- CSS 引用顺序与迁移前层叠位置一致。
+- CSS 花括号数量配对完整。
+- 除 index.html、新增 CSS 与本检查文件外，其余文件保持 v268 状态。
+
+建议浏览器回归
+- 桌面端：首屏四屏轮播、左右箭头、圆点、按钮、各首页区块和底部收尾区。
+- 移动端：标题换行、轮播堆叠、卡片单列、浮动按钮与横向溢出。
+- 中文 / English 往返切换与强制刷新。
+- 淘宝入口、Prompt、灵感板、素材库、交互实验室、简历工具和关于链接。

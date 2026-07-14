@@ -1,4 +1,4 @@
-/* BaoLong Lab v258 homepage positioning and CSS stop-loss layer.
+/* BaoLong Lab v260 visual-creation positioning and CSS stop-loss layer.
    New homepage styles live here. Existing legacy inline CSS remains untouched
    and will be migrated gradually in later dedicated versions. */
 
@@ -183,8 +183,8 @@
 
 .workflow-path-section{
   padding:96px 48px 102px;
-  background:#171717;
-  color:#f5f3ed;
+  background:#efede7;
+  color:#1c1c1c;
 }
 
 .workflow-path-inner{
@@ -202,7 +202,7 @@
 
 .workflow-path-header .section-kicker{
   margin:0 0 14px;
-  color:#d7c39e;
+  color:#8a7454;
 }
 
 .workflow-path-header h2{
@@ -215,7 +215,7 @@
 
 .workflow-path-header>p{
   margin:0;
-  color:#b9b5ad;
+  color:#69655e;
   font-size:16px;
   line-height:1.85;
 }
@@ -223,33 +223,34 @@
 .workflow-path-grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  border-top:1px solid rgba(255,255,255,.24);
-  border-bottom:1px solid rgba(255,255,255,.24);
+  border-top:1px solid rgba(28,28,28,.22);
+  border-bottom:1px solid rgba(28,28,28,.22);
 }
 
 .workflow-path-card{
   position:relative;
   min-height:340px;
   padding:28px 25px 30px;
-  border-right:1px solid rgba(255,255,255,.18);
+  border-right:1px solid rgba(28,28,28,.16);
   color:inherit;
+  background:rgba(255,255,255,.24);
   transition:background .28s ease,transform .28s ease;
 }
 
-.workflow-path-card:first-child{border-left:1px solid rgba(255,255,255,.18)}
-.workflow-path-card:hover{background:rgba(255,255,255,.07);transform:translateY(-5px)}
+.workflow-path-card:first-child{border-left:1px solid rgba(28,28,28,.16)}
+.workflow-path-card:hover{background:rgba(255,255,255,.7);transform:translateY(-5px)}
 
 .workflow-path-number{
   display:block;
   margin-bottom:62px;
-  color:#d7c39e;
-  font-size:13px;
-  letter-spacing:.18em;
+  color:#8a7454;
+  font-size:11px;
+  letter-spacing:.14em;
 }
 
 .workflow-path-label{
   margin:0 0 12px;
-  color:#8f8b84;
+  color:#7b766e;
   font-size:10px;
   letter-spacing:.18em;
 }
@@ -262,7 +263,7 @@
 
 .workflow-path-card>p:not(.workflow-path-label){
   margin:0;
-  color:#b9b5ad;
+  color:#69655e;
   font-size:14px;
   line-height:1.75;
 }
@@ -379,9 +380,9 @@
   .workflow-path-header{grid-template-columns:1fr;gap:24px}
   .workflow-path-header>p{max-width:760px}
   .workflow-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .workflow-path-card:nth-child(2){border-right:1px solid rgba(255,255,255,.18)}
-  .workflow-path-card:nth-child(3){border-left:1px solid rgba(255,255,255,.18);border-top:1px solid rgba(255,255,255,.18)}
-  .workflow-path-card:nth-child(4){border-top:1px solid rgba(255,255,255,.18)}
+  .workflow-path-card:nth-child(2){border-right:1px solid rgba(28,28,28,.16)}
+  .workflow-path-card:nth-child(3){border-left:1px solid rgba(28,28,28,.16);border-top:1px solid rgba(28,28,28,.16)}
+  .workflow-path-card:nth-child(4){border-top:1px solid rgba(28,28,28,.16)}
 }
 
 @media (max-width:900px){
@@ -429,9 +430,9 @@
   .workflow-path-card:nth-child(3),
   .workflow-path-card:nth-child(4){
     min-height:300px;
-    border-left:1px solid rgba(255,255,255,.18);
-    border-right:1px solid rgba(255,255,255,.18);
-    border-top:1px solid rgba(255,255,255,.18);
+    border-left:1px solid rgba(28,28,28,.16);
+    border-right:1px solid rgba(28,28,28,.16);
+    border-top:1px solid rgba(28,28,28,.16);
   }
   .workflow-path-card:first-child{border-top:0}
   .workflow-path-number{margin-bottom:45px}
@@ -449,4 +450,27 @@
   .workflow-path-card,
   .featured-workflow-card,
   .featured-workflow-media img{transition:none}
+}
+
+
+/* v260 compact closing section */
+.secondary-tools-section .tool-band{padding-top:66px;padding-bottom:66px}
+.secondary-tools-section .tool-band>div:first-child h2{max-width:720px}
+@media (max-width:680px){
+  .secondary-tools-section .tool-band{padding-top:52px;padding-bottom:52px}
+}
+
+/* v260 mobile title wrapping for the new Chinese positioning copy */
+@media (max-width:680px){
+  .workflow-positioning-hero .platform-slide .hero-product-copy h1{
+    max-width:330px !important;
+    font-size:clamp(34px,9.6vw,39px) !important;
+    word-break:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .secondary-tools-section .tool-band h2{
+    font-size:clamp(30px,9vw,38px) !important;
+    word-break:normal !important;
+    overflow-wrap:anywhere !important;
+  }
 }

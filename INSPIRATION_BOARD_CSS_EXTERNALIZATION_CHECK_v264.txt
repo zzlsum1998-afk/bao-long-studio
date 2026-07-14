@@ -1,0 +1,40 @@
+BAOLONG LAB · INSPIRATION BOARD CSS EXTERNALIZATION CHECK · v264
+
+基准版本
+- baolong-contact-404-css-externalization-v263-full-noimages-plus-template-assets.zip
+
+本轮目标
+- 仅将 Plan / Section / Other 三个 Inspiration Board 页面中重复的页面样式外部化。
+- 不改变视觉、页面结构、文案、数据、收藏、加载更多、弹窗、移动端多图切换或语言逻辑。
+
+修改文件
+- plan-references.html
+- section-references.html
+- render-references.html
+- css/inspiration-board.css（新增）
+- css/inspiration-board-floating.css（新增）
+- INSPIRATION_BOARD_CSS_EXTERNALIZATION_CHECK_v264.txt（新增）
+
+迁移说明
+- 三页原主样式共约 1055 行，除一行 Board 名称注释外完全一致，现统一引用 css/inspiration-board.css?v=264。
+- 三页原浮动回到顶部按钮样式共 43 行且完全一致，现统一引用 css/inspiration-board-floating.css?v=264。
+- 为保持原有 CSS 级联顺序：
+  1. inspiration-board.css 保留在 common.css 之前；
+  2. inspiration-board-floating.css 保留在 common.css 之后。
+- 语言首屏防闪 style（bl-language-boot-style）继续保留为极小内联样式，避免英文模式首屏闪烁。
+
+明确未修改
+- color-references.html
+- css/common.css
+- js/common.js
+- js/inspiration-favorites.js
+- data/plan.json / data/section.json / data/other.json / data/color.json
+- 图片、收藏键、加载更多、弹窗、移动端卡片内多图切换
+- 首页、Prompt、图片工作流、Template Generator、Resume Tool、SEO、robots、sitemap
+
+检查结果
+- 三个目标页面均只剩 1 个 bl-language-boot-style 内联样式。
+- 三个目标页面均各引用一次 v264 主样式与浮动按钮样式。
+- 两个新增 CSS 文件括号结构完整，无 url() 路径迁移风险。
+- 三页原 CSS 经统一注释后逐字符一致。
+- 除目标 3 个 HTML 与 2 个新增 CSS 外，v263 原文件保持不变。

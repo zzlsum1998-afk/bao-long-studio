@@ -1,0 +1,24 @@
+BaoLong Lab · Bubble Timeline CSS Externalization Check v280
+
+Base: v279 full package
+Scope: bubble-timeline.html only
+
+Changed files:
+- bubble-timeline.html
+- css/bubble-timeline.css
+- BUBBLE_TIMELINE_CSS_EXTERNALIZATION_CHECK_v280.txt
+
+Migration summary:
+- Moved the single main inline CSS block from bubble-timeline.html to css/bubble-timeline.css.
+- External stylesheet reference: css/bubble-timeline.css?v=280.
+- Kept the intentional language first-screen anti-flash style block inline and unchanged.
+- Original CSS content length: 14,352 characters.
+- Original CSS line count: 400 lines.
+- No selectors, declarations, media queries, page structure, copy, links, JavaScript, animation logic, chart interaction, SEO, images, or other pages were changed.
+
+Validation:
+- Replacing the new stylesheet link with the original style block reconstructs the v279 bubble-timeline.html exactly: PASS.
+- bubble-timeline.html retains only the intentional bl-language-boot-style inline block: PASS.
+- css/bubble-timeline.css brace balance: PASS (113 opening / 113 closing).
+- CSS URL review: PASS (1 embedded/data URL; 0 relative external URL).
+- Only the files listed above differ from v279: verify during package diff.

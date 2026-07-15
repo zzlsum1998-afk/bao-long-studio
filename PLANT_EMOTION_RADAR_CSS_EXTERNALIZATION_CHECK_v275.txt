@@ -1,0 +1,27 @@
+BAOLONG LAB · PLANT EMOTION RADAR CSS EXTERNALIZATION CHECK · v275
+
+Base: v274
+Scope: plant-emotion-radar.html only
+
+Changed files:
+- plant-emotion-radar.html
+- css/plant-emotion-radar.css
+- PLANT_EMOTION_RADAR_CSS_EXTERNALIZATION_CHECK_v275.txt
+
+Migration:
+- Moved the main inline CSS block from plant-emotion-radar.html to css/plant-emotion-radar.css.
+- Preserved the small language boot / anti-flash inline style.
+- Preserved stylesheet order: plant-emotion-radar.css loads before css/common.css.
+- No selectors, declarations, values, comments, media queries, HTML structure, copy, JavaScript, links, or interaction logic were changed.
+
+Regression focus:
+- Desktop and mobile layout
+- Chinese / English switching
+- Plant selection and radar interactions
+- Cards, buttons, modal / detail states if present
+- Header, mobile menu, floating controls and return links
+
+Safety boundaries:
+- No changes to css/common.css or js/common.js
+- No changes to other interaction experiment pages
+- No changes to images, JSON/data, Prompt, workflows, Resume Tool, SEO, robots or sitemap

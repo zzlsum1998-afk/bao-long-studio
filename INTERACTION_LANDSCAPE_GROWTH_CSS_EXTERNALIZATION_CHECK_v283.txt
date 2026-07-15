@@ -1,0 +1,31 @@
+BaoLong Lab · Interaction Landscape Growth CSS Externalization Check v283
+
+Base: v282 full package
+Scope: interaction-landscape-growth.html only
+
+Changed files:
+- interaction-landscape-growth.html
+- css/interaction-landscape-growth.css
+- INTERACTION_LANDSCAPE_GROWTH_CSS_EXTERNALIZATION_CHECK_v283.txt
+
+Migration summary:
+- Moved the single main inline CSS block from interaction-landscape-growth.html to css/interaction-landscape-growth.css.
+- External stylesheet reference: css/interaction-landscape-growth.css?v=283.
+- Retained the intentional language first-screen anti-flash style block (id="bl-language-boot-style") inline and unchanged.
+- Original main CSS content length: 2,732 characters.
+- Original main CSS line count: 78 lines including the preserved leading/trailing blank-line structure.
+- No selectors, declarations, media queries, page structure, copy, links, JavaScript, canvas/landscape growth interaction, upload controls, SEO, images, or other pages were changed.
+
+Validation:
+- Replacing the new stylesheet link with the original main style block reconstructs the v282 interaction-landscape-growth.html exactly: PASS.
+- interaction-landscape-growth.html retains only the intentional language anti-flash inline style block: PASS.
+- Language anti-flash style block is byte-for-byte unchanged: PASS.
+- JavaScript blocks are byte-for-byte unchanged: PASS.
+- Existing inline style attributes are unchanged: PASS.
+- css/interaction-landscape-growth.css brace balance: PASS.
+- CSS parser review: PASS.
+- CSS URL review: PASS.
+- Static render-equivalence basis: replacing the external link with the extracted CSS reconstructs the original page exactly; no runtime code changed.
+- Only the files listed above differ from v282: PASS.
+- Full and patch ZIP integrity: PASS.
+- Patch retains the original css/ directory path: PASS.

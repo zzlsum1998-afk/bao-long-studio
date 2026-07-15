@@ -1,0 +1,23 @@
+BaoLong Lab · Login CSS Externalization Check v279
+
+Base: v278 full package
+Scope: login.html only
+
+Changed files:
+- login.html
+- css/login.css
+- LOGIN_CSS_EXTERNALIZATION_CHECK_v279.txt
+
+Migration summary:
+- Moved the single main inline CSS block from login.html to css/login.css.
+- External stylesheet reference: css/login.css?v=279.
+- Original CSS content length: 17,150 characters.
+- Original CSS line count: 731 lines.
+- No selectors, declarations, media queries, page structure, copy, links, JavaScript, SEO, images, or other pages were changed.
+
+Validation:
+- Replacing the new stylesheet link with the original style block reconstructs the v278 login.html exactly: PASS.
+- login.html contains no remaining inline <style> block: PASS.
+- css/login.css brace balance: PASS (144 opening / 144 closing).
+- No url(...) or @import path migration risk in the extracted CSS: PASS.
+- Only the files listed above differ from v278: verify during package diff.

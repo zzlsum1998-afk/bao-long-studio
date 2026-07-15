@@ -1,0 +1,28 @@
+BaoLong Lab · Seasonal Color Tool CSS Externalization Check v281
+
+Base: v280 full package
+Scope: seasonal-color-tool.html only
+
+Changed files:
+- seasonal-color-tool.html
+- css/seasonal-color-tool.css
+- SEASONAL_COLOR_TOOL_CSS_EXTERNALIZATION_CHECK_v281.txt
+
+Migration summary:
+- Moved the single main inline CSS block from seasonal-color-tool.html to css/seasonal-color-tool.css.
+- External stylesheet reference: css/seasonal-color-tool.css?v=281.
+- This page had no separate language first-screen anti-flash style block, so none was added or removed.
+- Original CSS content length: 12,343 characters.
+- Original CSS line count: 186 lines.
+- No selectors, declarations, media queries, page structure, copy, links, JavaScript, canvas interaction, seasonal controls, existing inline style attributes, SEO, images, or other pages were changed.
+
+Validation:
+- Replacing the new stylesheet link with the original style block reconstructs the v280 seasonal-color-tool.html exactly: PASS.
+- seasonal-color-tool.html contains no remaining inline style block: PASS.
+- JavaScript blocks are byte-for-byte unchanged: PASS (3 script blocks).
+- css/seasonal-color-tool.css brace balance: PASS (106 opening / 106 closing).
+- CSS parser review: PASS (0 parse errors).
+- CSS URL review: PASS (0 embedded/data URL; 0 relative external URL).
+- Only the files listed above differ from v280: PASS.
+- Full and patch ZIP integrity: PASS.
+- Patch retains the original css/ directory path: PASS.

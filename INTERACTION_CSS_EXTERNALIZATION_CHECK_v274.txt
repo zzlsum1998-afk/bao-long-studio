@@ -1,0 +1,56 @@
+BAOLONG LAB · INTERACTION CSS EXTERNALIZATION CHECK · v274
+
+Base version
+- baolong-color-board-css-externalization-v273-full-noimages-plus-template-assets.zip
+
+Scope
+- interaction.html
+- css/interaction.css (new)
+- INTERACTION_CSS_EXTERNALIZATION_CHECK_v274.txt (new)
+
+Migration summary
+- Moved the sole main Interaction Lab inline CSS block into css/interaction.css.
+- Preserved the small #bl-language-boot-style inline block for first-paint language flash prevention.
+- Preserved the original stylesheet cascade order:
+  1. inline language boot style
+  2. css/interaction.css?v=274
+  3. css/common.css?v=197
+- Main CSS migrated without changing selectors, declarations, media queries, comments, or rule order.
+
+Measured migration
+- Main CSS characters: 25192
+- Main CSS lines: 944
+
+Explicitly unchanged
+- Interaction Lab page structure and copy
+- Navigation markup and links
+- Card layout, hover effects, animations, and responsive behavior
+- Language switching and all JavaScript
+- Specific interaction experiment pages
+- css/common.css and js/common.js
+- Images, JSON/data, Prompt, workflows, Resume Tool, SEO, robots, and sitemap
+
+Static verification
+- interaction.html now contains only the language boot inline style.
+- css/interaction.css is referenced exactly once before css/common.css.
+- Extracted CSS content matches the original inline main style byte-for-byte as UTF-8 text.
+- CSS brace counts are balanced.
+- Extracted CSS contains no @import and no url(...) paths, so moving it into /css creates no relative-resource path risk.
+- All files outside the declared scope remain unchanged from v273.
+
+Browser regression checklist
+Desktop:
+- Header/logo/navigation alignment
+- Hero typography and mock panel
+- Experiment card grid, hover states, and links
+- Footer and floating current-top button
+- Chinese/English switching and refresh
+
+Mobile:
+- Mobile menu open/close and scroll behavior
+- Single-column hero and card layout
+- Text wrapping and spacing
+- Floating buttons and page links
+
+Result
+- CSS-only externalization. No intentional visual or functional change.

@@ -1,0 +1,31 @@
+BAOLONG LAB · Resume Page CSS Externalization Check · v276
+
+Base
+- Source version: v275 full-noimages-plus-template-assets
+- Scope: resume.html only (the resume landing / introduction page, not resume-tool.html)
+
+Changed files
+1. resume.html
+2. css/resume.css
+3. RESUME_PAGE_CSS_EXTERNALIZATION_CHECK_v276.txt
+
+Migration
+- Kept the existing language boot / anti-flash inline style in resume.html.
+- Moved the page's main inline CSS block to css/resume.css.
+- Added css/resume.css?v=276 before css/common.css?v=197, preserving the original cascade order.
+- Main CSS moved without changing selector order, property values, media queries, comments, or whitespace.
+
+Verification
+- Before migration: 2 inline style blocks (language boot + main page CSS).
+- After migration: 1 inline style block (language boot only).
+- Moved CSS: 828 lines / 19,272 characters.
+- Exact round-trip check passed: reinserting the external CSS reproduces the original v275 resume.html byte-for-byte.
+- CSS brace check passed.
+- No url(...) or @import resource paths were found in the moved CSS.
+- No page structure, copy, navigation, links, JavaScript, SEO metadata, images, or other pages were changed.
+
+Regression focus
+- Desktop and mobile layout
+- Chinese / English switching
+- Resume Tool CTA and other links
+- Header, cards, spacing, footer, and floating controls

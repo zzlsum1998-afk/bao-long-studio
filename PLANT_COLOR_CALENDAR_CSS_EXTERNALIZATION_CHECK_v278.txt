@@ -1,0 +1,24 @@
+BaoLong Lab · Plant Color Calendar CSS 外置迁移检查 · v278
+
+基准：v277
+目标页面：plant-color-calendar.html
+
+本轮修改范围
+1. 将 plant-color-calendar.html 中的主内联 CSS 原样迁移到 css/plant-color-calendar.css。
+2. 页面新增引用：css/plant-color-calendar.css?v=278。
+3. 保留语言首屏防闪内联样式 bl-language-boot-style。
+4. 保持原加载顺序：页面专属 CSS → css/common.css?v=197。
+
+未修改
+- 页面结构、文案、导航、按钮与链接
+- 月份切换、植物选择、色彩日历交互与页面脚本
+- common.css、common.js
+- 其他交互实验页面
+- 图片、数据、SEO、robots、sitemap
+
+静态检查
+- 主 CSS 与原内联样式逐字符一致
+- HTML 仅保留语言首屏防闪 style
+- 新 CSS 引用仅出现一次，且位于 common.css 之前
+- CSS 花括号数量配对完整
+- 除本轮目标文件、新增 CSS 与本检查文档外，不修改其他文件

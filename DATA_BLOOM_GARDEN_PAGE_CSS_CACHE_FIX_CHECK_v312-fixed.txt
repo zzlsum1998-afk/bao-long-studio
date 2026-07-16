@@ -1,0 +1,25 @@
+BaoLong Lab · v312 fixed · Data Bloom Garden 页面样式缓存修复
+日期：2026-07-16
+
+问题现象
+- Data Bloom Garden 顶部公共导航仍有样式，但页面主体退回浏览器默认样式。
+- 这表明 css/common.css 已加载，而页面专属 css/data-bloom-garden.css 未在本次浏览器会话中生效。
+
+本次修复
+- 仅修改 data-bloom-garden.html 中页面专属样式表的查询参数：
+  css/data-bloom-garden.css?v=282
+  → css/data-bloom-garden.css?v=312
+- 不修改 css/data-bloom-garden.css 文件内容。
+- 不修改 v312 已完成的 22 个公共导航事件迁移逻辑。
+- 不修改 js/common.js、页面视觉定义、文案、结构、数据、SEO 或其他页面。
+
+验证
+- data-bloom-garden.html 仅存在 1 条页面专属 CSS 引用，且目标文件真实存在。
+- css/data-bloom-garden.css 与原 v312 文件逐字节一致。
+- CSS 花括号数量平衡。
+- data-bloom-garden.html 内联 onclick / onchange 仍为 0。
+- js/data-bloom-garden.js 仍使用 ?v=312，文件内容逐字节不变。
+- Full 与 Patch 均完成实际解压和逐文件校验。
+
+结论
+- 原 v312 包作废，后续只使用文件名带 v312-fixed 的修复版。

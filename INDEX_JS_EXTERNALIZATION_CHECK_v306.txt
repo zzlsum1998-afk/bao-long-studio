@@ -1,0 +1,63 @@
+BAOLONG LAB · INDEX JS EXTERNALIZATION CHECK v306
+Generated: 2026-07-16
+Base: baolong-assets-js-externalization-v305-full-noimages-plus-template-assets.zip
+
+SCOPE
+- Modified: index.html
+- Added: js/index-page.js
+- Added: js/index-mobile-menu.js
+- Added: js/index-scroll-top.js
+- Added: js/index-notes-slider.js
+- Added: INDEX_JS_EXTERNALIZATION_CHECK_v306.txt
+- No other runtime file was changed.
+
+MIGRATION RESULT
+- Functional inline script blocks before: 4
+- Functional inline script blocks after: 0
+- js/index-page.js: 43,265 characters / 47,011 bytes / 1,053 counted lines
+- js/index-mobile-menu.js: 656 characters / 656 bytes / 19 counted lines
+- js/index-scroll-top.js: 88 characters / 88 bytes / 5 counted lines
+- js/index-notes-slider.js: 1,424 characters / 1,424 bytes / 53 counted lines
+- New references:
+  1. js/index-page.js?v=306
+  2. js/index-mobile-menu.js?v=306
+  3. js/index-scroll-top.js?v=306
+  4. js/index-notes-slider.js?v=306
+- Each external script remains at the exact original execution position and order.
+- No async, defer, module conversion, code restructuring, renaming, dead-code cleanup, or event-binding rewrite was introduced.
+- The language first-paint boot script and JSON-LD remain inline by design.
+- js/index-i18n.js?v=261, js/common.js?v=258, js/taobao-links.js?v=198, and js/baidu-analytics.js?v=288 were not changed.
+
+EQUIVALENCE AND SAFETY CHECKS
+- Replacing the four new external script tags with the original four script blocks reconstructs v305 index.html byte-for-byte: PASS
+- Each new JS file matches its source inline script body byte-for-byte: PASS
+- All 57 standalone JavaScript files Node.js syntax check: PASS
+- Local script references in index.html exist: PASS (8 local references)
+- Literal getElementById dependencies found in migrated scripts: 16
+- Literal DOM IDs absent from static HTML: detailMainImage, newsCarousel, newsTrack
+- Existing v305 files unchanged byte-for-byte except index.html: PASS (407 unchanged files)
+- JSON parse check: PASS (4 files)
+- Existing element-level event attributes in index.html were intentionally left unchanged: onclick=48
+
+INDEX PAGE FUNCTION AREAS PRESERVED
+- Homepage product data and card rendering
+- Asset category filtering and URL routing
+- Product detail modal, thumbnails and smart Taobao links
+- News and hero product carousels with pause / resume timers
+- Homepage section navigation and Resume entry
+- Mobile menu open / close and outside-click behavior
+- Smooth scroll-to-top behavior
+- Notes slider navigation and autoplay
+
+HASHES
+- Original index.html SHA-256: 32f708cfa607c7dcb9826202db4d016921583c3076872033caf80f972592c9c6
+- v306 index.html SHA-256: d12810c3eae1776ee6bd49b51a8576203f8ce12ef9abd3d7da98603500de7329
+- js/index-page.js SHA-256: d6d11bdccb023e1fa9de4a76afeb11b290ed1706a2aa5e7a43f7d1375a4cd89c
+- js/index-mobile-menu.js SHA-256: d56d4808500eb1f4d1d8fdfb59d9bcc7716d0effb34e7ecd9565a80428111c09
+- js/index-scroll-top.js SHA-256: 2edfa21e91d2fdac3f2f62ea764daeb8bf97a0c7fe2e8e210cf4362cef0717d1
+- js/index-notes-slider.js SHA-256: 062724b6c9b7cd43af4b91bbb12ed699b73f51c8cb1ef74793e6cd73794f630e
+
+BOUNDARIES
+- No visual, copy, HTML structure, CSS, product data, image, font, SEO, analytics ID, navigation, Prompt, Resume Tool, Inspiration Board, Hidden Prompt, API, or model configuration change.
+- No .env, API Key, Python script, production Hidden Prompt, or private Vault included.
+- Browser pixel regression is not claimed in this environment; equivalence is based on byte-exact script migration, exact HTML reconstruction, execution-position preservation, DOM dependency checks, and syntax validation.

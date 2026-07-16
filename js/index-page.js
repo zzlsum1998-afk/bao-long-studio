@@ -1051,3 +1051,62 @@
     startHeroProductAutoPlay();
     startNewsAutoPlay();
   
+    function bindIndexPageStaticEvents(){
+      document.querySelectorAll('[data-index-nav-filter]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const result = navFilter(link.dataset.indexNavFilter);
+          if(result === false) event.preventDefault();
+        });
+      });
+
+      const loginEntryButton = document.getElementById('indexLoginEntryButton');
+      if(loginEntryButton){
+        loginEntryButton.addEventListener('click', () => {
+          location.href = 'login.html';
+        });
+      }
+
+      document.querySelectorAll('[data-index-href]').forEach((element) => {
+        element.addEventListener('click', () => {
+          location.href = element.dataset.indexHref;
+        });
+      });
+
+      document.querySelectorAll('[data-index-scroll-target]').forEach((button) => {
+        button.addEventListener('click', () => {
+          scrollToSection(button.dataset.indexScrollTarget);
+        });
+      });
+
+      const heroPrevButton = document.getElementById('heroProductPrev');
+      const heroNextButton = document.getElementById('heroProductNext');
+      if(heroPrevButton) heroPrevButton.addEventListener('click', prevHeroProduct);
+      if(heroNextButton) heroNextButton.addEventListener('click', nextHeroProduct);
+
+      document.querySelectorAll('[data-hero-product-index]').forEach((button) => {
+        button.addEventListener('click', () => {
+          goHeroProduct(Number(button.dataset.heroProductIndex));
+        });
+      });
+
+      const externalToolCard = document.querySelector('[data-index-action="open-external"]');
+      if(externalToolCard) externalToolCard.addEventListener('click', openExternal);
+
+      const detailPanel = document.getElementById('detailPanel');
+      const detailCard = detailPanel?.querySelector('.detail-card');
+      const detailCloseButton = detailPanel?.querySelector('.detail-close');
+      const detailBuyButton = document.getElementById('detailBuyBtn');
+      const detailBackButton = document.getElementById('detailBackBtn');
+
+      if(detailPanel) detailPanel.addEventListener('click', closeDetail);
+      if(detailCard){
+        detailCard.addEventListener('click', (event) => {
+          event.stopPropagation();
+        });
+      }
+      if(detailCloseButton) detailCloseButton.addEventListener('click', () => closeDetail());
+      if(detailBuyButton) detailBuyButton.addEventListener('click', openProductLink);
+      if(detailBackButton) detailBackButton.addEventListener('click', () => closeDetail());
+    }
+
+    bindIndexPageStaticEvents();

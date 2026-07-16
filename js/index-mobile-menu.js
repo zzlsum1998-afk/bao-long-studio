@@ -17,3 +17,11 @@
       panel.classList.remove('open');
     });
   
+    const indexMobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    if(indexMobileMenuToggle){
+      indexMobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    }
+
+    document.querySelectorAll('#mobileMenuPanel a').forEach((link) => {
+      link.addEventListener('click', closeMobileMenu);
+    });

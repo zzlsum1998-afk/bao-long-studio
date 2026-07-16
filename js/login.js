@@ -29,6 +29,17 @@
       window.__toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
+    document.getElementById('headerHomeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('forgotPasswordBtn').addEventListener('click', () => showToast('reset'));
+    document.getElementById('createAccountBtn').addEventListener('click', () => showToast('signup'));
+
+    document.getElementById('browseHomeBtn').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
     document.getElementById('loginForm').addEventListener('submit', function(e){
       e.preventDefault();
       showToast('login');

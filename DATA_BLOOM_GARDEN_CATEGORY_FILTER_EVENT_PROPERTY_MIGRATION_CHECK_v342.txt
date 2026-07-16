@@ -1,0 +1,52 @@
+BaoLong Lab · Data Bloom Garden 分类筛选按钮事件属性迁移检查
+版本：v342
+基础：v341 fixed full
+
+一、本版唯一目标
+将 Data Bloom Garden 的 5 个静态分类筛选原生按钮，从直接 DOM onclick 属性赋值迁为 addEventListener('click', ...)。
+
+二、迁移范围
+文件：js/data-bloom-garden.js
+迁移前：
+- document.querySelectorAll('.chip').forEach(btn => btn.onclick = ...)
+迁移后：
+- document.querySelectorAll('.chip').forEach(btn => btn.addEventListener('click', ...))
+
+对应按钮：
+- 全部 / All
+- 灵感库 / Inspiration
+- 素材 / Assets
+- 工具 / Tools
+- 实验 / Lab
+
+三、保持不变
+- filter 状态值与 data-filter 参数；
+- active 类切换；
+- 切换分类时自动选择该分类第一个主节点；
+- render() 重绘时机；
+- 原生 button 的 Enter / Space 键盘语义；
+- CSV 导入、生成、清空、模板下载、PNG 导出；
+- v341 fixed 的 PNG 黑块导出修复；
+- SVG 节点、外围节点、列表项的点击和 hover 事件属性；
+- Image.onload / onerror 资源回调；
+- 页面视觉、文案、结构与数据。
+
+四、缓存更新
+- data-bloom-garden.html 中 js/data-bloom-garden.js 查询参数更新为 ?v=342。
+- js/common.js 与其他资源缓存参数未调整。
+
+五、预期计数
+- 全站直接 DOM 事件属性赋值：17 → 16。
+- 全站直接 onclick 赋值：4 → 3。
+- js/data-bloom-garden.js 直接事件属性赋值：10 → 9。
+
+六、重点回归
+1. 初始“全部”按钮保持 active，列表显示全部 12 个主节点。
+2. 点击“灵感库”，列表显示 4 个节点并选中该分类第一个节点。
+3. 点击“素材”，列表显示 3 个节点。
+4. 点击“工具”，列表显示 2 个节点。
+5. 点击“实验”，列表显示 3 个节点。
+6. 再切回“全部”，列表与图谱恢复完整数据。
+7. Enter / Space 激活按钮与鼠标点击一致。
+8. 使用示例数据、生成图谱、清空、重新生成后，分类筛选继续可用。
+9. PNG 导出不出现黑色团块。

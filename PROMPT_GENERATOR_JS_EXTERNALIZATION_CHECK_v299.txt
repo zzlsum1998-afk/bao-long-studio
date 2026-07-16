@@ -1,0 +1,98 @@
+BAOLONG LAB · PROMPT GENERATOR JS EXTERNALIZATION CHECK · v299
+================================================================
+
+版本目标
+--------
+基于唯一最新网站基准 v298，只迁移 prompt-generator.html 剩余的页面功能型内联 JavaScript。
+保持 Prompt 卡片数据、筛选与收藏、详情弹窗、复制、工作流入口、导航、文案、视觉、CSS、图片、模板资产及其他页面完全不变。
+
+本轮实际改动
+------------
+1. 修改：prompt-generator.html
+2. 新增：js/prompt-generator.js
+3. 新增：js/prompt-generator-page.js
+4. 新增：PROMPT_GENERATOR_JS_EXTERNALIZATION_CHECK_v299.txt
+
+迁移范围与加载顺序
+------------------
+A. js/prompt-generator.js?v=299
+- navFilter() 素材筛选跳转
+- case01–case22 Prompt / Workflow 卡片数据
+- window.BaoLongPromptCases 公共索引
+- Prompt 卡片详情弹窗、移动端顶部偏移、背景滚动锁定与恢复
+- “使用此模板”入口、Prompt 复制、Escape / 遮罩关闭
+
+B. 保留原位置的 js/prompt-favorites.js?v=254
+- 本地收藏、Prompt / Workflow 类型筛选与卡片绑定逻辑未修改
+
+C. js/prompt-generator-page.js?v=299
+- v178 顶部与移动端导航中英文桥接
+- 移动端菜单打开、关闭及点击外部关闭
+- 当前页平滑回到顶部
+
+严格保持加载顺序：
+1. js/prompt-generator.js?v=299
+2. js/prompt-favorites.js?v=254（原文件、原 defer 属性保持不变）
+3. js/prompt-generator-page.js?v=299
+
+未添加 async、defer、type="module"；两个新脚本继续在原页面底部同步执行。
+
+静态等价检查
+------------
+- 原主功能脚本：30,614 字符，464 行。
+- 原导航桥接脚本：8,005 字符，152 行。
+- 原移动菜单脚本：656 字符，19 行。
+- 原回顶脚本：176 字符，9 行。
+- js/prompt-generator.js：30,614 字符，49,290 字节，464 行。
+- js/prompt-generator-page.js：8,843 字符，9,003 字节，184 行。
+- 主功能脚本正文逐字迁入 js/prompt-generator.js。
+- 后三段脚本正文按原顺序逐字保留，以空行分隔后迁入 js/prompt-generator-page.js。
+- prompt-generator.html 当前页面功能型内联 <script>：0 段。
+- 语言首屏防闪脚本与 JSON-LD 继续保留在 HTML 内。
+- js/prompt-generator.js SHA-256：
+  c32d5f803d15ee62faa52bb7da4c9635f993873fc0c46aaeb50308afdbf08fd4
+- js/prompt-generator-page.js SHA-256：
+  dd98163f455ce77a7ab74ae60a0533e2f8b3d24927190ac8225be7cad9dedcdd
+
+依赖与行为边界检查
+------------------
+- 主脚本仍先于 prompt-favorites.js 执行，BaoLongPromptCases、openPromptCase() 等依赖保持原顺序。
+- prompt-favorites.js 的 src、defer 属性与版本号 v254 均未修改。
+- openPromptCase()、closePromptCase()、copyPromptCase()、toggleMobileMenu()、closeMobileMenu()、scrollCurrentPageTop()、navFilter() 等全局调用名称未改变。
+- Prompt 卡片 case01–case22 数据正文未改；case17–case22 的 workflowTemplate 与“使用此模板”路径未改。
+- 收藏键 baolong.promptFavorites.v1、类型筛选、弹窗和复制逻辑未改。
+- 未修改 js/common.js、js/prompt-favorites.js、template-generator.html、js/template-generator.js 或任何 Hidden Prompt 安全边界。
+
+语法与资源检查
+--------------
+- 两个新 JS 均通过 Node.js 语法检查。
+- v299 全部独立 .js 文件均通过 Node.js 语法检查。
+- 全站 HTML 的本地 <script src> 引用无缺失。
+- prompt-generator.html 新增的两个本地 JS 引用均存在且顺序正确。
+
+文件差异检查
+------------
+- v298 原有文件：369 个。
+- 除 prompt-generator.html 外，v298 其余 368 个原有文件在 v299 中逐字节未变。
+- v299 新增两个外部 JS 与本检查文件后，full 包共 372 个文件。
+- patch 包仅含 4 个本轮差异文件，并保留 js/ 原始目录结构。
+
+浏览器回归
+----------
+- 由于沙盒阻止 localhost / file:// 直接访问，本轮使用 Headless Chromium 的受控 set_content 环境，将 v298 与 v299 的同一批本地 CSS / JS 资源临时内联后进行等价回归；该处理只用于测试，不写入交付文件。
+- 桌面端 1440 × 1000 与移动端 390 × 844 的功能快照完全一致。
+- 两版均识别 22 张卡片、6 张 Workflow、16 张普通 Prompt；类型筛选与收藏控件数量一致。
+- 首张 Workflow 弹窗标题、打开状态及 template-generator.html?template=ecological-architectural-section-v1 路径一致。
+- 移动端菜单打开与点击外部关闭状态一致。
+- 初始页面与 Workflow 弹窗截图在桌面端、移动端均为 0 个差异像素。
+- 测试环境因 about:blank 文档限制 localStorage，v298 与 v299 出现相同的受控环境警告；不属于本轮代码差异。
+
+安全边界
+--------
+- 未加入 .env、API Key、Endpoint、模型配置、Python 或私有 Hidden Prompt Vault。
+- 未修改 canonical、sitemap、robots、favicon、images、data、字体或 Netlify 历史后端文件。
+- 完整 Hidden Prompt、生产模型信息与私有脚本仍不进入静态前端。
+
+结论
+----
+v299 通过静态等价、依赖顺序、语法与资源完整性检查，可作为下一轮网站开发的唯一最新基准。

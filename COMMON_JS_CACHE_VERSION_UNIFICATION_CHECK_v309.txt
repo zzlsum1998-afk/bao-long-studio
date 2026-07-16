@@ -1,0 +1,60 @@
+BAOLONG LAB · COMMON.JS CACHE VERSION UNIFICATION CHECK v309
+Generated: 2026-07-16
+Base: baolong-js-externalization-stage-closure-audit-v308-full-noimages-plus-template-assets-fixed.zip
+
+VERSION PURPOSE
+- This version is a single-purpose cache-query unification update.
+- It changes only the js/common.js query parameter in the 15 HTML pages that already referenced that file.
+- All 15 references are unified to: js/common.js?v=309
+- js/common.js itself is not modified.
+
+MODIFIED HTML FILES (15)
+- assets.html
+- bubble-timeline.html
+- color-references.html
+- data-bloom-garden.html
+- index.html
+- interaction-landscape-growth.html
+- interaction.html
+- plan-references.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- prompt-generator.html
+- render-references.html
+- resume-tool.html
+- resume.html
+- section-references.html
+
+BEFORE
+- js/common.js?v=213: 13 pages
+- js/common.js?v=256: 1 page
+- js/common.js?v=258: 1 page
+
+AFTER
+- js/common.js?v=309: 15 pages
+- Other js/common.js query versions in HTML: 0
+- Missing local js/common.js references: 0
+
+IMMUTABILITY AND SCOPE CHECKS
+- Existing baseline files: 421
+- Existing baseline files changed: 15 HTML files only
+- Existing baseline files unchanged: 406
+- Added: COMMON_JS_CACHE_VERSION_UNIFICATION_CHECK_v309.txt
+- v309 full file count: 422
+- js/common.js SHA-256 before: 1ab31d2b3bf4bc156147d1d1879143e2b9872fc62a99c0958c6b7462ab280d06
+- js/common.js SHA-256 after:  1ab31d2b3bf4bc156147d1d1879143e2b9872fc62a99c0958c6b7462ab280d06
+- js/common.js byte identity: PASS
+- Each modified HTML differs from v308 only by one common.js query-version token: PASS
+- No HTML page gained or lost a script tag: PASS
+- No CSS, JavaScript, JSON, image, font, SEO, sitemap, robots, favicon, Netlify, Prompt, Workflow, Resume, Inspiration, Hidden Prompt, API, model, copy, layout, animation, event attribute, or dead-code change was introduced.
+
+BOUNDARIES
+- Existing onclick / onchange attributes remain untouched.
+- External scripts were not merged or reorganized.
+- Language first-paint inline scripts and JSON-LD remain untouched.
+- No .env, API Key, Endpoint, Python production script, complete Hidden Prompt, or private Vault was added.
+
+DELIVERY
+- Full: baolong-common-js-cache-version-unification-v309-full-noimages-plus-template-assets.zip
+- Patch: baolong-common-js-cache-version-unification-v309-patch.zip
+- Patch preserves the original relative paths of all changed files.

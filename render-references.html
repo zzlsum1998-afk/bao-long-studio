@@ -151,18 +151,18 @@
       </div>
 </section>
 </main>
-<div class="modal" id="modal" onclick="closeModal(event)">
-<div class="modal-card" onclick="event.stopPropagation()">
+<div class="modal" id="modal">
+<div class="modal-card" id="modalCard">
 <div class="modal-img" id="modalImg"></div>
 <div class="modal-copy">
-<button class="close" onclick="closeModal()">×</button>
+<button class="close" id="modalCloseBtn" type="button">×</button>
 <div class="eyebrow" id="modalType">Inspiration</div>
 <h2 id="modalTitle">Inspiration Card</h2>
 <p id="modalDesc">这里展示参考图说明、适用场景、关键词、来源链接或收藏备注。</p>
 <p class="modal-source-note" id="modalSource">来源信息</p>
 <div class="modal-actions">
 <a class="modal-source-btn disabled" href="#" id="modalLink" rel="noopener noreferrer" target="_blank">Add Source Link</a>
-<button class="prompt-generate-btn" id="modalPromptBtn" onclick="generatePromptFromReference(event)" type="button">生成 Prompt</button>
+<button class="prompt-generate-btn" id="modalPromptBtn" type="button">生成 Prompt</button>
 </div>
 <div aria-live="polite" class="prompt-extract-panel" id="promptExtractPanel">
 <div class="prompt-extract-head">
@@ -174,8 +174,8 @@
 <div class="prompt-param-grid" id="promptParamGrid"></div>
 <div class="prompt-preview-box" id="promptPreviewText"></div>
 <div class="prompt-apply-row">
-<button class="prompt-apply-btn" onclick="applyPromptToTool(event)" type="button">应用到 Prompt 工具</button>
-<button class="prompt-copy-btn" onclick="copyExtractedPrompt(event)" type="button">复制 Prompt</button>
+<button class="prompt-apply-btn" id="promptApplyBtn" type="button">应用到 Prompt 工具</button>
+<button class="prompt-copy-btn" id="promptCopyBtn" type="button">复制 Prompt</button>
 </div>
 <div class="prompt-note" id="promptExtractNote">Prompt 会根据当前卡片信息生成，可复制后继续调整。</div>
 </div>
@@ -189,10 +189,10 @@
 
 <script defer="" src="js/inspiration-favorites.js?v=222"></script>
 <script src="js/render-references-board.js?v=302"></script>
-<script src="js/render-references-modal.js?v=302"></script>
+<script src="js/render-references-modal.js?v=317"></script>
 <script src="js/render-references-nav.js?v=313"></script>
 
-<button class="floating-top-btn" type="button" onclick="scrollCurrentPageTop(event)" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">✦</button>
+<button class="floating-top-btn" id="floatingTopBtn" type="button" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">✦</button>
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
 <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
@@ -202,7 +202,7 @@
 <script src="js/render-references-mobile-menu.js?v=302"></script>
 <script src="js/render-references-modal-sizing.js?v=302"></script>
 
-<script src="js/render-references-scroll-top.js?v=302"></script>
+<script src="js/render-references-scroll-top.js?v=317"></script>
 
 </body>
 </html>

@@ -1,0 +1,87 @@
+BaoLong Lab · v317 · Plan / Section / Other Board 剩余事件属性迁移检查
+日期：2026-07-16
+基准：baolong-resume-tool-public-nav-event-migration-v316-full-noimages-plus-template-assets.zip
+
+一、本轮唯一目标
+仅迁移以下三个 Inspiration Board 页面各自剩余的 7 个静态 HTML onclick，共 21 个：
+- plan-references.html
+- section-references.html
+- render-references.html（前台名称仍为 Other Board）
+
+每页迁移范围：
+1. 点击弹窗背景关闭；
+2. 点击弹窗卡片阻止冒泡；
+3. 弹窗关闭按钮；
+4. 生成 Prompt；
+5. 应用到 Prompt 工具；
+6. 复制 Prompt；
+7. 回到顶部。
+
+二、实际修改文件
+HTML：
+- plan-references.html
+- section-references.html
+- render-references.html
+
+Modal JS：
+- js/plan-references-modal.js
+- js/section-references-modal.js
+- js/render-references-modal.js
+
+Scroll-top JS：
+- js/plan-references-scroll-top.js
+- js/section-references-scroll-top.js
+- js/render-references-scroll-top.js
+
+新增检查文档：
+- INSPIRATION_BOARDS_REMAINING_EVENT_MIGRATION_CHECK_v317.txt
+
+三、实现方式
+- 删除三个 HTML 中合计 21 个静态 onclick。
+- 为弹窗卡片、关闭按钮、Prompt 应用/复制按钮和回到顶部按钮增加稳定 ID。
+- 在各自 modal.js / scroll-top.js 中通过 addEventListener 绑定原有函数。
+- 保留 closeModal(event) 的背景目标判断。
+- 保留弹窗内部 stopPropagation 行为。
+- 保留 Prompt 三个按钮的事件对象传入与 stopPropagation 行为。
+- 保留回到顶部的 preventDefault、stopPropagation 与 smooth 滚动。
+- 修改的 modal / scroll-top 脚本查询参数统一更新为 ?v=317。
+
+四、明确未修改
+- Board JSON 数据、图片、卡片渲染、收藏、加载更多。
+- 弹窗图像切换、Prompt 提取内容、Prompt Tool 跳转与复制逻辑。
+- JavaScript 动态创建内容中原有事件实现；本轮只处理三个 HTML 中审计确认的 21 个静态属性。
+- 三页公共导航（已在 v313 完成）。
+- CSS、页面视觉、文案、结构、中英文、SEO。
+- js/common.js 内容及其 ?v=309 引用。
+- Color Board、Prompt、Assets、首页、Resume Tool 与图片工作流。
+
+五、事件属性结果
+v316 全站：onclick 255、onchange 1，共 256。
+v317 全站：onclick 234、onchange 1，共 235。
+本轮减少：21 个 onclick。
+
+三个目标页面：
+- plan-references.html：7 → 0
+- section-references.html：7 → 0
+- render-references.html：7 → 0
+
+六、静态与行为检查
+- 57 个浏览器 JS：node --check 全部通过。
+- 4 个 JSON：解析通过。
+- 三页本地 CSS / JS 引用：缺失 0。
+- 三套弹窗与回到顶部监听器模拟测试通过：
+  · 点击背景关闭；
+  · 点击卡片内部不关闭；
+  · 关闭按钮正常；
+  · Prompt 按钮保留阻止冒泡；
+  · 回到顶部保留平滑滚动与事件阻止语义。
+- 除列出的 9 个运行文件与本检查文档外，v316 其余文件逐字节不变。
+
+七、本地回归重点
+1. 三页分别打开任一卡片，点击弹窗背景应关闭。
+2. 点击弹窗卡片内部不应意外关闭。
+3. × 关闭按钮正常。
+4. “生成 Prompt”“应用到 Prompt 工具”“复制 Prompt”行为正常。
+5. 多图卡片左右切换仍正常。
+6. 右下角回到顶部正常平滑滚动。
+7. 收藏、加载更多、卡片弹窗及来源链接正常。

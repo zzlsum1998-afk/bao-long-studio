@@ -1,0 +1,37 @@
+BaoLong Lab · v321 · Resume Page Static Event Attribute Migration Check
+Date: 2026-07-16
+
+Scope
+- Base: v320 full package.
+- Modified only resume.html and js/resume.js.
+- Added this check document.
+- No CSS, image, data, common.js, Resume Tool core, Prompt/Workflow, SEO copy, or page structure redesign.
+
+Migrated static HTML event attributes
+- Desktop asset filters: 6 onclick -> data-nav-filter + addEventListener.
+- Header login entry: 1 onclick -> addEventListener.
+- Mobile menu toggle: 1 onclick -> addEventListener.
+- Mobile menu links: 14 onclick -> addEventListener.
+- Hero template thumbnails: 4 onclick -> data-hero-template-index + addEventListener.
+- Resume upload placeholder: 1 onchange -> change listener using event.currentTarget.
+- Resume Tool entries: 15 onclick -> data-resume-tool-link + addEventListener.
+- View Templates smooth scroll: 1 onclick -> addEventListener.
+Total: 42 onclick + 1 onchange = 43 attributes migrated.
+
+Expected counts
+- resume.html event attributes: 43 -> 0.
+- Whole-site static event attributes: 140 -> 97.
+- Whole-site onclick: 139 -> 97.
+- Whole-site onchange: 1 -> 0.
+
+Behavior preserved
+- navFilter return/preventDefault semantics are preserved with explicit preventDefault().
+- Header login and all Resume Tool entry destinations remain unchanged.
+- Mobile menu open/close behavior remains unchanged.
+- Hero thumbnail switching remains index-based and preserves active state/image updates.
+- Upload placeholder still receives the actual input element.
+- View Templates keeps smooth scrolling.
+
+Cache
+- js/resume.js query updated from ?v=290 to ?v=321.
+- js/common.js remains ?v=309 and its contents are unchanged.

@@ -1,0 +1,45 @@
+BAOLONG LAB · INTERACTION LANDSCAPE GROWTH JS EXTERNALIZATION CHECK v296
+Date: 2026-07-16
+Base: baolong-bubble-timeline-js-externalization-v295-full-noimages-plus-template-assets.zip
+Target: interaction-landscape-growth.html only
+
+1. Scope
+- Modified: interaction-landscape-growth.html
+- Added: js/interaction-landscape-growth.js
+- Added: INTERACTION_LANDSCAPE_GROWTH_JS_EXTERNALIZATION_CHECK_v296.txt
+- No other existing runtime file is intentionally changed.
+
+2. Migration
+- Externalized the single page-functional inline script from interaction-landscape-growth.html.
+- Original functional script body: 27,072 characters, 28,224 bytes, 878 lines.
+- New external file is byte-for-byte identical to the original inline script body after removing only the wrapper block's leading and trailing newline.
+- New reference: js/interaction-landscape-growth.js?v=296
+- The external script remains after the two MediaPipe CDN dependencies and at the original final page-functional script position immediately before </body>.
+- No async, defer, module type, bundling, minification, renaming, refactor or dead-code cleanup is introduced.
+
+3. Intentionally retained inline scripts
+- Language first-paint boot script remains inline in <head> to prevent language flash.
+- JSON-LD structured data remains inline as application/ld+json.
+- Baidu Analytics remains externally loaded through js/baidu-analytics.js?v=288.
+
+4. Functional boundaries
+- Canvas sizing, background image upload and cover-fit rendering remain unchanged.
+- Mouse and touch planting, pointer preview, grass/meadow/wetland/restoration modes, radius and density controls remain unchanged.
+- Zone persistence, undo, clear, ecological links and animation/render loops remain unchanged.
+- MediaPipe Hands and Camera integration, camera permission flow, gesture smoothing, open-palm/fist recognition and status copy remain unchanged.
+- Hidden camera element, page structure, CSS, copy, common.js, analytics, SEO and all other pages remain unchanged.
+
+5. Verification performed
+- Replacing the new external reference with the original wrapper and external file content reconstructs the v295 HTML byte-for-byte.
+- js/interaction-landscape-growth.js passes Node.js syntax validation.
+- interaction-landscape-growth.html contains zero remaining page-functional inline JavaScript blocks.
+- Language boot, JSON-LD, common.js, Baidu Analytics and both MediaPipe dependency references remain present and in the same order.
+- All 10 DOM ids read with getElementById() by the external script exist in interaction-landscape-growth.html.
+- Existing-file hash comparison confirms that only interaction-landscape-growth.html changed from v295; all other pre-existing files remain byte-identical.
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.
+
+6. Browser-test note
+- The current sandbox blocked localhost browser navigation with ERR_BLOCKED_BY_ADMINISTRATOR, so no pixel screenshot or live-device camera claim is made for v296.
+- Equivalence is instead grounded by byte-for-byte script-body preservation, original dependency/execution order, DOM dependency checks and JavaScript syntax validation.
+- MediaPipe camera permission and live hand tracking require a real browser permission/device environment; this migration does not change either CDN dependency or the gesture implementation.

@@ -160,16 +160,18 @@ function showDetail(w, cell) {
   });
   if (window.innerWidth <= 980) detail.scrollIntoView({behavior:'smooth', block:'start'});
 }
-document.getElementById('d-hex').onclick = () => activePlant && copyText(activePlant.color.toUpperCase());
-document.getElementById('copyPalette').onclick = () => {
+document.getElementById('d-hex').addEventListener('click', () => {
+  if (activePlant) copyText(activePlant.color.toUpperCase());
+});
+document.getElementById('copyPalette').addEventListener('click', () => {
   if (!activePlant) return;
   copyText([activePlant.color, ...activePlant.pairs].map(c=>c.toUpperCase()).join('\\n'));
-};
-document.getElementById('clearActive').onclick = () => {
+});
+document.getElementById('clearActive').addEventListener('click', () => {
   if (activeCell) activeCell.classList.remove('active');
   activeCell = null; activePlant = null;
   document.getElementById('detail').classList.remove('visible');
-};
+});
 renderMiniStrip(); renderTabs(); renderCalendar();
 
     function navFilter(category){

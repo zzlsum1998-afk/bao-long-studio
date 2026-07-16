@@ -1,0 +1,69 @@
+BAOLONG LAB · RESUME TOOL JS EXTERNALIZATION CHECK v307
+Generated: 2026-07-16
+Base: baolong-index-js-externalization-v306-full-noimages-plus-template-assets.zip
+
+SCOPE
+- Modified: resume-tool.html
+- Added: js/resume-tool.js
+- Added: js/resume-tool-ai-usage.js
+- Added: js/resume-tool-nav.js
+- Added: js/resume-tool-mobile-menu.js
+- Added: RESUME_TOOL_JS_EXTERNALIZATION_CHECK_v307.txt
+- No other existing runtime file was changed.
+
+MIGRATION RESULT
+- Functional inline script blocks before: 4
+- Functional inline script blocks after: 0
+- js/resume-tool.js: 55,671 characters / 57,198 bytes / 1,392 counted lines
+- js/resume-tool-ai-usage.js: 2,203 characters / 2,293 bytes / 79 counted lines
+- js/resume-tool-nav.js: 153 characters / 153 bytes / 6 counted lines
+- js/resume-tool-mobile-menu.js: 656 characters / 656 bytes / 19 counted lines
+- New references:
+  1. js/resume-tool.js?v=307
+  2. js/resume-tool-ai-usage.js?v=307
+  3. js/resume-tool-nav.js?v=307
+  4. js/resume-tool-mobile-menu.js?v=307
+- Each external script remains at the exact original execution position and order.
+- No async, defer, module conversion, code restructuring, renaming, dead-code cleanup, or event-binding rewrite was introduced.
+- The language first-paint boot script remains inline by design.
+- js/common.js?v=213, Resume Tool CSS, print CSS, Netlify function files, and all other page files were not changed.
+
+EQUIVALENCE AND SAFETY CHECKS
+- Replacing the four new external script tags with the original four script blocks reconstructs v306 resume-tool.html byte-for-byte: PASS
+- Each new JS file matches its source inline script body byte-for-byte: PASS
+- All 57 standalone JavaScript files Node.js syntax check: PASS
+- Local script references in resume-tool.html exist: PASS (5 local references)
+- Functional inline script blocks remaining in resume-tool.html: 0
+- Literal getElementById dependencies found in migrated scripts: 57
+- Literal DOM IDs absent from static HTML: resumeAiUsageBadge, templateAvatarNote
+  - resumeAiUsageBadge is created dynamically by the unchanged AI usage script.
+  - templateAvatarNote was already optional in v306 and remains protected by an existing null guard.
+- Existing element-level event attributes were intentionally left unchanged: onclick=22
+- All event-attribute function references remain available globally: PASS
+- Existing v306 files unchanged byte-for-byte except resume-tool.html: PASS (412 unchanged files)
+- JSON parse check: PASS (4 files)
+
+RESUME TOOL FUNCTION AREAS PRESERVED
+- Resume field editing, live A4 preview, local state save / restore and reset
+- Template switching, module visibility / ordering and per-template spacing controls
+- Avatar upload / removal and template-specific layout tuning
+- Chinese, English and bilingual resume content modes
+- Skills, languages, awards, projects, education and experience rendering
+- Print / Save as PDF and export controls
+- AI experience optimization, summary generation, translation and job-description matching requests
+- Daily free AI usage badge and successful-request counting
+- Asset navigation filtering
+- Mobile menu open / close and outside-click behavior
+
+HASHES
+- Original resume-tool.html SHA-256: fe38cfdd7da0725aca315ab3b40f11c97978f99a83e2114f589ee62bd005eba6
+- v307 resume-tool.html SHA-256: 4cc741435acb959dd5de51e008ea543c25d4a5d86168011c352ba0d67ed8b339
+- js/resume-tool.js SHA-256: 83d55efe29fdc80a44dfdb9eddc66661686430cd2f1aac914cfabba6d6083dea
+- js/resume-tool-ai-usage.js SHA-256: d00594e8f257a7af1d87b862376ab77a6c23536bdc19438a776eb424956865f7
+- js/resume-tool-nav.js SHA-256: a1db3e469d793572656e860078111a8aad750f901291fd2d47c774ba9b537d0c
+- js/resume-tool-mobile-menu.js SHA-256: d56d4808500eb1f4d1d8fdfb59d9bcc7716d0effb34e7ecd9565a80428111c09
+
+BOUNDARIES
+- No visual, copy, HTML structure, CSS, resume data, image, font, SEO, analytics ID, navigation, Prompt, Inspiration Board, Hidden Prompt, API endpoint, model configuration, or Netlify backend logic change.
+- No .env, API Key, Python script, production Hidden Prompt, or private Vault was added.
+- Browser pixel regression is not claimed in this environment; equivalence is based on byte-exact script migration, exact HTML reconstruction, execution-position preservation, DOM dependency checks, global handler checks, and syntax validation.

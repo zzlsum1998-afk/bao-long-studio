@@ -1,0 +1,46 @@
+BAOLONG LAB · SEASONAL COLOR TOOL JS EXTERNALIZATION CHECK · v294
+Date: 2026-07-16
+Base: baolong-data-bloom-garden-js-externalization-v293-full-noimages-plus-template-assets.zip
+Target: seasonal-color-tool.html functional JavaScript externalization only
+
+1. Actual changes
+- Modified: seasonal-color-tool.html
+- Added: js/seasonal-color-tool.js
+- Added: SEASONAL_COLOR_TOOL_JS_EXTERNALIZATION_CHECK_v294.txt
+- No other existing website runtime file changed.
+
+2. Migration scope
+- Moved the single page-functional inline script block from seasonal-color-tool.html into js/seasonal-color-tool.js.
+- New reference: js/seasonal-color-tool.js?v=294
+- External file: 16,174 Unicode characters / 17,035 bytes / 345 counted lines (344 newline characters).
+- Original functional block location: source lines 163–507.
+- The external file preserves the original script body byte-for-byte, including its original leading and trailing whitespace.
+- The external script tag remains at the exact original execution position immediately before </body>.
+- No async, defer, module type, bundling, minification, refactor, renaming or dead-code cleanup was introduced.
+
+3. Intentionally retained inline content
+- JSON-LD structured data remains inline as application/ld+json.
+- baidu-analytics.js?v=288 remains unchanged.
+- This page did not contain the site-wide language first-paint boot script before v294; none was added or removed.
+- seasonal-color-tool.html now contains zero page-functional inline JavaScript blocks.
+
+4. Functional boundaries preserved
+- Plant dataset, four-season palettes, growth values and grid constants remain unchanged.
+- Plant selection, brush, erase, site-boundary drawing and fill-all controls remain unchanged.
+- Sample layout generation, clear/reset behavior and uploaded base-image handling remain unchanged.
+- Fine-grid expansion, palette mixing, speckle/noise rendering and canvas output remain unchanged.
+- Spring/summer/autumn/winter tab switching remains unchanged.
+- Time-slider stages, transition notes and growth simulation remain unchanged.
+- Result metadata, initial empty state and PNG export remain unchanged.
+- CSS, page copy, SEO, analytics, navigation, other pages, JSON/data, images and website tools were not changed.
+
+5. Verification performed
+- Exact reconstruction check passed: replacing the new external script tag with the original complete inline block reproduces the v293 seasonal-color-tool.html byte-for-byte.
+- js/seasonal-color-tool.js is byte-identical to the original inline script body.
+- js/seasonal-color-tool.js passes Node.js syntax check.
+- All website .js files pass Node.js syntax checks.
+- Script inventory confirms JSON-LD and the shared analytics reference are retained and the functional inline block is removed.
+- Static hash comparison confirms seasonal-color-tool.html is the only changed pre-existing file; all other pre-existing v293 files are byte-identical.
+- New JS SHA-256: ad51555b2f22ed5184b764311e32a452f70243bee9d3db940fb7bdc4530679b6
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.

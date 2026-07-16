@@ -11,8 +11,8 @@
         modalImg.style.background = "#f7f6f2";
         let controls = "";
         if(modalImages.length > 1){
-          controls = '<button class="modal-nav prev" onclick="event.stopPropagation();changeModalImage(-1)">‹</button>' +
-                     '<button class="modal-nav next" onclick="event.stopPropagation();changeModalImage(1)">›</button>' +
+          controls = '<button class="modal-nav prev" data-modal-image-step="-1">‹</button>' +
+                     '<button class="modal-nav next" data-modal-image-step="1">›</button>' +
                      '<div class="modal-counter">' + (modalIndex + 1) + ' / ' + modalImages.length + '</div>';
         }
         modalImg.innerHTML = '<img src="' + current + '" alt="' + title + '" loading="lazy" decoding="async">' + controls;
@@ -302,6 +302,7 @@
     function bindBoardModalEvents(){
       const modal = document.getElementById('modal');
       const modalCard = document.getElementById('modalCard');
+      const modalImg = document.getElementById('modalImg');
       const closeButton = document.getElementById('modalCloseBtn');
       const promptButton = document.getElementById('modalPromptBtn');
       const applyButton = document.getElementById('promptApplyBtn');
@@ -311,6 +312,14 @@
       if(modalCard){
         modalCard.addEventListener('click', function(event){
           event.stopPropagation();
+        });
+      }
+      if(modalImg){
+        modalImg.addEventListener('click', function(event){
+          const navButton = event.target.closest('[data-modal-image-step]');
+          if(!navButton || !modalImg.contains(navButton)) return;
+          event.stopPropagation();
+          changeModalImage(Number(navButton.dataset.modalImageStep));
         });
       }
       if(closeButton) closeButton.addEventListener('click', function(){ closeModal(); });

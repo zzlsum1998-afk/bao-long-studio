@@ -1,0 +1,45 @@
+BaoLong Lab · v315 · Interaction 页面事件属性迁移检查
+整理日期：2026-07-16
+
+一、本轮唯一目标
+仅迁移 interaction.html 中 22 个公共导航 onclick 与 1 个回到顶部 onclick，改用 js/interaction.js 内 addEventListener 绑定。
+
+二、实际修改文件
+1. interaction.html
+   - 6 个桌面素材分类链接：移除 return navFilter(...)，增加对应 data-nav-filter。
+   - 顶部登录按钮：移除 onclick 跳转。
+   - 移动菜单按钮：移除 onclick。
+   - 移动菜单 14 个链接：移除 closeMobileMenu() onclick。
+   - 回到顶部按钮：移除 scrollCurrentPageTop(event) onclick。
+   - js/interaction.js 缓存查询参数更新为 ?v=315。
+2. js/interaction.js
+   - 新增 bindInteractionPageEvents()。
+   - 保留原 navFilter、toggleMobileMenu、closeMobileMenu、scrollCurrentPageTop 函数内容。
+   - 使用 addEventListener 恢复 6 个分类导航、登录、移动菜单、14 个菜单关闭及回到顶部行为。
+3. 新增本检查文件。
+
+三、迁移数量
+- interaction.html：onclick 23 → 0。
+- 其中公共导航 22 个，回到顶部 1 个。
+- 全站元素事件属性预计由 301 降至 278：onclick 300 → 277；onchange 保持 1。
+
+四、行为保持说明
+- navFilter 返回 false 时仍显式 preventDefault，保留原跳转语义。
+- 移动菜单开关与点击菜单链接后关闭行为保持不变。
+- 顶部登录仍跳转 login.html。
+- 回到顶部仍 preventDefault、stopPropagation，并 smooth scroll 到页面顶部。
+- Interaction 页面卡片、链接、视觉、文案、结构、CSS、SEO 和中英文逻辑均未修改。
+- js/common.js 内容及其 ?v=309 引用未修改。
+
+五、明确未处理范围
+- 不迁移其他页面事件属性。
+- 不修改 common.js。
+- 不合并公共脚本，不清理死代码。
+- 不修改图片工作流、Vault、Prompt、Boards、Assets、首页或 Resume Tool。
+
+六、本地重点回归
+1. 桌面端素材库 6 个分类链接。
+2. 顶部登录按钮。
+3. 移动菜单打开、点击任意菜单链接后关闭。
+4. 页面右下角回到顶部按钮。
+5. Interaction 页面全部工具卡片入口及中英文切换。

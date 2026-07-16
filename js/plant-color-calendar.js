@@ -69,8 +69,50 @@ function getSceneByWeek(w) {
   if (w <= 39) return "秋色植物";
   return "冬季观果";
 }
-function copyText(text) {
-  navigator.clipboard.writeText(text).then(() => showToast("已复制 " + text.split('\\n')[0]));
+async function copyText(text) {
+  const copyValue = String(text ?? '');
+  let copied = false;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(copyValue);
+      copied = true;
+    } catch (error) {
+      copied = false;
+    }
+  }
+
+  if (!copied) {
+    const helper = document.createElement('textarea');
+    helper.value = copyValue;
+    helper.setAttribute('readonly', '');
+    helper.setAttribute('aria-hidden', 'true');
+    helper.style.position = 'fixed';
+    helper.style.left = '-9999px';
+    helper.style.top = '0';
+    helper.style.opacity = '0';
+    helper.style.pointerEvents = 'none';
+    document.body.appendChild(helper);
+    helper.focus();
+    helper.select();
+    helper.setSelectionRange(0, helper.value.length);
+
+    try {
+      copied = document.execCommand('copy');
+    } catch (error) {
+      copied = false;
+    }
+
+    helper.remove();
+  }
+
+  if (copied) {
+    showToast("已复制 " + copyValue.split('\\n')[0]);
+  } else {
+    showToast('复制失败，请手动选择色值');
+  }
+
+  return copied;
 }
 function showToast(msg) {
   const toast = document.getElementById('toast');

@@ -57,4 +57,52 @@ function handleResumeUploadPlaceholder(input){
       if(panel.contains(event.target) || toggle.contains(event.target)) return;
       panel.classList.remove('open');
     });
-  
+
+// v321 · resume.html static event attribute migration
+function initResumePageEvents(){
+  document.querySelectorAll('[data-nav-filter]').forEach((link) => {
+    link.addEventListener('click', function(event){
+      event.preventDefault();
+      navFilter(link.dataset.navFilter);
+    });
+  });
+
+  const loginEntry = document.querySelector('[data-resume-login-entry]');
+  if(loginEntry){
+    loginEntry.addEventListener('click', function(){
+      location.href = 'login.html';
+    });
+  }
+
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  if(mobileToggle){
+    mobileToggle.addEventListener('click', toggleMobileMenu);
+  }
+
+  document.querySelectorAll('#mobileMenuPanel a').forEach((link) => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  document.querySelectorAll('[data-hero-template-index]').forEach((button) => {
+    button.addEventListener('click', function(){
+      switchHeroTemplate(Number(button.dataset.heroTemplateIndex));
+    });
+  });
+
+  const uploadInput = document.querySelector('.resume-upload-file');
+  if(uploadInput){
+    uploadInput.addEventListener('change', function(event){
+      handleResumeUploadPlaceholder(event.currentTarget);
+    });
+  }
+
+  const viewTemplatesButton = document.getElementById('resumeViewTemplatesButton');
+  if(viewTemplatesButton){
+    viewTemplatesButton.addEventListener('click', function(){
+      const templates = document.getElementById('templates');
+      if(templates) templates.scrollIntoView({behavior: 'smooth'});
+    });
+  }
+}
+
+initResumePageEvents();

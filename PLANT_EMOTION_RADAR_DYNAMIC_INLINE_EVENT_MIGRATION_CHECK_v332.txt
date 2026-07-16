@@ -1,0 +1,69 @@
+BAOLONG LAB · v332 · Plant Emotion Radar 三处动态内联事件迁移
+日期：2026-07-16
+基准：baolong-homepage-product-card-detail-thumb-dynamic-inline-event-migration-v331-full-noimages-plus-template-assets.zip
+
+1. 本版唯一目标
+仅迁移 plant-emotion-radar.html 对应植物情绪雷达组件运行时动态生成的三处 onclick：
+- DYN-09：情绪维度标签按钮调用 switchDim(dimensionIndex)
+- DYN-10：植物选择按钮调用 togglePlant(plantName)
+- DYN-11：已选植物移除标签调用 togglePlant(plantName)
+
+不处理同文件中 copyResult 与 clearAll 的两处直接 DOM onclick 属性赋值；不处理其余 42 处直接事件属性赋值；不合并公共脚本、不清理死代码、不调整其他缓存、视觉、文案、植物数据、分数算法、结构或功能。
+
+2. 修改文件
+- plant-emotion-radar.html
+  - 仅将已修改脚本 js/plant-emotion-radar.js 的查询参数从 ?v=314 更新为 ?v=332，避免旧缓存继续执行迁移前代码。
+  - js/common.js 继续保持 ?v=309；页面其他资源查询参数不变。
+- js/plant-emotion-radar.js
+  - renderTabs() 不再生成 onclick="switchDim(index)"，改用 data-dim-index 保存维度索引。
+  - renderGrid() 不再生成 onclick="togglePlant(name)"，改用 data-plant-name 保存植物名称。
+  - renderSelected() 不再生成 onclick="togglePlant(name)"，同样使用 data-plant-name 保存植物名称。
+  - 在静态 #dimTabs 上增加一次 click 事件委托，识别动态维度按钮后调用现有 switchDim(index)。
+  - 在静态 #plantGrid 与 #selectedBar 上分别增加一次 click 事件委托，识别动态植物按钮后调用现有 togglePlant(name)。
+  - 保留三个容器的 innerHTML 重建生命周期；新节点无需重复绑定监听器。
+- PLANT_EMOTION_RADAR_DYNAMIC_INLINE_EVENT_MIGRATION_CHECK_v332.txt
+  - 本检查与交付说明。
+
+3. 明确保留
+- 84 种植物数据、六个情绪维度、颜色、评分修正、主维度分组与结果文案不变。
+- activeDim、selected、switchDim()、togglePlant()、renderTabs()、renderGrid()、renderSelected()、updateResult() 的状态关系不变。
+- 选择上限仍为 8：达到上限后未选植物按钮继续 disabled；移除植物后重新启用。
+- 维度标签、植物 chip 与已选标签继续使用原生 button type="button"，鼠标、触摸与原生键盘 click 语义不变。
+- 点击动态按钮内部的圆点或文字仍由 closest() 找到所属按钮，不重复执行。
+- 复制分析结果与清空选择的两处直接 .onclick 赋值有意保留，留待后续 44 处直接事件属性赋值专项审计。
+- 移动菜单、公共导航、Radar SVG、Toast 与页面样式不变。
+- 完整 Hidden Prompt、API Key、Endpoint、模型配置与私有 Vault 未进入网站包。
+
+4. 静态与运行时计数
+- 25 个 HTML 静态 on* 属性：0 → 0。
+- javascript: URL：0 → 0。
+- JS 模板字符串动态 onclick 源码：3 → 0。
+- js/plant-emotion-radar.js 动态 onclick 源码：3 → 0。
+- 10 个 JS 中直接事件属性赋值：44 → 44（本版不处理）。
+- 动态生成内联 onclick 专项自 v325 建立的 15 处基线至本版全部清零。
+
+5. 回归重点
+- 六个维度标签初始生成正常，点击按钮内部圆点仍切换 active 状态、维度标题与植物列表。
+- 每次 switchDim() 重建 #dimTabs 与 #plantGrid 后，委托监听继续有效。
+- 点击植物按钮内部文字仍选中 / 取消同一植物，已选数量与 Result Panel 同步更新。
+- 每次 togglePlant() 同时重建 #plantGrid 与 #selectedBar 后，新按钮继续由静态容器监听接管。
+- 点击已选标签内部圆点仍移除正确植物。
+- 达到 8 个上限时未选植物保持 disabled，不能继续增加；移除后重新启用。
+- 动态三类控件仍为原生 button type="button"，不引入 pointer-only 非语义节点。
+- copyResult 与 clearAll 两处直接 onclick 保持原样，清空选择行为不变。
+
+6. 封装规则
+- full：以 v331 full 为基础，包含完整网站与本次改动。
+- patch：只包含 plant-emotion-radar.html、js/plant-emotion-radar.js 与本检查文档，并保留真实目录结构。
+- patch 只能覆盖到明确的 v331 完整目录或用于增量部署，不能单独预览。
+
+7. 验证结果
+- Chromium 组件级 DOM 回归通过：六维度初始生成、动态节点无 onclick 属性、内部 span 点击委托、维度切换与重建、植物选择 / 移除、Result Panel 显隐、8 个选择上限、disabled 阻止增加、移除后重新启用、clearAll 保留行为均通过；运行时异常 0。
+- 原生语义检查通过：维度标签、植物选择按钮与已选标签仍为 button type="button"，tabIndex 保持可聚焦。
+- 25 个根目录 HTML 静态 on* 属性 0；javascript: URL 0。
+- 动态内联 onclick 源码 0；js/plant-emotion-radar.js 内 0。
+- 直接事件属性赋值仍为 44：onclick 31、mouseenter / mouseleave 4、onload 5、onerror 4。
+- 61 个 JavaScript 通过 node --check；4 个 JSON 与 19 段 JSON-LD 解析通过；27 个 CSS 花括号检查通过。
+- 15 段语言首屏防闪继续有意保留。
+- 57 个浏览器 JS 全部有真实 HTML 引用；182 个本地 CSS / JS / favicon 引用缺失 0。
+- 与 v331 对比：450 个既有文件逐字节未变；仅修改 2 个文件并新增本检查文档。

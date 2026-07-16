@@ -1,4 +1,3 @@
-
     function toggleMobileMenu(){
       const panel = document.getElementById('mobileMenuPanel');
       if(panel) panel.classList.toggle('open');
@@ -16,4 +15,21 @@
       if(panel.contains(event.target) || toggle.contains(event.target)) return;
       panel.classList.remove('open');
     });
+
+    function bindResumeToolMobileMenuEvents(){
+      const mobileMenuToggle = document.querySelector('.site-header .mobile-menu-toggle');
+      if(mobileMenuToggle){
+        mobileMenuToggle.addEventListener('click', function(){
+          if(typeof window.toggleMobileMenu === 'function') window.toggleMobileMenu();
+        });
+      }
+
+      document.querySelectorAll('#mobileMenuPanel a').forEach(function(link){
+        link.addEventListener('click', function(){
+          if(typeof window.closeMobileMenu === 'function') window.closeMobileMenu();
+        });
+      });
+    }
+
+    bindResumeToolMobileMenuEvents();
   

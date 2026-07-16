@@ -1,25 +1,18 @@
-BaoLong Lab · v312 fixed · Data Bloom Garden 页面样式缓存修复
-日期：2026-07-16
+BaoLong Lab · v312 fixed2 · Data Bloom Garden 页面样式依赖修复说明
 
-问题现象
-- Data Bloom Garden 顶部公共导航仍有样式，但页面主体退回浏览器默认样式。
-- 这表明 css/common.css 已加载，而页面专属 css/data-bloom-garden.css 未在本次浏览器会话中生效。
+问题背景：
+- v312 首次事件迁移后，用户在本地以 patch 覆盖旧目录时，Data Bloom Garden 主体出现浏览器默认样式。
+- 对 v311 与 v312 full 逐字节比对后确认：css/data-bloom-garden.css 本身未被修改，且完整 full 包中的文件与引用均存在。
+- 问题集中在本地增量覆盖目录未可靠取得页面专属 CSS 依赖，而非事件迁移逻辑或 CSS 内容损坏。
 
-本次修复
-- 仅修改 data-bloom-garden.html 中页面专属样式表的查询参数：
-  css/data-bloom-garden.css?v=282
-  → css/data-bloom-garden.css?v=312
-- 不修改 css/data-bloom-garden.css 文件内容。
-- 不修改 v312 已完成的 22 个公共导航事件迁移逻辑。
-- 不修改 js/common.js、页面视觉定义、文案、结构、数据、SEO 或其他页面。
+fixed2 处理：
+1. 从用户重新上传的 v311 full 干净重建。
+2. 保留 v312 的 22 个公共导航事件迁移。
+3. css/data-bloom-garden.css 内容与 v311 逐字节一致，不做样式改写。
+4. 页面专属 CSS 与 JS 查询参数统一更新为 ?v=312-fixed2。
+5. patch 明确额外携带 css/data-bloom-garden.css，确保增量覆盖时页面专属样式文件同步到位。
 
-验证
-- data-bloom-garden.html 仅存在 1 条页面专属 CSS 引用，且目标文件真实存在。
-- css/data-bloom-garden.css 与原 v312 文件逐字节一致。
-- CSS 花括号数量平衡。
-- data-bloom-garden.html 内联 onclick / onchange 仍为 0。
-- js/data-bloom-garden.js 仍使用 ?v=312，文件内容逐字节不变。
-- Full 与 Patch 均完成实际解压和逐文件校验。
-
-结论
-- 原 v312 包作废，后续只使用文件名带 v312-fixed 的修复版。
+重要：
+- patch 仍是增量包，不能脱离完整网站目录单独预览。
+- 本地视觉检查优先直接打开 fixed2 full。
+- patch 用于覆盖 v311 根目录或按原路径上传 GitHub；不要把 patch 文件夹当作独立网站。

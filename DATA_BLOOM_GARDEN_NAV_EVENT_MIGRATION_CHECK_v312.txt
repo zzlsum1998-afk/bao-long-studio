@@ -1,83 +1,26 @@
-BaoLong Lab · v312 · Data Bloom Garden 公共导航事件迁移试点检查
-日期：2026-07-16
+BaoLong Lab · v312 · Data Bloom Garden 公共导航事件迁移试点
 
-一、基准与单一目标
-- 基准：baolong-login-event-attribute-migration-v311-full-noimages-plus-template-assets.zip
-- 本轮只迁移 data-bloom-garden.html 的 22 个公共导航元素事件属性。
-- 不迁移 Data Bloom 工具主体在 js/data-bloom-garden.js 中原有的 DOM 属性事件绑定（例如 .onclick / .onmouseenter / .onmouseleave）。
-- 不修改 js/common.js 内容，不迁移其他页面，不合并脚本，不清理死代码。
+基准：v311 full
+目标：仅迁移 data-bloom-garden.html 的 22 个公共导航 onclick，不改工具主体逻辑。
 
-二、本轮修改文件
+修改文件：
 1. data-bloom-garden.html
-- 删除 22 个 onclick：
-  · 6 个 return navFilter(...)
-  · 1 个登录按钮跳转
-  · 1 个移动菜单开关
-  · 14 个移动菜单链接关闭
-- 为 6 个桌面素材分类链接增加 data-nav-filter，保留原有过滤参数和 href。
-- js/data-bloom-garden.js 缓存查询参数由 ?v=293 更新为 ?v=312。
-- js/common.js 仍保持 ?v=309。
-
 2. js/data-bloom-garden.js
-- 新增 bindHeaderNavigation()，使用 addEventListener 接管上述 22 个公共导航交互。
-- navFilter 返回 false 时显式 preventDefault()；返回 true / 其他值时保留原 href 导航。
-- 登录按钮仍跳转 login.html。
-- 移动菜单开关仍调用 window.toggleMobileMenu()。
-- 14 个移动菜单链接仍先调用 window.closeMobileMenu()，随后保留链接默认导航。
 
-3. DATA_BLOOM_GARDEN_NAV_EVENT_MIGRATION_CHECK_v312.txt
-- 本检查记录。
+迁移内容：
+- 桌面素材分类 navFilter：6 个
+- 顶部登录入口：1 个
+- 移动菜单开关：1 个
+- 移动菜单链接关闭：14 个
 
-三、事件属性数量
-- data-bloom-garden.html：22 → 0
+结果：
+- data-bloom-garden.html 内联元素事件属性：22 → 0
 - 全站元素事件属性：477 → 455
-- 全站 onclick：476 → 454
-- 全站 onchange：1 → 1
-- 含元素事件属性的 HTML 页面：15 → 14
+- onclick：476 → 454
+- onchange：仍为 1
 
-四、保持不变范围
-- 页面视觉、文案、结构、SEO、语言首屏防闪与 JSON-LD 不变。
-- Data Bloom 的 CSV、示例数据、生成、筛选、专注视图、节点交互和 PNG 导出逻辑不变。
-- js/common.js 内容逐字节未修改；15 页 js/common.js?v=309 引用保持不变。
-- 其他 HTML、CSS、JS、JSON、images、Netlify 历史文件、Prompt / Workflow 与 Vault 均不修改。
-
-五、验证
-- data-bloom-garden.html 元素事件属性扫描：0。
-- 6 个 data-nav-filter 与原 navFilter 参数逐项对应。
-- 移动菜单链接数量：14；全部由新监听器覆盖。
-- JavaScript 语法检查：61 个 .js 文件全部通过（57 个浏览器 JS + 4 个 Netlify 历史函数）。
-- 本地 script 引用：95 个标签、57 个唯一浏览器 JS；缺失引用 0。
-- JSON 解析：4 个文件全部通过。
-- 精确函数单元测试通过：
-  · 6 个 navFilter 参数传递正确；
-  · navFilter=false 时阻止默认导航；navFilter=true 时允许默认导航；
-  · 登录跳转目标为 login.html；
-  · 移动菜单开关调用 1 次；
-  · 14 个移动链接分别调用 closeMobileMenu。
-- 受运行环境浏览器管理员策略限制，无法通过 localhost / 自定义域名打开完整站点；因此未执行真实页面导航自动化，需用户本地浏览器完成关键点击回归。
-
-六、文件哈希（SHA-256）
-- data-bloom-garden.html（v311）：c28717eefbd91660a027269bc11e37a08069b4b753b8e7ac1a6023d436fc3094
-- data-bloom-garden.html（v312）：96b9e325662a7103b4eaf35c5fe7067c6cc6adee4bc0de41181fe969c8ca590a
-- js/data-bloom-garden.js（v311）：ddcf59819fe842e0cb9bad52250787bd1500e80c23620827b37a744f9b3708c7
-- js/data-bloom-garden.js（v312）：4030d4e64cd4c07fc29f1c9770c2595cf8cdeec11c53302e583507141d8f8410
-- js/common.js（保持不变）：1ab31d2b3bf4bc156147d1d1879143e2b9872fc62a99c0958c6b7462ab280d06
-
-七、封装基准
-- Full：v311 原有 426 个文件 + 本轮 1 份检查文档 = 427 个文件。
-- Full 解压文件总字节：45,849,151 bytes。
-- Patch：3 个文件，保留原路径：data-bloom-garden.html、js/data-bloom-garden.js、检查文档。
-- Full / Patch 生成后必须实际解压并逐文件校验。
-
-八、本地回归重点
-桌面端：
-1. 素材库下拉 6 个分类可正常进入对应 assets 筛选。
-2. 顶部“登录”可进入 login.html。
-
-移动端：
-1. “菜单”按钮可正常打开 / 关闭菜单。
-2. 14 个菜单链接点击后菜单关闭，并进入对应页面。
-
-页面主体：
-1. 示例数据正常生成图谱。
-2. 筛选、专注看图、清空、CSV 上传 / 生成与中英文切换保持正常。
+保持不变：
+- js/common.js 内容与 ?v=309 引用
+- Data Bloom 工具主体动态 onclick / hover 逻辑
+- CSV、图谱生成、筛选、专注看图、节点交互与导出功能
+- 页面视觉、文案、结构、SEO、语言逻辑与图片工作流

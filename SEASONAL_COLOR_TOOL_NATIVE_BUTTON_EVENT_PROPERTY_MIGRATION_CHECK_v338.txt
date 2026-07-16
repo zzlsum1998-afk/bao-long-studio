@@ -1,0 +1,70 @@
+BAOLONG LAB · SEASONAL COLOR TOOL NATIVE-BUTTON EVENT-PROPERTY MIGRATION CHECK v338
+Generated: 2026-07-17
+Base: baolong-plant-color-calendar-copy-regression-fix-v337-fixed-full-noimages-plus-template-assets.zip
+
+VERSION PURPOSE
+- v338 is a single-page, single-purpose migration of ten direct onclick property assignments on native buttons in Seasonal Color Tool.
+- It does not migrate the remaining div.plant-chip onclick assignment; that non-native control requires its own keyboard/accessibility version.
+- It does not change data, copy, visual design, layout, canvas rendering, upload flow, export output, season logic, cache versions outside this page script, or any other page.
+
+FILES MODIFIED
+- seasonal-color-tool.html
+  - Only js/seasonal-color-tool.js cache query changed from ?v=294 to ?v=338.
+  - js/common.js and all other resource query strings remain unchanged.
+- js/seasonal-color-tool.js
+  - Ten native-button onclick assignments were replaced with addEventListener('click', ...), preserving the original handler bodies and execution order.
+
+FILE ADDED
+- SEASONAL_COLOR_TOOL_NATIVE_BUTTON_EVENT_PROPERTY_MIGRATION_CHECK_v338.txt
+
+MIGRATED CONTROLS
+1. button#brushBtn — switch to planting mode.
+2. button#eraseBtn — switch to plant-erasing mode.
+3. button#siteBtn — switch to site drawing mode.
+4. button#siteEraseBtn — switch to site-edge erasing mode.
+5. button#fillAllBtn — mark every coarse grid cell as site.
+6. button#clearGrid — clear planting grid and site mask.
+7. button#sampleBtn — load the built-in sample pattern and sample time state.
+8. button#resetViewBtn — reset the time slider and stage copy to the initial view.
+9. button#removeImg — remove the uploaded base image and clear the file input.
+10. button#exportBtn — validate site state and export the canvas PNG.
+
+INTENTIONALLY NOT MIGRATED
+- div.plant-chip onclick remains in js/seasonal-color-tool.js.
+- It is the only direct event-property assignment remaining in this file.
+- Because it is a non-native div with no role, tabindex, Enter, or Space activation path, it is reserved for a separate accessibility-aware migration rather than being mixed into this native-button version.
+
+EVENT COUNTS
+- Direct DOM event-property assignments across browser JS: 36 -> 26.
+- onclick assignments: 23 -> 13.
+- onmouseenter / onmouseleave: remain 2 / 2.
+- onload / onerror: remain 5 / 4.
+- Files containing direct event-property assignments: remain 8.
+- js/seasonal-color-tool.js direct assignments: 11 -> 1.
+- Static HTML on* attributes: remain 0.
+- Dynamic generated inline on* attributes: remain 0.
+- javascript: URLs: remain 0.
+
+BEHAVIOR PRESERVED
+- All ten controls remain native button elements, so browser-generated mouse, Enter, and Space click semantics are preserved.
+- Mode classes and current mode state are unchanged.
+- Fill-all, clear, sample, time-reset, upload removal, and PNG export handler bodies are unchanged.
+- Plant chips, grid painting, season tabs, time slider, canvas generation, sample data, filename format, and page copy are unchanged.
+
+TARGETED BROWSER REGRESSION
+- 13 plant chips and 110 grid cells initialize normally.
+- Mouse mode switching works for planting, erasing, site drawing, and site-edge erasing.
+- Enter and Space activate native mode buttons.
+- Fill-all marks 110 cells as site; clear returns the site count to 0.
+- Sample selection restores a non-empty site, plant index 0, time value 45, and the second-year stage.
+- Reset view returns time to 0 and the first-year stage without clearing the sample planting.
+- Uploading a local image shows the base image and remove control; removing it clears image state and the file input.
+- Export dispatches a PNG download using the original Chinese filename scheme.
+- The untouched plant-chip click path still selects the correct plant and returns the tool to planting mode.
+- Runtime page errors and console errors: 0 in the isolated component regression.
+
+PACKAGE / SCOPE VERDICT
+- PASS: exactly two existing files are modified and exactly one check document is added.
+- PASS: no unrelated HTML, CSS, JS, JSON, image, font, SEO, workflow, Vault, or Hidden Prompt file is changed.
+- PASS: the ten native-button property assignments are removed without changing their original behavior.
+- QUALIFICATION: the final Seasonal Color Tool div.plant-chip property assignment remains intentionally pending.

@@ -1,0 +1,42 @@
+BAOLONG LAB · v341
+Data Bloom Garden 六个静态原生按钮事件属性迁移检查
+日期：2026-07-17
+
+一、版本目标
+本版只处理 data-bloom-garden.html / js/data-bloom-garden.js 中六个静态原生 button 的直接 onclick 属性赋值：
+1. #toggleSidebarBtn：专注看图 / 展开编辑区
+2. #sampleBtn：使用示例数据
+3. #generateBtn：生成图谱
+4. #clearBtn：清空数据
+5. #downloadTemplateBtn：下载 CSV 模板
+6. #exportBtn：导出 PNG
+
+二、迁移方式
+六处均保持原有处理函数和执行顺序，仅将 element.onclick = handler 改为 element.addEventListener('click', handler)。
+原生 button 的鼠标点击、Enter 与 Space 激活语义保持不变。
+
+三、明确不处理范围
+- 不处理 .chip 分类筛选按钮的直接 onclick 赋值。
+- 不处理 render() 后重建的 SVG .node / .microNode / .nanoNode 点击、悬停和离开事件。
+- 不处理 renderList() 后重建的 div.item 点击事件与键盘可访问性。
+- 不处理 exportPNG() 内新 Image 的 onload / onerror 资源回调。
+- 不修改数据、视觉、文案、DOM 结构、导出文件名、缓存策略或其他页面。
+
+四、缓存与文件边界
+- data-bloom-garden.html 仅将 js/data-bloom-garden.js 查询参数更新为 ?v=341。
+- js/common.js 与其他资源查询参数保持不变。
+- 本版修改 data-bloom-garden.html、js/data-bloom-garden.js，并新增本检查文档。
+
+五、预期计数
+- 全站直接 DOM 事件属性赋值：23 → 17。
+- 直接 onclick：10 → 4。
+- js/data-bloom-garden.js 直接事件属性赋值：16 → 10。
+- 静态 HTML on*、动态内联 on*、javascript: URL 均继续为 0。
+
+六、重点回归
+- 专注看图按钮可折叠 / 恢复侧栏，aria-expanded 与文字、箭头同步，本地记忆保持。
+- 使用示例数据后 textarea 恢复示例内容并重新生成图谱。
+- 生成图谱读取当前 textarea；无效 / 有效数据提示保持。
+- 清空后 textarea、数据图谱与详情进入原空状态。
+- 下载模板仍导出 data-bloom-template.csv。
+- 导出 PNG 仍导出 data-bloom-generator-c7.png；Image onload / onerror 生命周期未改。

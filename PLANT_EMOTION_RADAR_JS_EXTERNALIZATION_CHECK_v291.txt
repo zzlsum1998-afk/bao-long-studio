@@ -1,0 +1,47 @@
+BAOLONG LAB · PLANT EMOTION RADAR JS EXTERNALIZATION CHECK · v291
+Date: 2026-07-16
+Base: baolong-resume-js-externalization-v290-full-noimages-plus-template-assets.zip
+Target: plant-emotion-radar.html functional JavaScript externalization only
+
+1. Actual changes
+- Modified: plant-emotion-radar.html
+- Added: js/plant-emotion-radar.js
+- Added: PLANT_EMOTION_RADAR_JS_EXTERNALIZATION_CHECK_v291.txt
+- No other existing website runtime file changed.
+
+2. Migration scope
+- Moved the two page-functional inline script blocks from plant-emotion-radar.html into js/plant-emotion-radar.js.
+- New reference: js/plant-emotion-radar.js?v=291
+- External file: 12,313 Unicode characters / 13,445 bytes / 148 lines.
+- Original functional blocks: 11,659 characters / 133 counted lines, plus 656 characters / 19 counted lines.
+- Code order preserved:
+  1) plant mood dimensions, color-score calculation and plant dataset
+  2) dimension tabs, plant selection, radar rendering, score summaries, copy and clear actions
+  3) mobile menu toggle, close and outside-click handler
+- The external file is the ordered concatenation of the two original script bodies; only outer wrapper blank lines were normalized.
+- No async, defer, module type, bundling, minification, refactor, renaming or dead-code cleanup was introduced.
+
+3. Intentionally retained inline content
+- Language first-paint anti-flash boot script remains inline in <head>.
+- JSON-LD structured data remains inline as application/ld+json.
+- common.js?v=213 and baidu-analytics.js?v=288 references remain unchanged.
+- plant-emotion-radar.html now contains zero page-functional inline JavaScript blocks.
+
+4. Functional boundaries
+- Six mood-dimension tabs and plant counts remain unchanged.
+- Plant selection limit, selected-tag removal and dimension switching remain unchanged.
+- HSL-derived scores, experience adjustments, mood descriptions and radar SVG drawing remain unchanged.
+- Copy-result and clear-all actions remain unchanged.
+- Mobile menu open, close and outside-click behavior remain unchanged.
+- Existing inline onclick calls continue using the same global classic-script function names.
+- CSS, page copy, SEO, analytics, navigation, other pages, JSON/data, images and website tools were not changed.
+
+5. Verification performed
+- js/plant-emotion-radar.js passes Node.js syntax check.
+- Static comparison confirms that only plant-emotion-radar.html changed among existing v290 files before adding the new JS/check file.
+- Script inventory confirms the language boot and JSON-LD blocks are retained and both functional inline blocks are removed.
+- Controlled Chromium regression at 1440 × 1000 and 390 × 844 produced identical baseline/candidate states and zero page errors.
+- Initial and two-plant-selected viewport screenshots are pixel-identical at both desktop and mobile sizes: 0 differing pixels.
+- Regression covered initial tab/chip rendering, two-plant selection, radar/result generation, dimension switching, clear-all, mobile menu opening and outside-click closing.
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.

@@ -116,14 +116,36 @@ function showToast(msg){const t=document.getElementById('toast'); t.textContent=
 function copyText(text){navigator.clipboard.writeText(text).then(()=>showToast('已复制'))}
 function getAvgScores(){const arr=[...selected].map(name=>PLANTS.find(p=>p.name===name)).filter(Boolean); if(!arr.length) return DIMS.map(()=>0); return DIMS.map((_,i)=>parseFloat((arr.reduce((s,p)=>s+p.scores[i],0)/arr.length).toFixed(1)))}
 function getMoodDesc(scores){const sorted=scores.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v); const a=sorted[0], b=sorted[1]; const descs={0:'宁静感占主导，整体更适合疗愈花园、静坐空间、低刺激的入口节点。',1:'活力感更突出，色彩和形态会更外向，适合儿童活动区、节庆花境或需要吸引视线的节点。',2:'自然感更强，组合会显得松弛、生态、贴近土地，适合自然式花境和乡野风格空间。',3:'浪漫气质明显，适合婚礼花园、柔和庭院、女性向商业空间或诗意花境。',4:'野趣感突出，带有原生、粗粝和自由生长的气质，适合荒野感花园和生态修复场景。',5:'都市感更明显，形态更克制、现代，适合商业街区、城市广场和极简景观。'}; return {title:DIMS[a.i]+' × '+DIMS[b.i], desc:descs[a.i]};}
-function renderTabs(){document.getElementById('dimTabs').innerHTML=dimGroups.map((g,i)=>`<button class="dim-tab${i===activeDim?' active':''}" type="button" onclick="switchDim(${i})"><span class="dot" style="background:${DIM_COLORS[i]}"></span>${g.dim}<span style="opacity:.62">${g.plants.length}</span></button>`).join('')}
+function renderTabs(){document.getElementById('dimTabs').innerHTML=dimGroups.map((g,i)=>`<button class="dim-tab${i===activeDim?' active':''}" type="button" data-dim-index="${i}"><span class="dot" style="background:${DIM_COLORS[i]}"></span>${g.dim}<span style="opacity:.62">${g.plants.length}</span></button>`).join('')}
 function switchDim(i){activeDim=i; renderTabs(); renderGrid()}
-function renderGrid(){const group=dimGroups[activeDim]; document.getElementById('activeDimLabel').textContent=group.dim+'植物'; document.getElementById('activeDimCount').textContent=group.plants.length+' plants'; const full=selected.size>=8; document.getElementById('plantGrid').innerHTML=group.plants.map(p=>{const is=selected.has(p.name); const dis=full&&!is; return `<button class="plant-chip${is?' selected':''}${dis?' disabled':''}" type="button" ${dis?'disabled':''} onclick="togglePlant('${p.name}')"><span class="chip-dot" style="background:${p.color}"></span><span>${p.name}</span></button>`}).join('')}
+function renderGrid(){const group=dimGroups[activeDim]; document.getElementById('activeDimLabel').textContent=group.dim+'植物'; document.getElementById('activeDimCount').textContent=group.plants.length+' plants'; const full=selected.size>=8; document.getElementById('plantGrid').innerHTML=group.plants.map(p=>{const is=selected.has(p.name); const dis=full&&!is; return `<button class="plant-chip${is?' selected':''}${dis?' disabled':''}" type="button" ${dis?'disabled':''} data-plant-name="${p.name}"><span class="chip-dot" style="background:${p.color}"></span><span>${p.name}</span></button>`}).join('')}
 function togglePlant(name){if(selected.has(name)) selected.delete(name); else if(selected.size<8) selected.add(name); renderGrid(); renderSelected(); updateResult()}
-function renderSelected(){document.getElementById('countHint').textContent=`已选 ${selected.size} / 8`; const bar=document.getElementById('selectedBar'); if(!selected.size){bar.innerHTML='<span class="selected-empty">还没有选择植物</span>'; return} bar.innerHTML=[...selected].map(name=>{const p=PLANTS.find(x=>x.name===name); return `<button class="sel-tag" type="button" onclick="togglePlant('${name}')"><span class="chip-dot" style="background:${p.color};width:8px;height:8px"></span>${name} ×</button>`}).join('')}
+function renderSelected(){document.getElementById('countHint').textContent=`已选 ${selected.size} / 8`; const bar=document.getElementById('selectedBar'); if(!selected.size){bar.innerHTML='<span class="selected-empty">还没有选择植物</span>'; return} bar.innerHTML=[...selected].map(name=>{const p=PLANTS.find(x=>x.name===name); return `<button class="sel-tag" type="button" data-plant-name="${name}"><span class="chip-dot" style="background:${p.color};width:8px;height:8px"></span>${name} ×</button>`}).join('')}
 function polar(cx,cy,r,angle){const rad=(angle-90)*Math.PI/180; return [cx+r*Math.cos(rad),cy+r*Math.sin(rad)]}
 function drawRadar(scores){const svg=document.getElementById('radarSvg'); const cx=160, cy=160, maxR=112; let html=''; for(let ring=2; ring<=10; ring+=2){const r=maxR*ring/10; const pts=DIMS.map((_,i)=>polar(cx,cy,r,i*60).join(',')).join(' '); html+=`<polygon points="${pts}" fill="none" stroke="rgba(30,25,18,.12)" stroke-width="1"/>`} DIMS.forEach((d,i)=>{const [x,y]=polar(cx,cy,maxR,i*60); html+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(30,25,18,.10)"/>`; const [lx,ly]=polar(cx,cy,maxR+28,i*60); html+=`<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="${DIM_COLORS[i]}">${d}</text>`}); const pts=scores.map((v,i)=>polar(cx,cy,maxR*v/10,i*60).join(',')).join(' '); html+=`<polygon points="${pts}" fill="rgba(120,155,104,.23)" stroke="#789B68" stroke-width="2.4"/>`; scores.forEach((v,i)=>{const [x,y]=polar(cx,cy,maxR*v/10,i*60); html+=`<circle cx="${x}" cy="${y}" r="4.6" fill="${DIM_COLORS[i]}" stroke="#fff" stroke-width="2"/>`}); svg.innerHTML=html}
 function updateResult(){const panel=document.getElementById('resultPanel'); if(!selected.size){panel.classList.remove('visible'); return} panel.classList.add('visible'); const scores=getAvgScores(); const mood=getMoodDesc(scores); document.getElementById('selectedSummary').textContent=selected.size+' plants'; document.getElementById('moodTitle').textContent=mood.title; document.getElementById('moodDesc').textContent=mood.desc; drawRadar(scores); document.getElementById('scoreList').innerHTML=DIMS.map((d,i)=>`<div class="score-row"><span style="color:${DIM_COLORS[i]}">${d}</span><div class="score-track"><div class="score-fill" style="width:${scores[i]*10}%;background:${DIM_COLORS[i]}"></div></div><strong>${scores[i]}</strong></div><div style="margin:-4px 0 2px 58px;color:#aaa;font-size:11px;line-height:1.4">${DIM_NOTES[i]}</div>`).join('')}
+function bindDynamicPlantControls(){
+  const dimTabs=document.getElementById('dimTabs');
+  if(dimTabs){
+    dimTabs.addEventListener('click',event=>{
+      const target=event.target instanceof Element?event.target.closest('button[data-dim-index]'):null;
+      if(!target||!dimTabs.contains(target))return;
+      const index=Number.parseInt(target.dataset.dimIndex,10);
+      if(Number.isInteger(index))switchDim(index);
+    });
+  }
+  const bindPlantToggle=(container)=>{
+    if(!container)return;
+    container.addEventListener('click',event=>{
+      const target=event.target instanceof Element?event.target.closest('button[data-plant-name]'):null;
+      if(!target||!container.contains(target)||target.disabled)return;
+      togglePlant(target.dataset.plantName);
+    });
+  };
+  bindPlantToggle(document.getElementById('plantGrid'));
+  bindPlantToggle(document.getElementById('selectedBar'));
+}
+bindDynamicPlantControls();
 document.getElementById('copyResult').onclick=()=>{if(!selected.size)return; const scores=getAvgScores(); const mood=getMoodDesc(scores); const plants=[...selected].join('、'); const scoreText=DIMS.map((d,i)=>`${d}: ${scores[i]}`).join('\n'); copyText(`植物组合：${plants}\n情绪倾向：${mood.title}\n${scoreText}\n说明：${mood.desc}`)};
 document.getElementById('clearAll').onclick=()=>{selected.clear(); renderGrid(); renderSelected(); updateResult()};
 renderTabs(); renderGrid(); renderSelected();

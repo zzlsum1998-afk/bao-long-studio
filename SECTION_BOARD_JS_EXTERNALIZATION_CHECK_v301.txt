@@ -1,0 +1,67 @@
+BaoLong Lab · Section Board JS Externalization Check · v301
+Date: 2026-07-16
+Base: baolong-plan-board-js-externalization-v300-full-noimages-plus-template-assets.zip
+Target page: section-references.html
+
+SCOPE
+- This version only externalizes the seven functional inline JavaScript blocks from section-references.html.
+- Page structure, copy, styles, data source, favorites, loading behavior, modal behavior, Prompt extraction, mobile menu, animations and other pages remain unchanged.
+- The language first-paint bootstrap script and JSON-LD stay inline intentionally.
+- No dead-code cleanup, refactor, event-attribute migration, shared Board consolidation or cache-version unification is included.
+
+CHANGED / ADDED FILES
+- Modified: section-references.html
+- Added: js/section-references-masonry.js
+- Added: js/section-references-board.js
+- Added: js/section-references-modal.js
+- Added: js/section-references-nav.js
+- Added: js/section-references-mobile-menu.js
+- Added: js/section-references-modal-sizing.js
+- Added: js/section-references-scroll-top.js
+- Added: SECTION_BOARD_JS_EXTERNALIZATION_CHECK_v301.txt
+
+EXTERNAL SCRIPT ORDER
+1. js/section-references-masonry.js?v=301 — remains in the original head position before common.js.
+2. js/inspiration-favorites.js?v=222 — existing deferred dependency, unchanged.
+3. js/section-references-board.js?v=301 — remains in the first original Board script position.
+4. js/section-references-modal.js?v=301 — remains immediately after the Board script.
+5. js/section-references-nav.js?v=301 — remains in the original pre-footer position.
+6. js/section-references-mobile-menu.js?v=301 — remains in the original post-footer position.
+7. js/section-references-modal-sizing.js?v=301 — remains after the mobile-menu script.
+8. js/section-references-scroll-top.js?v=301 — remains last before </body>.
+
+MIGRATED SCRIPT INVENTORY
+- js/section-references-masonry.js: 80 lines, 3893 chars, 3893 bytes, SHA-256 94897ab76875385c99ae4132f07e42fee8295f5b5ffea07c2d52c778b2db96e7
+- js/section-references-board.js: 177 lines, 9127 chars, 9305 bytes, SHA-256 7ddf12c795c5ad2bc80e33ab777fba9b17798eeef5022ab470a495a03df50b25
+- js/section-references-modal.js: 301 lines, 15463 chars, 15611 bytes, SHA-256 6c53d35266b184cea26583ac2ff4618117c49e6c0745d9f2dce704f580dd198a
+- js/section-references-nav.js: 6 lines, 153 chars, 153 bytes, SHA-256 a1db3e469d793572656e860078111a8aad750f901291fd2d47c774ba9b537d0c
+- js/section-references-mobile-menu.js: 19 lines, 656 chars, 656 bytes, SHA-256 d56d4808500eb1f4d1d8fdfb59d9bcc7716d0effb34e7ecd9565a80428111c09
+- js/section-references-modal-sizing.js: 33 lines, 1075 chars, 1075 bytes, SHA-256 34e1159e37b118a0e71d1ce8fc25607c4441cee490963a0c8ef0f57d1ea14d7c
+- js/section-references-scroll-top.js: 9 lines, 176 chars, 176 bytes, SHA-256 53d90b22081bf9c960483edea29ff786e41558f2fa7bf20537462ddbc68c055b
+
+STATIC EQUIVALENCE CHECKS
+- Replacing every new external script tag with its exact original inline block reconstructs the v300 section-references.html byte-for-byte: PASS.
+- Original script bodies were written to the new JS files without rewriting, renaming, module conversion, async/defer changes or dead-code deletion: PASS.
+- Functional inline script blocks remaining in section-references.html: 0.
+- Intentional inline blocks remaining: language first-paint bootstrap 1; JSON-LD 1.
+- All local script references in section-references.html resolve to existing files: PASS.
+- Existing files changed compared with v300: section-references.html only.
+- Existing files deleted: 0.
+
+KEY REGRESSION BOUNDARIES
+- Section Board data source remains data/section.json.
+- Desktop/mobile load-more batch sizes and stable-scroll behavior remain unchanged.
+- Masonry sizing and image-load recalculation remain unchanged.
+- Local favorites remain js/inspiration-favorites.js?v=222 and baolong.inspirationFavorites.v1.
+- Multi-image modal switching, touch swipe, keyboard navigation and scroll lock remain unchanged.
+- Prompt extraction panel, local mapping and transfer to prompt-tool.html remain unchanged.
+- Mobile navigation, modal image sizing and smooth back-to-top remain unchanged.
+- common.js?v=213, Baidu analytics v288, CSS files, JSON/data, images, SEO, canonical, robots and sitemap are unchanged.
+
+SECURITY
+- No .env, API key, model endpoint, complete Hidden Prompt, Python POC or private Vault is included.
+
+ADDITIONAL TARGET-PAGE CHECKS
+- data/section.json parses successfully and still contains 127 Section Board records.
+- Page-level inline handler references continue to resolve to existing global functions after migration; native event methods are not treated as missing page functions.
+- Automated browser screenshot/live interaction results are not claimed in this check; equivalence is established by byte-for-byte script migration, exact reconstruction, dependency order, local reference resolution and syntax validation.

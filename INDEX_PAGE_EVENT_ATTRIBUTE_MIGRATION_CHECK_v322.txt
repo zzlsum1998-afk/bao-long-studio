@@ -1,0 +1,84 @@
+BaoLong Lab v322 · 首页静态事件属性迁移专项检查
+日期：2026-07-16
+基准：baolong-resume-page-event-attribute-migration-v321-fixed-full-noimages-plus-template-assets.zip
+
+一、本轮唯一目标
+只迁移 index.html 中 48 个静态 HTML onclick 事件属性，改为外部 JavaScript addEventListener。
+不修改首页 CSS、视觉、文案、结构、产品数据、图片、i18n、JSON-LD、公共 common.js、其他页面或图片工作流。
+
+二、修改文件
+1. index.html
+2. js/index-page.js
+3. js/index-mobile-menu.js
+4. js/index-scroll-top.js
+5. INDEX_PAGE_EVENT_ATTRIBUTE_MIGRATION_CHECK_v322.txt（新增）
+
+三、48 个静态事件迁移明细
+- 桌面端素材分类 navFilter：6
+- 顶部登录：1
+- 移动菜单开关：1
+- 移动菜单链接关闭：14
+- 首页主要区域按钮与页面跳转：13
+  · 首屏/四方向入口及两个 View More：10
+  · 联系、简历、关于工具卡片：3
+- 首页首屏轮播上一张/下一张/4 个圆点：6
+- 淘宝店铺工具卡片：1
+- 商品详情弹窗背景、卡片阻止冒泡、关闭、购买、返回：5
+- 回到顶部：1
+合计：48
+
+四、迁移结果
+- index.html：onclick 48 → 0；onchange 0 → 0
+- 全站静态 HTML 事件属性：97 → 49
+- v322 后仅 prompt-tool.html 保留 49 个静态 onclick
+- 首页静态事件属性清零
+
+五、保持不变的范围
+- 首页产品数据、筛选、商品卡片渲染、商品详情内容与淘宝跳转逻辑
+- 首页 Hero 自动播放、鼠标悬停暂停、方法笔记轮播
+- 页面视觉、文案、HTML 内容层级和 CSS
+- js/common.js?v=309
+- js/index-i18n.js?v=261
+- js/taobao-links.js?v=198
+- js/index-notes-slider.js?v=306
+- SEO、JSON-LD、favicon、robots、sitemap
+- 其他 24 个 HTML 页面
+- Prompt / Workflow / Hidden Prompt / Vault
+
+六、查询参数
+- js/index-page.js?v=322
+- js/index-mobile-menu.js?v=322
+- js/index-scroll-top.js?v=322
+其余脚本查询参数未修改。
+
+七、动态事件边界
+js/index-page.js 动态生成的商品卡片与详情缩略图模板仍保留原有 onclick 字符串。
+它们不属于 index.html 的 48 个静态事件属性，本轮未扩大范围，避免同时改动动态渲染机制。
+
+八、复核结果
+- 48 个旧静态事件均建立对应外部监听
+- 桌面 navFilter 返回 false 时的 preventDefault 语义保留
+- 移动菜单开关、14 个链接关闭和菜单外点击关闭逻辑保留
+- 12 个 data-index-href 跳转目标逐项保留
+- Hero 上一张、下一张与 4 个圆点索引保留
+- 商品详情背景关闭与卡片 stopPropagation 成对保留
+- 商品购买继续调用 openProductLink / openTaobaoSmart
+- 回到顶部继续使用 smooth scroll
+- 首页新增事件目标缺失：0
+- 首页重复 id：0
+- 首页事件绑定 Node VM 模拟测试：通过
+- 61 个浏览器 JavaScript 语法检查：通过
+- 4 个 JSON 解析检查：通过
+- 27 个 CSS 花括号结构检查：通过
+- 182 个本地 CSS / JS / favicon 运行引用：缺失 0
+- 计划外修改文件：0
+- 删除文件：0
+
+九、本地回归重点
+1. 桌面端素材库 6 个分类与顶部登录
+2. 移动菜单打开、链接跳转后关闭、点击菜单外关闭
+3. 首屏 4 个方向的按钮与 Hero 左右箭头/圆点
+4. 创作入口、素材 View More、联系/简历/关于/淘宝工具卡片
+5. 首页商品卡片、详情弹窗关闭、缩略图、购买按钮
+6. 右下角回到顶部
+7. 中英文切换、自动轮播和方法笔记轮播

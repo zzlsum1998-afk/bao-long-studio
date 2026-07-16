@@ -284,7 +284,7 @@ $('clearBtn').addEventListener('click',()=>{$('csvInput').value='';data=[];rende
 $('downloadTemplateBtn').addEventListener('click',()=>downloadText('data-bloom-template.csv',sampleCSV));
 $('exportBtn').addEventListener('click',exportPNG);
 $('csvFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;const text=await file.text();$('csvInput').value=text;loadFromText()});
-document.querySelectorAll('.chip').forEach(btn=>btn.onclick=()=>{filter=btn.dataset.filter;document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const first=data.find(d=>filter==='all'||d.cat===filter);if(first)selectedId=first.id;render()});
+document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{filter=btn.dataset.filter;document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const first=data.find(d=>filter==='all'||d.cat===filter);if(first)selectedId=first.id;render()}));
 $('csvInput').value=sampleCSV;
 loadFromText();
 

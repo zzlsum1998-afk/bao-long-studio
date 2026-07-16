@@ -275,12 +275,12 @@
     if(document.querySelector('.language-toggle')) return;
     var action=document.querySelector('.site-header .header-actions');
     if(action){
-      var btn=document.createElement('button');btn.type='button';btn.className='language-toggle pill-btn';btn.textContent='中文 / EN';btn.onclick=function(e){e.preventDefault();setLang(getLang()==='zh'?'en':'zh');};
+      var btn=document.createElement('button');btn.type='button';btn.className='language-toggle pill-btn';btn.textContent='中文 / EN';btn.addEventListener('click',function(e){e.preventDefault();setLang(getLang()==='zh'?'en':'zh');});
       action.appendChild(btn);
     }
     var panel=document.getElementById('mobileMenuPanel');
     if(panel){
-      var mobileBtn=document.createElement('button');mobileBtn.type='button';mobileBtn.className='language-toggle mobile-language-toggle';mobileBtn.textContent='中文 / EN';mobileBtn.onclick=function(e){e.preventDefault();setLang(getLang()==='zh'?'en':'zh');};
+      var mobileBtn=document.createElement('button');mobileBtn.type='button';mobileBtn.className='language-toggle mobile-language-toggle';mobileBtn.textContent='中文 / EN';mobileBtn.addEventListener('click',function(e){e.preventDefault();setLang(getLang()==='zh'?'en':'zh');});
       panel.appendChild(mobileBtn);
     }
   }

@@ -1,0 +1,63 @@
+BaoLong Lab · Color Board JS Externalization Check · v303
+Date: 2026-07-16
+Base: baolong-other-board-js-externalization-v302-full-noimages-plus-template-assets.zip
+Target page: color-references.html
+
+SCOPE
+- This version only externalizes the six functional inline JavaScript blocks from color-references.html.
+- Page structure, copy, styles, Color Board data, relation filters, local favorites, detail modal, color extractor, mobile menu and other pages remain unchanged.
+- The language first-paint bootstrap script and JSON-LD stay inline intentionally.
+- No refactor, dead-code cleanup, inline event-attribute migration, shared Board consolidation or cache-version unification is included.
+
+CHANGED / ADDED FILES
+- Modified: color-references.html
+- Added: js/color-references-board.js
+- Added: js/color-references-modal.js
+- Added: js/color-references-extractor.js
+- Added: js/color-references-nav.js
+- Added: js/color-references-mobile-menu.js
+- Added: js/color-references-scroll-top.js
+- Added: COLOR_BOARD_JS_EXTERNALIZATION_CHECK_v303.txt
+
+EXTERNAL SCRIPT ORDER
+1. js/inspiration-favorites.js?v=222 — existing deferred dependency, unchanged.
+2. js/color-references-board.js?v=303 — Color Board data loading, relation filtering, rendering, favorites binding and load-more logic.
+3. js/color-references-modal.js?v=303 — Detail modal, scroll lock, color-value extraction and copy behavior.
+4. js/color-references-extractor.js?v=303 — Image color extraction, generated schemes, copy, reset and palette export.
+5. js/color-references-nav.js?v=303 — Assets filter navigation helper.
+6. js/color-references-mobile-menu.js?v=303 — Mobile menu open/close and outside-click behavior.
+7. js/color-references-scroll-top.js?v=303 — Smooth current-page back-to-top behavior.
+
+MIGRATED SCRIPT INVENTORY
+- js/color-references-board.js: 116 lines, 5623 chars, 5718 bytes, SHA-256 278f513324503b4c943d096fab35a6b590e21d4e5e8b9a88da9b851f06ea954b
+- js/color-references-modal.js: 105 lines, 4360 chars, 4426 bytes, SHA-256 6aa6a34b55bd333595865a5698505a77b4dbda2f1523c190e42e1827d1edfac1
+- js/color-references-extractor.js: 370 lines, 14510 chars, 14568 bytes, SHA-256 8941981c3e5a11a6a85471664ea7d307f405bfec7e3fe4898cf239fad77f6bf8
+- js/color-references-nav.js: 6 lines, 153 chars, 153 bytes, SHA-256 a1db3e469d793572656e860078111a8aad750f901291fd2d47c774ba9b537d0c
+- js/color-references-mobile-menu.js: 19 lines, 656 chars, 656 bytes, SHA-256 d56d4808500eb1f4d1d8fdfb59d9bcc7716d0effb34e7ecd9565a80428111c09
+- js/color-references-scroll-top.js: 9 lines, 176 chars, 176 bytes, SHA-256 53d90b22081bf9c960483edea29ff786e41558f2fa7bf20537462ddbc68c055b
+
+STATIC EQUIVALENCE CHECKS
+- Replacing every new external script tag with its exact original inline block reconstructs the v302 color-references.html byte-for-byte: PASS.
+- Original script bodies were written to the new JS files without rewriting, renaming, module conversion, async/defer changes or dead-code deletion: PASS.
+- Functional inline script blocks remaining in color-references.html: 0.
+- Intentional inline blocks remaining: language first-paint bootstrap 1; JSON-LD 1.
+- All local script references in color-references.html resolve to existing files: PASS.
+- Existing files changed compared with v302: color-references.html only.
+- Existing files deleted: 0.
+
+KEY REGRESSION BOUNDARIES
+- data/color.json parses successfully and still contains 100 Color Board records.
+- Color relationship filters, load-more batch sizes, local favorites and card rendering remain unchanged.
+- Detail modal open/close, page scroll lock, color value copy and source display remain unchanged.
+- Color extractor upload, dominant-color sampling, scheme generation, clipboard actions and PNG palette export remain unchanged.
+- Mobile navigation, assets filter navigation and smooth back-to-top remain unchanged.
+- js/inspiration-favorites.js?v=222, baolong.inspirationFavorites.v1, common.js?v=213 and Baidu analytics v288 are unchanged.
+- CSS files, JSON/data other than read-only validation, images, SEO, canonical, robots and sitemap are unchanged.
+
+SECURITY
+- No .env, API key, model endpoint, complete Hidden Prompt, Python POC or private Vault is included.
+
+BROWSER REGRESSION
+- The sandbox browser blocked both localhost and file:// navigation with ERR_BLOCKED_BY_ADMINISTRATOR, so automated screenshot/live interaction parity is not claimed for this package.
+- Equivalence is established by byte-for-byte script migration, exact HTML reconstruction, preserved execution order, DOM/reference checks and JavaScript syntax validation.
+- Local review should focus on relation filters, load more, favorites, card detail modal, color-value copy, image color extractor, palette export, mobile menu and back-to-top.

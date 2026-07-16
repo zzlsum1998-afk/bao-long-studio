@@ -181,3 +181,68 @@
     }
     window.scrollTo({top:0, behavior:'smooth'});
   }
+
+  /* v320: Prompt Generator static event-attribute migration.
+     Keeps navigation, Prompt Tool entry, modal actions, and back-to-top behavior unchanged. */
+  (function(){
+    function bindPromptGeneratorStaticEvents(){
+      document.querySelectorAll('[data-nav-filter]').forEach(function(link){
+        link.addEventListener('click', function(event){
+          const category = link.getAttribute('data-nav-filter') || '';
+          const result = navFilter(category);
+          if(result === false) event.preventDefault();
+        });
+      });
+
+      const loginEntry = document.querySelector('[data-login-entry]');
+      if(loginEntry){
+        loginEntry.addEventListener('click', function(){
+          location.href = 'login.html';
+        });
+      }
+
+      const menuToggle = document.querySelector('[data-mobile-menu-toggle]');
+      if(menuToggle){
+        menuToggle.addEventListener('click', toggleMobileMenu);
+      }
+
+      document.querySelectorAll('[data-close-mobile-menu]').forEach(function(link){
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.querySelectorAll('[data-prompt-tool-link]').forEach(function(element){
+        element.addEventListener('click', function(){
+          location.href = 'prompt-tool.html?v=233';
+        });
+      });
+
+      const categoriesButton = document.querySelector('[data-scroll-to-categories]');
+      if(categoriesButton){
+        categoriesButton.addEventListener('click', function(){
+          const categories = document.getElementById('categories');
+          if(categories) categories.scrollIntoView({behavior:'smooth'});
+        });
+      }
+
+      document.querySelectorAll('[data-close-prompt-case]').forEach(function(button){
+        button.addEventListener('click', closePromptCase);
+      });
+
+      const copyButton = document.querySelector('[data-copy-prompt-case]');
+      if(copyButton){
+        copyButton.addEventListener('click', copyPromptCase);
+      }
+
+      const topButton = document.querySelector('[data-scroll-current-page-top]');
+      if(topButton){
+        topButton.addEventListener('click', scrollCurrentPageTop);
+      }
+    }
+
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', bindPromptGeneratorStaticEvents);
+    }else{
+      bindPromptGeneratorStaticEvents();
+    }
+  })();
+

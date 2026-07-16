@@ -1,0 +1,53 @@
+BAOLONG LAB · PLANT COLOR CALENDAR JS EXTERNALIZATION CHECK · v292
+Date: 2026-07-16
+Base: baolong-plant-emotion-radar-js-externalization-v291-full-noimages-plus-template-assets.zip
+Target: plant-color-calendar.html functional JavaScript externalization only
+
+1. Actual changes
+- Modified: plant-color-calendar.html
+- Added: js/plant-color-calendar.js
+- Added: PLANT_COLOR_CALENDAR_JS_EXTERNALIZATION_CHECK_v292.txt
+- No other existing website runtime file changed.
+
+2. Migration scope
+- Moved the three page-functional inline script blocks from plant-color-calendar.html into js/plant-color-calendar.js.
+- New reference: js/plant-color-calendar.js?v=292
+- External file: 13,229 Unicode characters / 16,739 bytes / 198 lines.
+- Original functional blocks:
+  1) 12,421 characters / 177 counted lines
+  2) 153 characters / 6 counted lines
+  3) 656 characters / 19 counted lines
+- Code order preserved:
+  1) 52-week plant dataset, season definitions and helper functions
+  2) mini color strip, season tabs and calendar rendering
+  3) detail panel, palette copy, clear and initialization actions
+  4) asset navigation filter
+  5) mobile menu toggle, close and outside-click handler
+- The external file is the ordered concatenation of the three original script bodies; only outer wrapper blank lines were normalized.
+- No async, defer, module type, bundling, minification, refactor, renaming or dead-code cleanup was introduced.
+
+3. Intentionally retained inline content
+- Language first-paint anti-flash boot script remains inline in <head>.
+- JSON-LD structured data remains inline as application/ld+json.
+- common.js?v=213 and baidu-analytics.js?v=288 references remain unchanged.
+- plant-color-calendar.html now contains zero page-functional inline JavaScript blocks.
+
+4. Functional boundaries
+- 52 weekly plant colors, four season groups and season-tab scrolling remain unchanged.
+- Weekly color-cell rendering, active-cell state and detail-panel content remain unchanged.
+- Plant name, Latin name, state, scene, description and pairing colors remain unchanged.
+- Copy single color, copy full palette, toast and clear-detail actions remain unchanged.
+- Asset filter navigation remains unchanged.
+- Mobile menu open, close and outside-click behavior remain unchanged.
+- Existing inline onclick calls continue using the same global classic-script function names.
+- CSS, page copy, SEO, analytics, navigation, other pages, JSON/data, images and website tools were not changed.
+
+5. Verification performed
+- js/plant-color-calendar.js passes Node.js syntax check.
+- Static comparison confirms that only plant-color-calendar.html changed among existing v291 files before adding the new JS/check file.
+- Script inventory confirms the language boot and JSON-LD blocks are retained and all three functional inline blocks are removed.
+- Controlled Chromium regression at 1440 × 1000 and 390 × 844 produced identical baseline/candidate states and zero page or console errors in the functional test harness.
+- Initial and first-week detail viewport screenshots are pixel-identical at both desktop and mobile sizes: 0 differing pixels.
+- Regression covered 13 mini-strip colors, four season tabs, 52 week cells, first-week detail rendering, four pairing swatches, clear-detail state, season-tab switching, mobile menu opening and outside-click closing.
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.

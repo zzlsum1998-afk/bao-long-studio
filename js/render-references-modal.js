@@ -298,4 +298,26 @@
     }
 
     document.addEventListener('DOMContentLoaded', injectPromptButtons);
+
+    function bindBoardModalEvents(){
+      const modal = document.getElementById('modal');
+      const modalCard = document.getElementById('modalCard');
+      const closeButton = document.getElementById('modalCloseBtn');
+      const promptButton = document.getElementById('modalPromptBtn');
+      const applyButton = document.getElementById('promptApplyBtn');
+      const copyButton = document.getElementById('promptCopyBtn');
+
+      if(modal) modal.addEventListener('click', closeModal);
+      if(modalCard){
+        modalCard.addEventListener('click', function(event){
+          event.stopPropagation();
+        });
+      }
+      if(closeButton) closeButton.addEventListener('click', function(){ closeModal(); });
+      if(promptButton) promptButton.addEventListener('click', generatePromptFromReference);
+      if(applyButton) applyButton.addEventListener('click', applyPromptToTool);
+      if(copyButton) copyButton.addEventListener('click', copyExtractedPrompt);
+    }
+
+    document.addEventListener('DOMContentLoaded', bindBoardModalEvents);
   

@@ -6,3 +6,15 @@
     }
     window.scrollTo({top:0, behavior:'smooth'});
   }
+
+
+  function bindBoardScrollTopEvent(){
+    const button = document.getElementById('floatingTopBtn');
+    if(button) button.addEventListener('click', scrollCurrentPageTop);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bindBoardScrollTopEvent);
+  }else{
+    bindBoardScrollTopEvent();
+  }

@@ -1,0 +1,38 @@
+BaoLong Lab · v337 fixed · Plant Color Calendar 色值复制回归修复
+
+版本定位
+- 本修复版基于 v337 full。
+- v337 在完成季节标签、周色块与搭配色色块事件属性迁移后，用户本地回归反馈色值无法复制。
+- 为避免把缺陷版本继续作为基准，本次不升级到 v338，统一标记为 v337 fixed；原 v337 full / patch 作废。
+
+本次修改范围
+1. plant-color-calendar.html
+   - 仅将 js/plant-color-calendar.js 缓存参数由 ?v=337 更新为 ?v=337-fixed。
+   - js/common.js 仍保持 ?v=309。
+2. js/plant-color-calendar.js
+   - 保留 v337 已完成的三类 addEventListener 迁移。
+   - 修复 copyText：优先使用 Clipboard API；在本地文件预览、权限拒绝或 Clipboard API 不可用时，自动回退到隐藏 textarea + document.execCommand('copy')。
+   - 复制成功继续显示原“已复制 …” Toast；两条复制路径均失败时显示“复制失败，请手动选择色值”。
+3. 新增本检查文档。
+
+未修改
+- 52 周植物数据、季节分类、色值与搭配色。
+- 大号 HEX、整组复制、搭配色色块、详情收起的业务逻辑。
+- 页面视觉、文案（除失败提示）、结构、滚动和选中状态。
+- 其他 HTML / CSS / JS / JSON、common.js、SEO、图片、Vault 或图片工作流配置。
+
+重点回归
+- 点击周色块后，大号 HEX 可复制。
+- “复制本组色值”可复制 4 行 HEX。
+- 四个搭配色色块可分别复制。
+- HTTP / HTTPS 下 Clipboard API 成功路径正常。
+- file:// 本地打开、Clipboard API 不可用或权限拒绝时，fallback 路径正常。
+- 复制后 Toast、当前详情、选中周色块均保持。
+- 季节标签、周色块与搭配色色块仍使用 addEventListener；本页直接事件属性赋值保持 0。
+
+验证结果
+- 使用实际 copyText 函数完成精确单元回归：Clipboard API 成功路径、Clipboard API 拒绝后的 fallback、四行整组复制、双路径失败提示均通过。
+- Plant Color Calendar 的 4 个季节标签、52 个周色块、4 个搭配色色块仍使用 addEventListener。
+- 本页直接 DOM 事件属性赋值为 0；全站静态 on*、动态内联 on* 与 javascript: URL 均保持 0。
+- 61 个 JavaScript 文件语法检查通过；本地 CSS / JS / favicon 引用缺失为 0。
+- full 与 patch 均实际解压；patch 覆盖原 v337 后与 fixed full 逐文件哈希一致。

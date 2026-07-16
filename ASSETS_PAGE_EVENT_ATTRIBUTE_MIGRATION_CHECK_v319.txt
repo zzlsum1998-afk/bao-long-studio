@@ -1,0 +1,53 @@
+BaoLong Lab · v319 · Assets 页面元素事件属性迁移检查
+
+基准：baolong-color-board-remaining-event-migration-v318-full-noimages-plus-template-assets.zip
+任务：只迁移 assets.html 中审计确认的 37 个静态 onclick，不修改页面视觉、文案、数据、商品内容或外部链接。
+
+一、迁移范围
+1. 桌面端素材分类导航：6 个 return navFilter(...)。
+2. 顶部登录入口：1 个 onclick。
+3. 移动菜单开关与菜单链接关闭：15 个 onclick（1 + 14）。
+4. Hero 快捷筛选：2 个 filterProducts(...)。
+5. 素材分类标签：7 个 filterProducts(...)。
+6. 商品详情弹窗：背景关闭、弹窗卡片阻止冒泡、× 关闭、商品链接、返回列表，共 5 个 onclick。
+7. 回到顶部：1 个 onclick。
+合计：37 个。
+
+二、实际修改文件
+- assets.html
+- js/assets.js
+- ASSETS_PAGE_EVENT_ATTRIBUTE_MIGRATION_CHECK_v319.txt（新增）
+
+三、保持不变
+- products 商品数据、分类匹配、排序、价格、商品链接与免费素材链接不变。
+- 商品卡片渲染、详情图片、购买/下载跳转与 Hero 轮播逻辑不变。
+- css/assets.css、css/common.css、js/common.js、js/taobao-links.js 不变。
+- 页面视觉、文案、结构、SEO、Canonical、中英文与主域名不变。
+- assets.js 动态模板中原有的商品卡片与详情缩略图 onclick 不属于 v310 的 37 个静态 HTML 属性，本轮不顺手治理。
+- 图片工作流、Hidden Prompt、Vault、API 配置与其他页面不变。
+
+四、缓存参数
+- js/assets.js?v=319
+- js/common.js?v=309 保持不变。
+- js/taobao-links.js?v=198 保持不变。
+- css/assets.css?v=268 与 css/common.css?v=197 保持不变。
+
+五、事件语义保护
+- 桌面端 navFilter 仍调用页面自身的 filterProducts，并在返回 false 时显式 preventDefault，保留原来的同页筛选语义。
+- 详情弹窗背景关闭与卡片内部 stopPropagation 成对迁移。
+- 商品链接仍优先调用 openTaobaoSmart，缺失时沿用 window.open 回退。
+- 移动菜单、登录、筛选与平滑回到顶部行为保持不变。
+
+六、验收重点
+- 桌面端素材库 6 个分类。
+- Hero 的 View All Assets / View Free。
+- 7 个素材分类标签及标题、描述、URL 同步。
+- 商品卡片详情：背景关闭、内部点击不关闭、×、商品链接、Back to Products。
+- 顶部登录、移动菜单与右下角回到顶部。
+- 商品列表、Hero 轮播、中英文与淘宝/百度网盘链接回归。
+
+七、数量预期
+- assets.html 静态事件属性：37 → 0。
+- 全站静态事件属性：216 → 179。
+- onclick：215 → 178。
+- onchange：保持 1。

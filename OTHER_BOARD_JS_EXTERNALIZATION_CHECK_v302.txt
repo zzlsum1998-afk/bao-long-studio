@@ -1,0 +1,67 @@
+BaoLong Lab · Other Board JS Externalization Check · v302
+Date: 2026-07-16
+Base: baolong-section-board-js-externalization-v301-full-noimages-plus-template-assets.zip
+Target page: render-references.html
+
+SCOPE
+- This version only externalizes the seven functional inline JavaScript blocks from render-references.html (the visitor-facing Other Board page).
+- Page structure, visitor-facing Other Board naming, copy, styles, data source, favorites, loading behavior, modal behavior, Prompt extraction, mobile menu, animations and other pages remain unchanged.
+- The language first-paint bootstrap script and JSON-LD stay inline intentionally.
+- No dead-code cleanup, refactor, event-attribute migration, shared Board consolidation or cache-version unification is included.
+
+CHANGED / ADDED FILES
+- Modified: render-references.html
+- Added: js/render-references-masonry.js
+- Added: js/render-references-board.js
+- Added: js/render-references-modal.js
+- Added: js/render-references-nav.js
+- Added: js/render-references-mobile-menu.js
+- Added: js/render-references-modal-sizing.js
+- Added: js/render-references-scroll-top.js
+- Added: OTHER_BOARD_JS_EXTERNALIZATION_CHECK_v302.txt
+
+EXTERNAL SCRIPT ORDER
+1. js/render-references-masonry.js?v=302 — remains in the original head position before common.js.
+2. js/inspiration-favorites.js?v=222 — existing deferred dependency, unchanged.
+3. js/render-references-board.js?v=302 — remains in the first original Board script position.
+4. js/render-references-modal.js?v=302 — remains immediately after the Board script.
+5. js/render-references-nav.js?v=302 — remains in the original pre-footer position.
+6. js/render-references-mobile-menu.js?v=302 — remains in the original post-footer position.
+7. js/render-references-modal-sizing.js?v=302 — remains after the mobile-menu script.
+8. js/render-references-scroll-top.js?v=302 — remains last before </body>.
+
+MIGRATED SCRIPT INVENTORY
+- js/render-references-masonry.js: 80 lines, 3893 chars, 3893 bytes, SHA-256 94897ab76875385c99ae4132f07e42fee8295f5b5ffea07c2d52c778b2db96e7
+- js/render-references-board.js: 178 lines, 9182 chars, 9360 bytes, SHA-256 453d33f62f63c98e5856a3e773b8fdd16a3d4dab44117c9e0506ce5808f27bff
+- js/render-references-modal.js: 301 lines, 15490 chars, 15638 bytes, SHA-256 fd7087c9d786cf63ee118901848c6c2668d929b1993dad0c04d72a2a54ca77e2
+- js/render-references-nav.js: 6 lines, 153 chars, 153 bytes, SHA-256 a1db3e469d793572656e860078111a8aad750f901291fd2d47c774ba9b537d0c
+- js/render-references-mobile-menu.js: 19 lines, 656 chars, 656 bytes, SHA-256 d56d4808500eb1f4d1d8fdfb59d9bcc7716d0effb34e7ecd9565a80428111c09
+- js/render-references-modal-sizing.js: 32 lines, 1075 chars, 1075 bytes, SHA-256 34e1159e37b118a0e71d1ce8fc25607c4441cee490963a0c8ef0f57d1ea14d7c
+- js/render-references-scroll-top.js: 8 lines, 176 chars, 176 bytes, SHA-256 53d90b22081bf9c960483edea29ff786e41558f2fa7bf20537462ddbc68c055b
+
+STATIC EQUIVALENCE CHECKS
+- Replacing every new external script tag with its exact original inline block reconstructs the v301 render-references.html byte-for-byte: PASS.
+- Original script bodies were written to the new JS files without rewriting, renaming, module conversion, async/defer changes or dead-code deletion: PASS.
+- Functional inline script blocks remaining in render-references.html: 0.
+- Intentional inline blocks remaining: language first-paint bootstrap 1; JSON-LD 1.
+- All local script references in render-references.html resolve to existing files: PASS.
+- Existing files changed compared with v301: render-references.html only.
+- Existing files deleted: 0.
+
+KEY REGRESSION BOUNDARIES
+- The visitor-facing page remains Other Board; the historical filename render-references.html and data source data/other.json remain unchanged.
+- Desktop/mobile load-more batch sizes and stable-scroll behavior remain unchanged.
+- Masonry sizing and image-load recalculation remain unchanged.
+- Local favorites remain js/inspiration-favorites.js?v=222 and baolong.inspirationFavorites.v1.
+- Multi-image modal switching, touch swipe, keyboard navigation and scroll lock remain unchanged.
+- Prompt extraction panel, local mapping and transfer to prompt-tool.html remain unchanged.
+- Mobile navigation, modal image sizing and smooth back-to-top remain unchanged.
+- common.js?v=213, Baidu analytics v288, CSS files, JSON/data, images, SEO, canonical, robots and sitemap are unchanged.
+
+SECURITY
+- No .env, API key, model endpoint, complete Hidden Prompt, Python POC or private Vault is included.
+
+ADDITIONAL TARGET-PAGE CHECKS
+- data/other.json parses successfully and still contains 289 Other Board records.
+- Page-level inline handler references continue to resolve to existing global functions after migration; native event methods are not treated as missing page functions.
+- Automated browser screenshot/live interaction results are not claimed in this check; equivalence is established by byte-for-byte script migration, exact reconstruction, dependency order, local reference resolution and syntax validation.

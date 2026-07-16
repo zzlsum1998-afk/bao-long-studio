@@ -43,12 +43,29 @@ const metaCoverage = document.getElementById('metaCoverage');
 const seasonName = {spring:'春季', summer:'夏季', autumn:'秋季', winter:'冬季'};
 
 /* ---- build plant chips ---- */
+function activatePlantChip(chip,i){
+  curPlant=i; mode='brush'; setMode();
+  document.querySelectorAll('.plant-chip').forEach(c=>{
+    const isActive=c===chip;
+    c.classList.toggle('active',isActive);
+    c.setAttribute('aria-pressed',String(isActive));
+  });
+}
 PLANTS.forEach((p,i)=>{
   const chip=document.createElement('div');
   chip.className='plant-chip'; chip.dataset.idx=i;
+  chip.setAttribute('role','button');
+  chip.setAttribute('tabindex','0');
+  chip.setAttribute('aria-pressed','false');
+  chip.setAttribute('aria-label',`选择植物：${p.name}`);
   chip.innerHTML=`<div class="chip-swatch">${p[curSeason].map(c=>`<span style="background:${c}"></span>`).join('')}</div>
     <div><div class="chip-name">${p.name}</div><div class="chip-latin">${p.latin}</div></div>`;
-  chip.onclick=()=>{ curPlant=i; mode='brush'; setMode(); document.querySelectorAll('.plant-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); };
+  chip.addEventListener('click',()=>activatePlantChip(chip,i));
+  chip.addEventListener('keydown',e=>{
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    e.preventDefault();
+    activatePlantChip(chip,i);
+  });
   plantList.appendChild(chip);
 });
 
@@ -129,7 +146,7 @@ document.getElementById('sampleBtn').addEventListener('click',()=>{
     if(pattern[r][c]>=0){ siteMask[r][c]=true; grid[r][c]=pattern[r][c]; }
   }
   curPlant=0; mode='brush'; setMode();
-  document.querySelectorAll('.plant-chip').forEach(chip=>chip.classList.toggle('active', chip.dataset.idx==='0'));
+  document.querySelectorAll('.plant-chip').forEach(chip=>{const isActive=chip.dataset.idx==='0';chip.classList.toggle('active',isActive);chip.setAttribute('aria-pressed',String(isActive));});
   timeSlider.value=45; timeVal=45;
   const n=NOTES.find(x=>timeVal<x.max)||NOTES[NOTES.length-1];
   timeStage.textContent=n.stage; timeNote.textContent=n.note;

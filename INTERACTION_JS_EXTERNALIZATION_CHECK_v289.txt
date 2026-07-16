@@ -1,0 +1,42 @@
+BAOLONG LAB · INTERACTION JS EXTERNALIZATION CHECK v289
+Date: 2026-07-16
+Base: baolong-baidu-analytics-js-externalization-v288-full-noimages-plus-template-assets.zip
+Target: interaction.html only
+
+1. Scope
+- Modified: interaction.html
+- Added: js/interaction.js
+- Added: INTERACTION_JS_EXTERNALIZATION_CHECK_v289.txt
+- No other runtime file is intentionally changed.
+
+2. Migration
+- Externalized the three page-functional inline scripts from interaction.html:
+  1) navFilter(category)
+  2) toggleMobileMenu() / closeMobileMenu() / outside-click listener
+  3) scrollCurrentPageTop(event)
+- Original combined inline script body: 985 characters, 34 lines (counted per original block).
+- New reference: js/interaction.js?v=289
+- External script is loaded at the original final functional-script position immediately before </body>.
+- No async, defer, module type, bundling, minification, refactor, renaming, or dead-code cleanup is introduced.
+
+3. Intentionally retained inline scripts
+- Language first-paint boot script remains inline in <head> to prevent language flash.
+- JSON-LD structured data remains inline as application/ld+json.
+- Baidu Analytics remains externally loaded through js/baidu-analytics.js?v=288.
+
+4. Functional boundaries
+- Navigation asset filters remain unchanged.
+- Desktop navigation, mobile menu opening/closing, outside-click closing, and floating back-to-top behavior remain unchanged.
+- Page copy, links, cards, animation/visual presentation, CSS, SEO, common.js, analytics, and other pages remain unchanged.
+- Existing inline HTML event attributes continue calling the same global function names.
+
+5. Verification performed
+- js/interaction.js matches the three original inline bodies in their original order, separated only by blank lines.
+- Node.js syntax check passes.
+- interaction.html contains zero remaining page-functional inline JavaScript blocks.
+- Language boot, JSON-LD, common.js, and Baidu Analytics references remain present.
+- Browser equivalence test passes at 1440 × 1000: full-page screenshots are pixel-identical (0 differing pixels).
+- Mobile behavior equivalence passes at 390 × 844: menu opens, outside click closes it, and the floating button returns the page to scrollY 0.
+- Browser page-error count is 0 for both the v288 baseline and v289 candidate in the controlled local regression.
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script, or private Vault is included.

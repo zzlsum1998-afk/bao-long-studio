@@ -357,12 +357,7 @@
 </div>
 </section>
 </main>
-<script>
-    function navFilter(category){
-      location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
-      return false;
-    }
-  </script>
+
 <button class="floating-top-btn" type="button" onclick="scrollCurrentPageTop(event)" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">✦</button>
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
@@ -370,34 +365,8 @@
 <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span><br/>
 <span class="footer-line"><a href="about.html" style="text-decoration:underline; text-underline-offset:3px;">关于 / About</a> · <a href="contact.html" style="text-decoration:underline; text-underline-offset:3px;">联系 / Contact</a> · <a href="privacy.html" style="text-decoration:underline; text-underline-offset:3px;">隐私政策 / Privacy Policy</a> · <a href="terms.html" style="text-decoration:underline; text-underline-offset:3px;">用户协议 / Terms of Use</a></span>
 </footer>
-<script>
-    function toggleMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.toggle('open');
-    }
 
-    function closeMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.remove('open');
-    }
-
-    document.addEventListener('click', function(event){
-      const panel = document.getElementById('mobileMenuPanel');
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      if(!panel || !toggle) return;
-      if(panel.contains(event.target) || toggle.contains(event.target)) return;
-      panel.classList.remove('open');
-    });
-  </script>
-<script>
-  function scrollCurrentPageTop(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-</script>
+<script src="js/interaction.js?v=289"></script>
 
 </body>
 </html>

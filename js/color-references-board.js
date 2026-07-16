@@ -90,6 +90,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.color-filter-tab[data-filter]').forEach(function(tab){
+        tab.addEventListener('click', function(){
+          filterColorCards(tab.dataset.filter || 'all');
+        });
+      });
       const btn = document.getElementById('colorLoadMoreBtn');
       if(btn) btn.addEventListener('click', loadMoreColorBoard);
       if(window.BLInspirationFavorites){

@@ -102,4 +102,25 @@
       document.getElementById("modal").classList.remove("open");
       unlockPageScroll();
     }
-  
+
+    function bindColorReferenceModalEvents(){
+      const modal = document.getElementById('modal');
+      const modalCard = document.getElementById('modalCard');
+      const closeButton = document.getElementById('modalCloseBtn');
+      const copyButton = document.getElementById('copyColorBtn');
+
+      if(modal) modal.addEventListener('click', closeModal);
+      if(modalCard){
+        modalCard.addEventListener('click', function(event){
+          event.stopPropagation();
+        });
+      }
+      if(closeButton) closeButton.addEventListener('click', function(){ closeModal(); });
+      if(copyButton) copyButton.addEventListener('click', copyModalColorValues);
+    }
+
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', bindColorReferenceModalEvents);
+    }else{
+      bindColorReferenceModalEvents();
+    }

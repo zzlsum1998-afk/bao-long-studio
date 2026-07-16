@@ -365,5 +365,36 @@
       showExtractorToast.timer = window.setTimeout(function(){ toast.classList.remove('show'); }, 1800);
     }
 
-    document.addEventListener('DOMContentLoaded', initColorExtractor);
+    function bindColorExtractorStaticEvents(){
+      const openButton = $('colorToolOpenBtn');
+      const modal = $('colorExtractorModal');
+      const modalCard = $('colorExtractorCard');
+      const closeButton = $('colorExtractorCloseBtn');
+      const copyButton = $('copyExtractorColorsBtn');
+      const exportButton = $('exportExtractorCardBtn');
+      const resetButton = $('resetColorExtractorBtn');
+
+      if(openButton) openButton.addEventListener('click', window.openColorExtractor);
+      if(modal) modal.addEventListener('click', window.closeColorExtractor);
+      if(modalCard){
+        modalCard.addEventListener('click', function(event){
+          event.stopPropagation();
+        });
+      }
+      if(closeButton) closeButton.addEventListener('click', function(){ window.closeColorExtractor(); });
+      if(copyButton) copyButton.addEventListener('click', window.copyExtractorColors);
+      if(exportButton) exportButton.addEventListener('click', window.exportExtractorCard);
+      if(resetButton) resetButton.addEventListener('click', window.resetColorExtractor);
+    }
+
+    function initializeColorExtractorPage(){
+      initColorExtractor();
+      bindColorExtractorStaticEvents();
+    }
+
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', initializeColorExtractorPage);
+    }else{
+      initializeColorExtractorPage();
+    }
   })();

@@ -247,73 +247,15 @@
 <footer class="footer">
     BaoLong Lab · Resume Templates
   </footer>
-<script>
-    const heroResumeImages = [
-      "images/resume-previews/resume-1.webp",
-      "images/resume-previews/resume-2.webp",
-      "images/resume-previews/resume-3.webp",
-      "images/resume-previews/resume-4.webp"
-    ];
+<script src="js/resume.js?v=290"></script>
 
-    function switchHeroTemplate(index){
-      const sheet = document.getElementById("heroSheet");
-      const thumbs = document.querySelectorAll(".thumb");
-      thumbs.forEach((thumb, i) => thumb.classList.toggle("active", i === index));
-      if(sheet && heroResumeImages[index]){
-        sheet.src = heroResumeImages[index];
-        sheet.alt = `Resume template preview ${String(index + 1).padStart(2, "0")}`;
-      }
-    }
-  </script>
-<script>
-function handleResumeUploadPlaceholder(input){
-  const file = input.files && input.files[0];
-  const status = document.getElementById("resumeUploadStatus");
-  if(!file){
-    if(status) status.textContent = "No file selected.";
-    return;
-  }
-  const lowerName = file.name.toLowerCase();
-  const okByExt = [".jpeg",".jpg",".png",".pdf",".doc",".docx"].some(ext => lowerName.endsWith(ext));
-  if(!okByExt){
-    alert("文件识别功能正在准备中，请先使用可编辑表单填写简历内容。");
-    input.value = "";
-    if(status) status.textContent = "Unsupported file type.";
-    return;
-  }
-  if(status) status.textContent = "已选择：" + file.name + "（识别功能准备中）";
-}
-</script>
-<script>
-    function navFilter(category){
-      location.href = 'assets.html?filter=' + encodeURIComponent(category) + '#products';
-      return false;
-    }
-  </script>
+
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
 <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
 <span class="footer-line">Inspiration references are for study and source indexing only; rights belong to their respective creators. Contact us for removal if needed.</span><br/>
 <span class="footer-line"><a href="about.html" style="text-decoration:underline; text-underline-offset:3px;">关于 / About</a> · <a href="contact.html" style="text-decoration:underline; text-underline-offset:3px;">联系 / Contact</a> · <a href="privacy.html" style="text-decoration:underline; text-underline-offset:3px;">隐私政策 / Privacy Policy</a> · <a href="terms.html" style="text-decoration:underline; text-underline-offset:3px;">用户协议 / Terms of Use</a></span>
 </footer>
-<script>
-    function toggleMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.toggle('open');
-    }
 
-    function closeMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.remove('open');
-    }
-
-    document.addEventListener('click', function(event){
-      const panel = document.getElementById('mobileMenuPanel');
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      if(!panel || !toggle) return;
-      if(panel.contains(event.target) || toggle.contains(event.target)) return;
-      panel.classList.remove('open');
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+BAOLONG LAB · RESUME ENTRY JS EXTERNALIZATION CHECK · v290
+Date: 2026-07-16
+Base: baolong-interaction-js-externalization-v289-full-noimages-plus-template-assets.zip
+Target: resume.html functional JavaScript externalization only
+
+1. Actual changes
+- Modified: resume.html
+- Added: js/resume.js
+- Added: RESUME_JS_EXTERNALIZATION_CHECK_v290.txt
+- No other existing website runtime file changed.
+
+2. Migration scope
+- Moved four functional inline script blocks from resume.html into js/resume.js.
+- New reference: js/resume.js?v=290
+- External file length: 2083 characters / 60 lines.
+- Original four script bodies: 2081 characters / 62 counted lines in HTML blocks.
+- Code order preserved:
+  1) heroResumeImages + switchHeroTemplate()
+  2) handleResumeUploadPlaceholder()
+  3) navFilter()
+  4) toggleMobileMenu() + closeMobileMenu() + outside-click handler
+
+3. Intentionally retained inline content
+- Language first-paint anti-flash boot script remains inline in <head>.
+- JSON-LD structured data remains inline as application/ld+json.
+- No functional inline JavaScript remains in resume.html: 0 block(s).
+
+4. Functional boundaries
+- Hero resume template thumbnail switching unchanged.
+- Resume upload placeholder validation/status copy unchanged.
+- Assets filter navigation unchanged.
+- Mobile menu open, close and outside-click behavior unchanged.
+- Existing inline onclick/onchange calls remain valid because public function names remain global classic-script functions.
+- Script is not async, defer or type=module; execution remains classic and synchronous at the original first functional-script position.
+- common.js?v=213, baidu-analytics.js?v=288, CSS, copy, SEO and page structure were not changed.
+
+5. Verification
+- js/resume.js passes Node.js syntax check.
+- External JS is an exact ordered concatenation of the four original functional script bodies.
+- Node VM DOM-stub regression matched baseline behavior for:
+  - hero image/src/alt and active thumbnail switching;
+  - no-file, valid-file and invalid-file upload states;
+  - invalid-file alert and input reset;
+  - encoded assets filter navigation and return value;
+  - mobile menu toggle, close, outside-click close and inside-click preservation.
+- All v289 existing files except resume.html remain byte-for-byte unchanged.
+- No .env, API Key, Python test script, Hidden Prompt or private Vault is included by this update.
+
+6. Patch structure
+- resume.html
+- js/resume.js
+- RESUME_JS_EXTERNALIZATION_CHECK_v290.txt
+- Paths are preserved for direct overlay.

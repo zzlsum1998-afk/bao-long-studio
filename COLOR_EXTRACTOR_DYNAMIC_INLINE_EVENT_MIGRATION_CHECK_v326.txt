@@ -1,0 +1,47 @@
+BAOLONG LAB · v326 · Color Extractor 动态内联事件迁移试点
+日期：2026-07-16
+基准：baolong-dynamic-inline-event-attribute-read-only-audit-v325-full-noimages-plus-template-assets.zip
+
+1. 本版唯一目标
+仅迁移 color-references.html 色彩提取器运行时动态生成的两处 onclick：
+- DYN-03：主色按钮 color-main-swatch
+- DYN-04：配色方案色块 color-scheme-chip
+
+不处理其余 13 处动态内联 onclick；不处理 44 处直接 DOM 事件属性赋值；不合并公共脚本、不清理死代码、不调整全站缓存、不修改视觉、文案、页面结构、提色算法或其他功能。
+
+2. 修改文件
+- color-references.html
+  - 仅将已修改脚本 js/color-references-extractor.js 的查询参数从 ?v=318 更新为 ?v=326，避免旧缓存继续执行迁移前代码。
+  - 其他脚本查询参数保持不变；js/common.js 继续为 ?v=309。
+- js/color-references-extractor.js
+  - 两类动态按钮不再生成 onclick 字符串。
+  - 使用 data-extractor-copy-color 保存内部生成的 uppercase #RRGGBB 参数。
+  - 在静态 #colorExtractorCard 上增加一次委托 click 监听；通过 closest() 识别动态按钮并调用现有 window.copyExtractorText(color)。
+  - 保留原有 Clipboard API、textarea 回退、Toast 文案、按钮 type="button"、title、Enter / Space 原生键盘激活语义及每次提取后的 innerHTML 重建生命周期。
+- COLOR_EXTRACTOR_DYNAMIC_INLINE_EVENT_MIGRATION_CHECK_v326.txt
+  - 本检查与交付说明。
+
+3. 明确保留
+- 图片上传、拖拽、预览、主色提取、配色生成、复制全部、重置、导出色卡、关闭弹窗与 Escape 行为不变。
+- window.copyExtractorText 继续保留，不顺手收紧全局暴露。
+- color-references-board.js、color-references-modal.js、color-references-nav.js、color-references-scroll-top.js、CSS、JSON、图片、SEO 与中英文逻辑不变。
+- 完整 Hidden Prompt、API Key、Endpoint、模型配置与私有 Vault 未进入网站包。
+
+4. 静态与运行时计数
+- 25 个 HTML 静态 on* 属性：0 → 0。
+- javascript: URL：0 → 0。
+- 7 个 JS 中模板字符串动态 onclick 源码：15 → 13。
+- js/color-references-extractor.js 动态 onclick 源码：2 → 0。
+- 10 个 JS 中直接事件属性赋值：44 → 44（本版不处理）。
+
+5. 回归重点
+- 点击主色按钮中的文字 span 仍复制对应 HEX。
+- 点击无文字配色 chip 仍复制对应 HEX。
+- 动态按钮重建后无需逐个重新绑定，委托监听仍生效。
+- 两类按钮继续使用原生 button 键盘语义；没有新增 keydown 模拟或重复触发。
+- Toast 继续显示“已复制 #RRGGBB”；复制全部逻辑与“已复制全部色值”判断不变。
+
+6. 封装规则
+- full：以 v325 full 为基础，包含完整网站与本次改动。
+- patch：只包含 color-references.html、js/color-references-extractor.js 与本检查文档，并保留真实目录结构。
+- patch 只能覆盖到明确的 v325 完整目录或用于增量部署，不能单独预览。

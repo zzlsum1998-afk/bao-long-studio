@@ -1,0 +1,47 @@
+BAOLONG LAB · DATA BLOOM GARDEN JS EXTERNALIZATION CHECK · v293
+Date: 2026-07-16
+Base: baolong-plant-color-calendar-js-externalization-v292-full-noimages-plus-template-assets.zip
+Target: data-bloom-garden.html functional JavaScript externalization only
+
+1. Actual changes
+- Modified: data-bloom-garden.html
+- Added: js/data-bloom-garden.js
+- Added: DATA_BLOOM_GARDEN_JS_EXTERNALIZATION_CHECK_v293.txt
+- No other existing website runtime file changed.
+
+2. Migration scope
+- Moved the single page-functional inline script block from data-bloom-garden.html into js/data-bloom-garden.js.
+- New reference: js/data-bloom-garden.js?v=293
+- External file: 20,293 Unicode characters / 21,483 bytes / 261 counted lines (260 newline characters).
+- Original functional block location: source lines 163–423.
+- The external file preserves the original script body byte-for-byte, including its original leading and trailing whitespace.
+- The external script tag remains at the exact original execution position immediately before </body>.
+- No async, defer, module type, bundling, minification, refactor, renaming or dead-code cleanup was introduced.
+
+3. Intentionally retained inline content
+- Language first-paint anti-flash boot script remains inline in <head>.
+- JSON-LD structured data remains inline as application/ld+json.
+- common.js?v=213 and baidu-analytics.js?v=288 references remain unchanged.
+- data-bloom-garden.html now contains zero page-functional inline JavaScript blocks.
+
+4. Functional boundaries preserved
+- Built-in Data Bloom dataset and sample CSV content remain unchanged.
+- CSV parsing, category normalization, subitem generation and validation remain unchanged.
+- Main, micro and nano node geometry, radial curves, cluster arcs, labels and callout rendering remain unchanged.
+- Category filters, list selection, hover focus, active-node state and detail-panel rendering remain unchanged.
+- Summary statistics, toast messages and bilingual UI text remain unchanged.
+- CSV file upload, sample loading, clear, template download and generate actions remain unchanged.
+- PNG export logic remains unchanged.
+- Focus View sidebar collapse, local preference storage and language mutation observer remain unchanged.
+- CSS, page copy, SEO, analytics, navigation, other pages, JSON/data, images and website tools were not changed.
+
+5. Verification performed
+- Exact reconstruction check passed: replacing the new external script tag with the original complete inline block reproduces the v292 data-bloom-garden.html byte-for-byte.
+- js/data-bloom-garden.js is byte-identical to the original inline script body.
+- js/data-bloom-garden.js passes Node.js syntax check.
+- All website .js files pass Node.js syntax checks.
+- Script inventory confirms the language boot and JSON-LD blocks are retained, the shared analytics reference is retained, and the functional inline block is removed.
+- Static hash comparison confirms that data-bloom-garden.html is the only changed pre-existing file; all other pre-existing v292 files are byte-identical.
+- New JS SHA-256: ddcf59819fe842e0cb9bad52250787bd1500e80c23620827b37a744f9b3708c7
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.

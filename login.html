@@ -13,7 +13,7 @@
       <div class="brand-text">BAOLONG LAB</div>
     </a>
     <div class="header-actions">
-      <button class="pill-btn" type="button" onclick="location.href='index.html'" data-zh="返回首页" data-en="Back Home">返回首页</button>
+      <button class="pill-btn" type="button" id="headerHomeBtn" data-zh="返回首页" data-en="Back Home">返回首页</button>
       <button class="pill-btn" type="button" id="langBtn">中文 / EN</button>
     </div>
   </header>
@@ -55,7 +55,7 @@
 
         <div class="form-row">
           <label class="check"><input type="checkbox" checked /> <span data-zh="记住我" data-en="Remember me">记住我</span></label>
-          <button class="text-link" type="button" onclick="showToast('reset')" data-zh="忘记密码？" data-en="Forgot password?">忘记密码？</button>
+          <button class="text-link" type="button" id="forgotPasswordBtn" data-zh="忘记密码？" data-en="Forgot password?">忘记密码？</button>
         </div>
 
         <button class="btn-main" type="submit" data-zh="登录" data-en="Log in">登录</button>
@@ -63,8 +63,8 @@
         <div class="divider" data-zh="或" data-en="or">或</div>
 
         <div class="ghost-grid">
-          <button class="ghost-btn" type="button" onclick="showToast('signup')" data-zh="创建账号" data-en="Create account">创建账号</button>
-          <button class="ghost-btn" type="button" onclick="location.href='index.html'" data-zh="先逛逛" data-en="Browse first">先逛逛</button>
+          <button class="ghost-btn" type="button" id="createAccountBtn" data-zh="创建账号" data-en="Create account">创建账号</button>
+          <button class="ghost-btn" type="button" id="browseHomeBtn" data-zh="先逛逛" data-en="Browse first">先逛逛</button>
         </div>
 
         <div class="panel-note" data-zh="提示：账号入口暂未开放，当前不会收集或提交登录信息。" data-en="Note: account access is not open yet. This page does not collect or submit login information.">提示：账号入口暂未开放，当前不会收集或提交登录信息。</div>
@@ -79,6 +79,6 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="js/login.js?v=287"></script>
+  <script src="js/login.js?v=311"></script>
 </body>
 </html>

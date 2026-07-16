@@ -1,0 +1,66 @@
+BAOLONG LAB · v311 LOGIN EVENT ATTRIBUTE MIGRATION CHECK
+Date: 2026-07-16
+Base: baolong-element-event-attribute-read-only-audit-v310-full-noimages-plus-template-assets.zip
+Scope: login.html only; migrate its four inline onclick attributes to addEventListener.
+
+1. VERSION GOAL
+- Remove exactly four inline onclick attributes from login.html.
+- Preserve the same navigation, toast, language, form, visual and accessibility behavior.
+- Do not migrate any other page event attributes.
+- Do not modify common.js, shared navigation, Prompt, Boards, Assets, Index, Resume Tool, CSS, copy, layout or image-workflow files.
+
+2. MODIFIED FILES
+- login.html
+  - Removed four onclick attributes.
+  - Added stable element IDs: headerHomeBtn, forgotPasswordBtn, createAccountBtn, browseHomeBtn.
+  - Updated the modified script cache reference from js/login.js?v=287 to js/login.js?v=311.
+- js/login.js
+  - Added four click listeners with addEventListener.
+  - Kept the existing language toggle, showToast function and login form submit listener unchanged.
+- LOGIN_EVENT_ATTRIBUTE_MIGRATION_CHECK_v311.txt
+  - Added this verification record.
+
+3. BEHAVIOR MAPPING
+- Header “返回首页 / Back Home”:
+  onclick="location.href='index.html'"
+  -> #headerHomeBtn click listener sets window.location.href = 'index.html'.
+- “忘记密码？ / Forgot password?”:
+  onclick="showToast('reset')"
+  -> #forgotPasswordBtn click listener calls showToast('reset').
+- “创建账号 / Create account”:
+  onclick="showToast('signup')"
+  -> #createAccountBtn click listener calls showToast('signup').
+- “先逛逛 / Browse first”:
+  onclick="location.href='index.html'"
+  -> #browseHomeBtn click listener sets window.location.href = 'index.html'.
+
+4. EVENT ATTRIBUTE COUNTS
+- v310 whole site: 481 total = onclick 480 + onchange 1.
+- v311 whole site: 477 total = onclick 476 + onchange 1.
+- login.html: 4 -> 0.
+- All other HTML pages retain their v310 event-attribute counts.
+
+5. STATIC AND FUNCTIONAL VERIFICATION
+- login.html contains zero onclick and zero onchange attributes.
+- The four new IDs are present exactly once and do not collide with existing IDs or CSS selectors.
+- No CSS or JavaScript on the login page depends on the removed onclick attributes.
+- All 57 browser JavaScript files pass node --check.
+- All four JSON data files parse successfully.
+- Local JavaScript references missing: 0.
+- js/common.js?v=309 references remain 15; common.js content is unchanged.
+- A deterministic fake-DOM execution test verified:
+  - four new click listeners are registered exactly once;
+  - Chinese and English reset/signup toast copy remains correct;
+  - both home buttons still navigate to index.html;
+  - language switching remains functional;
+  - login form submit is still prevented and shows the existing login toast.
+
+6. CHANGE-BOUNDARY VERIFICATION
+Compared with the v310 base before adding this check file:
+- Changed: login.html, js/login.js.
+- Added: LOGIN_EVENT_ATTRIBUTE_MIGRATION_CHECK_v311.txt.
+- Removed: none.
+- Every other v310 file remains byte-for-byte identical.
+
+7. RESULT
+PASS. v311 is a low-risk single-page migration pilot. It removes only login.html’s four inline event attributes and preserves the existing page behavior without starting shared navigation or higher-risk page migration.

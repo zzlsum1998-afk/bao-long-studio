@@ -1,0 +1,53 @@
+BaoLong Lab v314 · 三个同构工具页公共导航事件迁移检查
+
+基准：v313 full
+版本目标：仅迁移 Bubble Timeline、Plant Color Calendar、Plant Emotion Radar 三页的公共导航元素事件属性。
+
+修改文件：
+- bubble-timeline.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- js/bubble-timeline.js
+- js/plant-color-calendar.js
+- js/plant-emotion-radar.js
+
+新增文件：
+- LOW_RISK_TOOL_PAGES_PUBLIC_NAV_EVENT_MIGRATION_CHECK_v314.txt
+
+迁移内容：
+- 每页 6 个素材分类 navFilter 链接
+- 每页 1 个顶部登录按钮
+- 每页 1 个移动菜单开关
+- 每页 14 个移动菜单链接关闭事件
+- 合计迁移 66 个 onclick
+
+保持不变：
+- 三个工具页面的视觉、文案、HTML 主体结构与 CSS
+- Bubble Timeline 数据、筛选、搜索、气泡图与上传逻辑
+- Plant Color Calendar 色彩日历、详情、复制与筛选逻辑
+- Plant Emotion Radar 植物选择、雷达图、复制与清空逻辑
+- 页面 JS 内动态生成元素使用的 onclick / .onclick，本轮不治理
+- js/common.js 内容与 ?v=309 引用
+- 其他页面、数据、图片、Prompt、Workflow、Resume 与 Vault
+
+实现说明：
+- 6 个桌面素材分类链接改用 data-nav-filter，并由页面 JS 绑定 click。
+- navFilter 返回 false 时显式 preventDefault，保留原 onclick=return navFilter(...) 语义。
+- 顶部登录、移动菜单开关和移动链接关闭改用 addEventListener。
+- 三个页面脚本缓存参数更新为 ?v=314。
+
+静态检查目标：
+- 三页 HTML 的 onclick / onchange 均为 0。
+- 全站元素事件属性由 367 降至 301：onclick 300，onchange 1。
+- js/common.js 不修改。
+验证结果：
+- 三页静态 HTML 事件属性：22 / 22 / 22 → 0 / 0 / 0。
+- 全站元素事件属性：367 → 301；onclick 366 → 300；onchange 保持 1。
+- 三页 data-nav-filter：每页 6 个。
+- 三页页面脚本引用：统一更新为 ?v=314。
+- 57 个浏览器 JavaScript：Node 语法检查通过。
+- 4 个 JSON：解析通过。
+- 27 个 CSS：花括号结构检查通过。
+- 本地脚本、样式、favicon 引用缺失：0。
+- 三套公共导航监听器模拟测试通过：navFilter 返回值、登录跳转、移动菜单开关与 14 个移动链接关闭语义均成立。
+- 当前运行环境无法通过浏览器管理员策略打开本地完整站点，因此仍需用户进行真实浏览器页面回归。

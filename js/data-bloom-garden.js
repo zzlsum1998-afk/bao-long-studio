@@ -58,6 +58,34 @@ function applyStaticLang(){
   document.title=lang==='en'?'Data Bloom Generator | BaoLong Lab':'数据花园生成器 | BaoLong Lab';
 }
 
+function bindHeaderNavigation(){
+  document.querySelectorAll('.site-header [data-nav-filter]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      if(typeof window.navFilter==='function' && window.navFilter(link.dataset.navFilter)===false){
+        event.preventDefault();
+      }
+    });
+  });
+
+  const loginEntry=document.querySelector('.site-header .login-entry-btn');
+  if(loginEntry){
+    loginEntry.addEventListener('click',()=>{window.location.href='login.html'});
+  }
+
+  const mobileMenuToggle=document.querySelector('.site-header .mobile-menu-toggle');
+  if(mobileMenuToggle){
+    mobileMenuToggle.addEventListener('click',()=>{
+      if(typeof window.toggleMobileMenu==='function')window.toggleMobileMenu();
+    });
+  }
+
+  document.querySelectorAll('#mobileMenuPanel a').forEach(link=>{
+    link.addEventListener('click',()=>{
+      if(typeof window.closeMobileMenu==='function')window.closeMobileMenu();
+    });
+  });
+}
+
 function polar(cx,cy,r,a){const rad=(a-90)*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)}}
 function arcPath(cx,cy,r,a0,a1){const p0=polar(cx,cy,r,a0),p1=polar(cx,cy,r,a1),large=Math.abs(a1-a0)>180?1:0;return`M ${p0.x} ${p0.y} A ${r} ${r} 0 ${large} 1 ${p1.x} ${p1.y}`}
 function curve(cx,cy,x,y,score){const dx=x-cx,dy=y-cy;const k=.35+(100-score)*.0015;const c1={x:cx+dx*k,y:cy+dy*.06};const c2={x:cx+dx*.70,y:cy+dy*.86};return`M ${cx} ${cy} C ${c1.x} ${c1.y}, ${c2.x} ${c2.y}, ${x} ${y}`}
@@ -245,6 +273,7 @@ const workspace=$('workspace');const toggleSidebarBtn=$('toggleSidebarBtn');
 function setSidebarCollapsed(collapsed){workspace.classList.toggle('collapsed',collapsed);toggleSidebarBtn.querySelector('.toggleIcon').textContent=collapsed?'→':'←';toggleSidebarBtn.querySelector('.toggleText').textContent=collapsed?ui('edit'):ui('focus');toggleSidebarBtn.setAttribute('aria-expanded',String(!collapsed));try{localStorage.setItem('dataBloomSidebarCollapsed',collapsed?'1':'0')}catch(e){}}
 toggleSidebarBtn.onclick=()=>setSidebarCollapsed(!workspace.classList.contains('collapsed'));
 try{setSidebarCollapsed(localStorage.getItem('dataBloomSidebarCollapsed')==='1')}catch(e){setSidebarCollapsed(false)}
+bindHeaderNavigation();
 applyStaticLang();
 new MutationObserver(function(){applyStaticLang(); if(data&&data.length) render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 

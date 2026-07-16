@@ -1,0 +1,71 @@
+BAOLONG LAB · PLANT COLOR CALENDAR DYNAMIC CONTROL EVENT-PROPERTY MIGRATION CHECK v337
+Generated: 2026-07-16
+Base: baolong-plant-color-calendar-detail-copy-close-event-property-migration-v336-full-noimages-plus-template-assets.zip
+
+VERSION PURPOSE
+- v337 completes the remaining direct onclick-property migration inside Plant Color Calendar.
+- It migrates the three dynamically created native-button groups: season tabs, 52 weekly color cells, and the four pairing-color swatches rebuilt for each selected week.
+- It preserves the current per-node lifecycle: each new native button receives one explicit click listener at creation time.
+- It does not modify common.js, other pages, shared scripts, CSS, plant/color data, images, copy, layout, visual state, SEO, or image-workflow configuration.
+
+FILES CHANGED
+1. plant-color-calendar.html
+   - Only updates js/plant-color-calendar.js cache query from ?v=336 to ?v=337.
+   - js/common.js remains ?v=309.
+2. js/plant-color-calendar.js
+   - button.pc-season-tab: onclick property -> addEventListener('click', ...).
+   - button.cal-cell: onclick property -> addEventListener('click', ...).
+   - button.pair-swatch: onclick property -> addEventListener('click', ...).
+3. PLANT_COLOR_CALENDAR_DYNAMIC_CONTROL_EVENT_PROPERTY_MIGRATION_CHECK_v337.txt
+   - This check record.
+
+BEHAVIOR PRESERVED
+- Four season tabs are still created once by renderTabs().
+- Clicking a season tab still removes the active class from the other tabs, activates the clicked tab, and smooth-scrolls to the matching season row.
+- Fifty-two calendar cells are still created once by renderCalendar(), with the same background colors, tooltips, aria-labels, native button type, and week-to-plant mapping.
+- Clicking a calendar cell still opens the detail panel, moves the active-cell state, updates the plant/week metadata, and builds four pairing-color swatches.
+- Pairing swatches are still rebuilt whenever showDetail() replaces #d-pairs, and every newly created swatch still copies its uppercase HEX value through the existing copyText() / Toast path.
+- The large HEX copy, full-palette copy, and close-detail listeners migrated in v336 remain unchanged.
+- Native button Enter / Space click synthesis remains available for all three dynamic control groups.
+
+EXPLICITLY OUT OF SCOPE
+- The remaining direct DOM event-property assignments in the other eight browser JS files.
+- common.js language-toggle property assignments.
+- Data Bloom SVG/list interactions and its load/error callbacks.
+- Seasonal Color Tool controls.
+- FileReader / Image load and error callbacks.
+- Event delegation redesign, ARIA redesign, visual redesign, common-script merging, cache cleanup outside this page, dead-code cleanup, or copy changes.
+
+EVENT-PROPERTY COUNTS
+- v336 direct DOM event-property assignments: 39 across 9 browser JS files.
+- v337 direct DOM event-property assignments: 36 across 8 browser JS files.
+- onclick assignments: 26 -> 23.
+- js/plant-color-calendar.js assignments: 3 -> 0.
+- Static HTML on* attributes: 0.
+- Dynamically generated inline on* attributes: 0.
+- javascript: URLs: 0.
+
+VALIDATION TARGETS
+1. Confirm four season tabs render and each tab scrolls to the matching season section while keeping only one active tab.
+2. Confirm all 52 week cells render and open the correct detail information.
+3. Switch between multiple week cells and confirm the active state moves correctly.
+4. Click each of the four pairing-color swatches and confirm the matching uppercase HEX value is copied and the existing Toast appears.
+5. Switch to another week and repeat pairing-color copy to confirm the rebuilt swatches retain their listeners.
+6. Recheck the v336 persistent actions: large HEX copy, full-palette copy, close detail, then reopen another week.
+7. Keyboard-check season tabs, week cells, and pairing swatches with Enter and Space.
+
+STATIC AND COMPONENT VALIDATION
+- Modified JavaScript passes node --check.
+- All 61 JavaScript files pass syntax checks.
+- All 57 browser JavaScript files retain real HTML references.
+- Static HTML on* attributes remain 0; javascript: URLs remain 0.
+- Dynamic inline event attributes and setAttribute('on...') calls remain 0.
+- 4 JSON files and 19 JSON-LD blocks parse successfully.
+- 27 CSS files pass structural brace checks.
+- 182 local CSS / JS / favicon references resolve; missing references: 0.
+- Component-level DOM lifecycle harness passes: 4 season tabs, 4 season rows, 52 cells, exclusive tab/cell active states, correct scroll target, four fresh pairing swatches per detail render, rebuilt-swatch copying, persistent copy actions, Toast, and close/reset.
+
+FINAL VERDICT
+- PASS: Plant Color Calendar no longer contains direct DOM event-property assignments.
+- PASS: all six click behaviors on the page now use addEventListener while preserving the existing native-button semantics and dynamic node lifecycle.
+- QUALIFICATION: 36 direct DOM event-property assignments intentionally remain elsewhere for later page/component-specific migrations.

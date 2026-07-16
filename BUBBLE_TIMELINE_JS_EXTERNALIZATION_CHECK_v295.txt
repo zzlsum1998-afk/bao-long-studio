@@ -1,0 +1,49 @@
+BAOLONG LAB · BUBBLE TIMELINE JS EXTERNALIZATION CHECK v295
+Date: 2026-07-16
+Base: baolong-seasonal-color-tool-js-externalization-v294-full-noimages-plus-template-assets.zip
+Target: bubble-timeline.html only
+
+1. Scope
+- Modified: bubble-timeline.html
+- Added: js/bubble-timeline.js
+- Added: BUBBLE_TIMELINE_JS_EXTERNALIZATION_CHECK_v295.txt
+- No other existing runtime file is intentionally changed.
+
+2. Migration
+- Externalized the two page-functional inline scripts from bubble-timeline.html:
+  1) Main Bubble Timeline data, SVG chart, filtering, CSV upload/mapping, tooltip and export logic.
+  2) navFilter(category) asset-navigation helper.
+- Original main body: 25,237 characters, 527 lines.
+- Original navigation body: 153 characters, 6 lines.
+- New external file: 25,392 characters, 534 lines.
+- The two original bodies remain byte-for-byte unchanged and in their original execution order; only two newline characters separate them in the shared file.
+- New reference: js/bubble-timeline.js?v=295
+- The external script is loaded at the original final page-functional script position immediately before </body>.
+- No async, defer, module type, bundling, minification, renaming, refactor or dead-code cleanup is introduced.
+
+3. Intentionally retained inline scripts
+- Language first-paint boot script remains inline in <head> to prevent language flash.
+- JSON-LD structured data remains inline as application/ld+json.
+- Baidu Analytics remains externally loaded through js/baidu-analytics.js?v=288.
+
+4. Functional boundaries
+- Built-in datasets, sector colors, SVG bubble chart, dataset switching, category filters, search and top-deal highlighting remain unchanged.
+- CSV file reading, pasted CSV parsing, column mapping, custom chart generation, sample loading, template download and built-in reset remain unchanged.
+- Tooltip behavior, chart labels, legends, size guide, count note and language-facing copy remain unchanged.
+- Existing inline HTML asset-filter actions continue calling the same global navFilter(category) function.
+- Page structure, CSS, animation/visual presentation, common.js, analytics, SEO and all other pages remain unchanged.
+
+5. Verification performed
+- js/bubble-timeline.js exactly equals the two original functional script bodies in original order, with only a two-newline separator.
+- Node.js syntax check passes.
+- bubble-timeline.html contains zero remaining page-functional inline JavaScript blocks.
+- Language boot, JSON-LD, common.js and Baidu Analytics references remain present.
+- All 29 DOM ids read with getElementById() by the external script exist in bubble-timeline.html.
+- navFilter(category) remains globally declared for existing inline HTML onclick calls.
+- Existing-file hash comparison confirms that only bubble-timeline.html changed from v294; all other pre-existing files remain byte-identical.
+- Full and patch packages preserve the original website directory structure.
+- No .env, API key, Hidden Prompt, Python production script or private Vault is included.
+
+6. Browser-test note
+- The current sandbox blocked local/file browser navigation during this run, so no pixel screenshot claim is made for v295.
+- Equivalence is instead grounded by byte-for-byte script-body preservation, original execution order, DOM dependency checks and JavaScript syntax validation.

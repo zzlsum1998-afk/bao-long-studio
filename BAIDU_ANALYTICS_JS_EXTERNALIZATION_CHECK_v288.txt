@@ -1,0 +1,82 @@
+BAOLONG LAB · Baidu Analytics Public Inline JavaScript Externalization Check
+v288 · 基于 v287 · 2026-07-16
+
+一、版本目标
+
+本版本仅将 20 个页面中完全相同的百度统计内联 JavaScript 外置到公共文件。
+只改变统计脚本存放位置，不改变页面视觉、文案、DOM 结构、功能逻辑、语言首屏防闪、其他内联脚本或其他资源。
+不删除死代码候选，不抽离页面业务 JavaScript，不统一其他 CSS / JS 缓存版本。
+
+二、改动文件
+
+修改 20 个页面：
+- 404.html
+- about.html
+- assets.html
+- bubble-timeline.html
+- color-references.html
+- contact.html
+- data-bloom-garden.html
+- index.html
+- interaction-landscape-growth.html
+- interaction.html
+- plan-references.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- privacy.html
+- prompt-generator.html
+- render-references.html
+- resume.html
+- seasonal-color-tool.html
+- section-references.html
+- terms.html
+
+新增：
+- js/baidu-analytics.js
+- BAIDU_ANALYTICS_JS_EXTERNALIZATION_CHECK_v288.txt
+
+三、迁移结果
+
+- 原百度统计内联脚本：20 段，内容完全相同
+- 单段脚本正文：253 字符，7 行
+- 共迁出内联 JavaScript：5060 字符，140 行
+- 新公共引用：js/baidu-analytics.js?v=288
+- 每个页面的新外链标签位于原统计脚本的相同位置
+- 未添加 async、defer 或 type="module"，继续使用经典阻塞脚本，保持原执行顺序
+- 原有 “BaoLong analytics v169” 注释继续保留，仅脚本载体由内联改为外链
+
+四、未改范围
+
+- 20 个页面除百度统计脚本标签外的全部字节内容未改
+- 语言首屏防闪样式与脚本继续保留在 HTML 内，未迁移
+- 页面业务 JavaScript、动画、交互、表单、收藏、筛选、加载更多与跳转逻辑未改
+- 百度统计站点 ID 与远程地址未改
+- css/common.css、js/common.js 与其他缓存版本未改
+- login.html 与 js/login.js 未改；Login 仍沿用 v287 独立脚本
+- 其他 HTML、CSS、JS、JSON、图片、字体、SEO、Netlify 历史文件和维护资料未改
+- 未包含 .env、API Key、Endpoint、模型配置、Hidden Prompt、Python 或生产 Vault
+
+五、校验
+
+- 20 个原内联统计脚本内容一致性：PASS
+- 20 个页面全部改为 js/baidu-analytics.js?v=288：PASS
+- 20 个页面残留 hm.baidu.com / _hmt 内联脚本：0
+- js/baidu-analytics.js 与 v287 原内联脚本正文逐字一致：PASS
+- 将每页外链标签替换回公共脚本原文，可逐字重构 v287 对应页面：PASS
+- 外链脚本未使用 async、defer 或 module：PASS
+- Node.js 语法检查：PASS
+- Node.js 经典脚本执行模拟（创建并插入远程统计脚本）：PASS
+- 统计远程脚本注入地址与站点 ID 检查：PASS
+- 本地资源路径存在性静态检查：PASS
+- 除本文件、20 个 HTML 与 js/baidu-analytics.js 外，v287 现有文件逐字节未变：PASS
+- full 与 patch ZIP 完整性：PASS
+
+六、交付
+
+- full：baolong-baidu-analytics-js-externalization-v288-full-noimages-plus-template-assets.zip
+- patch：baolong-baidu-analytics-js-externalization-v288-patch.zip
+
+patch 保留原网站路径，包含：
+- 上述 20 个 HTML
+- js/baidu-analytics.js
+- BAIDU_ANALYTICS_JS_EXTERNALIZATION_CHECK_v288.txt

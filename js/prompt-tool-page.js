@@ -204,3 +204,100 @@ window.addEventListener('resize',function(){
     }
   },0);
 })();
+
+
+/* PROMPT_TOOL_STATIC_EVENT_ATTRIBUTE_MIGRATION_v323
+   Moves the remaining static HTML onclick handlers into external listeners.
+   Dynamic card behavior and Prompt Tool generation logic remain unchanged. */
+(function(){
+  function callGlobal(name,args){
+    var fn=window[name];
+    if(typeof fn==='function') return fn.apply(window,args || []);
+  }
+
+  function bindClick(selector,handler){
+    var element=document.querySelector(selector);
+    if(element) element.addEventListener('click',handler);
+  }
+
+  function bindPromptToolStaticEvents(){
+    var root=document.documentElement;
+    if(root.dataset.promptToolStaticEventsBound==='true') return;
+    root.dataset.promptToolStaticEventsBound='true';
+
+    document.querySelectorAll('[data-asset-filter]').forEach(function(link){
+      link.addEventListener('click',function(event){
+        event.preventDefault();
+        callGlobal('navFilter',[link.dataset.assetFilter]);
+      });
+    });
+
+    bindClick('#promptToolLoginBtn',function(){
+      window.location.href='login.html';
+    });
+    bindClick('#promptToolMobileMenuToggle',function(){
+      callGlobal('toggleMobileMenu');
+    });
+
+    document.querySelectorAll('.nav-item[data-section-target]').forEach(function(item){
+      item.addEventListener('click',function(){
+        callGlobal('go',[item.dataset.sectionTarget]);
+      });
+    });
+
+    document.querySelectorAll('[data-l5-target]').forEach(function(button){
+      button.addEventListener('click',function(){
+        callGlobal('showL5',[button.dataset.l5Target,button]);
+      });
+    });
+
+    document.querySelectorAll('[data-l3-target]').forEach(function(trigger){
+      trigger.addEventListener('click',function(){
+        callGlobal('openL3',[trigger.dataset.l3Target]);
+      });
+    });
+
+    bindClick('.console-scrim',function(){
+      callGlobal('toggleConsole',[false]);
+    });
+    bindClick('#editToggleBtn',function(){
+      callGlobal('toggleEditMode');
+    });
+    bindClick('.btn-restore',function(){
+      callGlobal('restoreDefaults');
+    });
+    bindClick('#btnAiGenerate',function(){
+      callGlobal('aiGenerate');
+    });
+    bindClick('.console-toggle',function(){
+      callGlobal('toggleConsole');
+    });
+    bindClick('.console-preview',function(){
+      callGlobal('toggleConsole',[true]);
+    });
+    bindClick('.btn-random',function(){
+      callGlobal('randomGenerate');
+    });
+    bindClick('.btn-reset',function(){
+      callGlobal('resetAll');
+    });
+    bindClick('.btn-copy',function(){
+      callGlobal('copy');
+    });
+    bindClick('#corpusAddBtn',function(){
+      callGlobal('addCorpusItem');
+    });
+    bindClick('#modalCancelBtn',function(){
+      callGlobal('closeModal');
+    });
+    bindClick('#modalSaveBtn',function(){
+      callGlobal('saveModal');
+    });
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',bindPromptToolStaticEvents,{once:true});
+  }else{
+    bindPromptToolStaticEvents();
+  }
+})();

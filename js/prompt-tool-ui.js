@@ -47,8 +47,7 @@ function go(id){
 }
 function setActiveNav(id){
   document.querySelectorAll('.nav-item').forEach(n => {
-    const oc = n.getAttribute('onclick') || '';
-    n.classList.toggle('active', oc.includes("'" + id + "'"));
+    n.classList.toggle('active', n.dataset.sectionTarget === id);
   });
 }
 

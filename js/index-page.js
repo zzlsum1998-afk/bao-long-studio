@@ -845,7 +845,7 @@
         return;
       }
       grid.innerHTML = list.map((item) => `
-        <article class="product-card" onclick="openDetail(${products.indexOf(item)})">
+        <article class="product-card" data-product-index="${products.indexOf(item)}" role="button" tabindex="0">
           <div class="thumb">
             <img src="${item.cover}" alt="${item.title}" loading="lazy" / decoding="async">
           </div>
@@ -915,7 +915,7 @@
         <img class="detail-main-image" id="detailMainImage" src="${item.images[0]}" alt="${item.title}" / loading="lazy" decoding="async">
         <div class="detail-thumbs">
           ${item.images.map((src, i) => `
-            <button class="detail-thumb ${i === 0 ? "active" : ""}" onclick="setDetailImage(${i})" type="button">
+            <button class="detail-thumb ${i === 0 ? "active" : ""}" data-detail-image-index="${i}" type="button">
               <img src="${src}" alt="${item.title} detail ${i + 1}" loading="lazy" / decoding="async">
             </button>
           `).join("")}
@@ -1091,6 +1091,41 @@
 
       const externalToolCard = document.querySelector('[data-index-action="open-external"]');
       if(externalToolCard) externalToolCard.addEventListener('click', openExternal);
+
+      const productGrid = document.getElementById('productGrid');
+      if(productGrid){
+        const openProductCard = card => {
+          const productIndex = Number.parseInt(card.dataset.productIndex, 10);
+          if(Number.isInteger(productIndex)) openDetail(productIndex);
+        };
+
+        productGrid.addEventListener('click', event => {
+          const target = event.target instanceof Element ? event.target : null;
+          const card = target ? target.closest('.product-card[data-product-index]') : null;
+          if(!card || !productGrid.contains(card)) return;
+          openProductCard(card);
+        });
+
+        productGrid.addEventListener('keydown', event => {
+          if(event.key !== 'Enter' && event.key !== ' ') return;
+          const target = event.target instanceof Element ? event.target : null;
+          const card = target ? target.closest('.product-card[data-product-index]') : null;
+          if(!card || target !== card || !productGrid.contains(card)) return;
+          event.preventDefault();
+          openProductCard(card);
+        });
+      }
+
+      const detailVisual = document.getElementById('detailVisual');
+      if(detailVisual){
+        detailVisual.addEventListener('click', event => {
+          const target = event.target instanceof Element ? event.target : null;
+          const button = target ? target.closest('.detail-thumb[data-detail-image-index]') : null;
+          if(!button || !detailVisual.contains(button)) return;
+          const imageIndex = Number.parseInt(button.dataset.detailImageIndex, 10);
+          if(Number.isInteger(imageIndex)) setDetailImage(imageIndex);
+        });
+      }
 
       const detailPanel = document.getElementById('detailPanel');
       const detailCard = detailPanel?.querySelector('.detail-card');

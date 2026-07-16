@@ -1,0 +1,65 @@
+BAOLONG LAB · Login Inline JavaScript Externalization Check
+v287 · 基于 v286 · 2026-07-16
+
+一、版本目标
+
+本版本仅将 login.html 中唯一的主内联 JavaScript 外置到独立文件。
+只改变脚本存放位置，不改变页面视觉、文案、DOM 结构、表单行为、语言切换、提示反馈、跳转或其他页面。
+不删除 v286 审计记录中的任何死代码候选，不处理其他页面内联 JavaScript，不统一缓存版本。
+
+二、改动文件
+
+修改：
+- login.html
+
+新增：
+- js/login.js
+- LOGIN_JS_EXTERNALIZATION_CHECK_v287.txt
+
+三、迁移结果
+
+- 原内联脚本：1 段
+- 原脚本内容：1,805 字符，38 行
+- 新外链：js/login.js?v=287
+- 脚本仍位于 </body> 前原来的执行位置
+- 未添加 async、defer 或 type="module"，保持经典脚本与原执行时序
+- showToast() 继续作为经典脚本全局函数，兼容页面既有 onclick 调用
+
+四、未改范围
+
+- login.html 的 HTML 文案、表单字段、按钮、链接和结构未改
+- css/login.css 未改
+- 中英文切换逻辑未改
+- 登录、注册、找回密码三类 Toast 文案与 2600ms 时长未改
+- localStorage key baolongLanguage 未改
+- 首页跳转未改
+- 其他 HTML、CSS、JS、JSON、图片、字体、SEO、Netlify 历史文件和维护资料未改
+- 未包含 .env、API Key、Endpoint、模型配置、Hidden Prompt、Python 或生产 Vault
+
+五、校验
+
+- 将新外链脚本标签替换回 js/login.js 原文后，可逐字重构 v286 的 login.html：PASS
+- login.html 剩余有效内联 JavaScript 块：0
+- js/login.js 与 v286 原内联脚本内容逐字一致：PASS
+- Node.js 语法检查：PASS
+- HTML 本地资源路径检查：PASS
+- Headless Chromium 桌面端 DOM / CSS / 脚本注入截图像素级对比：PASS
+- Headless Chromium 移动端 DOM / CSS / 脚本注入截图像素级对比：PASS
+- Headless Chromium 中文初始状态：PASS
+- Headless Chromium 中英文切换与 localStorage 状态读取：PASS
+- Headless Chromium 登录提交 Toast：PASS
+- Headless Chromium 创建账号 Toast：PASS
+- Headless Chromium 忘记密码 Toast：PASS
+- 外链路径存在性与经典脚本加载方式静态检查：PASS
+- 除本文件、login.html 与 js/login.js 外，v286 现有文件逐字节未变：PASS
+- full 与 patch ZIP 完整性：PASS
+
+六、交付
+
+- full：baolong-login-js-externalization-v287-full-noimages-plus-template-assets.zip
+- patch：baolong-login-js-externalization-v287-patch.zip
+
+patch 保留原网站路径：
+- login.html
+- js/login.js
+- LOGIN_JS_EXTERNALIZATION_CHECK_v287.txt

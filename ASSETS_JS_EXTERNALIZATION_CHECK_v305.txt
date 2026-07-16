@@ -1,0 +1,49 @@
+BAOLONG LAB · ASSETS JS EXTERNALIZATION CHECK v305
+Generated: 2026-07-16
+Base: baolong-prompt-board-js-stage-read-only-audit-v304-full-noimages-plus-template-assets.zip
+
+SCOPE
+- Modified: assets.html
+- Added: js/assets.js
+- Added: ASSETS_JS_EXTERNALIZATION_CHECK_v305.txt
+- No other runtime file was changed.
+
+MIGRATION RESULT
+- Functional inline script blocks before: 1
+- Functional inline script blocks after: 0
+- Migrated script size: 85,267 characters / 94,528 bytes / 1,988 counted lines
+- New reference: js/assets.js?v=305
+- External script remains at the exact original execution position before </body>.
+- No async, defer, module conversion, code restructuring, renaming, dead-code cleanup, or event-binding rewrite was introduced.
+- The language first-paint boot script and JSON-LD remain inline by design.
+- js/common.js?v=213, js/taobao-links.js?v=198, and js/baidu-analytics.js?v=288 were not changed.
+
+EQUIVALENCE AND SAFETY CHECKS
+- Replacing the new external script tag with the original script block reconstructs v304 assets.html byte-for-byte: PASS
+- js/assets.js matches the original inline script body byte-for-byte: PASS
+- New script Node.js syntax check: PASS
+- All 53 standalone JavaScript files Node.js syntax check: PASS
+- Local script references in assets.html exist: PASS (4 local references)
+- Literal getElementById dependencies found: 14. Thirteen are present in the static HTML; `detailMainImage` is intentionally created dynamically by `openDetail()` before it is queried.
+- Inline page-handler functions remain available as classic global declarations. The only non-declaration call detected is `event.stopPropagation()`, which is a browser Event method rather than a page-owned function.
+- JSON parse check: PASS (4 files)
+- Existing v304 files unchanged byte-for-byte except assets.html: PASS (405 unchanged files)
+
+ASSETS PAGE FUNCTION AREAS PRESERVED
+- Product data, category display and filtering
+- Free / paid item handling and smart Taobao / download links
+- Product card rendering and detail panel
+- Detail thumbnails and image switching
+- Mobile menu and outside-click close
+- Scroll-to-top behavior
+- Asset hero carousel and reduced-motion behavior
+- URL query filter initialization and language-aware heading updates
+
+HASHES
+- Original assets.html SHA-256: 38799a82f5391c58e1420cbb53bbd06d799f5dc9144fa602ef68a781c34db323
+- v305 assets.html SHA-256: a4cf8b99c2e1b26d5c8e3854726c76bd766ea8cb082332e2d6851794a4792b6d
+- js/assets.js SHA-256: fddd1d781c625b49d2b848e71e50c49d73507ce05f41f12f1d6cda8685c1fff6
+
+BOUNDARIES
+- No visual, copy, HTML structure, CSS, product data, JSON, image, font, SEO, analytics ID, navigation, Prompt, Resume Tool, Inspiration Board, Hidden Prompt, API, or model configuration change.
+- No .env, API Key, Python script, production Hidden Prompt, or private Vault included.

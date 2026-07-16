@@ -1,0 +1,65 @@
+BAOLONG LAB · v330 · Assets 商品卡片与详情缩略图动态内联事件迁移
+日期：2026-07-16
+基准：baolong-other-board-modal-dynamic-inline-event-migration-v329-full-noimages-plus-template-assets.zip
+
+1. 本版唯一目标
+仅迁移 assets.html 对应素材商品列表与详情缩略图运行时动态生成的两处 onclick：
+- DYN-01：动态商品卡片 product-card 打开详情
+- DYN-02：动态详情缩略图 detail-thumb 切换主图
+
+不处理首页对应的 2 处动态 onclick；不处理 Plant Emotion Radar 的 3 处动态 onclick；不处理 44 处直接 DOM 事件属性赋值；不合并 Assets 与首页商品脚本、不清理死代码、不调整其他缓存、视觉、文案、商品数据、结构或功能。
+
+2. 修改文件
+- assets.html
+  - 仅将已修改脚本 js/assets.js 的查询参数从 ?v=319 更新为 ?v=330，避免旧缓存继续执行迁移前代码。
+  - js/common.js 与其他资源查询参数保持不变。
+- js/assets.js
+  - 商品卡片不再生成 onclick="openDetail(index)"，改用 data-product-index 保存商品在 products 数组中的稳定索引。
+  - 商品卡片继续使用原有 article.product-card 外观，并新增 role="button" 与 tabindex="0"；不修改 CSS。
+  - 在静态 #productGrid 上增加一次 click 委托，点击卡片任意原有内容时调用现有 openDetail(index)。
+  - 在静态 #productGrid 上增加一次 keydown 委托；卡片自身获得焦点时，Enter 或 Space 调用同一 openDetail(index)，Space 阻止页面滚动。
+  - 详情缩略图不再生成 onclick="setDetailImage(index)"，改用 data-detail-image-index 保存图片索引。
+  - 在静态 #detailVisual 上增加一次 click 委托，识别动态 detail-thumb 后调用现有 setDetailImage(index)。
+  - 保留 productGrid 与 detailVisual 的 innerHTML 重建生命周期；委托监听无需对新节点重复绑定。
+- ASSETS_PRODUCT_CARD_DETAIL_THUMB_DYNAMIC_INLINE_EVENT_MIGRATION_CHECK_v330.txt
+  - 本检查与交付说明。
+
+3. 明确保留
+- 分类筛选、URL 参数、标题说明、中英文同步、滚动定位与商品顺序不变。
+- 商品详情标题、价格、分类、描述、购买 / 获取素材链接、关闭与返回按钮行为不变。
+- window.activeProductIndex、currentProductLink、openDetail()、setDetailImage() 与 openProductLink() 的函数归属和状态关系不变。
+- 点击详情卡片内部不关闭遮罩；点击遮罩关闭详情的传播关系不变。
+- 详情缩略图仍为原有 button 元素、原有 class、图片与 active 样式；原生键盘 click 语义保留。
+- 商品卡片视觉不变；新增键盘语义只补足原先 pointer-only 的可访问性缺口。
+- 首页 js/index-page.js 保持原样，不提前与 Assets 公共化。
+- 完整 Hidden Prompt、API Key、Endpoint、模型配置与私有 Vault 未进入网站包。
+
+4. 静态与运行时计数
+- 25 个 HTML 静态 on* 属性：0 → 0。
+- javascript: URL：0 → 0。
+- JS 模板字符串动态 onclick 源码：7 → 5。
+- js/assets.js 动态 onclick 源码：2 → 0。
+- 10 个 JS 中直接事件属性赋值：44 → 44（本版不处理）。
+
+5. 回归重点
+- 初始与分类筛选重建后的商品卡片点击仍打开正确商品详情。
+- 卡片自身获得焦点后，Enter 与 Space 均打开同一商品；Space 不额外滚动页面。
+- 详情打开时 window.activeProductIndex 与购买链接继续对应正确商品。
+- 点击任一动态缩略图或其内部 img 均切换主图，并只更新同组 active 状态。
+- 每次 openDetail() 重建 #detailVisual 后，新缩略图仍由静态委托监听接管。
+- 点击缩略图不会关闭详情遮罩，不会触发商品卡片委托，也不会重复执行。
+- 首页商品卡片、Plant Emotion Radar、44 处直接事件属性赋值保持不变。
+
+6. 封装规则
+- full：以 v329 full 为基础，包含完整网站与本次改动。
+- patch：只包含 assets.html、js/assets.js 与本检查文档，并保留真实目录结构。
+- patch 只能覆盖到明确的 v329 完整目录或用于增量部署，不能单独预览。
+
+7. 验证结果
+- Chromium 组件级 DOM 回归通过：初始商品卡片点击、分类筛选重建后点击、Enter / Space 键盘激活、Space 阻止滚动、详情索引同步、缩略图内部 img 点击、主图切换、active 状态与遮罩保持打开均通过；测试异常 0。
+- 25 个根目录 HTML 静态 on* 属性 0；javascript: URL 0。
+- 动态内联 onclick 源码 5，仅剩 js/index-page.js 2 处与 js/plant-emotion-radar.js 3 处；js/assets.js 内 0。
+- 直接事件属性赋值仍为 44：onclick 31、mouseenter / mouseleave 4、onload 5、onerror 4。
+- 61 个 JavaScript 通过 node --check；4 个 JSON 与 19 段 JSON-LD 解析通过；27 个 CSS 花括号检查通过。
+- 57 个浏览器 JS 全部有真实 HTML 引用；182 个本地 CSS / JS / favicon 引用缺失 0。
+- 与 v329 对比：448 个既有文件逐字节未变；仅修改 2 个文件并新增本检查文档。

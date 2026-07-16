@@ -157,7 +157,7 @@
     </div>
     <div class="color-tool-actions">
       <span class="color-tool-note">本地处理图片<br/>不会上传服务器</span>
-      <button class="color-tool-btn" type="button" onclick="openColorExtractor()">Try Color Extractor</button>
+      <button class="color-tool-btn" id="colorToolOpenBtn" type="button">Try Color Extractor</button>
     </div>
   </div>
 </section>
@@ -168,13 +168,13 @@
           按色环关系筛选配色板，快速查找互补色、邻近色、三角色等配色参考。
         </div>
 <div class="color-filter-tabs">
-<button class="color-filter-tab active" data-filter="all" onclick="filterColorCards('all')" type="button">All｜全部</button>
-<button class="color-filter-tab" data-filter="analogous" onclick="filterColorCards('analogous')" type="button">Analogous｜邻近色</button>
-<button class="color-filter-tab" data-filter="complementary" onclick="filterColorCards('complementary')" type="button">Complementary｜互补色</button>
-<button class="color-filter-tab" data-filter="split-complementary" onclick="filterColorCards('split-complementary')" type="button">Split Complementary｜分裂互补</button>
-<button class="color-filter-tab" data-filter="triadic" onclick="filterColorCards('triadic')" type="button">Triadic｜三角色</button>
-<button class="color-filter-tab" data-filter="monochromatic" onclick="filterColorCards('monochromatic')" type="button">Monochromatic｜单色系</button>
-<button class="color-filter-tab" data-filter="neutral" onclick="filterColorCards('neutral')" type="button">Neutral｜中性色</button>
+<button class="color-filter-tab active" data-filter="all" type="button">All｜全部</button>
+<button class="color-filter-tab" data-filter="analogous" type="button">Analogous｜邻近色</button>
+<button class="color-filter-tab" data-filter="complementary" type="button">Complementary｜互补色</button>
+<button class="color-filter-tab" data-filter="split-complementary" type="button">Split Complementary｜分裂互补</button>
+<button class="color-filter-tab" data-filter="triadic" type="button">Triadic｜三角色</button>
+<button class="color-filter-tab" data-filter="monochromatic" type="button">Monochromatic｜单色系</button>
+<button class="color-filter-tab" data-filter="neutral" type="button">Neutral｜中性色</button>
 </div>
 </div>
 </section>
@@ -189,25 +189,25 @@
       </div>
 </section>
 </main>
-<div class="modal" id="modal" onclick="closeModal(event)">
-<div class="modal-card" onclick="event.stopPropagation()">
+<div class="modal" id="modal">
+<div class="modal-card" id="modalCard">
 <div class="modal-img" id="modalImg"></div>
 <div class="modal-copy">
-<button class="close" onclick="closeModal()">×</button>
+<button class="close" id="modalCloseBtn" type="button">×</button>
 <div class="eyebrow" id="modalType">Inspiration</div>
 <h2 id="modalTitle">Inspiration Card</h2>
 <p id="modalDesc">这里展示色彩说明、适用场景与 Prompt 参考备注。</p>
 <div class="color-values-box" id="modalColorValues">色值/色号：待提取</div>
 <div class="modal-actions">
-<button class="color-copy-btn" id="copyColorBtn" onclick="copyModalColorValues(event)" type="button">复制色值</button>
+<button class="color-copy-btn" id="copyColorBtn" type="button">复制色值</button>
 </div>
 <small>说明：该色卡为 BaoLong Lab 自制色彩参考，可复制色值/色号作为 Prompt 配色参考。</small>
 </div>
 </div>
 </div>
 
-<div class="color-extractor-modal" id="colorExtractorModal" onclick="closeColorExtractor(event)">
-  <div class="color-extractor-card" onclick="event.stopPropagation()">
+<div class="color-extractor-modal" id="colorExtractorModal">
+  <div class="color-extractor-card" id="colorExtractorCard">
     <div class="color-extractor-left">
       <div class="color-extractor-head">
         <div>
@@ -215,7 +215,7 @@
           <h2>上传图片，提取配色</h2>
           <p>适合从参考图、产品图、空间图里快速提取主色，并生成可复制的配色关系。</p>
         </div>
-        <button class="color-extractor-close" type="button" aria-label="关闭色彩提取器" onclick="closeColorExtractor()">×</button>
+        <button class="color-extractor-close" id="colorExtractorCloseBtn" type="button" aria-label="关闭色彩提取器">×</button>
       </div>
       <div class="color-upload-zone" id="colorUploadZone">
         <input type="file" accept="image/*" id="colorFileInput" aria-label="上传图片提取色彩">
@@ -240,9 +240,9 @@
         <p class="color-result-label">Generated Schemes</p>
         <div class="color-scheme-list" id="colorSchemeRows"></div>
         <div class="color-extractor-actions">
-          <button class="color-extractor-action" type="button" onclick="copyExtractorColors()">复制全部色值</button>
-          <button class="color-extractor-action secondary" type="button" onclick="exportExtractorCard()">导出色卡</button>
-          <button class="color-extractor-action secondary" type="button" onclick="resetColorExtractor()">重新上传</button>
+          <button class="color-extractor-action" id="copyExtractorColorsBtn" type="button">复制全部色值</button>
+          <button class="color-extractor-action secondary" id="exportExtractorCardBtn" type="button">导出色卡</button>
+          <button class="color-extractor-action secondary" id="resetColorExtractorBtn" type="button">重新上传</button>
         </div>
       </div>
     </div>
@@ -253,14 +253,14 @@
 <footer class="footer" data-bl-original-text="BaoLong Lab · Color Inspiration Board">BaoLong Lab · Color Inspiration Board</footer>
 
 <script defer="" src="js/inspiration-favorites.js?v=222"></script>
-<script src="js/color-references-board.js?v=303"></script>
-<script src="js/color-references-modal.js?v=303"></script>
+<script src="js/color-references-board.js?v=318"></script>
+<script src="js/color-references-modal.js?v=318"></script>
 
-<script src="js/color-references-extractor.js?v=303"></script>
+<script src="js/color-references-extractor.js?v=318"></script>
 
 <script src="js/color-references-nav.js?v=313"></script>
 
-<button class="floating-top-btn" type="button" onclick="scrollCurrentPageTop(event)" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">✦</button>
+<button class="floating-top-btn" id="floatingTopBtn" type="button" title="回到顶部 / Back to top" aria-label="回到顶部 / Back to top">✦</button>
 <footer class="legal-footer" style="text-align:center; margin-top:40px; font-size:12px; line-height:1.8; color:#666;">
 <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span><br/>
 <span class="footer-line">Original content and tools by BaoLong Lab.</span><br/>
@@ -269,7 +269,7 @@
 </footer>
 <script src="js/color-references-mobile-menu.js?v=303"></script>
 
-<script src="js/color-references-scroll-top.js?v=303"></script>
+<script src="js/color-references-scroll-top.js?v=318"></script>
 
 </body>
 </html>

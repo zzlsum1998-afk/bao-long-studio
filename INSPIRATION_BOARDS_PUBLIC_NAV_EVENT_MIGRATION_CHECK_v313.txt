@@ -1,0 +1,70 @@
+BaoLong Lab · v313 · 同结构低风险页面公共导航事件分批迁移
+整理日期：2026-07-16
+基准：baolong-data-bloom-garden-nav-event-migration-v312-fixed2-full-noimages-plus-template-assets.zip
+
+一、本轮唯一目标
+只迁移 Plan / Section / Other / Color Board 四页顶部公共导航与移动菜单中的元素级 onclick，
+改用 addEventListener；不迁移弹窗、Prompt 提取、颜色提取器、回到顶部等页面业务事件。
+
+二、修改文件
+1. plan-references.html
+2. section-references.html
+3. render-references.html
+4. color-references.html
+5. js/plan-references-nav.js
+6. js/section-references-nav.js
+7. js/render-references-nav.js
+8. js/color-references-nav.js
+9. INSPIRATION_BOARDS_PUBLIC_NAV_EVENT_MIGRATION_CHECK_v313.txt
+
+三、每页迁移内容（22 个，共 88 个）
+- 6 个桌面端素材分类：return navFilter(...)
+- 1 个顶部登录入口
+- 1 个移动菜单开关
+- 14 个移动菜单链接关闭
+
+四、实现方式
+- 桌面素材分类链接保留原 href，并增加 data-nav-filter。
+- 对 navFilter 返回 false 的情况显式调用 event.preventDefault()，保留原跳转语义。
+- 登录入口继续跳转 login.html。
+- 移动菜单开关与关闭继续动态调用当前 window.toggleMobileMenu / window.closeMobileMenu，
+  保留 common.js 与页面后加载脚本的实际覆盖顺序。
+- 四个页面对应 nav JS 缓存参数统一更新为 ?v=313。
+
+五、明确未修改
+- js/common.js 内容与 ?v=309 引用未修改。
+- 四页 CSS、data/plan.json、data/section.json、data/other.json、data/color.json 未修改。
+- 收藏、卡片渲染、加载更多、弹窗、Prompt 提取、颜色提取器、移动多图、回到顶部未修改。
+- 页面视觉、文案、结构、SEO、语言首屏防闪、图片工作流与 Vault 未修改。
+- 其他 21 个 HTML 页面未修改。
+
+六、事件属性统计
+v312 fixed2 全站：onclick 454，onchange 1，总计 455。
+v313 全站：onclick 366，onchange 1，总计 367。
+本轮减少：88 个 onclick。
+
+迁移后四页剩余页面业务事件：
+- plan-references.html：7 个
+- section-references.html：7 个
+- render-references.html：7 个
+- color-references.html：19 个
+四页 site-header 内 onclick / onchange：均为 0。
+
+七、验证结果
+- 四个 nav JS 均通过 Node 模拟 DOM 绑定测试：
+  6 个筛选监听、登录跳转、移动菜单开关、14 个移动链接关闭均通过。
+- 57 个独立浏览器 JS：node --check 全部通过。
+- 4 个 JSON：解析通过。
+- 四页本地 CSS / JS 引用缺失：0。
+- 与 v312 fixed2 对比，除上述 8 个代码文件与本检查文档外，其余文件逐字节不变。
+- 当前运行环境阻止 Chromium 打开本地站点，因此未执行真实浏览器自动点击；需用户本地做关键页回归。
+
+八、本地回归重点
+每页重点检查：
+1. 桌面端素材库 6 个分类跳转；
+2. 顶部登录；
+3. 移动端菜单打开、链接点击与关闭；
+4. 卡片加载、收藏、加载更多、弹窗；
+5. Plan / Section / Other 的 Prompt 提取；
+6. Color Board 的颜色关系筛选与颜色提取器；
+7. 中英文切换与页面样式。

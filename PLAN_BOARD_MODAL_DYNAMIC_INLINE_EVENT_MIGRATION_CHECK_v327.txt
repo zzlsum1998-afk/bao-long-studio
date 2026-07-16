@@ -1,0 +1,58 @@
+BAOLONG LAB · v327 · Plan Board 弹窗动态内联事件迁移
+日期：2026-07-16
+基准：baolong-color-extractor-dynamic-inline-event-migration-v326-full-noimages-plus-template-assets.zip
+
+1. 本版唯一目标
+仅迁移 plan-references.html 对应 Plan Board 详情弹窗运行时动态生成的两处 onclick：
+- DYN-05：上一张按钮 modal-nav prev
+- DYN-06：下一张按钮 modal-nav next
+
+不处理 Section Board / Other Board 的 4 处同类动态 onclick；不处理 Assets、首页或 Plant Emotion Radar 的 7 处动态 onclick；不处理 44 处直接 DOM 事件属性赋值；不合并三个 Board 公共脚本、不清理死代码、不调整其他缓存、视觉、文案、结构或功能。
+
+2. 修改文件
+- plan-references.html
+  - 仅将已修改脚本 js/plan-references-modal.js 的查询参数从 ?v=317 更新为 ?v=327，避免旧缓存继续执行迁移前代码。
+  - 其他脚本查询参数保持不变；js/common.js 继续为 ?v=309。
+- js/plan-references-modal.js
+  - 上一张 / 下一张按钮不再生成 onclick 字符串。
+  - 使用 data-modal-image-step="-1" / "1" 保存固定方向参数。
+  - 在静态 #modalImg 上增加一次委托 click 监听；通过 closest() 识别动态导航按钮，保留 event.stopPropagation()，并调用现有 changeModalImage(step)。
+  - 保留原有 innerHTML 重建生命周期：每次切图后图片、按钮与计数器继续整体重建；委托监听无需逐节点重新绑定。
+- PLAN_BOARD_MODAL_DYNAMIC_INLINE_EVENT_MIGRATION_CHECK_v327.txt
+  - 本检查与交付说明。
+
+3. 明确保留
+- 多图弹窗上一张 / 下一张循环切换、计数器更新与首图初始化不变。
+- 点击弹窗遮罩关闭、点击 modal-card 阻止冒泡、关闭按钮、Escape、ArrowLeft / ArrowRight 行为不变。
+- 页面滚动锁定 / 恢复、Prompt 提取面板、来源链接、收藏、加载更多、移动端多图切换与弹窗尺寸逻辑不变。
+- 导航按钮仍为原有 button 元素、原有 class 与 glyph；未在本版夹带 aria、样式或结构调整。
+- render-references-modal.js 与 section-references-modal.js 保持原样，不提前公共化。
+- 完整 Hidden Prompt、API Key、Endpoint、模型配置与私有 Vault 未进入网站包。
+
+4. 静态与运行时计数
+- 25 个 HTML 静态 on* 属性：0 → 0。
+- javascript: URL：0 → 0。
+- JS 模板字符串动态 onclick 源码：13 → 11。
+- js/plan-references-modal.js 动态 onclick 源码：2 → 0。
+- 10 个 JS 中直接事件属性赋值：44 → 44（本版不处理）。
+
+5. 回归重点
+- 点击上一张 / 下一张按钮及其 glyph 区域仍只切换一张，不关闭弹窗、不重复触发。
+- 第一张点击上一张循环到最后一张；最后一张点击下一张循环到第一张。
+- 每次 innerHTML 重建后新按钮仍由 #modalImg 委托监听接管。
+- 文档级 ArrowLeft / ArrowRight 继续调用同一 changeModalImage()，不依赖按钮监听。
+- 单图卡片不生成导航按钮与计数器，多图卡片行为保持原样。
+
+6. 封装规则
+- full：以 v326 full 为基础，包含完整网站与本次改动。
+- patch：只包含 plan-references.html、js/plan-references-modal.js 与本检查文档，并保留真实目录结构。
+- patch 只能覆盖到明确的 v326 完整目录或用于增量部署，不能单独预览。
+
+7. 验证结果
+- 组件级无头浏览器回归通过：多图初始 1 / 3、前后切换、首尾循环、按钮重建后继续响应、弹窗保持打开、ArrowRight 与单图无导航均通过。
+- 25 个根目录 HTML 静态 on* 属性 0；javascript: URL 0。
+- 动态内联 onclick 源码 11；Plan Board 对应脚本内 0。
+- 直接事件属性赋值仍为 44。
+- 61 个 JavaScript 通过 node --check；4 个 JSON 与 19 段 JSON-LD 解析通过。
+- 182 个本地 CSS / JS / favicon 引用缺失 0。
+- 与 v326 对比：445 个既有文件逐字节未变；仅修改 2 个文件并新增本检查文档。

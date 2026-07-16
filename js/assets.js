@@ -1941,6 +1941,68 @@
     });
 
 
+    function bindAssetsPageEvents(){
+      document.querySelectorAll('.site-header [data-nav-filter]').forEach(link => {
+        link.addEventListener('click', event => {
+          if(navFilter(link.dataset.navFilter) === false){
+            event.preventDefault();
+          }
+        });
+      });
+
+      const loginEntry = document.querySelector('.site-header .login-entry-btn');
+      if(loginEntry){
+        loginEntry.addEventListener('click', () => { window.location.href = 'login.html'; });
+      }
+
+      const mobileMenuToggle = document.querySelector('.site-header .mobile-menu-toggle');
+      if(mobileMenuToggle){
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      }
+
+      document.querySelectorAll('#mobileMenuPanel a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.querySelectorAll('.asset-hero-filter[data-product-filter]').forEach(button => {
+        button.addEventListener('click', () => filterProducts(button.dataset.productFilter));
+      });
+
+      document.querySelectorAll('.asset-filter-tabs .tab[data-filter]').forEach(button => {
+        button.addEventListener('click', () => filterProducts(button.dataset.filter));
+      });
+
+      const detailPanel = document.getElementById('detailPanel');
+      if(detailPanel){
+        detailPanel.addEventListener('click', closeDetail);
+        const detailCard = detailPanel.querySelector('.detail-card');
+        if(detailCard){
+          detailCard.addEventListener('click', event => event.stopPropagation());
+        }
+      }
+
+      const detailClose = document.querySelector('#detailPanel .detail-close');
+      if(detailClose){
+        detailClose.addEventListener('click', () => closeDetail());
+      }
+
+      const detailBuyBtn = document.getElementById('detailBuyBtn');
+      if(detailBuyBtn){
+        detailBuyBtn.addEventListener('click', openProductLink);
+      }
+
+      const detailBackBtn = document.getElementById('detailBackBtn');
+      if(detailBackBtn){
+        detailBackBtn.addEventListener('click', () => closeDetail());
+      }
+
+      const scrollTopButton = document.getElementById('assetsScrollTop');
+      if(scrollTopButton){
+        scrollTopButton.addEventListener('click', scrollToTop);
+      }
+    }
+
+
 
     function initAssetHeroCarousel(){
       const carousel = document.getElementById('assetHeroCarousel');
@@ -1976,6 +2038,7 @@
       start();
     }
 
+    bindAssetsPageEvents();
     initAssetHeroCarousel();
 
     const urlParams = new URLSearchParams(window.location.search);

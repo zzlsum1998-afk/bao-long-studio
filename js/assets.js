@@ -1862,7 +1862,7 @@
         return;
       }
       grid.innerHTML = list.map((item) => `
-        <article class="product-card" onclick="openDetail(${products.indexOf(item)})">
+        <article class="product-card" data-product-index="${products.indexOf(item)}" role="button" tabindex="0">
           <div class="thumb"><img src="${item.cover}" alt="${item.title}" loading="lazy" / decoding="async"></div>
           <div class="product-info">
             <h3>${item.title}</h3>
@@ -1910,7 +1910,7 @@
       document.getElementById("detailVisual").innerHTML = `
         <img class="detail-main-image" id="detailMainImage" src="${item.images[0]}" alt="${item.title}" / loading="lazy" decoding="async">
         <div class="detail-thumbs">
-          ${item.images.map((src, i) => `<button class="detail-thumb ${i === 0 ? "active" : ""}" onclick="setDetailImage(${i})" type="button"><img src="${src}" alt="${item.title} detail ${i + 1}" loading="lazy" / decoding="async"></button>`).join("")}
+          ${item.images.map((src, i) => `<button class="detail-thumb ${i === 0 ? "active" : ""}" data-detail-image-index="${i}" type="button"><img src="${src}" alt="${item.title} detail ${i + 1}" loading="lazy" / decoding="async"></button>`).join("")}
         </div>`;
       const isFreeItem = String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
       document.getElementById("detailDesc").innerHTML = `<p>${item.desc.join("</p><p>")}</p><p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接获取素材，请在详情描述中查看提取码。" : "点击按钮可跳转商品链接，根据不同商品进入购买、咨询或获取页面。"}</p>`;
@@ -1971,6 +1971,41 @@
       document.querySelectorAll('.asset-filter-tabs .tab[data-filter]').forEach(button => {
         button.addEventListener('click', () => filterProducts(button.dataset.filter));
       });
+
+      const productGrid = document.getElementById('productGrid');
+      if(productGrid){
+        const openProductCard = card => {
+          const productIndex = Number.parseInt(card.dataset.productIndex, 10);
+          if(Number.isInteger(productIndex)) openDetail(productIndex);
+        };
+
+        productGrid.addEventListener('click', event => {
+          const target = event.target instanceof Element ? event.target : null;
+          const card = target ? target.closest('.product-card[data-product-index]') : null;
+          if(!card || !productGrid.contains(card)) return;
+          openProductCard(card);
+        });
+
+        productGrid.addEventListener('keydown', event => {
+          if(event.key !== 'Enter' && event.key !== ' ') return;
+          const target = event.target instanceof Element ? event.target : null;
+          const card = target ? target.closest('.product-card[data-product-index]') : null;
+          if(!card || target !== card || !productGrid.contains(card)) return;
+          event.preventDefault();
+          openProductCard(card);
+        });
+      }
+
+      const detailVisual = document.getElementById('detailVisual');
+      if(detailVisual){
+        detailVisual.addEventListener('click', event => {
+          const target = event.target instanceof Element ? event.target : null;
+          const button = target ? target.closest('.detail-thumb[data-detail-image-index]') : null;
+          if(!button || !detailVisual.contains(button)) return;
+          const imageIndex = Number.parseInt(button.dataset.detailImageIndex, 10);
+          if(Number.isInteger(imageIndex)) setDetailImage(imageIndex);
+        });
+      }
 
       const detailPanel = document.getElementById('detailPanel');
       if(detailPanel){

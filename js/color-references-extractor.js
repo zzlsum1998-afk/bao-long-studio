@@ -240,7 +240,7 @@
       if(area) area.style.display = 'block';
       if(swatches){
         swatches.innerHTML = colors.map(function(hex){
-          return '<button class="color-main-swatch" type="button" style="background:' + hex + '" title="复制 ' + hex + '" onclick="copyExtractorText(\'' + hex + '\')"><span>' + hex + '</span></button>';
+          return '<button class="color-main-swatch" type="button" style="background:' + hex + '" title="复制 ' + hex + '" data-extractor-copy-color="' + hex + '"><span>' + hex + '</span></button>';
         }).join('');
       }
       const main = colors[0] || '#8A8378';
@@ -248,7 +248,7 @@
       if(rows){
         rows.innerHTML = Object.keys(schemes).map(function(name){
           const chips = schemes[name].map(function(hex){
-            return '<button class="color-scheme-chip" type="button" style="background:' + hex + '" title="复制 ' + hex + '" onclick="copyExtractorText(\'' + hex + '\')"></button>';
+            return '<button class="color-scheme-chip" type="button" style="background:' + hex + '" title="复制 ' + hex + '" data-extractor-copy-color="' + hex + '"></button>';
           }).join('');
           return '<div class="color-scheme-row"><div class="color-scheme-name">' + name + '</div><div class="color-scheme-chips">' + chips + '</div></div>';
         }).join('');
@@ -365,6 +365,13 @@
       showExtractorToast.timer = window.setTimeout(function(){ toast.classList.remove('show'); }, 1800);
     }
 
+    function handleExtractorColorCopy(event){
+      const button = event.target.closest('[data-extractor-copy-color]');
+      if(!button || !event.currentTarget.contains(button)) return;
+      const color = button.getAttribute('data-extractor-copy-color');
+      if(color) window.copyExtractorText(color);
+    }
+
     function bindColorExtractorStaticEvents(){
       const openButton = $('colorToolOpenBtn');
       const modal = $('colorExtractorModal');
@@ -380,6 +387,7 @@
         modalCard.addEventListener('click', function(event){
           event.stopPropagation();
         });
+        modalCard.addEventListener('click', handleExtractorColorCopy);
       }
       if(closeButton) closeButton.addEventListener('click', function(){ window.closeColorExtractor(); });
       if(copyButton) copyButton.addEventListener('click', window.copyExtractorColors);

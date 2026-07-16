@@ -1,0 +1,30 @@
+BaoLong Lab · Data Bloom Garden PNG 导出黑块回归修复检查
+版本：v341 fixed
+
+问题概述：
+- v341 中 Data Bloom Garden 导出 PNG 时，生成图像出现大面积黑色块面。
+- 根因是 exportPNG 只把首个内联 <style> 注入克隆 SVG，未把 data-bloom-garden.css 的真实 SVG 样式一起带入导出用 SVG。
+- 缺失样式后，多个 <circle> / <path> / <rect> 元素回退到浏览器默认黑色填充，导致导出 PNG 成为黑色团块。
+
+本次修复：
+1. 新增 getExportStyleText()：
+   - 汇总页面内可访问的 <style> 文本；
+   - 汇总 document.styleSheets 中可访问的 cssRules；
+   - 拼接成导出专用样式文本。
+2. exportPNG 改为把完整样式注入克隆 SVG，而不是只取 document.querySelector('style').textContent。
+3. 为导出 SVG 显式补充 xmlns 与 xmlns:xlink。
+4. 为 canvas.toBlob 的空结果增加失败兜底。
+5. img.onerror 中补充 URL.revokeObjectURL 清理。
+6. data-bloom-garden.html 中脚本缓存参数更新为 ?v=341-fixed。
+
+本次未改动：
+- 六个按钮的 addEventListener 迁移结果；
+- 分类筛选、SVG 节点点击 / 悬停、列表点击；
+- PNG 文件名、Toast 文案与导出尺寸。
+
+重点回归：
+- 使用示例数据后导出 PNG；
+- 清空后重新生成并再次导出；
+- 导出图片不再出现黑色团块；
+- 文件名仍为 data-bloom-generator-c7.png；
+- 失败时继续提示“导出失败，可以先截图使用”。

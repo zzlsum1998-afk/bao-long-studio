@@ -1,0 +1,66 @@
+BaoLong Lab · v320 · Prompt Generator 静态事件属性迁移专项
+日期：2026-07-16
+基准：baolong-assets-page-event-attribute-migration-v319-full-noimages-plus-template-assets.zip
+
+一、本轮唯一目标
+只迁移 prompt-generator.html 中 39 个静态 onclick 事件属性，改为外部 JavaScript 的 addEventListener；不修改页面视觉、文案、结构、Prompt / Workflow 配置、收藏、筛选、弹窗内容、复制结果或图片工作流安全边界。
+
+二、修改文件
+1. prompt-generator.html
+2. js/prompt-generator-page.js
+3. PROMPT_GENERATOR_EVENT_ATTRIBUTE_MIGRATION_CHECK_v320.txt（新增）
+
+三、39 个事件迁移明细
+- 桌面端素材分类 navFilter：6
+- 顶部登录跳转：1
+- 移动菜单开关：1
+- 移动菜单链接关闭：14
+- 进入 Prompt Tool 的按钮 / 分类卡片：12
+- 平滑滚动到分类区：1
+- Prompt 详情弹窗关闭：2
+- 复制 Prompt：1
+- 回到顶部：1
+合计：39
+
+四、迁移结果
+- prompt-generator.html：onclick 39 → 0；onchange 0 → 0
+- 全站静态事件属性：179 → 140
+- 全站 onclick：178 → 139
+- 全站 onchange：保持 1
+- 其他 HTML 页面事件属性数量逐页保持不变
+
+五、保持不变的关键范围
+- js/prompt-generator.js 内容及 ?v=299 引用保持不变
+- js/prompt-favorites.js 内容及 ?v=254 引用保持不变
+- js/common.js 内容及 ?v=309 引用保持不变
+- case01–case22 卡片全部保留
+- case17–case22 的 Template ID、Workflow 入口及公开配置保持不变
+- Prompt 卡片打开、键盘入口、收藏、筛选、复制、ESC / 背景关闭弹窗逻辑保持不变
+- template-generator.html、Prompt Tool、Hidden Prompt、Vault、API 配置均未修改
+- CSS、JSON、图片、SEO、favicon、robots、sitemap 和其他页面均未修改
+
+六、缓存参数
+仅将本轮修改的页面脚本引用更新为：
+js/prompt-generator-page.js?v=320
+
+七、验证结果
+- 39 个旧静态事件属性均有一一对应的 data-* 绑定目标和 addEventListener
+- 绑定目标数量：6 + 1 + 1 + 14 + 12 + 1 + 2 + 1 + 1 = 39
+- Node fake-DOM 行为测试通过：navFilter 返回 false / preventDefault、登录、菜单开关、14 个移动链接关闭、12 个 Prompt Tool 跳转、分类滚动、弹窗关闭、复制、回到顶部
+- 57 个浏览器 JavaScript 文件 node --check 通过
+- 4 个 JSON 文件解析通过
+- 27 个 CSS 文件花括号结构检查通过
+- 142 个本地 CSS / JS 运行引用检查：缺失 0
+- Prompt Generator 页面重复 ID：0
+- v319 → v320 计划外修改：0；删除文件：0
+- 隔离 Chromium 因环境管理员策略阻止 localhost，未宣称完成真实浏览器点击自动化
+
+八、本地重点回归
+- 桌面端素材库 6 个分类
+- 顶部登录与移动菜单
+- Hero / 分类卡片 / CTA 进入 Prompt Tool
+- “View Categories”平滑滚动
+- Prompt / Workflow 卡片打开、收藏与筛选
+- 弹窗复制、两个关闭按钮、ESC 与背景关闭
+- case17–case22“使用此模板”入口
+- 回到顶部与中英文切换

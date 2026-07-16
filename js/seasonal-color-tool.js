@@ -95,21 +95,21 @@ function setMode(){
   siteBtn.classList.toggle('on',mode==='site');
   siteEraseBtn.classList.toggle('on',mode==='siteErase');
 }
-brushBtn.onclick=()=>{mode='brush';setMode();};
-eraseBtn.onclick=()=>{mode='erase';setMode();};
-siteBtn.onclick=()=>{mode='site';setMode();};
-siteEraseBtn.onclick=()=>{mode='siteErase';setMode();};
-document.getElementById('fillAllBtn').onclick=()=>{
+brushBtn.addEventListener('click',()=>{mode='brush';setMode();});
+eraseBtn.addEventListener('click',()=>{mode='erase';setMode();});
+siteBtn.addEventListener('click',()=>{mode='site';setMode();});
+siteEraseBtn.addEventListener('click',()=>{mode='siteErase';setMode();});
+document.getElementById('fillAllBtn').addEventListener('click',()=>{
   for(let r=0;r<PROW;r++)for(let c=0;c<PCOL;c++)siteMask[r][c]=true;
   refreshPaintColors(); renderOut();
-};
-document.getElementById('clearGrid').onclick=()=>{
+});
+document.getElementById('clearGrid').addEventListener('click',()=>{
   grid=Array(PROW).fill(0).map(()=>Array(PCOL).fill(-1));
   siteMask=Array(PROW).fill(0).map(()=>Array(PCOL).fill(false));
   refreshPaintColors(); renderOut();
-};
+});
 
-document.getElementById('sampleBtn').onclick=()=>{
+document.getElementById('sampleBtn').addEventListener('click',()=>{
   grid=Array(PROW).fill(0).map(()=>Array(PCOL).fill(-1));
   siteMask=Array(PROW).fill(0).map(()=>Array(PCOL).fill(false));
   const pattern=[
@@ -134,14 +134,14 @@ document.getElementById('sampleBtn').onclick=()=>{
   const n=NOTES.find(x=>timeVal<x.max)||NOTES[NOTES.length-1];
   timeStage.textContent=n.stage; timeNote.textContent=n.note;
   refreshPaintColors(); renderOut();
-};
+});
 
-document.getElementById('resetViewBtn').onclick=()=>{
+document.getElementById('resetViewBtn').addEventListener('click',()=>{
   timeSlider.value=0; timeVal=0;
   timeStage.textContent='第 1 年 · 初栽';
   timeNote.textContent='每片分区界限分明——这是设计图上的样子。';
   renderOut();
-};
+});
 
 /* ---- 上传底图 ---- */
 const baseImg=document.getElementById('baseImg');
@@ -152,12 +152,12 @@ document.getElementById('imgInput').addEventListener('change',e=>{
   paintGrid.classList.add('has-img');
   document.getElementById('removeImg').style.display='';
 });
-document.getElementById('removeImg').onclick=()=>{
+document.getElementById('removeImg').addEventListener('click',()=>{
   baseImg.src=''; baseImg.style.display='none';
   paintGrid.classList.remove('has-img');
   document.getElementById('removeImg').style.display='none';
   document.getElementById('imgInput').value='';
-};
+});
 
 /* ---- color helpers ---- */
 function hexToRgb(h){const n=parseInt(h.slice(1),16);return[n>>16,(n>>8)&255,n&255];}
@@ -333,12 +333,12 @@ timeSlider.addEventListener('input',()=>{
 });
 
 /* ---- export ---- */
-document.getElementById('exportBtn').onclick=()=>{
+document.getElementById('exportBtn').addEventListener('click',()=>{
   if(!hasSite()){alert('先描出场地范围、刷点植物吧');return;}
   const a=document.createElement('a');
   a.download=`季相色谱_${curSeason}_${timeStage.textContent.replace(/[^\d]/g,'')||'1'}年.png`;
   a.href=canvas.toDataURL('image/png'); a.click();
-};
+});
 
 setMode();
 renderOut();

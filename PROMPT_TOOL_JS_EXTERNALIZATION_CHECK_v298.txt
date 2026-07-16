@@ -1,0 +1,84 @@
+BAOLONG LAB · PROMPT TOOL JS EXTERNALIZATION CHECK · v298
+===========================================================
+
+版本目标
+--------
+基于唯一最新网站基准 v297，只迁移 prompt-tool.html 剩余的页面功能型内联 JavaScript。
+保持页面视觉、Prompt Tool 核心逻辑、词库、交互、文案、导航结构、CSS、JSON、图片、字体及其他页面完全不变。
+
+本轮实际改动
+------------
+1. 修改：prompt-tool.html
+2. 新增：js/prompt-tool-page.js
+3. 新增：PROMPT_TOOL_JS_EXTERNALIZATION_CHECK_v298.txt
+
+迁移范围
+--------
+原 prompt-tool.html 中剩余两段页面功能脚本已按原顺序迁入 js/prompt-tool-page.js：
+
+A. PROMPT_TOOL_MOBILE_MENU_SCROLL_LOCK_v216
+- 移动端菜单打开、关闭与状态同步
+- 页面滚动锁定与恢复
+- 点击外部、Escape、菜单链接及桌面尺寸恢复时关闭菜单
+- 素材筛选跳转 navFilter()
+
+B. PROMPT_TOOL_NAV_BILINGUAL_BRIDGE_v266
+- Prompt Tool 顶部导航中英文桥接
+- 桌面端与移动端导航标签同步
+- 本地语言状态读取
+- DOMContentLoaded、storage、语言按钮与 html lang/data-lang 变化监听
+- setBaoLongLanguage 包装后的导航刷新
+
+新引用
+------
+<script src="js/prompt-tool-page.js?v=298"></script>
+
+加载顺序保持为：
+1. js/prompt-tool-core.js?v=233
+2. js/prompt-tool-ui.js?v=208
+3. js/prompt-tool-page.js?v=298
+
+未添加 async、defer、type="module"，脚本继续在原 </body> 前位置同步执行。
+
+静态等价检查
+------------
+- 原第 1 段脚本：3,351 字符，85 行。
+- 原第 2 段脚本：7,568 字符，119 行。
+- 新外部脚本：10,923 字符，11,073 字节，206 行。
+- 两段原脚本正文按原顺序逐字保留，仅使用三个换行分隔两个原脚本块。
+- 将 v298 外链标签替换回 v297 原两段 <script> 后，可逐字重构 v297 的 prompt-tool.html。
+- prompt-tool.html 当前页面功能型内联 <script>：0 段。
+- 三个 Prompt Tool 本地脚本引用均存在，顺序正确。
+- js/prompt-tool-page.js SHA-256：
+  a627c7efa66f7dfcf48409d4f0b543c20749567080cbe4cd0ec289baa5bc410b
+
+语法与资源检查
+--------------
+- js/prompt-tool-page.js 通过 Node.js 语法检查。
+- v298 全部独立 .js 文件均通过 Node.js 语法检查。
+- 全站 HTML 的本地 <script src> 引用无缺失。
+- navFilter()、toggleMobileMenu()、closeMobileMenu() 等原全局函数名未改变，现有 HTML 内事件调用无需修改。
+- 未改 js/prompt-tool-core.js、js/prompt-tool-ui.js、Prompt 词库与 Prompt Tool 核心生成逻辑。
+
+文件差异检查
+------------
+- v297 原有文件：367 个。
+- 除 prompt-tool.html 外，v297 其余 366 个原有文件在 v298 中逐字节未变。
+- v298 新增外部 JS 与本检查文件后，full 包共 369 个文件。
+- patch 包仅含 3 个本轮差异文件，并保留 js/ 原始目录结构。
+
+浏览器回归说明
+--------------
+当前沙盒浏览器同时拦截 localhost 与 file:// 页面访问，因此本轮未宣称完成像素截图回归。
+等价性依据为：原脚本正文逐字迁移、原执行顺序保持、HTML 精确重构、全局函数名保持、本地资源检查与全站 JS 语法检查。
+建议本地浏览器重点抽查：桌面/移动端导航中英文、移动端菜单滚动锁定与恢复、素材筛选跳转，以及 Prompt 生成/随机/重置/复制等核心功能。
+
+安全边界
+--------
+- 未加入 .env、API Key、Endpoint、模型配置、Python 或私有 Hidden Prompt Vault。
+- 未修改生产 Hidden Prompt 安全边界。
+- 未改 canonical、sitemap、robots、favicon、images、data、字体或 Netlify 历史后端文件。
+
+结论
+----
+v298 通过静态等价与资源完整性检查，可作为下一轮网站开发的唯一最新基准。

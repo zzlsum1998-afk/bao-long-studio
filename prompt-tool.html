@@ -23,12 +23,12 @@
       <div class="nav-dropdown">
         <a href="assets.html">素材库 ▼</a>
         <div class="dropdown-content"> 
-          <a href="assets.html?filter=Module%20Diagrams#products" onclick="return navFilter('Module Diagrams');">模块素材</a>
-          <a href="assets.html?filter=People%20Assets#products" onclick="return navFilter('People Assets');">人物素材</a>
-          <a href="assets.html?filter=Plant%20Assets#products" onclick="return navFilter('Plant Assets');">植物素材</a>
-          <a href="assets.html?filter=Animal%20Assets#products" onclick="return navFilter('Animal Assets');">动物素材</a>
-          <a href="assets.html?filter=Textures#products" onclick="return navFilter('Textures');">纹理</a>
-          <a href="assets.html?filter=Free#products" onclick="return navFilter('Free');">免费素材</a>
+          <a href="assets.html?filter=Module%20Diagrams#products" data-asset-filter="Module Diagrams">模块素材</a>
+          <a href="assets.html?filter=People%20Assets#products" data-asset-filter="People Assets">人物素材</a>
+          <a href="assets.html?filter=Plant%20Assets#products" data-asset-filter="Plant Assets">植物素材</a>
+          <a href="assets.html?filter=Animal%20Assets#products" data-asset-filter="Animal Assets">动物素材</a>
+          <a href="assets.html?filter=Textures#products" data-asset-filter="Textures">纹理</a>
+          <a href="assets.html?filter=Free#products" data-asset-filter="Free">免费素材</a>
         
         </div>
       </div>
@@ -48,29 +48,29 @@
     </nav>
 
     <div class="header-actions">
-      <button class="pill-btn login-entry-btn" onclick="location.href='login.html'">登录</button>
+      <button class="pill-btn login-entry-btn" id="promptToolLoginBtn">登录</button>
     </div>
   
-    <button class="mobile-menu-toggle" type="button" aria-label="打开菜单" onclick="toggleMobileMenu()">菜单</button>
+    <button class="mobile-menu-toggle" id="promptToolMobileMenuToggle" type="button" aria-label="打开菜单">菜单</button>
     <div class="mobile-menu-panel" id="mobileMenuPanel">
-      <a href="index.html" onclick="closeMobileMenu()">全部</a>
+      <a href="index.html">全部</a>
       <div class="mobile-menu-group">素材库</div>
-      <a href="assets.html?filter=Module%20Diagrams#products" onclick="closeMobileMenu()">模块素材</a>
-      <a href="assets.html?filter=People%20Assets#products" onclick="closeMobileMenu()">人物素材</a>
-      <a href="assets.html?filter=Plant%20Assets#products" onclick="closeMobileMenu()">植物素材</a>
-      <a href="assets.html?filter=Animal%20Assets#products" onclick="closeMobileMenu()">动物素材</a>
-      <a href="assets.html?filter=Textures#products" onclick="closeMobileMenu()">纹理</a>
-      <a href="assets.html?filter=Free#products" onclick="closeMobileMenu()">免费素材</a>
+      <a href="assets.html?filter=Module%20Diagrams#products">模块素材</a>
+      <a href="assets.html?filter=People%20Assets#products">人物素材</a>
+      <a href="assets.html?filter=Plant%20Assets#products">植物素材</a>
+      <a href="assets.html?filter=Animal%20Assets#products">动物素材</a>
+      <a href="assets.html?filter=Textures#products">纹理</a>
+      <a href="assets.html?filter=Free#products">免费素材</a>
       <div class="mobile-menu-group">工具</div>
-      <a href="prompt-generator.html" onclick="closeMobileMenu()">Prompt 工具</a>
-      <a href="interaction.html" onclick="closeMobileMenu()">交互实验室</a>
+      <a href="prompt-generator.html">Prompt 工具</a>
+      <a href="interaction.html">交互实验室</a>
       <div class="mobile-menu-group">灵感板</div>
-      <a href="plan-references.html" onclick="closeMobileMenu()">平面灵感</a>
-      <a href="section-references.html" onclick="closeMobileMenu()">剖面灵感</a>
-      <a href="render-references.html" onclick="closeMobileMenu()">综合灵感</a>
-      <a href="color-references.html" onclick="closeMobileMenu()">色彩灵感</a>
+      <a href="plan-references.html">平面灵感</a>
+      <a href="section-references.html">剖面灵感</a>
+      <a href="render-references.html">综合灵感</a>
+      <a href="color-references.html">色彩灵感</a>
       <div class="mobile-menu-group">账户</div>
-      <a href="login.html" onclick="closeMobileMenu()">登录</a>
+      <a href="login.html">登录</a>
     </div>
 
   </header>
@@ -82,14 +82,14 @@
   <aside class="rail">
     <div class="rail-kicker">Prompt Studio · Index</div>
     <nav class="rail-list">
-      <div class="nav-item active" onclick="go('s1')"><span class="ni-num">01</span><span class="ni-label">画面语言</span></div>
-      <div class="nav-item" onclick="go('s2')"><span class="ni-num">02</span><span class="ni-label">观看方式</span></div>
-      <div class="nav-item" onclick="go('s3')"><span class="ni-num">03</span><span class="ni-label">色彩气质</span></div>
-      <div class="nav-item" onclick="go('s4')"><span class="ni-num">04</span><span class="ni-label">设计风格</span></div>
-      <div class="nav-item" onclick="go('s5')"><span class="ni-num">05</span><span class="ni-label">场景元素</span></div>
-      <div class="nav-item" onclick="go('s6')"><span class="ni-num">06</span><span class="ni-label">人物状态</span></div>
-      <div class="nav-item" onclick="go('s7')"><span class="ni-num">07</span><span class="ni-label">光影情绪</span></div>
-      <div class="nav-item" onclick="go('s-ar')"><span class="ni-num">08</span><span class="ni-label">画面比例</span></div>
+      <div class="nav-item active" data-section-target="s1"><span class="ni-num">01</span><span class="ni-label">画面语言</span></div>
+      <div class="nav-item" data-section-target="s2"><span class="ni-num">02</span><span class="ni-label">观看方式</span></div>
+      <div class="nav-item" data-section-target="s3"><span class="ni-num">03</span><span class="ni-label">色彩气质</span></div>
+      <div class="nav-item" data-section-target="s4"><span class="ni-num">04</span><span class="ni-label">设计风格</span></div>
+      <div class="nav-item" data-section-target="s5"><span class="ni-num">05</span><span class="ni-label">场景元素</span></div>
+      <div class="nav-item" data-section-target="s6"><span class="ni-num">06</span><span class="ni-label">人物状态</span></div>
+      <div class="nav-item" data-section-target="s7"><span class="ni-num">07</span><span class="ni-label">光影情绪</span></div>
+      <div class="nav-item" data-section-target="s-ar"><span class="ni-num">08</span><span class="ni-label">画面比例</span></div>
     </nav>
     <div class="rail-foot">
       <a class="rail-link" href="prompt-generator.html">← Prompt Page</a>
@@ -203,11 +203,11 @@
         </div>
       </div>
       <div class="l5-tabs">
-        <button class="tab-btn active" onclick="showL5('l5-land', this)">地形</button>
-        <button class="tab-btn" onclick="showL5('l5-plant', this)">植物</button>
-        <button class="tab-btn" onclick="showL5('l5-water', this)">水景</button>
-        <button class="tab-btn" onclick="showL5('l5-pave', this)">铺装与路径</button>
-        <button class="tab-btn" onclick="showL5('l5-orn', this)">小品</button>
+        <button class="tab-btn active" data-l5-target="l5-land">地形</button>
+        <button class="tab-btn" data-l5-target="l5-plant">植物</button>
+        <button class="tab-btn" data-l5-target="l5-water">水景</button>
+        <button class="tab-btn" data-l5-target="l5-pave">铺装与路径</button>
+        <button class="tab-btn" data-l5-target="l5-orn">小品</button>
       </div>
       <div id="l5-content">
         <div id="l5-land" class="sub-group">
@@ -223,8 +223,8 @@
           <span class="sub-label">Planting</span>
           <div class="grid">
             <div class="card multi" data-val="lush trees">乔木</div>
-            <div class="card nested-trigger" onclick="openL3('l3-shrub')">灌木 ▾</div>
-            <div class="card nested-trigger" onclick="openL3('l3-ground')">地被 ▾</div>
+            <div class="card nested-trigger" data-l3-target="l3-shrub">灌木 ▾</div>
+            <div class="card nested-trigger" data-l3-target="l3-ground">地被 ▾</div>
             <div id="l3-shrub" class="l3-box">
               <div class="grid">
                 <div class="card multi" data-val="flowering shrubs">花灌木</div>
@@ -336,7 +336,7 @@
 </div>
 
 <!-- ============ CONSOLE ============ -->
-<div class="console-scrim" onclick="toggleConsole(false)"></div>
+<div class="console-scrim"></div>
 <div class="console" id="console">
   <div class="console-inner">
     <!-- expanding sheet sits ABOVE the bar (bottom-sheet behavior) -->
@@ -349,8 +349,8 @@
             <div class="full-result" id="result"><span class="fr-empty">选择关键词后，这里会生成完整提示词。</span></div>
           </div>
           <div class="edit-bar">
-            <button class="btn-edit-toggle" id="editToggleBtn" onclick="toggleEditMode()">✏️ 编辑词库</button>
-            <button class="btn-restore" onclick="restoreDefaults()">↩ 恢复默认</button>
+            <button class="btn-edit-toggle" id="editToggleBtn">✏️ 编辑词库</button>
+            <button class="btn-restore">↩ 恢复默认</button>
           </div>
         </div>
 
@@ -367,7 +367,7 @@
               <span class="ai-key-label">API KEY</span>
               <input type="password" id="aiApiKey" placeholder="迁移上线后在此填入 DeepSeek API Key">
             </div>
-            <button class="btn-ai" id="btnAiGenerate" onclick="aiGenerate()"><span class="ai-shimmer"></span> ✦ 生成完整 Prompt</button>
+            <button class="btn-ai" id="btnAiGenerate"><span class="ai-shimmer"></span> ✦ 生成完整 Prompt</button>
             <div class="ai-status" id="aiStatus"></div>
           </div>
         </div>
@@ -375,17 +375,17 @@
     </div>
 
     <div class="console-bar">
-      <button class="console-toggle" type="button" onclick="toggleConsole()">
+      <button class="console-toggle" type="button">
         <span class="ct-text">控制台</span><span class="chev">▴</span>
       </button>
-      <div class="console-preview" onclick="toggleConsole(true)">
+      <div class="console-preview">
         <div class="label-row"><span class="dot"></span> Final Prompt</div>
         <div class="result-box placeholder" id="resultPeek">等待操作…</div>
       </div>
       <div class="console-actions">
-        <button class="btn-random" onclick="randomGenerate()">随机组合</button>
-        <button class="btn-reset" onclick="resetAll()">重置</button>
-        <button class="btn-copy" onclick="copy()">复制 Prompt</button>
+        <button class="btn-random">随机组合</button>
+        <button class="btn-reset">重置</button>
+        <button class="btn-copy">复制 Prompt</button>
       </div>
     </div>
   </div>
@@ -407,12 +407,12 @@
       <div class="modal-corpus-list" id="corpusList"></div>
       <div class="corpus-add-row">
         <textarea id="corpusNewItem" placeholder="输入新词条（英文 prompt 片段）..."></textarea>
-        <button onclick="addCorpusItem()">+ 添加</button>
+        <button id="corpusAddBtn">+ 添加</button>
       </div>
     </div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeModal()">取消</button>
-      <button class="btn-modal-save" id="modalSaveBtn" onclick="saveModal()">保存</button>
+      <button class="btn-modal-cancel" id="modalCancelBtn">取消</button>
+      <button class="btn-modal-save" id="modalSaveBtn">保存</button>
     </div>
   </div>
 </div>
@@ -422,10 +422,10 @@
 
 
 <script src="js/prompt-tool-core.js?v=233"></script>
-<script src="js/prompt-tool-ui.js?v=208"></script>
+<script src="js/prompt-tool-ui.js?v=323"></script>
 
 
 
-<script src="js/prompt-tool-page.js?v=298"></script>
+<script src="js/prompt-tool-page.js?v=323"></script>
 
 </body></html>

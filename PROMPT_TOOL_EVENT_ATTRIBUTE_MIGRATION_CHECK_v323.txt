@@ -1,0 +1,59 @@
+BaoLong Lab · v323 · Prompt Tool 静态事件属性迁移专项检查
+
+基准
+- 基于：baolong-index-page-event-attribute-migration-v322-full-noimages-plus-template-assets.zip
+- 本轮只处理 prompt-tool.html 中剩余的 49 个静态 onclick。
+- 不修改 Prompt Tool 的词库内容、Prompt 生成逻辑、动态卡片逻辑、Hidden Prompt 安全边界、CSS、图片、JSON、SEO 或其他页面。
+
+本轮修改文件
+1. prompt-tool.html
+2. js/prompt-tool-ui.js
+3. js/prompt-tool-page.js
+4. 本检查文档
+
+迁移明细（49）
+- 桌面端素材分类 navFilter：6
+- 顶部登录：1
+- 移动菜单开关：1
+- 移动菜单链接关闭：14（沿用 prompt-tool-page.js 已有的委托监听）
+- 左侧章节导航 go：8
+- 场景元素 L5 标签 showL5：5
+- 植物 L3 展开 openL3：2
+- Console / 编辑词库 / AI / 随机 / 重置 / 复制 / 语料弹窗操作：12
+合计：49
+
+实现说明
+- prompt-tool.html 删除全部静态 onclick，并用稳定 ID / data-* 属性保存目标参数。
+- js/prompt-tool-page.js 新增一次性静态事件绑定，调用现有最终生效的全局函数，不改函数内部业务逻辑。
+- js/prompt-tool-ui.js 的 setActiveNav 改为读取 data-section-target；不再依赖已删除的 onclick 文本。
+- prompt-tool-ui.js 与 prompt-tool-page.js 缓存查询参数更新为 ?v=323。
+- prompt-tool-core.js 保持逐字节不变。
+
+迁移后结果
+- prompt-tool.html：onclick 49 → 0
+- 全站 25 个 HTML 页面：静态 onclick / onchange 合计 49 → 0
+- 页面功能型内联 script 仍保持为 0；语言首屏防闪和 JSON-LD 的既有保留策略不变。
+
+验证
+- 49 个旧事件按 6+1+1+14+8+5+2+12 完整覆盖，无漏迁。
+- 6 个 data-asset-filter、8 个 data-section-target、5 个 data-l5-target、2 个 data-l3-target 均完整存在。
+- 14 个移动菜单链接由既有 .mobile-menu-panel a 委托监听关闭菜单。
+- 目标 ID 唯一，事件绑定设置一次性保护，避免重复绑定。
+- Prompt Tool 绑定 fake-DOM 行为测试通过：筛选、登录、菜单、章节滚动、L5/L3、Console、编辑、AI、随机、重置、复制、语料弹窗操作均命中正确函数与参数。
+- 61 个浏览器 JavaScript 文件 node --check 通过。
+- 4 个 JSON 解析通过。
+- 27 个 CSS 花括号结构检查通过。
+- 182 个本地 CSS / JS / favicon 运行引用缺失为 0。
+- 其他 HTML 页面静态事件数量未发生变化。
+- 未发现 .env、API Key、私有 Vault 或完整生产 Hidden Prompt。
+
+本地重点回归
+1. 顶部素材分类、登录和移动菜单。
+2. 左侧 8 个章节导航及滚动高亮。
+3. 场景元素 5 个标签、灌木 / 地被两级展开。
+4. Console 打开 / 关闭、随机组合、重置、复制 Prompt。
+5. 编辑词库、恢复默认、添加语料、取消 / 保存弹窗。
+6. AI 生成按钮及原有 Prompt 生成、卡片选择和自定义词库功能。
+
+结论
+v323 仅完成 Prompt Tool 的 49 个静态事件属性迁移；静态 HTML 元素事件属性阶段达到全站清零。动态 JavaScript 事件赋值与动态生成 HTML 不属于本轮范围，保持原样，后续如需治理应单独审计。

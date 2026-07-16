@@ -1,0 +1,19 @@
+BaoLong Lab v321 fixed · resume.html native navigation correction
+Date: 2026-07-16
+
+Scope
+- Fix only the resume.html entries that open resume-tool.html after the v321 static event migration.
+- Do not change Resume Tool core logic, CSS, copy, templates, upload placeholder, language behavior, or other pages.
+
+Correction
+- Replaced 3 JS-dependent button navigation controls with native <a href="resume-tool.html"> links.
+- Replaced 12 JS-dependent template-card <article> elements with native block links to resume-tool.html.
+- Removed only the now-unused [data-resume-tool-link] listener block from js/resume.js.
+- Updated the resume.js cache query to ?v=321-fixed.
+
+Verification
+- 15 native resume-tool.html href entries exist in resume.html.
+- data-resume-tool-link occurrences: 0.
+- Static onclick/onchange attributes in resume.html: 0.
+- All other v321 files remain byte-identical except resume.html, js/resume.js, and this check file.
+- Full and patch archives must be extracted and compared before delivery.

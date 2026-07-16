@@ -271,17 +271,17 @@ function loadFromText(){const parsed=parseCSV($('csvInput').value);if(!parsed.le
 async function exportPNG(){if(!data.length){toast(ui('noData'));return}const svgEl=svg.cloneNode(true);const style=document.querySelector('style').textContent;const styleEl=document.createElement('style');styleEl.textContent=style;svgEl.insertBefore(styleEl,svgEl.firstChild);const svgText=new XMLSerializer().serializeToString(svgEl);const blob=new Blob([svgText],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1840;canvas.height=1580;const ctx=canvas.getContext('2d');ctx.fillStyle='#fffdf8';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);canvas.toBlob(pngBlob=>{const pngUrl=URL.createObjectURL(pngBlob);const a=document.createElement('a');a.href=pngUrl;a.download='data-bloom-generator-c7.png';a.click();URL.revokeObjectURL(pngUrl);toast(ui('exported'))})};img.onerror=()=>toast(ui('exportFailed'));img.src=url}
 const workspace=$('workspace');const toggleSidebarBtn=$('toggleSidebarBtn');
 function setSidebarCollapsed(collapsed){workspace.classList.toggle('collapsed',collapsed);toggleSidebarBtn.querySelector('.toggleIcon').textContent=collapsed?'→':'←';toggleSidebarBtn.querySelector('.toggleText').textContent=collapsed?ui('edit'):ui('focus');toggleSidebarBtn.setAttribute('aria-expanded',String(!collapsed));try{localStorage.setItem('dataBloomSidebarCollapsed',collapsed?'1':'0')}catch(e){}}
-toggleSidebarBtn.onclick=()=>setSidebarCollapsed(!workspace.classList.contains('collapsed'));
+toggleSidebarBtn.addEventListener('click',()=>setSidebarCollapsed(!workspace.classList.contains('collapsed')));
 try{setSidebarCollapsed(localStorage.getItem('dataBloomSidebarCollapsed')==='1')}catch(e){setSidebarCollapsed(false)}
 bindHeaderNavigation();
 applyStaticLang();
 new MutationObserver(function(){applyStaticLang(); if(data&&data.length) render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
-$('sampleBtn').onclick=()=>{$('csvInput').value=sampleCSV;loadFromText()};
-$('generateBtn').onclick=loadFromText;
-$('clearBtn').onclick=()=>{$('csvInput').value='';data=[];render();toast(ui('cleared'))};
-$('downloadTemplateBtn').onclick=()=>downloadText('data-bloom-template.csv',sampleCSV);
-$('exportBtn').onclick=exportPNG;
+$('sampleBtn').addEventListener('click',()=>{$('csvInput').value=sampleCSV;loadFromText()});
+$('generateBtn').addEventListener('click',loadFromText);
+$('clearBtn').addEventListener('click',()=>{$('csvInput').value='';data=[];render();toast(ui('cleared'))});
+$('downloadTemplateBtn').addEventListener('click',()=>downloadText('data-bloom-template.csv',sampleCSV));
+$('exportBtn').addEventListener('click',exportPNG);
 $('csvFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;const text=await file.text();$('csvInput').value=text;loadFromText()});
 document.querySelectorAll('.chip').forEach(btn=>btn.onclick=()=>{filter=btn.dataset.filter;document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const first=data.find(d=>filter==='all'||d.cat===filter);if(first)selectedId=first.id;render()});
 $('csvInput').value=sampleCSV;

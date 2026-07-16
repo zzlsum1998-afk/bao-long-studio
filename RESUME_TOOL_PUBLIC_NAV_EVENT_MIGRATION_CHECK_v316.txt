@@ -1,0 +1,46 @@
+BaoLong Lab v316 · Resume Tool 公共导航事件属性迁移检查
+整理日期：2026-07-16
+
+【唯一目标】
+只迁移 resume-tool.html 顶部公共导航的 22 个 onclick，不治理 Resume Tool 核心编辑、预览、导出、AI 使用次数或其他业务交互。
+
+【基准】
+baolong-interaction-page-event-attribute-migration-v315-full-noimages-plus-template-assets.zip
+
+【修改文件】
+1. resume-tool.html
+2. js/resume-tool-nav.js
+3. js/resume-tool-mobile-menu.js
+4. RESUME_TOOL_PUBLIC_NAV_EVENT_MIGRATION_CHECK_v316.txt（新增）
+
+【迁移内容】
+- 桌面端素材库 6 个 navFilter onclick → data-nav-filter + addEventListener
+- 顶部登录按钮 1 个 onclick → addEventListener
+- 移动菜单开关 1 个 onclick → addEventListener
+- 移动菜单 14 个链接 closeMobileMenu onclick → addEventListener
+- 合计迁移 22 个 onclick
+
+【保持不变】
+- js/common.js 内容与 ?v=309 引用不变
+- js/resume-tool.js 与 js/resume-tool-ai-usage.js 内容及 ?v=307 引用不变
+- Resume Tool 编辑器、模板、头像、模块、间距、预览、打印、PDF 导出、保存与 AI 次数逻辑不变
+- 页面 CSS、视觉、文案、结构、SEO、中英文、图片与数据不变
+- navFilter、toggleMobileMenu、closeMobileMenu 的函数职责与跳转目标不变
+
+【缓存参数】
+- js/resume-tool-nav.js?v=316
+- js/resume-tool-mobile-menu.js?v=316
+
+【预期计数】
+- resume-tool.html：onclick 22 → 0
+- 全站元素事件属性：278 → 256
+- 全站 onclick：277 → 255
+- 全站 onchange：保持 1
+
+【本地回归重点】
+1. 桌面端素材库下拉的 6 个分类跳转；
+2. 顶部登录按钮；
+3. 移动菜单打开、点击菜单链接后关闭、点击菜单外部关闭；
+4. Resume Tool 编辑、模板切换、头像、模块、保存、打印和 PDF 导出等原有核心功能。
+
+Patch 仅用于覆盖 v315 完整目录，不能单独作为完整网站打开预览。

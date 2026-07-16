@@ -94,11 +94,11 @@ function renderTabs() {
     btn.className = 'pc-season-tab' + (i===0 ? ' active' : '');
     btn.textContent = s.full;
     btn.type = 'button';
-    btn.onclick = () => {
+    btn.addEventListener('click', () => {
       document.querySelectorAll('.pc-season-tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('season-' + i).scrollIntoView({behavior:'smooth', block:'start'});
-    };
+    });
     tabs.appendChild(btn);
   });
 }
@@ -121,7 +121,7 @@ function renderCalendar() {
       cell.style.background = p.color;
       cell.dataset.tip = `第${w}周 · ${p.name}`;
       cell.setAttribute('aria-label', `第${w}周，${p.name}，${p.color}`);
-      cell.onclick = () => showDetail(w, cell);
+      cell.addEventListener('click', () => showDetail(w, cell));
       grid.appendChild(cell);
     }
     row.appendChild(meta);
@@ -155,7 +155,7 @@ function showDetail(w, cell) {
     sw.style.background = c;
     sw.dataset.hex = c.toUpperCase();
     sw.setAttribute('aria-label', '复制色值 ' + c.toUpperCase());
-    sw.onclick = () => copyText(c.toUpperCase());
+    sw.addEventListener('click', () => copyText(c.toUpperCase()));
     pairs.appendChild(sw);
   });
   if (window.innerWidth <= 980) detail.scrollIntoView({behavior:'smooth', block:'start'});

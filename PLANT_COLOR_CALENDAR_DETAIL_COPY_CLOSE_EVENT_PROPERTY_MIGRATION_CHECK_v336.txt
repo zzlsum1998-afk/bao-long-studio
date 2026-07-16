@@ -1,0 +1,69 @@
+BAOLONG LAB · PLANT COLOR CALENDAR DETAIL COPY / CLOSE EVENT-PROPERTY MIGRATION CHECK v336
+Generated: 2026-07-16
+Base: baolong-plant-emotion-radar-copy-clear-event-property-migration-v335-full-noimages-plus-template-assets.zip
+
+VERSION PURPOSE
+- v336 is a single-page, single-component migration for three persistent native buttons in Plant Color Calendar.
+- It replaces direct DOM event-property assignments with explicit click listeners while preserving the existing handlers and execution order.
+- It does not migrate the remaining dynamic season-tab, calendar-cell, or pairing-swatch property assignments.
+- It does not modify common.js, shared scripts, CSS, data, images, copy, layout, visual state, upload/export flows, SEO, or image-workflow configuration.
+
+FILES CHANGED
+1. plant-color-calendar.html
+   - Only updates js/plant-color-calendar.js cache query to ?v=336.
+   - js/common.js remains ?v=309.
+2. js/plant-color-calendar.js
+   - #d-hex: onclick property -> addEventListener('click', ...).
+   - #copyPalette: onclick property -> addEventListener('click', ...).
+   - #clearActive: onclick property -> addEventListener('click', ...).
+3. PLANT_COLOR_CALENDAR_DETAIL_COPY_CLOSE_EVENT_PROPERTY_MIGRATION_CHECK_v336.txt
+   - This check record.
+
+BEHAVIOR PRESERVED
+- Clicking the large hexadecimal value copies the active plant color only when a plant is selected.
+- Clicking “复制本组色值” copies the active plant color plus its three pairing colors, one value per line.
+- Clipboard handling continues through the existing copyText() function and the existing Toast.
+- Clicking “收起详情” removes the active calendar-cell class, clears activeCell / activePlant, and hides the detail panel.
+- Empty-state guards, native button Enter / Space click synthesis, detail content, color data, week data, smooth scrolling, and all visual classes remain unchanged.
+
+EXPLICITLY OUT OF SCOPE
+- renderTabs() season-tab onclick assignments.
+- renderCalendar() calendar-cell onclick assignments.
+- showDetail() pairing-swatch onclick assignments.
+- The other direct DOM event-property assignments in the site.
+- Any migration of FileReader / Image load or error callbacks.
+- ARIA redesign, visual redesign, common-script merging, cache cleanup outside this page, dead-code cleanup, or copy changes.
+
+EVENT-PROPERTY COUNTS
+- v335 direct DOM event-property assignments: 42 across 9 browser JS files.
+- v336 direct DOM event-property assignments: 39 across 9 browser JS files.
+- onclick assignments: 29 -> 26.
+- js/plant-color-calendar.js assignments: 6 -> 3.
+- Static HTML on* attributes: 0.
+- Dynamically generated inline on* attributes: 0.
+- javascript: URLs: 0.
+
+VALIDATION TARGETS
+1. Open Plant Color Calendar and choose a week color cell.
+2. Click the large HEX value; paste into a text field and confirm the active color is copied.
+3. Click “复制本组色值”; paste and confirm four uppercase HEX values appear on separate lines.
+4. Confirm the existing copied Toast still appears and the selected cell / detail remain visible after copying.
+5. Click “收起详情”; confirm the active cell loses its active state and the detail panel hides.
+6. Select another week after closing and repeat copy / close to confirm later interactions remain intact.
+7. Keyboard-check the three native buttons with Enter and Space.
+
+STATIC VALIDATION
+- Modified JavaScript passes node --check.
+- All 61 JavaScript files pass syntax checks.
+- All 57 browser JavaScript files retain real HTML references.
+- Static HTML on* attributes remain 0; javascript: URLs remain 0.
+- Dynamic inline event attributes remain 0.
+- 4 JSON files and 19 JSON-LD blocks parse successfully.
+- 27 CSS files pass structural brace checks.
+- 182 local CSS / JS / favicon references resolve; missing references: 0.
+- A component-level DOM lifecycle harness passes: 4 season tabs and 52 cells render; single-color copy, four-color copy, Toast state, close/reset, and later reselection/copy all remain functional.
+
+FINAL VERDICT
+- PASS: the three persistent Plant Color Calendar detail action buttons no longer use direct onclick property assignment.
+- PASS: the migration remains page-local and preserves the current copy, Toast, active-state, close, and native keyboard behavior.
+- QUALIFICATION: three dynamic onclick property assignments intentionally remain in js/plant-color-calendar.js for a later dedicated version.

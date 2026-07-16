@@ -1,0 +1,98 @@
+BAOLONG LAB · PLANT EMOTION RADAR COPY / CLEAR EVENT-PROPERTY MIGRATION CHECK v335
+Generated: 2026-07-16
+Base: v334 · baolong-direct-dom-event-property-assignment-read-only-audit-v334-full-noimages-plus-template-assets.zip
+
+PURPOSE
+- Run the first direct DOM event-property migration pilot identified by the v334 read-only audit.
+- Migrate only EVP-28 and EVP-29 in Plant Emotion Radar:
+  1. button#copyResult
+  2. button#clearAll
+- Preserve the exact existing handlers, state model, native button semantics, visual output, wording, structure, and feature behavior.
+
+STRICT SCOPE
+Modified:
+- plant-emotion-radar.html
+- js/plant-emotion-radar.js
+
+Added:
+- PLANT_EMOTION_RADAR_COPY_CLEAR_EVENT_PROPERTY_MIGRATION_CHECK_v335.txt
+
+Not changed:
+- The remaining 42 direct DOM event-property assignments.
+- Any HTML static on* attribute or generated inline event attribute.
+- Plant data, six emotion dimensions, score calculations, eight-selection limit, radar drawing, result wording, copy payload, clear-state logic, navigation, CSS, images, JSON, SEO, common.js, or other cache queries.
+- Hidden Prompt, API configuration, Vault, or image-workflow files.
+
+SOURCE MIGRATION
+Before:
+- document.getElementById('copyResult').onclick = handler
+- document.getElementById('clearAll').onclick = handler
+
+After:
+- document.getElementById('copyResult').addEventListener('click', handler)
+- document.getElementById('clearAll').addEventListener('click', handler)
+
+The handler bodies are unchanged:
+- Copy remains a no-op when no plant is selected.
+- Copy still composes the current plant names, mood title, six scores, and mood explanation, then calls the existing copyText() path and toast.
+- Clear still empties the selected Set, then calls renderGrid(), renderSelected(), and updateResult() in the same order.
+
+KEYBOARD / ACCESSIBILITY
+- Both targets remain native <button type="button"> controls.
+- Native Enter and Space activation remains available through the browser-generated click event.
+- No role, tabindex, label, focus order, or visible state was changed.
+
+CACHE BOUNDARY
+- plant-emotion-radar.html updates only js/plant-emotion-radar.js from ?v=332 to ?v=335.
+- js/common.js remains ?v=309.
+- No unrelated resource cache query was changed.
+
+STATIC AUDIT RESULT
+- Root HTML pages: 25.
+- Static HTML on* attributes: 0.
+- javascript: URLs: 0.
+- JavaScript generated-markup on* attributes: 0.
+- setAttribute('on...') calls: 0.
+- Direct DOM event-property assignments: 44 -> 42.
+  - onclick: 31 -> 29.
+  - onmouseenter: 2.
+  - onmouseleave: 2.
+  - onload: 5.
+  - onerror: 4.
+- Files containing direct event-property assignments: 10 -> 9.
+- js/plant-emotion-radar.js direct event-property assignments: 2 -> 0.
+
+AUTOMATED VALIDATION
+- All 61 JavaScript files pass node --check.
+- All 57 browser JavaScript files retain at least one real HTML reference.
+- All 4 JSON files parse.
+- All 19 JSON-LD blocks parse.
+- All 27 CSS files pass brace-balance inspection.
+- Local CSS / JS / favicon references checked: 182; missing: 0.
+- Targeted Chromium component harness passes:
+  - select a plant with native Enter activation;
+  - copy with mouse click;
+  - copy with native Space activation;
+  - copied payload still includes plant combination, mood, scores, and explanation;
+  - toast state is shown after a successful copy;
+  - clear with native Enter activation;
+  - selected count returns to 0 / 8;
+  - selected tags disappear;
+  - selected plant chip state clears;
+  - result panel hides;
+  - copy remains a no-op when no plant is selected;
+  - runtime page errors and console errors: 0 in the component harness.
+
+MANUAL REGRESSION FOCUS
+1. Select one or more plants, click “复制分析结果”, paste into a text field, and confirm plant names, emotion tendency, six scores, and explanation are all present.
+2. Confirm the “已复制” toast still appears after copying.
+3. Click “清空选择” and confirm:
+   - count returns to 已选 0 / 8;
+   - selected tags disappear;
+   - result/radar panel hides;
+   - previously disabled plant buttons become available again.
+4. After clearing, select plants again and confirm the grid, selected tags, radar, and copy action still work.
+5. Optional keyboard check: focus the two buttons and activate them with Enter and Space.
+
+FINAL VERDICT
+PASS · v335 migrates only EVP-28 and EVP-29 from direct onclick property assignment to click listeners. The direct-assignment baseline decreases from 44 to 42 with no intended visual, structural, wording, data, or functional change.

@@ -1,0 +1,108 @@
+BAOLONG LAB · v340
+COMMON.JS DESKTOP + MOBILE LANGUAGE TOGGLE EVENT PROPERTY MIGRATION CHECK
+Date: 2026-07-17
+
+1. Version basis
+- Base: baolong-seasonal-color-tool-plant-card-keyboard-event-migration-v339-full-noimages-plus-template-assets.zip
+- Target: v340 · common.js 桌面端与移动端语言切换按钮事件属性迁移
+- Scope is limited to the two direct onclick property assignments created by injectLanguageToggle() in js/common.js.
+
+2. Modified files
+- js/common.js
+  - Replaces the desktop language button onclick property assignment with addEventListener('click', ...).
+  - Replaces the mobile language button onclick property assignment with addEventListener('click', ...).
+  - Preserves preventDefault(), current-language lookup, zh/en switching, localStorage persistence, applyLanguage(), ARIA labels and data-current-lang synchronization.
+- 15 HTML pages that reference js/common.js
+  - Only update js/common.js cache query from ?v=309 to ?v=340.
+  - No other script or stylesheet cache query is changed.
+- COMMON_LANGUAGE_TOGGLE_EVENT_PROPERTY_MIGRATION_CHECK_v340.txt
+
+3. Runtime behavior mapping
+- Desktop generated DOM:
+  - button.language-toggle.pill-btn[type="button"]
+  - Appended to .site-header .header-actions.
+- Mobile generated DOM:
+  - button.language-toggle.mobile-language-toggle[type="button"]
+  - Appended to #mobileMenuPanel.
+- Original click behavior:
+  - Prevent button default behavior.
+  - Read baolongLanguage from localStorage, defaulting to zh.
+  - Toggle zh <-> en.
+  - Persist the new value and call applyLanguage().
+- v340 behavior:
+  - The same anonymous click handlers are registered with addEventListener('click', ...).
+  - Native button Enter / Space behavior remains unchanged.
+  - Generated buttons expose onclick === null at runtime.
+
+4. Page lifecycle and preserved boundaries
+- js/common.js is referenced by 15 root HTML pages.
+- The shared desktop/mobile language controls are injected on 13 pages with both header targets and no pre-existing .language-toggle element:
+  - assets.html
+  - bubble-timeline.html
+  - color-references.html
+  - data-bloom-garden.html
+  - index.html
+  - interaction.html
+  - plan-references.html
+  - plant-color-calendar.html
+  - plant-emotion-radar.html
+  - prompt-generator.html
+  - render-references.html
+  - resume.html
+  - section-references.html
+- Existing non-injection behavior is intentionally preserved on:
+  - interaction-landscape-growth.html: no shared header-action / mobile-panel targets.
+  - resume-tool.html: contains its own existing .language-toggle control, so injectLanguageToggle() returns as before.
+- No selector, injection guard, menu behavior or page-specific language control is changed in v340.
+
+5. Preserved boundaries
+- No zhMap, titleMap, translation copy, text collection or skip rules changed.
+- No mobile menu open / close, body scroll lock, active navigation or outside-click behavior changed.
+- No HTML structure, CSS, visual style, copy or navigation destination changed.
+- No other direct DOM event-property assignment was migrated.
+- No cache query other than js/common.js was changed.
+
+6. Event-debt counts after migration
+- Static HTML on* attributes: 0.
+- Runtime-generated inline on* attributes: 0.
+- javascript: URLs: 0.
+- Direct DOM event-property assignments: 25 -> 23.
+- Direct onclick assignments: 12 -> 10.
+- js/common.js direct event-property assignments: 2 -> 0.
+- JS files containing direct event-property assignments: 7 -> 6.
+- Remaining assignments by type:
+  - onclick: 10
+  - onmouseenter: 2
+  - onmouseleave: 2
+  - onload: 5
+  - onerror: 4
+
+7. Validation
+- Node syntax check passes for all 61 JavaScript files.
+- 57 browser JavaScript files retain real HTML references.
+- 4 JSON files and 19 JSON-LD blocks parse successfully.
+- 27 CSS files pass brace-balance checks.
+- 25 root HTML files retain 0 static on* attributes and 0 javascript: URLs.
+- 182 local CSS / JS / favicon references resolve with 0 missing files.
+- All 15 common.js references use ?v=340.
+- Browser DOM/component regression confirms on all 13 injecting pages:
+  - Exactly one desktop and one mobile language button are generated.
+  - Both remain native type="button" controls.
+  - Both expose onclick === null after migration.
+  - Desktop click switches zh -> en and prevents default.
+  - Mobile click switches en -> zh and prevents default.
+  - document lang, data-bl-lang, localStorage, aria-label and data-current-lang remain synchronized.
+- Browser regression also confirms the two historical non-injection boundaries remain unchanged.
+
+8. Manual regression focus
+- On desktop, switch 中文 / EN and confirm page copy and document title change correctly.
+- Refresh the page and confirm the selected language persists.
+- Open the mobile menu, use 中文 / EN, and confirm the page switches without breaking or closing incorrectly.
+- Confirm both desktop and mobile buttons remain keyboard-operable with Enter and Space.
+- Spot-check index.html, assets.html, one Inspiration Board page, one interaction tool page and resume.html.
+- Spot-check resume-tool.html to confirm its independent resume-language control is unchanged.
+
+9. Packaging rule
+- Full package is the only standalone development baseline.
+- Patch preserves original directory paths and only applies to the explicit v339 full baseline.
+- Patch cannot be previewed as a standalone website.

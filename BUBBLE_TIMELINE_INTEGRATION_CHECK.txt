@@ -1,0 +1,16 @@
+Bubble Timeline integration v139
+
+Changed files:
+- interaction.html
+- bubble-timeline.html
+
+What changed:
+- Added Bubble Timeline card to Interaction Lab.
+- Added standalone Bubble Timeline tool page.
+- Integrated BaoLong Lab unified nav / logo / mobile menu.
+- Kept CSV upload, paste CSV, column mapping, filters, hover tooltip, category half-circle legend, and bubble size half-circle legend.
+- No new image assets required; card preview is CSS-only.
+
+Recommended upload:
+- Upload / overwrite interaction.html and bubble-timeline.html.
+- Or upload this full package if replacing the current v138 site folder.

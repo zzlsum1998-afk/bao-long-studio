@@ -1,0 +1,20 @@
+BaoLong Lab Color Extractor UI v128 Check
+
+Scope:
+- Only color-references.html was modified for the Color Board tool entry and modal UI.
+- No data JSON files were changed.
+- No Plan / Section / Other board files were changed.
+- Existing #colorMasonry remains inside the .masonry container.
+
+Added:
+- Color Extractor entry card below Color Board hero and above the Color Wheel Relationship filter.
+- Scoped modal: #colorExtractorModal
+- Scoped upload / preview / palette extraction UI.
+- Local browser-side image color extraction.
+- Copy HEX values, export palette card, reset upload.
+
+Checks:
+- color-references.html contains one .color-tool-section.
+- color-references.html contains one #colorExtractorModal.
+- #colorMasonry remains <div class="masonry" id="colorMasonry" aria-live="polite"></div>.
+- JavaScript syntax checked with node --check for all inline scripts.

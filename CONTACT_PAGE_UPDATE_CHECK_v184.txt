@@ -1,0 +1,25 @@
+BaoLong Lab v184 Contact Page Update Check
+
+Modified files:
+- contact.html (new)
+- about.html
+- public footer HTML pages with the standard footer link line
+
+Scope:
+- Added a Contact page with bilingual static content.
+- Added footer entry: 联系 / Contact.
+- Added About page contact entry.
+- Kept official canonical with www: https://www.baolonglab.com/contact.html
+
+Not changed:
+- CSS files
+- JS files
+- JSON/data
+- images
+- favicon
+- sitemap.xml
+- robots.txt
+- prompt-tool.html
+- Prompt Tool feature logic
+- Resume Tool
+- Inspiration load-more logic

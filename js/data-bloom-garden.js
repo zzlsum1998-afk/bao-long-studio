@@ -232,8 +232,16 @@ function render(){
     </g>`);
   }
 
-  svg.querySelectorAll('.node').forEach(g=>{g.onclick=()=>select(+g.dataset.id);g.onmouseenter=()=>focus(+g.dataset.id);g.onmouseleave=()=>focus(null)});
-  svg.querySelectorAll('.microNode,.nanoNode').forEach(g=>{g.onclick=()=>select(+g.dataset.parent);g.onmouseenter=()=>focus(+g.dataset.parent);g.onmouseleave=()=>focus(null)});
+  svg.querySelectorAll('.node').forEach(g=>{
+    g.addEventListener('click',()=>select(+g.dataset.id));
+    g.addEventListener('mouseenter',()=>focus(+g.dataset.id));
+    g.addEventListener('mouseleave',()=>focus(null));
+  });
+  svg.querySelectorAll('.microNode,.nanoNode').forEach(g=>{
+    g.addEventListener('click',()=>select(+g.dataset.parent));
+    g.addEventListener('mouseenter',()=>focus(+g.dataset.parent));
+    g.addEventListener('mouseleave',()=>focus(null));
+  });
 
   renderList(); renderForm(); renderDetail(); renderStats(microNodes.length,nanoNodes.length,shown);
 }
@@ -254,9 +262,23 @@ function renderDetail(){
 }
 function renderList(){
   const shown=data.filter(d=>filter==='all'||d.cat===filter);
-  $('dataList').innerHTML=shown.map(d=>`<div class="item ${d.id===selectedId?'active':''}" data-id="${d.id}"><b>${d.name}</b><small>${d.zh} · ${d.count} ${ui('items')}</small></div>`).join('');
-  document.querySelectorAll('.item').forEach(el=>el.onclick=()=>select(+el.dataset.id));
+  $('dataList').innerHTML=shown.map(d=>`<div class="item ${d.id===selectedId?'active':''}" data-id="${d.id}" role="button" tabindex="0" aria-pressed="${d.id===selectedId?'true':'false'}"><b>${d.name}</b><small>${d.zh} · ${d.count} ${ui('items')}</small></div>`).join('');
 }
+function getListItemFromEvent(event){
+  const item=event.target.closest('.item[data-id]');
+  return item&&$('dataList').contains(item)?item:null;
+}
+$('dataList').addEventListener('click',event=>{
+  const item=getListItemFromEvent(event);
+  if(item)select(+item.dataset.id);
+});
+$('dataList').addEventListener('keydown',event=>{
+  if(event.key!=='Enter'&&event.key!==' ')return;
+  const item=getListItemFromEvent(event);
+  if(!item)return;
+  event.preventDefault();
+  select(+item.dataset.id);
+});
 function renderStats(microTotal,nanoTotal,shown){
   const avg=Math.round(shown.reduce((s,d)=>s+d.score,0)/shown.length);
   const total=shown.reduce((s,d)=>s+d.count,0);

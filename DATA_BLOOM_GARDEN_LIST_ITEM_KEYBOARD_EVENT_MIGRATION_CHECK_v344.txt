@@ -1,0 +1,46 @@
+BaoLong Lab · Data Bloom Garden 右侧列表项点击与键盘语义迁移检查
+版本：v344
+基础：v343 full
+
+一、本版唯一目标
+迁移 Data Bloom Garden 右侧动态列表项的直接 onclick 属性赋值，并补齐非原生 div 列表项的键盘激活语义。
+
+二、修改范围
+1. data-bloom-garden.html
+   - 仅将 js/data-bloom-garden.js 缓存参数由 ?v=343 更新为 ?v=344。
+2. js/data-bloom-garden.js
+   - 删除 renderList() 中对动态 .item 节点逐个执行 el.onclick = ... 的写法。
+   - 列表项继续使用原 div.item 视觉结构，并新增：
+     role="button"
+     tabindex="0"
+     aria-pressed="true / false"
+   - 在静态 #dataList 容器上新增一次 click 事件委托。
+   - 在静态 #dataList 容器上新增一次 keydown 事件委托。
+   - Enter 与 Space 均激活当前聚焦列表项；Space 会 preventDefault，避免页面滚动。
+   - 点击列表项内部的标题或说明文字仍可正确找到所属 .item。
+3. 新增本检查文档。
+
+三、保持不变
+- 列表数据、排序、文案、数量和视觉样式不变。
+- 点击列表项后仍调用原 select(id)，继续重绘 SVG、列表、详情与统计。
+- 分类筛选、SVG 主节点和外围节点交互不变。
+- v341 fixed 的 PNG 导出黑块修复完整保留。
+- Image.onload / Image.onerror 资源回调未处理。
+- 不修改 common.js、CSS、JSON、图片或其他页面。
+
+四、事件技术债变化
+- Data Bloom Garden 右侧列表项直接 onclick：1 → 0。
+- js/data-bloom-garden.js 直接事件属性赋值：3 → 2。
+- 全站直接 DOM 事件属性赋值：10 → 9。
+- 全站直接 onclick：1 → 0。
+- 剩余两处均为 Data Bloom PNG 导出中的 Image.onload / Image.onerror，属于资源生命周期回调，后续独立判断。
+
+五、重点回归
+1. 鼠标点击列表项空白区域、标题文字和说明文字，均应选中正确节点。
+2. 当前列表项保持 active 视觉状态，aria-pressed="true"；其他项为 false。
+3. Tab 可聚焦每一个列表项。
+4. Enter 可选择聚焦列表项。
+5. Space 可选择聚焦列表项且页面不额外滚动。
+6. 点击或键盘选择后列表会重建，新列表项仍可继续操作。
+7. 切换五个分类后，列表项交互继续正常。
+8. SVG 节点点击 / 悬停和 PNG 导出继续正常。

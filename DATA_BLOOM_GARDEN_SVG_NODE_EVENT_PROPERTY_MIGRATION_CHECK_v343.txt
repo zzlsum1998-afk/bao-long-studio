@@ -1,0 +1,44 @@
+BaoLong Lab · Data Bloom Garden SVG 主节点与外围节点事件属性迁移检查
+版本：v343
+基础：v342 full
+
+一、本版唯一目标
+仅迁移 Data Bloom Garden 图谱中两组运行时 SVG 节点的直接 DOM 事件属性赋值：
+1. g.node[data-id] 主节点：click / mouseenter / mouseleave；
+2. g.microNode、g.nanoNode[data-parent] 外围节点：click / mouseenter / mouseleave。
+
+二、迁移方式
+- 原写法：element.onclick / element.onmouseenter / element.onmouseleave。
+- 新写法：element.addEventListener('click' / 'mouseenter' / 'mouseleave', handler)。
+- 节点仍由 render() 重建；每次 render() 完成后，监听器仍绑定到本轮新创建的 SVG 节点。
+- 主节点继续使用 data-id 调用 select(id) / focus(id)。
+- 外围节点继续使用 data-parent 选择和聚焦所属主节点。
+
+三、保持不变
+- 点击主节点或外围节点后的选中结果；
+- 悬停时其他连接线与节点的淡出 / 高亮；
+- 鼠标离开后的焦点清除；
+- 分类筛选、数据生成、右侧列表、详情、统计和 PNG 导出；
+- v341 fixed 的 PNG 黑块修复；
+- 页面视觉、文案、结构、节点数量和图谱算法。
+
+四、有意未处理
+- div.item[data-id] 右侧列表项的 onclick；
+- 导出 Image.onload / Image.onerror 资源回调；
+- SVG 非原生交互元素的 role / tabindex / Enter / Space 语义。本版只做事件属性迁移，不夹带可访问性结构调整。
+
+五、预期计数
+- 全站直接 DOM 事件属性赋值：16 → 10；
+- 全站直接 onclick：3 → 1；
+- 全站 mouseenter / mouseleave：4 → 0；
+- js/data-bloom-garden.js：9 → 3；
+- 静态 HTML on*、动态内联 on*、javascript: URL 继续为 0。
+
+六、重点回归
+1. 点击不同主节点，右侧 Selected Node 和活动高亮同步更新；
+2. 点击任意外围 micro / nano 节点，选择其所属主节点；
+3. 悬停主节点，非目标连接线与节点正常淡出；移开后恢复；
+4. 悬停外围节点，高亮所属主节点及其分支；移开后恢复；
+5. 节点点击触发 render() 重建后，新节点仍能继续点击和悬停；
+6. 分类切换后节点事件仍有效；
+7. PNG 导出继续正常且不出现黑色团块。

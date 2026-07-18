@@ -1,0 +1,66 @@
+BAOLONG LAB · COLOR BOARD JAVASCRIPT BEHAVIOR-PRESERVATION MATRIX v360
+Generated: 2026-07-18
+
+AREA | v359 INPUT | v360 IMPLEMENTATION | EXPECTED / VERIFIED RESULT
+
+Card source row
+- v359: renderColorSource(item), item unread.
+- v360: renderColorSource().
+- Result: identical fixed HTML output.
+
+Card click -> modal
+- v359: seven arguments, including ignored sourceName and sourceUrl.
+- v360: five arguments containing only values consumed by the Color modal.
+- Result: same title, type, image/color, description and color-value state.
+
+Exact color values
+- v359: seventh argument exactColorValues.
+- v360: fifth argument exactColorValues.
+- Result: same preferred exact-value behavior.
+
+Historical description fallback
+- v359: extractColorValueBlock(desc) when exactColorValues is empty.
+- v360: unchanged.
+- Result: same fallback extraction.
+
+Image modal branch
+- v359: file extension test creates an img element.
+- v360: unchanged.
+- Result: same image markup and modal class state.
+
+Solid-color modal branch
+- v359: non-image value becomes modal background.
+- v360: unchanged.
+- Result: same color display.
+
+Modal scroll lock
+- v359: v358-fixed overflow lock and requestAnimationFrame restoration.
+- v360: unchanged byte-for-byte within the lock/unlock implementation.
+- Result: Color modal close remains stable without the former upward slide.
+
+Copy color values
+- v359: Clipboard API with textarea fallback.
+- v360: unchanged.
+- Result: no behavior change.
+
+K-means center de-duplication
+- v359: computes an unread hex value, then filters by RGB distance.
+- v360: directly filters by RGB distance.
+- Result: identical center list; deterministic equivalence sample passed.
+
+Color extractor output conversion
+- v359: rgbToHexExtractor converts final centers for output.
+- v360: unchanged.
+- Result: displayed color values remain unchanged.
+
+Data / filters / favorites / load more
+- v359: existing Color Board renderer behavior.
+- v360: no related logic changed.
+- Result: unchanged; data remains 100 records.
+
+Out of scope and unchanged
+- CSS and visual layout.
+- Plan / Section / Other scripts and data.
+- Inspiration Board shared modal, masonry, navigation and scroll-top scripts.
+- common.js.
+- Prompt Tool, Resume Tool, assets, SEO and images.

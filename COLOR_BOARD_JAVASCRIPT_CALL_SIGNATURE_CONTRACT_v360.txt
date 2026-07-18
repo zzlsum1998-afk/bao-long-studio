@@ -1,0 +1,50 @@
+BAOLONG LAB · COLOR BOARD JAVASCRIPT CALL-SIGNATURE CONTRACT v360
+Generated: 2026-07-18
+
+A. COLOR SOURCE ROW
+Owner: js/color-references-board.js
+Definition:
+  renderColorSource()
+Call site:
+  renderColorSource()
+Contract:
+- No item data is consumed.
+- Output remains the fixed BaoLong Lab / Color Ref disabled source row.
+- Definition arguments: 0.
+- Call arguments: 0.
+
+B. COLOR MODAL
+Caller: js/color-references-board.js
+Owner: js/color-references-modal.js
+Definition:
+  openModal(title, type, imageOrColor, desc, exactColorValues)
+Caller order:
+1. item.title
+2. item.type || 'Color Board'
+3. item.image || item.cover || ''
+4. item.desc || ''
+5. item.colorValues || ''
+
+Contract:
+- title controls #modalTitle.
+- type controls #modalType.
+- imageOrColor controls the image-file or solid-color display branch.
+- desc controls #modalDesc and remains the compatibility input for extractColorValueBlock().
+- exactColorValues is preferred; the description parser remains as fallback.
+- sourceName and sourceUrl are intentionally absent because the Color modal has no source-link UI and never consumed them.
+- The page-global name openModal remains unchanged for Color Board card binding.
+
+C. COLOR EXTRACTOR K-MEANS
+Owner: js/color-references-extractor.js
+Contract:
+- kMeansExtractor(pixels, k) continues to cluster RGB triples.
+- Center de-duplication continues to use colorDistance(center, item) < 28.
+- rgbToHexExtractor remains live elsewhere when final RGB centers are converted for display.
+- Only the unused intermediate const hex inside the de-duplication loop is removed.
+
+D. CACHE CONTRACT
+color-references.html loads:
+- js/color-references-board.js?v=360
+- js/color-references-modal.js?v=360
+- js/color-references-extractor.js?v=360
+No unrelated cache query is changed.

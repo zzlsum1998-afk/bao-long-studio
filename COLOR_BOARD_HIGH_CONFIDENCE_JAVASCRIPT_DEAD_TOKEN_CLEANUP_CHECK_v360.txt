@@ -1,0 +1,76 @@
+BAOLONG LAB · COLOR BOARD HIGH-CONFIDENCE JAVASCRIPT DEAD-TOKEN CLEANUP CHECK v360
+Generated: 2026-07-18
+Base: baolong-inspiration-board-high-confidence-legacy-css-selector-cleanup-v359-full-noimages-plus-template-assets.zip
+Base ZIP bytes: 43606545
+Base extracted files: 494
+Base extracted file bytes: 46205253
+
+VERSION PURPOSE
+- v360 performs only the four high-confidence Color Board JavaScript dead-token edits identified in the v357 read-only audit.
+- It does not alter Color Board data, rendering output, modal appearance, modal scroll-lock behavior, color extraction algorithms, favorites, filters, navigation, Prompt behavior, CSS, images, or any other page.
+- Only cache query strings for the three JavaScript files changed in this version are advanced to ?v=360.
+
+CHANGED RUNTIME FILES
+1. color-references.html
+   - color-references-board.js query: v318 -> v360.
+   - color-references-modal.js query: v358-fixed -> v360.
+   - color-references-extractor.js query: v326 -> v360.
+2. js/color-references-board.js
+   - renderColorSource(item) -> renderColorSource().
+   - renderColorSource(item) call -> renderColorSource().
+   - Color openModal call reduced from seven arguments to five by removing unused sourceName and sourceUrl values.
+3. js/color-references-modal.js
+   - openModal(title, type, imageOrColor, desc, source, url, exactColorValues)
+     -> openModal(title, type, imageOrColor, desc, exactColorValues).
+   - The v358-fixed modal scroll-lock implementation is unchanged.
+4. js/color-references-extractor.js
+   - Removed the unused local assignment const hex inside kMeansExtractor().
+   - Duplicate-center filtering continues to use RGB distance exactly as before.
+
+TARGET CLEANUP RESULT
+- Unused renderColorSource item parameter: removed.
+- Unused kMeansExtractor local hex: removed.
+- Unused Color modal source parameter: removed together with caller argument.
+- Unused Color modal url parameter: removed together with caller argument.
+- Stale target token matches after cleanup: 0.
+- Color modal definition and caller now both use a five-argument contract.
+
+BEHAVIOR-PRESERVATION CHECKS
+- Old and new Color card/source HTML output compared with representative escaped data: identical.
+- Old seven-argument and new five-argument modal calls compared with DOM/state mocks:
+  - title, type, description, exact color values, fallback color-value extraction;
+  - image and solid-color branches;
+  - copy-button state;
+  - modal open state and v358-fixed scroll lock.
+  Result: identical.
+- Old and new kMeansExtractor output compared on a deterministic 160-pixel sample with k=7: identical.
+- Color Board data remains 100 records.
+
+PACKAGE-LEVEL VERIFICATION BEFORE PACKAGING
+- Root HTML pages: 25.
+- Browser JavaScript files: 41; every file has at least one root-HTML consumer.
+- Historical Netlify JavaScript functions: 4.
+- Total JavaScript syntax checks: 45 / 45 passed.
+- Local JavaScript / CSS / favicon references: 178; missing: 0.
+- JSON files parsed: 4 / 4.
+- JSON-LD blocks parsed: 19 / 19.
+- CSS structural checks: 27 / 27.
+- Static HTML on* attributes: 0.
+- javascript: URLs: 0.
+- Exact browser-JavaScript duplicate groups: 0.
+- Board data remains Color 100, Plan 149, Section 127, Other 289.
+
+SCOPE IDENTITY
+- Relative to v359, exactly four runtime files changed:
+  - color-references.html
+  - js/color-references-board.js
+  - js/color-references-modal.js
+  - js/color-references-extractor.js
+- All other v359 runtime files are byte-for-byte unchanged.
+- No physical file is deleted in v360; no deletion manifest is required.
+
+FINAL VERDICT
+- PASS: all four v357 high-confidence Color JavaScript dead tokens are removed.
+- PASS: caller and function signatures remain aligned.
+- PASS: card output, Color modal behavior, v358-fixed scroll restoration, and k-means result are preserved in the equivalence checks.
+- PASS: v360 remains a single-purpose cleanup version.

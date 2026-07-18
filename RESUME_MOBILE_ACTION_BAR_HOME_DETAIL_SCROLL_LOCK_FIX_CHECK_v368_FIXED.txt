@@ -1,0 +1,65 @@
+BAOLONG LAB · v368-fixed
+Resume Tool 移动端操作栏位置与首页素材详情背景滚动锁修复检查
+日期：2026-07-18
+
+一、版本定位
+- 基础包：v368 full。
+- 原 v368 作为存在回归的候选包作废；后续网站开发以 v368-fixed full 为唯一基准。
+- 本轮是 v368 的定向回归修复，不扩展任务范围。
+
+二、问题 1：Resume Tool 移动端操作栏悬浮位置异常
+现象：
+- 移动端全站导航高度由 css/common.css 固定为 72px。
+- css/resume-tool.css 仍把 Resume 内部操作栏 .app > .topbar 的移动端 sticky top 设置为 132px。
+- 因而操作栏比全站导航底部多下移 60px，滚动时悬浮在编辑区中部并遮挡内容。
+
+修复：
+- 仅把 max-width:900px 下 .app > .topbar 的 top 从 132px 改为 72px。
+- 保持操作栏 sticky、按钮、翻译全文、重置、导出 PDF 与桌面布局不变。
+- resume-tool.html 中 css/resume-tool.css 查询更新为 ?v=368-fixed。
+- 未修改 Resume Tool 的简历内容翻译、AI 美化、自动保存、PDF 导出逻辑或 js/common.js。
+
+三、问题 2：首页素材卡片详情打开后背景页面仍可滚动
+现象：
+- js/index-page.js 的 openDetail() 只打开详情层，没有锁定 html/body。
+- 详情卡自身可滚动，但背后首页仍可滚动。
+
+修复：
+- 新增 lockDetailPageScroll() / unlockDetailPageScroll()。
+- 打开详情时记录原 scrollY，锁定 html/body overflow，并禁用 overscroll。
+- 桌面端补偿滚动条宽度，避免页面横向抖动。
+- 关闭详情时恢复原内联样式和原滚动位置；恢复阶段暂时禁用 smooth scroll，避免回位动画。
+- 所有现有关闭路径（遮罩、右上角关闭、Back to Products）继续调用同一 closeDetail()，都会解除锁定。
+- index.html 中 js/index-page.js 查询更新为 ?v=368-fixed。
+
+四、修改文件
+1. resume-tool.html
+2. css/resume-tool.css
+3. index.html
+4. js/index-page.js
+
+五、明确未修改
+- js/common.js
+- js/site-mobile-menu-bindings.js
+- 首页素材数据、卡片、轮播、购买链接与详情文案
+- Resume Tool 编辑、AI、API 翻译、自动保存与 PDF 生成
+- 其他页面、CSS、JS、缓存版本、图片和数据
+
+六、验证结果
+- Resume 移动端旧 top:132px：0 处。
+- Resume 移动端新 72px 对齐规则：1 处。
+- 首页详情锁定/解除函数：均存在且调用链完整。
+- Node VM 运行契约：打开详情后 html/body overflow=hidden；关闭后样式清空，scrollY 从 640 精确恢复为 640。
+- JavaScript 语法：44 / 44 通过。
+- 浏览器 JS：40 个，全部有真实 HTML 引用，未引用 0。
+- JSON：4 / 4 通过。
+- JSON-LD：19 / 19 通过。
+- CSS：27 / 27 结构检查通过。
+- 根目录 HTML：25 个；静态 on*：0。
+- 本地 JS / CSS / favicon 引用：138 处，缺失 0。
+
+七、部署
+- 本轮没有新增物理文件删除。
+- 已部署 v368 并已按 v368 删除清单移除旧移动菜单脚本时，可直接上传 v368-fixed patch。
+- v368 中应删除的 js/index-mobile-menu.js 与 js/resume-tool-mobile-menu.js 仍须保持已删除状态。
+- full-noimages 部署继续保留 / 合并现有完整 images 目录。

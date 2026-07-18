@@ -1,0 +1,22 @@
+BAOLONG LAB · v368-fixed
+改动文件与回归矩阵
+
+文件 | 改动 | 重点回归
+resume-tool.html | resume-tool.css 查询改为 ?v=368-fixed | 移动端普通刷新拿到修复 CSS
+css/resume-tool.css | 移动端 .app > .topbar top 132px → 72px | 操作栏紧贴全站导航下方；翻译/重置/PDF 正常
+index.html | index-page.js 查询改为 ?v=368-fixed | 普通刷新拿到详情滚动锁脚本
+js/index-page.js | 新增详情背景锁定与恢复 | 背景不滚；详情可滚；三种关闭路径均解锁并回位
+
+未改：
+- common.js
+- site-mobile-menu-bindings.js
+- Resume API 翻译流程
+- 首页数据与详情内容
+- 视觉样式（除 Resume 移动端操作栏垂直位置修正）
+
+建议用户检查：
+1. Resume Tool 手机端下滑后，翻译/重置/PDF 操作栏应紧贴全站导航下方，不再悬浮在页面中段。
+2. Resume Tool 的翻译全文、重置、导出 PDF 入口仍正常。
+3. 首页下方素材卡片打开详情后，滑动详情时背后页面不动。
+4. 分别用右上角 ×、点击遮罩、Back to Products 关闭，页面都回到原卡片位置并恢复滚动。
+5. 首页桌面端打开详情时页面不发生横向闪动。

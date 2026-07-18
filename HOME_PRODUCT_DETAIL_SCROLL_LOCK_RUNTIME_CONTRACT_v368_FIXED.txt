@@ -1,0 +1,22 @@
+BAOLONG LAB · v368-fixed
+首页素材详情背景滚动锁运行契约
+
+打开详情：
+1. 保存 window.pageYOffset / documentElement.scrollTop。
+2. 保存 html/body 原有 overflow、overscrollBehavior、scrollBehavior 与 body paddingRight。
+3. html/body 设置 overflow:hidden、overscrollBehavior:none。
+4. 桌面存在滚动条时补偿 body paddingRight。
+5. 详情面板添加 open；详情卡自身继续 overflow-y:auto。
+
+关闭详情：
+1. 详情面板移除 open。
+2. 恢复 html/body 原有内联样式。
+3. requestAnimationFrame 中核对当前位置；偏差大于 2px 时以 scrollBehavior:auto 恢复原 scrollY。
+4. 清空本轮保存状态，允许下一次正常开关。
+
+必须保持：
+- 背景首页不可滚动。
+- 详情卡内部可滚动。
+- 关闭后回到打开前位置。
+- 不影响全站移动菜单的 bl-menu-open 状态与 common.js 所有权。
+- 不通过 body position:fixed 锁定，避免类似 Color Board 曾出现的先跳页顶再回位现象。

@@ -1,0 +1,33 @@
+BAOLONG LAB · v371
+Assets / Prompt Generator / Resume 展示页移动菜单最终职责矩阵
+
+页面：assets.html
+- 事件入口：js/site-mobile-menu-bindings.js?v=368
+- 状态所有者：js/common.js?v=340
+- 页面业务脚本：js/assets.js?v=371
+- 本地 toggle / close：0
+- 本地菜单外点击监听：0
+- 页面业务保护：素材筛选、轮播、详情、购买 / 获取、回到顶部
+
+页面：prompt-generator.html
+- 事件入口：js/site-mobile-menu-bindings.js?v=368
+- 状态所有者：js/common.js?v=340
+- 页面业务脚本：js/prompt-generator-page.js?v=371
+- 本地 toggle / close：0
+- 本地菜单外点击监听：0
+- 页面业务保护：语言同步、卡片、筛选、收藏、弹窗、复制、工作流入口
+
+页面：resume.html
+- 事件入口：js/site-mobile-menu-bindings.js?v=368
+- 状态所有者：js/common.js?v=340
+- 页面业务脚本：js/resume.js?v=371
+- 本地 toggle / close：0
+- 本地菜单外点击监听：0
+- 页面业务保护：模板切换、上传占位、查看模板、导航筛选、登录
+
+统一运行契约
+- 打开菜单：common.js 添加 .open，锁定 body，保存 scrollY
+- 按钮关闭：common.js 移除 .open，解除锁定，恢复 scrollY
+- 点击菜单外：common.js 唯一外部关闭职责
+- 点击菜单链接：公共绑定脚本动态调用 common.js close
+- 桌面宽度：common.js 在 >980px 自动关闭并恢复滚动

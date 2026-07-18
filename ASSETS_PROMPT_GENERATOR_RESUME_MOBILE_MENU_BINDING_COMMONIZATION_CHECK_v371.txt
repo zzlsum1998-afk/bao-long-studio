@@ -1,0 +1,109 @@
+BAOLONG LAB · v371
+Assets / Prompt Generator / Resume 展示页移动菜单绑定公共化及重复职责移除检查
+日期：2026-07-18
+基准：v370 full
+性质：单目标运行代码迁移
+
+一、目标
+
+处理 v370 审计确认的“直接绑定旧函数对象”三页：
+- assets.html
+- prompt-generator.html
+- resume.html
+
+将移动菜单事件入口统一交给 js/site-mobile-menu-bindings.js，菜单状态、背景滚动锁、原位置恢复、外部点击关闭与桌面宽度关闭继续由 js/common.js 单独负责。
+
+二、修改文件
+
+HTML：
+- assets.html
+- prompt-generator.html
+- resume.html
+
+页面业务脚本：
+- js/assets.js
+- js/prompt-generator-page.js
+- js/resume.js
+
+未修改：
+- js/common.js
+- js/site-mobile-menu-bindings.js
+- CSS、视觉、文案、数据和页面业务结构
+
+三、移除的重复职责
+
+三个页面业务脚本均移除：
+1. 本地 toggleMobileMenu()
+2. 本地 closeMobileMenu()
+3. 重复的 document click 菜单外关闭监听
+4. 页面脚本对菜单按钮的直接绑定
+5. 页面脚本对菜单链接的直接关闭绑定
+
+四、统一后的职责
+
+js/site-mobile-menu-bindings.js?v=368：
+- 绑定 .site-header .mobile-menu-toggle
+- 绑定 #mobileMenuPanel a
+- 点击时动态调用 window.toggleMobileMenu / window.closeMobileMenu
+
+js/common.js?v=340：
+- 控制菜单 .open 状态
+- 打开时保存 scrollY 并固定 body
+- 关闭时解除锁定并恢复原 scrollY
+- 点击菜单外关闭
+- 宽度超过 980px 时自动关闭
+- 菜单滚轮和 touchmove 隔离
+
+五、页面业务保护
+
+Assets 保留：
+- 分类筛选、Hero 轮播、商品卡片、详情、购买 / 获取素材、回到顶部
+
+Prompt Generator 保留：
+- 导航语言同步、内容筛选、收藏、详情弹窗、Prompt 复制、工作流入口、回到顶部
+
+Resume 展示页保留：
+- 模板预览切换、上传占位、查看模板、导航筛选与登录入口
+
+六、缓存与加载顺序
+
+变更后的页面业务脚本查询版本：
+- js/assets.js?v=371
+- js/prompt-generator-page.js?v=371
+- js/resume.js?v=371
+
+新增消费者引用：
+- js/site-mobile-menu-bindings.js?v=368（文件内容未修改）
+
+加载契约：
+- common.js 在 head 中 defer
+- 页面业务脚本位于 body 末端
+- site-mobile-menu-bindings.js 紧随页面业务脚本加载
+- 绑定脚本在点击发生时动态读取 common.js 的 window 函数，不持有旧函数对象
+
+七、删除状态
+
+本轮不删除物理文件，不需要 GitHub 手动删除清单。
+
+八、结论
+
+v371 迁移范围符合 v370 决策：只处理三页移动菜单职责，不修改 common.js，不触碰其他页面和业务功能。
+
+九、自动核对结果
+
+- 预期修改原文件：6 个，实际 6 个
+- 新增检查文档：3 个
+- 删除物理文件：0
+- 三个页面业务脚本本地 toggle / close：0
+- 三个页面旧菜单按钮 / 链接绑定：0
+- 三个页面重复菜单外点击监听：0
+- 三个 HTML 公共绑定脚本消费者：3 / 3
+- common.js 与 site-mobile-menu-bindings.js：哈希未变
+- 运行契约模拟：按钮关闭、外部点击关闭、链接关闭、桌面宽度关闭、连续三次开关均通过；scrollY 700 正确恢复
+- JavaScript 语法：44 / 44 通过
+- 浏览器 JS：40 个，全部有真实 HTML 引用
+- 25 个 HTML 本地代码资源引用：94 处，缺失 0
+- JSON：4 / 4 解析通过
+- JSON-LD：19 / 19 解析通过
+- CSS：27 / 27 结构检查通过
+- 静态 HTML on*：0

@@ -1,0 +1,38 @@
+BaoLong Lab · v372
+动态绑定组三页移动菜单最终职责矩阵
+
+共享职责
+1. js/site-mobile-menu-bindings.js?v=368
+   - 绑定 .site-header .mobile-menu-toggle 点击入口。
+   - 绑定 #mobileMenuPanel a 链接关闭入口。
+   - 点击发生时动态调用 window.toggleMobileMenu / window.closeMobileMenu。
+
+2. js/common.js?v=340
+   - 提供 window.toggleMobileMenu。
+   - 提供 window.closeMobileMenu。
+   - 菜单打开时固定 body 并记录 scrollY。
+   - 菜单关闭时解除 fixed 并恢复原 scrollY。
+   - 点击菜单外关闭。
+   - 窗口宽度大于 980px 时自动关闭并恢复页面。
+
+页面业务脚本保留职责
+- js/interaction.js?v=372
+  - navFilter 与桌面导航筛选入口。
+  - 登录入口。
+  - 回到顶部。
+  - 不再拥有移动菜单状态或绑定。
+
+- js/plant-color-calendar.js?v=372
+  - 年历、详情、复制、筛选与登录入口。
+  - 不再拥有移动菜单状态或绑定。
+
+- js/plant-emotion-radar.js?v=372
+  - 植物选择、雷达结果、复制、清空与登录入口。
+  - 不再拥有移动菜单状态或绑定。
+
+最终要求
+- 三页业务脚本中 toggleMobileMenu / closeMobileMenu 定义数：0。
+- 三页业务脚本中菜单按钮绑定数：0。
+- 三页业务脚本中菜单链接关闭绑定数：0。
+- 三页业务脚本中旧外部点击关闭监听数：0。
+- 三页 HTML 对 site-mobile-menu-bindings.js 的引用数：各 1。

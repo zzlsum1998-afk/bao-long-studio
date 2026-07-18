@@ -1,0 +1,26 @@
+BaoLong Lab · v372
+动态绑定组三页移动菜单与滚动锁回归清单
+
+消费者
+- Interaction
+- Plant Color Calendar
+- Plant Emotion Radar
+
+每页移动端重点回归
+1. 页面向下滚动后打开菜单，背景页面不能继续滚动。
+2. 再点菜单按钮关闭，页面应恢复到打开前的位置。
+3. 点击菜单外部关闭，页面不能继续保持锁定。
+4. 点击菜单内链接，菜单关闭并正常跳转。
+5. 菜单打开时拉宽到桌面宽度，菜单自动关闭并恢复滚动。
+6. 连续打开 / 关闭三次，不能卡住、跳顶或残留 body fixed。
+
+页面业务抽查
+- Interaction：交互案例入口、登录入口、回到顶部。
+- Plant Color Calendar：季节标签、周历卡片、详情展开、复制色值、收起详情。
+- Plant Emotion Radar：植物筛选、选择与取消、雷达结果、复制结果、清空选择。
+
+静态边界
+- 不修改 common.js。
+- 不修改 site-mobile-menu-bindings.js。
+- 不删除页面业务脚本。
+- 不改 CSS、视觉、文案和数据。

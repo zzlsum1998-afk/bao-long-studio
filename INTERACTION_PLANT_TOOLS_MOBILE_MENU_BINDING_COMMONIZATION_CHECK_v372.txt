@@ -1,0 +1,61 @@
+BaoLong Lab · v372
+Interaction / Plant Color Calendar / Plant Emotion Radar
+移动菜单绑定公共化及重复职责移除检查
+
+版本基础
+- 基于 v371 full。
+- 本轮仅处理 v370 规划中的“动态绑定组”：
+  1. interaction.html + js/interaction.js
+  2. plant-color-calendar.html + js/plant-color-calendar.js
+  3. plant-emotion-radar.html + js/plant-emotion-radar.js
+
+本轮目标
+- 保留页面业务脚本对桌面导航筛选、登录入口及页面专属功能的绑定。
+- 移除三个页面业务脚本中重复的：
+  - toggleMobileMenu()
+  - closeMobileMenu()
+  - document 点击外部关闭监听
+  - mobile-menu-toggle 点击绑定
+  - mobileMenuPanel 链接关闭绑定
+- 三页统一加载 js/site-mobile-menu-bindings.js?v=368。
+- 移动菜单状态、滚动锁、滚动位置恢复、外部点击关闭及桌面宽度自动关闭继续由 js/common.js?v=340 负责。
+
+实际修改文件
+- interaction.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- js/interaction.js
+- js/plant-color-calendar.js
+- js/plant-emotion-radar.js
+
+缓存处理
+- 三个实际修改的页面业务脚本查询版本更新为 ?v=372。
+- site-mobile-menu-bindings.js 内容未修改，继续使用 ?v=368。
+- common.js 内容未修改，继续使用 ?v=340。
+- 不机械调整其他资源缓存版本。
+
+明确未修改
+- Interaction 页面卡片、入口与回到顶部。
+- Plant Color Calendar 的周历、色值复制与详情逻辑。
+- Plant Emotion Radar 的植物选择、雷达图、复制与清空逻辑。
+- common.js、CSS、视觉、文案、数据、SEO、收藏、Resume Tool 与图片工作流。
+
+部署
+- 本轮不删除物理文件。
+- 已部署 v371 时可直接覆盖 v372 patch。
+- patch 只能覆盖明确的 v371，不能单独预览。
+
+最终核对结果
+- 相对 v371：修改原文件 6 个，新增文档 3 个，删除文件 0 个。
+- 三个业务脚本中的本地菜单函数、菜单按钮绑定、菜单链接绑定、旧外部点击关闭均为 0。
+- 三页对 site-mobile-menu-bindings.js?v=368 的引用各 1 处。
+- 加载顺序均为 common.js → 页面业务脚本 → site-mobile-menu-bindings.js。
+- 移动菜单运行契约模拟：25 / 25 通过。
+- 模拟监听所有权：菜单按钮 1 个监听、菜单链接 1 个监听、外部点击关闭 1 个监听。
+- JavaScript 语法：44 / 44 通过。
+- 浏览器 JavaScript：40 个，全部有真实 HTML 引用，未引用 0。
+- 本地 JS / CSS / favicon 引用：184 处，缺失 0。
+- JSON：4 / 4 通过。
+- JSON-LD：19 / 19 通过。
+- CSS：27 / 27 结构检查通过。
+- 静态 HTML on*：0；javascript: URL：0。

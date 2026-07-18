@@ -1,0 +1,35 @@
+BAOLONG LAB · INSPIRATION BOARD CSS CONTENT AND RUNTIME PRESERVATION MATRIX v364
+Generated: 2026-07-18
+
+ITEM | STATUS | EVIDENCE
+css/color-board.css
+- Status: PRESERVED.
+- Evidence: SHA-256 identical to v363.
+
+css/inspiration-board.css
+- Status: PRESERVED.
+- Evidence: SHA-256 identical to v363.
+
+Color Board runtime
+- Status: PRESERVED.
+- Includes filters, favorites, Color Extractor, modal display, value copy, and v358-fixed scroll restoration.
+
+Plan / Section / Other runtime
+- Status: PRESERVED.
+- Includes card rendering, favorites, load-more, stable masonry, modal sizing, shared modal controller, Prompt actions, navigation, and scroll-top.
+
+Visual and copy
+- Status: PRESERVED.
+- No CSS rule, HTML visible text, layout structure, or data entry is changed.
+
+Script load order
+- Status: PRESERVED.
+- No script tag is added, removed, moved, or version-bumped.
+
+Physical files
+- Status: NO DELETION.
+- GitHub manual deletion is not required for v364.
+
+EXPECTED USER CHECK
+- Ordinary reload should fetch the new CSS URLs without requiring a hard refresh.
+- Quickly confirm Color / Plan / Section / Other layout, mobile single-column behavior, Color filter and modal close position, and Plan / Section / Other masonry and modal.

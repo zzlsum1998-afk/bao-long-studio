@@ -1,0 +1,43 @@
+BAOLONG LAB · INSPIRATION BOARD CSS CACHE-QUERY UPDATE MATRIX v364
+Generated: 2026-07-18
+
+PAGE | ASSET | OLD QUERY | NEW QUERY | CSS CONTENT
+Color Board
+- Page: color-references.html
+- Asset: css/color-board.css
+- Old query: ?v=273
+- New query: ?v=364
+- CSS content: unchanged byte-for-byte
+
+Plan Board
+- Page: plan-references.html
+- Asset: css/inspiration-board.css
+- Old query: ?v=264
+- New query: ?v=364
+- CSS content: unchanged byte-for-byte
+
+Section Board
+- Page: section-references.html
+- Asset: css/inspiration-board.css
+- Old query: ?v=264
+- New query: ?v=364
+- CSS content: unchanged byte-for-byte
+
+Other Board
+- Page: render-references.html
+- Asset: css/inspiration-board.css
+- Old query: ?v=264
+- New query: ?v=364
+- CSS content: unchanged byte-for-byte
+
+PRESERVED QUERY FAMILIES
+- css/common.css: preserved.
+- css/color-board-floating.css: preserved.
+- css/inspiration-board-floating.css: preserved.
+- All Board JavaScript queries: preserved.
+- No unrelated page query is changed.
+
+CONSUMER CONSISTENCY
+- css/color-board.css?v=364: 1 / 1 intended consumer.
+- css/inspiration-board.css?v=364: 3 / 3 intended consumers.
+- Mixed query values for either updated asset: 0.

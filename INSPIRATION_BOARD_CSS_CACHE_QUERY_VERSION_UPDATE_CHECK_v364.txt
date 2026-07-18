@@ -1,0 +1,63 @@
+BAOLONG LAB · INSPIRATION BOARD CSS CACHE-QUERY VERSION UPDATE CHECK v364
+Generated: 2026-07-18
+Base: baolong-inspiration-board-cache-query-version-consistency-read-only-audit-v363-full-noimages-plus-template-assets.zip
+
+VERSION PURPOSE
+- v364 implements the isolated CSS cache-query update approved by the v363 read-only audit.
+- It changes only four existing HTML href values.
+- It does not modify CSS content, JavaScript, JSON/data, images, favorites, filters, modal behavior, masonry, navigation, Prompt behavior, SEO, common.js, or unrelated cache keys.
+- No physical file is added or deleted by the runtime change itself; documentation is added for verification only.
+
+IMPLEMENTED CHANGES
+1. color-references.html
+   - Before: css/color-board.css?v=273
+   - After:  css/color-board.css?v=364
+2. plan-references.html
+   - Before: css/inspiration-board.css?v=264
+   - After:  css/inspiration-board.css?v=364
+3. section-references.html
+   - Before: css/inspiration-board.css?v=264
+   - After:  css/inspiration-board.css?v=364
+4. render-references.html
+   - Before: css/inspiration-board.css?v=264
+   - After:  css/inspiration-board.css?v=364
+
+PRESERVATION BOUNDARY
+- css/color-board.css is byte-for-byte unchanged from v363.
+- css/inspiration-board.css is byte-for-byte unchanged from v363.
+- css/common.css, color-board-floating.css, inspiration-board-floating.css, and all JavaScript cache queries remain unchanged.
+- Existing Board script load order remains unchanged.
+- The v358-fixed Color modal scroll-position restoration remains untouched.
+
+TARGETED VERIFICATION
+- New css/color-board.css?v=364 consumer count: 1.
+- New css/inspiration-board.css?v=364 consumer count: 3.
+- Old css/color-board.css?v=273 consumer count on the four Board pages: 0.
+- Old css/inspiration-board.css?v=264 consumer count on the four Board pages: 0.
+- Existing files changed relative to v363: exactly 4 HTML files.
+- Existing files deleted relative to v363: 0.
+- CSS content hashes changed relative to v363: 0.
+
+PACKAGE-LEVEL VERIFICATION
+- Root HTML pages: 25.
+- Browser JavaScript files: 41; unreferenced: 0.
+- Historical Netlify JavaScript functions: 4.
+- Total JavaScript syntax checks: 45 / 45 passed.
+- Local JS / CSS / favicon / apple-touch-icon references: 178; missing: 0.
+- JSON files parsed: 4 / 4.
+- JSON-LD blocks parsed: 19 / 19.
+- CSS structural parses: 27 / 27.
+- Static HTML on* attributes: 0.
+- javascript: URLs: 0.
+- Exact browser-JavaScript duplicate groups: 0.
+
+DEPLOYMENT
+- No file deletion is involved.
+- Because the user deploys every version and v363 is the current deployed base, the path-preserving v364 patch may be uploaded directly over v363.
+- The patch is not a standalone preview package.
+- The full package remains the complete v364 development baseline.
+- full-noimages deployment must preserve / merge the existing images directory.
+
+FINAL VERDICT
+- PASS.
+- The two stale Board CSS cache-key families are updated without changing CSS content or runtime behavior.

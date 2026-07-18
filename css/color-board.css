@@ -675,9 +675,6 @@
       border-color:#111;
       transform:translateY(-1px);
     }
-    .pin.is-hidden{
-      display:none;
-    }
     @media(max-width:900px){
       .color-filter-section{
         padding:0 18px 14px;

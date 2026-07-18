@@ -894,6 +894,69 @@
 
     let currentProductLink = "";
 
+    /* v368-fixed: lock the homepage behind the product detail panel while
+       keeping the detail card itself scrollable. This mirrors the verified
+       Color Board overflow lock and restores the exact page position without
+       smooth-scroll movement when the panel closes. */
+    let detailPageScrollY = 0;
+    let detailPreviousBodyStyle = null;
+    let detailPreviousDocStyle = null;
+
+    function lockDetailPageScroll(){
+      if(document.body.classList.contains('detail-scroll-locked')) return;
+      const docEl = document.documentElement;
+      detailPageScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
+      detailPreviousBodyStyle = {
+        overflow: document.body.style.overflow,
+        paddingRight: document.body.style.paddingRight,
+        overscrollBehavior: document.body.style.overscrollBehavior,
+        scrollBehavior: document.body.style.scrollBehavior
+      };
+      detailPreviousDocStyle = {
+        overflow: docEl.style.overflow,
+        overscrollBehavior: docEl.style.overscrollBehavior,
+        scrollBehavior: docEl.style.scrollBehavior
+      };
+      const scrollbarGap = Math.max(0, window.innerWidth - docEl.clientWidth);
+      document.body.classList.add('detail-scroll-locked');
+      docEl.style.scrollBehavior = 'auto';
+      document.body.style.scrollBehavior = 'auto';
+      docEl.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      docEl.style.overscrollBehavior = 'none';
+      document.body.style.overscrollBehavior = 'none';
+      if(scrollbarGap > 0){
+        document.body.style.paddingRight = scrollbarGap + 'px';
+      }
+    }
+
+    function unlockDetailPageScroll(){
+      if(!document.body.classList.contains('detail-scroll-locked')) return;
+      const docEl = document.documentElement;
+      const targetScrollY = detailPageScrollY || 0;
+      document.body.classList.remove('detail-scroll-locked');
+      const previousBody = detailPreviousBodyStyle || {};
+      const previousDoc = detailPreviousDocStyle || {};
+      docEl.style.overflow = previousDoc.overflow || '';
+      docEl.style.overscrollBehavior = previousDoc.overscrollBehavior || '';
+      docEl.style.scrollBehavior = previousDoc.scrollBehavior || '';
+      document.body.style.overflow = previousBody.overflow || '';
+      document.body.style.paddingRight = previousBody.paddingRight || '';
+      document.body.style.overscrollBehavior = previousBody.overscrollBehavior || '';
+      document.body.style.scrollBehavior = previousBody.scrollBehavior || '';
+      window.requestAnimationFrame(function(){
+        const currentScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
+        if(Math.abs(currentScrollY - targetScrollY) > 2){
+          const previousInlineScrollBehavior = docEl.style.scrollBehavior;
+          docEl.style.scrollBehavior = 'auto';
+          window.scrollTo(0, targetScrollY);
+          docEl.style.scrollBehavior = previousInlineScrollBehavior;
+        }
+      });
+      detailPreviousBodyStyle = null;
+      detailPreviousDocStyle = null;
+    }
+
     function setDetailImage(index){
       const item = products[window.activeProductIndex];
       const mainImage = document.getElementById("detailMainImage");
@@ -930,6 +993,7 @@
       detailBuyBtn.textContent = isFreeItem ? "获取素材" : "Go to Taobao";
       detailBuyBtn.disabled = !currentProductLink;
       document.getElementById("detailPanel").classList.add("open");
+      lockDetailPageScroll();
     }
 
     function openProductLink(){
@@ -944,6 +1008,7 @@
     function closeDetail(event){
       if(event && event.target !== document.getElementById("detailPanel")) return;
       document.getElementById("detailPanel").classList.remove("open");
+      unlockDetailPageScroll();
     }
 
     function updateNews(){

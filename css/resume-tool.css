@@ -3480,8 +3480,11 @@
       justify-content:flex-end;
     }
     @media (max-width:900px){
+      /* v368-fixed: the global mobile header is 72px high in common.css.
+         Keep the Resume action toolbar directly below it instead of floating
+         60px lower over the editor content. */
       .app > .topbar{
-        top:132px;
+        top:72px;
       }
     }
 

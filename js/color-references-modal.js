@@ -68,7 +68,7 @@
       __baolongModalPreviousDocStyle = null;
     }
 
-    function openModal(title, type, imageOrColor, desc, source, url, exactColorValues){
+    function openModal(title, type, imageOrColor, desc, exactColorValues){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
       document.getElementById("modalDesc").textContent = desc;

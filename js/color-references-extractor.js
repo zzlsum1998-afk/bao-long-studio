@@ -160,7 +160,6 @@
       }
       const unique = [];
       centers.forEach(function(center){
-        const hex = rgbToHexExtractor(center[0], center[1], center[2]);
         if(!unique.some(function(item){ return colorDistance(center, item) < 28; })) unique.push(center);
       });
       while(unique.length < Math.min(k, centers.length)) unique.push(centers[unique.length]);

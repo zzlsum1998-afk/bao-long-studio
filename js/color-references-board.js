@@ -11,7 +11,7 @@
       });
     }
 
-    function renderColorSource(item){
+    function renderColorSource(){
       return '<div class="source-row"><span class="source-name">BaoLong Lab</span><span class="source-btn disabled">Color Ref</span></div>';
     }
 
@@ -29,7 +29,7 @@
           '<div class="pin-tags">' + tags + '</div>' +
           '<h3>' + escapeHTML(item.title) + '</h3>' +
           '<p class="pin-desc">' + pinDesc + '</p>' +
-          renderColorSource(item) +
+          renderColorSource() +
         '</div>' +
       '</article>';
     }
@@ -47,7 +47,7 @@
         pin.addEventListener('click', function(){
           const item = colorBoardItems[Number(pin.dataset.colorIndex)];
           if(!item) return;
-          openModal(item.title, item.type || 'Color Board', item.image || item.cover || '', item.desc || '', item.sourceName || 'BaoLong Lab Color Reference', item.sourceUrl || '#', item.colorValues || '');
+          openModal(item.title, item.type || 'Color Board', item.image || item.cover || '', item.desc || '', item.colorValues || '');
         });
       });
     }

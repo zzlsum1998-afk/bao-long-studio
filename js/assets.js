@@ -1930,17 +1930,6 @@
     }
     function closeDetail(event){ if(event && event.target !== document.getElementById("detailPanel")) return; document.getElementById("detailPanel").classList.remove("open"); }
     function scrollToTop(){ window.scrollTo({top:0, behavior:'smooth'}); }
-    function toggleMobileMenu(){ const panel = document.getElementById('mobileMenuPanel'); if(panel) panel.classList.toggle('open'); }
-    function closeMobileMenu(){ const panel = document.getElementById('mobileMenuPanel'); if(panel) panel.classList.remove('open'); }
-    document.addEventListener('click', function(event){
-      const panel = document.getElementById('mobileMenuPanel');
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      if(!panel || !toggle) return;
-      if(panel.contains(event.target) || toggle.contains(event.target)) return;
-      panel.classList.remove('open');
-    });
-
-
     function bindAssetsPageEvents(){
       document.querySelectorAll('.site-header [data-nav-filter]').forEach(link => {
         link.addEventListener('click', event => {
@@ -1954,15 +1943,6 @@
       if(loginEntry){
         loginEntry.addEventListener('click', () => { window.location.href = 'login.html'; });
       }
-
-      const mobileMenuToggle = document.querySelector('.site-header .mobile-menu-toggle');
-      if(mobileMenuToggle){
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-      }
-
-      document.querySelectorAll('#mobileMenuPanel a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-      });
 
       document.querySelectorAll('.asset-hero-filter[data-product-filter]').forEach(button => {
         button.addEventListener('click', () => filterProducts(button.dataset.productFilter));

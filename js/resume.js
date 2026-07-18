@@ -40,24 +40,6 @@ function handleResumeUploadPlaceholder(input){
     }
   
 
-    function toggleMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.toggle('open');
-    }
-
-    function closeMobileMenu(){
-      const panel = document.getElementById('mobileMenuPanel');
-      if(panel) panel.classList.remove('open');
-    }
-
-    document.addEventListener('click', function(event){
-      const panel = document.getElementById('mobileMenuPanel');
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      if(!panel || !toggle) return;
-      if(panel.contains(event.target) || toggle.contains(event.target)) return;
-      panel.classList.remove('open');
-    });
-
 // v321 · resume.html static event attribute migration
 function initResumePageEvents(){
   document.querySelectorAll('[data-nav-filter]').forEach((link) => {
@@ -73,15 +55,6 @@ function initResumePageEvents(){
       location.href = 'login.html';
     });
   }
-
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  if(mobileToggle){
-    mobileToggle.addEventListener('click', toggleMobileMenu);
-  }
-
-  document.querySelectorAll('#mobileMenuPanel a').forEach((link) => {
-    link.addEventListener('click', closeMobileMenu);
-  });
 
   document.querySelectorAll('[data-hero-template-index]').forEach((button) => {
     button.addEventListener('click', function(){

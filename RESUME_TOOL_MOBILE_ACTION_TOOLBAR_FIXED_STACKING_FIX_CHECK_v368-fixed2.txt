@@ -1,0 +1,51 @@
+BAOLONG LAB
+v368-fixed2 · Resume Tool 移动端操作栏固定层级修复检查
+日期：2026-07-18
+
+一、问题复现
+v368-fixed 中，common.css 将全站移动端导航固定在视口顶部，并通过 body padding-top:72px 预留空间；
+resume-tool.css 又把 Resume Tool 操作栏设为 position:sticky; top:72px。
+浏览器实际布局因此出现：
+- 全站导航下方额外产生约 72px 空白；
+- sticky 操作栏被视觉下移；
+- 操作栏脱离正常视觉位置，并覆盖“简历生成器”编辑区顶部。
+
+二、本轮修复
+仅修改：
+1. resume-tool.html
+2. css/resume-tool.css
+
+移动端（<=980px）现在采用：
+- 全站导航继续由 common.css 固定在 top:0，高度 72px；
+- Resume 操作栏改为 fixed，固定在 top:72px；
+- .app 预留 70px 操作栏空间，编辑区从操作栏下方开始；
+- 操作按钮保持单行，窄屏可在操作栏内部水平滚动；
+- 操作栏层级低于全站导航，高于 Resume 编辑内容；
+- 桌面端布局与行为不变。
+
+三、缓存查询
+resume-tool.html：
+css/resume-tool.css?v=368-fixed
+→ css/resume-tool.css?v=368-fixed2
+
+四、浏览器布局回归
+使用 Chromium 对 320 / 375 / 390 / 760 / 900 / 901 / 980px 宽度进行布局测量：
+- 全站导航底部与 Resume 操作栏顶部间距：0px
+- Resume 操作栏与编辑区重叠：0px
+- 操作栏顶部：72px
+- 操作栏高度：约 70px
+- 页面滚动 800px 后操作栏仍固定在 72px
+
+五、保护范围
+以下文件与逻辑逐字节未变：
+- index.html
+- js/index-page.js
+- js/common.js
+- js/site-mobile-menu-bindings.js
+- 全部 resume-tool*.js
+
+首页素材详情背景锁定修复继续保留；Resume Tool 的 AI 美化、翻译、自动保存、PDF 导出与数据逻辑未修改。
+
+六、部署
+本轮没有删除物理文件。
+当前已部署 v368-fixed 时，可直接上传 v368-fixed2 patch；也可使用 full 建立新的完整基准。

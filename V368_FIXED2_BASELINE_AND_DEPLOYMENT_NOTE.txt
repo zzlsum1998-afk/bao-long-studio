@@ -1,0 +1,10 @@
+BAOLONG LAB
+v368-fixed2 · 基准与部署说明
+
+1. 原 v368 已作废。
+2. v368-fixed 的首页素材详情背景锁定修复有效并继续保留。
+3. v368-fixed 的 Resume 移动端操作栏修复不完整，现由 v368-fixed2 替代。
+4. 后续网站开发只使用 v368-fixed2 或其后续继承版本。
+5. 本轮没有删除文件；patch 可直接覆盖明确的 v368-fixed。
+6. full-noimages 部署时继续保留 / 合并现有 images 目录。
+7. 先前已删除的 js/index-mobile-menu.js 与 js/resume-tool-mobile-menu.js 继续保持删除状态。

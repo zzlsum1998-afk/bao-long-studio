@@ -3479,12 +3479,41 @@
     .app > .topbar .topbar-inner{
       justify-content:flex-end;
     }
-    @media (max-width:900px){
-      /* v368-fixed: the global mobile header is 72px high in common.css.
-         Keep the Resume action toolbar directly below it instead of floating
-         60px lower over the editor content. */
+    @media (max-width:980px){
+      /* v368-fixed2: common.css keeps the global mobile header fixed at 72px
+         and reserves the same height with body padding. A second sticky top
+         offset therefore creates an extra 72px blank band and lets the Resume
+         toolbar overlap the editor. Keep the toolbar in a fixed second row and
+         reserve its own 70px inside .app instead. */
+      .app{
+        padding-top:70px;
+      }
       .app > .topbar{
+        position:fixed;
         top:72px;
+        left:0;
+        right:0;
+        width:100%;
+        z-index:2990;
+      }
+      .app > .topbar .topbar-inner{
+        height:70px;
+        padding:0;
+        flex-direction:row;
+        align-items:center;
+        overflow-x:auto;
+        overflow-y:hidden;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+      .app > .topbar .topbar-inner::-webkit-scrollbar{
+        display:none;
+      }
+      .app > .topbar .top-actions{
+        width:100%;
+        min-width:max-content;
+        justify-content:center;
+        flex-wrap:nowrap;
       }
     }
 

@@ -28,11 +28,6 @@
       border-bottom:1px solid rgba(0,0,0,.06);
     }
     .brand{display:flex;align-items:center;gap:16px}
-    .brand-mark{
-      width:42px;height:42px;border-radius:50%;
-      background:#111;color:#fff;display:grid;place-items:center;
-      font-weight:700;font-size:18px;
-    }
     .brand-text{font-size:16px;letter-spacing:.34em;text-transform:uppercase;white-space:nowrap}
     .nav{display:flex;gap:24px;font-size:15px}
     .nav a{padding:8px 0;position:relative}
@@ -219,7 +214,6 @@
       background:transparent !important;
       border-radius:0 !important;
     }
-    .brand-mark{display:none !important;}
     .brand-text{
       font-size:16px;
       letter-spacing:.34em;
@@ -635,10 +629,6 @@
         padding:54px 18px !important;
       }
 
-      .section-head{
-        display:block !important;
-      }
-
       .section-title{
         font-size:clamp(34px,11vw,54px) !important;
         line-height:1.02;
@@ -723,7 +713,6 @@
 
       main,
       .hero,
-      .product-hero,
       .section,
       .masonry-wrap,
       .tool-band,
@@ -732,11 +721,7 @@
         overflow-x:hidden !important;
       }
 
-      .hero-product-slide,
-      .news-slide,
-      .product-grid,
-      .masonry,
-      .tool-cards{
+      .masonry{
         max-width:100% !important;
       }
 
@@ -899,11 +884,6 @@
     margin:auto !important;
   }
 
-  .modal-info{
-    height:100% !important;
-    max-height:none !important;
-    overflow-y:auto !important;
-  }
 }
 
 
@@ -933,57 +913,13 @@
     display:none !important;
   }
 
-  .modal-info{
-    width:100% !important;
-    height:auto !important;
-    min-height:0 !important;
-    max-height:calc(100vh - 108px) !important;
-    overflow-y:auto !important;
-    padding:26px 22px 30px !important;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  .modal-info .eyebrow,
-  .modal-info .modal-eyebrow{
-    font-size:11px !important;
-    letter-spacing:.24em !important;
-    margin-bottom:12px !important;
-  }
-
-  .modal-info h2{
-    font-size:clamp(28px,9vw,38px) !important;
-    line-height:1.08 !important;
-    margin:6px 0 16px !important;
-    letter-spacing:.01em !important;
-    word-break:normal !important;
-    overflow-wrap:break-word !important;
-  }
-
-  .modal-info p,
   .modal-source-note,
-  .source-block,
-  .modal-info li{
+  .source-block{
     font-size:14px !important;
     line-height:1.72 !important;
   }
 
-  .modal-info .source-link,
-  .modal-info button{
-    font-size:14px !important;
-  }
-
-  .modal-close{
-    top:12px !important;
-    right:12px !important;
-    width:44px !important;
-    height:44px !important;
-    z-index:30 !important;
-  }
-
-  .modal-nav,
-  .modal-arrow,
-  .modal-prev,
-  .modal-next{
+  .modal-nav{
     display:none !important;
   }
 }
@@ -999,19 +935,8 @@
     max-height:calc(100vh - 102px) !important;
   }
 
-  .modal-info{
-    max-height:calc(100vh - 102px) !important;
-    padding:24px 20px 28px !important;
-  }
-
-  .modal-info h2{
-    font-size:clamp(26px,9vw,34px) !important;
-  }
-
-  .modal-info p,
   .modal-source-note,
-  .source-block,
-  .modal-info li{
+  .source-block{
     font-size:13.5px !important;
   }
 }

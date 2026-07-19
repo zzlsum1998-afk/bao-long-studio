@@ -38,11 +38,11 @@
         en:['Construction sections requiring CAD-level pixel locking','Tasks that require changes to massing, levels, or spatial layout']
       },
       assets: {
-        source:'images/template-p0/source-demo.png',
-        display:'images/template-p0/result-demo.png',
-        displayFallback:'images/template-p0/style-reference.png',
-        reference:'images/template-p0/style-reference.png',
-        result:'images/template-p0/result-demo.png',
+        source:'images/template-p0/source-demo.webp',
+        display:'images/template-p0/result-demo.webp',
+        displayFallback:'images/template-p0/style-reference.webp',
+        reference:'images/template-p0/style-reference.webp',
+        result:'images/template-p0/result-demo.webp',
         sourceName:'ecological-section-source-demo.png',
         downloadName:'baolong-ecological-architectural-section-demo.png'
       },
@@ -99,11 +99,11 @@
         en:['Construction sections requiring CAD-level pixel locking','Perspective renders, photographs, or tasks requiring site redesign']
       },
       assets: {
-        source:'images/template-forest-garden/source-demo.png',
-        display:'images/template-forest-garden/result-demo.png',
-        displayFallback:'images/template-forest-garden/style-reference.png',
-        reference:'images/template-forest-garden/style-reference.png',
-        result:'images/template-forest-garden/result-demo.png',
+        source:'images/template-forest-garden/source-demo.webp',
+        display:'images/template-forest-garden/result-demo.webp',
+        displayFallback:'images/template-forest-garden/style-reference.webp',
+        reference:'images/template-forest-garden/style-reference.webp',
+        result:'images/template-forest-garden/result-demo.webp',
         sourceName:'forest-garden-section-source-demo.png',
         downloadName:'baolong-forest-garden-ecological-section-demo.png'
       },
@@ -146,11 +146,11 @@
         en:['Construction drawings requiring CAD-level pixel locking','Photographs, perspective renders, or tasks requiring redesigned buildings and roads']
       },
       assets: {
-        source:'images/template-urban-birdview/source-demo.png',
-        display:'images/template-urban-birdview/result-demo.png',
+        source:'images/template-urban-birdview/source-demo.webp',
+        display:'images/template-urban-birdview/result-demo.webp',
         displayFallback:'images/template-urban-birdview/style-reference.jpg',
         reference:'images/template-urban-birdview/style-reference.jpg',
-        result:'images/template-urban-birdview/result-demo.png',
+        result:'images/template-urban-birdview/result-demo.webp',
         sourceName:'urban-birdview-source-demo.png',
         downloadName:'baolong-urban-birdview-landscape-diagram-demo.png'
       },
@@ -192,11 +192,11 @@
         en:['Construction drawings requiring CAD-level pixel locking','Photographs, perspective renders, or tasks requiring building and site redesign','Tasks requiring automatically generated accurate labels, text, or circulation arrows']
       },
       assets: {
-        source:'images/template-urban-program-diagram/source-demo.png',
-        display:'images/template-urban-program-diagram/result-demo.png',
-        displayFallback:'images/template-urban-program-diagram/style-reference.png',
-        reference:'images/template-urban-program-diagram/style-reference.png',
-        result:'images/template-urban-program-diagram/result-demo.png',
+        source:'images/template-urban-program-diagram/source-demo.webp',
+        display:'images/template-urban-program-diagram/result-demo.webp',
+        displayFallback:'images/template-urban-program-diagram/style-reference.webp',
+        reference:'images/template-urban-program-diagram/style-reference.webp',
+        result:'images/template-urban-program-diagram/result-demo.webp',
         sourceName:'urban-program-diagram-source-demo.png',
         downloadName:'baolong-urban-axonometric-program-diagram-demo.png'
       },
@@ -230,11 +230,11 @@
         en:['Tasks requiring AI to provide reliable professional conclusions automatically','Tasks requiring accurate automatic labels, legends, or circulation arrows','Construction drawings requiring CAD-level pixel locking']
       },
       assets: {
-        source:'images/template-architectural-analysis-base/source-demo.png',
-        display:'images/template-architectural-analysis-base/result-demo.png',
+        source:'images/template-architectural-analysis-base/source-demo.webp',
+        display:'images/template-architectural-analysis-base/result-demo.webp',
         displayFallback:'images/template-architectural-analysis-base/style-reference.jpg',
         reference:'images/template-architectural-analysis-base/style-reference.jpg',
-        result:'images/template-architectural-analysis-base/result-demo.png',
+        result:'images/template-architectural-analysis-base/result-demo.webp',
         sourceName:'architectural-analysis-source-demo.png',
         downloadName:'baolong-four-panel-architectural-diagram-base-demo.png'
       },
@@ -309,18 +309,18 @@
         en:['Tasks requiring reliable factual or historical analysis from the model','Single-image inputs that still require stable multi-layer collage','Tasks requiring accurate automatic text, timelines, or professional conclusions']
       },
       assets: {
-        source:'images/template-narrative-collage/source-demo.png',
+        source:'images/template-narrative-collage/source-demo.webp',
         demoSources:[
-          'images/template-narrative-collage/source-01.jpg',
-          'images/template-narrative-collage/source-02.jpg',
-          'images/template-narrative-collage/source-03.jpg',
-          'images/template-narrative-collage/source-04.jpg',
-          'images/template-narrative-collage/source-05.jpg'
+          'images/template-narrative-collage/source-01.webp',
+          'images/template-narrative-collage/source-02.webp',
+          'images/template-narrative-collage/source-03.webp',
+          'images/template-narrative-collage/source-04.webp',
+          'images/template-narrative-collage/source-05.webp'
         ],
-        display:'images/template-narrative-collage/result-demo.png',
-        displayFallback:'images/template-narrative-collage/style-reference.png',
-        reference:'images/template-narrative-collage/style-reference.png',
-        result:'images/template-narrative-collage/result-demo.png',
+        display:'images/template-narrative-collage/result-demo.webp',
+        displayFallback:'images/template-narrative-collage/style-reference.webp',
+        reference:'images/template-narrative-collage/style-reference.webp',
+        result:'images/template-narrative-collage/result-demo.webp',
         sourceName:{zh:'5 张项目图片',en:'5 project images'},
         downloadName:'baolong-architectural-landscape-narrative-collage-demo.png'
       },

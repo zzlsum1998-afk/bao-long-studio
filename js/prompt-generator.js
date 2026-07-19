@@ -216,7 +216,7 @@
   "case17": {
     "id": "case17",
     "workflowTemplate": "ecological-architectural-section-v1",
-    "img": "images/template-p0/result-demo.png",
+    "img": "images/template-p0/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "生态景观建筑剖面工作流",
     "scene": "适用：项目原图上传 / 风格参考 / 参数控制",
@@ -230,7 +230,7 @@
   "case18": {
     "id": "case18",
     "workflowTemplate": "forest-garden-ecological-section-v1",
-    "img": "images/template-forest-garden/result-demo.png",
+    "img": "images/template-forest-garden/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "森林花园生态剖面工作流",
     "scene": "适用：建筑与景观剖面 / 土层根系 / 研究型图面",
@@ -244,7 +244,7 @@
   "case19": {
     "id": "case19",
     "workflowTemplate": "urban-birdview-landscape-diagram-v1",
-    "img": "images/template-urban-birdview/result-demo.png",
+    "img": "images/template-urban-birdview/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "城市鸟瞰景观图解工作流",
     "scene": "适用：城市鸟瞰 / 轴测总图 / 景观策略",
@@ -258,7 +258,7 @@
   "case20": {
     "id": "case20",
     "workflowTemplate": "urban-axonometric-program-diagram-v1",
-    "img": "images/template-urban-program-diagram/result-demo.png",
+    "img": "images/template-urban-program-diagram/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "城市功能分区轴测图解工作流",
     "scene": "适用：城市轴测 / 功能分区 / 竞赛图解",
@@ -272,7 +272,7 @@
   "case21": {
     "id": "case21",
     "workflowTemplate": "architectural-analysis-base-diagram-v1",
-    "img": "images/template-architectural-analysis-base/result-demo.png",
+    "img": "images/template-architectural-analysis-base/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "四类建筑分析图底图工作流",
     "scene": "适用：建筑轴测 / 四宫格底图 / 后期标注",
@@ -286,7 +286,7 @@
   "case22": {
     "id": "case22",
     "workflowTemplate": "architectural-landscape-narrative-collage-v1",
-    "img": "images/template-narrative-collage/result-demo.png",
+    "img": "images/template-narrative-collage/result-demo.webp",
     "kicker": "Template Workflow",
     "title": "建筑与景观综合叙事拼贴工作流",
     "scene": "适用：前期分析 / 多图拼贴 / 建筑景观叙事",

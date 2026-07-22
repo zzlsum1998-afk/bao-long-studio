@@ -1,0 +1,52 @@
+/* BaoLong Lab v376 · 公安备案前公开站状态收口 */
+.legal-footer{
+  width:100%;
+  margin:40px 0 0;
+  padding:22px 18px 24px;
+  border-top:1px solid rgba(20,20,20,.10);
+  background:rgba(255,255,255,.78);
+  color:#666;
+  text-align:center;
+  font:12px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+}
+.legal-footer .footer-line{display:block}
+.legal-footer .legal-note{max-width:900px;margin:2px auto;color:#777}
+.legal-footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.legal-footer .filing-records{margin-top:5px}
+.legal-footer .icp-link{font-weight:600;color:#555}
+.public-security-filing-slot[hidden]{display:none!important}
+
+/* Full-workspace tools need a compact filing line without hiding their controls. */
+body.data-bloom-generator-page .legal-footer{
+  flex:0 0 auto;margin:0;padding:7px 12px 8px;font-size:10px;line-height:1.45;background:rgba(255,253,248,.92)
+}
+body.data-bloom-generator-page .legal-footer .legal-note{display:none}
+body.data-bloom-generator-page .page{height:auto!important}
+
+body.bubble-timeline-page .legal-footer{
+  display:block!important;margin:0;padding:7px 12px 8px;font-size:10px;line-height:1.45;background:rgba(255,255,255,.92)
+}
+body.bubble-timeline-page .legal-footer .legal-note{display:none}
+body.bubble-timeline-page .wrap{height:calc(100vh - 158px)!important;min-height:560px}
+
+body.interaction-growth-page .legal-footer{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;margin:0;padding:6px 10px 7px;
+  border-color:rgba(255,255,255,.12);background:rgba(10,12,14,.78);color:rgba(255,255,255,.72);
+  font-size:9px;line-height:1.35;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)
+}
+body.interaction-growth-page .legal-footer .legal-note{display:none}
+body.interaction-growth-page #ui{bottom:calc(58px + env(safe-area-inset-bottom))!important}
+
+@media (min-width:1000px) and (min-height:700px){
+  html,body.template-generator-page{height:auto!important;overflow:auto!important}
+  body.template-generator-page .page-shell{height:calc(100vh - 72px)!important}
+  body.template-generator-page .legal-footer{margin-top:0}
+}
+
+@media (max-width:700px){
+  .legal-footer{padding:18px 14px 20px;font-size:11px}
+  .legal-footer .legal-note{padding:0 8px}
+  body.interaction-growth-page #ui{bottom:calc(64px + env(safe-area-inset-bottom))!important}
+  body.interaction-growth-page .legal-footer .legal-links{display:none}
+  body.bubble-timeline-page .wrap{height:auto!important;min-height:calc(100vh - 72px)}
+}

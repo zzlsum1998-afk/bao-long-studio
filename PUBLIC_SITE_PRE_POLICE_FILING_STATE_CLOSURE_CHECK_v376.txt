@@ -1,0 +1,37 @@
+BAOLONG LAB · v376 · 公安备案前公开站状态收口
+
+版本名称：v376 · 公安备案前公开站状态收口
+英文标识：Public Site Pre-Police-Filing State Closure
+唯一基准：v375 full
+ICP备案号：蜀ICP备2026041029号
+主域名：www.baolonglab.com
+
+一、实施目标
+1. 公开站不再展示具体人民币价格、美元价格占位或在线交易入口。
+2. 付费素材永久调整为“素材展示 / 暂未开放购买”，不是审核期间临时隐藏。
+3. 免费素材继续保留真实外部获取链接。
+4. 图片工作流永久调整为内部测试演示；公网 AI 生图后端尚未开放。
+5. 全部公开 HTML 页面统一展示 ICP 备案号，并预留公安备案图标与号码插槽。
+6. CNAME 纳入 full 包，内容为 www.baolonglab.com。
+
+二、主要修改
+- index.html / js/index-page.js / js/index-i18n.js：移除价格与淘宝交易入口；首页工作流入口改为“查看工作流演示”。
+- assets.html / js/assets.js：45 个原付费条目改为素材展示，淘宝商品链接清空；26 个免费条目继续免费获取。
+- contact.html / terms.html / privacy.html：删除当前淘宝交易、订单、付款描述，明确当前未开放在线购买与公网 AI 生图。
+- prompt-generator.html / js/prompt-generator.js：工作流按钮改为“查看工作流演示”，普通 Prompt 卡片弹窗与复制逻辑未修改。
+- template-generator.html / js/template-generator.js / css/template-generator.css：移除模拟生成与重新生成入口；固定展示内部测试示例；上传只做本地预览。
+- css/filing-footer.css：新增统一备案页脚样式；24 个公开 HTML 页面添加 ICP 备案号。
+- CNAME：新增到交付 full，避免从空目录部署时遗漏主域名配置。
+- js/taobao-links.js：新 full 中删除；GitHub 网页覆盖部署时需按删除清单手动删除旧文件。
+
+三、明确未修改
+images、data/JSON、favicon、sitemap、robots、Prompt Tool 核心逻辑、Prompt Generator 普通弹窗与复制、Resume Tool、Inspiration 加载更多与收藏、css/common.css、js/common.js、Netlify 历史函数、case17–22 Template ID 与工作流配置。
+
+四、验收目标
+- 运行数据中的 ¥ / ￥ / $9.90：0
+- 活跃淘宝商品链接与店铺入口：0
+- 模拟 AI 生成按钮、重新生成、下载生成结果：0
+- 24 个公开页面备案页脚：24 / 24
+- ICP 备案号：蜀ICP备2026041029号
+- 公安备案位置：已预留隐藏插槽，审核通过后加入平台正式代码
+- CNAME：www.baolonglab.com

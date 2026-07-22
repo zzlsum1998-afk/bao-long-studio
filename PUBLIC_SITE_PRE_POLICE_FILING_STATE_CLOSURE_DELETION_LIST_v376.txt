@@ -1,0 +1,7 @@
+BAOLONG LAB · v376 删除清单
+
+GitHub 网页上传不会自动删除旧文件。覆盖 v376 full 或 patch 后，请手动删除：
+
+js/taobao-links.js
+
+原因：v376 已移除全部公开淘宝交易入口，该脚本不再有消费者。

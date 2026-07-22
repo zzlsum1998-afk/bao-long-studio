@@ -6,9 +6,10 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="baolong-prototype" content="image-template-workflows-v248">
   <title>BaoLong Lab · Image Template</title>
-  <link rel="stylesheet" href="css/template-generator.css">
+  <link rel="stylesheet" href="css/template-generator.css?v=376">
+<link href="css/filing-footer.css?v=376" rel="stylesheet"/>
 </head>
-<body>
+<body class="template-generator-page">
   <header class="topbar">
     <div class="brand-wrap">
       <a class="brand" href="index.html" aria-label="BaoLong Lab 首页 / BaoLong Lab Home">
@@ -28,6 +29,12 @@
       <button class="lang-toggle" type="button" id="langToggle" aria-label="切换语言">EN</button>
     </div>
   </header>
+
+
+  <section class="public-status-banner" role="status" aria-label="公开功能状态">
+    <strong>工作流演示 · 公网 AI 生图尚未开放</strong>
+    <span>本页用于展示已完成的内部测试工作流、参数与示例结果。你选择的本地图片不会上传服务器，也不会创建在线生成任务。</span>
+  </section>
 
   <main id="top" class="page-shell">
     <section class="workspace" aria-label="模板生成工作区">
@@ -119,11 +126,11 @@
 
         <div class="generate-box">
           <div>
-            <span data-i18n="estimateLabel">输出设置</span>
-            <strong>1 <span data-i18n="creditUnit">张图片</span></strong>
+            <span data-i18n="estimateLabel">公开状态</span>
+            <strong data-i18n="publicStatusValue">公网生图暂未开放</strong>
           </div>
           <button class="primary-button" type="button" id="generateButton" disabled>
-            <span data-i18n="generate">生成图片</span>
+            <span data-i18n="generate">生图功能开发中</span>
             <span aria-hidden="true">↗</span>
           </button>
         </div>
@@ -133,36 +140,34 @@
         <div class="panel-heading">
           <span class="step-index">03</span>
           <div>
-            <p class="panel-kicker" data-i18n="resultKicker">生成结果</p>
-            <h2 data-i18n="resultTitle">预览与操作</h2>
+            <p class="panel-kicker" data-i18n="resultKicker">内部测试示例</p>
+            <h2 data-i18n="resultTitle">示例结果与参数预览</h2>
           </div>
         </div>
 
         <div class="result-stage" id="resultStage">
-          <div class="result-empty" id="resultEmpty">
+          <div class="result-empty" id="resultEmpty" hidden>
             <span class="result-symbol" aria-hidden="true">✦</span>
-            <strong data-i18n="emptyTitle">结果会显示在这里</strong>
-            <p data-i18n="emptyCopy">上传项目图并点击生成，体验完整流程。</p>
+            <strong data-i18n="emptyTitle">当前展示内部测试示例</strong>
+            <p data-i18n="emptyCopy">上传图片仅用于本地预览参数，不会生成新图片。</p>
           </div>
 
           <div class="result-loading" id="resultLoading" hidden>
             <div class="loading-orbit"><span></span></div>
-            <strong id="loadingTitle">正在读取项目结构</strong>
-            <p data-i18n="loadingCopy">请稍候，生成完成后会自动显示结果。</p>
+            <strong id="loadingTitle">公网生图尚未开放</strong>
+            <p data-i18n="loadingCopy">当前不会向服务器提交生成任务。</p>
             <div class="progress-track"><span id="progressBar"></span></div>
           </div>
 
-          <div class="result-success" id="resultSuccess" hidden>
+          <div class="result-success" id="resultSuccess">
             <div class="result-image-wrap">
               <img src="images/template-p0/result-demo.webp" id="resultImage" alt="流程示例图">
-              <span class="result-label" data-i18n="mockResult">流程示例图</span>
+              <span class="result-label" data-i18n="mockResult">内部测试示例结果</span>
             </div>
           </div>
         </div>
 
-        <div class="result-actions" id="resultActions" hidden>
-          <a class="primary-button action-primary" id="downloadButton" href="images/template-p0/result-demo.webp" download="baolong-template-result-demo.webp" data-i18n="download">下载图片</a>
-          <button class="secondary-button" type="button" id="regenerateButton" data-i18n="regenerate">重新生成</button>
+        <div class="result-actions" id="resultActions">
           <button class="text-button" type="button" id="detailButton" data-i18n="viewDetail">查看 Prompt</button>
           <button class="text-button" type="button" id="resetButton" data-i18n="reset">重置</button>
         </div>
@@ -199,6 +204,12 @@
     </div>
   </dialog>
 
-  <script src="js/template-generator.js?v=257"></script>
+  <script src="js/template-generator.js?v=376"></script>
+<footer class="legal-footer">
+  <span class="footer-line">© 2026 BaoLong Lab. All rights reserved.</span>
+  <span class="footer-line legal-note">原创内容与工具由 BaoLong Lab 制作；灵感参考仅用于学习与来源索引，如需更正或移除请联系我们。</span>
+  <span class="footer-line legal-links"><a href="about.html">关于 / About</a> · <a href="contact.html">联系 / Contact</a> · <a href="privacy.html">隐私政策 / Privacy Policy</a> · <a href="terms.html">用户协议 / Terms of Use</a></span>
+  <span class="footer-line filing-records"><a class="icp-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">蜀ICP备2026041029号</a><span class="public-security-filing-slot" hidden aria-hidden="true"><!-- 公安备案通过后，在此加入平台提供的备案图标、备案号与链接。 --></span></span>
+</footer>
 </body>
 </html>

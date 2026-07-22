@@ -1,4 +1,4 @@
-/* BaoLong Lab v376 · 公安备案前公开站状态收口 */
+/* BaoLong Lab v376-fixed · 公安备案前公开站真实交易状态修正 */
 .legal-footer{
   width:100%;
   margin:40px 0 0;
@@ -16,7 +16,6 @@
 .legal-footer .icp-link{font-weight:600;color:#555}
 .public-security-filing-slot[hidden]{display:none!important}
 
-/* Full-workspace tools need a compact filing line without hiding their controls. */
 body.data-bloom-generator-page .legal-footer{
   flex:0 0 auto;margin:0;padding:7px 12px 8px;font-size:10px;line-height:1.45;background:rgba(255,253,248,.92)
 }

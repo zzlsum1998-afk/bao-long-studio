@@ -301,7 +301,7 @@ dd{margin:0;font-size:9px;word-break:break-word}
 }
 
 
-/* v376 public-state closure: the page is a workflow demo, not a live generation service. */
+/* v376-fixed public-state closure: the page is a workflow demo, not a live generation service. */
 .public-status-banner{
   width:min(1460px,calc(100% - 44px));margin:14px auto 0;padding:12px 16px;border:1px solid #d3c6ad;border-radius:14px;
   background:#fffaf0;color:#3d352a;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-soft)

@@ -8,10 +8,10 @@
 
   const sharedTranslations = {
     zh: {
-      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'当前仅做前端预览，图片不会上传', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树，弱化土层，不改变屋顶结构。', notesHint:'最多 120 字', advancedSettings:'高级设置', advancedSettingsHint:'仅在需要时调整生态与人物处理。', settingsUnit:'项', estimateLabel:'输出设置', creditUnit:'张图片', generate:'生成图片', resultKicker:'生成结果', resultTitle:'预览与操作', emptyTitle:'结果会显示在这里', emptyCopy:'上传项目图并点击生成，体验完整流程。', loadingCopy:'请稍候，生成完成后会自动显示结果。', mockResult:'流程示例图', download:'下载图片', regenerate:'重新生成', reset:'重置', detailKicker:'PROMPT PREVIEW', detailTitle:'本次 Prompt', promptTitle:'可复制 Prompt', copy:'复制', copied:'已复制', generationInfoTitle:'生成信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'项目原图 + 模板参考图', outputMode:'输出', viewDetail:'查看 Prompt'
+      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'仅在本地浏览器预览，不会上传服务器', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树，弱化土层，不改变屋顶结构。', notesHint:'最多 120 字', advancedSettings:'高级设置', advancedSettingsHint:'仅在需要时调整生态与人物处理。', settingsUnit:'项', estimateLabel:'公开状态', publicStatusValue:'公网生图暂未开放', creditUnit:'张图片', generate:'生图功能开发中', resultKicker:'内部测试示例', resultTitle:'示例结果与参数预览', emptyTitle:'当前展示内部测试示例', emptyCopy:'上传图片仅用于本地预览参数，不会生成新图片。', loadingCopy:'当前不会向服务器提交生成任务。', mockResult:'内部测试示例结果', download:'查看示例大图', regenerate:'重新生成', reset:'重置', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'公开摘要 Prompt', promptTitle:'可复制公开摘要', copy:'复制', copied:'已复制', generationInfoTitle:'演示信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'本地项目图 + 模板参考图', outputMode:'示例输出', viewDetail:'查看公开摘要'
     },
     en: {
-      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'This prototype only previews locally. The image is not uploaded.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree, soften the soil layer, and preserve the roof structure.', notesHint:'Up to 120 characters', advancedSettings:'Advanced Settings', advancedSettingsHint:'Adjust ecology and people handling only when needed.', settingsUnit:'settings', estimateLabel:'Output', creditUnit:'image', generate:'Generate Image', resultKicker:'RESULT', resultTitle:'Preview & Actions', emptyTitle:'Your result will appear here', emptyCopy:'Upload a project image and generate to preview the full flow.', loadingCopy:'Please wait. The result will appear automatically when generation is complete.', mockResult:'Workflow sample', download:'Download Image', regenerate:'Regenerate', reset:'Reset', detailKicker:'PROMPT PREVIEW', detailTitle:'Prompt Preview', promptTitle:'Copy-ready Prompt', copy:'Copy', copied:'Copied', generationInfoTitle:'Generation Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Project image + template reference', outputMode:'Output', viewDetail:'View Prompt'
+      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'Local browser preview only. The image is not uploaded to a server.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree, soften the soil layer, and preserve the roof structure.', notesHint:'Up to 120 characters', advancedSettings:'Advanced Settings', advancedSettingsHint:'Adjust ecology and people handling only when needed.', settingsUnit:'settings', estimateLabel:'PUBLIC STATUS', publicStatusValue:'Public generation not available', creditUnit:'image', generate:'Generation In Development', resultKicker:'INTERNAL TEST SAMPLE', resultTitle:'Sample Result & Parameter Preview', emptyTitle:'Internal test sample shown', emptyCopy:'Uploaded images are used only for local parameter preview and will not generate a new image.', loadingCopy:'No generation task is sent to a server.', mockResult:'Internal test sample', download:'View Sample', regenerate:'Regenerate', reset:'Reset', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'Public Prompt Summary', promptTitle:'Copy-ready public summary', copy:'Copy', copied:'Copied', generationInfoTitle:'Demo Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Local project image + template reference', outputMode:'Sample Output', viewDetail:'View Public Summary'
     }
   };
 
@@ -584,8 +584,11 @@ Additional note: ${notesText}` : ''}`;
     setImageWithFallback($('#styleReferenceImage'), activeTemplate.assets.display || activeTemplate.assets.reference, activeTemplate.assets.displayFallback || activeTemplate.assets.reference);
     $('#styleReferenceImage').alt = t(activeTemplate.imageAlt);
     $('#resultImage').src = activeTemplate.assets.result;
-    $('#downloadButton').href = activeTemplate.assets.result;
-    $('#downloadButton').download = activeTemplate.assets.downloadName;
+    const downloadButton = $('#downloadButton');
+    if (downloadButton) {
+      downloadButton.href = activeTemplate.assets.result;
+      downloadButton.download = activeTemplate.assets.downloadName;
+    }
     $('#priorityTitle').textContent = t(activeTemplate.priorityTitle);
     $('#priorityCopy').textContent = t(activeTemplate.priorityCopy);
     $('#templateNameOutput').textContent = title;
@@ -699,7 +702,8 @@ Additional note: ${notesText}` : ''}`;
 
 
   function updateGenerateState() {
-    generateButton.disabled = !state.sourceReady;
+    generateButton.disabled = true;
+    generateButton.setAttribute('aria-disabled', 'true');
   }
 
   function clearSourceObjectUrls() {
@@ -777,30 +781,6 @@ Additional note: ${notesText}` : ''}`;
     loadingTitle.textContent = activeTemplate.loading[state.lang][index];
   }
 
-  function runMockGeneration() {
-    if (!state.sourceReady) return;
-    clearTimers();
-    resultEmpty.hidden = true;
-    resultSuccess.hidden = true;
-    resultActions.hidden = true;
-    resultLoading.hidden = false;
-    generateButton.disabled = true;
-    progressBar.style.width = '12%';
-    setLoadingStep(0);
-
-    state.timerIds.push(setTimeout(() => { progressBar.style.width = '42%'; setLoadingStep(1); }, 900));
-    state.timerIds.push(setTimeout(() => { progressBar.style.width = '73%'; setLoadingStep(2); }, 1900));
-    state.timerIds.push(setTimeout(() => { progressBar.style.width = '100%'; }, 3000));
-    state.timerIds.push(setTimeout(() => {
-      resultLoading.hidden = true;
-      resultSuccess.hidden = false;
-      resultActions.hidden = false;
-      generateButton.disabled = false;
-      updatePrompt();
-      if (window.innerWidth < 761) $('#resultStage').scrollIntoView({behavior:'smooth', block:'center'});
-    }, 3500));
-  }
-
   function resetPrototype() {
     clearTimers();
     clearSourceObjectUrls();
@@ -811,10 +791,10 @@ Additional note: ${notesText}` : ''}`;
     sourcePreviewGrid.innerHTML = '';
     sourcePreviewGrid.hidden = true;
     sourcePreview.hidden = false;
-    resultEmpty.hidden = false;
+    resultEmpty.hidden = true;
     resultLoading.hidden = true;
-    resultSuccess.hidden = true;
-    resultActions.hidden = true;
+    resultSuccess.hidden = false;
+    resultActions.hidden = false;
     progressBar.style.width = '0';
     notes.value = '';
     $('#notesCount').textContent = '0';
@@ -874,8 +854,6 @@ Additional note: ${notesText}` : ''}`;
     updatePrompt();
   });
 
-  generateButton.addEventListener('click', runMockGeneration);
-  $('#regenerateButton').addEventListener('click', runMockGeneration);
   $('#resetButton').addEventListener('click', resetPrototype);
 
   const detailDialog = $('#detailDialog');

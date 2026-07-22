@@ -56,7 +56,7 @@ window.BAOLONG_PAGE_ZH_MAP = {
   "View All Workflows": "查看全部工作流",
   "Architectural & Landscape Narrative Collage": "建筑与景观综合叙事拼贴",
   "Combine 3–6 project and site images into a low-saturation layered narrative board with controlled outlines and a visible analysis grid.": "将 3–6 张项目与场地图片组织成低饱和、错层叙事、带克制描边和连续网格的综合底图。",
-  "Use This Workflow": "使用此工作流",
+  "View Workflow Demo": "查看工作流演示",
   "Four Architectural Analysis Base Diagrams": "四类建筑分析图底图",
   "Turn one structural image into four text-free analysis bases for later annotation, without pretending to make professional factual judgments.": "将一张结构原图转换为四类无文字分析底图，方便后期标注，同时不把视觉选择包装成专业事实判断。",
   "Urban Axonometric Program Diagram": "城市功能分区轴测图解",
@@ -159,12 +159,12 @@ Object.assign(window.BAOLONG_PAGE_ZH_MAP, {
   "MORE BAOLONG LAB": "更多 BaoLong Lab",
   "Tools, services and the platform behind the work.": "工具、服务与平台背后的更多入口",
   "Alongside the visual creation areas, BaoLong Lab keeps direct service, contact, independent tools and platform information easy to find.": "除了围绕做图的主要内容，BaoLong Lab 也保留素材服务、联系入口、独立工具与平台说明。",
-  "Taobao Store": "淘宝店铺",
-  "Browse available assets, templates and related purchase services.": "查看现有素材、模板与相关购买服务。",
+  "Asset Availability": "素材开放状态",
+  "Browse displayed assets and free resources. Online purchasing is not yet available.": "查看素材展示与免费资源；在线购买暂未开放。",
   "Contact & Collaboration": "联系与合作",
   "Use email, WeChat notes or the store entrance for questions, feedback and collaboration.": "通过邮箱、微信备注或店铺入口咨询、反馈与合作。",
   "A visual creation platform for architecture and landscape.": "面向建筑与景观创作者的视觉创作平台。",
-  "For purchases or collaboration enquiries, please use the Taobao store or contact page.": "如需购买素材或咨询合作，请前往淘宝店铺或联系页面。"
+  "BaoLong Lab currently focuses on asset display, free experiences and tool demos. Online purchasing is not yet available.": "BaoLong Lab 当前以素材展示、免费体验和工具演示为主，在线购买暂未开放。"
 });
 
 window.BAOLONG_PAGE_TITLE_MAP = {

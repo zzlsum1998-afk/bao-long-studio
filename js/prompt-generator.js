@@ -385,7 +385,7 @@
         if(item.workflowTemplate){
           workflowButton.hidden = false;
           workflowButton.href = 'template-generator.html?template=' + encodeURIComponent(item.workflowTemplate);
-          workflowButton.setAttribute('aria-label', '使用此模板 / Use this template');
+          workflowButton.setAttribute('aria-label', '查看工作流演示 / View workflow demo · 公网 AI 生图暂未开放');
           if(copyButton){
             copyButton.classList.remove('primary-btn');
             copyButton.classList.add('secondary-btn');

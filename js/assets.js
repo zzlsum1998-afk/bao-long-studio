@@ -4,8 +4,8 @@
             "id": "P001",
             "title": "景观建筑环艺高级感前期分析",
             "category": "Module Diagrams",
-            "price": "¥6.8",
-            "link": "https://item.taobao.com/item.htm?id=1057158640378&mi_id=0000FQbHj_ImmxhzpmfzML7bvJPAqtiB01CjUOA_OZGJSBU&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -28,8 +28,8 @@
             "id": "P002",
             "title": "高级感绿色系作品集模版",
             "category": "Module Diagrams",
-            "price": "¥6.8",
-            "link": "https://item.taobao.com/item.htm?id=1056200169670&mi_id=0000vrRSKZbJtn92mL8c_ruF0U8Ngk3EfVtNwaiRUuxriU0&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -53,8 +53,8 @@
             "id": "P003",
             "title": "紫色数据风作品集模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1055216854012&mi_id=0000GMXWHjbA8VZvC6Qudtgzj2CuGPcXgRvHy0U5sGcQ-YA&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -79,8 +79,8 @@
             "id": "P004",
             "title": "叙事作品集模版",
             "category": "Module Diagrams",
-            "price": "¥6.8",
-            "link": "https://item.taobao.com/item.htm?id=1057120252652&mi_id=0000gtgiS8hy-oaB_BtOupLTVymxGqYH2dBdAZroTHF4BgE&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -104,8 +104,8 @@
             "id": "P005",
             "title": "小型场景模版",
             "category": "Module Diagrams",
-            "price": "¥1.6",
-            "link": "https://item.taobao.com/item.htm?id=1057122632383&mi_id=0000PRbiWIve28MQrgw2DDCkZMTdAxQJTipK7tmaFwMgU3A&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -126,8 +126,8 @@
             "id": "P006",
             "title": "高级留学作品集模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1057117700328&mi_id=0000-QDrwVpgeQNuqtRhB8xCGJrW8ahYEx54omArEmJ7N1g&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -152,8 +152,8 @@
             "id": "P007",
             "title": "小型景观模块",
             "category": "Module Diagrams",
-            "price": "¥3.6",
-            "link": "https://item.taobao.com/item.htm?id=1056188281033&mi_id=0000sdyvM5rPWsh9iu5g-tjq0Rt0R3H7KVp3ZXwC3KGHsak&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -174,8 +174,8 @@
             "id": "P008",
             "title": "高级感分析图模版",
             "category": "Module Diagrams",
-            "price": "¥1.5",
-            "link": "https://item.taobao.com/item.htm?id=1055204834192&mi_id=0000pMMrV-z27mTNYYFnxMHCQ3lR5EOiF87AHxKyZGlNBkE&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -196,8 +196,8 @@
             "id": "P009",
             "title": "景观建筑前期分析",
             "category": "Module Diagrams",
-            "price": "¥4.6",
-            "link": "https://item.taobao.com/item.htm?id=1057111588060&mi_id=0000gY4OJu_096BIuFKGU6ibm9DqI93xR1yxMfi6SLPXdwc&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -218,8 +218,8 @@
             "id": "P010",
             "title": "景观建筑前期分析模版",
             "category": "Module Diagrams",
-            "price": "¥1.5",
-            "link": "https://item.taobao.com/item.htm?id=1057106448531&mi_id=000068argjLRLbETGF9C1kdXeM9X4Qqu_uth0ZIs1TQKueE&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -240,8 +240,8 @@
             "id": "P011",
             "title": "四季分析图模块",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=937719373499&mi_id=0000EGP8_z3UmNPrleaiyLUEozNGHFt3I_zQy6xsyklmtfc&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -265,8 +265,8 @@
             "id": "P012",
             "title": "古典分析图模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=930228267607&mi_id=0000lV-cokgcurqyqUNsvhrisIbSJFFX9WZBT7v6ajGjXL4&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -291,8 +291,8 @@
             "id": "P013",
             "title": "绿色高级感留学作品集",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1038861952517&mi_id=0000zulc4CoskbJuy-Xq-i4ScbD0fGJ2JM_5y0IGfR6aAaQ&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -317,8 +317,8 @@
             "id": "P014",
             "title": "高级感留学作品集",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1038863636954&mi_id=00006j7yzmdY6pnm7uUnMCn7zkjxf32lyZPjVgaD4wu695k&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -343,8 +343,8 @@
             "id": "P015",
             "title": "高级数据感分析模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=931242088582&mi_id=0000VApE9Ybs1o7d3SARG32iQg135fuSJmhwRPfaW6L5F34&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -369,8 +369,8 @@
             "id": "P016",
             "title": "拼贴风作品集模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=970713986147&mi_id=0000lJCotill9IO4KDZpiMDvfDU4VtaHcP5E3WQws-uQSS8&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -395,8 +395,8 @@
             "id": "P017",
             "title": "高级感前期分析",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1033050713565&pisk=g9u3TTME9R6fhjWwoTzBjEtTJBvOdya71YQ8ezeybRy1U8FzzPlZMjVRUzQerTkQg0Q8YLZaQbG5TkEEv77uZRQJOyK7rY2iFJEL8pauaxHbp7IKa_VrByrSv8eLEzcSnWvvkEhIOzayHKLY8-7pOrsFL8W8_PPQrWkxzOLsOzayHKLvkXGIKlBa0ePz_CVLNwzz47PwsSFYzwrP8fyaC7zzzurE_PP7wgPPYMRg77N588PUzOzaaSjPYYzysPPLwzyrUkRi_RNzz8Rpe1yKUvgwhhI3VyoZZVV3x-lgcaSoTZEU32ww3DTgTkxKTRbPzVo7uEk3nFXaBblj4l0lq3Pi-j0u1fxc050ni4VoPLTG4OcN2fyAP2TqOgsTY5NgHMVekSZQkxPXsCjqckP_TEdMsgs7Y5NgHCAG0mZU1W8A.&spm=a1z10.5-c.w4002-25832238778.47.656f4bc7PjBjbR",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -421,8 +421,8 @@
             "id": "P018",
             "title": "插画风植物素材",
             "category": "plant",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=930192734840&pisk=gtJ_9fGPlEpUzrntkPoUVpO9rNBD1DkrBosvqneaDOBTvnI5DGQAbG5YvnjkbPJVkSsA0UIYBt7ZpKs25-RNMnIAheLqjN-xSE9fJEmg3cvwlsKN8Ey2bKO3h3xDQcXqjO-Gnt3rzYkyjhXmKDMAFdwL9G-LMRQxT9H1SlxizYkyjhXcH4uygoa8EMSzHtFOWynCcgyAHNQtAwIfqZe9ktnIAiIRXGeT6HFdqgXYXNBApvIfqReYHZKKAibLBiLAHD6d-iBAkEBvOGe1Yc_Hfmvobx5q4MKOR-evBtf1VZP4h-1lXHNM6wteYps11a1VDEKXF3K9Ei9m2S_fWCdRBKg7u6Tp6QB9h4adoCSl4U3Pr5wYGp7bHMNiADN0iHFFB-oEEczV6MjEuDiQanfOxM_rADN0i1IhYqoIA7-c.&spm=a1z10.5-c.w4002-25832238778.16.63bd4bc7P36pn5",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -443,8 +443,8 @@
             "id": "P019",
             "title": "高级感留学作品集模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1038014689172&pisk=gKv8GKZGpmEJaODjW8cDtyr2n4p-mjxylU-_KwbuOELA4HNCR_6QdJtdVw4WZ8qdcFK1VpfCPH_CqEIWqwmPGIKwJamEaTAAJETAPLcP-JUplHqlOpbHpuJvWJ2ozb-Qp6XISVDiI3-PL9gGbcasKuShAJNQ-aabc9jpSeaDa3-PL9giSADM4XCxbB05AwixhMIRdMsCRmefXZw5A86ClmIFl9wCdaajhGI3RzwBRttfAg_CVwsQcxshbM6Cde1fcGbfR91WRniAYZ_B95GA87_gpIyuBCSr0_yQdKIRGsx5cvKDhgd5WsNhXG9xQ_Q6VZeKzBGRFZs9h2zl8KKXFULjAJ_pGIx1kEiQdwdXOLfPLg8cSNoaqPAhC7nvdWPFNiR8QYTb1bvdoiQimgVUTshVDNmxDWPFNiSASmjuTW5xg&spm=a1z10.5-c.w4002-25832238778.57.55e54bc79CSCre",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -469,8 +469,8 @@
             "id": "P020",
             "title": "高级风分析图",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1038763531829&pisk=gJD4tPjzsR053XTnYD2wT4SCe3zYdR8BoAa_jcmgcr4cIR1oqlZGGsN1IcbolD31IhU_ElraXP6fimwkQD3Uj546MVPZ54Fih-ijzPusxjgbh59iaqn3GVo9Dl4iSVzsGSJIDmeTIeTBdpiAxBFskqr0jzxgjlbDVSDC4nDbIeTBdpixDReifCWngbfuvzjcnO0gZ_qLriXiSrVlrlETIP0iSzXuxkbcsPV0E848bPXcItfurkZTmNVGi3ouyk60IR0gE3rTrP2gIBGiKAQzfSxf21FLDHUagym0z9S-Ur4dMmzPqgzVdyahdzWGIYrmXo50qtvUrjGih8DDr3yo3qk0aqOGL8DquxVr-U6rWgJDBuG42AUWG1VcCuzB43-Lfz5YV7QhY1CTMnEzRnVc61F02uzB435O6SKY4yt0i&spm=a1z10.5-c.w4002-25832238778.11.4afc4bc723lUch",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -495,8 +495,8 @@
             "id": "P021",
             "title": "绿色系人物素材",
             "category": "People",
-            "price": "¥2.66",
-            "link": "https://item.taobao.com/item.htm?id=1004583603584&pisk=gfv8tYZGpmE-tFHjW8cDtyrY_99JpjxylU-_KwbuOELA4HNCR_6QdJtdVw4WZ8qdcFK1VpfCPH_CqEIWqwmPGIKwJamEaTAAJETAPLcP-JUplHqlOpbHpuJvWJ2ozb-Qp6XISVDiI3-PL9gg5NCLu7S1bMM3F86Phz7Sn3kiI3-PL9giSAAHZl9P0WwBR71jhZS3OJTQN-iAAM45RaTBcmQVY7a5R8NfcMjdV915dnsfjgw7O9_7hosNlw6CN9MjDM7fV96BRniAYBjxMwP5SJd4ERycFJ3zCR9A2_QpKZFKKDjPwMKJeilehgUN53_YdJQN50I9AegLKOOwkpC1cvEdDCKX8atSpkIv6nTAsK4c4EbG7cruSBX_wmpQTW550QeZFENsZpQcDNmcqWPFMjSASmnYTW550iQimgVUTshV.&spm=a1z10.5-c.w4002-25832238778.37.4afc4bc723lUch",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -517,8 +517,8 @@
             "id": "P022",
             "title": "植物/人物素材",
             "category": "plant",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=997766098177&pisk=gcX49rmysdbWtazhYMvaTaoIeu8vFdzQoOT6jGjMcEYmIdGlqhtiGjOsIG0llMQsIlL6Eh-wXFMjii9uQMQejCY_MNRN5adGhKsfzF71xs_XhCwGaZIHGNSTDhYGSN81GIyCDip9IyaQdJsxxWd1kNRDIL0l2HlMj7O030oc3yaQdJsADdpgRGiZKIrkYHvimCc04QxexdmDjNYkZHxindvGSu8kAHHiohYMELx6rmmmnxcoZhKqSnDmnuSkyhvMSNA04gYJjdYMTFWhB4-6ioi-6BKYY-AH-iYrIvSp0K2dcfMnKHtc4jn2yAx5UnR2-iWKag5kb6XeMw4SGEfenwJcazD2hZWl8KfzrxJh9i9f4K29Vs-RBUNjsID64eZz4kK6zjKWw2mE6fdYD38QmIct6IxJ4eZz4fh9MoKyRoAc.&spm=a1z10.5-c.w4002-25832238778.33.4afc4bc723lUch",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -540,8 +540,8 @@
             "id": "P023",
             "title": "复古植物素材",
             "category": "plant",
-            "price": "¥1.2",
-            "link": "https://item.taobao.com/item.htm?id=1057379120043&pisk=g-44tZOrjV2WJhW3TW0NYJW5AtDxRVWCnPMss5ViGxDDSVtuZfGMcni6S5vuhWe6S1HsrflZ6ATXmSgl7WeEscD1DRoaC8nglqNbUAy_towjlc_g4-FncRPOMfDgIRk_cm7QMS3tS96CRwNA7M43e-8ijafisfcGNm4Bas4jS96CRwNYMV3g1G-onuxo9YAmsn2iqbcsEdxgIxmkEfhtSA2gIYxosf8DSEDDE7D-_AxDoxvlrfGsIADin_PoejxiSV2ir_ltEA0iSBlb-Ppr1mfXsYTsie9EmvVmUFYU9juDLS-67F7oim4GJSLgNzlq0vV4J3Pzqfr38mehFnM0Yq2EouWkuqw4rJu04TYq-kFjlgkcWbZqwPH5chmD5bkCa_5K1Y-xN0pHThKtDshrdsmDXhnmwbkCa_-9XmCxav1mm&spm=a1z10.5-c.w4002-25832238778.42.740c4bc7wxpNVk",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -562,8 +562,8 @@
             "id": "P024",
             "title": "农场人物/植物素材",
             "category": "plant",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=972460578233&pisk=gS0b9YxUCA3r9PAvBtRPO2N0qVUicQ8ek1NttfQV6rUAwfFQ6SeTgSrOwfVngtuaBGNT_vFOkPy2yVNZhNo4XfFT5YHwi-l9nAg_eAAc7I0qClh4UA7ZgVil5XciuI4wirl0SPpeLe8Eij4Md-CsQq1825cRWGQv4zLbnscDLe8Eij4gWpJEb1TK57PFWPIYH_d71W7TWiF9N8F_tRQxBPdWN5NAWRQTDuI8iWaOMZETwgFgOtBTX-eJN52RWSHTWQa8E5UTBAU9O5_baIwoGC0xyzcVpyhYFNQtkPqbODjN5NMTMbsmf8Gra4NbcJZa6AhsRXhx-5gM9Gw_HmnLkV9CQuM-DDUx5p68ImPh40pUKi_Of4y1W7sDNQsGjbIzkNRy-IWaD7VyQQO5YfqYZ7weNQsGjoFuadRWNMlG.&spm=a1z10.5-c.w4002-25832238778.31.322f4bc7IRbUIi",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -584,8 +584,8 @@
             "id": "P025",
             "title": "户外节点模块",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=942347242301&pisk=gEm09XGqH71Ce05yx1rXrnoMQIRRhoZ_FfIT6lFwz7P5_5eabukrpv2O_lI2j1lbLVITuCazaAM13rUqkRSgI7I9hoL_jfVo1SUY0IZgQXhQMRQxQO2Zwozsk5FYslDst-ApvHHjhlZw9BKpEbYxNk1a3i5TU7yaj-lKb_KShlZw9BKpvxMjizBPZtyaUL2YBtra7RyyE-eQbizN0YPzNRrabPSaUYybIR7Nb-Jk4JwO0GS478zzQRy4bllNzTP7Qlyq_lJoU7ww9qXzMflj4BTg_-h8Qan7nrVE3SWAH4uc9WH4zGAHB2zckxPlbGor5k-EiWxla7HZdVzojNYaEmDnj8Mk-wyomvmgIcO6qgzmUNHz9GiXYx_1yry7EWQ03HeQlkhUdLvl82a4F--pELb15ry7EWpkEwuQu8w2v&spm=a1z10.5-c.w4002-25832238778.25.322f4bc7IRbUIi",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -611,8 +611,8 @@
             "id": "P026",
             "title": "植物分析素材模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=943496340775&pisk=gfpU94ZNZTY_fduD0nXrgEujZNQdKTuj-L_5q3xlAwb3ETNMjgsuOW17E34MRnL7E0Q5IgSP2awQtH6iUnLVq_bS9U5yPFCkd9tB7a8WmBTCd_Mk_eKcOU--vgbkrU7WO6kXvHBREqgjhxtL3NfCFU5hERVMXgE3tf1nLlrHLqgjhxtpvTBol3ZzssnG0iXux_Vnb1jVmTq3EUbGsijuKTXkrc5Gvibur6fusljfSk2l-aDgsgjcry2hxc-GWgXlrUfnbhbOqTbktL9DePS5tDZl8YwzaY5GoHbaE--AY9ckY7w8e6SHbWCV7Gs6QM5Fu_skr3J2mHvA4Ln0aa7HtIXHUqz5_FAHi9vruPbJOiIPIYI6TGpR5XNlt8sNlcoZDg_a9G1TooP8w6ndbZiht7FRtGINlcoaw7CKvG7jx6f..&spm=a1z10.5-c.w4002-25832238778.27.322f4bc7IRbUIi",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -637,8 +637,8 @@
             "id": "P027",
             "title": "作品集排版模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=935610750849&pisk=gmwu9caz2qT6aPTVIek5iTPHAYbvFYMIcypKJv3FgquX82nELxr4Xlmp8vpPKezSbWpKawGqukZB4bhzwDJnxqpdVYCIKy00R4h-UaMnYPUsyDd8YHmUkYlQw23--vqQS0bOBOE7VvMFWNB9uyTqpAOya28KuqoSK0zTLEBbVvMFWNBOBuZ7rjKVH3oE0im-v3kETDoVm0ntLLleUouqlDkELXlF3jonfpoETvSc3DoMT0keUKrqVc-rLvzF3IujYvoz8vS00qiet9xqyyz73N1nJ23K1Symqb0amf9etKmyWVqPopvErdEo7d3DLpym4kikamJPIqP8T8H4UZSm384uUj4RTdD4Ez2riP7vnysrsoRL0VpQFOrWOIhrcm09Z0WtfbMT7cscmCPsamiPBijDOBGrcm0OmiAa1boj4OC..&spm=a1z10.5-c.w4002-25832238778.52.14b34bc76ggVN0",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Module",
                   "Diagram",
@@ -662,8 +662,8 @@
             "id": "P028",
             "title": "户外节点模块",
             "category": "Module Diagrams",
-            "price": "¥15.8",
-            "link": "https://item.taobao.com/item.htm?id=930700417730&pisk=guFaThTEnjqIvJjuzzcVUu7WHlnt6jS5jSijor4m5cmMij93-qgDCdMXirx3fzEXiZnjtquqkmO6IPGhgzEroxmfBok4ckH01fa_YmrbrRZs1x10LlUoCozAWqm0moobCA57WPhxigs5N_aOq60RRokiiD03J4Rmm9MG_e8g_gs5N_aTWjhcVrT2EHynz4cDSxvG8v0rrjYMsomnK40Dsjc0mwknuVumoCmmKv0xxFAiiC43-432jhmiiwznvqoDmocc8XmKojm0mjAUl7VvYqMG5EmOCT8VCAiuSDRDaz3Zs34whIOjTV4eBamHi2NE7Aou77pU8J04E7kTqM9sj8lg4f2FxCl_bWqrsJSH_b285fsrms3QQ2FxAO9mIIgEVw7FyqieB2MpqUJvHAQt80_iIKpxI23EVw7eHKHOW2o5SAf..&spm=a1z10.5-c.w4002-25832238778.32.14b34bc76ggVN0",
+            "price": "Display",
+            "link": "",
             "tags": [],
             "cover": "images/products/product28/01-cover.webp",
             "images": [
@@ -683,8 +683,8 @@
             "id": "P029",
             "title": "景观PS纹理素材",
             "category": "Textures",
-            "price": "¥6.8",
-            "link": "https://item.taobao.com/item.htm?id=1058305464622&mi_id=0000NPaA59gRVslIo8hEu0A8sMA27aMngToKlfPYNcfBJ0I&spm=a21n57.shop_search.0.0.5b53523c4HzLi8",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Textures",
                   "Pattern",
@@ -706,8 +706,8 @@
             "id": "P030",
             "title": "景观建筑图片纹理素材",
             "category": "Textures",
-            "price": "¥4.8",
-            "link": "https://item.taobao.com/item.htm?id=1058306768919&pisk=g7YQ9miVFLLZXqGKeJlaG-sVo1bkFfuqJ71JiQUUwwQL6QCfw6BRT6S86QfDTJ8Peu1RaKC8JaWEWU1ydz-F2QCRPdprt9R-KLT5BLc3zXYeFgdFQLzyTUtgPIAk8XbrtwRhraHq3qu2tBbueU5syeaO66RTvyB-bN3CKWAn3qu2tBblyxk24YTHt154yaEdpRh1NszRyTUK1OC5iTUpeahs1_50JTCd9RIOGs7R9aCL6OClgJE8ykQtWOfRyTpRyf_OI_QReLQJOfaC_X6MObxt7VQbAsRdCzUJJajCGhqzPz9O9CZH9OOw_F1CAtsPwLdWlIdpo_ToMu65pHKAJUMbUG99vnQpPxwOEH5c43HVnka8VFW7y1Zn1fZuqCENJzlZoXyPv1fZUfG_0Qjds16q1fZuqMCG_Yls1oRl.&spm=a1z10.5-c.w4002-25832238778.10.1db04bc7wG6aJt",
+            "price": "Display",
+            "link": "",
             "tags": [
                   "Textures",
                   "Material",
@@ -738,8 +738,8 @@
             "id": "P031",
             "title": "景观人物/植物素材",
             "category": "Plant Assets",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=930207470556&pisk=glu-WRfgJIC8KGLXBaxmxGe4gYu-yncrkYl1-J2lAxHxOYwuK7Z7GiNuwawCVXNQJxMHa8cBUv3LhvRP-QuopkGunvbnZ2nVJflErQzHazcz8y9MIFYiabzFjm_Tr4Qfh7cfVasWmrwGOS5yIFYiabzURdvixBUB17NGRys7FtOY95bQRg_WM-NL_J_SdyOvM5VFAgaQR-sb9-15PyZIGtNa_Js7NWOxG-PQRJMQVIhb3WaQdB1BDJS7IwnVUleiLFFVRwgYwoZmNS1b8qN86REfxw_CT7E8CbwXECShJkH82qYRQ7nj65F-DBsbFj0-97nvOiwSOfuZjgyTIRRNZOm35gdxRMSUVSoR7UMXbIAQ_SeMi7jFYoK4MRAvMMSUVSPYIIVlYMrv0&spm=a1z10.5-c.w4002-25832238778.10.268f4bc7CVKTZ2",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Plant",
@@ -762,8 +762,8 @@
             "id": "P032",
             "title": "黑白人物素材",
             "category": "People Assets",
-            "price": "¥8.8",
-            "link": "https://item.taobao.com/item.htm?id=930677587099&pisk=hezxeow_r0pN5VClv6FjHX3sJ_X3GPcs15Pw1xgjnCeT_XhX5ftfPYGZMcTG0qmtW8MuoxVmlA3TTJemncx02CFUejBh-x9bzu0ecFGXIbOSih8lhn73gSuZ59Xh-lx-fxlkfFw6cYOSUfx65RtXF_hssKMshRN5wfkSGIg6l0TSOXxs1RtjF7GKTKtX5EN5PjDSCVisG_FSUf3sCRg1w7_0Mm1DqVMG-GD9KnPjeedzyVvnpPM5dorIM9kIjfZPLyFQGylT76ttBxZbAqaOpdm8FoZIlPBpFArmTHP7S_K1buyYY8dCxzUx_WE3dH78W9P3lriyuwUNLWe7NRbJ-zQ3u8uYLp6FJwHbPzUcrEzNtWVaolYFj9s39zyKjh9dH9sjaoLFl8sFZ1GEwvfoih-Z2gl-K_CJbhojabHhZjxwb0IP.&spm=a1z10.5-c.w4002-25832238778.10.906a4bc7Yrsb6B",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Black White",
@@ -785,8 +785,8 @@
             "id": "P033",
             "title": "高级感分析图模版素材",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=930766101540&pisk=hnsZUBAKwXxL1ytOl7JcbBFQdhB9O1mjcnO_-6RhHsO6cdxHKLJZIcxmSwJcG6eYBh6Dgs5B9Gw9GRhVgtWwosOfCh69Dud24Qj2x9vyEoiiSKAWIpbaN7Z7VOB9DnXfoEaht2vJtAvmSsYn-LdnIffDsecHHKKDisx0LHvXQf0DSdvhKKdnIcxmj20HhKviSIx0L9Ap3Imcin2exBpDmIfDmahj0wh9bFGTSWo2d-9w7ISXTTWuhdVHaOSwpaIE2FSCa-9MnnbGC68577oN-OfNrUjg24LGI17krGqZwBTJYnl-mm1SCWjUtZ7Fyi4S-M4Ph_7AhqFlVP1CEg8oeWsQ9Z6ejwiQKRVHHOBVc0U8ESWd7w6x65VbDBICXT4SpPN50NCl9pJUeKOEWOW9zeuxkFe9LQwMSq3vSppeNJyEkqLTBpR7IFf..&spm=a1z10.5-c.w4002-25832238778.14.2baf4bc7S3d3I9",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Diagram",
@@ -812,8 +812,8 @@
             "id": "P034",
             "title": "插画风动植物/人物素材",
             "category": "Animal Assets",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=929792199942&pisk=hIKneTDgKUvMjA3TnrV1R7KHtVnvj8vX3_ELzMRGaBO1wy7FaPoNpT1zLL5RqQAkZ6QrOMKksQRu2eKdvaoPsBrRJwmvdwlydzdhLTSZUtBuTl1tYcpCVglxMmnvd4fDLf0PU_kibTWc4TWPaAmNn1rFUkSP_AX5__SP89yaQ9B489WPTAmNE9VULa7EbcWd3TSP4Q5aQ16P49RP4AvN1T70HpDWM_Y0RqIiczEz4HS5-Fof_vkhtoB1goCi9xa8qaAh-hn3G9YwntXHSYzNTdKHE9YiUP5eUKtXkHouzzPXCppzlVlKnLLhkCzxuhDMHBTWrkyk-XphACtUFvhqt1deFEyx1fhBhBO9_kGwSXAwhLY0n0oZb6LCxZrq4j-JyHMGMyXEDtTwwqftIA42lwW1LmHiIza58O6GMADguE_FC9oA.&spm=a1z10.5-c.w4002-25832238778.16.63a94bc72nZkev",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Plant",
@@ -836,8 +836,8 @@
             "id": "P035",
             "title": "蓝色系人物/植物素材",
             "category": "People Assets",
-            "price": "¥8.8",
-            "link": "https://item.taobao.com/item.htm?id=929802023044&pisk=hkziFr1HsdQ0-6IpZ3bIDC4gIMQ8-IV7axL90Vyn3RwIHhoZ3H7E6jM2_Skxo-20nAnVCVU0K-yDklUtWm7qKR8xXcb81dVe6Z2MuAoFgbGj_eMd7wFslqWReaQ81iDusOjZgx5h8jlZujlq36bEav8ZgFuqL6cjLxuq0xueTbGvuKu43woE6fkqgqoqLWlSaqk43jPFtjME_qu43W5nGZv7ssw-dk8Vvq7WDE847qigWaMFCOHMyYDyyvXONnLmmRmgJNvSskPoZfqhgHka9PVmskf2YAP4NzZJYhK20LNQ6S-5YOCuMlm8L3Iz-6V8CoZD7IqGQ7381r9Gitz79oPzNe5CPtZzxSrWqKbRqlZUWWTPCiUgD8qQriKN3truj6DJjf7-NkyAqvCht3rSbXGNy6fHcniZOXDRt6xzVclI_aC..&spm=a1z10.5-c.w4002-25832238778.18.70fb4bc75EebYC",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Plant",
@@ -860,8 +860,8 @@
             "id": "P036",
             "title": "高级感前期分析模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=930691571350&pisk=hKeKEu47Ix8AFYIGMiHF4ukS3Gb0A8mSVuryV2MI-3U84mnBF0OCCVirvb9lTvc-ePggK2qnd4H80rUn-bA363E4WDQcnd3emrH2OBgWrc6sDQJGRBW0YkkrFZbcn7AONIowNLaWOf6s70AWFzOB5GnSqegSRzZ1X0usALiWFAis4m9BNzOI5lixvDOBdXg6C0usPYGSRfst4ViIFYa7fGnPrBGCxC4uCd_OYXOF3VpWHoodQqXq5SN0C5LDCk3Tjl0qltA_Vz_JExN4W8hjfTK-XSE_z2ZCe3nTMlatiRYMYD2lXQ1z_yF4Wn10BJnzDS4XgOeRuo2QdfJF3texRRZu5nvgdsgTjWEcZLBcgkkZBJ-lUwfYyuP_GeXNuae75l2eg6sYI6ia9KWQ5sSGVmotoGmHaQlO_c3cXGdyaXiZXqjixQRr615..&spm=a1z10.5-c.w4002-25832238778.28.3d484bc7BCwzHc",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Diagram",
@@ -887,8 +887,8 @@
             "id": "P037",
             "title": "拼贴感前期分析模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=931636713263&pisk=hWitUIGjxPrWcopHyLKwDmrb2pAoCm2bhxkVh5Z_sthx38e1c-_6AWw4BrsD7l4YDXNnj5DgfSExUbhgsrbiJtHr9RdkqN-09sZ_CSw_GKsQn-sFxh_ZQAr4cQAkq3YAJvQe1ZNjGHaQIWwflSGXA9NU3-1_c59KdWybcGsfcwZQE8e1lGGXAWw0EG_ffPNQR8e4cSGblMNQT-ZbCjZXpvNUhaE_5dbnnCF5oVCl7ANd29odZP_ZBtjAc5IlN7H6uiOilQfYO8nBg1Vqvvis6X9fcS3I-YNKOKsbM2gjjPr2YAnDpZTq8f3r9TTovceqe4c5zHnvaYmsfySw7niEsl3i6TRxJ3PjCcaV8LnqbSEKdbQyVCi-IvMIVT8sAIm0AY3hQh96gFwEWg-sOUJHh8yLZp2GuZzp8JFkppQVuPwUp7v3IZ74Je5..&spm=a1z10.5-c.w4002-25832238778.44.78ba4bc7SHWlGR",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Collage",
@@ -914,8 +914,8 @@
             "id": "P038",
             "title": "时间线分析模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1031440595930&pisk=gNRb9DMFfhdPSRuxXouzR261c-1M54lEMP_9-FF4WsCYyFQCWZIOuZWTyFbHuoRNXR_O7HQTM1SqwC_wc5JVBFQO13KZoi8tmhO12h00_qA2fOLV4hPwuC9u1eYMgqfZos8cs1nEYXleoEfipIVo0INRyZY86lexU_hfmrYmYXleoEfG6DoeQVt9Ta7U61eADa355wPO6GFxPgQ1-GFvX13SPNQ3M-CT6uQR-ZCOk1IAwaQhW-UAk-IJygbO6GKO641RqNCOXhC9tDFfzqsklVxF90qgvjLVV5F9NaIGvntlrad5ltOttcP_1VbfhMLA2mu3ViB6ctOrGkbXee_ClLgTeiLyGF_XFVeRDFLHtpSz2DS3h5e6aGNOP-0SPR2My85Y_4lnulWAraoZP4weStQlPMuSPR2GHabrb4g7LFf..&spm=a1z10.5-c.w4002-25832238778.41.59a84bc75YXa5y",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Timeline",
@@ -941,8 +941,8 @@
             "id": "P039",
             "title": "自然教育模块素材",
             "category": "Module Diagrams",
-            "price": "¥15.8",
-            "link": "https://item.taobao.com/item.htm?id=938231184689&pisk=h6Pt5TZbtPAdGjQheaF0tuljwwjl1S0jlrz2lcG6Gr9IuqnXIVDDRrg7XhqmcZujOuuD1mmMCShQjzwilrimMoEYDcDfbfVYvoZviRVisx1jvlOmIACu7fqG-LqxCjtBOyu25CNuGN1Egjslq_fu7PrtqNb9lqgCJV02cjMjl2_KzVGX1xO_RDiEljibcAMBdq3scnOXCe_KSq-jlcMsOegrrnT_cj_KR4iIcjM_cy_KuDifPAH1SpVRp-bxV3va5DdJ8WI-CdzOkIdjXQ0oVQmdja-KfxEtBWf94VeQy43TpZ9IfyVTkVedlpi_lzPzEHzQiwpf3JrTUkL5EWFtuzeuVL5LMgzu15Me_6jdq8PQaWtOksP_PWZLaBTdYT2U1REJ9ebdXkyZsoLfuSX-x844bebOviWs8RdP1k95ISnnJ0bnSKJqp9uKqwQp3Kks82nl-Vv23vBF.&spm=a1z10.5-c.w4002-25832238778.21.6cd24bc7sjA0kT",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Nature Education",
@@ -969,8 +969,8 @@
             "id": "P040",
             "title": "高级感剖面素材",
             "category": "Animal Assets",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=937136658086&pisk=hstn2YMgKLFwjA3TnrYkHS-H-Vnv_8vX3_ELzMRgQL6Aa9SPpu7PdLPepkKRQzvfE3BPTgCrbCBkpuHCzFXywCMSdMpPZQAO1HHCwvNkZLvhzQCJpMpCVEHyYlK3QOWJQyyF8neiLHIrMjnxDp9CVBLrerPz7O51KTyeaazNQ16cag5Fz5JNU15P4gRzbRWf3W5P8g5ZI9B7T95FUPrNdTPzzQSrId51UgWeagkMQ16PP49nFIIFLP0DVma84u-FVwDvKzEkPhWeIy9FsdpOGskhnLRrZuI2lCxluOouEOYDQQ1eL02lIEvwsZKT6HybzzPXCppzlVlKnLLhkCzxuhDMHBTWrkyk-qCHopS3UxKqt1vHJCqEi2MXdB8DAJiBm2d9ELpTTfcZN6tvxUUtvnKHvLDGMyXEDt_CDIWjIA42lwW1LmHiIza58O6GMADguE_FC9oA.&spm=a1z10.5-c.w4002-25832238778.13.53b24bc7Peq6S7",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Plant",
@@ -993,8 +993,8 @@
             "id": "P041",
             "title": "高级感作品集分析图模版",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=1038863288544&pisk=h0gsWY4xL81znP42Y0QVI_yGSrzvBxy43jeY1J2OHrPx9yFmNGPVkrWplbHOkmy4XSZLMjQN6fr9lSHzgoQ2jPrblveE7RlaW-ajZYMaQoSZAsGod59yz1nO5uaT6-ETDIFLZ7krH9oisf40kLJyzU-fAUVJBiexHeeLsJFAkZHY9Xe3iSBTkRdI9JVYkNETHwhLMSbOWNHYJXFY6tIYBoCd97PRkrUxHeQLKSUY6xUvOXe3MZmnJLAnD-jm9DOVzlw-OubATIPTF8Zd0Hxhi5G01GFdWUwKbm3aJVppOy3sCVEIQnQ7JVMsWkMJLwMDYIQVfqz2BCGqwb3RqITpdjcIqXIDrqitdzuip9pyjU0x_f3VDI0MCvhiGk7px49ngVMLxgJpO4wtDArXW6J9b7c40xCNSmjm9MzOuB8k_trTtWJ2OBsrilF3O8RBOij0XWVe3BOC4jf..&spm=a1z10.5-c.w4002-25832238778.20.30294bc7xK9S3x",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Portfolio",
@@ -1020,8 +1020,8 @@
             "id": "P042",
             "title": "宠物友好设计素材",
             "category": "Animal Assets",
-            "price": "¥8.8",
-            "link": "https://item.taobao.com/item.htm?id=931639797310&pisk=hQjreoAx6xJuNrtRR5WlEoNbh3BJG_mIAHO7osRcp6OWALxDndJrE0xnrZJhOseLe36HT65XMgwJO8hFT9Wy-6OCF36Jv43m-GSrmKvFnpmHrIpliat315Z_fTBJv__huUDnoKAvUpchte0DnIprZHAk-jXDKIAHxHfHimvHUXvkEUD03L9pE2AorjqDIppkt6x33EvHpHAhtU2VnIpHxBbRdD7xwMJnkcC2HDj2UEYfEWiehi26rC8mRQRl0lLPc1yBEpxhrT125aPZ4ZXlaNYGql39rTfPSFju4fdXWHzS6DmC1YNc0SbFuNI35qj0791NJ9gLsGa5Gt6Cjvg4WlSPVwIQq-V4awWp56roylaGih_h00MQZMO5gg7ZkzEcvsxlIiv23RpBg4BPeF8qJ2L8eKR_EU0KJUvv3Cw4323py8p218Yl.&spm=a1z10.5-c.w4002-25832238778.46.22344bc7OJwFbL",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Pet",
                         "Animal",
@@ -1044,8 +1044,8 @@
             "id": "P043",
             "title": "人物分析模版素材",
             "category": "Module Diagrams",
-            "price": "¥12.8",
-            "link": "https://item.taobao.com/item.htm?id=931080658689&pisk=hbCZeHxK292LfJOOhu7ZpZrCgCQ9AGcjGIt_KM-hkit6GFAH-U8ZSfAmI98ccMUYWC_D0iSBv1a9cPnV0Z7wnitf5C_9MRChsF5ZtBYf-jciiHLGxOO0VuN7NNQ9MG6cL63mKexp7E0GmKDH-HLZmIxMnDbHoHxDiIjDxeYDkAcMmhbHKHLZsFAmiwDHPFDmmAjc-y89SIxcmd4F-HLDinb4AjWKXscHAqMqGezX7d-VGHPP56b6IsVRzjYCTtduWSxzTDxCoaBDLsk4ne5Nzs8d88kk817PgE5YDW-EW0hmGgg_x6rh39WRi8Mht87f4tQjHuf7CM_59BlQg72G3MsdFb43M_7CWBfL1VZbNwXlk1oaKR5ftLjlTxFYb97y1Cpy8ezJlHkO7NpyLxHvBPLeVPviHxpMJe-78ykxHdU983aMI&spm=a1z10.5-c.w4002-25832238778.34.2d974bc7oGk63S",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "People Analysis",
@@ -1071,8 +1071,8 @@
             "id": "P044",
             "title": "景观建筑户外素材",
             "category": "Animal Assets",
-            "price": "¥9.9",
-            "link": "https://item.taobao.com/item.htm?id=1055977071131&mi_id=00001syYEMR9R4lWeu08AGF3BwgY1oe1l1g7zpFGqkdklOQ&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "People",
                         "Plant",
@@ -1095,8 +1095,8 @@
             "id": "P045",
             "title": "景观建筑户外设计模块",
             "category": "Module Diagrams",
-            "price": "¥14.8",
-            "link": "https://item.taobao.com/item.htm?id=1055979771498&mi_id=0000ouFvbhSAsCbAQxlOUNefWmkO3e8o61iM_BWMq4r4yCQ&spm=a21xtw.29178619.0.0&xxc=shop",
+            "price": "Display",
+            "link": "",
             "tags": [
                         "Module",
                         "Outdoor",
@@ -1855,6 +1855,22 @@
       syncAssetFilterLanguage();
     }
 
+    function isFreeAssetItem(item){
+      return String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
+    }
+
+    function getPublicAssetLang(){
+      const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+      const dataLang = (document.documentElement.getAttribute("data-bl-lang") || "").toLowerCase();
+      return htmlLang.startsWith("en") || dataLang === "en" ? "en" : "zh";
+    }
+
+    function getAssetStatusLabel(item){
+      const lang = getPublicAssetLang();
+      if(isFreeAssetItem(item)) return lang === "en" ? "Free Resource" : "免费素材";
+      return lang === "en" ? "Display Only" : "素材展示";
+    }
+
     function renderProducts(list = products){
       const grid = document.getElementById("productGrid");
       if(!list.length){
@@ -1866,7 +1882,7 @@
           <div class="thumb"><img src="${item.cover}" alt="${item.title}" loading="lazy" / decoding="async"></div>
           <div class="product-info">
             <h3>${item.title}</h3>
-            <div class="price">${item.price}</div>
+            <div class="price">${getAssetStatusLabel(item)}</div>
             <div class="product-meta-line">${getDisplayCategory(item)}</div>
             <div class="tags">${(item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
           </div>
@@ -1906,16 +1922,16 @@
       currentProductLink = item.link || "";
       document.getElementById("detailType").textContent = getDisplayCategory(item);
       document.getElementById("detailTitle").textContent = item.title;
-      document.getElementById("detailPrice").textContent = item.price;
+      document.getElementById("detailPrice").textContent = getAssetStatusLabel(item);
       document.getElementById("detailVisual").innerHTML = `
         <img class="detail-main-image" id="detailMainImage" src="${item.images[0]}" alt="${item.title}" / loading="lazy" decoding="async">
         <div class="detail-thumbs">
           ${item.images.map((src, i) => `<button class="detail-thumb ${i === 0 ? "active" : ""}" data-detail-image-index="${i}" type="button"><img src="${src}" alt="${item.title} detail ${i + 1}" loading="lazy" / decoding="async"></button>`).join("")}
         </div>`;
-      const isFreeItem = String(getDisplayCategory(item)).toLowerCase() === "free" || String(item.price).toLowerCase() === "free";
-      document.getElementById("detailDesc").innerHTML = `<p>${item.desc.join("</p><p>")}</p><p><strong>${isFreeItem ? "Free Download:" : "Purchase:"}</strong> ${isFreeItem ? "点击按钮可跳转百度网盘链接获取素材，请在详情描述中查看提取码。" : "点击按钮可跳转商品链接，根据不同商品进入购买、咨询或获取页面。"}</p>`;
+      const isFreeItem = isFreeAssetItem(item);
+      document.getElementById("detailDesc").innerHTML = `<p>${item.desc.join("</p><p>")}</p><p><strong>${isFreeItem ? (getPublicAssetLang() === "en" ? "Free resource:" : "免费获取：") : (getPublicAssetLang() === "en" ? "Availability:" : "开放状态：")}</strong> ${isFreeItem ? (getPublicAssetLang() === "en" ? "Use the button to open the external free-resource link. Please check the item description for the access code." : "点击按钮可跳转外部免费素材链接，请在详情描述中查看获取方式。") : (getPublicAssetLang() === "en" ? "This item is currently displayed for reference. Online purchasing is not yet available." : "当前仅作素材展示，在线购买暂未开放。")}</p>`;
       const detailBuyBtn = document.getElementById("detailBuyBtn");
-      detailBuyBtn.textContent = isFreeItem ? "获取素材" : "Go to Taobao";
+      detailBuyBtn.textContent = isFreeItem ? (getPublicAssetLang() === "en" ? "Get Free Resource" : "免费获取") : (getPublicAssetLang() === "en" ? "Purchasing Not Available" : "暂未开放购买");
       detailBuyBtn.disabled = !currentProductLink;
       document.getElementById("detailPanel").classList.add("open");
     }

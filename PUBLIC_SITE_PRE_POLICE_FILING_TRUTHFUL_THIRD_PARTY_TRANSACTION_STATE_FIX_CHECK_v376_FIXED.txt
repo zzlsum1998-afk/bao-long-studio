@@ -1,0 +1,60 @@
+BAOLONG LAB · v376-fixed · 公安备案前公开站真实交易状态修正
+
+版本名称：v376-fixed · 公安备案前公开站真实交易状态修正
+英文标识：Public Site Pre-Police-Filing Truthful Third-Party Transaction State Fix
+唯一基准：v375 full
+ICP备案号：蜀ICP备2026041029号
+主域名：www.baolonglab.com
+
+一、真实公开状态
+1. BaoLong Lab 本站不提供购物车、订单生成、结算、支付或收款。
+2. 付费素材保留淘宝商品与店铺入口；点击后离开本站，价格、下单、支付、订单及售后均在淘宝平台完成。
+3. 网站不再展示具体人民币价格与 $9.90 占位，避免与淘宝实时价格不一致。
+4. 免费素材继续保留真实外部获取链接。
+5. 公网 AI 生图后端尚未开放；图片工作流仅展示内部测试演示、公开参数与示例结果。
+6. 24 个公开页面统一展示蜀ICP备2026041029号，并预留公安备案图标与备案号位置。
+7. CNAME 纳入 full 包，内容为 www.baolonglab.com。
+
+二、主要修改
+- index.html / js/index-page.js / js/index-i18n.js：移除价格数字；保留淘宝链接；按钮统一为“前往淘宝查看”；明确本站不直接交易；工作流入口改为演示状态。
+- assets.html / js/assets.js：45 个原付费条目的价格数字改为“淘宝查看”，原淘宝商品链接完整保留；26 个免费资源继续外部免费获取。
+- contact.html：保留淘宝店铺入口并明确第三方交易边界。
+- terms.html / privacy.html：补充本站不生成订单、不结算、不收款，也不主动收集淘宝订单与支付信息。
+- prompt-generator.html / js/prompt-generator.js：工作流按钮改为“查看工作流演示”，普通 Prompt 弹窗与复制逻辑未修改。
+- template-generator.html / js/template-generator.js / css/template-generator.css：移除模拟在线生图、重新生成和下载生成结果入口；固定展示内部测试示例；上传仅作本地浏览器预览。
+- css/filing-footer.css：新增统一备案页脚样式；24 个公开页面展示 ICP 备案号。
+- js/taobao-links.js：完整保留；首页、素材库和联系页继续加载，移动端 App 唤起与网页回退逻辑不变。
+
+三、明确未修改
+images、data/JSON、favicon、sitemap、robots、Prompt Tool 核心逻辑、Prompt Generator 普通弹窗与复制、Resume Tool、Inspiration 加载更多与收藏、css/common.css、js/common.js、Netlify 历史函数、case17–22 Template ID 与工作流配置。
+
+四、验收目标
+- 运行文件中的 ¥ / ￥ / $9.90 具体价格：0
+- 原淘宝商品链接：保留
+- 淘宝店铺入口：保留
+- 本站购物车 / 订单生成 / 结算 / 支付 / 收款：0
+- 模拟 AI 在线生成行为：0
+- 公开页面 ICP 页脚：24 / 24
+- 公安备案位置：已预留隐藏插槽，审核通过后加入平台正式代码
+- CNAME：www.baolonglab.com
+- 本版无新增删除文件，无需执行删除清单
+
+五、实际验证结果
+- 公开 HTML：24 / 24
+- ICP 页脚：24 / 24
+- JavaScript 语法：44 / 44
+- JSON：4 / 4
+- 淘宝 URL：76 / 76 与 v375 原始基准逐项一致
+- js/taobao-links.js：SHA-256 与 v375 完全一致
+- taobao-links.js 页面消费者：3（首页、素材库、联系页）
+- 首页原付费条目：28 条，具体价格清零，淘宝链接保留
+- 素材库原付费条目：45 条，具体价格清零，淘宝链接保留
+- 首页免费条目：3 条，外部免费获取保留
+- 素材库免费条目：26 条，外部免费获取保留
+- 具体人民币价格与 $9.90 占位：0
+- 本站购物车、结算、支付、收款：0
+- 模拟在线 AI 生图行为：0
+- CNAME：www.baolonglab.com
+- 新 full 预计文件：545 个
+- 新 patch 预计文件：33 个，保留原始路径
+- 删除文件：0

@@ -159,12 +159,12 @@ Object.assign(window.BAOLONG_PAGE_ZH_MAP, {
   "MORE BAOLONG LAB": "更多 BaoLong Lab",
   "Tools, services and the platform behind the work.": "工具、服务与平台背后的更多入口",
   "Alongside the visual creation areas, BaoLong Lab keeps direct service, contact, independent tools and platform information easy to find.": "除了围绕做图的主要内容，BaoLong Lab 也保留素材服务、联系入口、独立工具与平台说明。",
-  "Asset Availability": "素材开放状态",
-  "Browse displayed assets and free resources. Online purchasing is not yet available.": "查看素材展示与免费资源；在线购买暂未开放。",
+  "Taobao Store": "淘宝店铺",
+  "Browse available assets, templates and related purchase services.": "查看现有素材、模板与相关购买服务。",
   "Contact & Collaboration": "联系与合作",
   "Use email, WeChat notes or the store entrance for questions, feedback and collaboration.": "通过邮箱、微信备注或店铺入口咨询、反馈与合作。",
   "A visual creation platform for architecture and landscape.": "面向建筑与景观创作者的视觉创作平台。",
-  "BaoLong Lab currently focuses on asset display, free experiences and tool demos. Online purchasing is not yet available.": "BaoLong Lab 当前以素材展示、免费体验和工具演示为主，在线购买暂未开放。"
+  "For asset products, use the Taobao link. Product details, prices, orders, payment and after-sales service are handled on Taobao; BaoLong Lab does not process transactions on this site.": "如需查看素材商品，请前往淘宝；商品详情、价格、下单、支付及售后均在淘宝完成，BaoLong Lab 本站不直接处理交易。合作咨询请前往联系页面。"
 });
 
 window.BAOLONG_PAGE_TITLE_MAP = {

@@ -4,8 +4,8 @@
             "id": "P001",
             "title": "景观建筑环艺高级感前期分析",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057158640378&mi_id=0000FQbHj_ImmxhzpmfzML7bvJPAqtiB01CjUOA_OZGJSBU&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -28,8 +28,8 @@
             "id": "P002",
             "title": "高级感绿色系作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1056200169670&mi_id=0000vrRSKZbJtn92mL8c_ruF0U8Ngk3EfVtNwaiRUuxriU0&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -53,8 +53,8 @@
             "id": "P003",
             "title": "紫色数据风作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1055216854012&mi_id=0000GMXWHjbA8VZvC6Qudtgzj2CuGPcXgRvHy0U5sGcQ-YA&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -79,8 +79,8 @@
             "id": "P004",
             "title": "叙事作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057120252652&mi_id=0000gtgiS8hy-oaB_BtOupLTVymxGqYH2dBdAZroTHF4BgE&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -104,8 +104,8 @@
             "id": "P005",
             "title": "小型场景模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057122632383&mi_id=0000PRbiWIve28MQrgw2DDCkZMTdAxQJTipK7tmaFwMgU3A&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -126,8 +126,8 @@
             "id": "P006",
             "title": "高级留学作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057117700328&mi_id=0000-QDrwVpgeQNuqtRhB8xCGJrW8ahYEx54omArEmJ7N1g&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -152,8 +152,8 @@
             "id": "P007",
             "title": "小型景观模块",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1056188281033&mi_id=0000sdyvM5rPWsh9iu5g-tjq0Rt0R3H7KVp3ZXwC3KGHsak&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -174,8 +174,8 @@
             "id": "P008",
             "title": "高级感分析图模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1055204834192&mi_id=0000pMMrV-z27mTNYYFnxMHCQ3lR5EOiF87AHxKyZGlNBkE&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -196,8 +196,8 @@
             "id": "P009",
             "title": "景观建筑前期分析",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057111588060&mi_id=0000gY4OJu_096BIuFKGU6ibm9DqI93xR1yxMfi6SLPXdwc&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -218,8 +218,8 @@
             "id": "P010",
             "title": "景观建筑前期分析模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057106448531&mi_id=000068argjLRLbETGF9C1kdXeM9X4Qqu_uth0ZIs1TQKueE&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -240,8 +240,8 @@
             "id": "P011",
             "title": "四季分析图模块",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=937719373499&mi_id=0000EGP8_z3UmNPrleaiyLUEozNGHFt3I_zQy6xsyklmtfc&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -265,8 +265,8 @@
             "id": "P012",
             "title": "古典分析图模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=930228267607&mi_id=0000lV-cokgcurqyqUNsvhrisIbSJFFX9WZBT7v6ajGjXL4&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -291,8 +291,8 @@
             "id": "P013",
             "title": "绿色高级感留学作品集",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1038861952517&mi_id=0000zulc4CoskbJuy-Xq-i4ScbD0fGJ2JM_5y0IGfR6aAaQ&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -317,8 +317,8 @@
             "id": "P014",
             "title": "高级感留学作品集",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1038863636954&mi_id=00006j7yzmdY6pnm7uUnMCn7zkjxf32lyZPjVgaD4wu695k&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -343,8 +343,8 @@
             "id": "P015",
             "title": "高级数据感分析模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=931242088582&mi_id=0000VApE9Ybs1o7d3SARG32iQg135fuSJmhwRPfaW6L5F34&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -369,8 +369,8 @@
             "id": "P016",
             "title": "拼贴风作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=970713986147&mi_id=0000lJCotill9IO4KDZpiMDvfDU4VtaHcP5E3WQws-uQSS8&spm=a21xtw.29178619.0.0&xxc=shop",
             "tags": [
                   "Module",
                   "Diagram",
@@ -395,8 +395,8 @@
             "id": "P017",
             "title": "高级感前期分析",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1033050713565&pisk=g9u3TTME9R6fhjWwoTzBjEtTJBvOdya71YQ8ezeybRy1U8FzzPlZMjVRUzQerTkQg0Q8YLZaQbG5TkEEv77uZRQJOyK7rY2iFJEL8pauaxHbp7IKa_VrByrSv8eLEzcSnWvvkEhIOzayHKLY8-7pOrsFL8W8_PPQrWkxzOLsOzayHKLvkXGIKlBa0ePz_CVLNwzz47PwsSFYzwrP8fyaC7zzzurE_PP7wgPPYMRg77N588PUzOzaaSjPYYzysPPLwzyrUkRi_RNzz8Rpe1yKUvgwhhI3VyoZZVV3x-lgcaSoTZEU32ww3DTgTkxKTRbPzVo7uEk3nFXaBblj4l0lq3Pi-j0u1fxc050ni4VoPLTG4OcN2fyAP2TqOgsTY5NgHMVekSZQkxPXsCjqckP_TEdMsgs7Y5NgHCAG0mZU1W8A.&spm=a1z10.5-c.w4002-25832238778.47.656f4bc7PjBjbR",
             "tags": [
                   "Module",
                   "Diagram",
@@ -421,8 +421,8 @@
             "id": "P018",
             "title": "插画风植物素材",
             "category": "plant",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=930192734840&pisk=gtJ_9fGPlEpUzrntkPoUVpO9rNBD1DkrBosvqneaDOBTvnI5DGQAbG5YvnjkbPJVkSsA0UIYBt7ZpKs25-RNMnIAheLqjN-xSE9fJEmg3cvwlsKN8Ey2bKO3h3xDQcXqjO-Gnt3rzYkyjhXmKDMAFdwL9G-LMRQxT9H1SlxizYkyjhXcH4uygoa8EMSzHtFOWynCcgyAHNQtAwIfqZe9ktnIAiIRXGeT6HFdqgXYXNBApvIfqReYHZKKAibLBiLAHD6d-iBAkEBvOGe1Yc_Hfmvobx5q4MKOR-evBtf1VZP4h-1lXHNM6wteYps11a1VDEKXF3K9Ei9m2S_fWCdRBKg7u6Tp6QB9h4adoCSl4U3Pr5wYGp7bHMNiADN0iHFFB-oEEczV6MjEuDiQanfOxM_rADN0i1IhYqoIA7-c.&spm=a1z10.5-c.w4002-25832238778.16.63bd4bc7P36pn5",
             "tags": [
                   "Module",
                   "Diagram",
@@ -443,8 +443,8 @@
             "id": "P019",
             "title": "高级感留学作品集模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1038014689172&pisk=gKv8GKZGpmEJaODjW8cDtyr2n4p-mjxylU-_KwbuOELA4HNCR_6QdJtdVw4WZ8qdcFK1VpfCPH_CqEIWqwmPGIKwJamEaTAAJETAPLcP-JUplHqlOpbHpuJvWJ2ozb-Qp6XISVDiI3-PL9gGbcasKuShAJNQ-aabc9jpSeaDa3-PL9giSADM4XCxbB05AwixhMIRdMsCRmefXZw5A86ClmIFl9wCdaajhGI3RzwBRttfAg_CVwsQcxshbM6Cde1fcGbfR91WRniAYZ_B95GA87_gpIyuBCSr0_yQdKIRGsx5cvKDhgd5WsNhXG9xQ_Q6VZeKzBGRFZs9h2zl8KKXFULjAJ_pGIx1kEiQdwdXOLfPLg8cSNoaqPAhC7nvdWPFNiR8QYTb1bvdoiQimgVUTshVDNmxDWPFNiSASmjuTW5xg&spm=a1z10.5-c.w4002-25832238778.57.55e54bc79CSCre",
             "tags": [
                   "Module",
                   "Diagram",
@@ -469,8 +469,8 @@
             "id": "P020",
             "title": "高级风分析图",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1038763531829&pisk=gJD4tPjzsR053XTnYD2wT4SCe3zYdR8BoAa_jcmgcr4cIR1oqlZGGsN1IcbolD31IhU_ElraXP6fimwkQD3Uj546MVPZ54Fih-ijzPusxjgbh59iaqn3GVo9Dl4iSVzsGSJIDmeTIeTBdpiAxBFskqr0jzxgjlbDVSDC4nDbIeTBdpixDReifCWngbfuvzjcnO0gZ_qLriXiSrVlrlETIP0iSzXuxkbcsPV0E848bPXcItfurkZTmNVGi3ouyk60IR0gE3rTrP2gIBGiKAQzfSxf21FLDHUagym0z9S-Ur4dMmzPqgzVdyahdzWGIYrmXo50qtvUrjGih8DDr3yo3qk0aqOGL8DquxVr-U6rWgJDBuG42AUWG1VcCuzB43-Lfz5YV7QhY1CTMnEzRnVc61F02uzB435O6SKY4yt0i&spm=a1z10.5-c.w4002-25832238778.11.4afc4bc723lUch",
             "tags": [
                   "Module",
                   "Diagram",
@@ -495,8 +495,8 @@
             "id": "P021",
             "title": "绿色系人物素材",
             "category": "People",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1004583603584&pisk=gfv8tYZGpmE-tFHjW8cDtyrY_99JpjxylU-_KwbuOELA4HNCR_6QdJtdVw4WZ8qdcFK1VpfCPH_CqEIWqwmPGIKwJamEaTAAJETAPLcP-JUplHqlOpbHpuJvWJ2ozb-Qp6XISVDiI3-PL9gg5NCLu7S1bMM3F86Phz7Sn3kiI3-PL9giSAAHZl9P0WwBR71jhZS3OJTQN-iAAM45RaTBcmQVY7a5R8NfcMjdV915dnsfjgw7O9_7hosNlw6CN9MjDM7fV96BRniAYBjxMwP5SJd4ERycFJ3zCR9A2_QpKZFKKDjPwMKJeilehgUN53_YdJQN50I9AegLKOOwkpC1cvEdDCKX8atSpkIv6nTAsK4c4EbG7cruSBX_wmpQTW550QeZFENsZpQcDNmcqWPFMjSASmnYTW550iQimgVUTshV.&spm=a1z10.5-c.w4002-25832238778.37.4afc4bc723lUch",
             "tags": [
                   "Module",
                   "Diagram",
@@ -517,8 +517,8 @@
             "id": "P022",
             "title": "植物/人物素材",
             "category": "plant",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=997766098177&pisk=gcX49rmysdbWtazhYMvaTaoIeu8vFdzQoOT6jGjMcEYmIdGlqhtiGjOsIG0llMQsIlL6Eh-wXFMjii9uQMQejCY_MNRN5adGhKsfzF71xs_XhCwGaZIHGNSTDhYGSN81GIyCDip9IyaQdJsxxWd1kNRDIL0l2HlMj7O030oc3yaQdJsADdpgRGiZKIrkYHvimCc04QxexdmDjNYkZHxindvGSu8kAHHiohYMELx6rmmmnxcoZhKqSnDmnuSkyhvMSNA04gYJjdYMTFWhB4-6ioi-6BKYY-AH-iYrIvSp0K2dcfMnKHtc4jn2yAx5UnR2-iWKag5kb6XeMw4SGEfenwJcazD2hZWl8KfzrxJh9i9f4K29Vs-RBUNjsID64eZz4kK6zjKWw2mE6fdYD38QmIct6IxJ4eZz4fh9MoKyRoAc.&spm=a1z10.5-c.w4002-25832238778.33.4afc4bc723lUch",
             "tags": [
                   "Module",
                   "Diagram",
@@ -540,8 +540,8 @@
             "id": "P023",
             "title": "复古植物素材",
             "category": "plant",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=1057379120043&pisk=g-44tZOrjV2WJhW3TW0NYJW5AtDxRVWCnPMss5ViGxDDSVtuZfGMcni6S5vuhWe6S1HsrflZ6ATXmSgl7WeEscD1DRoaC8nglqNbUAy_towjlc_g4-FncRPOMfDgIRk_cm7QMS3tS96CRwNA7M43e-8ijafisfcGNm4Bas4jS96CRwNYMV3g1G-onuxo9YAmsn2iqbcsEdxgIxmkEfhtSA2gIYxosf8DSEDDE7D-_AxDoxvlrfGsIADin_PoejxiSV2ir_ltEA0iSBlb-Ppr1mfXsYTsie9EmvVmUFYU9juDLS-67F7oim4GJSLgNzlq0vV4J3Pzqfr38mehFnM0Yq2EouWkuqw4rJu04TYq-kFjlgkcWbZqwPH5chmD5bkCa_5K1Y-xN0pHThKtDshrdsmDXhnmwbkCa_-9XmCxav1mm&spm=a1z10.5-c.w4002-25832238778.42.740c4bc7wxpNVk",
             "tags": [
                   "Module",
                   "Diagram",
@@ -562,8 +562,8 @@
             "id": "P024",
             "title": "农场人物/植物素材",
             "category": "plant",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=972460578233&pisk=gS0b9YxUCA3r9PAvBtRPO2N0qVUicQ8ek1NttfQV6rUAwfFQ6SeTgSrOwfVngtuaBGNT_vFOkPy2yVNZhNo4XfFT5YHwi-l9nAg_eAAc7I0qClh4UA7ZgVil5XciuI4wirl0SPpeLe8Eij4Md-CsQq1825cRWGQv4zLbnscDLe8Eij4gWpJEb1TK57PFWPIYH_d71W7TWiF9N8F_tRQxBPdWN5NAWRQTDuI8iWaOMZETwgFgOtBTX-eJN52RWSHTWQa8E5UTBAU9O5_baIwoGC0xyzcVpyhYFNQtkPqbODjN5NMTMbsmf8Gra4NbcJZa6AhsRXhx-5gM9Gw_HmnLkV9CQuM-DDUx5p68ImPh40pUKi_Of4y1W7sDNQsGjbIzkNRy-IWaD7VyQQO5YfqYZ7weNQsGjoFuadRWNMlG.&spm=a1z10.5-c.w4002-25832238778.31.322f4bc7IRbUIi",
             "tags": [
                   "Module",
                   "Diagram",
@@ -584,8 +584,8 @@
             "id": "P025",
             "title": "户外节点模块",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=942347242301&pisk=gEm09XGqH71Ce05yx1rXrnoMQIRRhoZ_FfIT6lFwz7P5_5eabukrpv2O_lI2j1lbLVITuCazaAM13rUqkRSgI7I9hoL_jfVo1SUY0IZgQXhQMRQxQO2Zwozsk5FYslDst-ApvHHjhlZw9BKpEbYxNk1a3i5TU7yaj-lKb_KShlZw9BKpvxMjizBPZtyaUL2YBtra7RyyE-eQbizN0YPzNRrabPSaUYybIR7Nb-Jk4JwO0GS478zzQRy4bllNzTP7Qlyq_lJoU7ww9qXzMflj4BTg_-h8Qan7nrVE3SWAH4uc9WH4zGAHB2zckxPlbGor5k-EiWxla7HZdVzojNYaEmDnj8Mk-wyomvmgIcO6qgzmUNHz9GiXYx_1yry7EWQ03HeQlkhUdLvl82a4F--pELb15ry7EWpkEwuQu8w2v&spm=a1z10.5-c.w4002-25832238778.25.322f4bc7IRbUIi",
             "tags": [
                   "Module",
                   "Diagram",
@@ -611,8 +611,8 @@
             "id": "P026",
             "title": "植物分析素材模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=943496340775&pisk=gfpU94ZNZTY_fduD0nXrgEujZNQdKTuj-L_5q3xlAwb3ETNMjgsuOW17E34MRnL7E0Q5IgSP2awQtH6iUnLVq_bS9U5yPFCkd9tB7a8WmBTCd_Mk_eKcOU--vgbkrU7WO6kXvHBREqgjhxtL3NfCFU5hERVMXgE3tf1nLlrHLqgjhxtpvTBol3ZzssnG0iXux_Vnb1jVmTq3EUbGsijuKTXkrc5Gvibur6fusljfSk2l-aDgsgjcry2hxc-GWgXlrUfnbhbOqTbktL9DePS5tDZl8YwzaY5GoHbaE--AY9ckY7w8e6SHbWCV7Gs6QM5Fu_skr3J2mHvA4Ln0aa7HtIXHUqz5_FAHi9vruPbJOiIPIYI6TGpR5XNlt8sNlcoZDg_a9G1TooP8w6ndbZiht7FRtGINlcoaw7CKvG7jx6f..&spm=a1z10.5-c.w4002-25832238778.27.322f4bc7IRbUIi",
             "tags": [
                   "Module",
                   "Diagram",
@@ -637,8 +637,8 @@
             "id": "P027",
             "title": "作品集排版模版",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=935610750849&pisk=gmwu9caz2qT6aPTVIek5iTPHAYbvFYMIcypKJv3FgquX82nELxr4Xlmp8vpPKezSbWpKawGqukZB4bhzwDJnxqpdVYCIKy00R4h-UaMnYPUsyDd8YHmUkYlQw23--vqQS0bOBOE7VvMFWNB9uyTqpAOya28KuqoSK0zTLEBbVvMFWNBOBuZ7rjKVH3oE0im-v3kETDoVm0ntLLleUouqlDkELXlF3jonfpoETvSc3DoMT0keUKrqVc-rLvzF3IujYvoz8vS00qiet9xqyyz73N1nJ23K1Symqb0amf9etKmyWVqPopvErdEo7d3DLpym4kikamJPIqP8T8H4UZSm384uUj4RTdD4Ez2riP7vnysrsoRL0VpQFOrWOIhrcm09Z0WtfbMT7cscmCPsamiPBijDOBGrcm0OmiAa1boj4OC..&spm=a1z10.5-c.w4002-25832238778.52.14b34bc76ggVN0",
             "tags": [
                   "Module",
                   "Diagram",
@@ -662,8 +662,8 @@
             "id": "P028",
             "title": "户外节点模块",
             "category": "Module Diagrams",
-            "price": "Display",
-            "link": "",
+            "price": "Taobao",
+            "link": "https://item.taobao.com/item.htm?id=930700417730&pisk=guFaThTEnjqIvJjuzzcVUu7WHlnt6jS5jSijor4m5cmMij93-qgDCdMXirx3fzEXiZnjtquqkmO6IPGhgzEroxmfBok4ckH01fa_YmrbrRZs1x10LlUoCozAWqm0moobCA57WPhxigs5N_aOq60RRokiiD03J4Rmm9MG_e8g_gs5N_aTWjhcVrT2EHynz4cDSxvG8v0rrjYMsomnK40Dsjc0mwknuVumoCmmKv0xxFAiiC43-432jhmiiwznvqoDmocc8XmKojm0mjAUl7VvYqMG5EmOCT8VCAiuSDRDaz3Zs34whIOjTV4eBamHi2NE7Aou77pU8J04E7kTqM9sj8lg4f2FxCl_bWqrsJSH_b285fsrms3QQ2FxAO9mIIgEVw7FyqieB2MpqUJvHAQt80_iIKpxI23EVw7eHKHOW2o5SAf..&spm=a1z10.5-c.w4002-25832238778.32.14b34bc76ggVN0",
             "tags": [],
             "cover": "images/products/product28/01-cover.webp",
             "images": [
@@ -760,7 +760,7 @@
     const productFilterMeta = {
       "All": {
         title: "Editor's Picks",
-        desc: "素材展示区采用大图网格，便于快速浏览封面与分类。点击卡片可查看详情；付费购买暂未开放，免费资源仍可通过外部链接获取。"
+        desc: "素材展示区采用大图网格，便于快速浏览封面与分类。付费素材可前往淘宝查看，价格、下单、支付及售后均在淘宝完成；本站不直接处理交易。"
       },
       "Module Diagrams": {
         title: "Module Diagrams",
@@ -841,13 +841,14 @@
     function getPublicAssetLang(){
       const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
       const dataLang = (document.documentElement.getAttribute("data-bl-lang") || "").toLowerCase();
-      return htmlLang.startsWith("en") || dataLang === "en" ? "en" : "zh";
+      const storedLang = (localStorage.getItem("baolongLang") || localStorage.getItem("siteLang") || "").toLowerCase();
+      return htmlLang.startsWith("en") || dataLang === "en" || storedLang === "en" || storedLang === "english" ? "en" : "zh";
     }
 
     function getAssetStatusLabel(item){
       const lang = getPublicAssetLang();
       if(isFreeAssetItem(item)) return lang === "en" ? "Free Resource" : "免费素材";
-      return lang === "en" ? "Display Only" : "素材展示";
+      return lang === "en" ? "View on Taobao" : "淘宝查看";
     }
 
     function renderProducts(list = products){
@@ -1003,10 +1004,10 @@
       const isFreeItem = isFreeAssetItem(item);
       document.getElementById("detailDesc").innerHTML = `
         <p>${item.desc.join("</p><p>")}</p>
-        <p><strong>${isFreeItem ? (getPublicAssetLang() === "en" ? "Free resource:" : "免费获取：") : (getPublicAssetLang() === "en" ? "Availability:" : "开放状态：")}</strong> ${isFreeItem ? (getPublicAssetLang() === "en" ? "Use the button to open the external free-resource link. Please check the item description for access details." : "点击按钮可跳转外部免费素材链接，请以详情说明中的获取方式为准。") : (getPublicAssetLang() === "en" ? "This item is currently displayed for reference. Online purchasing is not yet available." : "当前仅作素材展示，在线购买暂未开放。")}</p>
+        <p><strong>${isFreeItem ? (getPublicAssetLang() === "en" ? "Free resource:" : "免费获取：") : (getPublicAssetLang() === "en" ? "Third-party platform:" : "第三方平台：")}</strong> ${isFreeItem ? (getPublicAssetLang() === "en" ? "Use the button to open the external free-resource link. Please check the item description for access details." : "点击按钮可跳转外部免费素材链接，请以详情说明中的获取方式为准。") : (getPublicAssetLang() === "en" ? "The button opens Taobao. Product details, prices, orders, payment and after-sales service are handled on Taobao; BaoLong Lab does not process transactions on this site." : "点击按钮将离开 BaoLong Lab 并前往淘宝；商品详情、价格、下单、支付及售后均在淘宝完成，本站不直接处理交易。")}</p>
       `;
       const detailBuyBtn = document.getElementById("detailBuyBtn");
-      detailBuyBtn.textContent = isFreeItem ? (getPublicAssetLang() === "en" ? "Get Free Resource" : "免费获取") : (getPublicAssetLang() === "en" ? "Purchasing Not Available" : "暂未开放购买");
+      detailBuyBtn.textContent = isFreeItem ? (getPublicAssetLang() === "en" ? "Get Free Resource" : "免费获取") : (getPublicAssetLang() === "en" ? "View on Taobao" : "前往淘宝查看");
       detailBuyBtn.disabled = !currentProductLink;
       document.getElementById("detailPanel").classList.add("open");
       lockDetailPageScroll();
@@ -1069,6 +1070,15 @@
       document.getElementById(id)?.scrollIntoView({behavior:"smooth", block:"start"});
     }
 
+    const TAOBAO_SHOP_URL = "https://shop514699309.taobao.com/category.htm?spm=a21n57.shop_search.0.0.730c523clEGozx";
+
+    function openExternal(){
+      if(window.openTaobaoSmart){
+        window.openTaobaoSmart(TAOBAO_SHOP_URL);
+      }else{
+        window.open(TAOBAO_SHOP_URL, "_blank", "noopener,noreferrer");
+      }
+    }
 
     function openResumeTool(){
       location.href = 'resume.html';
@@ -1161,6 +1171,8 @@
         });
       });
 
+      const externalToolCard = document.querySelector('[data-index-action="open-external"]');
+      if(externalToolCard) externalToolCard.addEventListener('click', openExternal);
 
       const productGrid = document.getElementById('productGrid');
       if(productGrid){

@@ -8,10 +8,10 @@
 
   const sharedTranslations = {
     zh: {
-      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'仅在本地浏览器预览，不会上传服务器', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树，弱化土层，不改变屋顶结构。', notesHint:'最多 120 字', advancedSettings:'高级设置', advancedSettingsHint:'仅在需要时调整生态与人物处理。', settingsUnit:'项', estimateLabel:'公开状态', publicStatusValue:'公网生图暂未开放', creditUnit:'张图片', generate:'生图功能开发中', resultKicker:'内部测试示例', resultTitle:'示例结果与参数预览', emptyTitle:'当前展示内部测试示例', emptyCopy:'上传图片仅用于本地预览参数，不会生成新图片。', loadingCopy:'当前不会向服务器提交生成任务。', mockResult:'内部测试示例结果', download:'查看示例大图', regenerate:'重新生成', reset:'重置', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'公开摘要 Prompt', promptTitle:'可复制公开摘要', copy:'复制', copied:'已复制', generationInfoTitle:'演示信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'本地项目图 + 模板参考图', outputMode:'示例输出', viewDetail:'查看公开摘要'
+      workflowLabel:'Prompt 工作流', templateKicker:'IMAGE TEMPLATE', backToPrompt:'返回 Prompt 灵感', caseKicker:'模板案例', scopeToggle:'查看适用范围', bestForTitle:'适合', notForTitle:'暂不适合', inputKicker:'项目输入', inputTitle:'上传与参数', uploadTitle:'上传项目原图', uploadCopy:'拖入 PNG / JPG / WebP，或点击选择文件', uploadLimit:'仅在本地浏览器预览，不会上传服务器', replaceImage:'点击或拖入新图替换', useDemo:'使用示例原图', notesLabel:'补充要求 <span>（选填）</span>', notesPlaceholder:'例如：保留左侧大树，弱化土层，不改变屋顶结构。', notesHint:'最多 120 字', advancedSettings:'高级设置', advancedSettingsHint:'仅在需要时调整生态与人物处理。', settingsUnit:'项', estimateLabel:'公开状态', publicStatusValue:'公网生图暂未开放', creditUnit:'张图片', generate:'生图功能开发中', resultKicker:'内部测试示例', resultTitle:'示例结果与参数预览', emptyTitle:'当前展示内部测试示例', emptyCopy:'上传图片仅用于本地预览参数，不会生成新图片。', loadingCopy:'当前不会向服务器提交生成任务。', mockResult:'内部测试示例结果', download:'查看示例大图', regenerate:'重置参数', reset:'重置', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'公开摘要 Prompt', promptTitle:'可复制公开摘要', copy:'复制', copied:'已复制', generationInfoTitle:'演示信息', templateNameLabel:'模板', inputMode:'输入方式', twoImages:'本地项目图 + 模板参考图', outputMode:'示例输出', viewDetail:'查看公开摘要'
     },
     en: {
-      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'Local browser preview only. The image is not uploaded to a server.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree, soften the soil layer, and preserve the roof structure.', notesHint:'Up to 120 characters', advancedSettings:'Advanced Settings', advancedSettingsHint:'Adjust ecology and people handling only when needed.', settingsUnit:'settings', estimateLabel:'PUBLIC STATUS', publicStatusValue:'Public generation not available', creditUnit:'image', generate:'Generation In Development', resultKicker:'INTERNAL TEST SAMPLE', resultTitle:'Sample Result & Parameter Preview', emptyTitle:'Internal test sample shown', emptyCopy:'Uploaded images are used only for local parameter preview and will not generate a new image.', loadingCopy:'No generation task is sent to a server.', mockResult:'Internal test sample', download:'View Sample', regenerate:'Regenerate', reset:'Reset', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'Public Prompt Summary', promptTitle:'Copy-ready public summary', copy:'Copy', copied:'Copied', generationInfoTitle:'Demo Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Local project image + template reference', outputMode:'Sample Output', viewDetail:'View Public Summary'
+      workflowLabel:'Prompt Workflow', templateKicker:'IMAGE TEMPLATE', backToPrompt:'Back to Prompt Inspiration', caseKicker:'TEMPLATE CASE', scopeToggle:'View use cases', bestForTitle:'Recommended', notForTitle:'Not yet recommended', inputKicker:'PROJECT INPUT', inputTitle:'Upload & Parameters', uploadTitle:'Upload project image', uploadCopy:'Drop PNG / JPG / WebP here, or click to choose', uploadLimit:'Local browser preview only. The image is not uploaded to a server.', replaceImage:'Click or drop a new image to replace', useDemo:'Use demo source', notesLabel:'Additional Notes <span>(Optional)</span>', notesPlaceholder:'Example: keep the large tree, soften the soil layer, and preserve the roof structure.', notesHint:'Up to 120 characters', advancedSettings:'Advanced Settings', advancedSettingsHint:'Adjust ecology and people handling only when needed.', settingsUnit:'settings', estimateLabel:'PUBLIC STATUS', publicStatusValue:'Public generation not available', creditUnit:'image', generate:'Generation In Development', resultKicker:'INTERNAL TEST SAMPLE', resultTitle:'Sample Result & Parameter Preview', emptyTitle:'Internal test sample shown', emptyCopy:'Uploaded images are used only for local parameter preview and will not generate a new image.', loadingCopy:'No generation task is sent to a server.', mockResult:'Internal test sample', download:'View Sample', regenerate:'Reset Parameters', reset:'Reset', detailKicker:'PUBLIC PROMPT PREVIEW', detailTitle:'Public Prompt Summary', promptTitle:'Copy-ready public summary', copy:'Copy', copied:'Copied', generationInfoTitle:'Demo Information', templateNameLabel:'Template', inputMode:'Input', twoImages:'Local project image + template reference', outputMode:'Sample Output', viewDetail:'View Public Summary'
     }
   };
 
@@ -71,8 +71,8 @@
         }
       ],
       loading: {
-        zh:['正在分析项目原图','正在应用模板参数','正在生成图像'],
-        en:['Analyzing project image','Applying template parameters','Generating image']
+        zh:['内部测试：分析项目原图','内部测试：应用模板参数','内部测试：示例结果'],
+        en:['Internal test: project image analysis','Internal test: template parameters','Internal test: sample result']
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildEcologicalVisiblePrompt,
@@ -118,8 +118,8 @@
         }
       ],
       loading: {
-        zh:['正在分析项目原图','正在应用生态表达参数','正在生成图像'],
-        en:['Analyzing project image','Applying ecology intensity','Generating image']
+        zh:['内部测试：分析项目原图','内部测试：应用生态参数','内部测试：示例结果'],
+        en:['Internal test: project image analysis','Internal test: ecology parameters','Internal test: sample result']
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildForestGardenVisiblePrompt,
@@ -164,8 +164,8 @@
         }
       ],
       loading: {
-        zh:['正在分析城市结构','正在应用景观策略','正在生成图像'],
-        en:['Analyzing urban structure','Applying landscape strategy','Generating image']
+        zh:['内部测试：分析城市结构','内部测试：应用景观策略','内部测试：示例结果'],
+        en:['Internal test: urban structure','Internal test: landscape strategy','Internal test: sample result']
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildUrbanBirdviewVisiblePrompt,
@@ -202,8 +202,8 @@
       },
       parameters: [],
       loading: {
-        zh:['正在分析城市轴测结构','正在应用锁色与白线图解','正在生成图像'],
-        en:['Analyzing the urban axonometric structure','Applying locked color and white linework','Generating image']
+        zh:['内部测试：分析城市轴测结构','内部测试：应用锁色与白线图解','内部测试：示例结果'],
+        en:['Internal test: urban axonometric structure','Internal test: locked color and white linework','Internal test: sample result']
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildUrbanProgramDiagramVisiblePrompt
@@ -281,8 +281,8 @@
         }
       ],
       loading: {
-        zh:['正在锁定项目结构','正在生成四类图解底图','正在排版四宫格'],
-        en:['Locking project structure','Generating four diagram bases','Composing the four-panel board']
+        zh:['内部测试：锁定项目结构','内部测试：四类图解底图','内部测试：四宫格排版'],
+        en:['Internal test: project structure','Internal test: four diagram bases','Internal test: four-panel composition']
       },
       outputSpec:'1 board · 4 panels · PNG · 2K',
       visiblePromptBuilder: buildArchitecturalAnalysisBaseVisiblePrompt
@@ -380,8 +380,8 @@
         }
       ],
       loading: {
-        zh:['正在读取多张项目图片','正在组织建筑与景观片段','正在生成叙事拼贴底图'],
-        en:['Reading project images','Organizing architecture and landscape fragments','Generating the narrative collage base']
+        zh:['内部测试：读取多张项目图片','内部测试：组织建筑与景观片段','内部测试：叙事拼贴示例'],
+        en:['Internal test: project images','Internal test: architecture and landscape fragments','Internal test: narrative collage sample']
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildNarrativeCollageVisiblePrompt

@@ -385,6 +385,63 @@
       },
       outputSpec:'1 image · PNG · 2K',
       visiblePromptBuilder: buildNarrativeCollageVisiblePrompt
+    },
+    'su-white-model-competition-atmosphere-v1': {
+      sourceCaseId:'case25',
+      privateScriptRef:'BaoLong_Lab_Hidden_Prompt_Vault_v1.3_case25/case25_su_white_model_competition_atmosphere/seedream_case25_final.py', // Offline index only; the private vault will be produced separately and is never loaded by the static client.
+      title: { zh:'建筑白模竞赛氛围', en:'White-Model Competition Atmosphere' },
+      summary: { zh:'严格保留建筑白模结构，将纯白体量转译为冷灰、低饱和、带少量环境支撑与克制材质真实感的竞赛级渲染。', en:'Preserve white-model geometry while translating pale massing into a cool-gray, muted competition render with restrained environmental support and material realism.' },
+      caption: { zh:'目标风格：冷灰低饱和、柔和漫射光、少量灰绿环境、克制材质与可靠结构保护', en:'Target style: cool muted gray, soft diffuse light, restrained gray-green context, controlled material realism, and reliable structure preservation.' },
+      imageAlt: { zh:'建筑白模竞赛氛围工作流第二输入回归测试示例', en:'Second-input regression sample for the white-model competition atmosphere workflow' },
+      tags: {
+        zh:['白模转译','结构优先','冷灰竞赛'],
+        en:['White-model translation','Structure first','Cool-gray competition']
+      },
+      priorityTitle: { zh:'结构保护：', en:'Structure guard: ' },
+      priorityCopy: { zh:'以上传白模为唯一结构依据，保留视角、体块、开口与凹凸关系、边缘转折、悬挑、连接和细部构件；不确定时优先原样保留。', en:'Use the uploaded white model as the sole structural source. Preserve the view, massing, openings and recesses, edge transitions, cantilevers, connections, and fine elements; when uncertain, keep the source unchanged.' },
+      bestFor: {
+        zh:['SU、Rhino、Revit 等导出的建筑白模或白盒模型截图','希望从纯白体量快速获得冷灰、低饱和竞赛氛围','需要保留设计结构，同时补充少量环境与克制材质层次'],
+        en:['Architectural white-model or white-box screenshots exported from SU, Rhino, Revit, and similar tools','Projects needing a fast transition from pale massing to a cool muted competition atmosphere','Workflows that must preserve design geometry while adding restrained context and material depth']
+      },
+      notFor: {
+        zh:['要求 CAD 级逐像素锁定或施工图级准确性的任务','需要 AI 自动完成专业景观设计、功能判断或交通组织的任务','希望生成高饱和商业地产、照片级广告或强烈材质炫技效果的任务'],
+        en:['Tasks requiring CAD-level pixel locking or construction-document accuracy','Tasks requiring AI to invent professional landscape design, program judgments, or circulation systems','High-saturation commercial real-estate renders, photo-advertising imagery, or material-showcase effects']
+      },
+      assets: {
+        source:'images/template-su-white-model-atmosphere/source-demo.webp',
+        display:'images/template-su-white-model-atmosphere/result-demo.webp',
+        displayFallback:'images/template-su-white-model-atmosphere/style-reference.webp',
+        reference:'images/template-su-white-model-atmosphere/style-reference.webp',
+        result:'images/template-su-white-model-atmosphere/result-demo.webp',
+        sourceName:'su-white-model-source-demo.png',
+        downloadName:'baolong-white-model-competition-atmosphere-demo.png'
+      },
+      notesPlaceholder: {
+        zh:'例如：保留所有细杆与悬挑关系；植物仅做少量背景化补充；整体保持冷灰，不增加商业暖光。',
+        en:'Example: preserve every thin element and cantilever; keep planting minimal and backgrounded; retain cool gray without commercial warm lighting.'
+      },
+      parameters: [
+        {
+          id:'vegetationSupport', type:'segmented', label:{zh:'环境植物',en:'Vegetation Support'}, default:'restrained',
+          options:[
+            {value:'none',label:{zh:'不补充',en:'None'}},
+            {value:'restrained',label:{zh:'少量克制',en:'Restrained'}}
+          ]
+        },
+        {
+          id:'materialRealism', type:'segmented', label:{zh:'材质真实感',en:'Material Realism'}, default:'restrained',
+          options:[
+            {value:'light',label:{zh:'轻',en:'Light'}},
+            {value:'restrained',label:{zh:'克制增强',en:'Restrained'}}
+          ]
+        }
+      ],
+      loading: {
+        zh:['内部测试：读取白模结构','内部测试：应用冷灰氛围与结构保护','内部测试：示例结果'],
+        en:['Internal test: white-model structure','Internal test: cool-gray atmosphere and structure guard','Internal test: sample result']
+      },
+      outputSpec:'1 image · PNG · 2K',
+      visiblePromptBuilder: buildSuWhiteModelVisiblePrompt
     }
   };
 
@@ -548,6 +605,28 @@ Additional note: ${notesText}` : ''}`;
 补充要求：${notesText}` : ''}`;
     }
     return `Architectural and landscape narrative collage using multiple related project and site images. Organize one stable midground base, a small number of foreground focal fragments, and restrained supporting fragments from the uploaded content only. Do not preset specific objects or generate factual or professional conclusions. Settings: ${layering}; ${focus}; ${outline}; ${grid}; ${tone}. Use a muted analytical-board language with staggered overlaps, irregular fragments, and space for later annotation. Do not generate text, titles, timelines, or arrows.${notesText ? `
+
+Additional note: ${notesText}` : ''}`;
+  }
+
+  // Public preview only. Full production instructions remain in the private offline vault.
+  function buildSuWhiteModelVisiblePrompt({lang, values, notesText}) {
+    const vegetationMap = {
+      none:{zh:'不补充植物环境',en:'no added vegetation'},
+      restrained:{zh:'少量、低对比、灰绿灰褐的背景化植物环境',en:'restrained low-contrast gray-green and gray-brown background vegetation'}
+    };
+    const realismMap = {
+      light:{zh:'轻材质层次',en:'light material depth'},
+      restrained:{zh:'克制增强的材质真实感与柔和接触阴影',en:'restrained material realism with soft contact shadows'}
+    };
+    const vegetation = vegetationMap[values.vegetationSupport]?.[lang] || vegetationMap.restrained[lang];
+    const realism = realismMap[values.materialRealism]?.[lang] || realismMap.restrained[lang];
+    if (lang === 'zh') {
+      return `建筑白模竞赛氛围。以上传白模为唯一结构依据，严格保留原图的画幅、视角、透视、建筑体块、开口与凹凸关系、边缘转折、悬挑、架空、连接关系和细部构件；不得重设计或替换建筑。采用冷灰、雾灰、低饱和、柔和漫射光的竞赛级建筑表达；环境设置：${vegetation}；材质设置：${realism}。周边体块保持简化和背景化，不生成文字、图例、专业结论或未经原图支持的场地设计。${notesText ? `
+
+补充要求：${notesText}` : ''}`;
+    }
+    return `White-model competition atmosphere. Use the uploaded white model as the sole structural source. Strictly preserve framing, view, perspective, massing, openings and recesses, edge transitions, cantilevers, raised conditions, connections, and fine elements; do not redesign or replace the architecture. Use a cool-gray, mist-gray, muted competition-render language with soft diffuse light. Environment: ${vegetation}; material setting: ${realism}. Keep surrounding masses simplified and backgrounded, and do not generate text, legends, professional conclusions, or unsupported site design.${notesText ? `
 
 Additional note: ${notesText}` : ''}`;
   }

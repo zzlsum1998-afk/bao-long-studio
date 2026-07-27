@@ -1,0 +1,36 @@
+BaoLong Lab · v376-fixed3-fixed · Inspiration Board 弹窗背景冻结与关闭位置修复
+
+基准
+- 唯一输入基准：v376-fixed2 full-noimages。
+- 原 v376-fixed3 作废：事件级 wheel / touchmove 拦截未解决四个 Board 的背景滚动，并引入关闭时向上滑动。
+- 本版不继承原 v376-fixed3 的 JS / CSS 改动。
+
+问题
+- Color / Plan / Section / Other Board 打开卡片后，页面背景仍可跟随鼠标或触控板滚动。
+- 原 v376-fixed3 关闭弹窗时页面会出现一次可见的向上滑动。
+
+根因
+- v376-fixed2 只依赖 html/body overflow:hidden；在当前桌面 Chrome 滚动路径中没有形成可靠的视口冻结。
+- 解锁逻辑在 requestAnimationFrame 中异步检查并恢复位置；common.css 的 html scroll-behavior:smooth 使恢复过程存在可见滑动风险。
+- 原 v376-fixed3 只在 modal 元素上拦截 wheel / touchmove，没有冻结页面坐标，也没有消除异步恢复路径。
+
+本次修改（单一目标）
+1. js/inspiration-board-modal.js：Plan / Section / Other 共用控制器改为 fixed-body 视口冻结。
+2. js/color-references-modal.js：Color 控制器使用同一套锁定与恢复逻辑。
+3. 打开弹窗时保存 scrollY 与原内联样式，body 固定在 -scrollY，html/body 同时禁止外层滚动。
+4. 关闭弹窗时在同一个 JavaScript 任务内恢复 body，并在 scroll-behavior:auto 状态下同步 scrollTo 原坐标；不再使用 requestAnimationFrame。
+5. 只更新四个消费者页面的 modal JS 缓存查询为 ?v=376-fixed3-fixed。
+6. 运行逻辑不新增任何 Board CSS；full 中继续沿用 v376-fixed2 的原 CSS。
+7. 为保证 patch 可直接覆盖已测试但作废的 v376-fixed3，patch 显式携带 v376-fixed2 的 css/inspiration-board.css 与 css/color-board.css，用于撤回原 v376-fixed3 追加的 scroll-chain 规则。
+8. 不修改 JSON、卡片、收藏、加载更多、Prompt 提取、图片、导航或其他页面。
+
+回归标准
+- 四个 Board 向下滚动后打开卡片：鼠标放在图片、文字区、卡片空白区或遮罩上滚动，背景坐标都不得变化。
+- 弹窗内部原有可滚动文字区域仍可滚动。
+- 关闭按钮、遮罩与 Esc 关闭后，页面保持打开前的精确位置，不向上滑动、不平滑回位。
+- 连续打开 / 关闭两次仍保持稳定；关闭后页面恢复正常滚动。
+
+版本规则
+- v376-fixed3 作废。
+- 本版有效候选为 v376-fixed3-fixed；通过 GitHub 浏览器实机回归前不部署阿里云。
+- 本轮没有删除文件。

@@ -68,6 +68,71 @@
       __baolongModalPreviousDocStyle = null;
     }
 
+
+
+    /* v376-fixed3: stop wheel/touch scroll chaining from an open modal back to the page.
+       Keep the modal's own scrollable copy area usable, including at desktop and mobile sizes. */
+    let __baolongModalTouchY = null;
+    function getScrollableModalArea(target, modal){
+      let node = target instanceof Element ? target : null;
+      while(node && node !== modal){
+        const style = window.getComputedStyle(node);
+        const overflowY = style.overflowY;
+        if(/auto|scroll|overlay/.test(overflowY) && node.scrollHeight > node.clientHeight + 1){
+          return node;
+        }
+        node = node.parentElement;
+      }
+      return null;
+    }
+    function canModalAreaConsumeScroll(area, deltaY){
+      if(!area || !deltaY) return false;
+      const atTop = area.scrollTop <= 0;
+      const atBottom = area.scrollTop + area.clientHeight >= area.scrollHeight - 1;
+      if(deltaY < 0 && atTop) return false;
+      if(deltaY > 0 && atBottom) return false;
+      return true;
+    }
+    function guardModalWheel(event){
+      const modal = document.getElementById('modal');
+      if(!modal || !modal.classList.contains('open')) return;
+      const area = getScrollableModalArea(event.target, modal);
+      if(!canModalAreaConsumeScroll(area, event.deltaY)) event.preventDefault();
+      event.stopPropagation();
+    }
+    function rememberModalTouch(event){
+      if(event.touches && event.touches.length === 1){
+        __baolongModalTouchY = event.touches[0].clientY;
+      }
+    }
+    function guardModalTouch(event){
+      const modal = document.getElementById('modal');
+      if(!modal || !modal.classList.contains('open') || !event.touches || event.touches.length !== 1) return;
+      const currentY = event.touches[0].clientY;
+      if(__baolongModalTouchY === null){
+        __baolongModalTouchY = currentY;
+        return;
+      }
+      const deltaY = __baolongModalTouchY - currentY;
+      __baolongModalTouchY = currentY;
+      if(Math.abs(deltaY) < 1) return;
+      const area = getScrollableModalArea(event.target, modal);
+      if(!canModalAreaConsumeScroll(area, deltaY)) event.preventDefault();
+      event.stopPropagation();
+    }
+    function clearModalTouch(){
+      __baolongModalTouchY = null;
+    }
+    function bindModalScrollGuard(modal){
+      if(!modal || modal.dataset.scrollGuardBound === 'true') return;
+      modal.dataset.scrollGuardBound = 'true';
+      modal.addEventListener('wheel', guardModalWheel, {passive:false});
+      modal.addEventListener('touchstart', rememberModalTouch, {passive:true});
+      modal.addEventListener('touchmove', guardModalTouch, {passive:false});
+      modal.addEventListener('touchend', clearModalTouch, {passive:true});
+      modal.addEventListener('touchcancel', clearModalTouch, {passive:true});
+    }
+
     function openModal(title, type, imageOrColor, desc, exactColorValues){
       document.getElementById("modalTitle").textContent = title;
       document.getElementById("modalType").textContent = type;
@@ -133,7 +198,10 @@
       const closeButton = document.getElementById('modalCloseBtn');
       const copyButton = document.getElementById('copyColorBtn');
 
-      if(modal) modal.addEventListener('click', closeModal);
+      if(modal){
+        modal.addEventListener('click', closeModal);
+        bindModalScrollGuard(modal);
+      }
       if(modalCard){
         modalCard.addEventListener('click', function(event){
           event.stopPropagation();

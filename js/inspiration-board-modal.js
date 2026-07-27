@@ -35,20 +35,27 @@
     }
 
 
-    /* v161: lock the background page while detail modals are open, without fixing the body.
-       The previous fixed-body lock restored scroll after close, which caused a visible page slide/jump. */
+    /* v376-fixed3-fixed: freeze the page at its exact viewport position while the detail modal is open.
+       This restores fixed-body locking, but closes synchronously with scroll-behavior forced to auto,
+       so the page cannot move behind the modal and does not visibly slide before returning. */
     let __baolongModalScrollY = 0;
     let __baolongModalPreviousBodyStyle = null;
     let __baolongModalPreviousDocStyle = null;
     function lockPageScroll(){
       if(document.body.classList.contains('modal-scroll-locked')) return;
       const docEl = document.documentElement;
-      __baolongModalScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
+      const body = document.body;
+      __baolongModalScrollY = window.pageYOffset || docEl.scrollTop || body.scrollTop || 0;
       __baolongModalPreviousBodyStyle = {
-        overflow: document.body.style.overflow,
-        paddingRight: document.body.style.paddingRight,
-        overscrollBehavior: document.body.style.overscrollBehavior,
-        scrollBehavior: document.body.style.scrollBehavior
+        position: body.style.position,
+        top: body.style.top,
+        left: body.style.left,
+        right: body.style.right,
+        width: body.style.width,
+        overflow: body.style.overflow,
+        paddingRight: body.style.paddingRight,
+        overscrollBehavior: body.style.overscrollBehavior,
+        scrollBehavior: body.style.scrollBehavior
       };
       __baolongModalPreviousDocStyle = {
         overflow: docEl.style.overflow,
@@ -56,104 +63,56 @@
         scrollBehavior: docEl.style.scrollBehavior
       };
       const scrollbarGap = Math.max(0, window.innerWidth - docEl.clientWidth);
-      document.body.classList.add('modal-scroll-locked');
+      const currentPaddingRight = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+
+      body.classList.add('modal-scroll-locked');
       docEl.style.scrollBehavior = 'auto';
-      document.body.style.scrollBehavior = 'auto';
+      body.style.scrollBehavior = 'auto';
       docEl.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
       docEl.style.overscrollBehavior = 'none';
-      document.body.style.overscrollBehavior = 'none';
+      body.style.position = 'fixed';
+      body.style.top = '-' + __baolongModalScrollY + 'px';
+      body.style.left = '0';
+      body.style.right = '0';
+      body.style.width = '100%';
+      body.style.overflow = 'hidden';
+      body.style.overscrollBehavior = 'none';
       if(scrollbarGap > 0){
-        document.body.style.paddingRight = scrollbarGap + 'px';
+        body.style.paddingRight = (currentPaddingRight + scrollbarGap) + 'px';
       }
     }
     function unlockPageScroll(){
       if(!document.body.classList.contains('modal-scroll-locked')) return;
       const docEl = document.documentElement;
+      const body = document.body;
       const targetScrollY = __baolongModalScrollY || 0;
-      document.body.classList.remove('modal-scroll-locked');
       const previousBody = __baolongModalPreviousBodyStyle || {};
       const previousDoc = __baolongModalPreviousDocStyle || {};
+
+      body.classList.remove('modal-scroll-locked');
+
+      /* Keep restoration instant even though common.css sets html { scroll-behavior:smooth }. */
+      docEl.style.scrollBehavior = 'auto';
+      body.style.scrollBehavior = 'auto';
+
+      body.style.position = previousBody.position || '';
+      body.style.top = previousBody.top || '';
+      body.style.left = previousBody.left || '';
+      body.style.right = previousBody.right || '';
+      body.style.width = previousBody.width || '';
+      body.style.overflow = previousBody.overflow || '';
+      body.style.paddingRight = previousBody.paddingRight || '';
+      body.style.overscrollBehavior = previousBody.overscrollBehavior || '';
       docEl.style.overflow = previousDoc.overflow || '';
       docEl.style.overscrollBehavior = previousDoc.overscrollBehavior || '';
+
+      /* Restore in the same task: there is no frame in which the page can flash at the top. */
+      window.scrollTo({left: 0, top: targetScrollY, behavior: 'auto'});
+
       docEl.style.scrollBehavior = previousDoc.scrollBehavior || '';
-      document.body.style.overflow = previousBody.overflow || '';
-      document.body.style.paddingRight = previousBody.paddingRight || '';
-      document.body.style.overscrollBehavior = previousBody.overscrollBehavior || '';
-      document.body.style.scrollBehavior = previousBody.scrollBehavior || '';
-      window.requestAnimationFrame(function(){
-        const currentScrollY = window.pageYOffset || docEl.scrollTop || document.body.scrollTop || 0;
-        if(Math.abs(currentScrollY - targetScrollY) > 2){
-          window.scrollTo(0, targetScrollY);
-        }
-      });
+      body.style.scrollBehavior = previousBody.scrollBehavior || '';
       __baolongModalPreviousBodyStyle = null;
       __baolongModalPreviousDocStyle = null;
-    }
-
-
-
-    /* v376-fixed3: stop wheel/touch scroll chaining from an open modal back to the page.
-       Keep the modal's own scrollable copy area usable, including at desktop and mobile sizes. */
-    let __baolongModalTouchY = null;
-    function getScrollableModalArea(target, modal){
-      let node = target instanceof Element ? target : null;
-      while(node && node !== modal){
-        const style = window.getComputedStyle(node);
-        const overflowY = style.overflowY;
-        if(/auto|scroll|overlay/.test(overflowY) && node.scrollHeight > node.clientHeight + 1){
-          return node;
-        }
-        node = node.parentElement;
-      }
-      return null;
-    }
-    function canModalAreaConsumeScroll(area, deltaY){
-      if(!area || !deltaY) return false;
-      const atTop = area.scrollTop <= 0;
-      const atBottom = area.scrollTop + area.clientHeight >= area.scrollHeight - 1;
-      if(deltaY < 0 && atTop) return false;
-      if(deltaY > 0 && atBottom) return false;
-      return true;
-    }
-    function guardModalWheel(event){
-      const modal = document.getElementById('modal');
-      if(!modal || !modal.classList.contains('open')) return;
-      const area = getScrollableModalArea(event.target, modal);
-      if(!canModalAreaConsumeScroll(area, event.deltaY)) event.preventDefault();
-      event.stopPropagation();
-    }
-    function rememberModalTouch(event){
-      if(event.touches && event.touches.length === 1){
-        __baolongModalTouchY = event.touches[0].clientY;
-      }
-    }
-    function guardModalTouch(event){
-      const modal = document.getElementById('modal');
-      if(!modal || !modal.classList.contains('open') || !event.touches || event.touches.length !== 1) return;
-      const currentY = event.touches[0].clientY;
-      if(__baolongModalTouchY === null){
-        __baolongModalTouchY = currentY;
-        return;
-      }
-      const deltaY = __baolongModalTouchY - currentY;
-      __baolongModalTouchY = currentY;
-      if(Math.abs(deltaY) < 1) return;
-      const area = getScrollableModalArea(event.target, modal);
-      if(!canModalAreaConsumeScroll(area, deltaY)) event.preventDefault();
-      event.stopPropagation();
-    }
-    function clearModalTouch(){
-      __baolongModalTouchY = null;
-    }
-    function bindModalScrollGuard(modal){
-      if(!modal || modal.dataset.scrollGuardBound === 'true') return;
-      modal.dataset.scrollGuardBound = 'true';
-      modal.addEventListener('wheel', guardModalWheel, {passive:false});
-      modal.addEventListener('touchstart', rememberModalTouch, {passive:true});
-      modal.addEventListener('touchmove', guardModalTouch, {passive:false});
-      modal.addEventListener('touchend', clearModalTouch, {passive:true});
-      modal.addEventListener('touchcancel', clearModalTouch, {passive:true});
     }
 
     function openModal(title, type, images, desc, source, url, isPinterest){
@@ -378,10 +337,7 @@
       const applyButton = document.getElementById('promptApplyBtn');
       const copyButton = document.getElementById('promptCopyBtn');
 
-      if(modal){
-        modal.addEventListener('click', closeModal);
-        bindModalScrollGuard(modal);
-      }
+      if(modal) modal.addEventListener('click', closeModal);
       if(modalCard){
         modalCard.addEventListener('click', function(event){
           event.stopPropagation();

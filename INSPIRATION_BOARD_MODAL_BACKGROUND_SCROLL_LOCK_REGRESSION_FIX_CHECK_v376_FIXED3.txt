@@ -1,0 +1,31 @@
+BaoLong Lab · v376-fixed3 · Inspiration Board modal background scroll-lock regression fix
+
+Scope
+- Color / Plan / Section / Other Board only.
+- No card data, images, navigation, favorites, Prompt extraction, modal layout, or server configuration changes.
+
+Root cause
+- The existing html/body overflow lock remained present, but wheel/touch scroll chaining could still propagate from a modal boundary back to the document in current desktop Chrome/trackpad behavior.
+
+Changes
+- Strengthened modal-scroll-locked CSS with !important overflow and overscroll containment.
+- Added non-passive wheel/touch guards to both modal controllers.
+- Internal modal copy remains scrollable; attempts to scroll beyond its boundary are consumed instead of moving the background page.
+- Updated only the four Board CSS/modal-script cache queries.
+
+Changed runtime files
+- color-references.html
+- plan-references.html
+- section-references.html
+- render-references.html
+- css/color-board.css
+- css/inspiration-board.css
+- js/color-references-modal.js
+- js/inspiration-board-modal.js
+
+Required browser regression
+1. Open a card on each of Color / Plan / Section / Other Board.
+2. Wheel/trackpad over image, copy area, and backdrop.
+3. Confirm only modal copy scrolls where applicable and the page behind remains fixed.
+4. Close via ×, backdrop, and Escape; confirm exact page position is preserved.
+5. Repeat on mobile/touch for at least one Color and one shared Board page.

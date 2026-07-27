@@ -1,0 +1,23 @@
+BaoLong Lab · case25 网站预览接入检查
+
+基准：v376-fixed3-fixed
+范围：仅 GitHub 独立预览候选；尚未部署阿里云，尚未写入私有 Vault。
+
+本次新增：
+1. Prompt 页面新增 case25「建筑白模竞赛氛围工作流」卡片。
+2. 新增模板 ID：su-white-model-competition-atmosphere-v1。
+3. 模板页保持公网生图未开放，仅提供本地上传预览、参数预览与公开摘要 Prompt。
+4. 展示示例采用第二张白模跨输入回归的 Test06 结果：06-case25-su-white-model-generic-structure-lock-retest.png。
+5. 新增模板图片目录：images/template-su-white-model-atmosphere/。
+6. 前端不包含完整生产 Hidden Prompt、API Key、Endpoint 或模型私密配置。
+7. privateScriptRef 仅为离线私有 Vault 索引；Vault v1.3_case25 将另行制作，目前唯一最新私有生产 Vault 仍为 v1.2_case22。
+8. GitHub Pages 独立预览 full 包不再包含 CNAME，避免重新绑定正式域名。
+9. 未修改阿里云部署文件或服务器 release。
+
+建议预览回归：
+- prompt-generator.html 能看到 case25 卡片；
+- 点击卡片后出现工作流入口；
+- template-generator.html?template=su-white-model-competition-atmosphere-v1 正常加载；
+- 示例原图、风格参考图、Test06 结果图均可显示；
+- 中英文切换、参数按钮、本地上传预览、公开摘要复制正常；
+- 页面仍显示“公网生图暂未开放 / 生图功能开发中”。

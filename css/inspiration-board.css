@@ -976,3 +976,19 @@
       font-size:13px;
       line-height:1.6;
     }
+
+
+/* v376-fixed3: modal scroll-chain guard.
+   The class is toggled by the modal controllers; the modal copy remains the only intended scroll area. */
+html.modal-scroll-locked,
+body.modal-scroll-locked{
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+.modal.open{
+  overscroll-behavior:none;
+}
+.modal-card,
+.modal-copy{
+  overscroll-behavior:contain;
+}

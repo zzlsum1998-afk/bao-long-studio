@@ -361,3 +361,46 @@
   }
 }
 
+/* v379-fixed3 · BAOLONG LAB brand wordmark exact-match lock
+   Mirrors css/common.css so login and static information pages render the wordmark identically. */
+.login-header .brand-text,
+.site-header .brand-text{
+  display:block !important;
+  flex:0 0 auto !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  letter-spacing:.34em !important;
+  text-transform:uppercase !important;
+  white-space:nowrap !important;
+  font-weight:400 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif !important;
+  font-synthesis:none !important;
+  -webkit-font-smoothing:antialiased !important;
+  text-rendering:geometricPrecision !important;
+  font-optical-sizing:none !important;
+  transform:none !important;
+  animation:none !important;
+  transition:none !important;
+}
+@media (min-width:981px) and (max-width:1380px){
+  .login-header .brand-text,
+  .site-header .brand-text{
+    font-size:14px !important;
+    letter-spacing:.28em !important;
+  }
+}
+@media (min-width:981px) and (max-width:1120px){
+  .login-header .brand-text,
+  .site-header .brand-text{
+    font-size:12.5px !important;
+    letter-spacing:.22em !important;
+  }
+}
+@media (max-width:980px){
+  .login-header .brand-text,
+  .site-header .brand-text{
+    font-size:13px !important;
+    letter-spacing:.22em !important;
+  }
+}
+

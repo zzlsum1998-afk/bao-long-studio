@@ -1,0 +1,12 @@
+BAOLONG LAB · v379 GITHUB PREVIEW OVERLAY
+Date: 2026-07-29
+
+Purpose:
+- Keep the existing GitHub preview state (case25 + v378-fixed2 filing integration).
+- Only preview the login-page logo size unification and login CSS cache update.
+
+Changes:
+- css/login.css: short-height desktop logo 72px -> 86px.
+- login.html: css/login.css cache query -> v379.
+
+Do not use this overlay patch for Alibaba Cloud production deployment.

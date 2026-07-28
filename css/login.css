@@ -647,10 +647,12 @@
       }
 
       .brand-logo-img{
-        width:72px !important;
-        height:72px !important;
-        max-width:72px !important;
-        max-height:72px !important;
+        width:86px !important;
+        height:86px !important;
+        min-width:86px !important;
+        max-width:86px !important;
+        min-height:86px !important;
+        max-height:86px !important;
       }
 
       .page{

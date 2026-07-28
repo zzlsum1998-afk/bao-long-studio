@@ -221,3 +221,68 @@
     .page{padding-top:54px}
     .card{padding:24px;border-radius:22px}
   }
+
+/* v379-fixed2: static information page header responsive unification
+   Mirror the main site's compact desktop header breakpoints so About,
+   Contact, Privacy and Terms do not retain an oversized logo when browser
+   zoom reduces the CSS viewport width. */
+@media (min-width:981px) and (max-width:1380px){
+  .site-header{
+    padding:0 24px;
+    gap:14px;
+  }
+  .site-header .brand{
+    min-width:250px;
+    gap:14px;
+  }
+  .site-header .brand-logo-img{
+    width:86px;
+    height:86px;
+    min-width:86px;
+    max-width:86px;
+    min-height:86px;
+    max-height:86px;
+  }
+  .site-header .brand-text{
+    font-size:14px;
+    letter-spacing:.28em;
+  }
+  .site-header .nav{
+    gap:14px;
+    font-size:14px;
+  }
+  .site-header .nav a{
+    font-size:14px;
+  }
+}
+
+@media (min-width:981px) and (max-width:1120px){
+  .site-header{
+    padding:0 18px;
+    gap:10px;
+  }
+  .site-header .brand{
+    min-width:205px;
+    gap:10px;
+  }
+  .site-header .brand-logo-img{
+    width:64px;
+    height:64px;
+    min-width:64px;
+    max-width:64px;
+    min-height:64px;
+    max-height:64px;
+  }
+  .site-header .brand-text{
+    font-size:12.5px;
+    letter-spacing:.22em;
+  }
+  .site-header .nav{
+    gap:7px;
+    font-size:12.5px;
+  }
+  .site-header .nav a{
+    font-size:12.5px;
+  }
+}
+

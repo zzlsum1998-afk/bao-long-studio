@@ -731,3 +731,128 @@
       }
     }
 
+/* v379-fixed2: login header geometry and responsive width unification
+   Keep the login header on the same desktop geometry as the main site.
+   This removes the short-height 86px header jump and mirrors the main
+   site's 1380px / 1120px compact desktop breakpoints. */
+@media (min-width:981px){
+  .login-header{
+    width:100% !important;
+    height:104px !important;
+    min-height:104px !important;
+    max-height:104px !important;
+    padding:0 48px !important;
+    gap:20px !important;
+  }
+  .login-header .brand{
+    height:104px !important;
+    min-width:330px !important;
+    gap:18px !important;
+  }
+  .login-header .brand-logo-img{
+    width:108px !important;
+    height:108px !important;
+    min-width:108px !important;
+    max-width:108px !important;
+    min-height:108px !important;
+    max-height:108px !important;
+  }
+  .login-header .brand-text{
+    font-size:16px !important;
+    letter-spacing:.34em !important;
+  }
+  .login-header .header-actions{
+    min-width:210px !important;
+    gap:10px !important;
+    justify-content:flex-end !important;
+  }
+  .login-header .pill-btn{
+    height:42px !important;
+    min-height:42px !important;
+    padding:9px 13px !important;
+    font-size:13px !important;
+  }
+  .page{
+    height:calc(100vh - 104px) !important;
+  }
+}
+
+@media (min-width:981px) and (max-width:1380px){
+  .login-header{
+    padding:0 24px !important;
+    gap:14px !important;
+  }
+  .login-header .brand{
+    min-width:250px !important;
+    gap:14px !important;
+  }
+  .login-header .brand-logo-img{
+    width:86px !important;
+    height:86px !important;
+    min-width:86px !important;
+    max-width:86px !important;
+    min-height:86px !important;
+    max-height:86px !important;
+  }
+  .login-header .brand-text{
+    font-size:14px !important;
+    letter-spacing:.28em !important;
+  }
+  .login-header .header-actions{
+    min-width:166px !important;
+    gap:8px !important;
+  }
+  .login-header .pill-btn{
+    height:38px !important;
+    min-height:38px !important;
+    padding:9px 12px !important;
+    font-size:13px !important;
+  }
+}
+
+@media (min-width:981px) and (max-width:1120px){
+  .login-header{
+    padding:0 18px !important;
+    gap:10px !important;
+  }
+  .login-header .brand{
+    min-width:205px !important;
+    gap:10px !important;
+  }
+  .login-header .brand-logo-img{
+    width:64px !important;
+    height:64px !important;
+    min-width:64px !important;
+    max-width:64px !important;
+    min-height:64px !important;
+    max-height:64px !important;
+  }
+  .login-header .brand-text{
+    font-size:12.5px !important;
+    letter-spacing:.22em !important;
+  }
+  .login-header .header-actions{
+    min-width:136px !important;
+    gap:7px !important;
+  }
+  .login-header .pill-btn{
+    height:34px !important;
+    min-height:34px !important;
+    padding:8px 9px !important;
+    font-size:12px !important;
+  }
+}
+
+/* Short desktop viewports may compact the form, but the header itself stays
+   at the same 104px height as the rest of BaoLong Lab. */
+@media (min-width:981px) and (max-height:820px){
+  .login-header{
+    height:104px !important;
+    min-height:104px !important;
+    max-height:104px !important;
+  }
+  .page{
+    height:calc(100vh - 104px) !important;
+  }
+}
+

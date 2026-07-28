@@ -1,0 +1,22 @@
+BaoLong Lab v378 · GitHub 预览叠加包检查
+
+用途
+- 仅用于当前已经包含 case25 的 GitHub Pages 独立预览环境。
+- 在保留 case25 预览内容的前提下，叠加公安备案页脚，供桌面端与移动端实机验收。
+- 绝不能作为阿里云 v378 生产部署包；阿里云生产应使用基于 v376-fixed3-fixed 制作的 v378 production full / patch。
+
+备案信息
+- 川公网安备51015602002078号
+- 官方查询链接：https://beian.mps.gov.cn/#/query/webSearch?code=51015602002078
+- 图标：images/public-security-filing-icon.png
+
+边界
+- case25 在 GitHub 预览中继续保留，仅因为它原本已在该预览环境验收。
+- 本叠加包不表示 case25 已获准部署阿里云。
+- 不含 CNAME，不重新绑定 www.baolonglab.com。
+- 不含 .env、API Key、Hidden Prompt、Endpoint、模型配置或 Vault。
+
+变更
+- 24 个 HTML 页脚
+- css/filing-footer.css
+- images/public-security-filing-icon.png

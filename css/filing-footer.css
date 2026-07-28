@@ -1,4 +1,4 @@
-/* BaoLong Lab v376-fixed · 公安备案前公开站真实交易状态修正 */
+/* BaoLong Lab v378 · 公安联网备案号、官方查询链接与备案图标正式接入 */
 .legal-footer{
   width:100%;
   margin:40px 0 0;
@@ -12,9 +12,11 @@
 .legal-footer .footer-line{display:block}
 .legal-footer .legal-note{max-width:900px;margin:2px auto;color:#777}
 .legal-footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
-.legal-footer .filing-records{margin-top:5px}
+.legal-footer .filing-records{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;margin-top:5px}
 .legal-footer .icp-link{font-weight:600;color:#555}
-.public-security-filing-slot[hidden]{display:none!important}
+.legal-footer .filing-separator{margin:0 3px;color:#aaa;text-decoration:none}
+.legal-footer .public-security-filing-link{display:inline-flex;align-items:center;gap:4px;font-weight:600;color:#555}
+.legal-footer .public-security-filing-icon{display:block;width:20px;height:auto;flex:0 0 auto}
 
 body.data-bloom-generator-page .legal-footer{
   flex:0 0 auto;margin:0;padding:7px 12px 8px;font-size:10px;line-height:1.45;background:rgba(255,253,248,.92)
@@ -34,6 +36,7 @@ body.interaction-growth-page .legal-footer{
   font-size:9px;line-height:1.35;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)
 }
 body.interaction-growth-page .legal-footer .legal-note{display:none}
+body.interaction-growth-page .legal-footer .public-security-filing-icon{width:15px}
 body.interaction-growth-page #ui{bottom:calc(58px + env(safe-area-inset-bottom))!important}
 
 @media (min-width:1000px) and (min-height:700px){
@@ -45,6 +48,9 @@ body.interaction-growth-page #ui{bottom:calc(58px + env(safe-area-inset-bottom))
 @media (max-width:700px){
   .legal-footer{padding:18px 14px 20px;font-size:11px}
   .legal-footer .legal-note{padding:0 8px}
+  .legal-footer .filing-records{gap:3px}
+  .legal-footer .filing-separator{margin:0 2px}
+  .legal-footer .public-security-filing-icon{width:18px}
   body.interaction-growth-page #ui{bottom:calc(64px + env(safe-area-inset-bottom))!important}
   body.interaction-growth-page .legal-footer .legal-links{display:none}
   body.bubble-timeline-page .wrap{height:auto!important;min-height:calc(100vh - 72px)}

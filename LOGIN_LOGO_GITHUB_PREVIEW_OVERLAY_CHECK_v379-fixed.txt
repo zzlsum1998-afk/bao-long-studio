@@ -1,0 +1,11 @@
+BAOLONG LAB · LOGIN LOGO GITHUB PREVIEW OVERLAY CHECK · v379-fixed
+
+Scope
+- GitHub preview only; preserve existing case25 preview and v378-fixed2 filing footer.
+- Modify login.html and css/login.css only.
+
+Correction
+- The previous v379 change affected only the short-height desktop media query and set the logo to 86px.
+- The main-site desktop logo remains 108px, so the login logo still appeared smaller.
+- v379-fixed keeps the short-height login header layout but sets the login logo box to 108px, matching the main-site desktop logo.
+- login.css cache query updated to v379-fixed.

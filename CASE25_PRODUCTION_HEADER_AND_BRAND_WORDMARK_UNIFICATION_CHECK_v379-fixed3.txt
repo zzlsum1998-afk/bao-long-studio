@@ -1,0 +1,35 @@
+BAOLONG LAB · CASE25 PRODUCTION + HEADER + BRAND WORDMARK UNIFICATION CHECK · v379-fixed3
+
+Base
+- Production base: v378-fixed2.
+- GitHub preview already contains case25 and the v378-fixed2 filing update.
+
+Scope
+1. Add the already approved case25 production-facing card, template configuration and public demo assets.
+2. Keep the login-page header at the same 104px desktop height as the main site, including short desktop viewports.
+3. Mirror the main site's compact desktop header breakpoints on login.html and About / Contact / Privacy / Terms.
+4. Lock the BAOLONG LAB brand wordmark on login and the four static pages to the same font stack, weight, line-height, letter-spacing and text rendering contract as css/common.css.
+5. Preserve the v378-fixed2 public-security filing footer and relative static-page logo paths.
+
+Responsive header and wordmark contract
+- Desktop > 1380px: logo box 108px; wordmark 16px / .34em; header 104px.
+- Desktop 981–1380px: logo box 86px; wordmark 14px / .28em; header 104px.
+- Desktop 981–1120px: logo box 64px; wordmark 12.5px / .22em; header 104px.
+- Mobile <= 980px: existing 44px logo and 13px / .22em wordmark behavior remains.
+- Wordmark font stack: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Microsoft YaHei, Arial, sans-serif.
+- Wordmark font weight 400, line-height 1, font synthesis disabled and geometric text rendering.
+
+Changed presentation files
+- login.html
+- css/login.css
+- about.html
+- privacy.html
+- terms.html
+- css/static-info-pages.css
+- contact.html
+- css/contact.css
+
+Safety
+- No .env, API key, private Hidden Prompt, Endpoint, model configuration, Vault or Python production script.
+- No CNAME.
+- No file deletions from the v378-fixed2 production base.

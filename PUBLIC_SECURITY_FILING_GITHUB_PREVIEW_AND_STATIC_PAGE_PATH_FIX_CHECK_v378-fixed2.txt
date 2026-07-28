@@ -1,0 +1,8 @@
+BaoLong Lab v378-fixed2 · GitHub Pages 预览叠加包
+
+用途：仅覆盖当前 case25 GitHub 独立预览候选。
+内容：
+1. 保留 case25；
+2. 保留 v378-fixed 公安备案页脚；
+3. 修复 about.html、contact.html、privacy.html、terms.html 在 /bao-long-studio/ 子目录下的 logo、favicon 与顶部导航路径；
+4. 不含 CNAME；不得直接用于阿里云生产。

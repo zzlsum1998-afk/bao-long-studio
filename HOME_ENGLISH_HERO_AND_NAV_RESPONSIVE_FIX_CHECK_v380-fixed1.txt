@@ -1,0 +1,40 @@
+BAOLONG LAB · HOME ENGLISH HERO + NAVIGATION RESPONSIVE FIX CHECK · v380-fixed1
+
+Base and deployment path
+- Production base remains v379-fixed3.
+- v380 favicon and login-semantic repair is fully preserved in this candidate.
+- GitHub independent preview is updated first; Alibaba Cloud deploys a new v380-fixed1 release only after preview acceptance.
+- The production current symlink must never be overwritten directly.
+
+Observed issue
+- On the English desktop homepage, the positioning title wraps to four lines.
+- A legacy 600px desktop carousel track did not reserve enough vertical room for the title, description and two CTA buttons.
+- The action row could be pressed against or visually covered by the following section.
+
+Repair contract
+- The repair is language-scoped with html[data-bl-lang="en"].
+- It applies only at desktop widths >=1281px, where the homepage remains a two-column hero.
+- English desktop hero/track/slide height is 720px.
+- The English platform title is capped at 68px with a 1.03 line height.
+- English description and action spacing are compacted without changing wording.
+- Chinese desktop layout is unchanged.
+- Mid-desktop <=1280px keeps the existing stacked auto-height contract.
+- Tablet/mobile <=980px keeps the existing common mobile-menu ownership.
+
+Homepage navigation audit
+- Desktop labels remain: All / Assets / Prompt Generator / Interaction / Inspiration Board / Log in / 中文 / EN.
+- Chinese labels remain: 全部 / 素材库 / Prompt 工具 / 交互实验室 / 灵感板 / 登录 / 中文 / EN.
+- No navigation text, destination, dropdown item or language-toggle logic is changed.
+- Existing common.css breakpoints remain authoritative: compact desktop at <=1380 and <=1120, mobile menu at <=980.
+- Header, brand wordmark, logo, dropdown paths and mobile menu structure are unchanged.
+
+Changed files relative to v380
+- index.html: css/index.css cache query updated to v380-fixed1.
+- css/index.css: appended English-desktop hero containment rules.
+
+Preserved v380 and production boundaries
+- favicon.ico, SVG favicon and Apple touch icon contract remains intact.
+- Login placeholder remains non-submitting and keeps its accessibility semantics.
+- case25 Template ID su-white-model-competition-atmosphere-v1 is preserved.
+- ICP and public-security filing text remains preserved on all 24 public pages.
+- No Hidden Prompt, Vault, API key, endpoint, model configuration, CNAME or Python production script is added.

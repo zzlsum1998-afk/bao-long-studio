@@ -1,20 +1,29 @@
-# BaoLong Lab v380 generic safe-deploy manifest
+# BaoLong Lab v380-fixed1 generic safe-deploy manifest
 BASE_RELEASE=v379-fixed3
-TARGET_RELEASE=v380
+TARGET_RELEASE=v380-fixed1
 REQUIRE_FILE=favicon.ico
 REQUIRE_FILE=FAVICON_AND_LOGIN_SEMANTICS_REPAIR_CHECK_v380.txt
 REQUIRE_FILE=FAVICON_AND_LOGIN_SEMANTICS_MANIFEST_v380.json
+REQUIRE_FILE=HOME_ENGLISH_HERO_AND_NAV_RESPONSIVE_FIX_CHECK_v380-fixed1.txt
+REQUIRE_FILE=HOME_ENGLISH_HERO_AND_NAV_RESPONSIVE_FIX_MANIFEST_v380-fixed1.json
 REQUIRE_TEXT=login.html|||id="rememberMe" name="rememberMe"
 REQUIRE_TEXT=login.html|||role="form"
 REQUIRE_TEXT=login.html|||role="status" aria-live="polite" aria-atomic="true"
 REQUIRE_TEXT=login.html|||js/login.js?v=380
 REQUIRE_TEXT=js/login.js|||loginBtn.addEventListener('click', showLoginClosedMessage)
 REQUIRE_TEXT=index.html|||href="favicon.ico"
-CHECK_URL=/favicon.ico?deploy_check=v380
-CHECK_URL=/favicon.svg?deploy_check=v380
-CHECK_URL=/apple-touch-icon.png?deploy_check=v380
-CHECK_TEXT=/login.html?deploy_check=v380|||id="rememberMe" name="rememberMe"
-CHECK_TEXT=/login.html?deploy_check=v380|||role="form"
-CHECK_TEXT=/login.html?deploy_check=v380|||role="status" aria-live="polite" aria-atomic="true"
-CHECK_TEXT=/login.html?deploy_check=v380|||js/login.js?v=380
-CHECK_TEXT=/js/login.js?deploy_check=v380|||loginBtn.addEventListener('click', showLoginClosedMessage)
+REQUIRE_TEXT=index.html|||css/index.css?v=380-fixed1
+REQUIRE_TEXT=css/index.css|||html[data-bl-lang="en"] .workflow-positioning-hero .hero-product-track
+REQUIRE_TEXT=css/index.css|||height:720px !important
+REQUIRE_TEXT=css/index.css|||font-size:clamp(50px,4.8vw,68px) !important
+CHECK_URL=/favicon.ico?deploy_check=v380-fixed1
+CHECK_URL=/favicon.svg?deploy_check=v380-fixed1
+CHECK_URL=/apple-touch-icon.png?deploy_check=v380-fixed1
+CHECK_URL=/?deploy_check=v380-fixed1
+CHECK_TEXT=/?deploy_check=v380-fixed1|||css/index.css?v=380-fixed1
+CHECK_TEXT=/css/index.css?deploy_check=v380-fixed1|||html[data-bl-lang="en"] .workflow-positioning-hero .hero-product-track
+CHECK_TEXT=/login.html?deploy_check=v380-fixed1|||id="rememberMe" name="rememberMe"
+CHECK_TEXT=/login.html?deploy_check=v380-fixed1|||role="form"
+CHECK_TEXT=/login.html?deploy_check=v380-fixed1|||role="status" aria-live="polite" aria-atomic="true"
+CHECK_TEXT=/login.html?deploy_check=v380-fixed1|||js/login.js?v=380
+CHECK_TEXT=/js/login.js?deploy_check=v380-fixed1|||loginBtn.addEventListener('click', showLoginClosedMessage)

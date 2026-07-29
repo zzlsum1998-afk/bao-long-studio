@@ -1,0 +1,189 @@
+{
+  "version": "v380-fixed1",
+  "productionBase": "v379-fixed3",
+  "previewBase": "v380",
+  "scope": [
+    "preserve v380 favicon and login semantics repair",
+    "repair English desktop homepage hero containment and CTA visibility",
+    "audit homepage navigation labels, destinations and responsive ownership without changing them"
+  ],
+  "changedRelativeToV380": [
+    "index.html",
+    "css/index.css"
+  ],
+  "englishDesktopContract": {
+    "minimumWidth": 1281,
+    "heroHeightPx": 720,
+    "titleMaximumPx": 68,
+    "titleLineHeight": 1.03,
+    "chineseLayoutChanged": false,
+    "midDesktopStackedContractPreserved": true,
+    "mobileMenuContractPreserved": true
+  },
+  "navigationAudit": {
+    "desktopLabelsPreserved": true,
+    "dropdownDestinationsPreserved": true,
+    "languageToggleLogicPreserved": true,
+    "commonCssModified": false
+  },
+  "publicSecurityFilingPreserved": "川公网安备51015602002078号",
+  "icpFilingPreserved": "蜀ICP备2026041029号",
+  "case25TemplateIdPreserved": "su-white-model-competition-atmosphere-v1",
+  "patchFiles": [
+    {
+      "path": "404.html",
+      "sha256": "5c257c1095bce10ef80381a089285577614b4bc65032e6b934fc22794f90c6fb",
+      "size": 5286
+    },
+    {
+      "path": "BAOLONG_DEPLOY_MANIFEST.txt",
+      "sha256": "781ccca07180f9861f1e487bc42f4ad8b78bd56d981ae9a139b966014ba7c591",
+      "size": 1848
+    },
+    {
+      "path": "FAVICON_AND_LOGIN_SEMANTICS_MANIFEST_v380.json",
+      "sha256": "20d35dfcb5a13acaaaee7c4bbe962a7784ebd0b4f1be0cee07a78acf714406cd",
+      "size": 4977
+    },
+    {
+      "path": "FAVICON_AND_LOGIN_SEMANTICS_REPAIR_CHECK_v380.txt",
+      "sha256": "ae284712827b7bd17ec3a7d1beea795b8e43bd0367c630d597422604f3842a47",
+      "size": 2237
+    },
+    {
+      "path": "HOME_ENGLISH_HERO_AND_NAV_RESPONSIVE_FIX_CHECK_v380-fixed1.txt",
+      "sha256": "712fd260045059c32b540fb7ac8b11081df712ac6accdc2f523bcae6bf41a6e2",
+      "size": 2460
+    },
+    {
+      "path": "about.html",
+      "sha256": "cf6f373f4b1c5867e8dc3ccd364d77c3ab9cadc28d84c114f8cac624dceab865",
+      "size": 11072
+    },
+    {
+      "path": "assets.html",
+      "sha256": "2889975b88d0a2ec583f5fe12b803e3f0452ab3987217b87421628d0faecfee9",
+      "size": 11793
+    },
+    {
+      "path": "bubble-timeline.html",
+      "sha256": "fe74007b796b28c11f211aa7f86a73bfb72875e3b1bdbccaf18eb4a075e889c0",
+      "size": 14648
+    },
+    {
+      "path": "color-references.html",
+      "sha256": "7c0a0207e7d6bd5ca06e7fb7bbdbcf3050cde021f43d8367370fe2a926ad8dfa",
+      "size": 15303
+    },
+    {
+      "path": "contact.html",
+      "sha256": "42ccb220a1b59f1c3fc8babbba7c6e14efa14ae97f4d61989e6f13837ccc4ebf",
+      "size": 8778
+    },
+    {
+      "path": "css/index.css",
+      "sha256": "e6bba575801de81f249873db8de2fcd04c3516114b4f3f50ec1e4400d03c3557",
+      "size": 13387
+    },
+    {
+      "path": "data-bloom-garden.html",
+      "sha256": "7b3d696e26eab930b9f42f262cf841777e53856ae25b7f2920b675dd8237b6e1",
+      "size": 12865
+    },
+    {
+      "path": "favicon.ico",
+      "sha256": "6315ca3007624789a2db4f82e78de84251f6a87f12d5bfd5dec4fd558b2a89a4",
+      "size": 23124
+    },
+    {
+      "path": "index.html",
+      "sha256": "dd2f2a5d7b6a95f93cc4ea5c39f2f18f6560987adfc18d10795f86c6e2ba9fec",
+      "size": 38082
+    },
+    {
+      "path": "interaction-landscape-growth.html",
+      "sha256": "9dfb9122233f07b81a2e911de3eb5fb17e130a0f789be03df5d961f218e2e946",
+      "size": 6125
+    },
+    {
+      "path": "interaction.html",
+      "sha256": "c6c54d0fab6790109507436ed0fa0db6ea0a5f7abe97de7290c63871be960561",
+      "size": 19966
+    },
+    {
+      "path": "js/login.js",
+      "sha256": "b748e60bb6c923c36965e0ad9acdce1da62add67c5473befd03fde4c552e9eeb",
+      "size": 2770
+    },
+    {
+      "path": "login.html",
+      "sha256": "4fb8df102cec8a983919838bcad60268b62caff01a01c9b47f331e64e85a2f2e",
+      "size": 6316
+    },
+    {
+      "path": "plan-references.html",
+      "sha256": "fca9a3f1d7431da807e0b058b589cd2c6756e66c624ea5987d26144841275ce0",
+      "size": 11644
+    },
+    {
+      "path": "plant-color-calendar.html",
+      "sha256": "8566dec37ac623bb43f296d82c667f897636899a9427541b19d903f66f12c2bd",
+      "size": 11159
+    },
+    {
+      "path": "plant-emotion-radar.html",
+      "sha256": "aae9e3921ae052438f1dee4eaf33c2896cd62c85566fde9fabf255055f2e6cb5",
+      "size": 11411
+    },
+    {
+      "path": "privacy.html",
+      "sha256": "7d8e2196c2d97486618e7c14b738de8261e60c6706c94811bd83ce78860e1ff4",
+      "size": 9858
+    },
+    {
+      "path": "prompt-generator.html",
+      "sha256": "d02833b52e2333ac96210ae49dabdce202475b266a02247f5d4425dc92e5155d",
+      "size": 32022
+    },
+    {
+      "path": "prompt-tool.html",
+      "sha256": "fdff92868932dce59c0142136985dce762d0cf39dafb7eb536e6b0449994bdb4",
+      "size": 24570
+    },
+    {
+      "path": "render-references.html",
+      "sha256": "202bd18ab18cfe2e91f05d72c65d1ec58ca3d88226a11bf051e0d13370849d02",
+      "size": 11873
+    },
+    {
+      "path": "resume-tool.html",
+      "sha256": "918295ce8f5a6ca4c0673f05497c642c9f255c2b739ab48d2a9882f3a85b26a6",
+      "size": 26096
+    },
+    {
+      "path": "resume.html",
+      "sha256": "f3ae97d5a5b8d968f86459774a357a2f49c650e9932586e382c3ad00acdd1825",
+      "size": 17747
+    },
+    {
+      "path": "seasonal-color-tool.html",
+      "sha256": "90636b2ed1dc0ae766bef1763784ea91d56ffa16edb81157b71484a19b989eab",
+      "size": 9635
+    },
+    {
+      "path": "section-references.html",
+      "sha256": "c5f7b67091a1aaa6eaef79ea3ae8b90f7c10a9ffeb2da78f613abf8690650ebb",
+      "size": 11710
+    },
+    {
+      "path": "template-generator.html",
+      "sha256": "32938bdcf73179ae0ae70b35babdb666c8b70fe374f74f4798c51f04dfd1b127",
+      "size": 11152
+    },
+    {
+      "path": "terms.html",
+      "sha256": "6a87743a6c0e84cf022cc81ae54320b464a9566b5f62546bdd6d0ae8d6bfeef8",
+      "size": 12878
+    }
+  ]
+}

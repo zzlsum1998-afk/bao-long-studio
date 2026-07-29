@@ -1,0 +1,40 @@
+BAOLONG LAB · FAVICON + LOGIN SEMANTICS QUALITY REPAIR CHECK · v380
+
+Base
+- Unique code base: v379-fixed3.
+- Input full-noimages ZIP SHA-256: 7ba627b4bc727a8a3df98f004efe6f7b440262ce6659a3babf1e628dbcf1948f.
+
+Scope
+1. Add a real multi-size favicon.ico generated from the existing BaoLong Lab favicon.svg identity.
+2. Standardize favicon.svg, favicon.ico and apple-touch-icon.png declarations across all 24 user-facing HTML pages.
+3. Use GitHub-subdirectory-safe relative favicon paths on normal pages.
+4. Preserve root-relative favicon paths on 404.html so the existing nested-path 404 resource contract does not regress.
+5. Repair login placeholder semantics without opening account access or adding a network submission path.
+
+Login semantic contract
+- loginPanel uses aria-labelledby=loginPanelTitle and aria-describedby=loginPanelNote.
+- loginForm is a non-submitting role=form control group, not a native HTML form.
+- rememberMe has an explicit id and name and remains checked by default.
+- loginBtn is type=button.
+- email/password Enter handling displays the same closed-entry feedback and prevents native fallback submission.
+- toast uses role=status, aria-live=polite and aria-atomic=true.
+- js/login.js cache query is v380.
+- No CSS or visual-layout change.
+
+Favicon contract
+- favicon.svg remains the modern vector source.
+- favicon.ico contains legacy raster sizes and is served from the public root.
+- apple-touch-icon.png remains the existing 180x180 touch icon.
+- The Baidu verification token file remains unchanged and receives no head markup.
+
+Preserved production boundaries
+- v379-fixed3 case25 Template ID su-white-model-competition-atmosphere-v1 and restrained/restrained defaults.
+- 24 public pages retain 蜀ICP备2026041029号 and 川公网安备51015602002078号.
+- Header geometry, BAOLONG LAB wordmark, page CSS, Hidden Prompt boundary and template assets remain unchanged.
+- No CNAME, .env, API key, private key, Vault or Python production script.
+
+Deployment
+- GitHub independent preview first.
+- Alibaba Cloud deployment creates release /var/www/baolonglab/releases/v380.
+- Generic safe deploy reads BAOLONG_DEPLOY_MANIFEST.txt from the patch root.
+- Never overwrite /var/www/baolonglab/current directly.

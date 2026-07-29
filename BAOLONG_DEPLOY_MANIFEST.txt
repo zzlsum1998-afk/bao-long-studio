@@ -1,0 +1,20 @@
+# BaoLong Lab v380 generic safe-deploy manifest
+BASE_RELEASE=v379-fixed3
+TARGET_RELEASE=v380
+REQUIRE_FILE=favicon.ico
+REQUIRE_FILE=FAVICON_AND_LOGIN_SEMANTICS_REPAIR_CHECK_v380.txt
+REQUIRE_FILE=FAVICON_AND_LOGIN_SEMANTICS_MANIFEST_v380.json
+REQUIRE_TEXT=login.html|||id="rememberMe" name="rememberMe"
+REQUIRE_TEXT=login.html|||role="form"
+REQUIRE_TEXT=login.html|||role="status" aria-live="polite" aria-atomic="true"
+REQUIRE_TEXT=login.html|||js/login.js?v=380
+REQUIRE_TEXT=js/login.js|||loginBtn.addEventListener('click', showLoginClosedMessage)
+REQUIRE_TEXT=index.html|||href="favicon.ico"
+CHECK_URL=/favicon.ico?deploy_check=v380
+CHECK_URL=/favicon.svg?deploy_check=v380
+CHECK_URL=/apple-touch-icon.png?deploy_check=v380
+CHECK_TEXT=/login.html?deploy_check=v380|||id="rememberMe" name="rememberMe"
+CHECK_TEXT=/login.html?deploy_check=v380|||role="form"
+CHECK_TEXT=/login.html?deploy_check=v380|||role="status" aria-live="polite" aria-atomic="true"
+CHECK_TEXT=/login.html?deploy_check=v380|||js/login.js?v=380
+CHECK_TEXT=/js/login.js?deploy_check=v380|||loginBtn.addEventListener('click', showLoginClosedMessage)

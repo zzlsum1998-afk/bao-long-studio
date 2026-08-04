@@ -317,3 +317,30 @@ dd{margin:0;font-size:9px;word-break:break-word}
   .public-status-banner{width:calc(100% - 24px);margin-top:10px;align-items:flex-start;flex-direction:column;gap:4px}
   .public-status-banner strong{white-space:normal}
 }
+
+/* frontend-single-allowlist-no-ai-candidate-v1.0.0 */
+.generation-gate{
+  margin-top:10px;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.generation-gate strong{display:block;font-size:11px;margin-bottom:3px}
+.generation-gate p{margin:0;color:var(--muted);font-size:9px;line-height:1.5}
+.generation-gate-actions{display:flex;align-items:center;gap:10px;flex:none}
+.generation-gate .secondary-button{min-height:34px;padding:0 12px;font-size:10px}
+.generation-diagnostic{margin-top:8px;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:var(--paper-2);font-size:9px;line-height:1.5;color:var(--ink-soft)}
+.generation-diagnostic[data-kind="success"]{border-color:rgba(113,128,106,.45);background:rgba(113,128,106,.08)}
+.generation-diagnostic[data-kind="warning"]{border-color:rgba(184,145,84,.5);background:rgba(184,145,84,.09)}
+.generation-diagnostic[data-kind="error"]{border-color:rgba(151,81,70,.42);background:rgba(151,81,70,.08)}
+.progress-track.is-indeterminate span{width:42%;animation:baolong-indeterminate 1.35s var(--ease) infinite;transition:none}
+@keyframes baolong-indeterminate{0%{transform:translateX(-130%)}100%{transform:translateX(340%)}}
+#recoverSubmissionButton{border-color:var(--accent);color:var(--ink)}
+#downloadResultButton{min-width:148px}
+@media (min-width:1000px) and (min-height:700px){
+  .generation-gate{padding:8px 9px;margin-top:7px}
+  .generation-diagnostic{padding:7px 9px;margin-top:6px}
+}
+@media(max-width:520px){
+  .generation-gate{align-items:stretch;flex-direction:column}
+  .generation-gate-actions{width:100%;justify-content:space-between}
+  .generation-gate .secondary-button{width:auto;flex:1}
+  #downloadResultButton,#recoverSubmissionButton{grid-column:1/-1;width:100%}
+}

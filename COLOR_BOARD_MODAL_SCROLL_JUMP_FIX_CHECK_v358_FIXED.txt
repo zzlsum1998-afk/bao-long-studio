@@ -1,0 +1,31 @@
+BaoLong Lab · v358-fixed · Color Board 弹窗关闭滚动跳动修复
+
+问题
+- 桌面端在 Color Board 页面向下滚动后打开卡片弹窗，再关闭弹窗时，页面会先向上滑动，再回到原卡片位置。
+
+原因
+- js/color-references-modal.js 仍使用旧的 fixed-body 锁滚动方案：打开弹窗时将 body 设为 position: fixed，关闭时先恢复 body 样式，再调用 window.scrollTo 恢复位置。
+- 全站 html 使用 scroll-behavior: smooth；在桌面浏览器中，恢复过程可能短暂暴露页面顶部并形成可见的上滑 / 回位动画。
+- Plan / Section / Other 公共弹窗控制器已使用“不固定 body、只锁 overflow”的稳定方案，Color Board 尚未同步。
+
+本次修改
+1. 仅修改 js/color-references-modal.js：
+   - 不再设置 body position/top/left/right/width；
+   - 改为同时锁定 documentElement 与 body 的 overflow；
+   - 临时禁用 scroll-behavior 与 overscroll；
+   - 计算滚动条宽度并补偿 body padding-right，避免页面横向抖动；
+   - 关闭后仅在实际位置偏差超过 2px 时做瞬时恢复。
+2. 仅更新 color-references.html 中该脚本的缓存查询为 ?v=358-fixed。
+3. 未修改 Color Board 数据、卡片、筛选、收藏、提取器、导航、弹窗文案、样式或其他页面。
+
+回归重点
+- 桌面端向下滚动后打开并关闭 Color 卡片：页面不得先上滑再回位。
+- 关闭按钮、点击遮罩、Esc（若页面原有支持）分别检查；本次不新增交互。
+- 弹窗打开期间背景页面不可滚动。
+- 关闭后保持原滚动位置，且页面可继续正常上下滚动。
+- 页面横向宽度不应在弹窗开关时明显闪动。
+
+版本规则
+- 原 v358 因 Color Board 弹窗滚动跳动问题作废。
+- 后续开发只使用 v358-fixed full 包。
+- 本轮没有删除文件，不需要新增删除清单。

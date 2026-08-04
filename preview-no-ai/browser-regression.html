@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-baolong-no-ai-preview="true">
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>BaoLong Lab · no-AI 浏览器回归控制台</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="preview-no-ai/css/browser-regression.css?v=1.0.0">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="kicker">BAOLONG LAB · ISOLATED PREVIEW</p>
+      <h1>单账号白名单前端 no-AI 回归控制台</h1>
+      <p>本页面只管理浏览器内 fake adapter。网络守卫会阻断任何 <code>/api/public/</code> 或生产域名 API 请求；真实 AI 调用必须保持为 0。</p>
+    </header>
+
+    <section class="boundary" id="boundaryCard">
+      <div><span>productionApiRequests</span><strong id="productionApiRequests">0</strong></div>
+      <div><span>realAiRequests</span><strong id="realAiRequests">0</strong></div>
+      <div><span>fake providerInvocations</span><strong id="providerInvocations">0</strong></div>
+      <div><span>fake submitCalls</span><strong id="submitCalls">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <h2>预览入口</h2>
+      <div class="actions">
+        <a class="button primary" href="preview-no-ai/login.html?return=case25">白名单登录预览</a>
+        <a class="button" href="preview-no-ai/template-generator.html?template=su-white-model-competition-atmosphere-v1">未登录 case25</a>
+        <a class="button" href="preview-no-ai/template-generator.html?template=ecological-architectural-section-v1">其他工作流静态边界</a>
+      </div>
+      <p class="credentials"><strong>仅用于 fake adapter：</strong>preview.allowlist@example.test / PreviewOnly!123</p>
+    </section>
+
+    <section class="panel">
+      <h2>场景控制</h2>
+      <label for="scenario">下一次 fake generation 场景</label>
+      <select id="scenario">
+        <option value="success">success</option>
+        <option value="unknown-once">unknown-once · 接收后模拟传输未知</option>
+        <option value="slow-success">slow-success · 便于刷新恢复</option>
+        <option value="quota">quota · 额度拒绝</option>
+        <option value="failure">failure · 终态失败</option>
+        <option value="result-expired">result-expired · 结果过期</option>
+        <option value="session-expire-on-poll">session-expire-on-poll</option>
+      </select>
+      <div class="actions compact">
+        <button class="button primary" type="button" id="applyScenario">保存场景</button>
+        <button class="button danger" type="button" id="resetPreview">重置 fake 会话与证据</button>
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <h2>浏览器请求头证据</h2>
+      <p>只有 <code>POST /api/public/generation/jobs</code> 应显示浏览器提供的 Request-ID；登录、me、quota、status、result 与 logout 应使用后端关联 ID fallback。</p>
+      <pre id="requestLog">[]</pre>
+    </section>
+  </main>
+
+  <script src="preview-no-ai/js/baolong-no-ai-network-guard.js?v=1.0.0"></script>
+  <script src="preview-no-ai/js/baolong-no-ai-adapter.js?v=1.0.0"></script>
+  <script src="preview-no-ai/js/browser-regression-page.js?v=1.0.0"></script>
+</body>
+</html>

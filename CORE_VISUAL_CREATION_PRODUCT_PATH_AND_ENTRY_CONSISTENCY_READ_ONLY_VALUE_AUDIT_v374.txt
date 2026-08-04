@@ -1,0 +1,405 @@
+BAOLONG LAB
+CORE VISUAL CREATION PRODUCT PATH & ENTRY CONSISTENCY
+READ-ONLY VALUE AUDIT v374
+
+核心“做图”产品路径与入口一致性只读价值审计
+审计日期：2026-07-19
+审计基准：v373 full
+任务性质：只读产品路径审计；不修改 HTML / CSS / JavaScript / JSON / 图片 / 缓存版本 / 视觉 / 文案 / 数据
+
+======================================================================
+0. 结论
+======================================================================
+
+结论：通过（PASS）。
+
+v373 已完成标准移动菜单技术债结案。v374 不继续机械重构，而是回到当前
+“建筑与景观视觉创作平台”的真实产品定位，对围绕“做图”的核心入口与路径进行
+只读价值审计。
+
+本轮确认：
+- 首页“灵感参考 → Prompt / AI → 视觉素材 → 交互表达”四条主路径完整且入口一致；
+- Prompt Generator 的 22 张卡片、6 个已验证图片工作流与 Template Generator 配置一一对应；
+- 首页 3 个精选工作流均指向有效 Template ID；
+- 6 个工作流模板均可按 URL 参数正确加载，未知 Template ID 安全回退到默认模板；
+- 素材库 7 个筛选入口与 URL query 路径一致，运行时均能渲染内容；
+- 4 个 Inspiration Board 的页面、JSON 数据、入口、首批加载与总数契约一致；
+- Interaction 6 个工具入口与 Resume 独立产品路径均可达；
+- 621 处内部页面路由实例与 183 处锚点实例均未发现缺失；
+- 未发现完整 Hidden Prompt、API Key、Endpoint、模型私有配置、Python 生产脚本或 Vault 进入网站包。
+
+v374 只新增本审计文档，不修改任何运行文件。
+唯一后续网站开发起点更新为 v374 full。
+生产 Vault 仍为 BaoLong_Lab_Hidden_Prompt_Vault_v1.2_case22.zip，未进入网站包。
+
+======================================================================
+1. 为什么 v374 做产品路径审计
+======================================================================
+
+v373 已明确：移动菜单专项结案后，应回到真实产品需要，不再为了版本号继续清理
+common.js 或重复做技术债扫描。
+
+因此 v374 选择“核心做图产品路径与入口一致性只读价值审计”，目标是确认：
+1. 当前平台定位是否真的被首页与各入口承接；
+2. 用户从灵感、Prompt、工作流、素材到交互表达是否存在断路；
+3. 已验证工作流卡片、Template ID 与模板配置是否一致；
+4. 独立 Resume 产品是否保持次级但完整的入口；
+5. 在进入新功能或内容更新前，是否存在必须优先修复的产品路径问题。
+
+本轮不以“全站机械检查”为目标；只围绕核心产品路径、相关入口、数据契约与关键运行结果。
+
+======================================================================
+2. 审计范围与明确排除
+======================================================================
+
+2.1 核心范围
+
+A. 首页与平台主路径
+- index.html
+- 灵感板 / Prompt 与图片工作流 / 素材库 / 交互实验室四条主路径
+- 首页精选工作流
+- Resume 次级独立产品入口
+
+B. Prompt 与图片工作流路径
+- prompt-generator.html
+- js/prompt-generator.js
+- js/prompt-generator-page.js
+- template-generator.html
+- js/template-generator.js
+- case01–case22 卡片
+- case17–case22 的 6 个 Template ID
+
+C. 灵感与素材路径
+- assets.html / js/assets.js
+- plan-references.html / data/plan.json
+- section-references.html / data/section.json
+- render-references.html / data/other.json
+- color-references.html / data/color.json
+
+D. 交互与独立工具路径
+- interaction.html 的 6 个工具入口
+- resume.html → resume-tool.html
+- 首页次级工具入口
+
+E. 内部路由与关键安全边界
+- 内部 HTML 目标与 hash 锚点
+- canonical 主域名
+- Template assets
+- 私有生产文件排除
+
+2.2 明确排除
+
+- 不修改 Prompt Tool 专属双菜单或其内部生成逻辑。
+- 不修改 common.js、site-mobile-menu-bindings.js 或移动菜单专项结果。
+- 不重新审计已结案的 CSS / JS 外置、事件属性、Inspiration 公共脚本技术债。
+- 不验证 full-noimages 中主动排除的全站普通 images 文件是否存在；仅检查 JSON 图片路径契约，
+  并对包内必须携带的 23 个 Template assets 做实际存在性检查。
+- 不调用真实图片 API，不读取或修改生产 Vault。
+- 不进行线上网络、第三方购买链接或外部来源网站可用性检查。
+
+======================================================================
+3. 审计方法与总结果
+======================================================================
+
+3.1 静态产品路径审计
+
+使用实际 v373 HTML / JS / JSON 进行：
+- 内部 href 页面目标检查；
+- hash 锚点目标检查；
+- data-index-href 动态入口检查；
+- 页面重复 id 检查；
+- canonical 主域名检查；
+- Prompt 卡片 ID、workflowTemplate 与 Template 配置映射检查；
+- 首页精选 Template ID 检查；
+- 素材筛选 query 与筛选元数据检查；
+- Board JSON 数量、唯一 ID、cover / images 关系与路径前缀检查；
+- 私有文件进入网站包检查。
+
+静态断言结果：981 / 981 通过。
+
+其中：
+- 根目录 HTML：25
+- 内部页面路由实例：621
+- 内部锚点实例：183
+- canonical 页面：20；全部使用 https://www.baolonglab.com/
+- 重复 HTML id：0
+
+3.2 Chromium 隔离运行审计
+
+由于本地审计环境禁止普通 file / localhost 导航，本轮使用 Headless Chromium 的
+Page.setDocumentContent 隔离页面容器：
+- 注入实际页面 HTML；
+- 按原页面引用顺序执行实际本地 JavaScript；
+- 以内嵌本地 JSON 响应模拟同源 fetch；
+- 不依赖网络、图片加载或外部分析脚本；
+- 每个页面使用独立浏览器 target，避免全局变量与定时器互相污染。
+
+运行断言结果：30 / 30 通过。
+JavaScript 运行异常：0。
+
+合计：1011 / 1011 审计断言通过。
+
+说明：该隔离运行用于验证产品入口与页面脚本契约，不替代未来正式上线时的真实浏览器、
+完整 images 与外部网络回归。
+
+======================================================================
+4. 首页“做图”主路径
+======================================================================
+
+首页四条主要产品路径：
+
+路径                         入口目标                    结果
+灵感参考                     plan-references.html       PASS
+Prompt / AI                  prompt-generator.html      PASS
+视觉素材                     assets.html                PASS
+交互表达                     interaction.html           PASS
+
+运行时确认：
+- .workflow-path-card：4 个；
+- 顺序为 Inspiration Board → Prompt & Workflows → Assets → Interaction；
+- 4 个目标页面均真实存在；
+- 首页辅助素材 productGrid 可正常渲染内容；
+- 首页四个 Board 导航入口全部存在。
+
+平台定位结论：
+首页没有把图片工作流定义成唯一主线，而是把灵感、Prompt / AI、素材和交互表达作为
+围绕“做图”的平行能力，符合当前产品定位。
+
+======================================================================
+5. Prompt Generator 与图片工作流路径
+======================================================================
+
+5.1 卡片结构
+
+- Prompt / Workflow 卡片总数：22
+- case01–case16：普通 Prompt 卡片
+- case17–case22：6 个已验证图片工作流
+- 卡片 data-prompt-id：case01–case22 连续且唯一
+
+运行时：
+- 22 / 22 卡片存在；
+- 本地收藏筛选控件正常挂载；
+- case01 弹窗可打开，且“使用此模板”入口保持隐藏；
+- case17 弹窗可打开，入口正确指向 ecological-architectural-section-v1；
+- case22 弹窗入口正确指向 architectural-landscape-narrative-collage-v1。
+
+5.2 6 个 Workflow / Template ID 映射
+
+Case     workflowTemplate                                      Template sourceCaseId
+case17   ecological-architectural-section-v1                   case17
+case18   forest-garden-ecological-section-v1                   case18
+case19   urban-birdview-landscape-diagram-v1                   case19
+case20   urban-axonometric-program-diagram-v1                  case20
+case21   architectural-analysis-base-diagram-v1                case21
+case22   architectural-landscape-narrative-collage-v1          case22
+
+结果：6 / 6 一一对应；无缺失、无多余、无错配。
+
+5.3 首页精选工作流
+
+首页 3 个精选工作流：
+- architectural-landscape-narrative-collage-v1
+- architectural-analysis-base-diagram-v1
+- urban-axonometric-program-diagram-v1
+
+结果：3 / 3 均存在于 Template Generator 配置。
+
+======================================================================
+6. Template Generator 路径
+======================================================================
+
+6 个 Template ID 均完成运行时加载检查：
+
+Template ID                                           标题加载  输入模式  标签  参数
+生态景观建筑剖面                                      PASS      单图      PASS  3
+森林花园生态剖面                                      PASS      单图      PASS  1
+城市鸟瞰景观图解                                      PASS      单图      PASS  1
+城市功能分区轴测图解                                  PASS      单图      PASS  0（产品既定）
+四类建筑分析图底图                                    PASS      单图      PASS  4
+建筑与景观综合叙事拼贴                                PASS      多图      PASS  5
+
+说明：case20 首版无前台参数是已确认产品定义，不属于缺失。
+
+未知 Template ID：
+- 使用 template-generator.html?template=unknown-template；
+- 安全回退到 ecological-architectural-section-v1；
+- 标题、单图输入模式与默认模板一致；
+- 不出现空白模板或未定义异常。
+
+Template assets：
+- 脚本引用的 source / display / fallback / reference / result / demoSources 全部存在；
+- 包内 Template assets：23 个；
+- 缺失：0。
+
+======================================================================
+7. 素材库路径
+======================================================================
+
+素材库筛选契约：
+- All
+- Module Diagrams
+- People Assets
+- Plant Assets
+- Animal Assets
+- Textures
+- Free
+
+静态结果：
+- 7 个筛选按钮与 JS filter metadata / keyword map 对应；
+- 首页素材下拉 query 仅使用上述有效筛选值；
+- 目标锚点 #products 存在。
+
+运行结果：
+- assets.html?filter=Plant%20Assets 可正确激活 Plant Assets；
+- 7 / 7 筛选点击后均激活正确 tab；
+- 7 / 7 分类均能渲染至少 1 张素材卡；
+- 无空路径、无未知筛选导致的页面中断。
+
+======================================================================
+8. Inspiration Board 路径
+======================================================================
+
+Board      页面                       JSON            数据总数  首批运行加载
+Plan       plan-references.html       data/plan.json   149       36 / 149
+Section    section-references.html    data/section.json127       36 / 127
+Other      render-references.html     data/other.json  289       36 / 289
+Color      color-references.html      data/color.json  100       36 / 100
+
+静态契约：
+- 4 / 4 JSON 数量符合当前交接基准；
+- 4 / 4 ID 唯一；
+- cover 均包含于 images（适用数据）；
+- 图片路径均保持 images/inspiration/ 前缀；
+- 4 / 4 对应页面存在。
+
+运行契约：
+- 4 / 4 页面首批均渲染 36 张卡；
+- 4 / 4 总数文案正确；
+- 4 / 4 本地收藏控制条正常挂载。
+
+full-noimages 说明：
+本包不携带完整 Inspiration 图片目录，因此本轮不把普通灵感图片文件缺席判定为错误；
+部署时仍必须保留 / 合并现有完整 images 目录。
+
+======================================================================
+9. Interaction 与 Resume 独立路径
+======================================================================
+
+9.1 Interaction
+
+interaction.html 共 6 个真实工具入口：
+- interaction-landscape-growth.html
+- plant-color-calendar.html
+- plant-emotion-radar.html
+- seasonal-color-tool.html
+- data-bloom-garden.html
+- bubble-timeline.html
+
+结果：6 / 6 目标页面存在；运行时入口数量为 6。
+
+9.2 Resume
+
+- 首页仍把 Resume 作为次级独立产品入口，不占据一级“做图”主路径；
+- resume.html 存在多个 resume-tool.html CTA；
+- 12 张模板卡均指向 resume-tool.html；
+- 运行时确认 12 / 12 模板卡存在。
+
+结论：Resume 的独立产品定位与路径完整，没有被本轮平台主线审计误并入图片工作流。
+
+======================================================================
+10. 内部路由、锚点与主域名
+======================================================================
+
+- 内部页面路由实例：621 / 621 目标存在；
+- 内部 hash 锚点：183 / 183 目标 id 存在；
+- data-index-href 动态首页入口：全部指向真实页面 / 锚点；
+- javascript: URL：0；
+- 重复 HTML id：0；
+- canonical：20 个，全部保持 https://www.baolonglab.com/；
+- 主域名未发生无 www 回退。
+
+未设置 canonical 的特殊页面不在本轮新增范围，且未发现现有 canonical 使用错误域名。
+
+======================================================================
+11. 安全与生产边界
+======================================================================
+
+网站包检查：
+- .env：0
+- Python 文件：0
+- Vault ZIP / Vault 目录：0
+- API Key：未引入
+- Endpoint / 模型生产配置：未引入
+- 完整生产 Hidden Prompt：未引入
+
+前端保留的 privateScriptRef 仍只是离线私有归档文件名索引；浏览器不加载该路径，
+对应 Vault 目录不存在于网站包。
+
+生产 Vault 状态不变：
+BaoLong_Lab_Hidden_Prompt_Vault_v1.2_case22.zip
+仅本地私有保存，不与网站 full / patch 一起部署。
+
+======================================================================
+12. 基准完整性与未改动证明
+======================================================================
+
+v373 解压基准：
+- 文件数：539
+- 解压后文件总字节：46,345,572 bytes
+
+v374 运行文件差异：
+- 修改 HTML：0
+- 修改 CSS：0
+- 修改 JavaScript：0
+- 修改 JSON / data：0
+- 修改图片：0
+- 修改缓存版本：0
+- 删除文件：0
+- 新增运行文件：0
+- 新增审计文档：1
+
+对 v373 原 539 个文件逐文件 SHA-256 比对：539 / 539 全部一致。
+
+由于运行文件字节未变，继续继承：
+- v358-fixed Color 弹窗关闭滚动位置修复；
+- v368-fixed 首页素材详情背景滚动锁；
+- v368-fixed2 Resume Tool 移动端固定堆叠；
+- v373 标准移动菜单职责治理结案结果。
+
+======================================================================
+13. 部署与版本规则
+======================================================================
+
+v374 full：
+- 作为下一轮唯一网站开发基准；
+- full-noimages 部署时必须保留 / 合并现有完整 images 目录；
+- 包内 23 个 Template assets 保留原路径。
+
+v374 patch：
+- 只包含本审计文档；
+- 保留网站根目录路径；
+- 只适用于明确 v373 基准；
+- 不能单独预览网站。
+
+本轮删除文件：0。
+因此 v374 无新增删除清单，也没有 GitHub 网页上传后需要额外手动删除的 v374 文件。
+历史删除库存仍按 v372 交接文档执行。
+
+======================================================================
+14. 阶段结论与后续方向
+======================================================================
+
+v374 已确认当前核心产品路径没有阻断问题：
+- 平台定位被首页四条“做图”路径正确承接；
+- Prompt → Workflow → Template 路径完整；
+- 灵感、素材、交互与 Resume 独立入口可达；
+- 工作流配置、安全边界与数据契约一致。
+
+因此不建议继续为“路径审计”追加机械版本。
+下一步应选择真实产品需求：
+- 新增 / 更新 Inspiration 与素材内容；
+- 优化某个明确的用户任务或转化入口；
+- 开始一个新的图片工作流训练；
+- 或在正式上线 / 域名切换前启动专门的上线回归与 SEO 专项。
+
+若没有明确产品需求，不应顺手重构 common.js、Prompt Tool、Resume Tool 或已结案公共脚本。

@@ -1,0 +1,63 @@
+BAOLONG LAB · COLOR BOARD RESIDUAL .pin.is-hidden LEGACY SELECTOR CLEANUP CHECK v362
+Generated: 2026-07-18
+Base: baolong-inspiration-board-dead-code-cleanup-stage-closure-read-only-audit-v361-full-noimages-plus-template-assets.zip
+
+VERSION PURPOSE
+- v362 performs the single residual cleanup isolated by the v361 read-only audit.
+- It removes only the retired .pin.is-hidden selector branch from css/color-board.css.
+- It does not modify Color filtering JavaScript, card rendering, favorites, modal behavior, extractor behavior, masonry, navigation, common.js, data, images, cache queries, visual copy, or any other page.
+- No physical runtime file is deleted in this version.
+
+EXACT CHANGE
+Removed from css/color-board.css:
+    .pin.is-hidden{
+      display:none;
+    }
+
+- Base CSS bytes: 36,097.
+- v362 CSS bytes: 36,051.
+- Net change: -46 bytes / -3 lines.
+- All other pre-existing files are preserved byte-for-byte.
+
+WHY THE SELECTOR IS SAFE TO REMOVE
+- Current Color Board filtering rebuilds the visible card collection from a filtered data array.
+- No current Color HTML or active Board/shared JavaScript adds, removes, toggles, or queries the is-hidden class.
+- The active runtime corpus contains 0 occurrences of the is-hidden token after cleanup.
+- The base .pin card selector and all active Color filter selectors remain present.
+- v361 had already classified this branch as a high-confidence retired selector and explicitly reserved it for v362.
+
+CSS SEMANTIC COMPARISON
+- css/color-board.css qualified selector rules before: 264.
+- css/color-board.css qualified selector rules after: 263.
+- Removed selector rules: exactly 1 — .pin.is-hidden.
+- Added selector rules: 0.
+- tinycss2 parse errors before / after: 0 / 0.
+- CSS structural checks: 27 / 27 passed.
+
+PACKAGE / SITE VERIFICATION
+- Root HTML pages: 25.
+- Browser JavaScript files: 41; unreferenced: 0.
+- Historical Netlify JavaScript functions: 4.
+- Total JavaScript syntax checks: 45 / 45 passed.
+- Local JS / CSS / favicon / apple-touch-icon references: 178; missing: 0.
+- JSON files parsed: 4 / 4.
+- JSON-LD blocks parsed: 19 / 19.
+- Static HTML on* attributes: 0.
+- javascript: URLs: 0.
+- Exact browser-JavaScript duplicate groups: 0.
+- Board data unchanged: Color 100; Plan 149; Section 127; Other 289.
+
+REGRESSION SCOPE
+Quick Color Board check only:
+1. Color filters still switch visible collections correctly.
+2. Favorites and Saved filtering remain correct.
+3. Card layout remains normal on desktop and mobile.
+4. Color modal opens / closes and preserves the v358-fixed scroll position behavior.
+5. Color Extractor remains available.
+
+DEPLOYMENT
+- No file deletion is required.
+- If the deployed site is already v361, the v362 patch may be uploaded directly.
+- The patch is incremental and is not a standalone preview package.
+- The full package remains the complete new local baseline.
+- full-noimages deployment must preserve / merge the existing images directory.

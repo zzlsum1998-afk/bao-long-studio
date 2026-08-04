@@ -1,0 +1,132 @@
+{
+  "version": "v379-fixed3",
+  "base": "v378-fixed2",
+  "scope": [
+    "case25 production integration",
+    "login page header geometry and responsive width unification",
+    "About Contact Privacy Terms header responsive unification",
+    "BAOLONG LAB brand wordmark exact visual contract unification"
+  ],
+  "templateId": "su-white-model-competition-atmosphere-v1",
+  "publicSecurityFilingPreserved": "川公网安备51015602002078号",
+  "case25Defaults": {
+    "vegetationSupport": "restrained",
+    "materialRealism": "restrained"
+  },
+  "headerResponsiveContract": {
+    "desktopHeaderHeightPx": 104,
+    "logoBoxPx": {
+      "above1380": 108,
+      "981to1380": 86,
+      "981to1120": 64,
+      "mobile": 44
+    },
+    "brandWordmark": {
+      "above1380": {
+        "fontSizePx": 16,
+        "letterSpacingEm": 0.34
+      },
+      "981to1380": {
+        "fontSizePx": 14,
+        "letterSpacingEm": 0.28
+      },
+      "981to1120": {
+        "fontSizePx": 12.5,
+        "letterSpacingEm": 0.22
+      },
+      "mobile": {
+        "fontSizePx": 13,
+        "letterSpacingEm": 0.22
+      },
+      "fontWeight": 400,
+      "lineHeight": 1,
+      "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Microsoft YaHei, Arial, sans-serif",
+      "fontSynthesis": "none",
+      "textRendering": "geometricPrecision"
+    },
+    "mobileBreakpointPx": 980,
+    "shortHeightLoginHeaderReductionRemoved": true
+  },
+  "changedFiles": [
+    {
+      "path": "CASE25_PRODUCTION_HEADER_AND_BRAND_WORDMARK_UNIFICATION_CHECK_v379-fixed3.txt",
+      "sha256": "6dce9cd937c5fa8338fc7f4fb27ec7a8810476ae6732320546d7486085291e1f",
+      "size": 1735
+    },
+    {
+      "path": "about.html",
+      "sha256": "7ef6bd47aefcae18c4356fa949eb5a8db1b8792c9c9196a78aa3ab232f56329f",
+      "size": 11014
+    },
+    {
+      "path": "contact.html",
+      "sha256": "96cf812c95341aa14b45681f8588043c989ad9f69b3b26fd44864df809e718ca",
+      "size": 8720
+    },
+    {
+      "path": "css/contact.css",
+      "sha256": "70162d672557b37aa1b96cfd749dedb2069b5642668aa61a6df9ce8eb3458271",
+      "size": 9364
+    },
+    {
+      "path": "css/login.css",
+      "sha256": "39365dda4545c82919c0aa0d5d1ba1e3f9991ed6849d7773567b57b57e3f50b2",
+      "size": 21801
+    },
+    {
+      "path": "css/static-info-pages.css",
+      "sha256": "b5fee498c6722cd55ed768de4bc8be8fcdbdfded1306a6010c137eef92927ebd",
+      "size": 7670
+    },
+    {
+      "path": "images/template-su-white-model-atmosphere/result-demo.webp",
+      "sha256": "092eb473f901f41e3a44357c087cfbf69cf84e259f0e58e541ac624100ed43c8",
+      "size": 199440
+    },
+    {
+      "path": "images/template-su-white-model-atmosphere/source-demo.webp",
+      "sha256": "e161195f1b1af05af030cc8c4fc75bf91219f64f18b4bb18be500ba248a97133",
+      "size": 17958
+    },
+    {
+      "path": "images/template-su-white-model-atmosphere/style-reference.webp",
+      "sha256": "d0f1a1d17a1909102941bed0d2d10800b1752ba05e54c439ddceddc16d540bd2",
+      "size": 49928
+    },
+    {
+      "path": "js/prompt-generator.js",
+      "sha256": "57b2c6cd797644f3d5fa8c13e963cbf7dfe834a6c94e4753779222ce824db925",
+      "size": 50191
+    },
+    {
+      "path": "js/template-generator.js",
+      "sha256": "c2dc65225d60c243c335cb835e012dd4c4db2b19137cd0521c9fed6e5f057991",
+      "size": 64397
+    },
+    {
+      "path": "login.html",
+      "sha256": "27601746953bef566afee9eb509181a51eb1a882e3d4077d706f8aa38c6cdc20",
+      "size": 5860
+    },
+    {
+      "path": "privacy.html",
+      "sha256": "117ebd8e7e3efb34b7c3b9a433e60c8889ade460cf7ded946e975c71c5043076",
+      "size": 9800
+    },
+    {
+      "path": "prompt-generator.html",
+      "sha256": "01cbd1f3603dc33990b39ab641f4fac6200263b76af403a9ce84e76161966b4a",
+      "size": 31966
+    },
+    {
+      "path": "template-generator.html",
+      "sha256": "a8b902197663e117308d9f7c96c7c4a2c0d74c1a78cf7dd8fb1b827785212725",
+      "size": 10976
+    },
+    {
+      "path": "terms.html",
+      "sha256": "65e6327bcdbfdb9ed47d33240344f646fa0d759c773dca404737f69ba66c2baf",
+      "size": 12820
+    }
+  ]
+}

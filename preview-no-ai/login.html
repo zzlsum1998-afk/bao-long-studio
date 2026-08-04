@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-baolong-no-ai-preview="true">
 <head>
+  <base href="../">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>登录 | BaoLong Lab</title>
@@ -13,7 +14,7 @@
 <body>
   <header class="login-header">
     <a class="brand" href="index.html" aria-label="Back to BaoLong Lab home">
-      <img class="brand-logo-img" src="images/logo-eye.webp" alt="BaoLong Lab Logo" />
+      <img class="brand-logo-img" src="favicon.svg" alt="BaoLong Lab Logo" />
       <div class="brand-text">BAOLONG LAB</div>
     </a>
     <div class="header-actions">
@@ -71,6 +72,8 @@
           <button class="ghost-btn" type="button" id="browseHomeBtn" data-zh="先逛逛" data-en="Browse first">先逛逛</button>
         </div>
 
+        <div class="panel-note preview-credential-note"><strong>NO-AI PREVIEW</strong><br>邮箱：preview.allowlist@example.test<br>密码：PreviewOnly!123</div>
+
         <div class="panel-note" id="loginPanelNote" data-zh="提示：当前仅限既有受邀白名单账号。登录信息仅提交至同源受保护认证接口。" data-en="Note: access is limited to the existing invited allowlisted account. Credentials are sent only to the protected same-origin authentication endpoint.">提示：当前仅限既有受邀白名单账号。登录信息仅提交至同源受保护认证接口。</div>
       </form>
     </section>
@@ -85,6 +88,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
+  <script src="preview-no-ai/js/baolong-no-ai-network-guard.js?v=1.0.0"></script>
+  <script src="preview-no-ai/js/baolong-no-ai-adapter.js?v=1.0.0"></script>
   <script src="js/baolong-public-api.js?v=frontend-candidate-1.0.0"></script>
   <script src="js/baolong-auth-session.js?v=frontend-candidate-1.0.0"></script>
   <script src="js/login.js?v=frontend-candidate-1.0.0"></script>

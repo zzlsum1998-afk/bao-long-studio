@@ -1,0 +1,32 @@
+BAOLONG LAB · COLOR BOARD FILTERING RUNTIME SELECTOR EVIDENCE v362
+Generated: 2026-07-18
+
+TARGET
+- Retired CSS selector: .pin.is-hidden
+- File: css/color-board.css
+
+CURRENT FILTERING MODEL
+- Color Board filtering operates on the source data collection.
+- The active filter result is rendered back into the card container.
+- Cards are not retained in place and hidden through an is-hidden state class.
+
+TOKEN / CONSUMER EVIDENCE
+- .pin.is-hidden occurrences in v362 CSS: 0.
+- is-hidden occurrences in root Board HTML and active browser JavaScript: 0.
+- Active .pin selector retained: YES.
+- Active .color-filter-section selector retained: YES.
+- Current Color data count: 100.
+
+PRESERVED ACTIVE SELECTOR FAMILIES
+- Card / layout: .masonry, .pin, .pin-img, .pin-body, .pin-tags, .pin-tag.
+- Filter controls: .color-filter-section and its active button / control descendants.
+- Favorites: favorite-filter-* and pin-favorite-* families.
+- Modal: .modal-copy, .modal-img, .close, .modal-source-note, .source-block.
+- Color values: .color-values-box and .color-copy-btn.
+- Extractor: all color-extractor-* selectors.
+- Responsive rules: active mobile card, filter, modal, navigation, and extractor branches.
+
+BEHAVIOR PRESERVATION DECISION
+- Removing .pin.is-hidden cannot change the active filter path because no runtime code emits that class.
+- No JavaScript signature, data schema, DOM ID, HTML structure, load order, or cache query is changed.
+- The v358-fixed Color modal scroll-lock and instant position restoration implementation remains byte-for-byte unchanged.

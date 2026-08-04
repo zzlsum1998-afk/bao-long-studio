@@ -449,15 +449,30 @@
   const defaultTemplateId = 'ecological-architectural-section-v1';
   const activeTemplateId = templateConfigs[requestedTemplateId] ? requestedTemplateId : defaultTemplateId;
   const activeTemplate = templateConfigs[activeTemplateId];
+  const generationLibrary = window.BaoLongGenerationClient;
+  const authSession = window.BaoLongAuthSession;
+  const publicApi = window.BaoLongPublicApi;
+  const generationEnabledTemplateId = generationLibrary?.CASE25_TEMPLATE_ID || 'su-white-model-competition-atmosphere-v1';
+  const isGenerationCandidate = activeTemplateId === generationEnabledTemplateId;
 
   const state = {
     lang:'zh',
     sourceReady:false,
+    sourceSubmissionReady:false,
+    sourceFiles:[],
     sourceObjectUrl:null,
     sourceObjectUrls:[],
+    resultObjectUrl:null,
+    resultDownload:null,
     parameterValues:{},
     timerIds:[],
-    loadingStep:0
+    loadingStep:0,
+    authStatus:isGenerationCandidate ? 'checking' : 'demo',
+    generationBusy:false,
+    generationUnknown:false,
+    generationClient:null,
+    currentJobId:null,
+    quotaData:null
   };
 
   const uploadCard = $('#uploadCard');
@@ -476,6 +491,22 @@
   const loadingTitle = $('#loadingTitle');
   const notes = $('#notes');
   const promptPreview = $('#promptPreview');
+  const publicStatusBanner = $('#publicStatusBanner');
+  const publicStatusTitle = $('#publicStatusTitle');
+  const publicStatusCopy = $('#publicStatusCopy');
+  const generationAvailabilityValue = $('#generationAvailabilityValue');
+  const generateButtonLabel = $('#generateButtonLabel');
+  const generationGate = $('#generationGate');
+  const generationGateTitle = $('#generationGateTitle');
+  const generationGateCopy = $('#generationGateCopy');
+  const generationLoginLink = $('#generationLoginLink');
+  const generationLogoutButton = $('#generationLogoutButton');
+  const generationDiagnostic = $('#generationDiagnostic');
+  const loadingCopy = $('#loadingCopy');
+  const resultImage = $('#resultImage');
+  const resultLabel = $('#resultLabel');
+  const downloadResultButton = $('#downloadResultButton');
+  const recoverSubmissionButton = $('#recoverSubmissionButton');
 
   
 
@@ -662,7 +693,7 @@ Additional note: ${notesText}` : ''}`;
     $('#caseCaption').textContent = t(activeTemplate.caption);
     setImageWithFallback($('#styleReferenceImage'), activeTemplate.assets.display || activeTemplate.assets.reference, activeTemplate.assets.displayFallback || activeTemplate.assets.reference);
     $('#styleReferenceImage').alt = t(activeTemplate.imageAlt);
-    $('#resultImage').src = activeTemplate.assets.result;
+    if (!state.resultObjectUrl) $('#resultImage').src = activeTemplate.assets.result;
     const downloadButton = $('#downloadButton');
     if (downloadButton) {
       downloadButton.href = activeTemplate.assets.result;
@@ -780,9 +811,98 @@ Additional note: ${notesText}` : ''}`;
   }
 
 
+  function text(zh, en) {
+    return state.lang === 'zh' ? zh : en;
+  }
+
+  function loginHref() {
+    const path = document.documentElement.dataset.baolongNoAiPreview === 'true'
+      ? new URL('preview-no-ai/login.html', document.baseURI).href
+      : 'login.html';
+    return `${path}?return=case25`;
+  }
+
+  function setDiagnostic(message = '', kind = 'info') {
+    if (!generationDiagnostic) return;
+    generationDiagnostic.hidden = !message;
+    generationDiagnostic.textContent = message;
+    generationDiagnostic.dataset.kind = kind;
+  }
+
+  function updateGenerationGate() {
+    if (!isGenerationCandidate) {
+      generationGate.hidden = true;
+      return;
+    }
+    generationGate.hidden = false;
+    generationLoginLink.href = loginHref();
+    generationLoginLink.hidden = state.authStatus === 'authenticated';
+    generationLogoutButton.hidden = state.authStatus !== 'authenticated';
+
+    if (state.authStatus === 'checking') {
+      generationGateTitle.textContent = text('单账号白名单内测', 'Single-account allowlist test');
+      generationGateCopy.textContent = text('正在只读核对登录状态。', 'Checking the current session read-only.');
+      publicStatusTitle.textContent = text('单账号白名单内测 · 普通用户未开放', 'Single-account allowlist test · Public access closed');
+      publicStatusCopy.textContent = text('仅核对既有白名单会话；注册、找回密码与普通用户生成入口仍关闭。', 'Only the existing allowlisted session is checked. Registration, password recovery, and public generation remain closed.');
+    } else if (state.authStatus === 'authenticated') {
+      const used = Number.isFinite(Number(state.quotaData?.accountUsed)) ? Number(state.quotaData.accountUsed) : null;
+      generationGateTitle.textContent = text('已登录内测账号', 'Allowlisted test account signed in');
+      generationGateCopy.textContent = used === null
+        ? text('case25 生成入口已条件解锁。', 'The case25 generation control is conditionally unlocked.')
+        : text(`case25 生成入口已条件解锁；今日成功生成已使用 ${used} 次。`, `The case25 generation control is unlocked; ${used} successful generation(s) used today.`);
+      publicStatusTitle.textContent = text('单账号白名单生成内测', 'Single-account allowlist generation test');
+      publicStatusCopy.textContent = text('仅既有白名单账号可提交 case25；其他工作流、注册、找回密码与普通用户入口仍关闭。', 'Only the existing allowlisted account can submit case25. Other workflows, registration, password recovery, and public access remain closed.');
+    } else {
+      generationGateTitle.textContent = text('单账号白名单内测', 'Single-account allowlist test');
+      generationGateCopy.textContent = text('当前未登录。仅既有受邀账号可访问 case25 生成内测。', 'Not signed in. Only the existing invited account can access the case25 generation test.');
+      publicStatusTitle.textContent = text('工作流演示 · 单账号白名单未登录', 'Workflow demo · Allowlisted account not signed in');
+      publicStatusCopy.textContent = text('本页仍为静态演示；普通用户生成、注册与找回密码未开放。', 'This page remains a static demo. Public generation, registration, and password recovery are closed.');
+    }
+  }
+
   function updateGenerateState() {
-    generateButton.disabled = true;
-    generateButton.setAttribute('aria-disabled', 'true');
+    const enabled = Boolean(
+      isGenerationCandidate &&
+      state.authStatus === 'authenticated' &&
+      state.sourceSubmissionReady &&
+      !state.generationBusy &&
+      !state.generationUnknown
+    );
+    generateButton.disabled = !enabled;
+    generateButton.setAttribute('aria-disabled', String(!enabled));
+
+    if (!isGenerationCandidate) {
+      generationAvailabilityValue.textContent = text('公网生图暂未开放', 'Public generation not available');
+      generateButtonLabel.textContent = text('生图功能开发中', 'Generation In Development');
+    } else if (state.authStatus === 'checking') {
+      generationAvailabilityValue.textContent = text('正在核对内测会话', 'Checking test session');
+      generateButtonLabel.textContent = text('请稍候', 'Please wait');
+    } else if (state.authStatus !== 'authenticated') {
+      generationAvailabilityValue.textContent = text('仅限既有白名单账号', 'Existing allowlisted account only');
+      generateButtonLabel.textContent = text('请先白名单登录', 'Allowlist login required');
+    } else if (state.generationUnknown) {
+      generationAvailabilityValue.textContent = text('提交结果暂不确定', 'Submission outcome unknown');
+      generateButtonLabel.textContent = text('仅可恢复本次提交', 'Recovery only');
+    } else if (state.generationBusy) {
+      generationAvailabilityValue.textContent = text('任务处理中', 'Task in progress');
+      generateButtonLabel.textContent = text('处理中…', 'Processing…');
+    } else if (!state.sourceSubmissionReady) {
+      generationAvailabilityValue.textContent = text('请上传 1 张有效白模图', 'Upload one valid white-model image');
+      generateButtonLabel.textContent = text('等待项目原图', 'Waiting for source image');
+    } else {
+      generationAvailabilityValue.textContent = text('单账号白名单内测', 'Single-account allowlist test');
+      generateButtonLabel.textContent = text('开始生成', 'Start generation');
+    }
+    const controlsLocked = Boolean(state.generationBusy || state.generationUnknown);
+    sourceInput.disabled = controlsLocked;
+    uploadCard.setAttribute('aria-disabled', String(controlsLocked));
+    $('#useDemoButton').disabled = controlsLocked;
+    notes.disabled = controlsLocked;
+    $$('#dynamicParameters button, #dynamicParameters select, #advancedParameters button, #advancedParameters select').forEach((control) => {
+      control.disabled = controlsLocked;
+    });
+    $('#resetButton').disabled = state.generationBusy;
+    updateGenerationGate();
   }
 
   function clearSourceObjectUrls() {
@@ -790,9 +910,18 @@ Additional note: ${notesText}` : ''}`;
     state.sourceObjectUrl = null;
     state.sourceObjectUrls.forEach((url) => URL.revokeObjectURL(url));
     state.sourceObjectUrls = [];
+    state.sourceFiles = [];
+    state.sourceSubmissionReady = false;
   }
 
-  function showSource(src, filename) {
+  function clearResultObjectUrl() {
+    if (state.resultObjectUrl) URL.revokeObjectURL(state.resultObjectUrl);
+    state.resultObjectUrl = null;
+    state.resultDownload = null;
+    downloadResultButton.hidden = true;
+  }
+
+  function showSource(src, filename, {submissionReady = false, file = null} = {}) {
     sourcePreviewGrid.innerHTML = '';
     sourcePreviewGrid.hidden = true;
     sourcePreview.hidden = false;
@@ -801,6 +930,8 @@ Additional note: ${notesText}` : ''}`;
     uploadEmpty.hidden = true;
     uploadPreview.hidden = false;
     state.sourceReady = true;
+    state.sourceSubmissionReady = Boolean(submissionReady && file instanceof File);
+    state.sourceFiles = state.sourceSubmissionReady ? [file] : [];
     updateGenerateState();
   }
 
@@ -818,12 +949,17 @@ Additional note: ${notesText}` : ''}`;
     uploadEmpty.hidden = true;
     uploadPreview.hidden = false;
     state.sourceReady = items.length >= 3;
+    state.sourceSubmissionReady = false;
+    state.sourceFiles = [];
     updateGenerateState();
   }
 
-  function useFiles(fileList) {
-    const files = Array.from(fileList || []).filter((file) => file.type.startsWith('image/'));
-    if (!files.length) return;
+  async function useFiles(fileList) {
+    const files = Array.from(fileList || []).filter((file) => file instanceof File && file.type.startsWith('image/'));
+    if (!files.length) {
+      setDiagnostic(text('请选择 JPEG、PNG 或 WebP 图片。', 'Choose a JPEG, PNG, or WebP image.'), 'error');
+      return;
+    }
     clearSourceObjectUrls();
     if (activeTemplate.multiSource) {
       const limited = files.slice(0, activeTemplate.sourceLimit || 6);
@@ -832,8 +968,21 @@ Additional note: ${notesText}` : ''}`;
       return;
     }
     const file = files[0];
+    if (isGenerationCandidate && generationLibrary) {
+      try {
+        await generationLibrary.validateFile(file);
+      } catch (error) {
+        setDiagnostic(errorMessage(error), 'error');
+        sourceInput.value = '';
+        updateGenerateState();
+        return;
+      }
+    }
     state.sourceObjectUrl = URL.createObjectURL(file);
-    showSource(state.sourceObjectUrl, file.name);
+    showSource(state.sourceObjectUrl, file.name, {submissionReady:isGenerationCandidate, file});
+    setDiagnostic(isGenerationCandidate
+      ? text('项目原图已在浏览器完成格式与解码校验。', 'The source image passed local format and decode validation.')
+      : '', 'success');
   }
 
   function promptText() {
@@ -860,10 +1009,221 @@ Additional note: ${notesText}` : ''}`;
     loadingTitle.textContent = activeTemplate.loading[state.lang][index];
   }
 
+  function errorMessage(error) {
+    if (!(error instanceof publicApi.ApiError)) return text('操作未完成，请稍后再试。', 'The action could not be completed. Please try again later.');
+    const map = {
+      SESSION_INVALID:[ '登录状态已失效，请重新登录。', 'Your session expired. Sign in again.' ],
+      PUBLIC_ACCESS_NOT_ALLOWED:[ '当前账号不在内测名单。', 'This account is not on the test allowlist.' ],
+      CSRF_VALIDATION_FAILED:[ '安全校验已失效，请重新登录。', 'The security session expired. Sign in again.' ],
+      PUBLIC_ORIGIN_FORBIDDEN:[ '当前访问来源不受支持。', 'This access origin is not supported.' ],
+      GENERATION_REQUEST_ID_REQUIRED:[ '客户端请求编号异常，已停止提交。', 'The client request identifier is invalid. Submission stopped.' ],
+      GENERATION_REQUEST_CONFLICT:[ '本次提交状态冲突，已停止。', 'This submission conflicts with an existing request and was stopped.' ],
+      PAYLOAD_TOO_LARGE:[ '图片过大，请选择更小的图片。', 'The image is too large. Choose a smaller image.' ],
+      UNSUPPORTED_EXTENSION:[ '图片格式不受支持。', 'The image format is not supported.' ],
+      UNSUPPORTED_MIME:[ '图片格式不受支持。', 'The image format is not supported.' ],
+      INVALID_IMAGE:[ '图片无法读取，请重新选择。', 'The image could not be read. Choose another image.' ],
+      REQUEST_VALIDATION_FAILED:[ '图片或参数不符合要求。', 'The image or parameters are invalid.' ],
+      PUBLIC_REQUEST_REJECTED:[ '图片或参数不符合要求。', 'The image or parameters are invalid.' ],
+      QUOTA_ACCOUNT_EXCEEDED:[ '今日成功生成额度已用完。', 'Today’s successful-generation quota is exhausted.' ],
+      RATE_LIMITED:[ '请求过于频繁，请稍后再试。', 'Too many requests. Please try again later.' ],
+      GENERATION_NOT_FOUND:[ '任务不存在或不可访问。', 'The task does not exist or cannot be accessed.' ],
+      HTTP_404:[ '任务不存在或不可访问。', 'The task does not exist or cannot be accessed.' ],
+      GENERATION_FAILED:[ '本次生成未完成。', 'This generation did not complete.' ],
+      INVALID_RESULT_TYPE:[ '结果图片格式异常。', 'The result image type is invalid.' ]
+    };
+    const pair = map[error.code];
+    if (pair) return state.lang === 'zh' ? pair[0] : pair[1];
+    if (error.status === 410) return text('结果已过期。', 'The result has expired.');
+    if (error.status === 503 || error.status === 0) return text('服务暂不可用。', 'The service is temporarily unavailable.');
+    return text('操作未完成，请稍后再试。', 'The action could not be completed. Please try again later.');
+  }
+
+  function setResultMode(mode) {
+    resultEmpty.hidden = mode !== 'empty';
+    resultLoading.hidden = mode !== 'loading';
+    resultSuccess.hidden = mode !== 'success';
+    resultActions.hidden = false;
+  }
+
+  function setLoadingStatus(title, copy) {
+    setResultMode('loading');
+    loadingTitle.textContent = title;
+    loadingCopy.textContent = copy;
+    progressBar.parentElement.classList.add('is-indeterminate');
+  }
+
+  function updateLiveState(data) {
+    const labels = {
+      preparing:text('正在准备任务', 'Preparing task'),
+      queued:text('任务已接收，正在排队', 'Task accepted and queued'),
+      running:text('正在生成', 'Generating')
+    };
+    setLoadingStatus(labels[data.state] || text('任务处理中', 'Task in progress'), text('页面只轮询当前任务状态，不会再次提交生成请求。', 'The page polls only this task and will not submit another generation request.'));
+  }
+
+  function showErrorState(message) {
+    setResultMode('empty');
+    const titleNode = resultEmpty.querySelector('strong');
+    const copyNode = resultEmpty.querySelector('p');
+    titleNode.textContent = text('本次操作未完成', 'The action did not complete');
+    copyNode.textContent = message;
+  }
+
+  function showGeneratedResult(download) {
+    clearResultObjectUrl();
+    state.resultObjectUrl = URL.createObjectURL(download.blob);
+    state.resultDownload = download;
+    resultImage.src = state.resultObjectUrl;
+    resultLabel.textContent = text('本次生成结果', 'Generated result');
+    setResultMode('success');
+    downloadResultButton.hidden = false;
+    recoverSubmissionButton.hidden = true;
+    generationLibrary.clearRecovery();
+    setDiagnostic(text('生成任务已完成，结果只以受保护请求读取。', 'Generation completed. The result was read through the protected endpoint.'), 'success');
+  }
+
+  async function finishAcceptedJob(accepted) {
+    state.currentJobId = accepted.jobId;
+    state.generationUnknown = false;
+    recoverSubmissionButton.hidden = true;
+    setLoadingStatus(text('任务已接收', 'Task accepted'), text('正在读取当前任务状态。', 'Reading the current task state.'));
+    let terminal = await state.generationClient.poll(accepted.jobId, {onState:updateLiveState});
+    let downloadPath = terminal?.result?.downloadPath;
+    setLoadingStatus(text('正在读取结果', 'Reading result'), text('不会重复提交生成任务。', 'No generation request will be resubmitted.'));
+    let download = null;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      try {
+        download = await state.generationClient.download(accepted.jobId, downloadPath);
+        break;
+      } catch (error) {
+        if (!(error instanceof publicApi.ApiError) || error.status !== 409 || attempt === 2) throw error;
+        await new Promise((resolve) => setTimeout(resolve, document.documentElement.dataset.baolongNoAiPreview === 'true' ? 30 : 1000));
+        terminal = await state.generationClient.poll(accepted.jobId, {onState:updateLiveState});
+        downloadPath = terminal?.result?.downloadPath;
+      }
+    }
+    showGeneratedResult(download);
+  }
+
+  async function beginGeneration({recover = false} = {}) {
+    if (!isGenerationCandidate || state.authStatus !== 'authenticated' || state.generationBusy) return;
+    if (!recover && (!state.sourceSubmissionReady || !(state.sourceFiles[0] instanceof File))) return;
+    state.generationBusy = true;
+    state.generationUnknown = false;
+    recoverSubmissionButton.hidden = true;
+    downloadResultButton.hidden = true;
+    updateGenerateState();
+    setDiagnostic('', 'info');
+    setLoadingStatus(text('正在校验并提交', 'Validating and submitting'), text('新的逻辑提交只发送一次；不会自动重试。', 'A new logical submission is sent once and is never retried automatically.'));
+    try {
+      const accepted = recover
+        ? await state.generationClient.recoverUnknown()
+        : await state.generationClient.submit({
+            templateId:activeTemplateId,
+            parameters:{
+              vegetationSupport:state.parameterValues.vegetationSupport,
+              materialRealism:state.parameterValues.materialRealism
+            },
+            notes:notes.value.trim(),
+            file:state.sourceFiles[0]
+          });
+      await finishAcceptedJob(accepted);
+    } catch (error) {
+      if (error instanceof publicApi.ApiError && error.transportUnknown && state.generationClient.canRecoverUnknown()) {
+        state.generationUnknown = true;
+        recoverSubmissionButton.hidden = false;
+        showErrorState(text('提交结果暂不确定。不会自动重试；仅可在本页使用相同请求编号与完全相同内容恢复本次提交。', 'The submission outcome is unknown. It will not retry automatically; this page can only recover the same request with the same identifier and identical payload.'));
+        setDiagnostic(text('已进入 fail-closed 恢复状态。', 'Entered fail-closed recovery state.'), 'warning');
+      } else {
+        if (error instanceof publicApi.ApiError && [401,403].includes(error.status)) {
+          state.authStatus = 'anonymous';
+          state.quotaData = null;
+        }
+        if (state.currentJobId && error instanceof publicApi.ApiError && (
+          [401,403,404,410].includes(error.status) || error.code === 'GENERATION_FAILED'
+        )) {
+          generationLibrary.clearRecovery();
+          state.currentJobId = null;
+        }
+        showErrorState(errorMessage(error));
+        setDiagnostic(errorMessage(error), 'error');
+      }
+    } finally {
+      state.generationBusy = false;
+      updateGenerateState();
+    }
+  }
+
+  async function resumeRecordedJob(record) {
+    if (!record || state.generationBusy) return;
+    state.generationBusy = true;
+    updateGenerateState();
+    try {
+      await finishAcceptedJob(record);
+    } catch (error) {
+      if (error instanceof publicApi.ApiError && [401,403].includes(error.status)) {
+        state.authStatus = 'anonymous';
+      }
+      if (error instanceof publicApi.ApiError && ([401,403,404,410].includes(error.status) || error.code === 'GENERATION_FAILED')) {
+        generationLibrary.clearRecovery();
+        state.currentJobId = null;
+      }
+      showErrorState(errorMessage(error));
+      setDiagnostic(errorMessage(error), 'error');
+    } finally {
+      state.generationBusy = false;
+      updateGenerateState();
+    }
+  }
+
+  async function initializeGenerationGate() {
+    if (!isGenerationCandidate || !generationLibrary || !authSession || !publicApi) {
+      updateGenerateState();
+      return;
+    }
+    generationGate.hidden = false;
+    state.generationClient = new generationLibrary.GenerationClient({
+      csrfProvider:() => authSession.currentCsrfToken(),
+      pollBaseMs:document.documentElement.dataset.baolongNoAiPreview === 'true' ? 30 : 2000,
+      pollSlowMs:document.documentElement.dataset.baolongNoAiPreview === 'true' ? 50 : 5000,
+      slowAfterMs:document.documentElement.dataset.baolongNoAiPreview === 'true' ? 1000 : 60000
+    });
+    updateGenerateState();
+    try {
+      const user = await authSession.me({quiet:true});
+      const csrfCookieReady = Boolean(user && authSession.csrfCookieToken());
+      state.authStatus = csrfCookieReady ? 'authenticated' : 'anonymous';
+      if (user && !csrfCookieReady) {
+        authSession.clear();
+        setDiagnostic(text('登录会话缺少安全 Cookie，请重新登录；生成入口保持关闭。', 'The session is missing its security cookie. Sign in again; generation remains locked.'), 'error');
+      }
+      if (csrfCookieReady) {
+        try { state.quotaData = await authSession.quotaStatus(); }
+        catch { state.quotaData = null; }
+      }
+    } catch {
+      state.authStatus = 'anonymous';
+      state.quotaData = null;
+      setDiagnostic(text('登录状态核对失败，生成入口保持关闭。', 'Session check failed. Generation remains locked.'), 'error');
+    }
+    updateGenerateState();
+    if (state.authStatus === 'authenticated') {
+      const recovery = generationLibrary.readRecovery();
+      if (recovery) resumeRecordedJob(recovery);
+    }
+  }
+
   function resetPrototype() {
     clearTimers();
     clearSourceObjectUrls();
+    clearResultObjectUrl();
     state.sourceReady = false;
+    state.sourceSubmissionReady = false;
+    state.sourceFiles = [];
+    state.generationUnknown = false;
+    state.currentJobId = null;
+    if (state.generationClient) state.generationClient.clearUnknown();
+    if (generationLibrary) generationLibrary.clearRecovery();
     sourceInput.value = '';
     uploadEmpty.hidden = false;
     uploadPreview.hidden = true;
@@ -874,6 +1234,11 @@ Additional note: ${notesText}` : ''}`;
     resultLoading.hidden = true;
     resultSuccess.hidden = false;
     resultActions.hidden = false;
+    resultImage.src = activeTemplate.assets.result;
+    resultLabel.textContent = sharedTranslations[state.lang].mockResult;
+    recoverSubmissionButton.hidden = true;
+    downloadResultButton.hidden = true;
+    setDiagnostic('', 'info');
     progressBar.style.width = '0';
     notes.value = '';
     $('#notesCount').textContent = '0';
@@ -898,7 +1263,16 @@ Additional note: ${notesText}` : ''}`;
     renderTemplateStaticContent();
     renderParameters({preserveValues:true});
     updatePrompt();
-    if (!resultLoading.hidden) setLoadingStep(state.loadingStep);
+    downloadResultButton.textContent = text('下载本次结果', 'Download result');
+    recoverSubmissionButton.textContent = text('恢复本次提交', 'Recover this submission');
+    generationLogoutButton.textContent = text('退出登录', 'Sign out');
+    generationLoginLink.textContent = text('白名单登录', 'Allowlist login');
+    if (state.resultObjectUrl) {
+      resultImage.src = state.resultObjectUrl;
+      resultLabel.textContent = text('本次生成结果', 'Generated result');
+    }
+    updateGenerateState();
+    if (!resultLoading.hidden && !state.generationBusy) setLoadingStep(state.loadingStep);
   }
 
   uploadCard.addEventListener('click', () => sourceInput.click());
@@ -908,7 +1282,7 @@ Additional note: ${notesText}` : ''}`;
       sourceInput.click();
     }
   });
-  sourceInput.addEventListener('change', () => useFiles(sourceInput.files));
+  sourceInput.addEventListener('change', () => { useFiles(sourceInput.files); });
   ['dragenter','dragover'].forEach((name) => uploadCard.addEventListener(name, (event) => {
     event.preventDefault();
     uploadCard.classList.add('is-dragover');
@@ -917,7 +1291,7 @@ Additional note: ${notesText}` : ''}`;
     event.preventDefault();
     uploadCard.classList.remove('is-dragover');
   }));
-  uploadCard.addEventListener('drop', (event) => useFiles(event.dataTransfer.files));
+  uploadCard.addEventListener('drop', (event) => { useFiles(event.dataTransfer.files); });
 
   $('#useDemoButton').addEventListener('click', () => {
     clearSourceObjectUrls();
@@ -925,7 +1299,8 @@ Additional note: ${notesText}` : ''}`;
       showMultipleSources(activeTemplate.assets.demoSources.map((src, index) => ({src, name:`demo-${index + 1}`})), t(activeTemplate.assets.sourceName));
       return;
     }
-    showSource(activeTemplate.assets.source, t(activeTemplate.assets.sourceName));
+    showSource(activeTemplate.assets.source, t(activeTemplate.assets.sourceName), {submissionReady:false});
+    if (isGenerationCandidate) setDiagnostic(text('示例原图仅用于本地演示；真实提交必须重新上传自己的项目原图。', 'The demo source is local preview only. Upload your own project image for a real submission.'), 'info');
   });
 
   notes.addEventListener('input', () => {
@@ -933,7 +1308,34 @@ Additional note: ${notesText}` : ''}`;
     updatePrompt();
   });
 
-  $('#resetButton').addEventListener('click', resetPrototype);
+  generateButton.addEventListener('click', () => beginGeneration());
+  recoverSubmissionButton.addEventListener('click', () => beginGeneration({recover:true}));
+  downloadResultButton.addEventListener('click', () => {
+    if (!state.resultDownload || !state.resultObjectUrl) return;
+    const anchor = document.createElement('a');
+    anchor.href = state.resultObjectUrl;
+    anchor.download = state.resultDownload.filename;
+    anchor.rel = 'noopener';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  });
+  generationLogoutButton.addEventListener('click', async () => {
+    if (state.generationBusy) return;
+    try { await authSession.logout(); } catch {}
+    state.authStatus = 'anonymous';
+    state.quotaData = null;
+    resetPrototype();
+    updateGenerateState();
+  });
+
+  $('#resetButton').addEventListener('click', () => {
+    if (state.generationBusy) {
+      setDiagnostic(text('任务处理中，当前不能重置。', 'The task is in progress and cannot be reset yet.'), 'warning');
+      return;
+    }
+    resetPrototype();
+  });
 
   const detailDialog = $('#detailDialog');
   $('#detailButton').addEventListener('click', () => {
@@ -985,4 +1387,5 @@ Additional note: ${notesText}` : ''}`;
   renderParameters({preserveValues:false});
   applyLanguage();
   updateGenerateState();
+  initializeGenerationGate();
 })();
